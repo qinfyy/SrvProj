@@ -18,7 +18,7 @@
     <ClCompile Include="SrvProj.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="logger.cpp">
+    <ClCompile Include="Logger.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="AeadTool.cpp">
@@ -32,7 +32,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="logger.h">
+    <ClInclude Include="Logger.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="AeadTool.h">

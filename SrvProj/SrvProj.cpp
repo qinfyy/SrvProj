@@ -8,13 +8,14 @@
 
 
 int main() {
-    Logger_::Instance().ShowTimeStamp(true)  // 显示时间戳
-        .ShowFileName(true)  // 显示文件名
-        .ShowLineNumber(true) // 显示行号
-        .EnableColors(true);  // 启用控制台颜色
+    Logger::Instance().ShowTimeStamp(true)
+        .ShowFileName(true)
+        .ShowLineNumber(true)
+        .EnableColors(true).LogToFile();
 
-    LOG_INFO("Srv Proj.");
-    GameServer server("0.0.0.0", 8080);
+    LOG_INFO_CFMT("Srv Proj");
+    Logger::InfoCFmt("no file line");
+    GameServer server("0.0.0.0", 21000);
     server.Start();
     return 0;
 }

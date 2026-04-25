@@ -11,11 +11,19 @@
 #include <Windows.h>
 #endif
 
-#define LOG(fmt, ...)       Logger_::Log(__FILE__, __LINE__, LogLevel::Info, fmt, __VA_ARGS__)
-#define LOG_INFO(fmt, ...)  Logger_::Log(__FILE__, __LINE__, LogLevel::Info, fmt, __VA_ARGS__)
-#define LOG_DEBUG(fmt, ...) Logger_::Log(__FILE__, __LINE__, LogLevel::Debug, fmt, __VA_ARGS__)
-#define LOG_ERROR(fmt, ...) Logger_::Log(__FILE__, __LINE__, LogLevel::Error, fmt, __VA_ARGS__)
-#define LOG_WARNING(fmt, ...)  Logger_::Log(__FILE__, __LINE__, LogLevel::Warning, fmt, __VA_ARGS__)
+// C++ style formatted logging
+#define LOG(fmt, ...)       Logger::Log(__FILE__, __LINE__, LogLevel::Info, fmt, __VA_ARGS__)
+#define LOG_INFO(fmt, ...)  Logger::Log(__FILE__, __LINE__, LogLevel::Info, fmt, __VA_ARGS__)
+#define LOG_DEBUG(fmt, ...) Logger::Log(__FILE__, __LINE__, LogLevel::Debug, fmt, __VA_ARGS__)
+#define LOG_ERROR(fmt, ...) Logger::Log(__FILE__, __LINE__, LogLevel::Error, fmt, __VA_ARGS__)
+#define LOG_WARNING(fmt, ...)  Logger::Log(__FILE__, __LINE__, LogLevel::Warning, fmt, __VA_ARGS__)
+
+// C style formatted logging
+#define LOG_CFMT(fmt, ...) Logger::LogCFmt(__FILE__, __LINE__, LogLevel::Info, fmt, ##__VA_ARGS__)
+#define LOG_INFO_CFMT(fmt, ...) Logger::LogCFmt(__FILE__, __LINE__, LogLevel::Info, fmt, ##__VA_ARGS__)
+#define LOG_DEBUG_CFMT(fmt, ...) Logger::LogCFmt(__FILE__, __LINE__, LogLevel::Debug, fmt, ##__VA_ARGS__)
+#define LOG_ERROR_CFMT(fmt, ...) Logger::LogCFmt(__FILE__, __LINE__, LogLevel::Error, fmt, ##__VA_ARGS__)
+#define LOG_WARNING_CFMT(fmt, ...) Logger::LogCFmt(__FILE__, __LINE__, LogLevel::Warning, fmt, ##__VA_ARGS__)
 
 enum class LogLevel
 {
@@ -32,82 +40,89 @@ enum class LogOutput
     Both = Console | File
 };
 
-class Logger_
+class Logger
 {
 public:
-    static Logger_& Instance()
+    static Logger& Instance()
     {
-        static Logger_ logger;
+        static Logger logger;
         return logger;
     }
 
-    static Logger_& Attach()
+    static Logger& Attach()
     {
         Instance().AttachConsole();
         return Instance();
     }
 
-    Logger_& ShowFileName(bool show = true)
+    Logger& ShowFileName(bool show = true)
     {
         mShowFileName = show;
         return *this;
     }
 
-    Logger_& ShowLineNumber(bool show = true)
+    Logger& ShowLineNumber(bool show = true)
     {
         mShowLineNumber = show;
         return *this;
     }
 
-    Logger_& ShowTimeStamp(bool show = true)
+    Logger& ShowTimeStamp(bool show = true)
     {
         mShowTimeStamp = show;
         return *this;
     }
 
-    Logger_& LogToFile(const std::string& directory = "logs")
+    Logger& ShowDate(bool show = true)
+    {
+        mShowDate = show;
+        return *this;
+    }
+
+    Logger& LogToFile(const std::string& directory = "logs")
     {
         PrepareFileLogging(directory);
-        m_output = LogOutput::Both;
+        mOutput = LogOutput::Both;
         return *this;
     }
 
-    Logger_& ConsoleOnly()
+    Logger& ConsoleOnly()
     {
-        m_output = LogOutput::Console;
+        mOutput = LogOutput::Console;
         return *this;
     }
 
-    Logger_& FileOnly()
+    Logger& FileOnly()
     {
-        m_output = LogOutput::File;
+        mOutput = LogOutput::File;
         return *this;
     }
 
-    Logger_& Exclude(LogLevel level)
+    Logger& Exclude(LogLevel level)
     {
         mExcludedLevels.insert(level);
         return *this;
     }
 
-    Logger_& Include(LogLevel level)
+    Logger& Include(LogLevel level)
     {
         mExcludedLevels.erase(level);
         return *this;
     }
 
-    Logger_& ClearExclusions()
+    Logger& ClearExclusions()
     {
         mExcludedLevels.clear();
         return *this;
     }
 
-    Logger_& EnableColors(bool enable = true)
+    Logger& EnableColors(bool enable = true)
     {
         mEnableColors = enable;
         return *this;
     }
 
+	// C++ style formatted logging
     template<typename... Args>
     static void Log(const char* file, int line, LogLevel level, const std::string& fmt, Args&&... args)
     {
@@ -135,18 +150,18 @@ public:
     {
         if constexpr (sizeof...(args) == 0)
         {
-            Instance().WriteLog("", 0, LogLevel::Info, fmt);
+            Log("", 0, LogLevel::Info, fmt);
         }
         else
         {
             try
             {
                 std::string formatted = std::vformat(fmt, std::make_format_args(args...));
-                Instance().WriteLog("", 0, LogLevel::Info, formatted);
+                Log("", 0, LogLevel::Info, formatted);
             }
             catch (const std::exception&)
             {
-                Instance().WriteLog("", 0, LogLevel::Info, fmt + " [FORMAT ERROR]");
+                Log("", 0, LogLevel::Info, fmt + " [FORMAT ERROR]");
             }
         }
     }
@@ -156,18 +171,18 @@ public:
     {
         if constexpr (sizeof...(args) == 0)
         {
-            Instance().WriteLog("", 0, LogLevel::Debug, fmt);
+            Log("", 0, LogLevel::Debug, fmt);
         }
         else
         {
             try
             {
                 std::string formatted = std::vformat(fmt, std::make_format_args(args...));
-                Instance().WriteLog("", 0, LogLevel::Debug, formatted);
+                Log("", 0, LogLevel::Debug, formatted);
             }
             catch (const std::exception&)
             {
-                Instance().WriteLog("", 0, LogLevel::Debug, fmt + " [FORMAT ERROR]");
+                Log("", 0, LogLevel::Debug, fmt + " [FORMAT ERROR]");
             }
         }
     }
@@ -177,18 +192,18 @@ public:
     {
         if constexpr (sizeof...(args) == 0)
         {
-            Instance().WriteLog("", 0, LogLevel::Error, fmt);
+            Log("", 0, LogLevel::Error, fmt);
         }
         else
         {
             try
             {
                 std::string formatted = std::vformat(fmt, std::make_format_args(args...));
-                Instance().WriteLog("", 0, LogLevel::Error, formatted);
+                Log("", 0, LogLevel::Error, formatted);
             }
             catch (const std::exception&)
             {
-                Instance().WriteLog("", 0, LogLevel::Error, fmt + " [FORMAT ERROR]");
+                Log("", 0, LogLevel::Error, fmt + " [FORMAT ERROR]");
             }
         }
     }
@@ -198,21 +213,32 @@ public:
     {
         if constexpr (sizeof...(args) == 0)
         {
-            Instance().WriteLog("", 0, LogLevel::Warning, fmt);
+            Log("", 0, LogLevel::Warning, fmt);
         }
         else
         {
             try
             {
                 std::string formatted = std::vformat(fmt, std::make_format_args(args...));
-                Instance().WriteLog("", 0, LogLevel::Warning, formatted);
+                Log("", 0, LogLevel::Warning, formatted);
             }
             catch (const std::exception&)
             {
-                Instance().WriteLog("", 0, LogLevel::Warning, fmt + " [FORMAT ERROR]");
+                Log("", 0, LogLevel::Warning, fmt + " [FORMAT ERROR]");
             }
         }
     }
+
+	// C style formatted logging
+    static void __cdecl LogCFmt(const char* file, int line, LogLevel level, const char* fmt, ...);
+
+    static void __cdecl InfoCFmt(const char* fmt, ...);
+
+    static void __cdecl DebugCFmt(const char* fmt, ...);
+
+    static void __cdecl ErrorCFmt(const char* fmt, ...);
+
+    static void __cdecl WarnCFmt(const char* fmt, ...);
 
     static void Detach()
     {
@@ -235,15 +261,15 @@ public:
     }
 
 private:
-    Logger_() = default;
-    ~Logger_()
+    Logger() = default;
+    ~Logger()
     {
         CloseFileLogging();
         DetachConsole();
     }
 
-    Logger_(const Logger_&) = delete;
-    Logger_& operator=(const Logger_&) = delete;
+    Logger(const Logger&) = delete;
+    Logger& operator=(const Logger&) = delete;
 
     void WriteLog(const char* file, int line, LogLevel level, const std::string& message);
     void AttachConsole();
@@ -267,7 +293,8 @@ private:
     bool mShowLineNumber = true;
     bool mShowTimeStamp = false;
     bool mEnableColors = true;
-    LogOutput m_output = LogOutput::Console;
+	bool mShowDate = false;
+    LogOutput mOutput = LogOutput::Console;
     std::unordered_set<LogLevel> mExcludedLevels;
 
     // File logging

@@ -132,14 +132,14 @@
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="AeadTool.cpp" />
-    <ClCompile Include="logger.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="SrvProj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />
     <ClInclude Include="AeadTool.h" />
-    <ClInclude Include="logger.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="GameServer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

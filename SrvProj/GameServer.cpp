@@ -37,7 +37,7 @@ void GameServer::SetupRoutes() {
 void GameServer::Start() {
     SetupRoutes();
 
-    LOG_INFO("GameServer starting at {}:{}", host_, port_);
+    LOG_INFO_CFMT("GameServer starting at %s:%d", host_.c_str(), port_);
 
     if (!server_->listen(host_.c_str(), port_)) {
         std::cerr << "Failed to start server!" << std::endl;

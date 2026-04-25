@@ -1,8 +1,8 @@
-﻿#include "logger.h"
+﻿#include "Logger.h"
 #include <filesystem>
 #include <iostream>
 
-void Logger_::WriteLog(const char* file, int line, LogLevel level, const std::string& message) {
+void Logger::WriteLog(const char* file, int line, LogLevel level, const std::string& message) {
 
     if (mExcludedLevels.find(level) != mExcludedLevels.end())
         return;
@@ -12,17 +12,17 @@ void Logger_::WriteLog(const char* file, int line, LogLevel level, const std::st
     std::string formattedMessage = FormatLogMessage(file, line, level, message);
 
     // Write to console if enabled
-    if (static_cast<int>(m_output) & static_cast<int>(LogOutput::Console)) {
+    if (static_cast<int>(mOutput) & static_cast<int>(LogOutput::Console)) {
         WriteToConsole(formattedMessage, level);
     }
 
     // Write to file if enabled
-    if (static_cast<int>(m_output) & static_cast<int>(LogOutput::File)) {
+    if (static_cast<int>(mOutput) & static_cast<int>(LogOutput::File)) {
         WriteToFile(formattedMessage);
     }
 }
 
-void Logger_::AttachConsole() {
+void Logger::AttachConsole() {
 #ifdef _WIN32
     if (!mConsoleAttached) {
         AllocConsole();
@@ -45,7 +45,7 @@ void Logger_::AttachConsole() {
 #endif
 }
 
-void Logger_::DetachConsole() {
+void Logger::DetachConsole() {
 #ifdef _WIN32
     if (mConsoleAttached) {
         fclose(stdin);
@@ -57,7 +57,7 @@ void Logger_::DetachConsole() {
 #endif
 }
 
-void Logger_::ClearConsole() {
+void Logger::ClearConsole() {
 #ifdef _WIN32
     HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     if (h == INVALID_HANDLE_VALUE)
@@ -80,11 +80,11 @@ void Logger_::ClearConsole() {
 #endif
 }
 
-char Logger_::ConsoleReadKey() {
+char Logger::ConsoleReadKey() {
     return std::cin.get();
 }
 
-bool Logger_::PrepareFileLogging(const std::string& directory) {
+bool Logger::PrepareFileLogging(const std::string& directory) {
     try {
         // Create directory if it doesn't exist
         if (!std::filesystem::exists(directory)) {
@@ -94,23 +94,31 @@ bool Logger_::PrepareFileLogging(const std::string& directory) {
         }
 
         // Generate filename with timestamp
-        auto now    = std::chrono::system_clock::now();
-        auto time_t = std::chrono::system_clock::to_time_t(now);
+        time_t now = time(NULL);
 
         struct tm tm_buf;
 #ifdef _WIN32
-        gmtime_s(&tm_buf, &time_t);
+        localtime_s(&tm_buf, &now);
 #else
-        gmtime_r(&time_t, &tm_buf);
+        localtime_r(&now, &tm_buf);
 #endif
 
-        // Create filename with timestamp using simple string concatenation
-        std::string filename = "log_" + std::to_string(1900 + tm_buf.tm_year) + "-" +
-                               (tm_buf.tm_mon + 1 < 10 ? "0" : "") + std::to_string(tm_buf.tm_mon + 1) + "-" +
-                               (tm_buf.tm_mday < 10 ? "0" : "") + std::to_string(tm_buf.tm_mday) + "_" +
-                               (tm_buf.tm_hour < 10 ? "0" : "") + std::to_string(tm_buf.tm_hour) + "-" +
-                               (tm_buf.tm_min < 10 ? "0" : "") + std::to_string(tm_buf.tm_min) + "-" +
-                               (tm_buf.tm_sec < 10 ? "0" : "") + std::to_string(tm_buf.tm_sec) + ".txt";
+        char timeBuffer[64];
+
+        // Create filename with timestamp using simple string formatting
+        sprintf_s(
+            timeBuffer,
+            sizeof(timeBuffer),
+            "log_%04d-%02d-%02d_%02d-%02d-%02d.txt",
+            tm_buf.tm_year + 1900,
+            tm_buf.tm_mon + 1,
+            tm_buf.tm_mday,
+            tm_buf.tm_hour,
+            tm_buf.tm_min,
+            tm_buf.tm_sec
+        );
+
+        std::string filename = timeBuffer;
 
         mLogFilePath = directory + "/" + filename;
 
@@ -127,131 +135,129 @@ bool Logger_::PrepareFileLogging(const std::string& directory) {
         }
 
         return true;
-    } catch (const std::exception&) {
+    }
+    catch (const std::exception&) {
         return false;
     }
 }
 
-void Logger_::CloseFileLogging() {
+void Logger::CloseFileLogging() {
     if (mLogFile && mLogFile->is_open()) {
         mLogFile->close();
         mLogFile.reset();
     }
 }
 
-void Logger_::WriteToConsole(const std::string& formattedMessage, LogLevel level) {
-    //因为有其它log导致颜色失效，每次重新设置
-    HANDLE hOut   = GetStdHandle(STD_OUTPUT_HANDLE);
-    DWORD  dwMode = 0;
-    if (GetConsoleMode(hOut, &dwMode)) {
-        dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-        SetConsoleMode(hOut, dwMode);
-    }
+void Logger::WriteToConsole(const std::string& formattedMessage, LogLevel level)
+{
 #ifdef _WIN32
-    if (mEnableColors) {
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        if (hConsole != INVALID_HANDLE_VALUE) {
-            CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
-            if (GetConsoleScreenBufferInfo(hConsole, &consoleInfo)) {
-                WORD savedAttributes = consoleInfo.wAttributes;
-                WORD levelColor      = GetLevelColor(level);
-                WORD filenameColor   = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY;  // Light Blue
-                WORD lineColor       = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY;   // Light Yellow
-
-                size_t pos              = 0;
-                bool   foundFileSection = false;
-
-                // Handle timestamp if present (starts with [HH:MM:SS])
-                if (formattedMessage[0] == '[' && formattedMessage.length() > 8) {
-                    size_t firstBracketEnd = formattedMessage.find(']');
-                    if (firstBracketEnd != std::string::npos && firstBracketEnd < 12) {
-                        std::cout << formattedMessage.substr(0, firstBracketEnd + 2);
-                        pos = firstBracketEnd + 2;
-                    }
-                }
-
-                // Handle filename and line number
-                if (pos < formattedMessage.length() && formattedMessage[pos] == '[') {
-                    size_t sectionStart = pos;
-                    size_t sectionEnd   = formattedMessage.find(']', sectionStart);
-
-                    if (sectionEnd != std::string::npos) {
-                        std::string section = formattedMessage.substr(sectionStart + 1, sectionEnd - sectionStart - 1);
-
-                        size_t colonPos = section.find(':');
-                        size_t dotPos   = section.find('.');
-
-                        if (dotPos != std::string::npos && colonPos != std::string::npos && colonPos > dotPos) {
-                            foundFileSection = true;
-                            std::cout << "[";
-
-                            // Print filename in light blue
-                            SetConsoleTextAttribute(hConsole, filenameColor);
-                            std::cout << section.substr(0, colonPos);
-
-                            // Print colon in default color
-                            SetConsoleTextAttribute(hConsole, savedAttributes);
-                            std::cout << ":";
-
-                            // Print line number in light yellow
-                            SetConsoleTextAttribute(hConsole, lineColor);
-                            std::cout << section.substr(colonPos + 1);
-
-                            // Reset color and close bracket
-                            SetConsoleTextAttribute(hConsole, savedAttributes);
-                            std::cout << "] ";
-
-                            pos = sectionEnd + 2;  // move past "] "
-                        }
-                    }
-                }
-
-                if (!foundFileSection) {
-                    // Find the next bracket which should be the level
-                    size_t nextBracket = formattedMessage.find('[', pos);
-                    if (nextBracket != std::string::npos) {
-                        std::cout << formattedMessage.substr(pos, nextBracket - pos);
-                        pos = nextBracket;
-                    }
-                }
-
-                // Handle log level [LEVEL]
-                if (pos < formattedMessage.length() && formattedMessage[pos] == '[') {
-                    size_t levelStart = pos + 1;
-                    size_t levelEnd   = formattedMessage.find(']', levelStart);
-
-                    if (levelEnd != std::string::npos) {
-                        std::cout << "[";
-
-                        // Print level in its color
-                        SetConsoleTextAttribute(hConsole, levelColor);
-                        std::cout << formattedMessage.substr(levelStart, levelEnd - levelStart);
-
-                        // Reset color and print rest of message
-                        SetConsoleTextAttribute(hConsole, savedAttributes);
-                        std::cout << formattedMessage.substr(levelEnd) << std::endl;
-                        return;
-                    }
-                }
-
-                SetConsoleTextAttribute(hConsole, savedAttributes);
-                std::cout << formattedMessage.substr(pos) << std::endl;
-                return;
-            }
-        }
+    if (!mEnableColors) {
+        std::cout << formattedMessage << std::endl;
+        return;
     }
-#endif
+
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hConsole == INVALID_HANDLE_VALUE) {
+        std::cout << formattedMessage << std::endl;
+        return;
+    }
+
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(hConsole, &csbi);
+    WORD def = csbi.wAttributes;
+
+    WORD levelColor = GetLevelColor(level);
+    WORD fileColor = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY;
+    WORD lineColor = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY;
+
+    size_t pos = 0;
+    int idx = 0;
+
+    while (pos < formattedMessage.size())
+    {
+        size_t l = formattedMessage.find('[', pos);
+        if (l == std::string::npos)
+        {
+            std::cout << formattedMessage.substr(pos);
+            break;
+        }
+
+        if (l > pos)
+            std::cout << formattedMessage.substr(pos, l - pos);
+
+        size_t r = formattedMessage.find(']', l);
+        if (r == std::string::npos)
+        {
+            std::cout << formattedMessage.substr(l);
+            break;
+        }
+
+        std::string content = formattedMessage.substr(l + 1, r - l - 1);
+
+        if (idx == 0)
+        {
+            std::cout << "[" << content << "]";
+        }
+        else if (idx == 1)
+        {
+            std::cout << "[";
+            SetConsoleTextAttribute(hConsole, levelColor);
+            std::cout << content;
+            SetConsoleTextAttribute(hConsole, def);
+            std::cout << "]";
+        }
+        else if (idx == 2)
+        {
+            std::cout << "[";
+
+            size_t colon = content.find(':');
+            size_t dot = content.find('.');
+
+            if (colon != std::string::npos && dot != std::string::npos && colon > dot)
+            {
+                SetConsoleTextAttribute(hConsole, fileColor);
+                std::cout << content.substr(0, colon);
+
+                SetConsoleTextAttribute(hConsole, def);
+                std::cout << ":";
+
+                SetConsoleTextAttribute(hConsole, lineColor);
+                std::cout << content.substr(colon + 1);
+
+                SetConsoleTextAttribute(hConsole, def);
+            }
+            else
+            {
+                std::cout << content;
+            }
+
+            std::cout << "]";
+        }
+        else
+        {
+            std::cout << "[" << content << "]";
+        }
+
+        pos = r + 1;
+        idx++;
+    }
+
+    std::cout << std::endl;
+    SetConsoleTextAttribute(hConsole, def);
+
+#else
     std::cout << formattedMessage << std::endl;
+#endif
 }
 
-void Logger_::WriteToFile(const std::string& formattedMessage) {
+void Logger::WriteToFile(const std::string& formattedMessage) {
     if (mLogFile && mLogFile->is_open()) {
         *mLogFile << formattedMessage << std::endl;
         mLogFile->flush();
     }
 }
 
-std::string Logger_::FormatLogMessage(const char* file, int line, LogLevel level, const std::string& message) {
+std::string Logger::FormatLogMessage(const char* file, int line, LogLevel level, const std::string& message) {
     std::string result;
 
     // Add timestamp if enabled
@@ -259,9 +265,13 @@ std::string Logger_::FormatLogMessage(const char* file, int line, LogLevel level
         result += "[" + GetCurrentTimeString() + "] ";
     }
 
+    // Add level
+    result += "[" + GetLevelString(level) + "] ";
+
     // Add file info if enabled
     if (mShowFileName && file && std::strlen(file) > 0) {
         std::string filename = std::filesystem::path(file).filename().string();
+
         result += "[" + filename;
 
         if (mShowLineNumber && line > 0) {
@@ -271,16 +281,12 @@ std::string Logger_::FormatLogMessage(const char* file, int line, LogLevel level
         result += "] ";
     }
 
-    // Add level
-    result += "[" + GetLevelString(level) + "] ";
-
-    // Add message
     result += message;
 
     return result;
 }
 
-std::string Logger_::GetLevelString(LogLevel level) {
+std::string Logger::GetLevelString(LogLevel level) {
     switch (level) {
         case LogLevel::Debug:
             return "DEBUG";
@@ -295,27 +301,33 @@ std::string Logger_::GetLevelString(LogLevel level) {
     }
 }
 
-std::string Logger_::GetCurrentTimeString() {
-    auto now    = std::chrono::system_clock::now();
-    auto time_t = std::chrono::system_clock::to_time_t(now);
-
+std::string Logger::GetCurrentTimeString()
+{
+    time_t now = time(NULL);
     struct tm tm_buf;
 #ifdef _WIN32
-    localtime_s(&tm_buf, &time_t);
+    localtime_s(&tm_buf, &now);
 #else
-    localtime_r(&time_t, &tm_buf);
+    localtime_r(&now, &tm_buf);
 #endif
 
-    // Format time using simple string concatenation
-    std::string timeStr = (tm_buf.tm_hour < 10 ? "0" : "") + std::to_string(tm_buf.tm_hour) + ":" +
-                          (tm_buf.tm_min < 10 ? "0" : "") + std::to_string(tm_buf.tm_min) + ":" +
-                          (tm_buf.tm_sec < 10 ? "0" : "") + std::to_string(tm_buf.tm_sec);
+    char buffer[32] = { 0 };
 
-    return timeStr;
+    if (mShowDate)
+    {
+        // YYYY-MM-DD
+        sprintf_s(buffer, sizeof(buffer), "%04d-%02d-%02d ", tm_buf.tm_year + 1900, tm_buf.tm_mon + 1, tm_buf.tm_mday);
+    }
+
+    char timeBuf[16];
+	// HH:MM:SS
+    sprintf_s(timeBuf, sizeof(timeBuf),"%02d:%02d:%02d", tm_buf.tm_hour, tm_buf.tm_min, tm_buf.tm_sec);
+    strcat_s(buffer, sizeof(buffer), timeBuf);
+    return std::string(buffer);
 }
 
 #ifdef _WIN32
-WORD Logger_::GetLevelColor(LogLevel level) {
+WORD Logger::GetLevelColor(LogLevel level) {
     switch (level) {
         case LogLevel::Debug:
             return FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_INTENSITY;  // Magenta
@@ -330,3 +342,143 @@ WORD Logger_::GetLevelColor(LogLevel level) {
     }
 }
 #endif
+
+void __cdecl Logger::LogCFmt(const char* file, int line, LogLevel level, const char* fmt, ...)
+{
+    if (!fmt)
+        return;
+
+    va_list args;
+    va_start(args, fmt);
+
+    int len = _vscprintf(fmt, args);
+    if (len <= 0)
+    {
+        va_end(args);
+        Instance().WriteLog(file, line, level, " [FORMAT ERROR]");
+        return;
+    }
+
+    std::string buffer;
+    buffer.resize(len);
+    vsprintf_s(buffer.data(), buffer.size() + 1, fmt, args);
+    va_end(args);
+
+    Instance().WriteLog(file, line, level, buffer);
+}
+
+void __cdecl Logger::InfoCFmt(const char* fmt, ...)
+{
+    if (!fmt)
+        return;
+
+    va_list args;
+    va_start(args, fmt);
+    int len = _vscprintf(fmt, args);
+    if (len <= 0)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Info, " [FORMAT ERROR]");
+        return;
+    }
+
+    char* buffer = (char*)malloc(len + 1);
+    if (!buffer)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Info, " [ALLOC FAIL]");
+        return;
+    }
+
+    vsprintf_s(buffer, len + 1, fmt, args);
+    va_end(args);
+    LogCFmt("", 0, LogLevel::Info, buffer);
+    free(buffer);
+}
+
+void __cdecl Logger::DebugCFmt(const char* fmt, ...)
+{
+    if (!fmt)
+        return;
+
+    va_list args;
+    va_start(args, fmt);
+    int len = _vscprintf(fmt, args);
+    if (len <= 0)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Debug, " [FORMAT ERROR]");
+        return;
+    }
+
+    char* buffer = (char*)malloc(len + 1);
+    if (!buffer)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Debug, " [ALLOC FAIL]");
+        return;
+    }
+
+    vsprintf_s(buffer, len + 1, fmt, args);
+    va_end(args);
+    LogCFmt("", 0, LogLevel::Debug, buffer);
+    free(buffer);
+}
+
+void __cdecl Logger::ErrorCFmt(const char* fmt, ...)
+{
+    if (!fmt)
+        return;
+
+    va_list args;
+    va_start(args, fmt);
+    int len = _vscprintf(fmt, args);
+    if (len <= 0)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Error, " [FORMAT ERROR]");
+        return;
+    }
+
+    char* buffer = (char*)malloc(len + 1);
+    if (!buffer)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Error, " [ALLOC FAIL]");
+        return;
+    }
+
+    vsprintf_s(buffer, len + 1, fmt, args);
+    va_end(args);
+    LogCFmt("", 0, LogLevel::Error, buffer);
+    free(buffer);
+}
+
+void __cdecl Logger::WarnCFmt(const char* fmt, ...)
+{
+    if (!fmt)
+        return;
+
+    va_list args;
+    va_start(args, fmt);
+    int len = _vscprintf(fmt, args);
+    if (len <= 0)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Warning, " [FORMAT ERROR]");
+        return;
+    }
+
+    char* buffer = (char*)malloc(len + 1);
+    if (!buffer)
+    {
+        va_end(args);
+        LogCFmt("", 0, LogLevel::Warning, " [ALLOC FAIL]");
+        return;
+    }
+
+    vsprintf_s(buffer, len + 1, fmt, args);
+    va_end(args);
+    LogCFmt("", 0, LogLevel::Warning, buffer);
+    free(buffer);
+}
