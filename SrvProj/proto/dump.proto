@@ -1,0 +1,2343 @@
+// CerydarDumper
+
+syntax = "proto3";
+
+// Class: Platform, Namespaze: Pb, Assembly: Game
+// Il2Cpp Class Generation
+enum Platform {
+    Platform_All = 0;
+    Platform_Ios = 1;
+    Platform_Android = 2;
+    Platform_PC = 3;
+    Platform_Harmonyos = 4;
+}
+
+// Class: OP, Namespaze: Pb, Assembly: Game
+// Il2Cpp Class Generation
+enum OP {
+    OP_Eq = 0;
+    OP_Lt = 1;
+    OP_Gt = 2;
+    OP_Le = 3;
+    OP_Ge = 4;
+}
+
+// Class: Action, Namespaze: Pb, Assembly: Game
+// Il2Cpp Class Generation
+enum Action {
+    Action_Redirect = 0;
+    Action_Download = 1;
+}
+
+// Class: ServerListMeta, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message ServerListMeta {
+    int64 Version = 1;
+    repeated ServerAgent Agent = 2;
+    int32 Status = 3;
+    string Message = 4;
+    string ReportEndpoint = 6;
+    repeated Rule Rules = 7;
+}
+
+// Class: ServerAgent, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message ServerAgent {
+    string Name = 1;
+    string Addr = 2;
+    int32 Status = 3;
+    int64 Zone = 4;
+}
+
+// Class: ClientDiff, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message ClientDiff {
+    repeated FileDiff Diff = 1;
+}
+
+// Class: FileDiff, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message FileDiff {
+    string FileName = 1;
+    string Hash = 2;
+    int64 Version = 3;
+    string AdditionalPath = 4;
+}
+
+// Class: FileDiffList, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message FileDiffList {
+    map<string, ClientDiff> DiffList = 1;
+}
+
+// Class: Rule, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message Rule {
+    Platform Platform = 1;
+    string Channel = 2;
+    string Version = 3;
+    OP Op = 4;
+    Action Action = 5;
+    string Url = 6;
+    bool Enable = 7;
+}
+
+// Class: NoticeItem, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message NoticeItem {
+    uint64 Id = 1;
+    string Title = 2;
+    string ContentUrl = 3;
+    repeated uint32 Channel = 4;
+    string QuestId = 5;
+    int64 EndTime = 6;
+    int64 Sort = 7;
+}
+
+// Class: NoticeList, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message NoticeList {
+    repeated NoticeType List = 1;
+}
+
+// Class: NoticeType, Namespaze: Pb, Assembly: Game
+// Message Descriptor Generation
+message NoticeType {
+    string Name = 1;
+    repeated NoticeItem Detail = 2;
+}
+
+// Class: AddBuffAction, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message AddBuffAction {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 TargetType = 3;
+    int32 BuffId = 4;
+}
+
+// Class: table_AddBuffAction, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_AddBuffAction {
+    repeated AddBuffAction list = 1;
+}
+
+// Class: AI, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message AI {
+    int32 Id = 1;
+    string FCSpawn = 2;
+    string FCIdle = 3;
+    string FCAction = 4;
+    string FCLostControl = 5;
+    string FCDeath = 6;
+    string FCGlobal = 7;
+    string FCComboGroup = 8;
+}
+
+// Class: table_AI, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_AI {
+    repeated AI list = 1;
+}
+
+// Class: AreaEffect, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message AreaEffect {
+    int32 AreaTag = 1;
+    int32 MaxCount = 2;
+    int32 OverLimitType = 3;
+}
+
+// Class: table_AreaEffect, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_AreaEffect {
+    repeated AreaEffect list = 1;
+}
+
+// Class: Attribute, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Attribute {
+    string Id = 1;
+    int32 GroupId = 2;
+    int32 Break = 3;
+    int32 lvl = 4;
+    int32 Atk = 5;
+    int32 Hp = 6;
+    int32 Def = 7;
+    int32 CritRate = 8;
+    int32 NormalCritRate = 9;
+    int32 SkillCritRate = 10;
+    int32 UltraCritRate = 11;
+    int32 MarkCritRate = 12;
+    int32 SummonCritRate = 13;
+    int32 ProjectileCritRate = 14;
+    int32 OtherCritRate = 15;
+    int32 CritResistance = 16;
+    int32 CritPower = 17;
+    int32 NormalCritPower = 18;
+    int32 SkillCritPower = 19;
+    int32 UltraCritPower = 20;
+    int32 MarkCritPower = 21;
+    int32 SummonCritPower = 22;
+    int32 ProjectileCritPower = 23;
+    int32 OtherCritPower = 24;
+    int32 HitRate = 25;
+    int32 Evd = 26;
+    int32 DefPierce = 27;
+    int32 DefIgnore = 28;
+    int32 WEP = 29;
+    int32 FEP = 30;
+    int32 SEP = 31;
+    int32 AEP = 32;
+    int32 LEP = 33;
+    int32 DEP = 34;
+    int32 WEI = 35;
+    int32 FEI = 36;
+    int32 SEI = 37;
+    int32 AEI = 38;
+    int32 LEI = 39;
+    int32 DEI = 40;
+    int32 WEE = 41;
+    int32 FEE = 42;
+    int32 SEE = 43;
+    int32 AEE = 44;
+    int32 LEE = 45;
+    int32 DEE = 46;
+    int32 WER = 47;
+    int32 FER = 48;
+    int32 SER = 49;
+    int32 AER = 50;
+    int32 LER = 51;
+    int32 DER = 52;
+    int32 ToughnessDamageAdjust = 53;
+    int32 Toughness = 54;
+    int32 Suppress = 55;
+    int32 NORMALDMG = 56;
+    int32 SKILLDMG = 57;
+    int32 ULTRADMG = 58;
+    int32 OTHERDMG = 59;
+    int32 RCDNORMALDMG = 60;
+    int32 RCDSKILLDMG = 61;
+    int32 RCDULTRADMG = 62;
+    int32 RCDOTHERDMG = 63;
+    int32 MARKDMG = 64;
+    int32 RCDMARKDMG = 65;
+    int32 SUMMONDMG = 66;
+    int32 RCDSUMMONDMG = 67;
+    int32 PROJECTILEDMG = 68;
+    int32 RCDPROJECTILEDMG = 69;
+    int32 GENDMG = 70;
+    int32 DMGPLUS = 71;
+    int32 FINALDMG = 72;
+    int32 FINALDMGPLUS = 73;
+    int32 WEERCD = 74;
+    int32 FEERCD = 75;
+    int32 SEERCD = 76;
+    int32 AEERCD = 77;
+    int32 LEERCD = 78;
+    int32 DEERCD = 79;
+    int32 GENDMGRCD = 80;
+    int32 DMGPLUSRCD = 81;
+}
+
+// Class: table_Attribute, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Attribute {
+    repeated Attribute list = 1;
+}
+
+// Class: AttributeLimit, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message AttributeLimit {
+    int32 Id = 1;
+    int32 Lower = 2;
+    int32 Upper = 3;
+    bool IsLimited = 4;
+    bool IsPlayer = 5;
+    int32 LowerPre = 6;
+    int32 UpperPre = 7;
+    bool IsLimitedPre = 8;
+    bool IsPlayerPre = 9;
+}
+
+// Class: table_AttributeLimit, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_AttributeLimit {
+    repeated AttributeLimit list = 1;
+}
+
+// Class: AttributeSetLimit, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message AttributeSetLimit {
+    int32 Id = 1;
+    int32 Lower = 2;
+    int32 Upper = 3;
+    bool IsLimited = 4;
+    bool IsPlayer = 5;
+}
+
+// Class: table_AttributeSetLimit, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_AttributeSetLimit {
+    repeated AttributeSetLimit list = 1;
+}
+
+// Class: Buff, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Buff {
+    int32 Id = 1;
+    string Name = 2;
+    int32 levelTypeData = 3;
+    int32 LevelData = 4;
+    int32 MainOrSupport = 5;
+    int32 GroupId = 6;
+    int32 ReduceTime = 7;
+    int32 BuffTag1 = 8;
+    int32 BuffTag2 = 9;
+    int32 BuffTag3 = 10;
+    int32 BuffTag4 = 11;
+    int32 BuffTag5 = 12;
+    string BindEffect = 13;
+    string Icon = 14;
+    bool IsShow = 15;
+    string TopofHeadEffect = 16;
+    repeated int32 BuffNumEffectLevel = 17;
+    bool NotRemove = 18;
+    bool ChangeTeamNotRemove = 19;
+}
+
+// Class: table_Buff, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Buff {
+    repeated Buff list = 1;
+}
+
+// Class: BuffEffect, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message BuffEffect {
+    int32 Id = 1;
+    string Name = 2;
+    int32 BuffEffectType = 3;
+    string Param1 = 4;
+    string Param2 = 5;
+    string Param3 = 6;
+    string Param4 = 7;
+    string Param5 = 8;
+}
+
+// Class: table_BuffEffect, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_BuffEffect {
+    repeated BuffEffect list = 1;
+}
+
+// Class: BuffValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message BuffValue {
+    int32 Id = 1;
+    string Name = 2;
+    int32 Sort = 3;
+    repeated int32 Effects = 4;
+    repeated int32 BuffEffects = 5;
+    int32 Time = 6;
+    int32 LaminatedNum = 7;
+    int32 Num = 8;
+    int32 TimeSuperposition = 9;
+    int32 Timing = 10;
+    bool ReplaceType = 11;
+    bool ReplaceMode = 12;
+    bool AttackClear = 13;
+    bool HitClear = 14;
+    bool IsInherit = 15;
+    bool IsExitDelete = 16;
+}
+
+// Class: table_BuffValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_BuffValue {
+    repeated BuffValue list = 1;
+}
+
+// Class: Character, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Character {
+    int32 Id = 1;
+    string Name = 2;
+    bool Visible = 3;
+    bool Available = 4;
+    int32 Grade = 5;
+    int32 DefaultSkinId = 6;
+    int32 AdvanceSkinId = 7;
+    int32 AdvanceGroup = 8;
+    int32 AdvanceSkinUnlockLevel = 9;
+    int32 ViewId = 10;
+    int32 Faction = 11;
+    int32 Weight = 12;
+    int32 EET = 13;
+    int32 Class = 14;
+    int32 CharacterAttackType = 15;
+    int32 SearchTargetType = 16;
+    int32 AtkSpd = 17;
+    int32 MovType = 18;
+    int32 WalkSpd = 19;
+    int32 RunSpd = 20;
+    int32 SpRunSpd = 21;
+    int32 TransSpd = 22;
+    int32 WalkToRunDuration = 23;
+    bool DodgeToRunAccelerationOrNot = 24;
+    int32 MovAcc = 25;
+    int32 RotSpd = 26;
+    int32 RotAcc = 27;
+    int32 VisionDeg = 28;
+    int32 VisionRng = 29;
+    int32 VisionAttackRng = 30;
+    int32 HearRng = 31;
+    int32 HearAttackRng = 32;
+    int32 RaiseGunRng = 33;
+    int32 BulletType = 34;
+    int32 Ammo = 35;
+    int32 AIId = 36;
+    int32 NormalAtkId = 37;
+    int32 DodgeId = 38;
+    int32 SkillId = 39;
+    int32 SpecialSkillId = 40;
+    int32 UltimateId = 41;
+    int32 AssistAIId = 42;
+    int32 AssistNormalAtkId = 43;
+    int32 AssistDodgeId = 44;
+    int32 AssistSkillId = 45;
+    int32 AssistSpecialSkillId = 46;
+    int32 AssistUltimateId = 47;
+    int32 TalentSkillId = 48;
+    int32 AssistSkillOnStageType = 49;
+    int32 AssistSkillAngle = 50;
+    int32 AssistSkillRadius = 51;
+    int32 AssistSkillOnStageOrientation = 52;
+    int32 AssistUltimateOnStageType = 53;
+    int32 AssistUltimateAngle = 54;
+    int32 AssistUltimateRadius = 55;
+    int32 AssistUltimateOnStageOrientation = 56;
+    int32 SkillSemiAutoRng = 57;
+    int32 UltimateSemiAutoRng = 58;
+    int32 SwitchCD = 59;
+    int32 EnergyConvRatio = 60;
+    int32 EnergyEfficiency = 61;
+    int32 FragmentsId = 62;
+    int32 TransformQty = 63;
+    int32 RecruitmentQty = 64;
+    string AttributeId = 65;
+    int32 PresentsTraitId = 66;
+    repeated int32 SkillsUpgradeGroup = 67;
+    int32 FrozenTimeHighlightUnit = 68;
+    repeated int32 GemSlots = 69;
+    int32 ChargingRate = 70;
+    int32 EnergyConsume = 71;
+}
+
+// Class: table_Character, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Character {
+    repeated Character list = 1;
+}
+
+// Class: CharacterSkin, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message CharacterSkin {
+    int32 Id = 1;
+    string Name = 2;
+    string Desc = 3;
+    bool IsShow = 4;
+    int32 CharId = 5;
+    int32 Type = 6;
+    int32 SourceDesc = 7;
+    repeated int32 SkinExtraTag = 8;
+    string Transform = 9;
+    int32 WalkAnimationSpd = 10;
+    int32 RunAnimationSpd = 11;
+    int32 SpRunAnimationSpd = 12;
+    int32 ModelScale = 13;
+    int32 ColliderScale = 14;
+    int32 ModelShowScale = 15;
+    int32 ModelEndScale = 16;
+    bool ForbiddenBehitRot = 17;
+    string Icon = 18;
+    string Portrait = 19;
+    string Bg = 20;
+    string Offset = 21;
+    string L2D = 22;
+    int32 CharacterCG = 23;
+    string Model = 24;
+    string Model_Show = 25;
+    string Model_End = 26;
+    string GachaL2D = 27;
+    int32 SkinTheme = 28;
+    int32 EffectScaleValue = 29;
+    int32 TagEffectScaleValue = 30;
+    int32 SmoothTime = 31;
+}
+
+// Class: table_CharacterSkin, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_CharacterSkin {
+    repeated CharacterSkin list = 1;
+}
+
+// Class: CharacterVoiceControl, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message CharacterVoiceControl {
+    string Id = 1;
+    int32 probability = 2;
+    int32 resType = 3;
+    bool combatOnly = 4;
+    repeated int32 worldLevelTypes = 5;
+    bool bubble = 6;
+    float cd = 7;
+    int32 voPlayer = 8;
+    int32 priority = 9;
+    bool dateTrigger = 10;
+    string date = 11;
+}
+
+// Class: table_CharacterVoiceControl, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_CharacterVoiceControl {
+    repeated CharacterVoiceControl list = 1;
+}
+
+// Class: Chest, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Chest {
+    int32 Id = 1;
+    int32 Group = 2;
+    int32 Label = 3;
+    int32 LowFloor = 4;
+    int32 HighFloor = 5;
+    int32 TnteractionType = 6;
+    int32 AutoOpen = 7;
+    string ModelPath = 8;
+    int32 Item1 = 9;
+    int32 Number1 = 10;
+    int32 Item2 = 11;
+    int32 Number2 = 12;
+    int32 Item3 = 13;
+    int32 Number3 = 14;
+    int32 Item4 = 15;
+    int32 Number4 = 16;
+}
+
+// Class: table_Chest, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Chest {
+    repeated Chest list = 1;
+}
+
+// Class: Config, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Config {
+    string Id = 1;
+    string Value = 2;
+}
+
+// Class: table_Config, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Config {
+    repeated Config list = 1;
+}
+
+// Class: DestroyObject, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message DestroyObject {
+    int32 Id = 1;
+    string Name = 2;
+    int32 Lv = 3;
+    string AttributeId = 4;
+    int32 Templete = 5;
+    int32 Faction = 6;
+}
+
+// Class: table_DestroyObject, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_DestroyObject {
+    repeated DestroyObject list = 1;
+}
+
+// Class: DropObject, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message DropObject {
+    int32 Id = 1;
+    string DropObjectRes = 2;
+}
+
+// Class: table_DropObject, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_DropObject {
+    repeated DropObject list = 1;
+}
+
+// Class: DropObjectGroup, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message DropObjectGroup {
+    int32 DropObjectGroupId = 1;
+    int32 DropObjectId = 2;
+    int32 weight = 3;
+}
+
+// Class: table_DropObjectGroup, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_DropObjectGroup {
+    repeated DropObjectGroup list = 1;
+}
+
+// Class: Effect, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Effect {
+    int32 Id = 1;
+    string Name = 2;
+    int32 levelTypeData = 3;
+    int32 LevelData = 4;
+    int32 MainOrSupport = 5;
+    int32 Trigger = 6;
+    int32 TriggerTarget = 7;
+    int32 TriggerCondition1 = 8;
+    string TriggerParam1 = 9;
+    string TriggerParam2 = 10;
+    string TriggerParam3 = 11;
+    string TriggerParam4 = 12;
+    int32 TriggerTarget2 = 13;
+    int32 TriggerCondition2 = 14;
+    string Trigger2Param1 = 15;
+    string Trigger2Param2 = 16;
+    string Trigger2Param3 = 17;
+    string Trigger2Param4 = 18;
+    int32 TriggerLogicType = 19;
+    int32 TakeEffectTarget1 = 20;
+    int32 TakeEffectCondition1 = 21;
+    string TakeEffectParam1 = 22;
+    string TakeEffectParam2 = 23;
+    string TakeEffectParam3 = 24;
+    string TakeEffectParam4 = 25;
+    int32 TakeEffectTarget2 = 26;
+    int32 TakeEffectCondition2 = 27;
+    string TakeEffect2Param1 = 28;
+    string TakeEffect2Param2 = 29;
+    string TakeEffect2Param3 = 30;
+    string TakeEffect2Param4 = 31;
+    int32 TakeEffectLogicType = 32;
+    int32 Target1 = 33;
+    int32 TargetCondition1 = 34;
+    string TargetParam1 = 35;
+    string TargetParam2 = 36;
+    string TargetParam3 = 37;
+    string TargetParam4 = 38;
+    int32 TargetCondition2 = 39;
+    string Target2Param1 = 40;
+    string Target2Param2 = 41;
+    string Target2Param3 = 42;
+    string Target2Param4 = 43;
+    int32 FilterLogicType = 44;
+}
+
+// Class: table_Effect, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Effect {
+    repeated Effect list = 1;
+}
+
+// Class: EffectValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message EffectValue {
+    int32 Id = 1;
+    string Name = 2;
+    string Tag = 3;
+    int32 TakeEffectLimit = 4;
+    bool Remove = 5;
+    int32 CD = 6;
+    int32 EffectRate = 7;
+    int32 EffectType = 8;
+    int32 EffectTypeFirstSubtype = 9;
+    int32 EffectTypeSecondSubtype = 10;
+    string EffectTypeParam1 = 11;
+    string EffectTypeParam2 = 12;
+    string EffectTypeParam3 = 13;
+    string EffectTypeParam4 = 14;
+    string EffectTypeParam5 = 15;
+    string EffectTypeParam6 = 16;
+    string EffectTypeParam7 = 17;
+}
+
+// Class: table_EffectValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_EffectValue {
+    repeated EffectValue list = 1;
+}
+
+// Class: FactionRelation, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message FactionRelation {
+    int32 Id = 1;
+    repeated int32 FactionRelationShip = 2;
+}
+
+// Class: table_FactionRelation, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_FactionRelation {
+    repeated FactionRelation list = 1;
+}
+
+// Class: FloorBuff, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message FloorBuff {
+    int32 Id = 1;
+    repeated int32 AddCamp = 2;
+    repeated int32 AddClass = 3;
+    repeated int32 EffectId = 4;
+    repeated int32 BuffId = 5;
+}
+
+// Class: table_FloorBuff, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_FloorBuff {
+    repeated FloorBuff list = 1;
+}
+
+// Class: FormationScene, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message FormationScene {
+    string SceneName = 1;
+    string Path = 2;
+}
+
+// Class: table_FormationScene, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_FormationScene {
+    repeated FormationScene list = 1;
+}
+
+// Class: HitDamage, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message HitDamage {
+    int32 Id = 1;
+    int32 levelTypeData = 2;
+    int32 LevelData = 3;
+    int32 MainOrSupport = 4;
+    string HitdamageInfo = 5;
+    int32 DistanceType = 6;
+    int32 SourceType = 7;
+    int32 DamageType = 8;
+    int32 EffectType = 9;
+    int32 ElementType = 10;
+    repeated int32 DamageTag = 11;
+    int32 DamageBonusType = 12;
+    repeated int32 SkillPercentAmend = 13;
+    repeated int32 SkillAbsAmend = 14;
+    int32 AdditionalSource = 15;
+    int32 AdditionalType = 16;
+    repeated int32 AdditionalPercent = 17;
+    int32 EnergyCharge = 18;
+    repeated int32 TalentPercentAmend = 19;
+    repeated int32 TalentAbsAmend = 20;
+    bool IsDenseType = 21;
+    repeated int32 PerkIntensity = 22;
+    int32 SkillId = 23;
+    int32 SkillSlotType = 24;
+    int32 PerkId = 25;
+    int32 HitImmunityTime = 26;
+}
+
+// Class: table_HitDamage, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_HitDamage {
+    repeated HitDamage list = 1;
+}
+
+// Class: HonorLevel, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message HonorLevel {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Level = 3;
+    string BigBgPath = 4;
+    string SmallBgPath = 5;
+    repeated int32 StarGroup = 6;
+    int32 Sort = 7;
+    int32 BGType = 8;
+}
+
+// Class: table_HonorLevel, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_HonorLevel {
+    repeated HonorLevel list = 1;
+}
+
+// Class: InfinityTowerEnemySet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message InfinityTowerEnemySet {
+    int32 SetId = 1;
+    int32 WaveNum = 2;
+    int32 GroupNum = 3;
+    int32 MaxNum = 4;
+    int32 MaxNumPerWave = 5;
+    int32 MonsterId = 6;
+    int32 LevelChange = 7;
+    int32 CommonGameplayType = 8;
+}
+
+// Class: table_InfinityTowerEnemySet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_InfinityTowerEnemySet {
+    repeated InfinityTowerEnemySet list = 1;
+}
+
+// Class: InteractiveAction, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message InteractiveAction {
+    int32 Id = 1;
+    bool PlayerAni = 2;
+    string Icon0 = 3;
+    string Title0 = 4;
+    string Icon1 = 5;
+    string Title1 = 6;
+}
+
+// Class: table_InteractiveAction, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_InteractiveAction {
+    repeated InteractiveAction list = 1;
+}
+
+// Class: MainlineFloor, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MainlineFloor {
+    int32 Id = 1;
+    string SceneName = 2;
+    string ConfigPrefabName = 3;
+    int32 Theme = 4;
+    string BGM = 5;
+    string LeaveTriggerEvent = 6;
+    int32 MonsterLv = 7;
+    string IntroCutscene = 8;
+    string LevelScript = 9;
+}
+
+// Class: table_MainlineFloor, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MainlineFloor {
+    repeated MainlineFloor list = 1;
+}
+
+// Class: Monster, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Monster {
+    int32 Id = 1;
+    string Name = 2;
+    int32 EpicLv = 3;
+    int32 MonsterPosition = 4;
+    int32 BloodType = 5;
+    string Force = 6;
+    int32 FCId = 7;
+    int32 FAId = 8;
+    int32 MovType = 9;
+    int32 RunSpd = 10;
+    int32 TransSpdScale = 11;
+    int32 WalkSpd = 12;
+    int32 MovAcc = 13;
+    int32 VisionRng = 14;
+    int32 VisionDeg = 15;
+    int32 HearRng = 16;
+    int32 RefRng = 17;
+    int32 ActRng = 18;
+    int32 DisActRng = 19;
+    int32 SearchRng = 20;
+    int32 RotSpd = 21;
+    int32 RotSpdInSkill = 22;
+    int32 Templete = 23;
+    repeated int32 BuffIds = 24;
+    int32 SubType = 25;
+    int32 Faction = 26;
+    repeated int32 TrapTagIds = 27;
+    int32 SupCharge = 28;
+    bool IsShowRng = 29;
+    int32 Weight = 30;
+    int32 ToughnessBrokenTime = 31;
+    bool IsToughnessRecorver = 32;
+    string Tag1 = 33;
+    string Tag2 = 34;
+    string Tag3 = 35;
+    string Tag4 = 36;
+    string Tag5 = 37;
+    int32 AttackHintType = 38;
+    int32 BlockPriority = 39;
+    int32 MonsterTeamId = 40;
+}
+
+// Class: table_Monster, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Monster {
+    repeated Monster list = 1;
+}
+
+// Class: MonsterActionBranch, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterActionBranch {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 SkillId = 3;
+    int32 Priority = 4;
+    int32 Weight = 5;
+    int32 Rate = 6;
+    int32 CD = 7;
+    repeated int32 InitialCDPool = 8;
+    int32 StartCDTime = 9;
+    bool FixedCD = 10;
+    int32 ReleaseDistance = 11;
+    int32 ReleaseAngle = 12;
+    int32 TraceDuration = 13;
+    bool Activate = 14;
+    int32 ActiveConditionType1 = 15;
+    string ActiveParam1 = 16;
+    string ActiveParam2 = 17;
+    int32 DeActiveConditionType1 = 18;
+    string DeActiveParam1 = 19;
+    string DeActiveParam2 = 20;
+    int32 FollowEventType1 = 21;
+    string FollowEventParam1 = 22;
+    int32 FollowEventType2 = 23;
+    string FollowEventParam2 = 24;
+    int32 FollowEventType3 = 25;
+    string FollowEventParam3 = 26;
+}
+
+// Class: table_MonsterActionBranch, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterActionBranch {
+    repeated MonsterActionBranch list = 1;
+}
+
+// Class: MonsterAI, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterAI {
+    int32 Id = 1;
+    string ComboGroupPath = 2;
+    int32 SpawnShowSkillId = 3;
+    int32 IdleShowSkillId = 4;
+    int32 DieSkillId = 5;
+    string ActionAIPath = 6;
+    repeated int32 ActionBranchIds = 7;
+    int32 ThinkInterval = 8;
+    string IdleAIPath = 9;
+    string SpawnAIPath = 10;
+    string ParallelAIPath = 11;
+    bool CheckAchievement = 12;
+    int32 WanderRange = 13;
+    int32 WanderInterval = 14;
+    int32 WanderRate = 15;
+}
+
+// Class: table_MonsterAI, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterAI {
+    repeated MonsterAI list = 1;
+}
+
+// Class: MonsterAttributeContact, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterAttributeContact {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 MaxLevel = 3;
+}
+
+// Class: table_MonsterAttributeContact, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterAttributeContact {
+    repeated MonsterAttributeContact list = 1;
+}
+
+// Class: MonsterManual, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterManual {
+    int32 Id = 1;
+    string Icon = 2;
+    string Name = 3;
+    repeated int32 EET = 4;
+    repeated int32 WeakEET = 5;
+    string Desc = 6;
+    string SkillDesc = 7;
+    int32 EpicLv = 8;
+    int32 HP = 9;
+    int32 ATK = 10;
+    int32 DEF = 11;
+    int32 TOUGHNESS = 12;
+    string AbilityTitle1 = 13;
+    string AbilityDesc1 = 14;
+    string AbilityTitle2 = 15;
+    string AbilityDesc2 = 16;
+    string AbilityTitle3 = 17;
+    string AbilityDesc3 = 18;
+}
+
+// Class: table_MonsterManual, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterManual {
+    repeated MonsterManual list = 1;
+}
+
+// Class: MonsterSkin, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterSkin {
+    int32 Id = 1;
+    int32 MonsterManual = 2;
+    string Model = 3;
+    int32 RunAnimationSpd = 4;
+    int32 WalkAnimationSpd = 5;
+    int32 BarHeight = 6;
+    int32 ModelScale = 7;
+    int32 ColliderScale = 8;
+    bool ForbiddenBehitRot = 9;
+    int32 EffectScaleValue = 10;
+    repeated int32 HitFxRadialOffset = 11;
+    int32 TagEffectScaleValue = 12;
+}
+
+// Class: table_MonsterSkin, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterSkin {
+    repeated MonsterSkin list = 1;
+}
+
+// Class: MonsterTeam, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterTeam {
+    int32 Id = 1;
+    int32 Mate0Id = 2;
+    int32 Mate1Id = 3;
+    int32 Mate2Id = 4;
+    int32 Mate3Id = 5;
+    int32 Mate4Id = 6;
+    int32 Mate5Id = 7;
+    int32 Mate6Id = 8;
+    int32 Mate7Id = 9;
+}
+
+// Class: table_MonsterTeam, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterTeam {
+    repeated MonsterTeam list = 1;
+}
+
+// Class: MonsterValueTemplete, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterValueTemplete {
+    int64 Id = 1;
+    int32 TemplateId = 2;
+    int32 Lv = 3;
+    int64 Hp = 4;
+    int32 Atk = 5;
+    int32 Def = 6;
+    int32 CritRate = 7;
+    int32 NormalCritRate = 8;
+    int32 SkillCritRate = 9;
+    int32 UltraCritRate = 10;
+    int32 MarkCritRate = 11;
+    int32 SummonCritRate = 12;
+    int32 ProjectileCritRate = 13;
+    int32 OtherCritRate = 14;
+    int32 CritResistance = 15;
+    int32 CritPower = 16;
+    int32 NormalCritPower = 17;
+    int32 SkillCritPower = 18;
+    int32 UltraCritPower = 19;
+    int32 MarkCritPower = 20;
+    int32 SummonCritPower = 21;
+    int32 ProjectileCritPower = 22;
+    int32 OtherCritPower = 23;
+    int32 HitRate = 24;
+    int32 Evd = 25;
+    int32 AtkSpd = 26;
+    int32 DefPierce = 27;
+    int32 DefIgnore = 28;
+    int32 WEP = 29;
+    int32 FEP = 30;
+    int32 SEP = 31;
+    int32 AEP = 32;
+    int32 LEP = 33;
+    int32 DEP = 34;
+    int32 WEI = 35;
+    int32 FEI = 36;
+    int32 SEI = 37;
+    int32 AEI = 38;
+    int32 LEI = 39;
+    int32 DEI = 40;
+    int32 WEE = 41;
+    int32 FEE = 42;
+    int32 SEE = 43;
+    int32 AEE = 44;
+    int32 LEE = 45;
+    int32 DEE = 46;
+    int32 WER = 47;
+    int32 FER = 48;
+    int32 SER = 49;
+    int32 AER = 50;
+    int32 LER = 51;
+    int32 DER = 52;
+    int64 Toughness = 53;
+    int32 Suppress = 54;
+    int32 RCDMARKDMG = 55;
+}
+
+// Class: table_MonsterValueTemplete, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterValueTemplete {
+    repeated MonsterValueTemplete list = 1;
+}
+
+// Class: MonsterValueTempleteAdjust, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterValueTempleteAdjust {
+    int64 Id = 1;
+    int32 TemplateId = 2;
+    int32 EET = 3;
+    repeated int32 ResistEET = 4;
+    repeated int32 WeakEET = 5;
+    int32 HpRatio = 6;
+    int64 HpFix = 7;
+    int32 AtkRatio = 8;
+    int32 AtkFix = 9;
+    int32 WERRatio = 10;
+    int32 WERFix = 11;
+    int32 FERRatio = 12;
+    int32 FERFix = 13;
+    int32 SERRatio = 14;
+    int32 SERFix = 15;
+    int32 AERRatio = 16;
+    int32 AERFix = 17;
+    int32 LERRatio = 18;
+    int32 LERFix = 19;
+    int32 DERRatio = 20;
+    int32 DERFix = 21;
+    int32 ToughnessRatio = 22;
+    int64 ToughnessFix = 23;
+    int32 SuppressRatio = 24;
+    int32 SuppressFix = 25;
+}
+
+// Class: table_MonsterValueTempleteAdjust, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterValueTempleteAdjust {
+    repeated MonsterValueTempleteAdjust list = 1;
+}
+
+// Class: MonsterValueTempleteModify, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterValueTempleteModify {
+    int64 Id = 1;
+    int32 GroupId = 2;
+    int32 Lv = 3;
+    int64 HpFix = 4;
+    float AtkFix = 5;
+    int64 ToughnessFix = 6;
+    float DefFix = 7;
+    float ENVAMENDFix = 8;
+    float WERFix = 9;
+    float FERFix = 10;
+    float SERFix = 11;
+    float AERFix = 12;
+    float LERFix = 13;
+    float DERFix = 14;
+    string LvUpEffect = 15;
+}
+
+// Class: table_MonsterValueTempleteModify, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterValueTempleteModify {
+    repeated MonsterValueTempleteModify list = 1;
+}
+
+// Class: NPCConfig, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message NPCConfig {
+    int32 Id = 1;
+    int32 type = 2;
+    string HintIcon = 3;
+    string Name = 4;
+    string Desc = 5;
+    string Literary = 6;
+    int32 RefreshPoint = 7;
+    repeated int32 FirstLines = 8;
+    repeated int32 Lines = 9;
+    repeated int32 Chat = 10;
+    int32 ChatProp = 11;
+    int32 ChatTime = 12;
+    int32 NPCId = 13;
+    string AffinityValue = 14;
+}
+
+// Class: table_NPCConfig, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_NPCConfig {
+    repeated NPCConfig list = 1;
+}
+
+// Class: NPCSkin, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message NPCSkin {
+    int32 Id = 1;
+    string Name = 2;
+    string Desc = 3;
+    bool IsShow = 4;
+    int32 CharId = 5;
+    int32 Type = 6;
+    int32 SourceDesc = 7;
+    string Icon = 8;
+    string SmallPortrait = 9;
+    int32 ModelScale = 10;
+    string Model = 11;
+    string Portrait = 12;
+    string Bg = 13;
+    string Offset = 14;
+    string L2D = 15;
+    string FullScreenPortrait = 16;
+    int32 SkinTheme = 17;
+    bool InteractiveAction = 18;
+    int32 InteractiveActionId = 19;
+}
+
+// Class: table_NPCSkin, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_NPCSkin {
+    repeated NPCSkin list = 1;
+}
+
+// Class: OnceAdditionalAttribute, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message OnceAdditionalAttribute {
+    int32 Id = 1;
+    int32 levelTypeData = 2;
+    int32 LevelData = 3;
+    int32 MainOrSupport = 4;
+}
+
+// Class: table_OnceAdditionalAttribute, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_OnceAdditionalAttribute {
+    repeated OnceAdditionalAttribute list = 1;
+}
+
+// Class: OnceAdditionalAttributeValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message OnceAdditionalAttributeValue {
+    int32 Id = 1;
+    int32 DamageType1 = 2;
+    int32 ElementType1 = 3;
+    int32 AttributeType1 = 4;
+    int32 ParameterType1 = 5;
+    int32 Value1 = 6;
+    int32 DamageType2 = 7;
+    int32 ElementType2 = 8;
+    int32 AttributeType2 = 9;
+    int32 ParameterType2 = 10;
+    int32 Value2 = 11;
+    int32 DamageType3 = 12;
+    int32 ElementType3 = 13;
+    int32 AttributeType3 = 14;
+    int32 ParameterType3 = 15;
+    int32 Value3 = 16;
+}
+
+// Class: table_OnceAdditionalAttributeValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_OnceAdditionalAttributeValue {
+    repeated OnceAdditionalAttributeValue list = 1;
+}
+
+// Class: RandomLevelMonster, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message RandomLevelMonster {
+    int32 Id = 1;
+    string Name = 2;
+    int32 EpicLv = 3;
+    int32 BloodType = 4;
+    int32 EET = 5;
+    int32 FCId = 6;
+    int32 FAId = 7;
+    int32 MovType = 8;
+    int32 RunSpd = 9;
+    int32 TransSpdScale = 10;
+    int32 WalkSpd = 11;
+    int32 MovAcc = 12;
+    int32 VisionRng = 13;
+    int32 VisionDeg = 14;
+    int32 HearRng = 15;
+    int32 RefRng = 16;
+    int32 ActRng = 17;
+    int32 DisActRng = 18;
+    int32 RotSpd = 19;
+    int32 Templete = 20;
+    int32 WEP = 21;
+    int32 FEP = 22;
+    int32 SEP = 23;
+    int32 AEP = 24;
+    int32 LEP = 25;
+    int32 DEP = 26;
+    int32 WEE = 27;
+    int32 FEE = 28;
+    int32 SEE = 29;
+    int32 AEE = 30;
+    int32 LEE = 31;
+    int32 DEE = 32;
+    int32 WER = 33;
+    int32 FER = 34;
+    int32 SER = 35;
+    int32 AER = 36;
+    int32 LER = 37;
+    int32 DER = 38;
+    repeated int32 BuffIds = 39;
+    int32 weight = 40;
+    repeated int32 TrapTagIds = 41;
+    int32 Faction = 42;
+    int32 SupCharge = 43;
+    bool IsShowRng = 44;
+    int32 TrapAttrId = 45;
+    string Tag1 = 46;
+    string Tag2 = 47;
+    string Tag3 = 48;
+    string Tag4 = 49;
+    string Tag5 = 50;
+}
+
+// Class: table_RandomLevelMonster, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_RandomLevelMonster {
+    repeated RandomLevelMonster list = 1;
+}
+
+// Class: RegionBossAffix, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message RegionBossAffix {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Level = 3;
+    string Name = 4;
+    string Desc = 5;
+    string Icon = 6;
+    int32 Element = 7;
+    repeated int32 AddCamp = 8;
+    repeated int32 AddClass = 9;
+    int32 SkillId = 10;
+}
+
+// Class: table_RegionBossAffix, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_RegionBossAffix {
+    repeated RegionBossAffix list = 1;
+}
+
+// Class: RegionBossFloor, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message RegionBossFloor {
+    int32 Id = 1;
+    string SceneName = 2;
+    string ConfigPrefabName = 3;
+    int32 Theme = 4;
+    string BGM = 5;
+    string LeaveTriggerEvent = 6;
+    int32 MonsterLv = 7;
+    int32 DungeonDelay = 8;
+    string IntroCutscene = 9;
+}
+
+// Class: table_RegionBossFloor, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_RegionBossFloor {
+    repeated RegionBossFloor list = 1;
+}
+
+// Class: RegionBossLevel, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message RegionBossLevel {
+    int32 Id = 1;
+    int32 RegionBossId = 2;
+    int32 Difficulty = 3;
+    int32 RegionType = 4;
+    string Name = 5;
+    string Desc = 6;
+    string Icon = 7;
+    int32 SuggestedPower = 8;
+    int32 RecommendBuildRank = 9;
+    int32 PreLevelId = 10;
+    int32 BossShowTime = 11;
+    int32 PreLevelStar = 12;
+    int32 NeedWorldClass = 13;
+    int32 NeedRoguelike = 14;
+    int32 FloorId = 15;
+    string OneStarCondition = 16;
+    string TwoStarCondition = 17;
+    string ThreeStarCondition = 18;
+    int32 RoundTableDropId = 19;
+    string RoundTableGuarantee = 20;
+    int32 SequentialDropId = 21;
+    string SequentialGuarantee = 22;
+    int32 EnergyConsume = 23;
+    string BaseAwardPreview = 24;
+    int32 EntryGroupId1 = 25;
+    int32 EntryGroupLevel1 = 26;
+    int32 EntryGroupId2 = 27;
+    int32 EntryGroupLevel2 = 28;
+    int32 EntryGroupId3 = 29;
+    int32 EntryGroupLevel3 = 30;
+    int32 EntryGroupId4 = 31;
+    int32 EntryGroupLevel4 = 32;
+    int32 EntryGroupId5 = 33;
+    int32 EntryGroupLevel5 = 34;
+    repeated int32 ExtraDropPreview = 35;
+}
+
+// Class: table_RegionBossLevel, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_RegionBossLevel {
+    repeated RegionBossLevel list = 1;
+}
+
+// Class: Shield, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Shield {
+    int32 Id = 1;
+    string Name = 2;
+    int32 levelTypeData = 3;
+    int32 LevelData = 4;
+    int32 MainOrSupport = 5;
+    string BindEffect = 6;
+    int32 ShieldTag1 = 7;
+    int32 ShieldTag2 = 8;
+    int32 ShieldTag3 = 9;
+    int32 TimeSuperposition = 10;
+    bool NotRemove = 11;
+    bool NotShieldScale = 12;
+}
+
+// Class: table_Shield, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Shield {
+    repeated Shield list = 1;
+}
+
+// Class: ShieldValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message ShieldValue {
+    int32 Id = 1;
+    string Name = 2;
+    int64 AbsorptionBase = 3;
+    int32 ReferenceTarget = 4;
+    int32 ReferenceAttrib = 5;
+    int32 ReferenceScale = 6;
+    int32 Time = 7;
+    int32 ShieldLaminatedNum = 8;
+    int32 TimeSuperposition = 9;
+    bool NotRemove = 10;
+    int64 ReferenceLimit = 11;
+}
+
+// Class: table_ShieldValue, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_ShieldValue {
+    repeated ShieldValue list = 1;
+}
+
+// Class: Skill, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Skill {
+    int32 Id = 1;
+    string Title = 2;
+    string FCPath = 3;
+    int32 Type = 4;
+    string BriefDesc = 5;
+    string Desc = 6;
+    string Icon = 7;
+    int32 SkillCD = 8;
+    int32 MaxLevel = 9;
+    string RelatedSkill = 10;
+    int32 SectionAmount = 11;
+    int32 UseInterval = 12;
+    int32 UseTimeHint = 13;
+    int32 UltraEnergy = 14;
+    bool CheckCDRestore = 15;
+    bool ForceRunFinish = 16;
+    int32 GetEnergyLimit = 17;
+    string Param1 = 18;
+    string Param2 = 19;
+    string Param3 = 20;
+    string Param4 = 21;
+    string Param5 = 22;
+    string Param6 = 23;
+    string Param7 = 24;
+    string Param8 = 25;
+    string Param9 = 26;
+    string Param10 = 27;
+    bool IsCleanSkillCD = 28;
+    bool CheckSkillInterval = 29;
+}
+
+// Class: table_Skill, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Skill {
+    repeated Skill list = 1;
+}
+
+// Class: StarTower, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTower {
+    int32 Id = 1;
+    string Name = 2;
+    string Desc = 3;
+    int32 GroupId = 4;
+    string PreConditions = 5;
+    int32 PreviewMonsterGroupId = 6;
+    int32 Difficulty = 7;
+    int32 ValueDifficulty = 8;
+    int32 Recommend = 9;
+    int32 CurrencyId = 10;
+    repeated int32 StageGroupIds = 11;
+    repeated int32 FloorNum = 12;
+    int32 TeamExpGroupId = 13;
+    int32 SubNoteSkillDropGroupId = 14;
+    string FirstAward = 15;
+    repeated int32 EET = 16;
+    repeated int32 NotEET = 17;
+    string Episode = 18;
+    string Image = 19;
+    int32 NPCId = 20;
+    string RewardPreview = 21;
+    int32 ShopNpc = 22;
+    int32 StandShopNpc = 23;
+    int32 UpgradeNpc = 24;
+    int32 ResqueNpc = 25;
+    int32 DangerNpc = 26;
+    int32 HorrorNpc = 27;
+    int32 DangerEndEvent = 28;
+    int32 HorrorEndEvent = 29;
+    int32 DestructibleObjectType = 30;
+}
+
+// Class: table_StarTower, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTower {
+    repeated StarTower list = 1;
+}
+
+// Class: StarTowerCombatEvent, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerCombatEvent {
+    int32 Id = 1;
+    string Name = 2;
+    int32 Type = 3;
+    string Params = 4;
+    int32 Active = 5;
+    int32 Start = 6;
+    int32 Interact = 7;
+}
+
+// Class: table_StarTowerCombatEvent, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerCombatEvent {
+    repeated StarTowerCombatEvent list = 1;
+}
+
+// Class: StarTowerCombo, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerCombo {
+    int32 Id = 1;
+    repeated int32 BattleLvs = 2;
+}
+
+// Class: table_StarTowerCombo, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerCombo {
+    repeated StarTowerCombo list = 1;
+}
+
+// Class: StarTowerDropItem, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerDropItem {
+    int32 Id = 1;
+    int32 Type = 2;
+    repeated int32 DropSplitRange = 3;
+    repeated int32 Rate = 4;
+    string Model = 5;
+}
+
+// Class: table_StarTowerDropItem, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerDropItem {
+    repeated StarTowerDropItem list = 1;
+}
+
+// Class: StarTowerEnemySet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerEnemySet {
+    int32 SetId = 1;
+    int32 WaveNum = 2;
+    int32 MaxNum = 3;
+    int32 MaxNumPerWave = 4;
+    int32 MonsterId = 5;
+    float RefInterval = 6;
+}
+
+// Class: table_StarTowerEnemySet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerEnemySet {
+    repeated StarTowerEnemySet list = 1;
+}
+
+// Class: StarTowerFloor, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerFloor {
+    int32 Id = 1;
+    int32 CommonGameplayType = 2;
+    string CommonMonsterSet = 3;
+    int32 LimitTime = 4;
+    int32 DropObjectGroupId = 5;
+    int32 DropObjectRate = 6;
+    int32 DropMaxNum = 7;
+    int32 MonsterSurplusNum = 8;
+}
+
+// Class: table_StarTowerFloor, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerFloor {
+    repeated StarTowerFloor list = 1;
+}
+
+// Class: StarTowerFloorSet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerFloorSet {
+    int32 Id = 1;
+    int32 BattleLvs = 2;
+    repeated int32 Stage = 3;
+    int32 RoomType = 4;
+    repeated int32 MapID = 5;
+    repeated int32 FloorID = 6;
+    int32 MonsterLv = 7;
+    int32 ThemeSkillLv = 8;
+    int32 Weight = 9;
+    repeated int32 MutexGroup = 10;
+    int32 SpecialModeId = 11;
+    repeated int32 MonsterGroupBlacklist = 12;
+}
+
+// Class: table_StarTowerFloorSet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerFloorSet {
+    repeated StarTowerFloorSet list = 1;
+}
+
+// Class: StarTowerMap, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerMap {
+    int32 Id = 1;
+    string SceneRes = 2;
+    string BGSceneRes = 3;
+    int32 Theme = 4;
+    repeated int32 PrefabNum = 5;
+    bool Mir = 6;
+    int32 OutPortNum = 7;
+    bool OutPortHint = 8;
+    string BGMRes = 9;
+    string CompleteSoundEffectRes = 10;
+    string IntroCutscene = 11;
+    string LevelScript = 12;
+}
+
+// Class: table_StarTowerMap, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerMap {
+    repeated StarTowerMap list = 1;
+}
+
+// Class: StarTowerMonsterBornGroup, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerMonsterBornGroup {
+    int32 GroupId = 1;
+    int32 MonsterId = 2;
+    int32 Difficulty = 3;
+    int32 MinFloor = 4;
+    int32 MaxFloor = 5;
+}
+
+// Class: table_StarTowerMonsterBornGroup, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerMonsterBornGroup {
+    repeated StarTowerMonsterBornGroup list = 1;
+}
+
+// Class: StarTowerMonsterSpAttr, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerMonsterSpAttr {
+    int32 Id = 1;
+    int32 MonsterPosition = 2;
+    string ThemeSkills = 3;
+    int32 ContinuousKillingTime = 4;
+    repeated int32 RougeMoneyDropRange = 5;
+    repeated int32 RougeExpDropRange = 6;
+    repeated int32 RefDistance = 7;
+    int32 RefInterval = 8;
+    bool WayPointShift = 9;
+}
+
+// Class: table_StarTowerMonsterSpAttr, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerMonsterSpAttr {
+    repeated StarTowerMonsterSpAttr list = 1;
+}
+
+// Class: StarTowerScenePrefab, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerScenePrefab {
+    int32 Id = 1;
+    string ConfigRes = 2;
+    string BianQuan = 3;
+    repeated int32 GameplayTypes = 4;
+}
+
+// Class: table_StarTowerScenePrefab, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerScenePrefab {
+    repeated StarTowerScenePrefab list = 1;
+}
+
+// Class: StarTowerSpecificCombat, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerSpecificCombat {
+    int32 Id = 1;
+    string Name = 2;
+    string Desc = 3;
+    int32 Type = 4;
+    int32 EventId = 5;
+}
+
+// Class: table_StarTowerSpecificCombat, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerSpecificCombat {
+    repeated StarTowerSpecificCombat list = 1;
+}
+
+// Class: StarTowerStage, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message StarTowerStage {
+    int32 Id = 1;
+    int32 Stage = 2;
+    int32 GroupId = 3;
+    int32 Floor = 4;
+    int32 RoomType = 5;
+    int32 InteriorCurrencyQuantity = 6;
+    int32 GuaranteedMapId = 7;
+    int32 GuaranteedMonsterPlanId = 8;
+}
+
+// Class: table_StarTowerStage, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_StarTowerStage {
+    repeated StarTowerStage list = 1;
+}
+
+// Class: TestCharacterAtt, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TestCharacterAtt {
+    string Id = 1;
+    string Value = 2;
+}
+
+// Class: table_TestCharacterAtt, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TestCharacterAtt {
+    repeated TestCharacterAtt list = 1;
+}
+
+// Class: TestCharacterList, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TestCharacterList {
+    int32 Id = 1;
+    bool mainControl = 2;
+    bool mustassistant = 3;
+    bool assistant = 4;
+}
+
+// Class: table_TestCharacterList, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TestCharacterList {
+    repeated TestCharacterList list = 1;
+}
+
+// Class: TestTeamData, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TestTeamData {
+    int32 Id = 1;
+    repeated int32 DiscListMaster = 2;
+    repeated int32 DiscListSub = 3;
+    int32 DiscLevel = 4;
+    int32 DiscPromoteLevel = 5;
+    int32 DiscLimitBreakLevel = 6;
+    string SubNoteList = 7;
+}
+
+// Class: table_TestTeamData, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TestTeamData {
+    repeated TestTeamData list = 1;
+}
+
+// Class: Trap, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Trap {
+    int32 Id = 1;
+    string Name = 2;
+    int32 FCId = 3;
+    string Model = 4;
+    int32 ModelScale = 5;
+    int32 BuffFXScale = 6;
+    int32 ColliderScale = 7;
+    string AttributeId = 8;
+    int32 Templete = 9;
+    repeated int32 BuffIds = 10;
+    repeated int32 TurnOffBuffIds = 11;
+    repeated int32 TurnOnBuffIds = 12;
+    bool InterruptSkill = 13;
+    int32 SubType = 14;
+    int32 Faction = 15;
+    repeated int32 Filter = 16;
+    bool IgnoreCollision = 17;
+    string ActiveEff = 18;
+    int32 ShapeType = 19;
+    float width = 20;
+    float length = 21;
+    float radius = 22;
+    float innerRadius = 23;
+    float angle = 24;
+    repeated float offset = 25;
+    float rotation = 26;
+    bool isMove = 27;
+    bool isBlock = 28;
+    int32 MovAcc = 29;
+    int32 RotSpd = 30;
+    int32 MoveSpd = 31;
+}
+
+// Class: table_Trap, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_Trap {
+    repeated Trap list = 1;
+}
+
+// Class: TravelerDuelFansLevel, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TravelerDuelFansLevel {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Level = 3;
+    int32 NeedExp = 4;
+}
+
+// Class: table_TravelerDuelFansLevel, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TravelerDuelFansLevel {
+    repeated TravelerDuelFansLevel list = 1;
+}
+
+// Class: TravelerDuelHotValueItem, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TravelerDuelHotValueItem {
+    int32 Id = 1;
+    int32 HotValueItemType = 2;
+    int32 AddExp = 3;
+    int32 AddHotValue = 4;
+    int32 CumulativeValue = 5;
+}
+
+// Class: table_TravelerDuelHotValueItem, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TravelerDuelHotValueItem {
+    repeated TravelerDuelHotValueItem list = 1;
+}
+
+// Class: TravelerDuelHotValueRewards, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TravelerDuelHotValueRewards {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 TargetValue = 3;
+    int32 ItemId1 = 4;
+    int32 ItemQty1 = 5;
+    int32 ItemId2 = 6;
+    int32 ItemQty2 = 7;
+    int32 ItemId3 = 8;
+    int32 ItemQty3 = 9;
+}
+
+// Class: table_TravelerDuelHotValueRewards, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TravelerDuelHotValueRewards {
+    repeated TravelerDuelHotValueRewards list = 1;
+}
+
+// Class: TravelerDuelIdleRewards, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TravelerDuelIdleRewards {
+    int32 Difficulty = 1;
+    int32 TypeAValue = 2;
+    int32 TypeBValue = 3;
+    int32 TypeCValue = 4;
+}
+
+// Class: table_TravelerDuelIdleRewards, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TravelerDuelIdleRewards {
+    repeated TravelerDuelIdleRewards list = 1;
+}
+
+// Class: TravelerDuelTarget, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TravelerDuelTarget {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 DayNum = 3;
+    int32 ItemId1 = 4;
+    int32 ItemQty1 = 5;
+    int32 ItemId2 = 6;
+    int32 ItemQty2 = 7;
+    int32 ItemId3 = 8;
+    int32 ItemQty3 = 9;
+    string RivalName = 10;
+    string RivalIcon = 11;
+}
+
+// Class: table_TravelerDuelTarget, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TravelerDuelTarget {
+    repeated TravelerDuelTarget list = 1;
+}
+
+// Class: VampireEnemyPool, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message VampireEnemyPool {
+    int32 PoolId = 1;
+    int32 WaveNum = 2;
+    int32 MonsterLevel = 3;
+    int32 EnemySetID = 4;
+    int32 WaveKeepTime = 5;
+    int32 PoolType = 6;
+}
+
+// Class: table_VampireEnemyPool, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_VampireEnemyPool {
+    repeated VampireEnemyPool list = 1;
+}
+
+// Class: VampireEnemySet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message VampireEnemySet {
+    int32 SetId = 1;
+    int32 GroupNum = 2;
+    int32 MonsterId = 3;
+    int32 LevelChange = 4;
+    int32 DelayTime = 5;
+    int32 MaxNum = 6;
+    repeated int32 AddData = 7;
+    repeated int32 MaxNumImproveData = 8;
+    int32 MonsterSpawnType = 9;
+    int32 MonsterPoint = 10;
+    repeated int32 DropExp = 11;
+    repeated int32 DropChest = 12;
+    repeated int32 DropHp = 13;
+    repeated int32 DropMp = 14;
+    repeated int32 DropAtk = 15;
+    repeated int32 DropGet = 16;
+    repeated int32 DropClear = 17;
+    int32 MonsterWarning = 18;
+}
+
+// Class: table_VampireEnemySet, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_VampireEnemySet {
+    repeated VampireEnemySet list = 1;
+}
+
+// Class: VampireEnemySpAttr, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message VampireEnemySpAttr {
+    int32 Id = 1;
+    repeated int32 RefDistance = 2;
+    repeated int32 RefInterval = 3;
+}
+
+// Class: table_VampireEnemySpAttr, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_VampireEnemySpAttr {
+    repeated VampireEnemySpAttr list = 1;
+}
+
+// Class: VoDirectory, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message VoDirectory {
+    int32 Id = 1;
+    string voResource = 2;
+    int32 characterId = 3;
+    string votype = 4;
+    int32 skinId = 5;
+}
+
+// Class: table_VoDirectory, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_VoDirectory {
+    repeated VoDirectory list = 1;
+}
+
+// Class: WeightParameter, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message WeightParameter {
+    int32 id = 1;
+    int32 Proportion = 2;
+    int32 effect = 3;
+}
+
+// Class: table_WeightParameter, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_WeightParameter {
+    repeated WeightParameter list = 1;
+}
+
+// Class: Recorder, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Recorder {
+    uint32 MaxFrame = 1;
+    uint32 FloorId = 2;
+    Build BuildInfo = 3;
+    repeated Role RoleList = 4;
+    repeated CastSkill CastSkills = 5;
+    repeated BossLevelUp BossLevelUps = 6;
+    repeated Spawn Spawners = 7;
+    repeated Damage Damages = 8;
+    repeated Death Deaths = 9;
+    // Enum Descriptor Generation
+    enum EntityType {
+        PLAYER = 0;
+        BOSS = 1;
+        LEADER = 2;
+        ELITE = 3;
+    }
+
+    // Enum Descriptor Generation
+    enum EntityClass {
+        ROLE = 0;
+        MONSTER = 1;
+    }
+
+    // Enum Descriptor Generation
+    enum DamageType {
+        NORMAL = 0;
+        HEAL = 1;
+        REAL = 2;
+        DIRECT = 3;
+        DIRECT_HEAL = 4;
+        DOT = 5;
+        DOT_HEAL = 6;
+        HP_ABSORB = 7;
+        HP_REDUCE = 8;
+        HP_RECOVER = 9;
+        HP_REVERT = 10;
+        DAMAGE_DELAY = 11;
+        HEAL_DELAY = 12;
+    }
+
+    // Enum Descriptor Generation
+    enum DamageFlag {
+        NONE = 0;
+        CRIT = 1;
+        SHIELD_ABSORB = 2;
+        HP_LOCK = 4;
+    }
+
+    // Message Descriptor Generation
+    message OnceAttribute {
+        int32 Id = 1;
+        int32 Count = 2;
+    }
+
+    // Message Descriptor Generation
+    message Attribute {
+        double Origin = 1;
+        double BaseAmend = 2;
+        double PercentAmend = 3;
+        double AbsAmend = 4;
+    }
+
+    // Message Descriptor Generation
+    message SpecialAttribute {
+        int32 AttrType = 1;
+        float Value = 2;
+    }
+
+    // Message Descriptor Generation
+    message Attacker {
+        uint32 Id = 1;
+        uint32 ProtoId = 2;
+        EntityClass EntClass = 3;
+        float Atk = 4;
+        float SkillPercentAmend = 5;
+        float TalentGroupPercentAmend = 6;
+        float SkillAbsAmend = 7;
+        float TalentGroupAbsAmend = 8;
+        float PerkIntensityRatio = 9;
+        float SlotDmgRatio = 10;
+        float EE = 11;
+        float GenDmgRatio = 12;
+        float DmgPlus = 13;
+        float CritRatio = 14;
+        float FinalDmgRatio = 15;
+        float FinalDmgPlus = 16;
+        float CritRate = 17;
+        float DefPierce = 18;
+        float DefIgnore = 19;
+        int32 WEP = 20;
+        int32 FEP = 21;
+        int32 SEP = 22;
+        int32 AEP = 23;
+        int32 LEP = 24;
+        int32 DEP = 25;
+        float WEI = 26;
+        float FEI = 27;
+        float SEI = 28;
+        float AEI = 29;
+        float LEI = 30;
+        float DEI = 31;
+        float SkillIntensityRatio = 32;
+        repeated int32 BuffIDs = 33;
+        repeated int32 EffectIDs = 34;
+        repeated Attribute Attributes = 35;
+        repeated OnceAttribute OnceAttributes = 36;
+        repeated SpecialAttribute SpAttributes = 37;
+    }
+
+    // Message Descriptor Generation
+    message Defender {
+        uint32 Id = 1;
+        uint32 ProtoId = 2;
+        EntityClass EntClass = 3;
+        int64 HP = 4;
+        int64 MaxHP = 5;
+        float ErAmend = 6;
+        float DefAmend = 7;
+        float RcdSlotDmgRatio = 8;
+        float EERCD = 9;
+        float GenDmgRcdRatio = 10;
+        float DmgPlusRcd = 11;
+        float SrcDef = 12;
+        float CritResistance = 13;
+        int32 WER = 14;
+        int32 FER = 15;
+        int32 SER = 16;
+        int32 AER = 17;
+        int32 LER = 18;
+        int32 DER = 19;
+        float Suppress = 20;
+        float ToughnessBrokenDmgRatio = 21;
+        float envAmendRatio = 22;
+        repeated int32 BuffIDs = 23;
+        repeated int32 EffectIDs = 24;
+        repeated Attribute Attributes = 25;
+        repeated OnceAttribute OnceAttributes = 26;
+        repeated SpecialAttribute SpAttributes = 27;
+    }
+
+    // Message Descriptor Generation
+    message Spawn {
+        uint32 FrameId = 1;
+        EntityType EntType = 2;
+        uint32 Id = 3;
+        uint32 ProtoId = 4;
+        int64 HP = 5;
+    }
+
+    // Message Descriptor Generation
+    message Damage {
+        uint32 Id = 1;
+        uint32 FrameId = 2;
+        DamageType DmgType = 3;
+        int64 Value = 4;
+        int64 FinalValue = 5;
+        int32 HitDamageID = 6;
+        uint32 DmgFlag = 7;
+        Attacker From = 8;
+        Defender To = 9;
+    }
+
+    // Message Descriptor Generation
+    message Death {
+        uint32 FrameId = 1;
+        uint32 Id = 2;
+    }
+
+    // Message Descriptor Generation
+    message Role {
+        uint32 Id = 1;
+        int32 Level = 2;
+        int32 BreakCount = 3;
+        int64 Hp = 4;
+        int32 Atk = 5;
+        int32 Def = 6;
+        int32 MDef = 7;
+        int32 CritRate = 8;
+        int32 CritResistance = 9;
+        int32 CritPower = 10;
+        int32 HitRate = 11;
+        int32 Evd = 12;
+        int32 DefPierce = 13;
+        int32 DefIgnore = 14;
+        int32 WEP = 15;
+        int32 FEP = 16;
+        int32 SEP = 17;
+        int32 AEP = 18;
+        int32 LEP = 19;
+        int32 DEP = 20;
+        int32 WEE = 21;
+        int32 FEE = 22;
+        int32 SEE = 23;
+        int32 AEE = 24;
+        int32 LEE = 25;
+        int32 DEE = 26;
+        int32 WER = 27;
+        int32 FER = 28;
+        int32 SER = 29;
+        int32 AER = 30;
+        int32 LER = 31;
+        int32 DER = 32;
+        int32 WEI = 33;
+        int32 FEI = 34;
+        int32 SEI = 35;
+        int32 AEI = 36;
+        int32 LEI = 37;
+        int32 DEI = 38;
+        int32 ShieldBonus = 39;
+        int32 IncomingShieldBonus = 40;
+        int32 SkinId = 41;
+        int32 Suppress = 42;
+        int32 NormalDmgRatio = 43;
+        int32 SkillDmgRatio = 44;
+        int32 UltraDmgRatio = 45;
+        int32 OtherDmgRatio = 46;
+        int32 RcdNormalDmgRatio = 47;
+        int32 RcdSkillDmgRatio = 48;
+        int32 RcdUltraDmgRatio = 49;
+        int32 RcdOtherDmgRatio = 50;
+        int32 MarkDmgRatio = 51;
+        int32 SummonDmgRatio = 52;
+        int32 RcdSummonDmgRatio = 53;
+        int32 ProjectileDmgRatio = 54;
+        int32 RcdProjectileDmgRatio = 55;
+        int32 GENDMG = 56;
+        int32 DMGPLUS = 57;
+        int32 FINALDMG = 58;
+        int32 FINALDMGPLUS = 59;
+        int32 WEERCD = 60;
+        int32 FEERCD = 61;
+        int32 SEERCD = 62;
+        int32 AEERCD = 63;
+        int32 LEERCD = 64;
+        int32 DEERCD = 65;
+        int32 GENDMGRCD = 66;
+        int32 DMGPLUSRCD = 67;
+        int32 EnergyConvRatio = 68;
+        int32 EnergyEfficiency = 69;
+        int32 NormalCritRate = 70;
+        int32 SkillCritRate = 71;
+        int32 UltraCritRate = 72;
+        int32 MarkCritRate = 73;
+        int32 SummonCritRate = 74;
+        int32 ProjectileCritRate = 75;
+        int32 OtherCritRate = 76;
+        int32 NormalCritPower = 77;
+        int32 SkillCritPower = 78;
+        int32 UltraCritPower = 79;
+        int32 MarkCritPower = 80;
+        int32 SummonCritPower = 81;
+        int32 ProjectileCritPower = 82;
+        int32 OtherCritPower = 83;
+        string AttrId = 84;
+        repeated int32 SkillLevelList = 85;
+        repeated bool TalentInfoList = 86;
+    }
+
+    // Message Descriptor Generation
+    message Disc {
+        uint32 Id = 1;
+        uint32 Level = 2;
+        int32 BreakCount = 3;
+        int32 Advance = 4;
+    }
+
+    // Message Descriptor Generation
+    message Potential {
+        int32 Id = 1;
+        int32 Level = 2;
+    }
+
+    // Message Descriptor Generation
+    message Note {
+        int32 Id = 1;
+        int32 Count = 2;
+    }
+
+    // Message Descriptor Generation
+    message BuildChar {
+        uint32 Id = 1;
+        repeated Potential Potentials = 2;
+        repeated int32 EquipmentEffects = 3;
+    }
+
+    // Message Descriptor Generation
+    message Build {
+        int64 Id = 1;
+        string Name = 2;
+        repeated BuildChar Chars = 3;
+        repeated Disc Discs = 4;
+        repeated int32 SecondarySkills = 5;
+        repeated Note Notes = 6;
+    }
+
+    // Message Descriptor Generation
+    message BossLevelUp {
+        uint32 FrameId = 1;
+        int32 ProtoId = 2;
+        int32 Level = 3;
+        int64 HP = 4;
+        int64 MaxHP = 5;
+    }
+
+    // Message Descriptor Generation
+    message CastSkill {
+        uint32 FrameId = 1;
+        EntityClass EntClass = 2;
+        int32 ProtoId = 3;
+        int32 SkillId = 4;
+    }
+
+}
+
+// Class: Recorders, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message Recorders {
+    LevelType LvlType = 1;
+    uint64 UId = 2;
+    uint32 TowerId = 3;
+    repeated Recorder RecorderList = 4;
+    // Enum Descriptor Generation
+    enum LevelType {
+        STAR_TOWER = 0;
+        TRAVELER_DUEL = 1;
+        VAMPIRE = 2;
+        JOINT_DRILL_1 = 3;
+        SCOREBOSS = 4;
+    }
+
+}
+

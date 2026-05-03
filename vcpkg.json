@@ -1,6 +1,7 @@
 {
   "dependencies": [
-    "cpp-httplib",
+    "cpprestsdk",
+    "nlohmann-json",
     "openssl",
     "protobuf"
   ]

@@ -1,11 +1,10 @@
 ﻿// SrvProj.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
+#include "AccountServer.h"
 #include <iostream>
-#include <httplib.h>
-#include "logger.h"
-#include "GameServer.h"
-
+#include "AccountController.h"
+#include "Logger.h"
 
 int main() {
     Logger::Instance().ShowTimeStamp(true)
@@ -15,8 +14,13 @@ int main() {
 
     LOG_INFO_CFMT("Srv Proj");
     Logger::InfoCFmt("no file line");
-    GameServer server("0.0.0.0", 21000);
+
+    //GetServerList();
+	//GetNoticeList();
+    AccountServer server("0.0.0.0", 21000);
     server.Start();
+
+    Sleep(INFINITE);
     return 0;
 }
 

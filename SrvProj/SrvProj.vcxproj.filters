@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Handlers">
+      <UniqueIdentifier>{2b06421f-93b2-4ff1-888f-4f005c9a63ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Handlers">
+      <UniqueIdentifier>{8983d2c5-1f92-4f75-9e5b-15624a3272ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\proto">
+      <UniqueIdentifier>{5e963ac5-04e0-4549-bcdb-eee666bba23e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\proto">
+      <UniqueIdentifier>{b9381c15-f3eb-4dab-b58d-48039a25196e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SrvProj.cpp">
@@ -24,10 +36,25 @@
     <ClCompile Include="AeadTool.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Account.cpp">
+    <ClCompile Include="Handlers\GatewayController.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Login.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\dump.pb.cc">
+      <Filter>源文件\proto</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="GameServer.cpp">
+    <ClCompile Include="Util.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpMessage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +65,28 @@
     <ClInclude Include="AeadTool.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Account.h">
+    <ClInclude Include="Handlers\GatewayController.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Login.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\dump.pb.h">
+      <Filter>头文件\proto</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountServer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GameServer.h">
+    <ClInclude Include="Util.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpMessage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
