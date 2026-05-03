@@ -5,6 +5,7 @@
 #include <iostream>
 #include "AccountController.h"
 #include "Logger.h"
+#include "DbMgr.h"
 
 int main() {
     Logger::Instance().ShowTimeStamp(true)
@@ -14,11 +15,16 @@ int main() {
 
     LOG_INFO_CFMT("Srv Proj");
     Logger::InfoCFmt("no file line");
+    if (!DbMgr::Instance().Init(".\\Save.db")) {
+        return 1;
+    }
 
     //GetServerList();
 	//GetNoticeList();
     AccountServer server("0.0.0.0", 21000);
-    server.Start();
+    if (!server.Start()) {
+        return 1;
+    }
 
     Sleep(INFINITE);
     return 0;

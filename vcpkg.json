@@ -3,6 +3,7 @@
     "cpprestsdk",
     "nlohmann-json",
     "openssl",
-    "protobuf"
+    "protobuf",
+    "sqlite3"
   ]
 }

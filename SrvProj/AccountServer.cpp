@@ -183,7 +183,6 @@ void AccountServer::Stop() {
     mRunning = false;
 
     if (mListenSocket != INVALID_SOCKET) {
-        shutdown(mListenSocket, SD_BOTH);
         closesocket(mListenSocket);
         mListenSocket = INVALID_SOCKET;
     }

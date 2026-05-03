@@ -9,6 +9,8 @@
 #include <vector>
 #include <cpprest/http_client.h>
 #include "proto/dump.pb.h"
+#include "DbMgr.h"
+#include "ResultCode.h"
 
 std::optional<ServerListMeta> GetServerList()
 {
@@ -138,6 +140,76 @@ void NoticeListHandler(const HttpRequest& req, HttpResponse& rsp)
     }
 }
 
+//void QuickLoginHandler(const HttpRequest& req, HttpResponse& rsp) {
+//    std::string uid;
+//    std::string token;
+//
+//    auto it = req.headers.find("Authorization");
+//    if (it != req.headers.end()) {
+//        try {
+//            nlohmann::json authJson = nlohmann::json::parse(it->second);
+//            if (authJson.contains("Head")) {
+//                uid = authJson["Head"].value("UID", "");
+//                token = authJson["Head"].value("Token", "");
+//            }
+//        }
+//        catch (const std::exception& e) {
+//            LOG_WARNING("请求解析失败: {}", e.what());
+//            rsp.statusCode = 400;
+//            rsp.headers["Content-Type"] = "application/json";
+//            rsp.body = R"({"Code":400,"Msg":"Invalid JSON"})";
+//            return;
+//        }
+//    }
+//
+//    time_t now = time(NULL);
+//    nlohmann::json resp = {
+//        {"Code", 200},
+//        {"Msg", "OK"},
+//        {"Data", {
+//            {"AgeVerifyMethod", 0},
+//            {"Destroy", nullptr},
+//            {"IsTestAccount", false},
+//            {"Keys", nlohmann::json::array({
+//                {
+//                    {"ID", uid},
+//                    {"Type", "yostar"},
+//                    {"Key", "qinfyy233@gmail.com"},
+//                    {"NickName", "qi***33@gmail.com"},
+//                    {"CreatedAt", 0}
+//                }
+//            })},
+//            {"ServerNowAt", now},
+//            {"UserInfo", {
+//                {"ID", uid},
+//                {"UID2", 0},
+//                {"PID", "TW-NOVA"},
+//                {"Token", "1e91af080c107c0ec8bbb52b45a3245a79242093"},
+//                {"Birthday", ""},
+//                {"RegChannel", "googleplay"},
+//                {"TransCode", ""},
+//                {"State", 1},
+//                {"DeviceID", ""},
+//                {"CreatedAt", 1760971305}
+//            }},
+//            {"Yostar", {
+//                {"ID", "Y" + uid},
+//                {"Country", "TW"},
+//                {"Nickname", "user44151568718"},
+//                {"Picture", ""},
+//                {"State", 1},
+//                {"AgreeAd", 0},
+//                {"CreatedAt", 0}
+//            }},
+//            {"YostarDestroy", nullptr}
+//        }}
+//    };
+//
+//    rsp.statusCode = 200;
+//    rsp.headers["Content-Type"] = "application/json";
+//    rsp.body = resp.dump();
+//}
+
 void QuickLoginHandler(const HttpRequest& req, HttpResponse& rsp) {
     std::string uid;
     std::string token;
@@ -153,11 +225,20 @@ void QuickLoginHandler(const HttpRequest& req, HttpResponse& rsp) {
         }
         catch (const std::exception& e) {
             LOG_WARNING("请求解析失败: {}", e.what());
-            rsp.statusCode = 400;
+            rsp.statusCode = 200;
             rsp.headers["Content-Type"] = "application/json";
-            rsp.body = R"({"Code":400,"Msg":"Invalid JSON"})";
+            rsp.body = "{\"Code\":" + std::to_string(ResultCode::CLIENT_PARAMETER_ERROR) + ",\"Msg\":\"请求无效\"}";
             return;
         }
+    }
+
+    DbMgr::User user;
+    if (!DbMgr::Instance().LoginByUidToken(uid, token, user))
+    {
+        rsp.statusCode = 200;
+        rsp.body = "{\"Code\":" + std::to_string(ResultCode::TOKEN_AUTH_FAILED) + ",\"Msg\":\"授权过期\"}";
+        rsp.headers["Content-Type"] = "application/json";
+        return;
     }
 
     time_t now = time(NULL);
@@ -170,10 +251,10 @@ void QuickLoginHandler(const HttpRequest& req, HttpResponse& rsp) {
             {"IsTestAccount", false},
             {"Keys", nlohmann::json::array({
                 {
-                    {"ID", uid},
+                    {"ID", user.uid},
                     {"Type", "yostar"},
-                    {"Key", "qinfyy233@gmail.com"},
-                    {"NickName", "qi***33@gmail.com"},
+                    {"Key", user.openId},
+                    {"NickName", user.openId},
                     {"CreatedAt", 0}
                 }
             })},
@@ -182,18 +263,18 @@ void QuickLoginHandler(const HttpRequest& req, HttpResponse& rsp) {
                 {"ID", uid},
                 {"UID2", 0},
                 {"PID", "TW-NOVA"},
-                {"Token", "1e91af080c107c0ec8bbb52b45a3245a79242093"},
+                {"Token", user.token},
                 {"Birthday", ""},
                 {"RegChannel", "googleplay"},
                 {"TransCode", ""},
                 {"State", 1},
                 {"DeviceID", ""},
-                {"CreatedAt", 1760971305}
+                {"CreatedAt", 0}
             }},
             {"Yostar", {
-                {"ID", "Y" + uid},
+                {"ID", "Y" + user.uid},
                 {"Country", "TW"},
-                {"Nickname", "user44151568718"},
+                {"Nickname", "user" + user.uid},
                 {"Picture", ""},
                 {"State", 1},
                 {"AgreeAd", 0},
@@ -218,18 +299,26 @@ void LoginHandler(const HttpRequest& req, HttpResponse& rsp)
     catch (const std::exception& e) {
         LOG_WARNING("请求解析失败: {}", e.what());
 
-        rsp.statusCode = 400;
+        rsp.statusCode = 200;
         rsp.headers["Content-Type"] = "application/json";
-        rsp.body = R"({"Code":400,"Msg":"Invalid JSON"})";
+        rsp.body = "{\"Code\":" + std::to_string(ResultCode::CLIENT_PARAMETER_ERROR) + ",\"Data\":{},\"Msg\":\"请求无效\"}";
         return;
     }
 
     std::string openId = bodyJson.value("OpenID", "");
     std::string reqToken = bodyJson.value("Token", "");
 
-    // mock 数据
-    std::string uid = "123456";
-    std::string token = "123456";
+    DbMgr::User user;
+    if (!DbMgr::Instance().LoginByOpenId(openId, user))
+    {
+        if (!DbMgr::Instance().RegisterByOpenId(openId, user))
+        {
+            rsp.statusCode = 200;
+            rsp.body = "{\"Code\":" + std::to_string(ResultCode::PARAM_PID_INVALID) + ",\"Msg\":\"自动注册失败\"}";
+            rsp.headers["Content-Type"] = "application/json";
+            return;
+        }
+    }
 
     nlohmann::json resp = {
         {"Code", 200},
@@ -238,10 +327,10 @@ void LoginHandler(const HttpRequest& req, HttpResponse& rsp)
             {"AgeVerifyMethod", 0},
             {"IsNew", 0},
             {"UserInfo", {
-                {"ID", uid},
+                {"ID", user.uid},
                 {"UID2", 0},
                 {"PID", "TW-NOVA"},
-                {"Token", token},
+                {"Token", user.token},
                 {"Birthday", ""},
                 {"RegChannel", "googleplay"},
                 {"TransCode", ""},
@@ -250,9 +339,9 @@ void LoginHandler(const HttpRequest& req, HttpResponse& rsp)
                 {"CreatedAt", 0}
             }},
             {"Yostar", {
-                {"ID", "Y" + uid},
+                {"ID", "Y" + user.uid},
                 {"Country", "TW"},
-                {"Nickname", "user" + uid},
+                {"Nickname", "user" + user.uid},
                 {"Picture", ""},
                 {"State", 1},
                 {"AgreeAd", 0},
