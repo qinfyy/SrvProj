@@ -33,7 +33,7 @@ std::optional<ServerListMeta> GetServerList()
         char iv[16];
         memcpy(iv, body.data(), 16);
         std::string cipher(reinterpret_cast<const char*>(body.data() + 16), body.size() - 16);
-        std::string plain = AeadTool::DecryptAesCBCInfo(AeadTool::twMetaKey, iv, cipher);
+        std::string plain = AeadTool::DecryptAesCBCInfo(AeadTool::twServerMetaKey, iv, cipher);
         ServerListMeta obj;
         if (!obj.ParseFromString(plain))
             return std::nullopt;
@@ -92,7 +92,7 @@ void ServerListHandler(const HttpRequest& req, HttpResponse& rsp) {
     unsigned char iv[16];
     RAND_bytes(iv, sizeof(iv));
 
-	std::string cipher = AeadTool::EncryptAesCBCInfo(AeadTool::twMetaKey, reinterpret_cast<const char*>(iv) ,plain);
+	std::string cipher = AeadTool::EncryptAesCBCInfo(AeadTool::twServerMetaKey, reinterpret_cast<const char*>(iv) ,plain);
 
     std::string output;
     output.reserve(cipher.size() + 16);

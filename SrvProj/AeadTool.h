@@ -46,10 +46,28 @@
 class AeadTool
 {
 public:
-	inline static const char* twMetaKey = "owGYVDmfHrxi^4pm";
+	inline static const char* twServerMetaKey = "owGYVDmfHrxi^4pm";
+	inline static const char* twServerGarbleKey = "N&mfco452ZH5!nE3s&o5uxB57UGPENVo";
+
+	using AeadEncryptHandler = void(*)(std::string& result, const std::string& key, const std::string& nonce, const std::string& data, int dataLen, bool needAssociatedData);
+	using AeadDecryptHandler = bool(*)(std::string& result, const std::string& key, const std::string& nonce, const std::string& data, int dataLen, bool needAssociatedData);
+
+	static AeadEncryptHandler Encrypt;
+	static AeadDecryptHandler Decrypt;
+
+	static int function;
+	static int NonceSize;
+	static int MacSize;
+	static int KeySize;
+	static int IVSize;
+	//static GcmBlockCipher cipher;
+	//static AesEngine engine;
+	//static ChaCha20Poly1305 cipherCha20Poly1305;
 
 	static std::string DecryptAesCBCInfo(const char* key, const char* IV, const std::string& cipherBytes);
 	
 	static std::string EncryptAesCBCInfo(const char* key, const char* IV, const std::string& plainBytes);
+private:
+	static std::string associatedData;
 };
 
