@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message FriendAllAgreeResp {
+    bool Limit = 1;
+    repeated Friend Friends = 2;
+    repeated Friend Invites = 3;
+    bytes NextPackage = 2047;
+}

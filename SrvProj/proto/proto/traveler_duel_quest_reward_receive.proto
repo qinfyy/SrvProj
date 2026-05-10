@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TravelerDuelQuestRewardReceiveReq {
+    uint32 Id = 1;
+    QuestType Type = 2;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelQuestRewardReceiveResp {
+    repeated ItemTpl QuestRewards = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}

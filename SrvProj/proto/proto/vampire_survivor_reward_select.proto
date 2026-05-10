@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message VampireSurvivorRewardSelectReq {
+    bytes NextPackage = 2047;
+    oneof Select {
+        uint32 Index = 1;
+        bool ReRoll = 2;
+    }
+}
+
+message VampireSurvivorRewardSelectResp {
+    bytes NextPackage = 2047;
+    oneof Result {
+        Success Resp = 1;
+        VampireSurvivorFateCardSelect Pkg = 2;
+    }
+    message Success {
+        uint32 FateCardId = 1;
+        VampireSurvivorLevelReward Reward = 2;
+        repeated CardInfo ExtraCards = 3;
+    }
+
+}

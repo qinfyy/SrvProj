@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message PlayerSurveyReq {
+    int64 SurveyId = 1;
+    bytes NextPackage = 2047;
+}
+
+message PlayerSurveyResp {
+    string ActivityID = 1;
+    string NotifyUrl = 2;
+    bytes NextPackage = 2047;
+}

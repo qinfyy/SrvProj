@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TowerBookFateCardRewardReq {
+    uint32 CardBundleId = 1;
+    uint32 QuestId = 2;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message BuildConvertSubmitReq {
+    uint32 ActivityId = 1;
+    uint32 ContentId = 2;
+    repeated uint64 BuildIds = 3;
+    bytes NextPackage = 2047;
+}
+
+message BuildConvertSubmitResp {
+    ChangeInfo Change = 1;
+    repeated ItemTpl AwardItems = 2;
+    uint32 Number = 3;
+    bytes NextPackage = 2047;
+}

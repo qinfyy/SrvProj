@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ScoreBossApplyReq {
+    uint32 LevelId = 1;
+    uint64 BuildId = 2;
+    bytes NextPackage = 2047;
+}

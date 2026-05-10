@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_mining.proto";
+
+message ActivityMiningApplyReq {
+    uint32 ActivityId = 1;
+    bytes NextPackage = 2047;
+}
+
+message ActivityMiningApplyResp {
+    MiningLayer Layer = 1;
+    MiningChangeInfo MiningChangeInfo = 2;
+    bytes NextPackage = 2047;
+}

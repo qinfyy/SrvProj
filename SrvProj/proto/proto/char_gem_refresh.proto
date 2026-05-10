@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharGemRefreshReq {
+    uint32 CharId = 1;
+    uint32 SlotId = 2;
+    uint32 GemIndex = 3;
+    repeated uint32 LockAttrs = 4;
+    bytes NextPackage = 2047;
+}
+
+message CharGemRefreshResp {
+    repeated uint32 Attributes = 1;
+    ChangeInfo ChangeInfo = 2;
+    repeated uint32 OverlockCount = 3;
+    bytes NextPackage = 2047;
+}

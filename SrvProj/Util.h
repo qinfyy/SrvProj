@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <string>
+#include <vector>
 #include <windows.h>
 
 #define U8(str) reinterpret_cast<const char*>(u8##str)
@@ -17,3 +18,7 @@ std::string AnsiToUtf8(const std::string& str);
 std::string Utf8ToAnsi(const std::string& str);
 
 bool ContainsIgnoreCaseA(PCSTR haystack, PCSTR needle);
+
+std::string ByteVecToString(const std::vector<uint8_t>& data);
+
+std::vector<uint8_t> StringToByteVec(const std::string& s);

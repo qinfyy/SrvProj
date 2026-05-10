@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TravelerDuelRankInfo {
+    int64 LastRefreshTime = 1;
+    TravelerDuelRankData Self = 2;
+    repeated TravelerDuelRankData Rank = 3;
+    uint32 UploadRemainTimes = 4;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelRankChar {
+    uint32 Id = 1;
+    uint32 Level = 2;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelRankData {
+    uint64 Id = 1;
+    string NickName = 2;
+    uint32 WorldClass = 3;
+    uint32 HeadIcon = 4;
+    uint32 Score = 5;
+    uint32 Rank = 6;
+    uint32 BuildScore = 7;
+    uint32 TitlePrefix = 8;
+    uint32 TitleSuffix = 9;
+    repeated TravelerDuelRankChar Chars = 10;
+    repeated HonorInfo Honors = 15;
+    bytes NextPackage = 2047;
+}

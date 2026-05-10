@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message GemInfo {
+    string Id = 1;
+    bool Maiden = 2;
+    bytes NextPackage = 2047;
+}
+
+message MallGemList {
+    repeated GemInfo List = 1;
+    bytes NextPackage = 2047;
+}

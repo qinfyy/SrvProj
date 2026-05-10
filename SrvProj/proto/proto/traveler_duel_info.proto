@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TravelerDuelInfo {
+    uint32 DuelLevel = 1;
+    uint32 DuelExp = 2;
+    uint32 WeeklyAwardTimes = 3;
+    repeated TravelerDuelBossLevel Levels = 4;
+    TravelerDuelChallengeInfo Challenge = 5;
+    Quests Quests = 6;
+    bytes NextPackage = 2047;
+}

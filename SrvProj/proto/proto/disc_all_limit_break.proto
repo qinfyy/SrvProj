@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message DiscAllLimitBreakResp {
+    repeated DiscLimitBreakChange LimitBreaks = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message DiscLimitBreakChange {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    bytes NextPackage = 2047;
+}

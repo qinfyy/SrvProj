@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message GachaInfo {
+    uint32 Id = 1;
+    uint32 DaysCount = 2;
+    uint32 AupMissTimes = 3;
+    uint32 AMissTimes = 4;
+    bool ReveFirstTenReward = 11;
+    bool RecvGuaranteeReward = 12;
+    uint32 GachaTotalTimes = 13;
+    uint32 TotalTimes = 14;
+    uint32 AupGuaranteeTimes = 15;
+    bytes NextPackage = 2047;
+}
+
+message GachaInformationResp {
+    repeated GachaInfo Information = 1;
+    bytes NextPackage = 2047;
+}

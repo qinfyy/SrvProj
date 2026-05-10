@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message WeekBossSettleReq {
+    bool Result = 1;
+    uint32 Time = 2;
+    Events Events = 7;
+    bytes NextPackage = 2047;
+}
+
+message WeekBossLevelSettleResp {
+    bool First = 1;
+    ChangeInfo Change = 2;
+    repeated ItemTpl AwardItems = 3;
+    repeated ItemTpl FirstItems = 4;
+    bytes NextPackage = 2047;
+}

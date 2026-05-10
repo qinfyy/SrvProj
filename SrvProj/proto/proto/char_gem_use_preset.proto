@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package proto;
+
+message CharGemUsePresetReq {
+    uint32 CharId = 1;
+    uint32 PresetId = 2;
+    bytes NextPackage = 2047;
+}

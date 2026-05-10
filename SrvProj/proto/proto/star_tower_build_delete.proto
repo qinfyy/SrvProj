@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message StarTowerBuildDeleteReq {
+    repeated uint64 BuildIds = 1;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerBuildDeleteResp {
+    ChangeInfo Change = 1;
+    uint32 Ticket = 2;
+    bytes NextPackage = 2047;
+}

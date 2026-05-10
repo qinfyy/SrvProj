@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ResidentShopPurchaseReq {
+    uint32 ShopId = 1;
+    int64 RefreshTime = 2;
+    uint32 GoodsId = 3;
+    uint32 Number = 4;
+    bytes NextPackage = 2047;
+}
+
+message ResidentShopPurchaseResp {
+    bool IsRefresh = 1;
+    ResidentShop Shop = 2;
+    uint32 PurchasedNumber = 3;
+    ChangeInfo Change = 4;
+    bytes NextPackage = 2047;
+}

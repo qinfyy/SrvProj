@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTowerDefenseLevelSettleReq {
+    uint32 LevelId = 1;
+    uint32 Star = 2;
+    bytes NextPackage = 2047;
+}

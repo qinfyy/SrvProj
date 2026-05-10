@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+enum DiscReadType {
+    UnknownType = 0;
+    DiscStory = 1;
+    DiscAVG = 2;
+}
+
+message DiscReadRewardReceiveReq {
+    uint32 Id = 1;
+    DiscReadType ReadType = 2;
+    bytes NextPackage = 2047;
+}

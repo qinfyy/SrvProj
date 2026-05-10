@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TowerGrowthDetailResp {
+    repeated uint32 Detail = 1;
+    bytes NextPackage = 2047;
+}

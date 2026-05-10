@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_star_tower.proto";
+
+message StarTowerBuildLockUnlockReq {
+    uint64 BuildId = 1;
+    bool Lock = 2;
+    bytes NextPackage = 2047;
+}

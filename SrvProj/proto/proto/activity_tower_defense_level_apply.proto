@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTowerDefenseLevelApplyReq {
+    uint32 Level = 1;
+    repeated uint32 Characters = 2;
+    uint32 ItemId = 3;
+    bytes NextPackage = 2047;
+}

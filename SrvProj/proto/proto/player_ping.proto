@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message Ping {
+    bytes NextPackage = 2047;
+}
+
+message Pong {
+    int64 ServerTs = 1;
+    bytes NextPackage = 2047;
+}

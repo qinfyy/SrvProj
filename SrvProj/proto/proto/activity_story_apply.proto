@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityStoryApplyReq {
+    uint32 ActivityId = 1;
+    uint32 StoryId = 2;
+    uint64 BuildId = 3;
+    bytes NextPackage = 2047;
+}

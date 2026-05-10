@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+message ActivityCookieSettleReq {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint32 Score = 3;
+    uint32 CookieNum = 4;
+    uint32 PackageNum = 5;
+    uint32 PerfectNum = 6;
+    uint32 ExcellentNum = 7;
+    uint32 MissNum = 8;
+    uint32 Good = 9;
+    bytes NextPackage = 2047;
+}

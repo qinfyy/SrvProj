@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message ScoreBossRankInfo {
+    int64 LastRefreshTime = 1;
+    ScoreBossRankData Self = 2;
+    repeated ScoreBossRankData Rank = 3;
+    repeated uint64 Border = 4;
+    uint32 Total = 5;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossRankChar {
+    uint32 Id = 1;
+    uint32 Level = 2;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossRankTeam {
+    uint32 BuildScore = 1;
+    repeated ScoreBossRankChar Chars = 2;
+    uint32 LevelScore = 3;
+    uint32 LevelId = 4;
+    repeated uint32 Discs = 5;
+    repeated BuildPotential Potentials = 6;
+    repeated ItemTpl Notes = 7;
+    repeated uint32 ActiveSecondaryIds = 8;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossRankData {
+    uint64 Id = 1;
+    string NickName = 2;
+    uint32 WorldClass = 3;
+    uint32 HeadIcon = 4;
+    uint32 Score = 5;
+    uint32 Rank = 6;
+    uint32 TitlePrefix = 7;
+    uint32 TitleSuffix = 8;
+    repeated ScoreBossRankTeam Teams = 9;
+    repeated HonorInfo Honors = 15;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossRankTeams {
+    repeated ScoreBossRankTeam Teams = 1;
+    bytes NextPackage = 2047;
+}

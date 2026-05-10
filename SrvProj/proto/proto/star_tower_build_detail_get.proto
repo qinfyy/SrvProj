@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_star_tower.proto";
+
+message StarTowerBuildDetailGetReq {
+    uint64 BuildId = 1;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerBuildDetailGetResp {
+    StarTowerBuildDetail Detail = 1;
+    bytes NextPackage = 2047;
+}

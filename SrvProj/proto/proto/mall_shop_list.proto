@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ProductInfo {
+    string Id = 1;
+    int32 Stock = 2;
+    int64 RefreshTime = 3;
+    bytes NextPackage = 2047;
+}
+
+message MallShopProductList {
+    repeated ProductInfo List = 1;
+    bytes NextPackage = 2047;
+}

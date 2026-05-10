@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package proto;
+
+enum MiningGridType {
+    Destroyed = 0;
+    Fragile = 1;
+    Normal = 2;
+    Hard = 3;
+    SuperHard = 4;
+    TypeCounter = 5;
+}
+
+message MiningTreasure {
+    uint32 Id = 1;
+    repeated uint32 PosIndex = 2;
+    bool Received = 3;
+    bytes NextPackage = 2047;
+}
+
+message MiningGrid {
+    uint32 Id = 1;
+    uint32 PosIndex = 2;
+    MiningGridType GridType = 3;
+    bool Marked = 4;
+    bytes NextPackage = 2047;
+}
+
+message MiningSupport {
+    uint32 Id = 1;
+    int32 UsableCount = 2;
+    int32 UsedCount = 3;
+    bytes NextPackage = 2047;
+}
+
+message MiningMap {
+    uint32 Id = 1;
+    repeated MiningGrid Grids = 3;
+    repeated MiningTreasure Treasures = 2;
+    bytes NextPackage = 2047;
+}
+
+message MiningLayer {
+    uint32 Layer = 1;
+    MiningMap Map = 3;
+    repeated MiningSupport Supports = 4;
+    bytes NextPackage = 2047;
+}
+
+message MiningProcess {
+    int32 EffectType = 1;
+    repeated MiningGrid EffectedGrids = 2;
+    bytes NextPackage = 2047;
+}
+
+message MiningChangeInfo {
+    uint32 Score = 1;
+    repeated MiningProcess Processes = 2;
+    repeated uint32 ReceivedTreasures = 3;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TravelerDuelLevelSettleReq {
+    uint32 Star = 1;
+    uint32 Time = 2;
+    Events Events = 15;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelLevelSettleResp {
+    bool First = 1;
+    ChangeInfo Change = 2;
+    repeated ItemTpl AwardItems = 3;
+    repeated ItemTpl FirstItems = 4;
+    uint32 DuelLevel = 5;
+    uint32 DuelExp = 6;
+    int32 DuelExpChange = 7;
+    repeated AffinityInfo Affinities = 8;
+    uint32 BaseScore = 9;
+    uint32 TimeScore = 10;
+    uint32 FinalScore = 11;
+    uint32 MaxScore = 12;
+    uint32 UploadRemainTimes = 13;
+    repeated ItemTpl SurpriseItems = 14;
+    bytes NextPackage = 2047;
+}

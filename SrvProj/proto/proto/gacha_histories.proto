@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message GachaHistory {
+    repeated uint32 Ids = 1;
+    int64 Time = 2;
+    uint32 Gid = 3;
+    bytes NextPackage = 2047;
+}
+
+message GachaHistories {
+    repeated GachaHistory List = 1;
+    bytes NextPackage = 2047;
+}

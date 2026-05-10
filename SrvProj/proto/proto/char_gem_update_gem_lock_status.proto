@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+message CharGemUpdateGemLockStatusReq {
+    uint32 CharId = 1;
+    uint32 SlotId = 2;
+    uint32 GemIndex = 3;
+    bool Lock = 4;
+    bytes NextPackage = 2047;
+}

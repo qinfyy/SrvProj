@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message JointDrillApplyReq {
+    uint32 LevelId = 1;
+    uint64 BuildId = 2;
+    uint32 BossHp = 3;
+    uint32 BossHpMax = 4;
+    bool Simulate = 5;
+    bytes NextPackage = 2047;
+}
+
+message JointDrillApplyResp {
+    ChangeInfo Change = 1;
+    int64 StarTime = 2;
+    bytes NextPackage = 2047;
+}

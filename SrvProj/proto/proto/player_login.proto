@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+enum Platform {
+    Unknown = 0;
+    Ios = 1;
+    Android = 2;
+    PC = 3;
+    Harmonyos = 4;
+}
+
+message LoginReq {
+    Platform Platform = 11;
+    string Language = 12;
+    string Channel = 13;
+    string Device = 14;
+    string Version = 15;
+    bytes NextPackage = 2047;
+    oneof Auth {
+        Regular Account = 1;
+        Official Official = 2;
+        OfficialOverseas OfficialOverseas = 3;
+        string Token = 4;
+    }
+}
+
+message Official {
+    uint64 Uid = 1;
+    string Token = 2;
+    bytes NextPackage = 2047;
+}
+
+message OfficialOverseas {
+    string Uid = 1;
+    string Token = 2;
+    bytes NextPackage = 2047;
+}
+
+message Regular {
+    string Name = 1;
+    string Pass = 2;
+    bytes NextPackage = 2047;
+}
+
+message LoginResp {
+    string Token = 1;
+    bytes NextPackage = 2047;
+}

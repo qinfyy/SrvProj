@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message PlayerInfo {
+    AccInfo Acc = 1;
+    repeated Res Res = 2;
+    repeated Item Items = 3;
+    repeated Char Chars = 4;
+    TowerFormation Formation = 5;
+    EnergyInfo Energy = 7;
+    WorldClassInfo WorldClass = 8;
+    AgentData Agent = 9;
+    repeated uint32 RglPassedIds = 10;
+    repeated EquipmentInfo Equipments = 11;
+    repeated RegionBossLevel RegionBossLevels = 12;
+    Quests Quests = 13;
+    StateInfo State = 14;
+    uint32 SendGiftCnt = 15;
+    repeated uint32 Board = 16;
+    repeated uint32 DatingCharIds = 17;
+    bytes Achievements = 18;
+    repeated HandbookInfo Handbook = 19;
+    uint32 SigninIndex = 20;
+    repeated Title Titles = 21;
+    repeated DailyInstance DailyInstances = 22;
+    repeated DictionaryTab Dictionaries = 23;
+    repeated Activity Activities = 24;
+    PhoneInfo Phone = 25;
+    int64 TalentResetTime = 26;
+    uint32 EquipmentDoubleCount = 27;
+    repeated Disc Discs = 28;
+    repeated EquipmentInstance EquipmentInstances = 29;
+    StoryInfo Story = 30;
+    VampireSurvivorRecordInfo VampireSurvivorRecord = 31;
+    repeated uint32 DailyActiveIds = 32;
+    uint32 TourGuideQuestGroup = 33;
+    repeated SkillInstance SkillInstances = 34;
+    repeated WeekBossLevel WeekBossLevels = 35;
+    repeated CharGemInstance CharGemInstances = 36;
+    repeated TutorialLevel TutorialLevels = 37;
+    repeated uint32 WeeklyActiveIds = 38;
+    repeated AssistInfo Assists = 39;
+    bool DailyMallRewardStatus = 40;
+    repeated ActivityHonor ActivityHonors = 41;
+    int64 NicknameResetTime = 121;
+    int64 MusicInfo = 122;
+    repeated uint32 HonorList = 123;
+    repeated HonorInfo Honors = 124;
+    bool DailyShopRewardStatus = 125;
+    uint32 TowerTicket = 126;
+    int64 ServerTs = 127;
+    LastRead LastRead = 128;
+    bytes NextPackage = 2047;
+}
+
+message PhoneInfo {
+    uint32 NewMessage = 1;
+    uint32 ProgressMessage = 2;
+    bytes NextPackage = 2047;
+}
+
+message DictionaryEntry {
+    uint32 Index = 1;
+    uint32 Status = 2;
+    bytes NextPackage = 2047;
+}
+
+message DictionaryTab {
+    uint32 TabId = 1;
+    repeated DictionaryEntry Entries = 2;
+    bytes NextPackage = 2047;
+}
+
+message EnergyInfo {
+    Energy Energy = 1;
+    uint32 Count = 2;
+    bytes NextPackage = 2047;
+}
+
+message WorldClassInfo {
+    uint32 Cur = 1;
+    int32 LastExp = 2;
+    uint32 Stage = 3;
+    bytes NextPackage = 2047;
+}
+
+message AssistInfo {
+    uint32 Attribute = 1;
+    uint32 Group = 2;
+    bytes NextPackage = 2047;
+}

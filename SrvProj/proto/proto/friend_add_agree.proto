@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message FriendAddAgreeReq {
+    uint64 UId = 1;
+    bytes NextPackage = 2047;
+}
+
+message FriendAddAgreeResp {
+    Friend Friend = 1;
+    bytes NextPackage = 2047;
+}

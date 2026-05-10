@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message PlayerWorldClassRewardReq {
+    bytes NextPackage = 2047;
+    oneof Value {
+        uint32 Class = 1;
+        uint32 Stage = 2;
+    }
+}

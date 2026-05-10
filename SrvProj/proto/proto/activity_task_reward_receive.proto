@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTaskRewardReceiveReq {
+    uint32 GroupId = 1;
+    uint32 TabType = 2;
+    uint32 QuestId = 3;
+    bytes NextPackage = 2047;
+}

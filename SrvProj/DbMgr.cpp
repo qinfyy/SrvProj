@@ -1,4 +1,4 @@
-#include "DbMgr.h"
+﻿#include "DbMgr.h"
 #include <sstream>
 #include <functional>
 #include <ctime>

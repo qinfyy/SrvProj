@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharGemGenerateReq {
+    uint32 CharId = 1;
+    uint32 SlotId = 2;
+    bytes NextPackage = 2047;
+}
+
+message CharGemGenerateResp {
+    CharGem CharGem = 1;
+    ChangeInfo ChangeInfo = 2;
+    bytes NextPackage = 2047;
+}

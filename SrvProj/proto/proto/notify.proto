@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_mining.proto";
+import "public_star_tower.proto";
+
+message NewAgent {
+    repeated uint32 Ids = 1;
+    bytes NextPackage = 2047;
+}
+
+message SigninRewardUpdate {
+    uint32 Index = 1;
+    ChangeInfo Change = 2;
+    bool Switch = 6;
+    bytes NextPackage = 2047;
+}
+
+message OrderStateChange {
+    string OrderId = 1;
+    uint32 Store = 2;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerBookPotentialChange {
+    repeated StarTowerBookCharPotential CharPotentials = 1;
+    repeated uint32 CharIds = 2;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerBookEventChange {
+    repeated uint32 EventIds = 1;
+    bytes NextPackage = 2047;
+}
+
+message Skin {
+    bytes NextPackage = 2047;
+    oneof Type {
+        UI32 New = 1;
+        Transform Duplicated = 2;
+    }
+    message Transform {
+        uint32 ID = 1;
+        repeated ItemTpl Items = 2;
+    }
+
+}
+
+message SkinChange {
+    uint32 CharId = 1;
+    uint32 SkinId = 2;
+    bytes NextPackage = 2047;
+}
+
+message MonthlyCardRewards {
+    uint32 Id = 1;
+    ChangeInfo Change = 2;
+    int64 EndTime = 3;
+    repeated ItemTpl Rewards = 4;
+    uint32 Remaining = 5;
+    bool Switch = 6;
+    bytes NextPackage = 2047;
+}
+
+message TowerBookFateCardCollectNotify {
+    repeated uint32 Cards = 1;
+    bytes NextPackage = 2047;
+}
+
+message TowerBookFateCardRewardChangeNotify {
+    repeated uint32 List = 1;
+    bool Option = 2;
+    bytes NextPackage = 2047;
+}
+
+message HonorChangeNotify {
+    repeated HonorInfo Honors = 1;
+    bytes NextPackage = 2047;
+}
+
+message NoticeChangeNotify {
+    string Content = 1;
+    repeated int32 Channel = 2;
+    int64 StartTime = 3;
+    int64 EndTime = 4;
+    int32 Interval = 5;
+    int32 Duration = 6;
+    bool IsStop = 7;
+    bytes NextPackage = 2047;
+}
+
+message PlayerHeadIconChangeNotify {
+    uint32 Set = 1;
+    uint32 Del = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityMiningEnterLayerNotify {
+    MiningLayer Layer = 1;
+    MiningChangeInfo MiningChangeInfo = 2;
+    bytes NextPackage = 2047;
+}
+
+message OrderCollected {
+    repeated OrderStateChange Orders = 1;
+    bytes NextPackage = 2047;
+}
+
+message MilkoutCharacterUnlockNotify {
+    uint32 ActivityId = 1;
+    uint32 CharId = 2;
+    bytes NextPackage = 2047;
+}

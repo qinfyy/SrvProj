@@ -1,3 +1,4 @@
-﻿#include "../HttpMessage.h"
+﻿#pragma once
+#include "../HttpMessage.h"
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp);

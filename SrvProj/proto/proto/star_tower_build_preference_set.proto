@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_star_tower.proto";
+
+message StarTowerBuildPreferenceSetReq {
+    repeated uint64 CheckInIds = 1;
+    repeated uint64 CheckOutIds = 2;
+    bytes NextPackage = 2047;
+}

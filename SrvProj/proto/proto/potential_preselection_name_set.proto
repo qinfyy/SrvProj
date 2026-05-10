@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package proto;
+
+message PotentialPreselectionNameSetReq {
+    uint64 Id = 1;
+    string Name = 2;
+    bytes NextPackage = 2047;
+}

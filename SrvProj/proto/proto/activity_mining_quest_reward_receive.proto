@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityMiningQuestRewardReceiveReq {
+    uint32 ActivityId = 1;
+    uint32 QuestId = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityMiningQuestRewardReceiveResp {
+    repeated ItemTpl QuestRewards = 1;
+    ChangeInfo ChangeInfo = 2;
+    bytes NextPackage = 2047;
+}

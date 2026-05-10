@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message StarTowerApplyReq {
+    uint32 Id = 1;
+    uint32 FormationId = 2;
+    uint32 CharHp = 3;
+    uint32 MapId = 4;
+    uint32 ParamId = 5;
+    string MapParam = 6;
+    uint32 MapTableId = 7;
+    bool Sweep = 15;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerApplyResp {
+    StarTowerInfo Info = 1;
+    uint32 LastId = 2;
+    uint32 CoinQty = 4;
+    repeated SubNoteSkillInfo Infos = 5;
+    uint32 FateCardId = 6;
+    bool NewFateCard = 7;
+    uint32 SweepTicket = 8;
+    uint32 SweepTicketUndated = 9;
+    ChangeInfo Change = 15;
+    bytes NextPackage = 2047;
+}

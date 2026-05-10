@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_star_tower.proto";
+import "public.proto";
+
+message AssistGroupRewardResp {
+    ChangeInfo Change = 1;
+    repeated ItemTpl BuildRewards = 2;
+    StarTowerBuildInfo BuildInfo = 3;
+    bytes NextPackage = 2047;
+}

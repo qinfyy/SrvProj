@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_joint_drill.proto";
+
+message ActivityMsg {
+    uint32 Id = 1;
+    bytes NextPackage = 2047;
+    oneof Data {
+        ActivityPeriodic Periodic = 2;
+        ActivityLogin Login = 3;
+        ActivityMining Mining = 4;
+        ActivityJointDrill JointDrill = 5;
+        ActivityCookie Cookie = 6;
+        ActivityTowerDefense TowerDefense = 7;
+        ActivityTrial Trial = 8;
+        ActivityCG CG = 9;
+        ActivityLevels Levels = 10;
+        ActivityAvg Avg = 11;
+        ActivityTask Task = 12;
+        ActivityShop Shop = 13;
+        ActivityBuildConvert BdConvert = 14;
+        ActivityTrekkerVersus TrekkerVersus = 15;
+        ActivityStoryChapter StoryChapter = 16;
+        Milkout Milkout = 17;
+        ActivityPenguinCard PenguinCard = 18;
+        ActivityThrowGift ThrowGift = 19;
+        ActivityGDS GDS = 20;
+    }
+}
+
+message ActivityResp {
+    repeated ActivityMsg List = 1;
+    bytes NextPackage = 2047;
+}

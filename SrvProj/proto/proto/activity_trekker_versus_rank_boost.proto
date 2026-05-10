@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTrekkerVersusRankBoostReq {
+    uint32 ActivityId = 1;
+    repeated ItemInfo Items = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTrekkerVersusRankBoostResp {
+    uint32 Level = 1;
+    uint32 Exp = 2;
+    uint64 SelfHotValue = 3;
+    uint64 RivalHotValue = 4;
+    ChangeInfo Change = 5;
+    repeated ItemTpl AwardItems = 6;
+    bytes NextPackage = 2047;
+}

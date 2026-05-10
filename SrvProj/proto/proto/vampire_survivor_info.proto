@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message VampireSurvivorInfoResp {
+    uint32 Id = 1;
+    repeated VampireSurvivorEvent Events = 2;
+    VampireSurvivorLevelReward Reward = 3;
+    repeated VampireSceneInfo Scenes = 4;
+    repeated uint32 FateCardIds = 5;
+    VampireClientData ClientData = 6;
+    bytes NextPackage = 2047;
+}
+
+message VampireSceneInfo {
+    uint32 SceneType = 1;
+    uint64 BuildId = 2;
+    repeated uint32 KillCount = 3;
+    uint32 Time = 4;
+    bytes NextPackage = 2047;
+}

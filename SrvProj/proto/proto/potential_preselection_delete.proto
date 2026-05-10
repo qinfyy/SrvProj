@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package proto;
+
+message PotentialPreselectionDeleteReq {
+    repeated uint64 Ids = 1;
+    bytes NextPackage = 2047;
+}

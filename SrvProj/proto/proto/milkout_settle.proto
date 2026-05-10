@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message MilkoutCollect {
+    uint32 Id = 1;
+    uint32 Count = 2;
+    bytes NextPackage = 2047;
+}
+
+message MilkoutSettleReq {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint32 Seconds = 3;
+    uint32 MonsterDefeatCount = 4;
+    bool Win = 5;
+    uint32 CharId = 6;
+    uint32 Count = 7;
+    uint32 RemainHP = 8;
+    uint32 Score = 9;
+    repeated MilkoutCollect DropCollect = 10;
+    bytes NextPackage = 2047;
+}

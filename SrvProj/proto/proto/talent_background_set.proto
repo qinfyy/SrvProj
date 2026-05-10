@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TalentBackgroundSetReq {
+    uint32 GroupId = 1;
+    uint32 CharId = 2;
+    bytes NextPackage = 2047;
+}

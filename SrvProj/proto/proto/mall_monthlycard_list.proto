@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message MonthlyCardInfo {
+    string Id = 1;
+    uint32 Remaining = 2;
+    bool Received = 3;
+    bytes NextPackage = 2047;
+}
+
+message MallMonthlyCardList {
+    repeated MonthlyCardInfo List = 1;
+    bytes NextPackage = 2047;
+}

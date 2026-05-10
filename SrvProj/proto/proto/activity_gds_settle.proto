@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityGDSSettleReq {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint32 Floor = 3;
+    uint32 Score = 4;
+    uint32 CompletedTaskCount = 5;
+    repeated ActivityGDSItem Items = 6;
+    repeated ActivityGDSSkill Skills = 7;
+    bytes NextPackage = 2047;
+}
+
+message ActivityGDSItem {
+    uint32 ItemId = 1;
+    uint32 PickCount = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityGDSSkill {
+    uint32 SkillId = 1;
+    uint32 UseCount = 2;
+    bytes NextPackage = 2047;
+}

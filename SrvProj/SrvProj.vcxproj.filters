@@ -19,11 +19,11 @@
     <Filter Include="源文件\Handlers">
       <UniqueIdentifier>{8983d2c5-1f92-4f75-9e5b-15624a3272ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\proto">
-      <UniqueIdentifier>{5e963ac5-04e0-4549-bcdb-eee666bba23e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\proto">
+    <Filter Include="proto">
       <UniqueIdentifier>{b9381c15-f3eb-4dab-b58d-48039a25196e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\proto_cpp">
+      <UniqueIdentifier>{0448d93b-564d-4a52-9f91-0ec88d348ca4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,9 +42,6 @@
     <ClCompile Include="Handlers\Login.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
-    <ClCompile Include="proto\dump.pb.cc">
-      <Filter>源文件\proto</Filter>
-    </ClCompile>
     <ClCompile Include="AccountServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -59,6 +56,843 @@
     </ClCompile>
     <ClCompile Include="DbMgr.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSession.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GameServices.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\dump.pb.cc">
+      <Filter>proto</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\NetMsgId.pb.cc">
+      <Filter>proto</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\achievement_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\achievement_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_avg_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_cg_read.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_cookie_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_cookie_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_detail.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_gds_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_levels_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_levels_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_levels_sweep.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_login_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_mining_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_mining_dig.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_mining_move_to_next_layer.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_mining_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_mining_story_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_penguin_card_level_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_penguin_card_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_periodic_final_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_periodic_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_shop_purchase.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_story_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_story_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_task_group_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_task_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_throw_gift_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_tower_defense_level_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_tower_defense_level_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_tower_defense_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_tower_defense_story_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_idle_refresh.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_idle_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_rank_boost.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_schedule_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trekker_versus_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_trial_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\agent_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\agent_give_up.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\agent_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\battle_pass_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\battle_pass_level_buy.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\battle_pass_order.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\battle_pass_order_collect.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\battle_pass_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\battle_pass_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\build_convert_detail_list_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\build_convert_group_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\build_convert_submit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_advance.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_advance_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_affinity_gift_send.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_affinity_quset_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_archive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_dating_branch_a_select.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_dating_branch_b_select.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_dating_event_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_dating_gift_send.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_dating_landmark_select.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_favorite_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_equip_gem.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_generate.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_instance_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_instance_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_instance_sweep.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_refresh.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_rename_preset.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_replace_attribute.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_update_gem_lock_status.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_use_overlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_use_overlock_revert.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_gem_use_preset.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_recruitment.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_skill_upgrade.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_skin_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\char_upgrade.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\client_event_report.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\daily_instance_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\daily_instance_raid.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\daily_instance_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\daily_mall_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\daily_shop_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\dictionary_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\disc_all_limit_break.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\disc_limit_break.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\disc_promote.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\disc_read_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\disc_strengthen.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\energy_buy.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\energy_extract.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\energy_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\fragments_convert.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_add.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_add_agree.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_all_agree.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_delete.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_invites_delete.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_list_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_name_search.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_receive_energy.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_recommendation_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_send_energy.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_star_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\friend_uid_search.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_guarantee_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_histories.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_information.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_newbie_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_newbie_obtain.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_newbie_save.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_newbie_spin.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gacha_spin.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gem_convert.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\gm_sudo.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\ike.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\infinity_tower_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\infinity_tower_daily_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\infinity_tower_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\infinity_tower_plot_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\infinity_tower_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\item_product.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\item_quick_growth.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\item_use.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_continue.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_game_over.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_give_up.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_retreat.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_2_sync.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_continue.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_game_over.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_give_up.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_rank.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_retreat.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_sweep.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\joint_drill_sync.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mail_list.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mail_pin.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mail_read.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mail_recv.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mail_remove.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_gem_list.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_gem_order.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_monthlycard_list.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_monthlycard_order.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_order_cancel.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_order_collect.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_package_list.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_package_order.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_shop_list.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\mall_shop_order.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\milkout_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\notify.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\notify_gm.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\npc_affinity_book_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\npc_affinity_plot_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\phone_contacts_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\phone_contacts_report.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\phone_contacts_top.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_board.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_chars_show.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_data.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_destroy.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_exit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_formation.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_gender_edit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_head_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_headicon_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_honor_edit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_last_read_update.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_learn.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_login.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_music_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_name_edit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_ping.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_reg.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_signature_edit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_skin_show.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_survey.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_title_edit.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_world_calss_advance.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\player_world_class_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\plot_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\potential_preselection_delete.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\potential_preselection_import.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\potential_preselection_list.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\potential_preselection_name_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\potential_preselection_preference_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\potential_preselection_update.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\pubilc_gm.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\public.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\public_joint_drill.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\public_mining.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\public_star_tower.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_assist_group_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_assist_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_daily_active_reward_recevie.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_daily_reward_recevie.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_tour_guide_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_tower_guide_group_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_tower_reward_recevie.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_weekly_active_reward_recevie.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\quest_weekly_reward_recevie.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\redeem_code.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\region_boss_level_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\region_boss_level_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\region_boss_level_sweep.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\resident_shop_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\resident_shop_purchase.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\score_boss_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\score_boss_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\score_boss_rank.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\score_boss_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\score_boss_star_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\skill_instance_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\skill_instance_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\skill_instance_sweep.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_book_char_potential_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_book_event_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_book_potential_brief_list_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_book_potential_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_brief_list_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_delete.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_detail_get.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_lock_unlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_name_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_preference_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_build_whether_save.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_give_up.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\star_tower_interact.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\story_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\story_set_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\story_set_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\story_sett.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\talent_background_set.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\talent_group_unlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\talent_node_reset.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\talent_reset.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\talent_unlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tower_book_fate_card_detail.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tower_book_fate_card_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tower_growth_detail.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tower_growth_group_node_unlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tower_growth_node_unlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\traveler_duel_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\traveler_duel_level_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\traveler_duel_level_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\traveler_duel_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\traveler_duel_rank.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\traveler_duel_rank_upload.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tutorial_level_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\tutorial_level_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_area_change.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_extra_reward_select.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_restart.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_reward_chest.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_reward_select.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_survivor_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_talent_detail.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_talent_reset.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_talent_show.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\vampire_talent_unlock.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\week_boss_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\week_boss_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +909,7 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="proto\dump.pb.h">
-      <Filter>头文件\proto</Filter>
+      <Filter>proto</Filter>
     </ClInclude>
     <ClInclude Include="AccountServer.h">
       <Filter>头文件</Filter>
@@ -98,5 +932,847 @@
     <ClInclude Include="ResultCode.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GameSession.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\NetMsgId.pb.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="GameServices.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\achievement_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\achievement_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_avg_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_cg_read.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_cookie_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_cookie_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_detail.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_gds_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_levels_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_levels_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_levels_sweep.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_login_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_mining_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_mining_dig.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_mining_move_to_next_layer.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_mining_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_mining_story_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_penguin_card_level_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_penguin_card_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_periodic_final_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_periodic_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_shop_purchase.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_story_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_story_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_task_group_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_task_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_throw_gift_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_tower_defense_level_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_tower_defense_level_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_tower_defense_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_tower_defense_story_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_idle_refresh.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_idle_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_rank_boost.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_schedule_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trekker_versus_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_trial_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\agent_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\agent_give_up.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\agent_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\battle_pass_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\battle_pass_level_buy.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\battle_pass_order.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\battle_pass_order_collect.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\battle_pass_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\battle_pass_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\build_convert_detail_list_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\build_convert_group_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\build_convert_submit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_advance.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_advance_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_affinity_gift_send.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_affinity_quset_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_archive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_dating_branch_a_select.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_dating_branch_b_select.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_dating_event_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_dating_gift_send.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_dating_landmark_select.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_favorite_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_equip_gem.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_generate.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_instance_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_instance_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_instance_sweep.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_refresh.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_rename_preset.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_replace_attribute.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_update_gem_lock_status.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_use_overlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_use_overlock_revert.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_gem_use_preset.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_recruitment.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_skill_upgrade.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_skin_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\char_upgrade.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\client_event_report.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\daily_instance_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\daily_instance_raid.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\daily_instance_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\daily_mall_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\daily_shop_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\dictionary_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\disc_all_limit_break.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\disc_limit_break.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\disc_promote.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\disc_read_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\disc_strengthen.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\energy_buy.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\energy_extract.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\energy_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\fragments_convert.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_add.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_add_agree.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_all_agree.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_delete.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_invites_delete.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_list_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_name_search.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_receive_energy.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_recommendation_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_send_energy.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_star_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\friend_uid_search.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_guarantee_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_histories.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_information.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_newbie_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_newbie_obtain.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_newbie_save.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_newbie_spin.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gacha_spin.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gem_convert.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\gm_sudo.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\ike.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\infinity_tower_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\infinity_tower_daily_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\infinity_tower_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\infinity_tower_plot_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\infinity_tower_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\item_product.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\item_quick_growth.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\item_use.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_continue.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_game_over.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_give_up.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_retreat.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_2_sync.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_continue.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_game_over.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_give_up.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_rank.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_retreat.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_sweep.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\joint_drill_sync.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mail_list.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mail_pin.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mail_read.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mail_recv.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mail_remove.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_gem_list.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_gem_order.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_monthlycard_list.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_monthlycard_order.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_order_cancel.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_order_collect.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_package_list.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_package_order.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_shop_list.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\mall_shop_order.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\milkout_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\notify.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\notify_gm.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\npc_affinity_book_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\npc_affinity_plot_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\phone_contacts_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\phone_contacts_report.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\phone_contacts_top.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_board.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_chars_show.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_data.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_destroy.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_exit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_formation.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_gender_edit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_head_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_headicon_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_honor_edit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_last_read_update.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_learn.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_login.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_music_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_name_edit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_ping.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_reg.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_signature_edit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_skin_show.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_survey.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_title_edit.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_world_calss_advance.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\player_world_class_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\plot_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\potential_preselection_delete.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\potential_preselection_import.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\potential_preselection_list.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\potential_preselection_name_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\potential_preselection_preference_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\potential_preselection_update.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\pubilc_gm.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\public.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\public_joint_drill.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\public_mining.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\public_star_tower.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_assist_group_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_assist_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_daily_active_reward_recevie.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_daily_reward_recevie.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_tour_guide_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_tower_guide_group_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_tower_reward_recevie.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_weekly_active_reward_recevie.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\quest_weekly_reward_recevie.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\redeem_code.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\region_boss_level_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\region_boss_level_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\region_boss_level_sweep.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\resident_shop_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\resident_shop_purchase.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\score_boss_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\score_boss_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\score_boss_rank.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\score_boss_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\score_boss_star_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\skill_instance_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\skill_instance_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\skill_instance_sweep.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_book_char_potential_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_book_event_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_book_potential_brief_list_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_book_potential_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_brief_list_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_delete.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_detail_get.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_lock_unlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_name_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_preference_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_build_whether_save.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_give_up.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\star_tower_interact.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\story_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\story_set_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\story_set_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\story_sett.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\talent_background_set.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\talent_group_unlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\talent_node_reset.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\talent_reset.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\talent_unlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tower_book_fate_card_detail.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tower_book_fate_card_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tower_growth_detail.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tower_growth_group_node_unlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tower_growth_node_unlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\traveler_duel_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\traveler_duel_level_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\traveler_duel_level_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\traveler_duel_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\traveler_duel_rank.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\traveler_duel_rank_upload.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tutorial_level_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\tutorial_level_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_area_change.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_extra_reward_select.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_restart.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_reward_chest.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_reward_select.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_survivor_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_talent_detail.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_talent_reset.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_talent_show.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\vampire_talent_unlock.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\week_boss_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SrvProj.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

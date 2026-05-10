@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+message CharGemRenamePresetReq {
+    uint32 CharId = 1;
+    uint32 PresetId = 2;
+    string NewName = 3;
+    bytes NextPackage = 2047;
+}

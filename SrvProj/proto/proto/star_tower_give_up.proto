@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message StarTowerGiveUpResp {
+    ChangeInfo Change = 1;
+    StarTowerBuildInfo Build = 2;
+    repeated NPCAffinityLevelReward Reward = 3;
+    uint32 NpcInteraction = 4;
+    repeated ItemTpl TowerRewards = 5;
+    uint32 Floor = 12;
+    uint32 PotentialCnt = 13;
+    uint32 TotalTime = 14;
+    repeated uint64 TotalDamages = 15;
+    bytes NextPackage = 2047;
+}

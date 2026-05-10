@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message PlayerReg {
+    string Nickname = 1;
+    bool Gender = 2;
+    bytes NextPackage = 2047;
+}

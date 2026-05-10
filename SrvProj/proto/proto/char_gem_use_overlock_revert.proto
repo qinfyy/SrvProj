@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+message CharGemOverlockRevertReq {
+    uint32 CharId = 1;
+    uint32 SlotId = 2;
+    uint32 GemIndex = 3;
+    uint32 AttrIndex = 4;
+    bytes NextPackage = 2047;
+}

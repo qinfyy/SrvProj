@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message FriendReceiveEnergyReq {
+    repeated uint64 UIds = 1;
+    bytes NextPackage = 2047;
+}
+
+message FriendReceiveEnergyResp {
+    repeated uint64 UIds = 1;
+    ChangeInfo Change = 2;
+    uint32 ReceiveEnergyCnt = 3;
+    bytes NextPackage = 2047;
+}

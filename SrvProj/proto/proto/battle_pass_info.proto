@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message BattlePassInfo {
+    uint32 Id = 1;
+    uint32 Mode = 2;
+    uint32 Version = 3;
+    int64 Deadline = 4;
+    uint32 Level = 5;
+    uint32 Exp = 6;
+    uint32 ExpThisWeek = 7;
+    bytes BasicReward = 8;
+    bytes PremiumReward = 9;
+    Quests DailyQuests = 10;
+    Quests WeeklyQuests = 11;
+    bytes NextPackage = 2047;
+}

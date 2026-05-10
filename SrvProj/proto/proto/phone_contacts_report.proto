@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message PhoneContactsReportReq {
+    uint32 ChatId = 1;
+    repeated uint32 Options = 2;
+    uint32 Process = 3;
+    bool End = 4;
+    bytes NextPackage = 2047;
+}

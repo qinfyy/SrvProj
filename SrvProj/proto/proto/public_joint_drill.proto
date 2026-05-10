@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityJointDrill {
+    JointDrillMeta Meta = 1;
+    repeated JointDrillLevel PassedLevels = 2;
+    repeated ActivityQuest Quests = 3;
+    bytes NextPackage = 2047;
+    oneof ModeInfo {
+        Mode1Meta Mode1 = 9;
+        Mode2Meta Mode2 = 10;
+    }
+}
+
+message JointDrillMeta {
+    uint32 LevelId = 1;
+    uint32 Floor = 2;
+    int64 StartTime = 3;
+    repeated JointDrillTeam Teams = 5;
+    bool Simulate = 6;
+    uint32 TotalScore = 7;
+    bytes NextPackage = 2047;
+}
+
+message Mode1Meta {
+    uint32 BossHp = 1;
+    uint32 BossHpMax = 2;
+    bytes Record = 3;
+    bytes NextPackage = 2047;
+}
+
+message Mode2Meta {
+    repeated JointDrillBossHp BossHps = 1;
+    repeated JointDrillBossHp BossHpMaxes = 2;
+    bytes Record = 3;
+    bytes NextPackage = 2047;
+}
+
+message JointDrillBossHp {
+    uint32 Id = 1;
+    uint32 Hp = 2;
+    bytes NextPackage = 2047;
+}
+
+message JointDrillTeam {
+    repeated JointDrillChar Chars = 1;
+    uint32 BuildScore = 2;
+    uint32 Damage = 3;
+    uint32 Time = 4;
+    uint64 BuildId = 5;
+    bytes NextPackage = 2047;
+}
+
+message JointDrillChar {
+    uint32 CharId = 1;
+    uint32 CharLevel = 2;
+    bytes NextPackage = 2047;
+}
+
+message JointDrillLevel {
+    uint32 LevelId = 1;
+    uint32 Score = 2;
+    bytes NextPackage = 2047;
+}
+
+message JointDrillSettle {
+    ChangeInfo Change = 1;
+    repeated ItemTpl Items = 2;
+    uint32 FightScore = 3;
+    uint32 HpScore = 4;
+    uint32 DifficultyScore = 5;
+    uint32 Old = 13;
+    uint32 New = 14;
+    string Token = 15;
+    bytes NextPackage = 2047;
+}

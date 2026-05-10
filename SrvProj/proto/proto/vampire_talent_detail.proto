@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message VampireTalentDetailResp {
+    bytes Nodes = 1;
+    int64 ResetTime = 3;
+    uint32 ActiveCount = 9;
+    uint32 ObtainCount = 10;
+    bytes NextPackage = 2047;
+}

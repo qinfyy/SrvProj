@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message FriendStarSetReq {
+    repeated uint64 UIds = 1;
+    bool Star = 2;
+    bytes NextPackage = 2047;
+}

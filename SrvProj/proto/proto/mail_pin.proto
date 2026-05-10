@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message MailPinRequest {
+    uint32 Id = 1;
+    uint64 Flag = 2;
+    bool Pin = 3;
+    bytes NextPackage = 2047;
+}

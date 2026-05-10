@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message JointDrillSyncReq {
+    uint32 Floor = 1;
+    uint32 Time = 2;
+    uint32 Damage = 3;
+    uint32 BossHp = 4;
+    uint32 BossHpMax = 5;
+    bytes Record = 6;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharDatingBranchBSelectReq {
+    uint32 OptionId = 1;
+    bytes NextPackage = 2047;
+}
+
+message CharDatingBranchBSelectResp {
+    uint32 CharacterEventId = 1;
+    uint32 AfterBranchId = 2;
+    AffinityInfo Info = 7;
+    ChangeInfo Change = 8;
+    bytes NextPackage = 2047;
+}

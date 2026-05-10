@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message StarTowerBuildWhetherSaveReq {
+    bool Delete = 1;
+    bool Lock = 2;
+    bool Preference = 3;
+    string BuildName = 4;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerBuildWhetherSaveResp {
+    ChangeInfo Change = 1;
+    uint32 Ticket = 2;
+    bytes NextPackage = 2047;
+}

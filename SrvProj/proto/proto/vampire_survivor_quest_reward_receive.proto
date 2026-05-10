@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message VampireSurvivorQuestRewardReceiveReq {
+    uint32 QuestType = 1;
+    repeated uint32 QuestIds = 2;
+    bytes NextPackage = 2047;
+}

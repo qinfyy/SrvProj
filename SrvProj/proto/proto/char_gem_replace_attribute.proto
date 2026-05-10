@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+message CharGemReplaceAttributeReq {
+    uint32 CharId = 1;
+    uint32 SlotId = 2;
+    uint32 GemIndex = 3;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message FriendListGetResp {
+    repeated FriendDetail Friends = 1;
+    repeated Friend Invites = 2;
+    uint32 ReceiveEnergyCnt = 3;
+    bytes NextPackage = 2047;
+}

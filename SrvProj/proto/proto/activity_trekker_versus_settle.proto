@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTrekkerVersusSettleReq {
+    uint32 ActivityId = 1;
+    uint32 Time = 2;
+    bool Passed = 3;
+    Events Events = 8;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTrekkerVersusSettleResp {
+    TrekkerVersusShow Show = 1;
+    bytes NextPackage = 2047;
+}

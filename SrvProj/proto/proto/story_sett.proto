@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message StorySettle {
+    uint32 Idx = 1;
+    repeated StoryOptions Major = 2;
+    repeated StoryOptions Personality = 3;
+    bytes NextPackage = 2047;
+}
+
+message StorySettleReq {
+    repeated StorySettle List = 1;
+    Events Events = 14;
+    repeated uint32 Evidences = 15;
+    bytes NextPackage = 2047;
+}
+
+message StoryOptions {
+    uint32 Group = 1;
+    uint32 Choice = 2;
+    uint32 Factor = 3;
+    bytes NextPackage = 2047;
+}

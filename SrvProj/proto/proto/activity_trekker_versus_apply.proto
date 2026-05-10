@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+message ActivityTrekkerVersusApplyReq {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint64 BuildId = 3;
+    repeated uint32 AffixIds = 4;
+    bytes NextPackage = 2047;
+}

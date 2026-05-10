@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "traveler_duel_rank_upload.proto";
+
+message VampireSurvivorSettleReq {
+    repeated uint32 KillCount = 1;
+    uint32 Time = 2;
+    bool Defeat = 3;
+    Events Events = 7;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorSettleResp {
+    bytes NextPackage = 2047;
+    oneof Result {
+        VictoryData Victory = 1;
+        DefeatData Defeat = 2;
+    }
+    message VictoryData {
+        repeated VampireSurvivorAreaInfo Infos = 1;
+        uint32 FinalScore = 2;
+        uint32 SeasonId = 3;
+    }
+
+    message DefeatData {
+        uint32 FinalScore = 1;
+        uint32 SeasonId = 2;
+    }
+
+}
+
+message VampireSurvivorAreaInfo {
+    repeated uint32 KillCount = 1;
+    repeated uint32 KillScore = 2;
+    uint32 BossTime = 3;
+    uint32 Score = 4;
+    bytes NextPackage = 2047;
+}

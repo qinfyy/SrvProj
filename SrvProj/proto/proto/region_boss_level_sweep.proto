@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message RegionBossLevelSweepReq {
+    uint32 Id = 1;
+    uint32 Times = 2;
+    Events Events = 15;
+    bytes NextPackage = 2047;
+}
+
+message RegionBossLevelSweepResp {
+    ChangeInfo Change = 1;
+    repeated RegionBossLevelSweepRewards Rewards = 2;
+    bytes NextPackage = 2047;
+}
+
+message RegionBossLevelSweepRewards {
+    repeated ItemTpl AwardItems = 1;
+    uint32 Exp = 2;
+    bytes NextPackage = 2047;
+}

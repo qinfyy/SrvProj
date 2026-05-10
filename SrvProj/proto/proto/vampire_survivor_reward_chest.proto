@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message VampireSurvivorRewardChestReq {
+    uint32 EventType = 1;
+    uint32 Number = 2;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorRewardChestResp {
+    repeated CardInfo ChestCards = 1;
+    repeated CardInfo ExtraCards = 2;
+    bytes NextPackage = 2047;
+}

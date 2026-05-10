@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharGemInstanceSettleReq {
+    uint32 Star = 1;
+    Events Events = 15;
+    bytes NextPackage = 2047;
+}
+
+message CharGemInstanceSettleResp {
+    bool First = 1;
+    bool ThreeStar = 2;
+    ChangeInfo Change = 3;
+    repeated ItemTpl AwardItems = 4;
+    repeated ItemTpl FirstItems = 5;
+    repeated ItemTpl ThreeStarItems = 6;
+    uint32 Exp = 7;
+    repeated ItemTpl SurpriseItems = 8;
+    bytes NextPackage = 2047;
+}

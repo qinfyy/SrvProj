@@ -1,0 +1,1079 @@
+syntax = "proto3";
+
+package proto;
+
+import "google/protobuf/any.proto";
+
+enum QuestType {
+    UnknownQuest = 0;
+    TourGuide = 1;
+    Daily = 2;
+    TravelerDuel = 3;
+    TravelerDuelChallenge = 4;
+    Affinity = 5;
+    BattlePassDaily = 6;
+    BattlePassWeekly = 7;
+    VampireSurvivorNormal = 8;
+    VampireSurvivorSeason = 9;
+    Tower = 10;
+    Demon = 11;
+    TowerEvent = 12;
+    Weekly = 13;
+    Assist = 14;
+}
+
+message Nil {
+    bytes NextPackage = 2047;
+}
+
+message I32 {
+    int32 Value = 1;
+    bytes NextPackage = 2047;
+}
+
+message I64 {
+    int64 Value = 1;
+    bytes NextPackage = 2047;
+}
+
+message UI32 {
+    uint32 Value = 1;
+    bytes NextPackage = 2047;
+}
+
+message UI64 {
+    uint64 Value = 1;
+    bytes NextPackage = 2047;
+}
+
+message String {
+    string Value = 1;
+    bytes NextPackage = 2047;
+}
+
+message I32V {
+    int32 Value = 1;
+    uint32 Version = 2;
+    bytes NextPackage = 2047;
+}
+
+message UI32V {
+    uint32 Value = 1;
+    uint32 Version = 2;
+    bytes NextPackage = 2047;
+}
+
+message UI64V {
+    uint64 Value = 1;
+    uint32 Version = 2;
+    bytes NextPackage = 2047;
+}
+
+message StringV {
+    string Value = 1;
+    uint32 Version = 2;
+    bytes NextPackage = 2047;
+}
+
+message Bytes {
+    bytes Value = 1;
+    bytes NextPackage = 2047;
+}
+
+message BytesV {
+    bytes Value = 1;
+    uint32 Version = 2;
+    bytes NextPackage = 2047;
+}
+
+message Boolean {
+    bool Ok = 1;
+    bytes NextPackage = 2047;
+}
+
+message Error {
+    uint32 Code = 1;
+    repeated string Arguments = 2;
+    uint64 TraceId = 3;
+    int32 Action = 4;
+    bytes NextPackage = 2047;
+}
+
+message AccInfo {
+    uint64 Id = 1;
+    string NickName = 2;
+    uint32 Hashtag = 3;
+    uint32 HeadIcon = 4;
+    bool Gender = 5;
+    string Signature = 6;
+    uint32 TitlePrefix = 7;
+    uint32 TitleSuffix = 8;
+    repeated CharShow Chars = 9;
+    uint32 SkinId = 10;
+    repeated NewbieInfo Newbies = 14;
+    int64 CreateTime = 15;
+    bytes NextPackage = 2047;
+}
+
+message NewbieInfo {
+    uint32 GroupId = 1;
+    int32 StepId = 2;
+    bytes NextPackage = 2047;
+}
+
+message QuestProgress {
+    uint32 Cur = 1;
+    uint32 Max = 2;
+    bytes NextPackage = 2047;
+}
+
+message Quest {
+    uint32 Id = 1;
+    uint32 Status = 2;
+    int64 Expire = 3;
+    QuestType Type = 4;
+    repeated QuestProgress Progress = 15;
+    bytes NextPackage = 2047;
+}
+
+message Quests {
+    repeated Quest List = 1;
+    bytes NextPackage = 2047;
+}
+
+message Achievement {
+    uint32 Id = 1;
+    uint32 Status = 2;
+    int64 Completed = 3;
+    repeated QuestProgress Progress = 4;
+    bytes NextPackage = 2047;
+}
+
+message Achievements {
+    repeated Achievement List = 1;
+    bytes NextPackage = 2047;
+}
+
+message Dictionary {
+    uint32 TabId = 1;
+    uint32 Index = 2;
+    uint32 Status = 3;
+    bytes NextPackage = 2047;
+}
+
+message Dictionaries {
+    repeated Dictionary List = 1;
+    bytes NextPackage = 2047;
+}
+
+message Event {
+    uint32 Id = 1;
+    repeated uint32 Data = 2;
+    bytes NextPackage = 2047;
+}
+
+message Events {
+    repeated Event List = 1;
+    bytes NextPackage = 2047;
+}
+
+message Mail {
+    uint32 Id = 1;
+    string Subject = 2;
+    string Desc = 3;
+    uint32 TemplateId = 4;
+    string Author = 5;
+    int64 Time = 6;
+    int64 Deadline = 7;
+    bool Read = 8;
+    bool Recv = 9;
+    repeated ItemTpl Attachments = 10;
+    uint64 Flag = 11;
+    repeated string SubjectArgs = 12;
+    repeated string DescArgs = 13;
+    int64 SurveyId = 14;
+    bool Pin = 15;
+    bytes NextPackage = 2047;
+}
+
+message Mails {
+    repeated Mail List = 1;
+    bytes NextPackage = 2047;
+}
+
+message MailRequest {
+    uint32 Id = 1;
+    uint64 Flag = 2;
+    bytes NextPackage = 2047;
+}
+
+message MailState {
+    bool New = 1;
+    bool Revoke = 2;
+    bytes NextPackage = 2047;
+}
+
+message AchievementState {
+    bool New = 1;
+    bytes NextPackage = 2047;
+}
+
+message FriendState {
+    uint64 Id = 1;
+    uint32 Action = 2;
+    bytes NextPackage = 2047;
+}
+
+message BattlePassState {
+    int32 State = 1;
+    bytes NextPackage = 2047;
+}
+
+message CharAdvanceRewardState {
+    uint32 CharId = 1;
+    bytes Flag = 2;
+    bytes NextPackage = 2047;
+}
+
+message WorldClassRewardState {
+    bytes Flag = 1;
+    bytes NextPackage = 2047;
+}
+
+message FriendEnergyState {
+    bool State = 1;
+    bytes NextPackage = 2047;
+}
+
+message CharAffinityRewardState {
+    uint32 CharId = 1;
+    repeated uint32 QuestIds = 2;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerState {
+    uint32 Id = 1;
+    uint32 ReConnection = 2;
+    uint64 BuildId = 3;
+    repeated uint32 CharIds = 4;
+    uint32 Floor = 6;
+    bool Sweep = 15;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerBookState {
+    repeated uint32 CharIds = 1;
+    repeated uint32 EventIds = 2;
+    repeated uint32 Bundles = 3;
+    bytes NextPackage = 2047;
+}
+
+message StateInfo {
+    MailState Mail = 1;
+    uint32 InfinityTower = 2;
+    bool Friend = 3;
+    BattlePassState BattlePass = 4;
+    WorldClassRewardState WorldClassReward = 5;
+    repeated CharAdvanceRewardState CharAdvanceRewards = 6;
+    FriendEnergyState FriendEnergy = 7;
+    repeated CharAffinityRewardState CharAffinityRewards = 8;
+    bool NpcAffinityReward = 9;
+    MallPackageState MallPackage = 10;
+    uint32 VampireSurvivorId = 11;
+    AchievementState Achievement = 15;
+    QuestState TravelerDuelQuest = 16;
+    int64 TravelerDuelIdleReward = 17;
+    StarTowerState StarTower = 18;
+    StarTowerBookState StarTowerBook = 19;
+    ScoreBossState ScoreBoss = 20;
+    repeated ActivityState Activities = 21;
+    bool StorySet = 22;
+    bytes NextPackage = 2047;
+}
+
+message ItemTpl {
+    uint32 Tid = 1;
+    int32 Qty = 2;
+    bytes NextPackage = 2047;
+}
+
+message ItemTpls {
+    repeated ItemTpl Items = 1;
+    bytes NextPackage = 2047;
+}
+
+message Item {
+    uint64 Id = 1;
+    uint32 Tid = 2;
+    int32 Qty = 3;
+    int64 Expire = 4;
+    bytes NextPackage = 2047;
+}
+
+message Res {
+    uint32 Tid = 1;
+    int32 Qty = 2;
+    bytes NextPackage = 2047;
+}
+
+message Title {
+    uint32 TitleId = 1;
+    bytes NextPackage = 2047;
+}
+
+message Char {
+    uint32 Tid = 1;
+    uint32 Exp = 2;
+    repeated uint32 DatingLandmarkIds = 3;
+    repeated uint32 DatingEventIds = 4;
+    repeated uint32 DatingEventRewardIds = 5;
+    repeated uint64 EquipmentIds = 6;
+    uint32 Level = 9;
+    repeated uint32 SkillLvs = 10;
+    uint32 Skin = 12;
+    uint32 AffinityLevel = 13;
+    uint32 AffinityExp = 14;
+    uint32 Advance = 15;
+    repeated uint32 Plots = 16;
+    Quests AffinityQuests = 17;
+    bytes TalentNodes = 19;
+    repeated uint32 ArchiveRewardIds = 20;
+    uint32 TalentBackground = 21;
+    repeated CharGemSlot CharGemSlots = 22;
+    CharGemPresets CharGemPresets = 23;
+    bool IsFavorite = 31;
+    int64 CreateTime = 127;
+    bytes NextPackage = 2047;
+}
+
+message Energy {
+    uint32 Primary = 1;
+    uint32 Secondary = 2;
+    bool IsPrimary = 3;
+    int64 UpdateTime = 4;
+    int64 NextDuration = 5;
+    bytes NextPackage = 2047;
+}
+
+message WorldClass {
+    uint32 AddClass = 1;
+    int32 ExpChange = 2;
+    bytes NextPackage = 2047;
+}
+
+message Equipment {
+    EquipmentInfo Info = 1;
+    int32 Qty = 2;
+    bytes NextPackage = 2047;
+}
+
+message Disc {
+    uint32 Id = 1;
+    uint32 Level = 2;
+    uint32 Exp = 3;
+    uint32 Phase = 4;
+    uint32 Star = 5;
+    bool Read = 6;
+    bool Avg = 7;
+    int64 CreateTime = 15;
+    bytes NextPackage = 2047;
+}
+
+message Transform {
+    repeated ItemTpl Src = 1;
+    repeated ItemTpl Dst = 2;
+    bytes NextPackage = 2047;
+}
+
+message HeadIcon {
+    uint32 Tid = 1;
+    bytes NextPackage = 2047;
+}
+
+message AcqInfo {
+    uint32 Tid = 1;
+    uint32 Begin = 2;
+    uint32 Count = 3;
+    bytes NextPackage = 2047;
+}
+
+message Acquire {
+    repeated AcqInfo List = 1;
+    bytes NextPackage = 2047;
+}
+
+message Honor {
+    uint32 NewId = 1;
+    uint32 Level = 2;
+    bytes NextPackage = 2047;
+}
+
+message ChangeInfo {
+    repeated google.protobuf.Any Props = 1;
+    bytes NextPackage = 2047;
+}
+
+message FormationInfo {
+    uint32 Number = 1;
+    repeated uint32 CharIds = 2;
+    repeated uint32 DiscIds = 3;
+    uint64 PreselectionId = 4;
+    bytes NextPackage = 2047;
+}
+
+message FormationRecord {
+    uint32 GroupId = 1;
+    uint32 Number = 2;
+    bytes NextPackage = 2047;
+}
+
+message TowerFormation {
+    repeated FormationInfo Info = 1;
+    repeated FormationRecord Record = 2;
+    bytes NextPackage = 2047;
+}
+
+message StoryChoice {
+    uint32 Group = 1;
+    uint32 Value = 2;
+    bytes NextPackage = 2047;
+}
+
+message Story {
+    uint32 Idx = 1;
+    repeated StoryChoice Major = 2;
+    repeated StoryChoice Personality = 3;
+    bytes NextPackage = 2047;
+}
+
+message StoryInfo {
+    repeated uint32 Evidences = 1;
+    repeated Story Stories = 2;
+    uint64 BuildId = 3;
+    bytes NextPackage = 2047;
+}
+
+message RoomRestored {
+    uint32 RoomId = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message DropPkg {
+    repeated ItemTpl Drops = 1;
+    bytes NextPackage = 2047;
+}
+
+message MonsterDrop {
+    uint32 MonsterIndex = 1;
+    repeated DropPkg DropPkgs = 2;
+    bytes NextPackage = 2047;
+}
+
+message WorldClassUpdate {
+    uint32 Cur = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message ItemInfo {
+    uint64 Id = 1;
+    uint32 Tid = 2;
+    uint32 Qty = 3;
+    bytes NextPackage = 2047;
+}
+
+message RegionBossLevel {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    bool First = 3;
+    bool ThreeStar = 4;
+    uint64 BuildId = 5;
+    bytes NextPackage = 2047;
+}
+
+message Friend {
+    uint64 Id = 1;
+    string NickName = 2;
+    uint32 Hashtag = 3;
+    uint32 HeadIcon = 4;
+    int64 LastLoginTime = 5;
+    uint32 WorldClass = 6;
+    uint32 TitlePrefix = 7;
+    uint32 TitleSuffix = 8;
+    string Signature = 9;
+    repeated CharShow CharShows = 10;
+    repeated HonorInfo Honors = 15;
+    bytes NextPackage = 2047;
+}
+
+message CharShow {
+    uint32 CharId = 1;
+    uint32 Level = 2;
+    uint32 Skin = 3;
+    bytes NextPackage = 2047;
+}
+
+message FriendDetail {
+    Friend Base = 1;
+    bool Star = 2;
+    bool SendEnergy = 3;
+    uint32 GetEnergy = 4;
+    bytes NextPackage = 2047;
+}
+
+message BoughtGoods {
+    uint32 Id = 1;
+    uint32 Number = 2;
+    bytes NextPackage = 2047;
+}
+
+message ResidentShop {
+    uint32 Id = 1;
+    int64 RefreshTime = 2;
+    repeated BoughtGoods Infos = 3;
+    bytes NextPackage = 2047;
+}
+
+message HandbookInfo {
+    uint32 Type = 1;
+    bytes Data = 2;
+    bytes NextPackage = 2047;
+}
+
+message QuestState {
+    QuestType Type = 1;
+    bool New = 2;
+    bytes NextPackage = 2047;
+}
+
+message MallPackageState {
+    bool New = 1;
+    bytes NextPackage = 2047;
+}
+
+message DailyInstance {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    uint64 BuildId = 15;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelBossLevel {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    uint64 BuildId = 3;
+    uint32 Difficulty = 4;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelChallengeInfo {
+    bool Unlock = 1;
+    uint32 Id = 2;
+    int64 OpenTime = 3;
+    int64 CloseTime = 4;
+    bytes NextPackage = 2047;
+}
+
+message Activity {
+    uint32 Id = 1;
+    int64 StartTime = 2;
+    int64 EndTime = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityQuest {
+    uint32 Id = 1;
+    uint32 Status = 2;
+    uint32 ActivityId = 3;
+    repeated QuestProgress Progress = 15;
+    bytes NextPackage = 2047;
+}
+
+message ActivityPeriodic {
+    uint32 ActivityId = 1;
+    bool FinalStatus = 2;
+    repeated ActivityQuest Quests = 15;
+    bytes NextPackage = 2047;
+}
+
+message ActivityLogin {
+    uint32 ActivityId = 1;
+    uint32 Receive = 2;
+    uint32 Actual = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityMining {
+    uint32 ActivityId = 1;
+    uint32 Layer = 2;
+    uint32 Score = 3;
+    repeated ActivityQuest Quests = 11;
+    bytes NextPackage = 2047;
+}
+
+message ActivityCookieLevel {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint32 MaxScore = 3;
+    bool FirstComplete = 4;
+    bytes NextPackage = 2047;
+}
+
+message ActivityCookie {
+    uint32 ActivityId = 1;
+    repeated ActivityQuest Quests = 11;
+    repeated ActivityCookieLevel Levels = 12;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTowerDefenseLevel {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTowerDefense {
+    uint32 ActivityId = 1;
+    repeated uint32 Stories = 2;
+    repeated ActivityTowerDefenseLevel Levels = 3;
+    repeated ActivityQuest Quests = 11;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTrial {
+    repeated uint32 CompletedGroupIds = 1;
+    bytes NextPackage = 2047;
+}
+
+message ActivityCG {
+    bool Read = 1;
+    bytes NextPackage = 2047;
+}
+
+message ActivityLevel {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    uint64 BuildId = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityLevels {
+    repeated ActivityLevel levels = 1;
+    bytes NextPackage = 2047;
+}
+
+message ActivityAvg {
+    repeated uint32 RewardIds = 1;
+    bytes NextPackage = 2047;
+}
+
+message Milkout {
+    repeated MilkoutLevel Levels = 1;
+    repeated MilkoutCharacter Characters = 2;
+    bytes NextPackage = 2047;
+}
+
+message MilkoutLevel {
+    uint32 Id = 1;
+    bool FirstComplete = 2;
+    bytes NextPackage = 2047;
+}
+
+message MilkoutCharacter {
+    uint32 Id = 1;
+    uint32 BattleTimes = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityPenguinCardLevel {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    uint32 Score = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityPenguinCard {
+    uint32 ActivityId = 1;
+    repeated ActivityPenguinCardLevel Levels = 2;
+    repeated ActivityQuest Quests = 3;
+    bytes NextPackage = 2047;
+}
+
+message AffinityInfo {
+    uint32 CharId = 1;
+    uint32 AffinityLevel = 2;
+    uint32 AffinityExp = 3;
+    repeated ItemTpl Rewards = 4;
+    bytes NextPackage = 2047;
+}
+
+message ActivityState {
+    uint32 Id = 1;
+    bool RedDot = 2;
+    bool Banner = 3;
+    bytes NextPackage = 2047;
+}
+
+message Chat {
+    uint32 Id = 1;
+    repeated uint32 Options = 2;
+    uint32 Process = 3;
+    bytes NextPackage = 2047;
+}
+
+message Contacts {
+    uint32 CharId = 1;
+    int64 TriggerTime = 2;
+    repeated Chat Chats = 3;
+    int64 OptTime = 14;
+    bool Top = 15;
+    bytes NextPackage = 2047;
+}
+
+message InfinityTowerLevelInfo {
+    uint32 Id = 1;
+    uint32 LevelId = 2;
+    repeated uint32 ChallengeIds = 3;
+    bytes NextPackage = 2047;
+}
+
+message CollectResp {
+    StatusEnum Status = 1;
+    ChangeInfo Items = 2;
+    bytes NextPackage = 2047;
+    enum StatusEnum {
+        Unpaid = 0;
+        Done = 1;
+        Retry = 2;
+        Error = 3;
+    }
+
+}
+
+message EquipmentAttr {
+    uint32 Id = 1;
+    int32 Value = 2;
+    bytes NextPackage = 2047;
+}
+
+message EquipmentInfo {
+    uint64 Id = 1;
+    uint32 Tid = 2;
+    uint32 Exp = 3;
+    bool Lock = 4;
+    repeated uint32 Tags = 5;
+    repeated EquipmentAttr Attrs = 6;
+    bytes NextPackage = 2047;
+}
+
+message EquipmentInstance {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    uint64 BuildId = 15;
+    bytes NextPackage = 2047;
+}
+
+message AgentInfo {
+    uint32 Id = 1;
+    uint32 ProcessTime = 2;
+    repeated uint32 CharIds = 3;
+    uint64 BuildId = 4;
+    int64 StartTime = 5;
+    bytes NextPackage = 2047;
+}
+
+message AgentData {
+    repeated AgentInfo Infos = 1;
+    repeated uint32 NewAgentIds = 2;
+    repeated uint32 DailyIds = 3;
+    repeated uint32 WeeklyIds = 4;
+    bytes NextPackage = 2047;
+}
+
+message HonorInfo {
+    uint32 Id = 1;
+    uint32 AffinityLV = 2;
+    bytes NextPackage = 2047;
+}
+
+message CardInfo {
+    uint32 Id = 1;
+    bool New = 2;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorEvent {
+    uint32 EventType = 1;
+    repeated uint32 Numbers = 2;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorLevelReward {
+    uint32 Level = 1;
+    VampireSurvivorFateCardSelect Pkg = 2;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorFateCardSelect {
+    repeated CardInfo Cards = 1;
+    uint32 ReRoll = 2;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossLevel {
+    uint32 LevelId = 1;
+    uint64 BuildId = 2;
+    uint32 Score = 3;
+    uint32 Star = 4;
+    uint32 SkillScore = 5;
+    repeated uint32 CharIds = 6;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorLevel {
+    uint32 Id = 1;
+    uint32 Score = 2;
+    repeated uint64 BuildIds = 3;
+    bool Passed = 4;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorRecordInfo {
+    repeated VampireSurvivorLevel Records = 1;
+    VampireSurvivorLevel Season = 2;
+    uint32 SeasonScore = 3;
+    bytes NextPackage = 2047;
+}
+
+message SkillInstance {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    bool First = 3;
+    bool ThreeStar = 4;
+    uint64 BuildId = 5;
+    bytes NextPackage = 2047;
+}
+
+message WeekBossLevel {
+    uint32 Id = 1;
+    uint32 Time = 2;
+    uint64 BuildId = 3;
+    bool First = 4;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossState {
+    bool New = 1;
+    bytes NextPackage = 2047;
+}
+
+message NPCAffinity {
+    uint32 NPCId = 1;
+    uint32 Affinity = 2;
+    repeated uint32 PlotIds = 3;
+    bytes NextPackage = 2047;
+}
+
+message CharGemInstance {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    bool First = 3;
+    bool ThreeStar = 4;
+    uint64 BuildId = 5;
+    bytes NextPackage = 2047;
+}
+
+message CharGemPreset {
+    string Name = 1;
+    repeated int32 SlotGem = 2;
+    bytes NextPackage = 2047;
+}
+
+message CharGemPresets {
+    uint32 InUsePresetIndex = 1;
+    repeated CharGemPreset CharGemPresets = 2;
+    bytes NextPackage = 2047;
+}
+
+message CharGem {
+    bool Lock = 1;
+    repeated uint32 Attributes = 2;
+    repeated uint32 AlterAttributes = 3;
+    repeated uint32 OverlockCount = 4;
+    repeated uint32 AlterOverlockCount = 5;
+    bytes NextPackage = 2047;
+}
+
+message CharGemSlot {
+    uint32 Id = 1;
+    repeated CharGem AlterGems = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTask {
+    Quests ActivityTasks = 1;
+    repeated uint32 GroupIds = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityShop {
+    repeated ResidentShop Shops = 1;
+    bytes NextPackage = 2047;
+}
+
+message TutorialLevel {
+    uint32 LevelId = 1;
+    bool Passed = 2;
+    bool RewardReceived = 3;
+    bytes NextPackage = 2047;
+}
+
+message BuildConvertContent {
+    uint32 Id = 1;
+    uint32 Num = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityBuildConvert {
+    repeated BuildConvertContent Contents = 1;
+    repeated ActivityQuest Quests = 2;
+    bytes NextPackage = 2047;
+}
+
+message VampireClientData {
+    repeated FateCardEftCnt Efts = 1;
+    repeated FateCardTimeLimit Limits = 2;
+    uint32 FateCardTimer = 3;
+    uint32 Level = 4;
+    uint32 Exp = 5;
+    bytes NextPackage = 2047;
+}
+
+message FateCardEftCnt {
+    uint32 Id = 1;
+    uint32 EftId = 2;
+    uint32 Count = 3;
+    bytes NextPackage = 2047;
+}
+
+message FateCardTimeLimit {
+    uint32 Id = 1;
+    uint32 TimeLimit = 2;
+    bytes NextPackage = 2047;
+}
+
+message TrekkerVersusShow {
+    uint32 Difficult = 1;
+    int64 IdleTime = 2;
+    repeated IdleValue IdleValues = 3;
+    uint64 SelfHotValue = 4;
+    uint64 RivalHotValue = 5;
+    bytes NextPackage = 2047;
+    message IdleValue {
+        uint32 TypeId = 1;
+        uint32 Value = 2;
+    }
+
+}
+
+message ActivityTrekkerVersus {
+    uint32 DayNum = 1;
+    uint32 Level = 2;
+    uint32 Exp = 3;
+    uint64 BuildId = 4;
+    TrekkerVersusShow Show = 5;
+    repeated uint32 HotValueRewardIds = 6;
+    repeated uint32 DuelRewardIds = 7;
+    repeated ActivityQuest Quests = 8;
+    repeated HistoryResult Results = 9;
+    bytes NextPackage = 2047;
+    message HistoryResult {
+        uint64 SelfHotValue = 1;
+        uint64 RivalHotValue = 2;
+        uint32 TargetId = 3;
+    }
+
+}
+
+message ActivityStoryChoice {
+    uint32 Group = 1;
+    uint32 Value = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityStory {
+    uint32 Id = 1;
+    repeated ActivityStoryChoice Major = 2;
+    repeated ActivityStoryChoice Personality = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityStoryChapter {
+    repeated uint32 Evidences = 1;
+    uint64 BuildId = 2;
+    repeated ActivityStory Stories = 3;
+    bytes NextPackage = 2047;
+}
+
+message LastRead {
+    uint32 Type = 1;
+    LastReadStory Story = 2;
+    LastReadStorySet StorySet = 3;
+    LastReadActivityStory ActivityStory = 4;
+    bytes NextPackage = 2047;
+}
+
+message LastReadStory {
+    uint32 Idx = 1;
+    bytes NextPackage = 2047;
+}
+
+message LastReadStorySet {
+    uint32 ChapterId = 1;
+    uint32 SectionId = 2;
+    bytes NextPackage = 2047;
+}
+
+message LastReadActivityStory {
+    uint32 ChapterId = 1;
+    uint32 StoryId = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityThrowGiftLevel {
+    uint32 LevelId = 1;
+    uint32 MaxScore = 2;
+    bool FirstComplete = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityThrowGiftItem {
+    uint32 ItemId = 1;
+    uint32 Count = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityThrowGift {
+    repeated ActivityThrowGiftLevel Levels = 1;
+    repeated ActivityThrowGiftItem Items = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityGDSLevel {
+    uint32 LevelId = 1;
+    uint32 MaxScore = 2;
+    bool FirstComplete = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityGDS {
+    repeated ActivityGDSLevel Levels = 1;
+    bytes NextPackage = 2047;
+}
+
+message ActivityHonor {
+    uint32 Id = 1;
+    uint32 Lv = 2;
+    bytes NextPackage = 2047;
+}

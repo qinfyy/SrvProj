@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message GmWorldClass {
+    uint32 FinalClass = 1;
+    int32 LastExp = 2;
+    uint32 Stage = 3;
+    bytes RewardsFlag = 15;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllVampireSurvivor {
+    repeated VampireSurvivorLevel Records = 1;
+    bytes NextPackage = 2047;
+}
+
+message StarTowerSubNoteSkillInfo {
+    repeated StageFloorNum SubNoteSkillInfo = 1;
+    bytes NextPackage = 2047;
+    message FloorNum {
+        uint32 Floor = 1;
+        uint32 Num = 2;
+    }
+
+    message StageFloorNum {
+        uint32 StageId = 1;
+        repeated FloorNum Infos = 2;
+    }
+
+}
+
+message AgentInfos {
+    repeated AgentInfo Infos = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllDailyInstance {
+    repeated DailyInstance DailyInstances = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message WeekBossLevels {
+    repeated WeekBossLevel WeekBossLevels = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllRegionBossLevel {
+    repeated RegionBossLevel RegionBossLevels = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllTravelerDue {
+    repeated TravelerDuelBossLevel Levels = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllSkillInstance {
+    repeated SkillInstance SkillInstances = 1;
+    bytes NextPackage = 2047;
+}
+
+message CharAffinity {
+    AffinityInfo Info = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message GmSTClearAllStarTower {
+    repeated uint32 Ids = 1;
+    bytes NextPackage = 2047;
+}
+
+message STAddTeamExpNtf {
+    uint32 Level = 1;
+    uint32 Exp = 2;
+    repeated StarTowerRoomCase Cases = 3;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllEquipmentInstance {
+    repeated EquipmentInstance EquipmentInstances = 1;
+    ChangeInfo Change = 2;
+    bytes NextPackage = 2047;
+}
+
+message GmAllInfinityTowerInfos {
+    repeated InfinityTowerLevelInfo Infos = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmStory {
+    repeated uint32 Evidences = 1;
+    repeated Story Stories = 2;
+    ChangeInfo Change = 3;
+    bytes NextPackage = 2047;
+}
+
+message GmHarmonySkillNotify {
+    repeated uint32 List = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmTowerGrowthNodesNotify {
+    repeated uint32 Detail = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmCharUpNotify {
+    Char Char = 1;
+    repeated HandbookInfo Handbook = 2;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllCharGemInstance {
+    repeated CharGemInstance CharGemInstances = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmImportCharGemsNotify {
+    uint32 CharId = 1;
+    repeated CharGemSlot CharGemSlots = 2;
+    CharGemPresets CharGemPresets = 3;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllActivityAvgNotify {
+    repeated ActivityAvg Avgs = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllActivityLevelsNotify {
+    repeated ActivityLevels levels = 1;
+    bytes NextPackage = 2047;
+}
+
+message AssistAddBuildNotify {
+    ChangeInfo Change = 1;
+    repeated ItemTpl BuildRewards = 2;
+    StarTowerBuildInfo BuildInfo = 3;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message StorySetInfoResp {
+    repeated StorySetChapter Chapters = 1;
+    bytes NextPackage = 2047;
+}
+
+message StorySetChapter {
+    uint32 ChapterId = 1;
+    uint32 SectionIndex = 2;
+    repeated uint32 RewardedIds = 3;
+    bytes NextPackage = 2047;
+}

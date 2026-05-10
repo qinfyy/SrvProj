@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package proto;
+
+message SudoCommand {
+    string Action = 1;
+    string Args = 2;
+    bytes NextPackage = 2047;
+}

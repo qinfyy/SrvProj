@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message AssistQuestReceiveReq {
+    uint32 Group = 1;
+    uint32 Quest = 2;
+    bytes NextPackage = 2047;
+}

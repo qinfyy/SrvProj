@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message NPCAffinityBookGetResp {
+    repeated NPCAffinity Infos = 1;
+    uint32 Number = 2;
+    bytes NextPackage = 2047;
+}

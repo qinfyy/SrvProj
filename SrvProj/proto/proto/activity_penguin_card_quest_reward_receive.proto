@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityPenguinCardQuestReceiveReq {
+    uint32 ActivityId = 1;
+    uint32 QuestId = 2;
+    uint32 GroupId = 3;
+    bytes NextPackage = 2047;
+}

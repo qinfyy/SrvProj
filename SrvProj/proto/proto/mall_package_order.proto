@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "mall_gem_order.proto";
+
+message MallPackageOrder {
+    bytes NextPackage = 2047;
+    oneof Resp {
+        ChangeInfo Change = 1;
+        OrderInfo Order = 2;
+    }
+}

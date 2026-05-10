@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TravelerDuelLevelApplyReq {
+    uint32 Id = 1;
+    uint64 BuildId = 2;
+    repeated uint32 AffixIds = 3;
+    bytes NextPackage = 2047;
+}

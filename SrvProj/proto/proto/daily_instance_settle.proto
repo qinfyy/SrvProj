@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message DailyInstanceSettleReq {
+    uint32 Star = 1;
+    Events Events = 15;
+    bytes NextPackage = 2047;
+}
+
+message DailyInstanceSettleResp {
+    repeated Item Select = 1;
+    repeated Item First = 2;
+    uint32 Exp = 3;
+    ChangeInfo Change = 15;
+    bytes NextPackage = 2047;
+}

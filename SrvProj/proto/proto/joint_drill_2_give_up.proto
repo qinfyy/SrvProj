@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_joint_drill.proto";
+import "traveler_duel_rank_upload.proto";
+
+message JointDrill2GiveUpReq {
+    uint32 Floor = 1;
+    uint32 Time = 2;
+    uint32 Damage = 3;
+    repeated JointDrillBossHp BossHps = 4;
+    bytes Record = 5;
+    bytes NextPackage = 2047;
+}

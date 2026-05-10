@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "item_use.proto";
+import "item_product.proto";
+
+message PickItemReq {
+    repeated PickItem List = 1;
+    bytes NextPackage = 2047;
+}
+
+message GrowthStep {
+    bytes NextPackage = 2047;
+    oneof Action {
+        ItemProductReq Product = 1;
+        PickItemReq Pick = 2;
+    }
+}
+
+message ItemGrowthReq {
+    repeated GrowthStep List = 1;
+    bytes NextPackage = 2047;
+}

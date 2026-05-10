@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ScoreBossInfo {
+    uint32 ControlId = 1;
+    uint32 Score = 2;
+    uint32 Star = 3;
+    repeated uint32 StarRewards = 101;
+    repeated ScoreBossLevel Levels = 102;
+    bytes NextPackage = 2047;
+}

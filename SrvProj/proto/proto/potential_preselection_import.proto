@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_star_tower.proto";
+
+message PotentialPreselectionImportReq {
+    string Name = 1;
+    bool Preference = 2;
+    repeated StarTowerBookCharPotential CharPotentials = 3;
+    bytes NextPackage = 2047;
+}

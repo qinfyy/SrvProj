@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message IKEReq {
+    int32 ProtoVersion = 1;
+    int64 ClientTs = 2;
+    bytes PubKey = 3;
+    bytes NextPackage = 2047;
+}
+
+message IKEResp {
+    string Token = 1;
+    int32 Cipher = 2;
+    int64 ServerTs = 3;
+    bytes PubKey = 4;
+    bytes NextPackage = 2047;
+}

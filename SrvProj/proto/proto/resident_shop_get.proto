@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ResidentShopGetReq {
+    repeated uint32 ShopIds = 1;
+    bytes NextPackage = 2047;
+}
+
+message ResidentShopGetResp {
+    repeated ResidentShop Shops = 1;
+    bytes NextPackage = 2047;
+}

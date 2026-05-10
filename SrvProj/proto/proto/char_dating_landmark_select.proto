@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharDatingLandmarkSelectReq {
+    uint32 CharId = 1;
+    uint32 LandmarkId = 2;
+    bytes NextPackage = 2047;
+}
+
+message CharDatingLandmarkSelectResp {
+    uint32 BeforeBranchId = 1;
+    repeated uint32 BranchAOptionIds = 2;
+    AffinityInfo Info = 7;
+    ChangeInfo Change = 8;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTrekkerVersusIdleRewardReceiveResp {
+    ChangeInfo Change = 1;
+    repeated ItemTpl AwardItems = 2;
+    int64 IdleTime = 3;
+    bytes NextPackage = 2047;
+}

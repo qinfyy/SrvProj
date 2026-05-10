@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message VampireSurvivorApplyReq {
+    uint32 Id = 1;
+    repeated uint64 BuildIds = 2;
+    bytes NextPackage = 2047;
+}
+
+message VampireSurvivorApplyResp {
+    repeated VampireSurvivorEvent Events = 1;
+    VampireSurvivorFateCardSelect Select = 2;
+    VampireSurvivorLevelReward Reward = 3;
+    bytes NextPackage = 2047;
+}

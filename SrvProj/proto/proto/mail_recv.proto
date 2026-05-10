@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message MailRecvResp {
+    repeated uint32 Ids = 1;
+    ChangeInfo Items = 2;
+    bytes NextPackage = 2047;
+}

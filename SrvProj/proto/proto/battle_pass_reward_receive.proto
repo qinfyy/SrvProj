@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message BattlePassRewardReceiveReq {
+    uint32 Version = 4;
+    bytes NextPackage = 2047;
+    oneof Mode {
+        Nil All = 1;
+        uint32 Basic = 2;
+        uint32 Premium = 3;
+    }
+}
+
+message BattlePassRewardReceiveResp {
+    bytes BasicReward = 1;
+    bytes PremiumReward = 2;
+    ChangeInfo Change = 3;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityTrekkerVersusScheduleRewardReceiveReq {
+    uint32 ActivityId = 1;
+    uint32 ScheduleType = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityTrekkerVersusScheduleRewardReceiveResp {
+    uint32 ScheduleType = 1;
+    repeated uint32 RewardIds = 2;
+    ChangeInfo Change = 3;
+    repeated ItemTpl AwardItems = 4;
+    bytes NextPackage = 2047;
+}

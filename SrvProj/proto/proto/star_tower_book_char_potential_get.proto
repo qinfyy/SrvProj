@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message StarTowerBookPotentialGetResp {
+    repeated StarTowerBookPotential Potentials = 1;
+    repeated uint32 ReceivedIds = 2;
+    bytes NextPackage = 2047;
+}

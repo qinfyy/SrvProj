@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TravelerDuelBattleSamples {
+    repeated TravelerDuelBattleSample Sample = 1;
+    uint64 Checksum = 2;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelBattleData {
+    TravelerDuelMetaInfo Meta = 1;
+    TravelerDuelBattleSamples Samples = 2;
+    bytes Extra = 3;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelMetaInfo {
+    uint64 Id = 1;
+    uint32 Version = 2;
+    string Zone = 3;
+    uint32 MissionId = 4;
+    uint32 Season = 5;
+    uint64 PlayerId = 6;
+    string Nickname = 7;
+    uint32 Duration = 8;
+    uint32 Rank = 9;
+    int64 Time = 10;
+    uint32 Score = 11;
+    bytes NextPackage = 2047;
+}
+
+message TravelerDuelBattleSample {
+    int32 FromSrcAtk = 1;
+    float FromPerkIntensityRatio = 2;
+    float FromSlotDmgRatio = 3;
+    float FromEE = 4;
+    float FromGenDmgRatio = 5;
+    int32 FromDmgPlus = 6;
+    float FromCritRatio = 7;
+    float FromFinalDmgRatio = 8;
+    int32 FromFinalDmgPlus = 9;
+    float ToErAmend = 10;
+    float ToDefAmend = 11;
+    float ToRcdSlotDmgRatio = 12;
+    float ToEERCD = 13;
+    float ToGenDmgRcdRatio = 14;
+    float ToDmgPlusRcd = 15;
+    int64 Dmg = 16;
+    float CritRate = 17;
+    int64 Hp = 18;
+    bytes NextPackage = 2047;
+}
+
+message RankChange {
+    uint32 Old = 1;
+    uint32 New = 2;
+    string Token = 3;
+    bytes NextPackage = 2047;
+}

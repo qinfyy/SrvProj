@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TourGuideQuestGroupRewardResp {
+    repeated ItemTpl Rewards = 1;
+    ChangeInfo Change = 15;
+    bytes NextPackage = 2047;
+}

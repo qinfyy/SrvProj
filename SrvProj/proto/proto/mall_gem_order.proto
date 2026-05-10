@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message OrderInfo {
+    string Id = 1;
+    string ExtraData = 2;
+    string NotifyUrl = 3;
+    bytes NextPackage = 2047;
+}

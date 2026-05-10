@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "traveler_duel_rank_upload.proto";
+
+message ScoreBossSettleReq {
+    uint32 Star = 1;
+    uint32 Score = 2;
+    TravelerDuelBattleSamples sample = 3;
+    uint32 DamageScore = 4;
+    uint32 SkillScore = 5;
+    uint32 BossResultLevel = 6;
+    Events Events = 15;
+    bytes NextPackage = 2047;
+}
+
+message ScoreBossSettleResp {
+    string token = 1;
+    uint32 oldRank = 2;
+    uint32 newRank = 3;
+    bytes NextPackage = 2047;
+}

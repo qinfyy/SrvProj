@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityPenguinCardSettleReq {
+    uint32 LevelId = 1;
+    uint32 Star = 2;
+    uint32 Score = 3;
+    bytes NextPackage = 2047;
+}

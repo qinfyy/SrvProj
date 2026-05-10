@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharSkillUpgradeReq {
+    uint32 CharId = 1;
+    uint32 Index = 2;
+    bytes NextPackage = 2047;
+}

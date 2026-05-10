@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_star_tower.proto";
+
+message StarTowerBookPotentialBriefListResp {
+    repeated StarTowerBookCharPotentialBrief Infos = 1;
+    bytes NextPackage = 2047;
+}

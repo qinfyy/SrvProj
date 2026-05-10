@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message BattlePassQuestRewardResp {
+    uint32 Level = 1;
+    uint32 Exp = 2;
+    uint32 ExpThisWeek = 3;
+    bytes NextPackage = 2047;
+}

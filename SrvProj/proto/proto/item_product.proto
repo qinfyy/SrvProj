@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ItemProductReq {
+    uint32 Id = 1;
+    uint32 Num = 2;
+    bytes NextPackage = 2047;
+}

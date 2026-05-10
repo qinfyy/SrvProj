@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+import "public_star_tower.proto";
+
+message PotentialPreselectionList {
+    repeated PotentialPreselection List = 1;
+    bytes NextPackage = 2047;
+}

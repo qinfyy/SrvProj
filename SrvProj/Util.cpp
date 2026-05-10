@@ -87,3 +87,15 @@ bool ContainsIgnoreCaseA(PCSTR haystack, PCSTR needle)
     return false;
 }
 
+std::string ByteVecToString(const std::vector<uint8_t>& data)
+{
+    if (data.empty())
+        return {};
+
+    return std::string(reinterpret_cast<const char*>(data.data()),data.size());
+}
+
+std::vector<uint8_t> StringToByteVec(const std::string& s)
+{
+    return std::vector<uint8_t>(s.begin(), s.end());
+}

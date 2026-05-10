@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message PlayerSkinShowReq {
+    uint32 SkinId = 1;
+    bytes NextPackage = 2047;
+}

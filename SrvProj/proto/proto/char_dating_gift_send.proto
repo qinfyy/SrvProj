@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message CharDatingGiftSendReq {
+    uint32 CharId = 1;
+    repeated ItemTpl Items = 2;
+    bytes NextPackage = 2047;
+}
+
+message CharDatingGiftSendResp {
+    AffinityInfo Info = 1;
+    ChangeInfo Change = 2;
+    repeated ItemTpl Show = 3;
+    bytes NextPackage = 2047;
+}

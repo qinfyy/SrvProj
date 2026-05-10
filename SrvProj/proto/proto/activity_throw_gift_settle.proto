@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityThrowGiftSettleReq {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint32 ThrowGiftCount = 3;
+    uint32 HitGiftCount = 4;
+    uint32 Score = 5;
+    repeated ActivityThrowGiftUsedItem UseItems = 6;
+    bool Win = 7;
+    bytes NextPackage = 2047;
+}
+
+message ActivityThrowGiftUsedItem {
+    uint32 ItemId = 1;
+    uint32 Count = 2;
+    bytes NextPackage = 2047;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto;
+
+message CharGemEquipGemReq {
+    uint32 CharId = 1;
+    uint32 SlotId = 2;
+    int32 GemIndex = 3;
+    uint32 PresetId = 4;
+    bytes NextPackage = 2047;
+}
