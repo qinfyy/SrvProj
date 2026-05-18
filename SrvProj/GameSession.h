@@ -1,29 +1,27 @@
 ﻿#pragma once
 #include <string>
-#include <vector>
 #include <mutex>
 
 class GameSession
 {
 public:
-    std::string token;
-    std::string key;
-    int encryptFunction; // 0 = gcm, 1 = chacha20
+    std::string mToken;
+    std::string mKey;
+    int mEncryptFunction; // 0 = AES GCM, 1 = ChaCha20Poly1305
 
-    void GenerateServerKey();
+    bool GenerateServerKey();
 
-    void CalKey();
+    bool CalKey();
 
-    std::string GenerateToken() const;
+    static std::string GenerateToken();
 
     static std::string BuildMessage(short msgId, const std::string& payload = "");
 
     bool Login(std::string loginToken);
 
-    std::string clientPublicKey;
-    std::string serverPublicKey;
-    std::string serverPrivateKey;
-
-    int platform;
+    std::string mClientPublicKey;
+    std::string mServerPublicKey;
+    std::string mServerPrivateKey;
+    int64_t mLastActiveTime;
 };
 

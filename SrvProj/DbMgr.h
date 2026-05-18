@@ -33,7 +33,7 @@ private:
 
     void CheckInitialized() const;
 
-    std::string GenerateToken();
+    bool GenerateToken(std::string& outToken);
 
     std::string GetNextUid();
 

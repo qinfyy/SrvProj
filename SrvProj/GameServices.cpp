@@ -24,21 +24,21 @@ void GameServices::AddSession(std::unique_ptr<GameSession> session)
 {
     std::lock_guard lock(mSessionMutex);
 
-    mSessionsByToken[session->token] = std::move(session);
+    mSessionsByToken[session->mToken] = std::move(session);
 }
 
 GameSession* GameServices::CreateSession() {
-    auto session = std::make_unique<GameSession>();
-
     std::lock_guard lock(mSessionMutex);
 
     std::string token;
     do {
-        token = session->GenerateToken();
+        token = GameSession::GenerateToken();
     } while (mSessionsByToken.find(token) != mSessionsByToken.end());
 
-    session->token = token;
-    mSessionsByToken[token] = std::move(session);
+    mSessionsByToken[token] = std::make_unique<GameSession>();
+    auto rawPtr = mSessionsByToken[token].get();
 
-    return mSessionsByToken[token].get();
+    rawPtr->mToken = token;
+
+    return rawPtr;
 }

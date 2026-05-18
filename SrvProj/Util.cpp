@@ -7,6 +7,7 @@
 #include <openssl/evp.h>
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
+#include <span>
 
 std::string Utf16ToUtf8(const std::wstring& wstr)
 {
@@ -91,18 +92,30 @@ bool ContainsIgnoreCaseA(PCSTR haystack, PCSTR needle)
     return false;
 }
 
-void PrintHex(std::string_view bin) {
+std::string ToHex(std::string_view bin, bool lowerCase, bool addSpace) {
     std::ostringstream oss;
     oss << std::hex << std::setfill('0');
-    for (unsigned char c : bin) {
-        oss << std::setw(2) << static_cast<int>(c) << " ";
+
+    if (lowerCase) {
+        oss << std::nouppercase;
+    }
+    else {
+        oss << std::uppercase;
     }
 
-    std::cout << oss.str() << std::endl;
+    for (size_t i = 0; i < bin.size(); ++i) {
+        unsigned char c = static_cast<unsigned char>(bin[i]);
+        oss << std::setw(2) << static_cast<int>(c);
+        if (addSpace && i != bin.size() - 1) {
+            oss << ' ';
+        }
+    }
+
+    return oss.str();
 }
 
-void PrintHex(const std::vector<uint8_t>& bin) {
-    PrintHex(std::string_view(reinterpret_cast<const char*>(bin.data()), bin.size()));
+std::string ToHex(std::span<uint8_t> bin, bool lowerCase, bool addSpace) {
+    return ToHex(std::string_view(reinterpret_cast<const char*>(bin.data()), bin.size()), lowerCase, addSpace);
 }
 
 std::string Base64Encode(std::string_view input)

@@ -947,9 +947,6 @@
     <ClInclude Include="GameServices.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="proto\proto_cpp\achievement_info.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>

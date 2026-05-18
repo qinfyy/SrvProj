@@ -3,8 +3,9 @@
 #include <functional>
 #include <ctime>
 #include <openssl/rand.h>
-#include <iomanip>
+#include <array>
 #include <stdexcept>
+#include "Util.h"
 #include "Logger.h"
 
 DbMgr& DbMgr::Instance()
@@ -110,17 +111,21 @@ bool DbMgr::RegisterByOpenId(const std::string& openid, User& outUser)
 {
     std::lock_guard lock(mDbMutex);
     CheckInitialized();
-
+    bool ok = false;
     outUser.uid = GetNextUid();
     outUser.openId = openid;
-    outUser.token = GenerateToken();
+    if (!GenerateToken(outUser.token)) {
+        LOG_ERROR("用户令牌生成失败");
+        return ok;
+    }
+
     std::string sql = "INSERT INTO users(uid, openid, token) VALUES('" + outUser.uid + "', '" + openid + "', '" + outUser.token + "');";
     sqlite3_stmt* stmt = nullptr;
     if (sqlite3_prepare_v2(mDb, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
         return false;
     }
 
-    bool ok = (sqlite3_step(stmt) == SQLITE_DONE);
+    ok = (sqlite3_step(stmt) == SQLITE_DONE);
     sqlite3_finalize(stmt);
     return ok;
 }
@@ -152,16 +157,13 @@ bool DbMgr::LoginByOpenId(const std::string& openid, User& outUser)
     return ok;
 }
 
-std::string DbMgr::GenerateToken()
-{
-    unsigned char buf[16];
-    RAND_bytes(buf, sizeof(buf));
-    std::ostringstream oss;
-    oss << std::hex << std::setfill('0');
-
-    for (int i = 0; i < sizeof(buf); ++i) {
-        oss << std::setw(2) << (int)buf[i];
+bool DbMgr::GenerateToken(std::string& outToken) {
+    std::array<uint8_t, 16> buf;
+    if (RAND_bytes(buf.data(), buf.size()) != 1) {
+        outToken.clear();
+        return false;
     }
 
-    return oss.str();
+    outToken = ToHex(buf, true);
+    return true;
 }

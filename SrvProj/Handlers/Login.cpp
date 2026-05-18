@@ -15,7 +15,7 @@ using namespace proto;
 std::string ike_req__Handler(GameSession* session, const std::string& req)
 {
     if (session) {
-		LOG_DEBUG("该令牌的会话已存在: {}", session->token.c_str());
+		LOG_ERROR("该令牌的会话已存在: {}", session->mToken.c_str());
         return GameSession::BuildMessage(ike_failed_ack);
     }
 
@@ -23,14 +23,21 @@ std::string ike_req__Handler(GameSession* session, const std::string& req)
     ikereq.ParseFromString(req);
 
     session = GameServices::Instance().CreateSession();
-	session->clientPublicKey = ikereq.pubkey();
-	session->GenerateServerKey();
-	session->CalKey();
+	session->mClientPublicKey = ikereq.pubkey();
+	bool succ1 = session->GenerateServerKey();
+	if (!succ1) {
+		return GameSession::BuildMessage(ike_failed_ack);
+	}
+
+    bool succ2 = session->CalKey();
+	if (!succ2) {
+		return GameSession::BuildMessage(ike_failed_ack);
+	}
 
     IKEResp rsp;
-    rsp.set_pubkey(session->serverPublicKey);
-    rsp.set_token(session->token);
-    rsp.set_cipher(session->encryptFunction);
+    rsp.set_pubkey(session->mServerPublicKey);
+    rsp.set_token(session->mToken);
+    rsp.set_cipher(session->mEncryptFunction);
     rsp.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
 
     return GameSession::BuildMessage(ike_succeed_ack, rsp.SerializeAsString());
@@ -45,10 +52,6 @@ std::string player_login_req__Handler(GameSession* session, const std::string& r
         loginToken = reqPb.officialoverseas().token();
     }
 
-    session->platform = reqPb.platform();
-
-
-    // Login
     bool loginSucc = session->Login(loginToken);
     if (!loginSucc) {
         Error errorPb;
@@ -57,14 +60,11 @@ std::string player_login_req__Handler(GameSession* session, const std::string& r
     }
     
     LoginResp rsp;
-    rsp.set_token(session->token);
+    rsp.set_token(session->mToken);
 
     return GameSession::BuildMessage(player_login_succeed_ack, rsp.SerializeAsString());
-
-
 }
 
 std::string player_data_req__Handler(GameSession* session, const std::string& req) {
-    Sleep(0);
     return "";
 }

@@ -38,14 +38,14 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
         session = GameServices::Instance().GetSessionByToken(sessionToken);
 
         // 找不到会话
-        if (!session || session->key.empty()) {
+        if (!session || session->mKey.empty()) {
             rsp.statusCode = 500;
             rsp.body = "";
             return;
         }
 
-        defaultSessionKey = session->key;
-        encryptFunction = session->encryptFunction;
+        defaultSessionKey = session->mKey;
+        encryptFunction = session->mEncryptFunction;
         hasKey3 = true;
     }
 
@@ -84,11 +84,9 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
         LOG_DEBUG("Received request, msgId: {}, data size: {}, sessionToken: {}, hasKey3: {}, encryptFunction: {}",
             msgId, reqData.size(), sessionToken, hasKey3, encryptFunction);
 
-        // 更新会话的最后活动时间, 以便于会话过期机制正确工作
-        //if (session) {
-        //    session->UpdateLastActiveTime();
-        //    session->UpdateIpAddress(ctx.ip());
-        //}
+        if (session) {
+            session->mLastActiveTime = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+        }
 
         ReqHandler handler = nullptr;
         if (auto it = g_Handlers.find(msgId); it != g_Handlers.end())

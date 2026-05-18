@@ -716,7 +716,6 @@
     <ClInclude Include="proto\proto_cpp\vampire_talent_unlock.pb.h" />
     <ClInclude Include="proto\proto_cpp\week_boss_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="ResultCode.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />

@@ -1,6 +1,6 @@
 ﻿#pragma once
+#include <span>
 #include <string>
-#include <vector>
 #include <windows.h>
 
 #define U8(str) reinterpret_cast<const char*>(u8##str)
@@ -19,9 +19,9 @@ std::string Utf8ToAnsi(const std::string& str);
 
 bool ContainsIgnoreCaseA(PCSTR haystack, PCSTR needle);
 
-void PrintHex(std::string_view bin);
+std::string ToHex(std::string_view bin, bool lowerCase = false, bool addSpace = false);
 
-void PrintHex(const std::vector<uint8_t>& bin);
+std::string ToHex(std::span<uint8_t> bin, bool lowerCase = false, bool addSpace = false);
 
 std::string Base64Encode(std::string_view input);
 
