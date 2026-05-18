@@ -66,5 +66,32 @@ std::string player_login_req__Handler(GameSession* session, const std::string& r
 }
 
 std::string player_data_req__Handler(GameSession* session, const std::string& req) {
-    return "";
+	if (!session) {
+		return GameSession::BuildMessage(player_data_failed_ack);
+	}
+
+    //if (!session->mPlayer) {
+    //    return GameSession::BuildMessage(player_new_notify);
+    //}
+
+
+	auto playerData = session->mPlayer->ToProto();
+    return GameSession::BuildMessage(player_data_succeed_ack, playerData.SerializeAsString());
+}
+
+
+std::string mall_package_list_req__Handler(GameSession* session, const std::string& req) {
+    if (!session) {
+        return GameSession::BuildMessage(mall_package_list_failed_ack);
+    }
+
+    return GameSession::BuildMessage(mall_package_list_succeed_ack);
+}
+
+std::string activity_detail_req__Handler(GameSession* session, const std::string& req) {
+    if (!session) {
+        return GameSession::BuildMessage(player_data_failed_ack);
+    }
+
+    return GameSession::BuildMessage(activity_detail_succeed_ack);
 }

@@ -21,29 +21,29 @@ int main() {
     //[20:18:22] [INFO] Server Private: NVgvKHgQWh+w1oE2uRP/iOgpMb5ScbHouh26Gzhz0ak=
     //[20:18:22] [INFO] sharedKey: Myv/0jlvSs2J/WBRYdQlUuBzLoq0GKNDPl/eaIPj3mE=
     //[20:18:22] [INFO] Key: hxnOJJIjFEGsopvEMYKnBOqILgowF4h/HMJO8xo+Zg8=
-    std::string clientPunlicKey = Base64Decode("BIqTyNHu7VmQ+vIpLigrWuBR6EhLDnU0XWzNgMNJjm4TILtf0ROb/6LgZaJKWzWQSgR19sYYIpaomgmcOk+XXIY=");
-    std::string serverPunlicKey = Base64Decode("BF0w+kxH+++1s0rlYOs+u1zkfVgQeVT38rPciC7CDV9UWdFnUpZgsNDMJEsM/FrB6lhSpHg9I4ttJyuFXdRp8y8=");
-    std::string serverPriviteKey = Base64Decode("NVgvKHgQWh+w1oE2uRP/iOgpMb5ScbHouh26Gzhz0ak=");
+ //   std::string clientPunlicKey = Base64Decode("BIqTyNHu7VmQ+vIpLigrWuBR6EhLDnU0XWzNgMNJjm4TILtf0ROb/6LgZaJKWzWQSgR19sYYIpaomgmcOk+XXIY=");
+ //   std::string serverPunlicKey = Base64Decode("BF0w+kxH+++1s0rlYOs+u1zkfVgQeVT38rPciC7CDV9UWdFnUpZgsNDMJEsM/FrB6lhSpHg9I4ttJyuFXdRp8y8=");
+ //   std::string serverPriviteKey = Base64Decode("NVgvKHgQWh+w1oE2uRP/iOgpMb5ScbHouh26Gzhz0ak=");
 
 
-    if (serverPriviteKey.size() == 33 && serverPriviteKey[0] == 0)
-    {
-        serverPriviteKey.erase(0, 1);
-    }
+ //   if (serverPriviteKey.size() == 33 && serverPriviteKey[0] == 0)
+ //   {
+ //       serverPriviteKey.erase(0, 1);
+ //   }
 
-    LOG_DEBUG("clientPunlicKey: {}", Base64Encode(clientPunlicKey));
+ //   LOG_DEBUG("clientPunlicKey: {}", Base64Encode(clientPunlicKey));
 
-	auto sharedKey = AeadTool::CalECDHSharedKey(serverPriviteKey, clientPunlicKey);
-	//auto info = AeadTool::CalInfo(serverPunlicKey, clientPunlicKey);
-    auto info = AeadTool::CalInfo(clientPunlicKey, serverPunlicKey);
-	auto secretX = AeadTool::CalSecretX(serverPunlicKey, info, sharedKey);
-    LOG_DEBUG("sharedKey: {}", Base64Encode(sharedKey));
-    LOG_DEBUG("secretX: {}", Base64Encode(secretX));
+	//auto sharedKey = AeadTool::CalECDHSharedKey(serverPriviteKey, clientPunlicKey);
+	////auto info = AeadTool::CalInfo(serverPunlicKey, clientPunlicKey);
+ //   auto info = AeadTool::CalInfo(clientPunlicKey, serverPunlicKey);
+	//auto secretX = AeadTool::CalSecretX(serverPunlicKey, info, sharedKey);
+ //   LOG_DEBUG("sharedKey: {}", Base64Encode(sharedKey));
+ //   LOG_DEBUG("secretX: {}", Base64Encode(secretX));
 
     //Sleep(-1);
 
     LOG_INFO_CFMT("Srv Proj");
-    Logger::InfoCFmt("no file line");
+    //Logger::InfoCFmt("no file line");
     if (!DbMgr::Instance().Init(".\\Save.db")) {
         return 1;
     }

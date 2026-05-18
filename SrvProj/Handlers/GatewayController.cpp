@@ -18,6 +18,8 @@ void SetupRoutes() {
     g_Handlers[ike_req] = ike_req__Handler;
     g_Handlers[player_login_req] = player_login_req__Handler;
     g_Handlers[player_data_req] = player_data_req__Handler;
+    g_Handlers[mall_package_list_req] = mall_package_list_req__Handler;
+    g_Handlers[activity_detail_req] = activity_detail_req__Handler;
 }
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {

@@ -73,5 +73,9 @@ std::string GameSession::GenerateToken() {
 }
 
 bool GameSession::Login(std::string loginToken) {
-    return true;
+    mPlayer = std::make_unique<Player>();
+
+	mPlayer->Init();
+
+	return true;
 }

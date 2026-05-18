@@ -31,6 +31,21 @@
     <Filter Include="proto\ServerOnly_Cpp">
       <UniqueIdentifier>{be0f1655-3626-4413-80b2-885761914ad3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Game">
+      <UniqueIdentifier>{a5523e62-0b80-43cc-9a59-34c0b5ca6e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Game">
+      <UniqueIdentifier>{02fff372-d4a7-4e5f-840f-7e3bb8c9c2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\proto">
+      <UniqueIdentifier>{8846eca2-b288-44a7-8b54-237483bccb21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\proto\google">
+      <UniqueIdentifier>{57911f11-060e-4377-b65c-adb74c2ea7fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\proto\google\protobuf">
+      <UniqueIdentifier>{213aef92-9d48-477c-bc2c-b0d9e0b29e79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SrvProj.cpp">
@@ -899,6 +914,12 @@
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\week_boss_settle.pb.cc">
       <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\ServerOnly_Cpp\PlayerData.pb.cc">
+      <Filter>proto\ServerOnly_Cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1772,5 +1793,862 @@
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Player.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\ServerOnly_Cpp\PlayerData.pb.h">
+      <Filter>proto\ServerOnly_Cpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="proto\proto\achievement_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\achievement_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_avg_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_cg_read.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_cookie_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_cookie_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_detail.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_gds_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_levels_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_levels_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_levels_sweep.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_login_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_mining_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_mining_dig.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_mining_move_to_next_layer.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_mining_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_mining_story_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_penguin_card_level_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_penguin_card_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_periodic_final_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_periodic_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_shop_purchase.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_story_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_story_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_task_group_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_task_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_throw_gift_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_tower_defense_level_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_tower_defense_level_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_tower_defense_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_tower_defense_story_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_idle_refresh.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_idle_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_rank_boost.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_schedule_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trekker_versus_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_trial_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\agent_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\agent_give_up.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\agent_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\battle_pass_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\battle_pass_level_buy.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\battle_pass_order.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\battle_pass_order_collect.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\battle_pass_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\battle_pass_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\build_convert_detail_list_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\build_convert_group_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\build_convert_submit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_advance.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_advance_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_affinity_gift_send.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_affinity_quset_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_archive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_dating_branch_a_select.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_dating_branch_b_select.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_dating_event_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_dating_gift_send.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_dating_landmark_select.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_favorite_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_equip_gem.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_generate.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_instance_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_instance_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_instance_sweep.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_refresh.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_rename_preset.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_replace_attribute.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_update_gem_lock_status.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_use_overlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_use_overlock_revert.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_gem_use_preset.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_recruitment.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_skill_upgrade.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_skin_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\char_upgrade.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\client_event_report.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\daily_instance_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\daily_instance_raid.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\daily_instance_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\daily_mall_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\daily_shop_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\dictionary_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\disc_all_limit_break.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\disc_limit_break.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\disc_promote.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\disc_read_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\disc_strengthen.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\energy_buy.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\energy_extract.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\energy_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\fragments_convert.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_add.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_add_agree.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_all_agree.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_delete.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_invites_delete.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_list_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_name_search.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_receive_energy.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_recommendation_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_send_energy.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_star_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\friend_uid_search.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_guarantee_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_histories.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_information.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_newbie_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_newbie_obtain.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_newbie_save.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_newbie_spin.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gacha_spin.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gem_convert.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\gm_sudo.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\ike.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\infinity_tower_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\infinity_tower_daily_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\infinity_tower_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\infinity_tower_plot_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\infinity_tower_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\item_product.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\item_quick_growth.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\item_use.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_continue.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_game_over.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_give_up.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_retreat.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_2_sync.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_continue.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_game_over.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_give_up.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_rank.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_retreat.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_sweep.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\joint_drill_sync.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mail_list.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mail_pin.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mail_read.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mail_recv.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mail_remove.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_gem_list.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_gem_order.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_monthlycard_list.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_monthlycard_order.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_order_cancel.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_order_collect.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_package_list.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_package_order.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_shop_list.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\mall_shop_order.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\milkout_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\notify.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\notify_gm.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\npc_affinity_book_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\npc_affinity_plot_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\phone_contacts_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\phone_contacts_report.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\phone_contacts_top.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_board.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_chars_show.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_data.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_destroy.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_exit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_formation.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_gender_edit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_head_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_headicon_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_honor_edit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_last_read_update.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_learn.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_login.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_music_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_name_edit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_ping.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_reg.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_signature_edit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_skin_show.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_survey.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_title_edit.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_world_calss_advance.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\player_world_class_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\plot_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\potential_preselection_delete.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\potential_preselection_import.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\potential_preselection_list.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\potential_preselection_name_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\potential_preselection_preference_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\potential_preselection_update.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\pubilc_gm.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\public.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\public_joint_drill.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\public_mining.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\public_star_tower.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_assist_group_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_assist_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_daily_active_reward_recevie.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_daily_reward_recevie.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_tour_guide_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_tower_guide_group_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_tower_reward_recevie.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_weekly_active_reward_recevie.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\quest_weekly_reward_recevie.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\redeem_code.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\region_boss_level_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\region_boss_level_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\region_boss_level_sweep.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\resident_shop_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\resident_shop_purchase.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\score_boss_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\score_boss_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\score_boss_rank.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\score_boss_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\score_boss_star_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\skill_instance_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\skill_instance_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\skill_instance_sweep.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_book_char_potential_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_book_event_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_book_potential_brief_list_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_book_potential_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_brief_list_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_delete.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_detail_get.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_lock_unlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_name_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_preference_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_build_whether_save.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_give_up.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\star_tower_interact.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\story_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\story_set_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\story_set_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\story_sett.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\talent_background_set.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\talent_group_unlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\talent_node_reset.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\talent_reset.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\talent_unlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tower_book_fate_card_detail.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tower_book_fate_card_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tower_growth_detail.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tower_growth_group_node_unlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tower_growth_node_unlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\traveler_duel_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\traveler_duel_level_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\traveler_duel_level_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\traveler_duel_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\traveler_duel_rank.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\traveler_duel_rank_upload.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tutorial_level_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\tutorial_level_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_area_change.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_extra_reward_select.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_restart.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_reward_chest.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_reward_select.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_survivor_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_talent_detail.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_talent_reset.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_talent_show.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\vampire_talent_unlock.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\week_boss_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\week_boss_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\google\protobuf\any.proto">
+      <Filter>proto\proto\google\protobuf</Filter>
+    </None>
+    <None Include="proto\ServerOnly\PlayerData.proto">
+      <Filter>proto\ServerOnly</Filter>
+    </None>
+    <None Include="proto\dump.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\NetMsgId.lua">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\NetMsgId.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\NetMsgIdToProto.py">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\proto.pb">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\编译Proto.ps1">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
 </Project>

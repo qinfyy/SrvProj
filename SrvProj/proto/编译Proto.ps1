@@ -1,3 +1,4 @@
+﻿# 获取脚本所在目录
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $Protoc = $null
 
@@ -11,6 +12,7 @@ function Try-Paths($Paths) {
     return $null
 }
 
+# 相对于脚本目录的 vcpkg 安装路径
 $Candidates = @(
     (Join-Path $ScriptDir "..\..\vcpkg_installed\x64-windows\x64-windows\tools\protobuf\protoc.exe"),
     (Join-Path $ScriptDir "..\..\vcpkg_installed\x86-windows\x86-windows\tools\protobuf\protoc.exe")
@@ -18,6 +20,7 @@ $Candidates = @(
 
 $Protoc = Try-Paths $Candidates
 
+# 通过环境变量 VCPKG_ROOT
 if (-not $Protoc -and $Env:VCPKG_ROOT) {
 
     $VcpkgRoot = $Env:VCPKG_ROOT
@@ -30,6 +33,7 @@ if (-not $Protoc -and $Env:VCPKG_ROOT) {
     $Protoc = Try-Paths $EnvCandidates
 }
 
+# 在 PATH 中找到 vcpkg.exe，并推测其包路径
 if (-not $Protoc) {
 
     $vcpkgCmd = Get-Command vcpkg.exe -ErrorAction SilentlyContinue
@@ -47,25 +51,28 @@ if (-not $Protoc) {
     }
 }
 
+# 若仍未找到 protoc，则报错退出
 if (-not $Protoc) {
-    Write-Host "[ERROR] Cannot find protobuf protoc.exe" -ForegroundColor Red
+    Write-Host "[ERROR] 找不到 protobuf 的 protoc.exe" -ForegroundColor Red
     Write-Host ""
-    Write-Host "Checked locations (in order):"
+    Write-Host "已尝试以下位置（按顺序）："
     Write-Host "  - ..\..\vcpkg_installed\x64-windows\x64-windows\tools\protobuf"
     Write-Host "  - ..\..\vcpkg_installed\x86-windows\x86-windows\tools\protobuf"
     Write-Host "  - VCPKG_ROOT\packages\protobuf_x64-windows\tools\protobuf"
     Write-Host "  - VCPKG_ROOT\packages\protobuf_x86-windows\tools\protobuf"
-    Write-Host "  - vcpkg.exe in PATH (x64 & x86)"
+    Write-Host "  - vcpkg.exe 所在目录的 packages\protobuf_x64-windows\tools\protobuf"
+    Write-Host "  - vcpkg.exe 所在目录的 packages\protobuf_x86-windows\tools\protobuf"
     Write-Host ""
     Pause
     exit 1
 }
 
-Write-Host "[OK] Using protoc:" -ForegroundColor Green
+Write-Host "[OK] 使用 protoc：" -ForegroundColor Green
 Write-Host "    $Protoc"
 Write-Host ""
 
-Remove-Item `
+# 清理根目录上一次生成的 C++ 文件
+<# Remove-Item `
     (Join-Path $ScriptDir "dump.pb.h"),
     (Join-Path $ScriptDir "dump.pb.cc"),
     (Join-Path $ScriptDir "NetMsgId.pb.h"),
@@ -73,6 +80,7 @@ Remove-Item `
     -Force `
     -ErrorAction SilentlyContinue
 
+# 编译根目录下的 dump.proto 和 NetMsgId.proto
 Start-Process `
     -FilePath $Protoc `
     -ArgumentList @(
@@ -82,65 +90,70 @@ Start-Process `
     ) `
     -WorkingDirectory $ScriptDir `
     -NoNewWindow `
-    -Wait
-	
-$ProtoDir = (Resolve-Path (Join-Path $ScriptDir "proto")).Path
+    -Wait #>
 
-$ProtoCppDir = Join-Path $ScriptDir "proto_cpp"
+function Compile-Protobuf-Directory {
+    param(
+        [string]$SourceDirName,
+        [string]$OutputDirName
+    )
 
-if (-not (Test-Path -Path $ProtoCppDir -PathType Container)) {
-    New-Item -ItemType Directory -Path $ProtoCppDir -Force | Out-Null
-}
+    # 解析源目录和输出目录的绝对路径
+    $SourceDir = (Resolve-Path (Join-Path $ScriptDir $SourceDirName)).Path
+    $OutputDir = Join-Path $ScriptDir $OutputDirName
 
-if (-not (Test-Path $ProtoCppDir)) {
-
-    New-Item `
-        -ItemType Directory `
-        -Path $ProtoCppDir | Out-Null
-}
-
-$ProtoCppDir = (Resolve-Path $ProtoCppDir).Path
-
-Remove-Item `
-    (Join-Path $ProtoCppDir "*.pb.h"),
-    (Join-Path $ProtoCppDir "*.pb.cc") `
-    -Force `
-    -ErrorAction SilentlyContinue
-
-$ProtoDir = (Resolve-Path (Join-Path $ScriptDir "proto")).Path
-$ProtoOut = (Resolve-Path (Join-Path $ScriptDir "proto_cpp")).Path
-
-if (-not (Test-Path $ProtoOut)) {
-    New-Item -ItemType Directory -Path $ProtoOut | Out-Null
-}
-
-Push-Location $ProtoDir
-
-$ProtoFiles = Get-ChildItem -Recurse -Filter "*.proto" |
-    Where-Object {
-        $_.FullName -notmatch '[\\/]google[\\/]'
-    } |
-    ForEach-Object {
-        $_.FullName.Substring($ProtoDir.Length + 1)
+    # 若输出目录不存在则创建
+    if (-not (Test-Path $OutputDir)) {
+        New-Item -ItemType Directory -Path $OutputDir | Out-Null
     }
+    $OutputDir = (Resolve-Path $OutputDir).Path
 
-$Args = @(
-    "--proto_path=.",
-    "--cpp_out=$ProtoOut"
-)
+    # 清理输出目录中上次生成的文件
+    Remove-Item `
+        (Join-Path $OutputDir "*.pb.h"),
+        (Join-Path $OutputDir "*.pb.cc") `
+        -Force `
+        -ErrorAction SilentlyContinue
 
-$Args += $ProtoFiles
+    # 进入源目录
+    Push-Location $SourceDir
 
-Start-Process -FilePath $Protoc `
-    -ArgumentList $Args `
-    -WorkingDirectory $ProtoDir `
-    -NoNewWindow `
-    -Wait
+    # 收集所有 .proto 文件（排除 google 目录下的文件）
+    $ProtoFiles = Get-ChildItem -Recurse -Filter "*.proto" |
+        Where-Object {
+            $_.FullName -notmatch '[\\/]google[\\/]'
+        } |
+        ForEach-Object {
+            $_.FullName.Substring($SourceDir.Length + 1)
+        }
 
-Pop-Location
+    # 构建 protoc 参数
+    $Args = @(
+        "--proto_path=.",
+        "--cpp_out=$OutputDir"
+    )
+
+    $Args += $ProtoFiles
+
+    # 执行编译
+    Start-Process -FilePath $Protoc `
+        -ArgumentList $Args `
+        -WorkingDirectory $SourceDir `
+        -NoNewWindow `
+        -Wait
+
+    # 返回脚本原始目录
+    Pop-Location
+}
+
+# 编译 proto 文件夹
+#Compile-Protobuf-Directory "proto" "proto_cpp"
+
+# 编译 ServerOnly 文件夹
+Compile-Protobuf-Directory "ServerOnly" "ServerOnly_Cpp"
 
 Write-Host ""
-Write-Host "[OK] Protobuf generation completed." -ForegroundColor Green
+Write-Host "[OK] Protobuf 代码生成完毕。" -ForegroundColor Green
 Write-Host ""
 
 Pause

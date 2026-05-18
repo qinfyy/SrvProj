@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <string>
 #include <mutex>
+#include "./Game/Player.h"
 
 class GameSession
 {
@@ -8,6 +9,8 @@ public:
     std::string mToken;
     std::string mKey;
     int mEncryptFunction; // 0 = AES GCM, 1 = ChaCha20Poly1305
+
+    std::unique_ptr<Player> mPlayer;
 
     bool GenerateServerKey();
 
