@@ -4,13 +4,15 @@
 #include <nlohmann/json.hpp>
 #include <google/protobuf/util/json_util.h>
 #include <openssl/rand.h>
+#include <cpprest/http_client.h>
+#include <cpprest/http_msg.h>
 #include "Util.h"
 #include "Logger.h"
 #include <vector>
-#include <cpprest/http_client.h>
 #include "proto/dump.pb.h"
 #include "DbMgr.h"
 #include "ResultCode.h"
+
 
 std::optional<ServerListMeta> GetServerList()
 {
@@ -47,61 +49,70 @@ std::optional<ServerListMeta> GetServerList()
 }
 
 void ServerListHandler(const HttpRequest& req, HttpResponse& rsp) {
-    ServerListMeta meta;
+    try {
+        ServerListMeta meta;
 
-    meta.set_version(115);
+        meta.set_version(120);
 
-    ServerAgent* agent = meta.add_agent();
-    agent->set_name(U8("星塔旅人"));
-    agent->set_addr("https://nova.stargazer-games.com/agent-zone-1/");
-    agent->set_status(1);
-    agent->set_zone(1);
+        ServerAgent* agent = meta.add_agent();
+        agent->set_name(U8("星塔旅人"));
+        agent->set_addr("https://nova.stargazer-games.com/agent-zone-1/");
+        agent->set_status(1);
+        agent->set_zone(1);
 
-    meta.set_reportendpoint("https://nova.stargazer-games.com/report/");
+        meta.set_reportendpoint("https://nova.stargazer-games.com/report/");
 
-    Rule* rule1 = meta.add_rules();
-    rule1->set_platform(Platform_Ios);
-    rule1->set_channel("Official");
-    rule1->set_version("1.9.0");
-    rule1->set_op(OP_Lt);
-    rule1->set_action(Action_Download);
-    rule1->set_url("https://apps.apple.com/tw/app/%E6%98%9F%E5%A1%94%E6%97%85%E4%BA%BA/id6738902933");
-    rule1->set_enable(1);
+        Rule* rule1 = meta.add_rules();
+        rule1->set_platform(Platform_Ios);
+        rule1->set_channel("Official");
+        rule1->set_version("1.9.0");
+        rule1->set_op(OP_Lt);
+        rule1->set_action(Action_Download);
+        rule1->set_url("https://apps.apple.com/tw/app/%E6%98%9F%E5%A1%94%E6%97%85%E4%BA%BA/id6738902933");
+        rule1->set_enable(1);
 
-    Rule* rule2 = meta.add_rules();
-    rule2->set_platform(Platform_Android);
-    rule2->set_channel("Official");
-    rule2->set_version("1.9.0");
-    rule2->set_op(OP_Lt);
-    rule2->set_action(Action_Download);
-    rule2->set_url("https://play.google.com/store/apps/details?id=com.Stargazer.StellaSora");
-    rule2->set_enable(1);
+        Rule* rule2 = meta.add_rules();
+        rule2->set_platform(Platform_Android);
+        rule2->set_channel("Official");
+        rule2->set_version("1.9.0");
+        rule2->set_op(OP_Lt);
+        rule2->set_action(Action_Download);
+        rule2->set_url("https://play.google.com/store/apps/details?id=com.Stargazer.StellaSora");
+        rule2->set_enable(1);
 
-    Rule* rule3 = meta.add_rules();
-    rule3->set_platform(Platform_PC);
-    rule3->set_channel("Official");
-    rule3->set_version("1.9.0");
-    rule3->set_op(OP_Lt);
-    rule3->set_action(Action_Download);
-    rule3->set_url(U8("text://請在PC啟動器內點選更新按鈕完成版本更新"));
-    rule3->set_enable(1);
+        Rule* rule3 = meta.add_rules();
+        rule3->set_platform(Platform_PC);
+        rule3->set_channel("Official");
+        rule3->set_version("1.9.0");
+        rule3->set_op(OP_Lt);
+        rule3->set_action(Action_Download);
+        rule3->set_url(U8("text://請在PC啟動器內點選更新按鈕完成版本更新"));
+        rule3->set_enable(1);
 
-    std::string plain;
-    meta.SerializeToString(&plain);
+        std::string plain;
+        meta.SerializeToString(&plain);
 
-    unsigned char iv[16];
-    RAND_bytes(iv, sizeof(iv));
+        std::array<char, 16> iv;
+        RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
 
-	std::string cipher = AeadTool::EncryptAesCBCInfo(AeadTool::twServerMetaKey, reinterpret_cast<const char*>(iv) ,plain);
+        std::string cipher = AeadTool::EncryptAesCBCInfo(AeadTool::twServerMetaKey, std::string_view(iv.data(), iv.size()), plain);
 
-    std::string output;
-    output.reserve(cipher.size() + 16);
-    output.append(reinterpret_cast<const char*>(iv), 16);
-    output.append(cipher);
+        std::string output;
+        output.reserve(cipher.size() + 16);
+        output.append(reinterpret_cast<const char*>(iv.data()), 16);
+        output.append(cipher);
 
-    rsp.statusCode = 200;
-    rsp.headers["Content-Type"] = "text/html";
-    rsp.body = output;
+        rsp.statusCode = 200;
+        rsp.headers["Content-Type"] = "text/html";
+        rsp.body = output;
+
+    }
+    catch (const std::exception& e)
+    {
+        rsp.statusCode = 500;
+        LOG_ERROR("发生错误: {}", e.what());
+        rsp.body = std::string("Exception: ") + e.what();
+    }
 }
 
 void NoticeListHandler(const HttpRequest& req, HttpResponse& rsp)

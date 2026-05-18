@@ -8,14 +8,16 @@
 #include "Login.h"
 #include <openssl/rand.h>
 
-typedef void (*ReqHandler)(GameSession*, const std::string&, std::string&);
+typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 
 std::unordered_map<short, ReqHandler> g_Handlers;
 
 void SetupRoutes() {
     g_Handlers.clear();
 
-    g_Handlers[ike_req] = ike_req_Handler;
+    g_Handlers[ike_req] = ike_req__Handler;
+    g_Handlers[player_login_req] = player_login_req__Handler;
+    g_Handlers[player_data_req] = player_data_req__Handler;
 }
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
@@ -61,25 +63,25 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
         }
 
         if (hasKey3) {
-            std::string iv(12, '\0');
+            std::array<char, 12> iv;
             memcpy(iv.data(), body.data(), 12);
             std::string cipher(reinterpret_cast<const char*>(body.data() + 12), body.size() - 12);
-            AeadTool::Decrypt_Static(plain, defaultSessionKey, iv, cipher, cipher.size(), true, encryptFunction);
+            AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, encryptFunction);
             offset = 10; // 跳过客户端包包头
         }
         else {
             auto whitewashed = AeadUtil::Wash(body, defaultSessionKey);
-            std::string iv(12, '\0');
+            std::array<char, 12> iv;
             memcpy(iv.data(), whitewashed.data(), 12);
             std::string cipher(reinterpret_cast<const char*>(whitewashed.data() + 12), whitewashed.size() - 12);
-            AeadTool::Decrypt_Static(plain, defaultSessionKey, iv, cipher, cipher.size(), true, 0);
+            AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
         }
 
         short msgId = (static_cast<uint8_t>(plain[offset]) << 8) | (static_cast<uint8_t>(plain[offset + 1]));
         offset += 2;
         reqData = plain.substr(offset);
 
-		LOG_DEBUG("Received request, msgId: {}, data size: {}, sessionToken: {}, hasKey3: {}, encryptFunction: {}",
+        LOG_DEBUG("Received request, msgId: {}, data size: {}, sessionToken: {}, hasKey3: {}, encryptFunction: {}",
             msgId, reqData.size(), sessionToken, hasKey3, encryptFunction);
 
         // 更新会话的最后活动时间, 以便于会话过期机制正确工作
@@ -101,10 +103,7 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             return;
         }
 
-        // 正式处理数据
-        std::string rspOut;
-        handler(session, reqData, rspOut);
-
+        std::string rspOut = handler(session, reqData);
         if (rspOut.empty()) {
             rsp.statusCode = 500;
             rsp.body = "";
@@ -114,13 +113,10 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
         LOG_DEBUG("Request handled successfully, response size: {}", rspOut.size());
 
         if (hasKey3) {
-            //result = AeadHelper.encrypt(result, sessionKey, encryptMethod);
-
-            //unsigned char iv[16];
-            std::string iv(12, '\0');
+            std::array<char, 12> iv;
             RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
             std::string cipher;
-            AeadTool::Encrypt_Static(cipher, defaultSessionKey, iv, rspOut, static_cast<int>(rspOut.size()), true, encryptFunction);
+            AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, encryptFunction);
             std::string finalResult;
 
             finalResult.reserve(cipher.size() + 12);
@@ -131,13 +127,12 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             rsp.body = finalResult;
         }
         else {
-            //result = AeadHelper.encryptGCM(result, sessionKey);
-
-            std::string iv(16, '\0');
+            std::array<char, 12> iv;
             RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
             std::string cipher;
-            AeadTool::Encrypt_Static(cipher, defaultSessionKey, iv, rspOut, static_cast<int>(rspOut.size()), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
+            AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
             std::string result;
+
             result.reserve(cipher.size() + 12);
             result.append(iv.data(), 12);
             result.append(cipher);
@@ -146,6 +141,8 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
 
             rsp.statusCode = 200;
             rsp.body = finalResult;
+
+            return;
         }
     }
     catch (const std::exception& e) {

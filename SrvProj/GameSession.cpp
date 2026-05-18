@@ -4,37 +4,52 @@
 #include <random>
 #include <iomanip>
 #include <sstream>
-#include <openssl/bio.h>
-#include <openssl/evp.h>
 #include <openssl/rand.h>
-#include <openssl/buffer.h>
+#include "Logger.h"
 
 void GameSession::GenerateServerKey() {
     auto EcdhPair = AeadTool::GetECDHKeyPair();
 
-    serverPublicKey = EcdhPair[1];
-    serverPublicKey = EcdhPair[0];
+    if (EcdhPair.first.empty() || EcdhPair.second.empty()) {
+        throw std::runtime_error("无法生成 ECDH 密钥对");
+    }
+
+    serverPrivateKey = EcdhPair.second;
+    serverPublicKey = EcdhPair.first;
+    //__debugbreak();
 }
 
 void GameSession::CalKey() {
-    std::string sharedKey = AeadTool::CalECDHSharedKey(
-        ByteVecToString(serverPrivateKey),   // 自己的私钥
-        ByteVecToString(clientPublicKey)     // 对方的公钥
-    );
+    //std::string sharedKey = AeadTool::CalECDHSharedKey(
+    //    serverPrivateKey,   // 自己的私钥
+    //    clientPublicKey     // 对方的公钥
+    //);
 
-    std::string info = AeadTool::CalInfo(
-        ByteVecToString(clientPublicKey),    // 客户端公钥（第一个参数）
-        ByteVecToString(serverPublicKey)     // 服务端公钥（第二个参数）
-    );
+    //std::string info = AeadTool::CalInfo(
+    //    clientPublicKey,    // 客户端公钥（第一个参数）
+    //    serverPublicKey     // 服务端公钥（第二个参数）
+    //);
 
-    std::string key = AeadTool::CalSecretX(
-        ByteVecToString(serverPublicKey),    // salt = 自己的公钥
-        info,
-        sharedKey
-    );
+    //key = AeadTool::CalSecretX(
+    //    serverPublicKey,    // salt = 自己的公钥
+    //    info,
+    //    sharedKey
+    //);
+
+
+    auto sharedKey = AeadTool::CalECDHSharedKey(serverPrivateKey, clientPublicKey);
+    //auto info = AeadTool::CalInfo(serverPunlicKey, clientPunlicKey);
+    auto info = AeadTool::CalInfo(clientPublicKey, serverPublicKey);
+    auto secretX = AeadTool::CalSecretX(serverPublicKey, info, sharedKey);
+	LOG_DEBUG("clientPunlicKey: {}", Base64Encode(clientPublicKey));
+    LOG_DEBUG("serverPublicKey: {}", Base64Encode(serverPublicKey));
+    LOG_DEBUG("serverPrivateKey: {}", Base64Encode(serverPrivateKey));
+    LOG_DEBUG("sharedKey: {}", Base64Encode(sharedKey));
+    LOG_DEBUG("secretX: {}", Base64Encode(secretX));
+    key = secretX;
 
     std::random_device rd;
-    std::minstd_rand0 gen(rd);
+    std::minstd_rand0 gen(rd());
     std::uniform_int_distribution<int> dis(0, 1);
     encryptFunction = dis(gen);  // 0 = AES-GCM, 1 = ChaCha20-Poly1305
 }
@@ -48,32 +63,10 @@ std::string GameSession::BuildMessage(short msgId, const std::string& payload) {
     return message;
 }
 
-std::string Base64Encode(const unsigned char* input, int length)
-{
-    BIO* bio = BIO_new(BIO_f_base64());
-    BIO* mem = BIO_new(BIO_s_mem());
-    bio = BIO_push(bio, mem);
-
-    BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
-    BIO_write(bio, input, length);
-    BIO_flush(bio);
-
-    BUF_MEM* bufferPtr;
-    BIO_get_mem_ptr(bio, &bufferPtr);
-
-    std::string result(bufferPtr->data, bufferPtr->length);
-
-    BIO_free_all(bio);
-    return result;
-}
-
-
-std::string GameSession::GenerateToken() {
-    // 1️⃣ 时间戳
+std::string GameSession::GenerateToken() const {
     std::stringstream ss;
     ss << std::time(nullptr) << ":";
 
-    // 2️⃣ 64字节随机数
     std::vector<unsigned char> random(64);
     if (RAND_bytes(random.data(), random.size()) != 1)
     {
@@ -83,7 +76,6 @@ std::string GameSession::GenerateToken() {
     ss.write(reinterpret_cast<const char*>(random.data()), random.size());
     std::string temp = ss.str();
 
-    // 3️⃣ SHA-512
     unsigned char hash[EVP_MAX_MD_SIZE];
     unsigned int hashLen = 0;
 
@@ -99,7 +91,7 @@ std::string GameSession::GenerateToken() {
 
     EVP_MD_CTX_free(ctx);
 
-    return Base64Encode(hash, hashLen);
+    return Base64Encode(std::string_view(reinterpret_cast<const char*>(hash), hashLen));
 
     //unsigned char buf[16];
     //RAND_bytes(buf, sizeof(buf));
@@ -112,3 +104,9 @@ std::string GameSession::GenerateToken() {
 
     //return oss.str();
 }
+
+
+bool GameSession::Login(std::string loginToken) {
+    return true;
+}
+

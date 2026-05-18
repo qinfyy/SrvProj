@@ -47,7 +47,7 @@ void AccountServer::SetupRoutes() {
     RegisterRoute("POST", "/yostar/get-auth", AuthHandler);
     RegisterRoute("POST", "/common/version", VersionHandler);
     RegisterRoute("POST", "/common/config", CommonConfigHandler);
-    RegisterRoute("POST", "/agent-zone-1", AgentHandler);
+    RegisterRoute("POST", "/agent-zone-1/", AgentHandler);
 
     if (mEnableRegisteredLogging && mLogLevel <= LogLevel::Info) {
         LOG_INFO("Route setup completed, total routes: {}", mRoutes.size());

@@ -721,9 +721,6 @@
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="SrvProj.rc" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

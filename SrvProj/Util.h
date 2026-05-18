@@ -19,6 +19,10 @@ std::string Utf8ToAnsi(const std::string& str);
 
 bool ContainsIgnoreCaseA(PCSTR haystack, PCSTR needle);
 
-std::string ByteVecToString(const std::vector<uint8_t>& data);
+void PrintHex(std::string_view bin);
 
-std::vector<uint8_t> StringToByteVec(const std::string& s);
+void PrintHex(const std::vector<uint8_t>& bin);
+
+std::string Base64Encode(std::string_view input);
+
+std::string Base64Decode(const std::string& input);

@@ -1,8 +1,12 @@
 ﻿#include "Util.h"
 #include <string>
 #include <iomanip>
-#include <unordered_map>
+#include <sstream>
 #include <windows.h>
+#include <iostream>
+#include <openssl/evp.h>
+#include <openssl/bio.h>
+#include <openssl/buffer.h>
 
 std::string Utf16ToUtf8(const std::wstring& wstr)
 {
@@ -87,15 +91,56 @@ bool ContainsIgnoreCaseA(PCSTR haystack, PCSTR needle)
     return false;
 }
 
-std::string ByteVecToString(const std::vector<uint8_t>& data)
-{
-    if (data.empty())
-        return {};
+void PrintHex(std::string_view bin) {
+    std::ostringstream oss;
+    oss << std::hex << std::setfill('0');
+    for (unsigned char c : bin) {
+        oss << std::setw(2) << static_cast<int>(c) << " ";
+    }
 
-    return std::string(reinterpret_cast<const char*>(data.data()),data.size());
+    std::cout << oss.str() << std::endl;
 }
 
-std::vector<uint8_t> StringToByteVec(const std::string& s)
+void PrintHex(const std::vector<uint8_t>& bin) {
+    PrintHex(std::string_view(reinterpret_cast<const char*>(bin.data()), bin.size()));
+}
+
+std::string Base64Encode(std::string_view input)
 {
-    return std::vector<uint8_t>(s.begin(), s.end());
+    BIO* bio = BIO_new(BIO_f_base64());
+    BIO* mem = BIO_new(BIO_s_mem());
+    bio = BIO_push(bio, mem);
+
+    BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
+    BIO_write(bio, input.data(), input.size());
+    BIO_flush(bio);
+
+    BUF_MEM* bufferPtr;
+    BIO_get_mem_ptr(bio, &bufferPtr);
+
+    std::string result(bufferPtr->data, bufferPtr->length);
+
+    BIO_free_all(bio);
+    return result;
+}
+
+std::string Base64Decode(const std::string& input)
+{
+    BIO* bio = BIO_new(BIO_f_base64());
+    BIO* mem = BIO_new_mem_buf(input.data(), input.size());
+    bio = BIO_push(bio, mem);
+
+    BIO_set_flags(bio, BIO_FLAGS_BASE64_NO_NL);
+
+    std::string output(input.size(), '\0');
+    int decodedLen = BIO_read(bio, output.data(), output.size());
+
+    BIO_free_all(bio);
+
+    if (decodedLen > 0) {
+        output.resize(decodedLen);
+        return output;
+    }
+
+    return "";
 }

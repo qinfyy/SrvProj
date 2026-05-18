@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <iterator>
+#include <algorithm>
 #include <optional>
 #include "proto/dump.pb.h"
 #include "HttpMessage.h"

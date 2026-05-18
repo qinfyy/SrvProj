@@ -25,13 +25,15 @@ public:
     }
     
     GameSession* GetSessionByToken(const std::string& token);
-    void AddSession(GameSession* session);
+    void AddSession(std::unique_ptr<GameSession> session);
+
+    GameSession* CreateSession();
 
 private:
     GameServices() = default;
     ~GameServices() = default;
 
-	std::unordered_map<std::string, GameSession*> mSessionsByToken;
+    std::unordered_map<std::string, std::unique_ptr<GameSession>> mSessionsByToken;
     std::mutex mSessionMutex;
 
 };

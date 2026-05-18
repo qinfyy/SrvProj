@@ -1,5 +1,6 @@
 ﻿#include "AeadTool.h"
 #include <sstream>
+#include <stdexcept>
 #include <openssl/evp.h>
 #include <openssl/rand.h>
 #include <openssl/ec.h>
@@ -7,15 +8,24 @@
 #include <openssl/params.h>
 #include <openssl/core_names.h>
 #include <openssl/kdf.h>
-#include <stdexcept>
-#include "logger.h"
+#include <openssl/bn.h>
 
 // 对称加密部分
 
-std::string AeadTool::EncryptAesCBCInfo(const char* key, const char* IV, const std::string& plainBytes) {
+// AES CBC 加密
+std::string AeadTool::EncryptAesCBCInfo(std::string_view key, std::string_view IV, std::string_view plainBytes)
+{
+    if (key.size() != 16) {
+        throw std::runtime_error("密钥长度不对");
+    }
+
+    if (IV.size() != IVSize) {
+        throw std::runtime_error("IV 长度不对");
+    }
+
     EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
     if (!ctx) {
-        throw std::runtime_error("EVP_CIPHER_CTX_new failed");
+        throw std::runtime_error("EVP_CIPHER_CTX_new 失败");
     }
 
     std::string result;
@@ -25,35 +35,46 @@ std::string AeadTool::EncryptAesCBCInfo(const char* key, const char* IV, const s
     int len = 0;
     int ciphertext_len = 0;
 
-    if (EVP_EncryptInit_ex(ctx, EVP_aes_128_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key), reinterpret_cast<const unsigned char*>(IV)) != 1)
-    {
+    if (EVP_EncryptInit_ex(ctx, EVP_aes_128_cbc(), nullptr, const_cast<unsigned char*>(reinterpret_cast<const unsigned char*>(key.data())), const_cast<unsigned char*>(reinterpret_cast<const unsigned char*>(IV.data()))) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("EncryptInit failed");
+        throw std::runtime_error("EncryptInit 失败");
     }
 
-    if (EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(result.data()), &len, reinterpret_cast<const unsigned char*>(plainBytes.data()), static_cast<int>(plainBytes.size())) != 1)
-    {
+    if (EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(result.data()), &len, reinterpret_cast<const unsigned char*>(plainBytes.data()), static_cast<int>(plainBytes.size())) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("EncryptUpdate failed");
+        throw std::runtime_error("EncryptUpdate 失败");
     }
     ciphertext_len = len;
 
-    if (EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(result.data()) + len, &len) != 1)
-    {
+    if (EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(result.data()) + len, &len) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("EncryptFinal failed");
+        throw std::runtime_error("EncryptFinal 失败");
     }
 
-    result.resize(ciphertext_len + len, 0);
+    result.resize(ciphertext_len + len);
     EVP_CIPHER_CTX_free(ctx);
 
     return result;
 }
 
-std::string AeadTool::DecryptAesCBCInfo(const char* key, const char* IV, const std::string& cipherBytes) {
+// AES CBC 解密
+std::string AeadTool::DecryptAesCBCInfo(std::string_view key, std::string_view IV, std::string_view cipherBytes)
+{
+    if (key.size() != 16) {
+        throw std::runtime_error("密钥长度不对");
+    }
+
+    if (IV.size() != IVSize) {
+        throw std::runtime_error("IV 长度不对");
+    }
+
+    if (cipherBytes.empty() || cipherBytes.size() % 16 != 0) {
+        throw std::runtime_error("密文长度不对");
+    }
+
     EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
     if (!ctx) {
-        throw std::runtime_error("EVP_CIPHER_CTX_new failed");
+        throw std::runtime_error("EVP_CIPHER_CTX_new 失败");
     }
 
     std::string result;
@@ -62,156 +83,55 @@ std::string AeadTool::DecryptAesCBCInfo(const char* key, const char* IV, const s
     int len = 0;
     int plaintext_len = 0;
 
-    if (EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key), reinterpret_cast<const unsigned char*>(IV)) != 1)
-    {
+    if (EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), nullptr,
+        const_cast<unsigned char*>(reinterpret_cast<const unsigned char*>(key.data())), const_cast<unsigned char*>(reinterpret_cast<const unsigned char*>(IV.data()))) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("DecryptInit failed");
+        throw std::runtime_error("DecryptInit 失败");
     }
 
-    if (EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(result.data()), &len, reinterpret_cast<const unsigned char*>(cipherBytes.data()), static_cast<int>(cipherBytes.size())) != 1)
-    {
+    if (EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(result.data()), &len, reinterpret_cast<const unsigned char*>(cipherBytes.data()), static_cast<int>(cipherBytes.size())) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("DecryptUpdate failed");
+        throw std::runtime_error("DecryptUpdate 失败");
     }
 
     plaintext_len = len;
 
-    if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(result.data()) + len, &len) != 1)
-    {
+    if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(result.data()) + len, &len) != 1) {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("DecryptFinal failed (bad padding or incorrect key/IV)");
+        throw std::runtime_error("DecryptFinal 失败 (错误的填充方式或不正确的 key/IV)");
     }
 
     result.resize(plaintext_len + len);
-
     EVP_CIPHER_CTX_free(ctx);
 
     return result;
 }
 
-void AeadTool::InitAeadTool()
-{
-    static bool initialized = false;
-    if (initialized)
-        return;
-
-    initialized = true;
-
-    NonceSize = 12;
-    MacSize = 128;
-    KeySize = 32;
-    IVSize = 16;
-
-    associatedData = std::string(12, '\0');
-
-    function = 1;
-
-    Encrypt = &AeadTool::Encrypt_BouncyCastle;
-    Decrypt = &AeadTool::Dencrypt_BouncyCastle;
-}
-
-// 对称Aead加密部分
-
-void AeadTool::Encrypt_BouncyCastle(std::string& result, const std::string& key, const std::string& nonce, const std::string& data, int dataLen, bool needAssociatedData)
-{
-    try
-    {
-        static bool inited = false;
-        if (!inited)
-        {
-            InitAeadTool();
-            inited = true;
-        }
-
-        std::string associated;
-
-        if (needAssociatedData)
-        {
-		    // iv 作为 associated data（IDA里是这么做的）
-            associated = nonce;
-        }
-
-        if (function == 0)
-        {
-            Encrypt_BouncyCastle_AesGcm(key, nonce, data, dataLen, associated, result);
-        }
-        else
-        {
-            Encrypt_BouncyCastle_ChaCha20Poly1305(key, nonce, data, dataLen, associated, result);
-        }
-    }
-    catch (const std::exception& e)
-    {
-        std::ostringstream errMsg;
-        errMsg << "AeadTool: 发生错误: " << e.what();
-        LOG_ERROR(errMsg.str());
-        std::throw_with_nested(std::runtime_error(errMsg.str()));;
-        return;
-    }
-    catch (...)
-    {
-        std::ostringstream errMsg;
-        errMsg << "AeadTool: 未知错误: ";
-        std::throw_with_nested(std::runtime_error(errMsg.str()));;
-    }
-}
-
-bool AeadTool::Dencrypt_BouncyCastle(std::string& result, const std::string& key, const std::string& nonce, const std::string& data, int dataLen, bool needAssociatedData)
-{
-    try
-    {
-        static bool inited = false;
-        if (!inited)
-        {
-            InitAeadTool();
-            inited = true;
-        }
-
-        std::string associated;
-        if (needAssociatedData)
-            associated = nonce;
-
-        if (function != 0)
-        {
-            Decrypt_BouncyCastle_ChaCha20Poly1305(key, nonce, data, dataLen, associated, result);
-        }
-        else
-        {
-            Decrypt_BouncyCastle_AesGcm(key, nonce, data, dataLen, associated, result);
-        }
-
-        return true;
-    }
-    catch (const std::exception& e)
-    {
-        LOG_ERROR("Aead 发生错误: {}", e.what());
-        return false;
-    }
-    catch (...)
-    {
-        LOG_ERROR("未知错误");
-        return false;
-    }
-}
+// 对称认证加密部分
 
 // AES GCM 加密
-void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::string& nonce, const std::string& secretMessage, int dataLen, std::string& associated, std::string& result)
+void AeadTool::Encrypt_BouncyCastle_AesGcm(std::string_view key, std::string_view nonce, std::string_view secretMessage, int dataLen, std::string_view associated, std::string& result)
 {
     if (key.size() != KeySize)
     {
-        throw std::invalid_argument("Invalid key size");
+        throw std::invalid_argument("无效的 AES GCM 密钥大小");
     }
 
-    if (secretMessage.empty() || dataLen <= 0 || secretMessage.size() < (size_t)dataLen)
+    if (!nonce.data() || nonce.size() != NonceSize)
     {
-        throw std::invalid_argument("Invalid secretMessage");
+        throw std::runtime_error("无效的 AES GCM nonce 大小");
+    }
+
+    if (secretMessage.empty() || dataLen <= 0 || secretMessage.size() < static_cast<size_t>(dataLen))
+    {
+        throw std::invalid_argument("要加密的数据是空的");
     }
 
     EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
 
     if (!ctx)
     {
-        throw std::runtime_error("EVP_CIPHER_CTX_new failed");
+        throw std::runtime_error("EVP_CIPHER_CTX_new 失败");
     }
 
     const EVP_CIPHER* cipher = EVP_aes_256_gcm();
@@ -219,19 +139,19 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::st
     if (EVP_EncryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("EncryptInit failed");
+        throw std::runtime_error("EVP_EncryptInit_ex 失败");
     }
 
     if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, (int)nonce.size(), nullptr) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("IV length set failed");
+        throw std::runtime_error("IV 长度设置失败");
     }
 
     if (EVP_EncryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("Key/Nonce init failed");
+        throw std::runtime_error("Key/Nonce 初始化失败");
     }
 
     int len = 0;
@@ -241,7 +161,7 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::st
         if (EVP_EncryptUpdate(ctx, nullptr, &len, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
         {
             EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("AAD failed");
+            throw std::runtime_error("AAD 更新失败");
         }
     }
 
@@ -250,7 +170,7 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::st
     if (EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(result.data()), &len, reinterpret_cast<const unsigned char*>(secretMessage.data()), dataLen) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("EncryptUpdate failed");
+        throw std::runtime_error("EncryptUpdate 失败");
     }
 
     int cipherLen = len;
@@ -258,7 +178,7 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::st
     if (EVP_EncryptFinal_ex(ctx, nullptr, &len) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("EncryptFinal failed");
+        throw std::runtime_error("EncryptFinal 失败");
     }
 
     unsigned char tag[16];
@@ -266,7 +186,7 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::st
     if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_GET_TAG, 16, tag) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
-        throw std::runtime_error("GetTag failed");
+        throw std::runtime_error("获取 Tag 失败");
     }
 
     result.resize(cipherLen);
@@ -277,513 +197,491 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(const std::string& key, const std::st
 }
 
 // ChaCha20Poly1305 加密
-void AeadTool::Encrypt_BouncyCastle_ChaCha20Poly1305(const std::string& key, const std::string& nonce, const std::string& secretMessage, int dataLen, std::string& associated, std::string& result)
+void AeadTool::Encrypt_BouncyCastle_ChaCha20Poly1305(std::string_view key, std::string_view nonce, std::string_view secretMessage, int dataLen, std::string_view associated, std::string& result)
 {
-    try
+    if (!key.data() || key.size() != KeySize)
     {
-        if (!key.data() || key.size() != 32)
-        {
-            throw std::runtime_error("Invalid ChaCha20Poly1305 key size");
-        }
+        throw std::runtime_error("无效的 ChaCha20Poly1305 密钥大小");
+    }
 
-        if (!nonce.data() || nonce.size() != 12)
-        {
-            throw std::runtime_error("Invalid ChaCha20Poly1305 nonce size");
-        }
+    if (!nonce.data() || nonce.size() != NonceSize)
+    {
+        throw std::runtime_error("无效的 ChaCha20Poly1305 nonce 大小");
+    }
 
-        if (!secretMessage.data() || dataLen <= 0 || secretMessage.size() < static_cast<size_t>(dataLen))
-        {
-            throw std::runtime_error("Invalid plaintext");
-        }
+    if (!secretMessage.data() || dataLen <= 0 || secretMessage.size() < static_cast<size_t>(dataLen))
+    {
+        throw std::runtime_error("要加密的数据是空的");
+    }
 
-        EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-        if (!ctx)
-        {
-            throw std::runtime_error("EVP_CIPHER_CTX_new failed");
-        }
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx)
+    {
+        throw std::runtime_error("EVP_CIPHER_CTX_new 失败");
+    }
 
-        const EVP_CIPHER* cipher = EVP_chacha20_poly1305();
-        if (!cipher)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("EVP_chacha20_poly1305 not available");
-        }
-
-        if (EVP_EncryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("EncryptInit failed");
-        }
-
-        if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_IVLEN, 12, nullptr) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("Set IV length failed");
-        }
-
-        if (EVP_EncryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("Key/Nonce set failed");
-        }
-
-        if (!associated.empty())
-        {
-            int outLen = 0;
-            if (EVP_EncryptUpdate(ctx, nullptr, &outLen, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
-            {
-                EVP_CIPHER_CTX_free(ctx);
-                throw std::runtime_error("AAD update failed");
-            }
-        }
-
-        std::string out;
-        out.resize(static_cast<size_t>(dataLen) + 16);
-
-        int len = 0;
-        int totalLen = 0;
-
-        if (EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(out.data()), &len, reinterpret_cast<const unsigned char*>(secretMessage.data()), dataLen) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("EncryptUpdate failed");
-        }
-
-        totalLen += len;
-
-        if (EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(out.data()) + totalLen, &len) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("EncryptFinal failed");
-        }
-
-        totalLen += len;
-
-        unsigned char tag[16];
-        if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_GET_TAG, 16, tag) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("Get tag failed");
-        }
-
+    const EVP_CIPHER* cipher = EVP_chacha20_poly1305();
+    if (!cipher)
+    {
         EVP_CIPHER_CTX_free(ctx);
-
-        out.resize(static_cast<size_t>(totalLen));
-        out.append(reinterpret_cast<char*>(tag), 16);
-
-        result = out;
+        throw std::runtime_error("EVP_chacha20_poly1305 不可用");
     }
-    catch (...)
+
+    if (EVP_EncryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
     {
-        result.clear();
-        return;
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("EncryptInit 失败");
     }
+
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_IVLEN, 12, nullptr) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("IV 长度设置失败");
+    }
+
+    if (EVP_EncryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("Key/Nonce 设置失败");
+    }
+
+    if (!associated.empty())
+    {
+        int outLen = 0;
+        if (EVP_EncryptUpdate(ctx, nullptr, &outLen, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
+        {
+            EVP_CIPHER_CTX_free(ctx);
+            throw std::runtime_error("AAD 更新失败");
+        }
+    }
+
+    std::string out;
+    out.resize(static_cast<size_t>(dataLen) + 16);
+
+    int len = 0;
+    int totalLen = 0;
+
+    if (EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(out.data()), &len, reinterpret_cast<const unsigned char*>(secretMessage.data()), dataLen) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("EncryptUpdate 失败");
+    }
+
+    totalLen += len;
+
+    if (EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(out.data()) + totalLen, &len) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("EncryptFinal 失败");
+    }
+
+    totalLen += len;
+
+    unsigned char tag[16];
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_GET_TAG, 16, tag) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("获取 tag 失败");
+    }
+
+    EVP_CIPHER_CTX_free(ctx);
+
+    out.resize(static_cast<size_t>(totalLen));
+    out.append(reinterpret_cast<char*>(tag), 16);
+
+    result = out;
 }
 
 // AES GCM 解密
-void AeadTool::Decrypt_BouncyCastle_AesGcm(const std::string& key, const std::string& nonce, const std::string& cipherText, int dataLen, std::string& associated, std::string& result)
+void AeadTool::Decrypt_BouncyCastle_AesGcm(std::string_view key, std::string_view nonce, std::string_view cipherText, int dataLen, std::string_view associated, std::string& result)
 {
-    try
+    if (!key.data() || key.size() != KeySize)
     {
-        if (!key.data() || key.size() != 32)
-        {
-            throw std::runtime_error("Invalid key size");
-        }
+        throw std::runtime_error("无效的 AES GCM 密钥大小");
+    }
 
-        if (!nonce.data() || nonce.size() != 12)
-        {
-            throw std::runtime_error("Invalid nonce size");
-        }
+    if (!nonce.data() || nonce.size() != NonceSize)
+    {
+        throw std::runtime_error("无效的 AES GCM nonce 大小");
+    }
 
-        if (!cipherText.data() || dataLen <= 16)
-        {
-            throw std::runtime_error("Invalid cipherText");
-        }
+    if (!cipherText.data() || dataLen <= 16)
+    {
+        throw std::runtime_error("密文长度不对");
+    }
 
-        static_cast<void>(0);
+    static_cast<void>(0);
 
-        const int tagLen = 16;
-        const int encLen = dataLen - tagLen;
+    const int tagLen = 16;
+    const int encLen = dataLen - tagLen;
 
-        const unsigned char* tag = reinterpret_cast<const unsigned char*>(cipherText.data() + encLen);
+    const unsigned char* tag = reinterpret_cast<const unsigned char*>(cipherText.data() + encLen);
 
-        EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-        if (!ctx)
-        {
-            throw std::runtime_error("ctx alloc failed");
-        }
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx)
+    {
+        throw std::runtime_error("EVP_CIPHER_CTX_new 失败");
+    }
 
-        const EVP_CIPHER* cipher = EVP_aes_256_gcm();
-        if (!cipher)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("AES-GCM not available");
-        }
-
-        if (EVP_DecryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("DecryptInit failed");
-        }
-
-        if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_IVLEN, 12, nullptr) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("Set IV failed");
-        }
-
-        if (EVP_DecryptInit_ex(ctx, nullptr, nullptr,
-            reinterpret_cast<const unsigned char*>(key.data()),
-            reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("Key/Nonce set failed");
-        }
-
-        if (!associated.empty())
-        {
-            int outLen = 0;
-            if (EVP_DecryptUpdate(ctx, nullptr, &outLen, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
-            {
-                EVP_CIPHER_CTX_free(ctx);
-                throw std::runtime_error("AAD failed");
-            }
-        }
-
-        std::string out;
-        out.resize(static_cast<size_t>(encLen));
-
-        int len = 0;
-        int totalLen = 0;
-
-        if (EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(out.data()), &len, reinterpret_cast<const unsigned char*>(cipherText.data()), encLen) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("DecryptUpdate failed");
-        }
-
-        totalLen += len;
-
-        if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_TAG, tagLen, (void*)tag) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("Set tag failed");
-        }
-
-        int finalLen = 0;
-
-        if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(out.data()) + totalLen, &finalLen) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("DecryptFinal failed (auth failed)");
-        }
-
-        totalLen += finalLen;
-
+    const EVP_CIPHER* cipher = EVP_aes_256_gcm();
+    if (!cipher)
+    {
         EVP_CIPHER_CTX_free(ctx);
-
-        out.resize(static_cast<size_t>(totalLen));
-
-        result = out;
+        throw std::runtime_error("AES-GCM 不可用");
     }
-    catch (...)
+
+    if (EVP_DecryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
     {
-        result.clear();
-        return;
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("DecryptInit 失败");
     }
+
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_IVLEN, 12, nullptr) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("设置 IV 长度失败");
+    }
+
+    if (EVP_DecryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("Key/Nonce 设置失败");
+    }
+
+    if (!associated.empty())
+    {
+        int outLen = 0;
+        if (EVP_DecryptUpdate(ctx, nullptr, &outLen, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
+        {
+            EVP_CIPHER_CTX_free(ctx);
+            throw std::runtime_error("AAD 更新失败");
+        }
+    }
+
+    std::string out;
+    out.resize(static_cast<size_t>(encLen));
+
+    int len = 0;
+    int totalLen = 0;
+
+    if (EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(out.data()), &len, reinterpret_cast<const unsigned char*>(cipherText.data()), encLen) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("DecryptUpdate 失败");
+    }
+
+    totalLen += len;
+
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_TAG, tagLen, (void*)tag) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("设置 tag 失败");
+    }
+
+    int finalLen = 0;
+
+    if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(out.data()) + totalLen, &finalLen) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("DecryptFinal 失败（认证失败）");
+    }
+
+    totalLen += finalLen;
+
+    EVP_CIPHER_CTX_free(ctx);
+
+    out.resize(static_cast<size_t>(totalLen));
+
+    result = out;
 }
 
 // ChaCha20Poly1305 解密
-void AeadTool::Decrypt_BouncyCastle_ChaCha20Poly1305(const std::string& key, const std::string& nonce, const std::string& cipherText, int dataLen, std::string& associated, std::string& result)
+void AeadTool::Decrypt_BouncyCastle_ChaCha20Poly1305(std::string_view key, std::string_view nonce, std::string_view cipherText, int dataLen, std::string_view associated, std::string& result)
 {
-    try
+    if (!key.data() || key.size() != KeySize)
     {
-        if (!key.data() || key.size() != 32)
-        {
-            throw std::runtime_error("Invalid key");
-        }
+        throw std::runtime_error("无效的 ChaCha20Poly1305 密钥大小");
+    }
 
-        if (!nonce.data() || nonce.size() != 12)
-        {
-            throw std::runtime_error("Invalid nonce");
-        }
+    if (!nonce.data() || nonce.size() != NonceSize)
+    {
+        throw std::runtime_error("无效的 ChaCha20Poly1305 nonce 大小");
+    }
 
-        if (!cipherText.data() || dataLen <= 16)
-        {
-            throw std::runtime_error("Invalid cipherText");
-        }
+    if (!cipherText.data() || dataLen <= 16)
+    {
+        throw std::runtime_error("密文 长度不对");
+    }
 
-        const int tagLen = 16;
-        const int encLen = dataLen - tagLen;
+    const int tagLen = 16;
+    const int encLen = dataLen - tagLen;
 
-        const unsigned char* tag = reinterpret_cast<const unsigned char*>(cipherText.data() + encLen);
+    const unsigned char* tag = reinterpret_cast<const unsigned char*>(cipherText.data() + encLen);
 
-        EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-        if (!ctx)
-        {
-            throw std::runtime_error("ctx alloc failed");
-        }
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx)
+    {
+        throw std::runtime_error("EVP_CIPHER_CTX_new 失败");
+    }
 
-        const EVP_CIPHER* cipher = EVP_chacha20_poly1305();
-        if (!cipher)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("chacha20-poly1305 not available");
-        }
-
-        if (EVP_DecryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("init failed");
-        }
-
-        if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_IVLEN, 12, nullptr) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("ivlen failed");
-        }
-
-        if (EVP_DecryptInit_ex(ctx, nullptr, nullptr,
-            reinterpret_cast<const unsigned char*>(key.data()),
-            reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("key/nonce failed");
-        }
-
-        if (!associated.empty())
-        {
-            int outLen = 0;
-            if (EVP_DecryptUpdate(ctx, nullptr, &outLen, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
-            {
-                EVP_CIPHER_CTX_free(ctx);
-                throw std::runtime_error("aad failed");
-            }
-        }
-
-        std::string out;
-        out.resize(static_cast<size_t>(encLen));
-
-        int len = 0;
-        int totalLen = 0;
-
-        if (EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(out.data()), &len, reinterpret_cast<const unsigned char*>(cipherText.data()), encLen) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("decrypt update failed");
-        }
-
-        totalLen += len;
-
-        if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_TAG, tagLen, (void*)tag) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("set tag failed");
-        }
-
-        int finalLen = 0;
-
-        if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(out.data()) + totalLen, &finalLen) != 1)
-        {
-            EVP_CIPHER_CTX_free(ctx);
-            throw std::runtime_error("auth failed");
-        }
-
-        totalLen += finalLen;
-
+    const EVP_CIPHER* cipher = EVP_chacha20_poly1305();
+    if (!cipher)
+    {
         EVP_CIPHER_CTX_free(ctx);
-
-        out.resize(static_cast<size_t>(totalLen));
-
-        result = out;
+        throw std::runtime_error("chacha20-poly1305 不可用");
     }
-    catch (...)
+
+    if (EVP_DecryptInit_ex(ctx, cipher, nullptr, nullptr, nullptr) != 1)
     {
-        result.clear();
-        return;
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("DecryptInit 失败");
     }
+
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_IVLEN, 12, nullptr) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("设置 IV 长度失败");
+    }
+
+    if (EVP_DecryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(nonce.data())) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("Key/Nonce 设置失败");
+    }
+
+    if (!associated.empty())
+    {
+        int outLen = 0;
+        if (EVP_DecryptUpdate(ctx, nullptr, &outLen, reinterpret_cast<const unsigned char*>(associated.data()), static_cast<int>(associated.size())) != 1)
+        {
+            EVP_CIPHER_CTX_free(ctx);
+            throw std::runtime_error("AAD 更新失败");
+        }
+    }
+
+    std::string out;
+    out.resize(static_cast<size_t>(encLen));
+
+    int len = 0;
+    int totalLen = 0;
+
+    if (EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(out.data()), &len, reinterpret_cast<const unsigned char*>(cipherText.data()), encLen) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("解密更新失败");
+    }
+
+    totalLen += len;
+
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_SET_TAG, tagLen, (void*)tag) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("设置 tag 失败");
+    }
+
+    int finalLen = 0;
+
+    if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(out.data()) + totalLen, &finalLen) != 1)
+    {
+        EVP_CIPHER_CTX_free(ctx);
+        throw std::runtime_error("DecryptFinal 失败（认证失败）");
+    }
+
+    totalLen += finalLen;
+
+    EVP_CIPHER_CTX_free(ctx);
+
+    out.resize(static_cast<size_t>(totalLen));
+
+    result = out;
 }
 
 // Ecdh 部分
 
-// index0为公钥 index1为私钥
-std::vector<std::vector<uint8_t>> AeadTool::GetECDHKeyPair()
+// first 为 Q（未压缩点，65 字节：04 || x || y），second 为 d （私钥 大整数，32 字节）
+std::pair<std::string, std::string> AeadTool::GetECDHKeyPair()
 {
-    std::vector<std::vector<uint8_t>> result;
+    std::pair<std::string, std::string> result;
 
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr);
-    if (!ctx)
-    {
-        return result;
+    if (!ctx) {
+        throw std::runtime_error("创建 EVP_PKEY_CTX 上下文失败");
     }
 
-    if (EVP_PKEY_keygen_init(ctx) <= 0)
-    {
+    if (EVP_PKEY_keygen_init(ctx) <= 0) {
         EVP_PKEY_CTX_free(ctx);
-        return result;
+
+        throw std::runtime_error("初始化密钥生成上下文失败");
     }
 
-    if (EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ctx, NID_X9_62_prime256v1) <= 0)
-    {
+    if (EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ctx, NID_X9_62_prime256v1) <= 0) {
         EVP_PKEY_CTX_free(ctx);
-        return result;
+
+        throw std::runtime_error("设置椭圆曲线参数（prime256v1）失败");
     }
 
     EVP_PKEY* pkey = nullptr;
-    if (EVP_PKEY_keygen(ctx, &pkey) <= 0 || !pkey)
-    {
+    if (EVP_PKEY_keygen(ctx, &pkey) <= 0 || !pkey) {
         EVP_PKEY_CTX_free(ctx);
-        return result;
+
+        throw std::runtime_error("生成密钥对失败");
     }
 
     EVP_PKEY_CTX_free(ctx);
 
-    std::vector<uint8_t> priv(32);
-    size_t privLen = priv.size();
-
-    if (EVP_PKEY_get_raw_private_key(pkey, priv.data(), &privLen) <= 0)
-    {
+    // 获取私钥 d（BIGNUM）
+    BIGNUM* priv_bn = nullptr;
+    if (EVP_PKEY_get_bn_param(pkey, OSSL_PKEY_PARAM_PRIV_KEY, &priv_bn) <= 0 || !priv_bn) {
         EVP_PKEY_free(pkey);
-        return result;
+
+        throw std::runtime_error("获取私钥 BIGNUM 参数失败");
     }
 
-    priv.resize(privLen);
-
-    std::vector<uint8_t> pub(65);
-    size_t pubLen = pub.size();
-
-    if (EVP_PKEY_get_raw_public_key(pkey, pub.data(), &pubLen) <= 0)
-    {
+    std::string priv(32, '\0');
+    if (BN_bn2binpad(priv_bn, reinterpret_cast<unsigned char*>(priv.data()), 32) != 32) {
+        BN_free(priv_bn);
         EVP_PKEY_free(pkey);
-        return result;
+
+        throw std::runtime_error("私钥转换为 32 字节大端整数失败");
     }
 
-    pub.resize(pubLen);
+    BN_free(priv_bn);
 
+    // 获取公钥 Q（未压缩点，65 字节）
+    unsigned char* pub_buf = nullptr;
+    size_t pub_len = 0;
+
+    if (EVP_PKEY_get_octet_string_param(pkey, OSSL_PKEY_PARAM_PUB_KEY, nullptr, 0, &pub_len) <= 0) {
+        EVP_PKEY_free(pkey);
+
+        throw std::runtime_error("获取公钥参数长度失败");
+    }
+
+    pub_buf = static_cast<unsigned char*>(OPENSSL_malloc(pub_len));
+    if (!pub_buf) {
+        EVP_PKEY_free(pkey);
+
+        throw std::runtime_error("分配公钥缓冲区内存失败");
+    }
+
+    if (EVP_PKEY_get_octet_string_param(pkey, OSSL_PKEY_PARAM_PUB_KEY, pub_buf, pub_len, &pub_len) <= 0) {
+        OPENSSL_free(pub_buf);
+        EVP_PKEY_free(pkey);
+
+        throw std::runtime_error("获取公钥原始数据失败");
+    }
+
+    result.first.assign(reinterpret_cast<char*>(pub_buf), pub_len); // 公钥
+    result.second = std::move(priv); // 私钥
+
+    OPENSSL_free(pub_buf);
     EVP_PKEY_free(pkey);
 
-    result.push_back(pub);
-    result.push_back(priv);
-
     return result;
 }
 
-// std::string& clientPublic, std::string& serverPrivate
-std::string AeadTool::CalECDHSharedKey(const std::string& clinetPrivate, const std::string& serverPublic)
+//std::string_view serverPrivate, std::string_view clientPublic
+std::string AeadTool::CalECDHSharedKey(std::string_view clientPrivate, std::string_view serverPublic)
 {
-    std::string result;
-
-    EVP_PKEY* peerKey = nullptr;
-    EVP_PKEY* privKey = nullptr;
-
-    EVP_PKEY_CTX* pctx = EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr);
-    if (!pctx)
+    if (serverPublic.size() != 65 || clientPrivate.size() != 32)
     {
-        return result;
+        throw std::runtime_error("ECDH 参数长度无效：公钥需 65 字节，私钥需 32 字节");
     }
 
-    if (EVP_PKEY_fromdata_init(pctx) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return result;
+    EC_GROUP* group = EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1);
+    if (!group) {
+        throw std::runtime_error("创建椭圆曲线组（prime256v1）失败");
     }
 
-    {
-        OSSL_PARAM params[3];
-        const char* group = "prime256v1";
-
-        params[0] = OSSL_PARAM_construct_utf8_string(OSSL_PKEY_PARAM_GROUP_NAME, (char*)group, 0);
-        params[1] = OSSL_PARAM_construct_octet_string(OSSL_PKEY_PARAM_PRIV_KEY, const_cast<void*>(reinterpret_cast<const void*>(clinetPrivate.data())), clinetPrivate.size());
-        params[2] = OSSL_PARAM_construct_end();
-
-        if (EVP_PKEY_fromdata(pctx, &privKey, EVP_PKEY_KEYPAIR, params) <= 0)
-        {
-            EVP_PKEY_CTX_free(pctx);
-            return result;
-        }
+    EC_POINT* pubPoint = EC_POINT_new(group);
+    if (!pubPoint) {
+        EC_GROUP_free(group);
+        throw std::runtime_error("创建椭圆曲线点失败");
     }
 
+    if (!EC_POINT_oct2point(group, pubPoint, reinterpret_cast<const unsigned char*>(serverPublic.data()), serverPublic.size(), nullptr))
     {
-        OSSL_PARAM params[3];
-        const char* group = "prime256v1";
-
-        params[0] = OSSL_PARAM_construct_utf8_string(OSSL_PKEY_PARAM_GROUP_NAME, (char*)group, 0);
-        params[1] = OSSL_PARAM_construct_octet_string(OSSL_PKEY_PARAM_PUB_KEY, const_cast<void*>(reinterpret_cast<const void*>(serverPublic.data())), serverPublic.size());
-        params[2] = OSSL_PARAM_construct_end();
-
-        if (EVP_PKEY_fromdata(pctx, &peerKey, EVP_PKEY_PUBLIC_KEY, params) <= 0)
-        {
-            EVP_PKEY_free(privKey);
-            EVP_PKEY_CTX_free(pctx);
-            return result;
-        }
+        EC_POINT_free(pubPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("公钥字节解码为椭圆曲线点失败");
     }
 
-    EVP_PKEY_CTX_free(pctx);
-
-    EVP_PKEY_CTX* dctx = EVP_PKEY_CTX_new(privKey, nullptr);
-    if (!dctx)
+    BIGNUM* priv = BN_bin2bn(reinterpret_cast<const unsigned char*>(clientPrivate.data()), clientPrivate.size(), nullptr);
+    if (!priv)
     {
-        EVP_PKEY_free(privKey);
-        EVP_PKEY_free(peerKey);
-        return result;
+        EC_POINT_free(pubPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("私钥字节转换为大整数失败");
     }
 
-    if (EVP_PKEY_derive_init(dctx) <= 0)
-    {
-        EVP_PKEY_free(privKey);
-        EVP_PKEY_free(peerKey);
-        EVP_PKEY_CTX_free(dctx);
-        return result;
+    EC_POINT* sharedPoint = EC_POINT_new(group);
+    if (!sharedPoint) {
+        BN_free(priv);
+        EC_POINT_free(pubPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("创建共享点失败");
     }
 
-    if (EVP_PKEY_derive_set_peer(dctx, peerKey) <= 0)
+    if (!EC_POINT_mul(group, sharedPoint, nullptr, pubPoint, priv, nullptr))
     {
-        EVP_PKEY_free(privKey);
-        EVP_PKEY_free(peerKey);
-        EVP_PKEY_CTX_free(dctx);
-        return result;
+        BN_free(priv);
+        EC_POINT_free(pubPoint);
+        EC_POINT_free(sharedPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("椭圆曲线点乘计算失败");
     }
 
-    size_t secretLen = 0;
-
-    if (EVP_PKEY_derive(dctx, nullptr, &secretLen) <= 0)
-    {
-        EVP_PKEY_free(privKey);
-        EVP_PKEY_free(peerKey);
-        EVP_PKEY_CTX_free(dctx);
-        return result;
+    BIGNUM* x = BN_new();
+    if (!x) {
+        BN_free(priv);
+        EC_POINT_free(pubPoint);
+        EC_POINT_free(sharedPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("创建 BIGNUM 失败");
     }
 
-    std::vector<uint8_t> secret(secretLen);
-
-    if (EVP_PKEY_derive(dctx, secret.data(), &secretLen) <= 0)
-    {
-        EVP_PKEY_free(privKey);
-        EVP_PKEY_free(peerKey);
-        EVP_PKEY_CTX_free(dctx);
-        return result;
+    if (!EC_POINT_get_affine_coordinates_GFp(group, sharedPoint, x, nullptr, nullptr)) {
+        BN_free(priv);
+        BN_free(x);
+        EC_POINT_free(pubPoint);
+        EC_POINT_free(sharedPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("获取共享点 x 坐标失败");
     }
 
-    result.assign((char*)secret.data(), secretLen);
+    int len = BN_num_bytes(x);
+    std::string result(32, '\0');
 
-    EVP_PKEY_free(privKey);
-    EVP_PKEY_free(peerKey);
-    EVP_PKEY_CTX_free(dctx);
+    if (BN_bn2binpad(x, reinterpret_cast<unsigned char*>(result.data()), 32) != 32) {
+        BN_free(priv);
+        BN_free(x);
+        EC_POINT_free(pubPoint);
+        EC_POINT_free(sharedPoint);
+        EC_GROUP_free(group);
+        throw std::runtime_error("转换共享密钥 x 坐标为 32 字节失败");
+    }
+
+    BN_free(priv);
+    BN_free(x);
+    EC_POINT_free(pubPoint);
+    EC_POINT_free(sharedPoint);
+    EC_GROUP_free(group);
 
     return result;
 }
 
-std::string AeadTool::CalInfo(const std::string& clientPublic, const std::string& serverPublic)
+// KDF 密钥派生部分
+
+std::string AeadTool::CalInfo(std::string_view clientPublic, std::string_view serverPublic)
 {
     if (clientPublic.empty())
     {
-        return std::string();
+        throw std::runtime_error("客户端公钥为空");
     }
 
     if (serverPublic.empty())
     {
-        return std::string();
+        throw std::runtime_error("服务端公钥为空");
     }
 
     std::string result;
@@ -810,85 +708,22 @@ std::string AeadTool::CalInfo(const std::string& clientPublic, const std::string
     return result;
 }
 
-std::string AeadTool::CalSecretX(const std::string& serverPublic, const std::string& info, const std::string& sharedKey)
+std::string AeadTool::CalSecretX(std::string_view serverPublic, std::string_view info, std::string_view sharedKey)
 {
-    EVP_PKEY_CTX* pctx = EVP_PKEY_CTX_new_id(EVP_PKEY_HKDF, NULL);
-    if (!pctx)
-    {
-        return {};
-    }
-
-    if (EVP_PKEY_derive_init(pctx) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return {};
-    }
-
-    if (EVP_PKEY_CTX_set_hkdf_md(pctx, EVP_sha256()) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return {};
-    }
-
-    if (EVP_PKEY_CTX_set1_hkdf_key(pctx, reinterpret_cast<const unsigned char*>(sharedKey.data()), sharedKey.size()) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return {};
-    }
-
-    if (EVP_PKEY_CTX_set1_hkdf_salt(pctx, reinterpret_cast<const unsigned char*>(serverPublic.data()), serverPublic.size()) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return {};
-    }
-
-    if (EVP_PKEY_CTX_add1_hkdf_info(pctx, reinterpret_cast<const unsigned char*>(info.data()), info.size()) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return {};
-    }
-
-    std::string out;
-    out.resize(32);
-
-    size_t outLen = 32;
-    if (EVP_PKEY_derive(pctx, reinterpret_cast<unsigned char*>(out.data()), &outLen) <= 0)
-    {
-        EVP_PKEY_CTX_free(pctx);
-        return {};
-    }
-
-    EVP_PKEY_CTX_free(pctx);
-
-    if (outLen != 32)
-    {
-        return {};
-    }
-
-    return out;
-}
-
-
-std::string CalSecretX2(const std::string& serverPublic, const std::string& info, const std::string& sharedKey)
-{
-    EVP_KDF* kdf = EVP_KDF_fetch(NULL, "HKDF", NULL);
-    if (!kdf)
-    {
-        return {};
+    EVP_KDF* kdf = EVP_KDF_fetch(NULL, OSSL_KDF_NAME_HKDF_SHA256, NULL);
+    if (!kdf) {
+        throw std::runtime_error("获取 HKDF-SHA256 算法失败");
     }
 
     EVP_KDF_CTX* ctx = EVP_KDF_CTX_new(kdf);
     EVP_KDF_free(kdf);
 
-    if (!ctx)
-    {
-        return {};
+    if (!ctx) {
+        throw std::runtime_error("创建 HKDF 上下文失败");
     }
 
-    OSSL_PARAM params[5];
+    OSSL_PARAM params[4];
     size_t i = 0;
-
-    params[i++] = OSSL_PARAM_construct_utf8_string(OSSL_KDF_PARAM_DIGEST, const_cast<char*>("SHA256"), 0);
 
     params[i++] = OSSL_PARAM_construct_octet_string(OSSL_KDF_PARAM_KEY, const_cast<void*>(reinterpret_cast<const void*>(sharedKey.data())), sharedKey.size());
 
@@ -903,7 +738,8 @@ std::string CalSecretX2(const std::string& serverPublic, const std::string& info
 
     if (EVP_KDF_derive(ctx, reinterpret_cast<unsigned char*>(out.data()), 32, params) <= 0) {
         EVP_KDF_CTX_free(ctx);
-        return {};
+
+        throw std::runtime_error("HKDF 密钥派生失败");
     }
 
     EVP_KDF_CTX_free(ctx);
@@ -911,7 +747,10 @@ std::string CalSecretX2(const std::string& serverPublic, const std::string& info
     return out;
 }
 
-void AeadTool::Encrypt_Static(std::string& result, const std::string& key, const std::string& nonce, const std::string& data, int dataLen, bool needAssociatedData, int function) {
+// 加密分发
+
+void AeadTool::Encrypt_BouncyCastle(std::string& result, std::string_view key, std::string_view nonce, std::string_view data, int dataLen, bool needAssociatedData, int function)
+{
     try
     {
         std::string associated;
@@ -935,24 +774,25 @@ void AeadTool::Encrypt_Static(std::string& result, const std::string& key, const
     {
         std::ostringstream errMsg;
         errMsg << "AeadTool: 发生错误: " << e.what();
-        LOG_ERROR(errMsg.str());
-        std::throw_with_nested(std::runtime_error(errMsg.str()));;
+        std::throw_with_nested(std::runtime_error(errMsg.str()));
         return;
     }
     catch (...)
     {
         std::ostringstream errMsg;
         errMsg << "AeadTool: 未知错误: ";
-        std::throw_with_nested(std::runtime_error(errMsg.str()));;
+        std::throw_with_nested(std::runtime_error(errMsg.str()));
     }
 }
 
-bool AeadTool::Decrypt_Static(std::string& result, const std::string& key, const std::string& nonce, const std::string& data, int dataLen, bool needAssociatedData, int function) {
+bool AeadTool::Dencrypt_BouncyCastle(std::string& result, std::string_view key, std::string_view nonce, std::string_view data, int dataLen, bool needAssociatedData, int function)
+{
     try
     {
         std::string associated;
-        if (needAssociatedData)
+        if (needAssociatedData) {
             associated = nonce;
+        }
 
         if (function != 0)
         {
@@ -967,24 +807,27 @@ bool AeadTool::Decrypt_Static(std::string& result, const std::string& key, const
     }
     catch (const std::exception& e)
     {
-        LOG_ERROR("Aead 发生错误: {}", e.what());
-        return false;
+        std::ostringstream errMsg;
+        errMsg << "AeadTool: 发生错误: " << e.what();
+        std::throw_with_nested(std::runtime_error(errMsg.str()));
     }
     catch (...)
     {
-        LOG_ERROR("未知错误");
-        return false;
+        std::ostringstream errMsg;
+        errMsg << "AeadTool: 未知错误: ";
+        std::throw_with_nested(std::runtime_error(errMsg.str()));
     }
 }
 
-
 // 数据弄脏和洗白部分
 
-std::string AeadUtil::Obfuscate(const std::string& messageData, const std::string& key3) {
-    if (messageData.empty() || key3.empty())
-        return messageData;
+std::string AeadUtil::Obfuscate(std::string_view messageData, std::string_view key3)
+{
+    if (messageData.empty() || key3.empty()) {
+        return std::string(messageData);
+    }
 
-    std::string result = messageData;
+    std::string result(messageData);
     uint8_t len = static_cast<uint8_t>(result.size());
     size_t keyLen = key3.size();
 
@@ -995,14 +838,17 @@ std::string AeadUtil::Obfuscate(const std::string& messageData, const std::strin
         b ^= len;
         result[i] = static_cast<char>(b);
     }
+
     return result;
 }
 
-std::string AeadUtil::Wash(const std::string& messageData, const std::string& key3) {
-    if (messageData.empty() || key3.empty())
-        return messageData;
+std::string AeadUtil::Wash(std::string_view messageData, std::string_view key3)
+{
+    if (messageData.empty() || key3.empty()) {
+        return std::string(messageData);
+    }
 
-    std::string result = messageData;
+    std::string result(messageData);
     uint8_t len = static_cast<uint8_t>(result.size());
     size_t keyLen = key3.size();
 
@@ -1013,5 +859,6 @@ std::string AeadUtil::Wash(const std::string& messageData, const std::string& ke
         b ^= static_cast<uint8_t>(key3[i % keyLen]);
         result[i] = static_cast<char>(b);
     }
+
     return result;
 }

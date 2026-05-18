@@ -25,6 +25,12 @@
     <Filter Include="proto\proto_cpp">
       <UniqueIdentifier>{0448d93b-564d-4a52-9f91-0ec88d348ca4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="proto\ServerOnly">
+      <UniqueIdentifier>{711e5d26-8417-47df-8680-e2906c2dcb23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\ServerOnly_Cpp">
+      <UniqueIdentifier>{be0f1655-3626-4413-80b2-885761914ad3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SrvProj.cpp">
@@ -1769,10 +1775,5 @@
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="SrvProj.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

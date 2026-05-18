@@ -14,13 +14,16 @@ public:
 
     void CalKey();
 
-    std::string GenerateToken();
+    std::string GenerateToken() const;
 
     static std::string BuildMessage(short msgId, const std::string& payload = "");
 
-private:
-    std::vector<uint8_t> clientPublicKey;
-    std::vector<uint8_t> serverPublicKey;
-    std::vector<uint8_t> serverPrivateKey;
+    bool Login(std::string loginToken);
+
+    std::string clientPublicKey;
+    std::string serverPublicKey;
+    std::string serverPrivateKey;
+
+    int platform;
 };
 
