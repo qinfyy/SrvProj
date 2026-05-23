@@ -10,16 +10,16 @@
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 
-std::unordered_map<short, ReqHandler> g_Handlers;
+std::unordered_map<short, ReqHandler> g_HandlerMap;
 
 void SetupRoutes() {
-    g_Handlers.clear();
+    g_HandlerMap.clear();
 
-    g_Handlers[ike_req] = ike_req__Handler;
-    g_Handlers[player_login_req] = player_login_req__Handler;
-    g_Handlers[player_data_req] = player_data_req__Handler;
-    g_Handlers[mall_package_list_req] = mall_package_list_req__Handler;
-    g_Handlers[activity_detail_req] = activity_detail_req__Handler;
+    g_HandlerMap[ike_req] = ike_req__Handler;
+    g_HandlerMap[player_login_req] = player_login_req__Handler;
+    g_HandlerMap[player_data_req] = player_data_req__Handler;
+    g_HandlerMap[mall_package_list_req] = mall_package_list_req__Handler;
+    g_HandlerMap[activity_detail_req] = activity_detail_req__Handler;
 }
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
@@ -91,34 +91,36 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
         }
 
         ReqHandler handler = nullptr;
-        if (auto it = g_Handlers.find(msgId); it != g_Handlers.end())
+        if (auto it = g_HandlerMap.find(msgId); it != g_HandlerMap.end())
         {
             handler = it->second;
         }
 
-        if (!handler) {
-            LOG_WARNING("Unhandled request: {}");
-            rsp.statusCode = 500;
-            rsp.body = "";
-            return;
+        std::string rspOut;
+        if (handler) {
+            rspOut = handler(session, reqData);
+        }
+        else {
+			rspOut = DummyHandler(msgId);
         }
 
-        std::string rspOut = handler(session, reqData);
         if (rspOut.empty()) {
+            LOG_WARNING("Unhandled request: {}", msgId);
             rsp.statusCode = 500;
             rsp.body = "";
             return;
+		}
+        else {
+            LOG_DEBUG("Request handled successfully, response size: {}", rspOut.size());
         }
-
-        LOG_DEBUG("Request handled successfully, response size: {}", rspOut.size());
 
         if (hasKey3) {
             std::array<char, 12> iv;
             RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
             std::string cipher;
             AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, encryptFunction);
+            
             std::string finalResult;
-
             finalResult.reserve(cipher.size() + 12);
             finalResult.append(iv.data(), 12);
             finalResult.append(cipher);
@@ -131,8 +133,8 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
             std::string cipher;
             AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
+            
             std::string result;
-
             result.reserve(cipher.size() + 12);
             result.append(iv.data(), 12);
             result.append(cipher);
@@ -175,4 +177,31 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
 
         return;
     }
+}
+
+std::string DummyHandler(short reqId)
+{
+    const auto* enumDesc = NetMsgId_descriptor();
+    if (!enumDesc) {
+        return "";
+    }
+
+    const auto* reqValue = enumDesc->FindValueByNumber(reqId);
+    if (!reqValue) {
+        return "";
+    }
+
+    std::string_view reqName = reqValue->name();
+    constexpr std::string_view suffix = "req";
+    if (!reqName.ends_with(suffix)) {
+        return "";
+    }
+
+    std::string failedAckName = std::string(reqName.substr(0, reqName.size() - suffix.size())) + "failed_ack";
+    const auto* failedAckValue = enumDesc->FindValueByName(failedAckName);
+    if (!failedAckValue) {
+        return "";
+    }
+
+    return GameSession::BuildMessage(static_cast<short>(failedAckValue->number()));
 }
