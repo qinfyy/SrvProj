@@ -46,6 +46,18 @@
     <Filter Include="proto\ServerProto_cpp">
       <UniqueIdentifier>{be0f1655-3626-4413-80b2-885761914ad3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Resources">
+      <UniqueIdentifier>{d5990d7b-1232-4723-b2ac-ee1181726f88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Resources">
+      <UniqueIdentifier>{eb21a166-7708-4b1c-81ca-ed96a2417328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Resources\BinClass">
+      <UniqueIdentifier>{f48322e4-0495-4fb0-9483-82c94ca7883f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Resources\BinClass">
+      <UniqueIdentifier>{98d75660-1566-4345-8d9a-7aa1f0c1c31b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SrvProj.cpp">
@@ -927,11 +939,23 @@
     <ClCompile Include="Game\ManagerBase.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Character.cpp">
+    <ClCompile Include="Game\CharacterMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc">
       <Filter>proto\ServerProto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\GameData.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\ResourceLoader.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\Character.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1822,6 +1846,21 @@
     </ClInclude>
     <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h">
       <Filter>proto\ServerProto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\GameData.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResourceLoader.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResBase.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\Character.h">
+      <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ class CharacterStor : public ManagerBase
 public:
 	CharacterCompBin* GetMutableCharacterCompBin();
 
-	CharacterInfo* AddCharacter(int charId);
+	CharacterInfo* AddCharacterFromId(int charId);
 	CharacterInfo* GetCharacterById(int id);
 	bool HasCharacter(int id);
 	CharacterInfo* AddCharacter(void* data); //CharacterDef

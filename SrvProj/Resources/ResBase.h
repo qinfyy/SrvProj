@@ -1,0 +1,39 @@
+#pragma once
+
+class ResBase {
+public:
+    virtual ~ResBase() = default;
+
+    virtual int GetId() const = 0;
+
+    virtual void OnLoad() {
+
+    }
+
+    bool operator<(const ResBase& other) const {
+        return GetId() < other.GetId();
+    }
+
+    bool operator>(const ResBase& other) const {
+        return GetId() > other.GetId();
+    }
+
+    bool operator<=(const ResBase& other) const {
+        return GetId() <= other.GetId();
+    }
+
+    bool operator>=(const ResBase& other) const {
+        return GetId() >= other.GetId();
+    }
+
+    bool operator==(const ResBase& other) const {
+        return GetId() == other.GetId();
+    }
+
+    bool operator!=(const ResBase& other) const {
+        return GetId() != other.GetId();
+    }
+
+
+    virtual bool LoadFromPb(std::string data) = 0;
+};

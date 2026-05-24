@@ -4,7 +4,7 @@ CharacterCompBin* CharacterStor::GetMutableCharacterCompBin() {
 	return this->GetPlayer()->mPlayerSaveData.mutable_charcomp();
 }
 
-CharacterInfo* CharacterStor::AddCharacter(int charId) {
+CharacterInfo* CharacterStor::AddCharacterFromId(int charId) {
 	CharacterInfo* charInfo = this->GetMutableCharacterCompBin()->add_charinfolist();
 	charInfo->set_charid(charId);
 	return charInfo;
@@ -37,7 +37,7 @@ bool CharacterStor::HasCharacter(int id) {
 	return GetCharacterById(id) != nullptr;
 }
 
-CharacterInfo* CharacterStor::AddCharacter(void* data); //CharacterDef
+CharacterInfo* CharacterStor::AddCharacter(void* data) //CharacterDef
 {
 	return nullptr;
 }

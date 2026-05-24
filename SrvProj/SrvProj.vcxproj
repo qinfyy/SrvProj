@@ -70,6 +70,19 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)csarcx;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)csarcx;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)csarcx;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)csarcx;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnableManifest>true</VcpkgEnableManifest>
   </PropertyGroup>
@@ -85,7 +98,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;csarcx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -102,7 +115,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;csarcx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -117,7 +130,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;csarcx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,18 +147,19 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;urlmon.lib;csarcx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AccountController.cpp" />
     <ClCompile Include="AccountServer.cpp" />
     <ClCompile Include="AeadTool.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="DbMgr.cpp" />
     <ClCompile Include="GameServices.cpp" />
     <ClCompile Include="GameSession.cpp" />
     <ClCompile Include="Game\Activity.cpp" />
-    <ClCompile Include="Game\Character.cpp" />
+    <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\ManagerBase.cpp" />
     <ClCompile Include="Handlers\Activity.cpp" />
@@ -431,6 +445,9 @@
     <ClCompile Include="proto\proto_cpp\week_boss_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\week_boss_settle.pb.cc" />
     <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc" />
+    <ClCompile Include="Resources\BinClass\Character.cpp" />
+    <ClCompile Include="Resources\GameData.cpp" />
+    <ClCompile Include="Resources\ResourceLoader.cpp" />
     <ClCompile Include="SrvProj.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
@@ -438,6 +455,7 @@
     <ClInclude Include="AccountController.h" />
     <ClInclude Include="AccountServer.h" />
     <ClInclude Include="AeadTool.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="DbMgr.h" />
     <ClInclude Include="GameServices.h" />
     <ClInclude Include="GameSession.h" />
@@ -728,6 +746,10 @@
     <ClInclude Include="proto\proto_cpp\week_boss_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h" />
     <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h" />
+    <ClInclude Include="Resources\BinClass\Character.h" />
+    <ClInclude Include="Resources\GameData.h" />
+    <ClInclude Include="Resources\ResBase.h" />
+    <ClInclude Include="Resources\ResourceLoader.h" />
     <ClInclude Include="ResultCode.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />

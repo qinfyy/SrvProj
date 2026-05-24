@@ -8,6 +8,7 @@
 #include "DbMgr.h"
 #include "AeadTool.h"
 #include "Util.h"
+#include "Config.h"
 
 int main() {
     Logger::Instance().ShowTimeStamp(true)
@@ -44,7 +45,8 @@ int main() {
 
     LOG_INFO_CFMT("Srv Proj");
     //Logger::InfoCFmt("no file line");
-    if (!DbMgr::Instance().Init(".\\Save.db")) {
+    Config::Get().LoadFromFile();
+    if (!DbMgr::Instance().Init(Config::Get().DatabsasePath)) {
         return 1;
     }
 

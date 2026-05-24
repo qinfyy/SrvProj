@@ -16,12 +16,12 @@ PlayerInfo Player::ToProto() {
 	//pAcc->set_titleprefix(1);
 	//pAcc->set_titlesuffix(2);
 
-	pAcc->set_createtime(GetPlayerData().createtime());
-	pAcc->set_headicon(GetPlayerData().headicon());
-	pAcc->set_nickname(GetPlayerData().name());
-	pAcc->set_skinid(GetPlayerData().skinid());
-	pAcc->set_titleprefix(GetPlayerData().titleprefix());
-	pAcc->set_titlesuffix(GetPlayerData().titlesuffix());
+	pAcc->set_createtime(GetMutablePlayerData()->createtime());
+	pAcc->set_headicon(GetMutablePlayerData()->headicon());
+	pAcc->set_nickname(GetMutablePlayerData()->name());
+	pAcc->set_skinid(GetMutablePlayerData()->skinid());
+	pAcc->set_titleprefix(GetMutablePlayerData()->titleprefix());
+	pAcc->set_titlesuffix(GetMutablePlayerData()->titlesuffix());
 
 	// Newbies
 	auto* pNewbies = pAcc->mutable_newbies();

@@ -1,10 +1,14 @@
-﻿#pragma once
+﻿// DbMgr.h
+#pragma once
 
 #include <sqlite3.h>
 #include <string>
 #include <mutex>
 #include <optional>
 #include <stdexcept>
+#include <vector>
+#include <cstdint>
+#include <span>
 
 class DbMgr
 {
@@ -21,11 +25,24 @@ public:
 
     bool Init(const std::string& dbFile);
 
+    void UnInit();
+
+    // Account
     bool LoginByOpenId(const std::string& openid, User& outUser);
 
     bool RegisterByOpenId(const std::string& openid, User& outUser);
 
     bool LoginByUidToken(const std::string& uid, const std::string& token, User& outUser);
+
+    // Game Data
+    bool SavePlayer(uint32_t uid, std::span<uint8_t> data);
+
+    bool LoadPlayer(uint32_t uid, std::vector<uint8_t>& outData);
+
+    bool CreatePlayer(uint32_t uid, std::span<uint8_t> data);
+
+	// Token
+    bool GenerateToken(std::string& outToken);
 
 private:
     DbMgr() = default;
@@ -33,11 +50,11 @@ private:
 
     void CheckInitialized() const;
 
-    bool GenerateToken(std::string& outToken);
-
     std::string GetNextUid();
 
 private:
     sqlite3* mDb = nullptr;
     std::mutex mDbMutex;
+
+	std::mutex mUidMutex;
 };
