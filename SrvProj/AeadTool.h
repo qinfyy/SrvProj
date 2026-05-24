@@ -53,7 +53,7 @@ public:
 	inline static const char* twServerGarbleKey = "N&mfco452ZH5!nE3s&o5uxB57UGPENVo";
 
 	inline static const int NonceSize = 12;
-	inline static const int MacSize = 128;
+	inline static const int MacSize = 128; // 单位 bit
 	inline static const int KeySize = 32;
 	inline static const int IVSize = 16;
 
@@ -64,7 +64,8 @@ public:
 	static std::string CalInfo(std::string_view clientPublic, std::string_view serverPublic);
 	static std::string CalSecretX(std::string_view serverPublic, std::string_view info, std::string_view sharedKey);
 
-	static std::pair<std::string, std::string> GetECDHKeyPair(); // first 为 Q（公钥，未压缩点，65 字节：04 || x || y），second 为 d （私钥，大整数，32 字节）
+	// first 为 Q（公钥，未压缩点，65 字节：04 || x || y），second 为 d （私钥，大整数，32 字节）
+	static std::pair<std::string, std::string> GetECDHKeyPair();
 	static std::string CalECDHSharedKey(std::string_view clinetPrivate, std::string_view serverPublic);
 
 	static void Encrypt_BouncyCastle(std::string& result, std::string_view key, std::string_view nonce, std::string_view data, int dataLen, bool needAssociatedData, int function);

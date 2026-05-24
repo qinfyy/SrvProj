@@ -165,7 +165,9 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(std::string_view key, std::string_vie
         }
     }
 
-    result.resize(dataLen + 16);
+    const int tagLen = MacSize / 8;
+
+    result.resize(dataLen + tagLen);
 
     if (EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(result.data()), &len, reinterpret_cast<const unsigned char*>(secretMessage.data()), dataLen) != 1)
     {
@@ -181,9 +183,8 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(std::string_view key, std::string_vie
         throw std::runtime_error("EncryptFinal 失败");
     }
 
-    unsigned char tag[16];
-
-    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_GET_TAG, 16, tag) != 1)
+    unsigned char tag[tagLen];
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_GET_TAG, tagLen, tag) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
         throw std::runtime_error("获取 Tag 失败");
@@ -191,7 +192,7 @@ void AeadTool::Encrypt_BouncyCastle_AesGcm(std::string_view key, std::string_vie
 
     result.resize(cipherLen);
 
-    result.append(reinterpret_cast<char*>(tag), 16);
+    result.append(reinterpret_cast<char*>(tag), tagLen);
 
     EVP_CIPHER_CTX_free(ctx);
 }
@@ -255,8 +256,10 @@ void AeadTool::Encrypt_BouncyCastle_ChaCha20Poly1305(std::string_view key, std::
         }
     }
 
+    const int tagLen = MacSize / 8;
+
     std::string out;
-    out.resize(static_cast<size_t>(dataLen) + 16);
+    out.resize(static_cast<size_t>(dataLen) + tagLen);
 
     int len = 0;
     int totalLen = 0;
@@ -276,9 +279,8 @@ void AeadTool::Encrypt_BouncyCastle_ChaCha20Poly1305(std::string_view key, std::
     }
 
     totalLen += len;
-
-    unsigned char tag[16];
-    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_GET_TAG, 16, tag) != 1)
+    unsigned char tag[tagLen];
+    if (EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_AEAD_GET_TAG, tagLen, tag) != 1)
     {
         EVP_CIPHER_CTX_free(ctx);
         throw std::runtime_error("获取 tag 失败");
@@ -287,7 +289,7 @@ void AeadTool::Encrypt_BouncyCastle_ChaCha20Poly1305(std::string_view key, std::
     EVP_CIPHER_CTX_free(ctx);
 
     out.resize(static_cast<size_t>(totalLen));
-    out.append(reinterpret_cast<char*>(tag), 16);
+    out.append(reinterpret_cast<char*>(tag), tagLen);
 
     result = out;
 }
@@ -312,7 +314,8 @@ void AeadTool::Decrypt_BouncyCastle_AesGcm(std::string_view key, std::string_vie
 
     static_cast<void>(0);
 
-    const int tagLen = 16;
+    const int tagLen = MacSize / 8;
+
     const int encLen = dataLen - tagLen;
 
     const unsigned char* tag = reinterpret_cast<const unsigned char*>(cipherText.data() + encLen);
@@ -413,7 +416,8 @@ void AeadTool::Decrypt_BouncyCastle_ChaCha20Poly1305(std::string_view key, std::
         throw std::runtime_error("密文 长度不对");
     }
 
-    const int tagLen = 16;
+    const int tagLen = MacSize / 8;
+
     const int encLen = dataLen - tagLen;
 
     const unsigned char* tag = reinterpret_cast<const unsigned char*>(cipherText.data() + encLen);
