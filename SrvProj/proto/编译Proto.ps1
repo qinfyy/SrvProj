@@ -149,8 +149,8 @@ function Compile-Protobuf-Directory {
 # 编译 proto 文件夹
 #Compile-Protobuf-Directory "proto" "proto_cpp"
 
-# 编译 ServerOnly 文件夹
-Compile-Protobuf-Directory "ServerOnly" "ServerOnly_Cpp"
+# 编译 ServerProto 文件夹
+Compile-Protobuf-Directory "ServerProto" "ServerProto_cpp"
 
 Write-Host ""
 Write-Host "[OK] Protobuf 代码生成完毕。" -ForegroundColor Green

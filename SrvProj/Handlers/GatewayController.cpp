@@ -1,12 +1,13 @@
 ﻿#include "GatewayController.h"
 #include <sstream>
+#include <openssl/rand.h>
 #include "../GameSession.h"
 #include "../AeadTool.h"
 #include "../GameServices.h"
 #include "../logger.h"
 #include "../proto/NetMsgId.pb.h"
 #include "Login.h"
-#include <openssl/rand.h>
+#include "Activity.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 

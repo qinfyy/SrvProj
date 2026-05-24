@@ -1,9 +1,9 @@
 ﻿#pragma once
 #include "../proto/proto_cpp/player_data.pb.h"
-#include "../proto/ServerOnly_cpp/playerData.pb.h"
+#include "../proto/ServerProto_cpp/playerData.pb.h"
 
 using namespace proto;
-using namespace ServerOnly;
+using namespace ServerProto;
 
 class Player
 {
@@ -13,9 +13,21 @@ public:
 
 	void Init();
 
-	PlayerInfo ToProto() const;
+	PlayerInfo ToProto();
 
-	PlayerCompBin mPlayerBin;
+	PlayerSaveData mPlayerSaveData; // 玩家数据存档，包含玩家基本数据和其他模块数据
 
+	//PlayerBasicCompBin GetPlayerData() {
+	//	return mPlayerCompBin.playerdata();
+	//}
 
+	PlayerBasicCompBin* GetMutablePlayerData() {
+		return mPlayerSaveData.mutable_playerdata();
+	}
+
+	int GetUid() const {
+		return mUid;
+	}
+private:
+	int mUid;
 };

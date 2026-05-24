@@ -15,7 +15,7 @@ using namespace proto;
 std::string ike_req__Handler(GameSession* session, const std::string& req)
 {
     if (session) {
-		LOG_ERROR("该令牌的会话已存在: {}", session->mToken.c_str());
+		LOG_ERROR("该令牌的会话已存在: {}", session->mToken);
         return GameSession::BuildMessage(ike_failed_ack);
     }
 
@@ -74,7 +74,6 @@ std::string player_data_req__Handler(GameSession* session, const std::string& re
     //    return GameSession::BuildMessage(player_new_notify);
     //}
 
-
 	auto playerData = session->mPlayer->ToProto();
     return GameSession::BuildMessage(player_data_succeed_ack, playerData.SerializeAsString());
 }
@@ -86,12 +85,4 @@ std::string mall_package_list_req__Handler(GameSession* session, const std::stri
     }
 
     return GameSession::BuildMessage(mall_package_list_succeed_ack);
-}
-
-std::string activity_detail_req__Handler(GameSession* session, const std::string& req) {
-    if (!session) {
-        return GameSession::BuildMessage(player_data_failed_ack);
-    }
-
-    return GameSession::BuildMessage(activity_detail_succeed_ack);
 }

@@ -4,17 +4,24 @@
 
 #include "../proto/proto_cpp/public.pb.h"
 
-PlayerInfo Player::ToProto() const {
+PlayerInfo Player::ToProto() {
 	PlayerInfo info;
 
 	// === Acc ===
 	auto* pAcc = info.mutable_acc();
-	pAcc->set_createtime(1779101812);
-	pAcc->set_headicon(102);
-	pAcc->set_nickname("me");
-	pAcc->set_skinid(10301);
-	pAcc->set_titleprefix(1);
-	pAcc->set_titlesuffix(2);
+	//pAcc->set_createtime(1779101812);
+	//pAcc->set_headicon(102);
+	//pAcc->set_nickname("me");
+	//pAcc->set_skinid(10301);
+	//pAcc->set_titleprefix(1);
+	//pAcc->set_titlesuffix(2);
+
+	pAcc->set_createtime(GetPlayerData().createtime());
+	pAcc->set_headicon(GetPlayerData().headicon());
+	pAcc->set_nickname(GetPlayerData().name());
+	pAcc->set_skinid(GetPlayerData().skinid());
+	pAcc->set_titleprefix(GetPlayerData().titleprefix());
+	pAcc->set_titlesuffix(GetPlayerData().titlesuffix());
 
 	// Newbies
 	auto* pNewbies = pAcc->mutable_newbies();

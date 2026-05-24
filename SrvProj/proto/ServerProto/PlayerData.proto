@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package ServerProto;
+
+message CharacterChat {
+    uint32 id = 2;
+    uint32 process = 3;
+    bool end = 4;
+    repeated uint32 options = 5;
+}
+
+message CharacterGemPreset {
+    string name = 2;
+    repeated uint32 gems = 3;
+}
+
+message CharacterGem {
+    bool locked = 2;
+    repeated uint32 attributes = 3;
+    repeated uint32 overlock = 4;
+    repeated uint32 alterAttributes = 5;
+    repeated uint32 alterOverlock = 6;
+}
+
+message CharacterGemSlot {
+    uint32 id = 2;
+    repeated CharacterGem gems = 3;
+}
+
+message CharacterContact {
+    repeated CharacterChat chats = 2;
+    bool top = 3;
+    uint64 triggerTime = 4;
+}
+
+message CharacterInfo {
+    int64 createTime = 2;
+    uint32 charId = 3;
+    uint32 level = 4;
+    uint32 exp = 5;
+    uint32 advance = 6;
+    uint32 rank = 7;
+    bool favorite = 8;
+    uint32 affinityLevel = 9; //好感
+    uint32 affinityExp = 10;
+    uint32 skin = 11;
+    uint32 skills = 12;
+    uint32 skinId = 13;
+    repeated uint64 repetalents = 14;
+    repeated uint32 plots = 15;
+    uint32 gemPresetIndex = 16;
+    repeated CharacterGemPreset gemPresets = 17;
+    repeated CharacterGemSlot gemSlots = 18;
+    CharacterContact contact = 19;
+}
+
+message CharacterCompBin {
+    repeated CharacterInfo charInfoList = 2;
+}
+
+message PlayerBasicCompBin {
+    // int32 uid = 1;
+
+    // Details
+    int64 createTime = 2;         // 创建时间
+    string name = 3;
+    string signature = 4;
+    bool gender = 5;
+    int32 headIcon = 6;
+    int32 skinId = 7;
+    int32 titlePrefix = 8;
+    int32 titleSuffix = 9;
+    int64 music = 10;
+    repeated int32 honor = 11;
+    repeated int32 showChars = 12;
+    repeated int32 boards = 13;
+    int32 level = 14;
+    int32 exp = 15;
+    int32 energy = 16;
+    int64 energyLastUpdate = 17;  // 体力上次恢复时间
+    int32 signInIndex = 18;
+    int64 lastEpochDay = 19;       // 上次纪元日（用于每日重置）
+    int64 lastLogin = 20;          // 上次登录时间
+}
+
+message PlayerSaveData {
+    // int32 uid = 1;
+
+    PlayerBasicCompBin playerdata = 2;
+    CharacterCompBin charComp = 3;
+}
+

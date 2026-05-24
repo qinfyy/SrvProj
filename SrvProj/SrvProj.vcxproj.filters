@@ -25,12 +25,6 @@
     <Filter Include="proto\proto_cpp">
       <UniqueIdentifier>{0448d93b-564d-4a52-9f91-0ec88d348ca4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="proto\ServerOnly">
-      <UniqueIdentifier>{711e5d26-8417-47df-8680-e2906c2dcb23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="proto\ServerOnly_Cpp">
-      <UniqueIdentifier>{be0f1655-3626-4413-80b2-885761914ad3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Game">
       <UniqueIdentifier>{a5523e62-0b80-43cc-9a59-34c0b5ca6e05}</UniqueIdentifier>
     </Filter>
@@ -45,6 +39,12 @@
     </Filter>
     <Filter Include="proto\proto\google\protobuf">
       <UniqueIdentifier>{213aef92-9d48-477c-bc2c-b0d9e0b29e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\ServerProto">
+      <UniqueIdentifier>{711e5d26-8417-47df-8680-e2906c2dcb23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\ServerProto_cpp">
+      <UniqueIdentifier>{be0f1655-3626-4413-80b2-885761914ad3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -918,8 +918,20 @@
     <ClCompile Include="Game\Player.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="proto\ServerOnly_Cpp\PlayerData.pb.cc">
-      <Filter>proto\ServerOnly_Cpp</Filter>
+    <ClCompile Include="Handlers\Activity.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Activity.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ManagerBase.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Character.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc">
+      <Filter>proto\ServerProto_cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1796,8 +1808,20 @@
     <ClInclude Include="Game\Player.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="proto\ServerOnly_Cpp\PlayerData.pb.h">
-      <Filter>proto\ServerOnly_Cpp</Filter>
+    <ClInclude Include="Handlers\Activity.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Activity.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ManagerBase.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h">
+      <Filter>proto\ServerProto_cpp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2629,9 +2653,6 @@
     <None Include="proto\proto\google\protobuf\any.proto">
       <Filter>proto\proto\google\protobuf</Filter>
     </None>
-    <None Include="proto\ServerOnly\PlayerData.proto">
-      <Filter>proto\ServerOnly</Filter>
-    </None>
     <None Include="proto\dump.proto">
       <Filter>proto</Filter>
     </None>
@@ -2649,6 +2670,9 @@
     </None>
     <None Include="proto\编译Proto.ps1">
       <Filter>proto</Filter>
+    </None>
+    <None Include="proto\ServerProto\PlayerData.proto">
+      <Filter>proto\ServerProto</Filter>
     </None>
   </ItemGroup>
 </Project>

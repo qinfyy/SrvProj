@@ -144,7 +144,11 @@
     <ClCompile Include="DbMgr.cpp" />
     <ClCompile Include="GameServices.cpp" />
     <ClCompile Include="GameSession.cpp" />
+    <ClCompile Include="Game\Activity.cpp" />
+    <ClCompile Include="Game\Character.cpp" />
     <ClCompile Include="Game\Player.cpp" />
+    <ClCompile Include="Game\ManagerBase.cpp" />
+    <ClCompile Include="Handlers\Activity.cpp" />
     <ClCompile Include="Handlers\GatewayController.cpp" />
     <ClCompile Include="Handlers\Login.cpp" />
     <ClCompile Include="HttpMessage.cpp" />
@@ -426,7 +430,7 @@
     <ClCompile Include="proto\proto_cpp\vampire_talent_unlock.pb.cc" />
     <ClCompile Include="proto\proto_cpp\week_boss_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\week_boss_settle.pb.cc" />
-    <ClCompile Include="proto\ServerOnly_Cpp\PlayerData.pb.cc" />
+    <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc" />
     <ClCompile Include="SrvProj.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
@@ -437,7 +441,11 @@
     <ClInclude Include="DbMgr.h" />
     <ClInclude Include="GameServices.h" />
     <ClInclude Include="GameSession.h" />
+    <ClInclude Include="Game\Activity.h" />
+    <ClInclude Include="Game\CharacterMgr.h" />
     <ClInclude Include="Game\Player.h" />
+    <ClInclude Include="Game\ManagerBase.h" />
+    <ClInclude Include="Handlers\Activity.h" />
     <ClInclude Include="Handlers\GatewayController.h" />
     <ClInclude Include="Handlers\Login.h" />
     <ClInclude Include="HttpMessage.h" />
@@ -719,7 +727,7 @@
     <ClInclude Include="proto\proto_cpp\vampire_talent_unlock.pb.h" />
     <ClInclude Include="proto\proto_cpp\week_boss_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h" />
-    <ClInclude Include="proto\ServerOnly_Cpp\PlayerData.pb.h" />
+    <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h" />
     <ClInclude Include="ResultCode.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />
@@ -1006,12 +1014,8 @@
     <None Include="proto\proto\vampire_talent_unlock.proto" />
     <None Include="proto\proto\week_boss_apply.proto" />
     <None Include="proto\proto\week_boss_settle.proto" />
+    <None Include="proto\ServerProto\PlayerData.proto" />
     <None Include="proto\编译Proto.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="proto\ServerOnly\PlayerData.proto">
-      <FileType>Document</FileType>
-    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
