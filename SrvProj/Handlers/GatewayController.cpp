@@ -19,6 +19,7 @@ void SetupRoutes() {
     g_HandlerMap[ike_req] = ike_req__Handler;
     g_HandlerMap[player_login_req] = player_login_req__Handler;
     g_HandlerMap[player_data_req] = player_data_req__Handler;
+    g_HandlerMap[player_ping_req] = player_ping_req__Handler;
     g_HandlerMap[mall_package_list_req] = mall_package_list_req__Handler;
     g_HandlerMap[activity_detail_req] = activity_detail_req__Handler;
 }
@@ -80,7 +81,7 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
         }
 
-        short msgId = (static_cast<uint8_t>(plain[offset]) << 8) | (static_cast<uint8_t>(plain[offset + 1]));
+        msgId = (static_cast<uint8_t>(plain[offset]) << 8) | (static_cast<uint8_t>(plain[offset + 1]));
         offset += 2;
         reqData = plain.substr(offset);
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class ResBase {
 public:
@@ -33,7 +34,6 @@ public:
     bool operator!=(const ResBase& other) const {
         return GetId() != other.GetId();
     }
-
 
     virtual bool LoadFromPb(std::string data) = 0;
 };

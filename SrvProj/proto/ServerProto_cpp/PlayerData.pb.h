@@ -28,6 +28,10 @@
 #include "google/protobuf/message_lite.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
+#include "google/protobuf/map.h"  // IWYU pragma: export
+#include "google/protobuf/map_type_handler.h"  // IWYU pragma: export
+#include "google/protobuf/map_entry.h"
+#include "google/protobuf/map_field.h"
 #include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
@@ -65,6 +69,10 @@ class CharacterContact;
 struct CharacterContactDefaultTypeInternal;
 extern CharacterContactDefaultTypeInternal _CharacterContact_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull CharacterContact_class_data_;
+class CharacterContact_ChatsEntry_DoNotUse;
+struct CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal;
+extern CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal _CharacterContact_ChatsEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CharacterContact_ChatsEntry_DoNotUse_class_data_;
 class CharacterGem;
 struct CharacterGemDefaultTypeInternal;
 extern CharacterGemDefaultTypeInternal _CharacterGem_default_instance_;
@@ -81,6 +89,10 @@ class CharacterInfo;
 struct CharacterInfoDefaultTypeInternal;
 extern CharacterInfoDefaultTypeInternal _CharacterInfo_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull CharacterInfo_class_data_;
+class GameDiscInfoBin;
+struct GameDiscInfoBinDefaultTypeInternal;
+extern GameDiscInfoBinDefaultTypeInternal _GameDiscInfoBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GameDiscInfoBin_class_data_;
 class PlayerBasicCompBin;
 struct PlayerBasicCompBinDefaultTypeInternal;
 extern PlayerBasicCompBinDefaultTypeInternal _PlayerBasicCompBin_default_instance_;
@@ -157,7 +169,7 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerBasicCompBin*>(
         &_PlayerBasicCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(PlayerBasicCompBin& a, PlayerBasicCompBin& b) { a.Swap(&b); }
   inline void Swap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -543,6 +555,280 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_class_data_;
+// -------------------------------------------------------------------
+
+class GameDiscInfoBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.GameDiscInfoBin) */ {
+ public:
+  inline GameDiscInfoBin() : GameDiscInfoBin(nullptr) {}
+  ~GameDiscInfoBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GameDiscInfoBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GameDiscInfoBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GameDiscInfoBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline GameDiscInfoBin(const GameDiscInfoBin& from) : GameDiscInfoBin(nullptr, from) {}
+  inline GameDiscInfoBin(GameDiscInfoBin&& from) noexcept
+      : GameDiscInfoBin(nullptr, ::std::move(from)) {}
+  inline GameDiscInfoBin& operator=(const GameDiscInfoBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GameDiscInfoBin& operator=(GameDiscInfoBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GameDiscInfoBin& default_instance() {
+    return *reinterpret_cast<const GameDiscInfoBin*>(
+        &_GameDiscInfoBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 10;
+  friend void swap(GameDiscInfoBin& a, GameDiscInfoBin& b) { a.Swap(&b); }
+  inline void Swap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GameDiscInfoBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GameDiscInfoBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GameDiscInfoBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GameDiscInfoBin& from) { GameDiscInfoBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GameDiscInfoBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.GameDiscInfoBin"; }
+
+  explicit GameDiscInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  GameDiscInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GameDiscInfoBin& from);
+  GameDiscInfoBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, GameDiscInfoBin&& from) noexcept
+      : GameDiscInfoBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kDiscIdFieldNumber = 2,
+    kLevelFieldNumber = 3,
+    kExpFieldNumber = 4,
+    kPhaseFieldNumber = 5,
+    kStarFieldNumber = 6,
+    kReadFieldNumber = 7,
+    kAvgFieldNumber = 8,
+    kCreateTimeFieldNumber = 9,
+  };
+  // int32 discId = 2;
+  void clear_discid() ;
+  ::int32_t discid() const;
+  void set_discid(::int32_t value);
+
+  private:
+  ::int32_t _internal_discid() const;
+  void _internal_set_discid(::int32_t value);
+
+  public:
+  // int32 level = 3;
+  void clear_level() ;
+  ::int32_t level() const;
+  void set_level(::int32_t value);
+
+  private:
+  ::int32_t _internal_level() const;
+  void _internal_set_level(::int32_t value);
+
+  public:
+  // int32 exp = 4;
+  void clear_exp() ;
+  ::int32_t exp() const;
+  void set_exp(::int32_t value);
+
+  private:
+  ::int32_t _internal_exp() const;
+  void _internal_set_exp(::int32_t value);
+
+  public:
+  // int32 phase = 5;
+  void clear_phase() ;
+  ::int32_t phase() const;
+  void set_phase(::int32_t value);
+
+  private:
+  ::int32_t _internal_phase() const;
+  void _internal_set_phase(::int32_t value);
+
+  public:
+  // int32 star = 6;
+  void clear_star() ;
+  ::int32_t star() const;
+  void set_star(::int32_t value);
+
+  private:
+  ::int32_t _internal_star() const;
+  void _internal_set_star(::int32_t value);
+
+  public:
+  // bool read = 7;
+  void clear_read() ;
+  bool read() const;
+  void set_read(bool value);
+
+  private:
+  bool _internal_read() const;
+  void _internal_set_read(bool value);
+
+  public:
+  // bool avg = 8;
+  void clear_avg() ;
+  bool avg() const;
+  void set_avg(bool value);
+
+  private:
+  bool _internal_avg() const;
+  void _internal_set_avg(bool value);
+
+  public:
+  // int64 createTime = 9;
+  void clear_createtime() ;
+  ::int64_t createtime() const;
+  void set_createtime(::int64_t value);
+
+  private:
+  ::int64_t _internal_createtime() const;
+  void _internal_set_createtime(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.GameDiscInfoBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<3, 8,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const GameDiscInfoBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::int32_t discid_;
+    ::int32_t level_;
+    ::int32_t exp_;
+    ::int32_t phase_;
+    ::int32_t star_;
+    bool read_;
+    bool avg_;
+    ::int64_t createtime_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull GameDiscInfoBin_class_data_;
 // -------------------------------------------------------------------
 
 class CharacterGemPreset final : public ::google::protobuf::Message
@@ -1479,6 +1765,45 @@ class CharacterGemSlot final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull CharacterGemSlot_class_data_;
 // -------------------------------------------------------------------
 
+class CharacterContact_ChatsEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::int32_t, ::google::protobuf::Message,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::int32_t, ::google::protobuf::Message,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  CharacterContact_ChatsEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CharacterContact_ChatsEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit CharacterContact_ChatsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_CharacterContact_ChatsEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull CharacterContact_ChatsEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
 class CharacterContact final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.CharacterContact) */ {
  public:
@@ -1534,7 +1859,7 @@ class CharacterContact final : public ::google::protobuf::Message
     return *reinterpret_cast<const CharacterContact*>(
         &_CharacterContact_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 4;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(CharacterContact& a, CharacterContact& b) { a.Swap(&b); }
   inline void Swap(CharacterContact* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1621,27 +1946,10 @@ class CharacterContact final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kChatsFieldNumber = 2,
     kTriggerTimeFieldNumber = 4,
     kTopFieldNumber = 3,
+    kChatsFieldNumber = 2,
   };
-  // repeated .ServerProto.CharacterChat chats = 2;
-  int chats_size() const;
-  private:
-  int _internal_chats_size() const;
-
-  public:
-  void clear_chats() ;
-  ::ServerProto::CharacterChat* PROTOBUF_NONNULL mutable_chats(int index);
-  ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>* PROTOBUF_NONNULL mutable_chats();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>& _internal_chats() const;
-  ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>* PROTOBUF_NONNULL _internal_mutable_chats();
-  public:
-  const ::ServerProto::CharacterChat& chats(int index) const;
-  ::ServerProto::CharacterChat* PROTOBUF_NONNULL add_chats();
-  const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>& chats() const;
   // uint64 triggerTime = 4;
   void clear_triggertime() ;
   ::uint64_t triggertime() const;
@@ -1662,12 +1970,27 @@ class CharacterContact final : public ::google::protobuf::Message
   void _internal_set_top(bool value);
 
   public:
+  // map<int32, .ServerProto.CharacterChat> chats = 2;
+  int chats_size() const;
+  private:
+  int _internal_chats_size() const;
+
+  public:
+  void clear_chats() ;
+  const ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>& chats() const;
+  ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>* PROTOBUF_NONNULL mutable_chats();
+
+  private:
+  const ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>& _internal_chats() const;
+  ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>* PROTOBUF_NONNULL _internal_mutable_chats();
+
+  public:
   // @@protoc_insertion_point(class_scope:ServerProto.CharacterContact)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 3,
-                                   1, 0,
+  static const ::google::protobuf::internal::TcParseTable<1, 3,
+                                   2, 0,
                                    2>
       _table_;
 
@@ -1688,9 +2011,12 @@ class CharacterContact final : public ::google::protobuf::Message
         const CharacterContact& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::RepeatedPtrField< ::ServerProto::CharacterChat > chats_;
     ::uint64_t triggertime_;
     bool top_;
+    ::google::protobuf::internal::MapField<CharacterContact_ChatsEntry_DoNotUse, ::int32_t, ::ServerProto::CharacterChat,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        chats_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1755,7 +2081,7 @@ class CharacterInfo final : public ::google::protobuf::Message
     return *reinterpret_cast<const CharacterInfo*>(
         &_CharacterInfo_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 5;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(CharacterInfo& a, CharacterInfo& b) { a.Swap(&b); }
   inline void Swap(CharacterInfo* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1842,11 +2168,12 @@ class CharacterInfo final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kRepetalentsFieldNumber = 14,
-    kPlotsFieldNumber = 15,
-    kGemPresetsFieldNumber = 17,
-    kGemSlotsFieldNumber = 18,
-    kContactFieldNumber = 19,
+    kSkillsFieldNumber = 12,
+    kPlotsFieldNumber = 14,
+    kGemPresetsFieldNumber = 16,
+    kGemSlotsFieldNumber = 17,
+    kTalentsFieldNumber = 13,
+    kContactFieldNumber = 18,
     kCreateTimeFieldNumber = 2,
     kCharIdFieldNumber = 3,
     kLevelFieldNumber = 4,
@@ -1857,29 +2184,27 @@ class CharacterInfo final : public ::google::protobuf::Message
     kAffinityLevelFieldNumber = 9,
     kAffinityExpFieldNumber = 10,
     kSkinFieldNumber = 11,
-    kSkillsFieldNumber = 12,
-    kSkinIdFieldNumber = 13,
-    kGemPresetIndexFieldNumber = 16,
+    kGemPresetIndexFieldNumber = 15,
   };
-  // repeated uint64 repetalents = 14;
-  int repetalents_size() const;
+  // repeated uint32 skills = 12;
+  int skills_size() const;
   private:
-  int _internal_repetalents_size() const;
+  int _internal_skills_size() const;
 
   public:
-  void clear_repetalents() ;
-  ::uint64_t repetalents(int index) const;
-  void set_repetalents(int index, ::uint64_t value);
-  void add_repetalents(::uint64_t value);
-  const ::google::protobuf::RepeatedField<::uint64_t>& repetalents() const;
-  ::google::protobuf::RepeatedField<::uint64_t>* PROTOBUF_NONNULL mutable_repetalents();
+  void clear_skills() ;
+  ::uint32_t skills(int index) const;
+  void set_skills(int index, ::uint32_t value);
+  void add_skills(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& skills() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_skills();
 
   private:
-  const ::google::protobuf::RepeatedField<::uint64_t>& _internal_repetalents() const;
-  ::google::protobuf::RepeatedField<::uint64_t>* PROTOBUF_NONNULL _internal_mutable_repetalents();
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_skills() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_skills();
 
   public:
-  // repeated uint32 plots = 15;
+  // repeated uint32 plots = 14;
   int plots_size() const;
   private:
   int _internal_plots_size() const;
@@ -1897,7 +2222,7 @@ class CharacterInfo final : public ::google::protobuf::Message
   ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_plots();
 
   public:
-  // repeated .ServerProto.CharacterGemPreset gemPresets = 17;
+  // repeated .ServerProto.CharacterGemPreset gemPresets = 16;
   int gempresets_size() const;
   private:
   int _internal_gempresets_size() const;
@@ -1914,7 +2239,7 @@ class CharacterInfo final : public ::google::protobuf::Message
   const ::ServerProto::CharacterGemPreset& gempresets(int index) const;
   ::ServerProto::CharacterGemPreset* PROTOBUF_NONNULL add_gempresets();
   const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterGemPreset>& gempresets() const;
-  // repeated .ServerProto.CharacterGemSlot gemSlots = 18;
+  // repeated .ServerProto.CharacterGemSlot gemSlots = 17;
   int gemslots_size() const;
   private:
   int _internal_gemslots_size() const;
@@ -1931,7 +2256,22 @@ class CharacterInfo final : public ::google::protobuf::Message
   const ::ServerProto::CharacterGemSlot& gemslots(int index) const;
   ::ServerProto::CharacterGemSlot* PROTOBUF_NONNULL add_gemslots();
   const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterGemSlot>& gemslots() const;
-  // .ServerProto.CharacterContact contact = 19;
+  // bytes talents = 13;
+  void clear_talents() ;
+  const ::std::string& talents() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_talents(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_talents();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_talents();
+  void set_allocated_talents(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_talents() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_talents(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_talents();
+
+  public:
+  // .ServerProto.CharacterContact contact = 18;
   bool has_contact() const;
   void clear_contact() ;
   const ::ServerProto::CharacterContact& contact() const;
@@ -2046,27 +2386,7 @@ class CharacterInfo final : public ::google::protobuf::Message
   void _internal_set_skin(::uint32_t value);
 
   public:
-  // uint32 skills = 12;
-  void clear_skills() ;
-  ::uint32_t skills() const;
-  void set_skills(::uint32_t value);
-
-  private:
-  ::uint32_t _internal_skills() const;
-  void _internal_set_skills(::uint32_t value);
-
-  public:
-  // uint32 skinId = 13;
-  void clear_skinid() ;
-  ::uint32_t skinid() const;
-  void set_skinid(::uint32_t value);
-
-  private:
-  ::uint32_t _internal_skinid() const;
-  void _internal_set_skinid(::uint32_t value);
-
-  public:
-  // uint32 gemPresetIndex = 16;
+  // uint32 gemPresetIndex = 15;
   void clear_gempresetindex() ;
   ::uint32_t gempresetindex() const;
   void set_gempresetindex(::uint32_t value);
@@ -2080,7 +2400,7 @@ class CharacterInfo final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<5, 18,
+  static const ::google::protobuf::internal::TcParseTable<5, 17,
                                    3, 0,
                                    2>
       _table_;
@@ -2102,12 +2422,13 @@ class CharacterInfo final : public ::google::protobuf::Message
         const CharacterInfo& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::RepeatedField<::uint64_t> repetalents_;
-    ::google::protobuf::internal::CachedSize _repetalents_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> skills_;
+    ::google::protobuf::internal::CachedSize _skills_cached_byte_size_;
     ::google::protobuf::RepeatedField<::uint32_t> plots_;
     ::google::protobuf::internal::CachedSize _plots_cached_byte_size_;
     ::google::protobuf::RepeatedPtrField< ::ServerProto::CharacterGemPreset > gempresets_;
     ::google::protobuf::RepeatedPtrField< ::ServerProto::CharacterGemSlot > gemslots_;
+    ::google::protobuf::internal::ArenaStringPtr talents_;
     ::ServerProto::CharacterContact* PROTOBUF_NULLABLE contact_;
     ::int64_t createtime_;
     ::uint32_t charid_;
@@ -2119,8 +2440,6 @@ class CharacterInfo final : public ::google::protobuf::Message
     ::uint32_t affinitylevel_;
     ::uint32_t affinityexp_;
     ::uint32_t skin_;
-    ::uint32_t skills_;
-    ::uint32_t skinid_;
     ::uint32_t gempresetindex_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -2186,7 +2505,7 @@ class CharacterCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const CharacterCompBin*>(
         &_CharacterCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 7;
   friend void swap(CharacterCompBin& a, CharacterCompBin& b) { a.Swap(&b); }
   inline void Swap(CharacterCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2274,6 +2593,7 @@ class CharacterCompBin final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kCharInfoListFieldNumber = 2,
+    kGameDiscListFieldNumber = 4,
   };
   // repeated .ServerProto.CharacterInfo charInfoList = 2;
   int charinfolist_size() const;
@@ -2292,12 +2612,29 @@ class CharacterCompBin final : public ::google::protobuf::Message
   const ::ServerProto::CharacterInfo& charinfolist(int index) const;
   ::ServerProto::CharacterInfo* PROTOBUF_NONNULL add_charinfolist();
   const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterInfo>& charinfolist() const;
+  // repeated .ServerProto.GameDiscInfoBin gameDiscList = 4;
+  int gamedisclist_size() const;
+  private:
+  int _internal_gamedisclist_size() const;
+
+  public:
+  void clear_gamedisclist() ;
+  ::ServerProto::GameDiscInfoBin* PROTOBUF_NONNULL mutable_gamedisclist(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>* PROTOBUF_NONNULL mutable_gamedisclist();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>& _internal_gamedisclist() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>* PROTOBUF_NONNULL _internal_mutable_gamedisclist();
+  public:
+  const ::ServerProto::GameDiscInfoBin& gamedisclist(int index) const;
+  ::ServerProto::GameDiscInfoBin* PROTOBUF_NONNULL add_gamedisclist();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>& gamedisclist() const;
   // @@protoc_insertion_point(class_scope:ServerProto.CharacterCompBin)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<0, 1,
-                                   1, 0,
+  static const ::google::protobuf::internal::TcParseTable<2, 2,
+                                   2, 0,
                                    2>
       _table_;
 
@@ -2319,6 +2656,7 @@ class CharacterCompBin final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::ServerProto::CharacterInfo > charinfolist_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::GameDiscInfoBin > gamedisclist_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2383,7 +2721,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerSaveData*>(
         &_PlayerSaveData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(PlayerSaveData& a, PlayerSaveData& b) { a.Swap(&b); }
   inline void Swap(PlayerSaveData* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -3115,9 +3453,11 @@ CharacterGemSlot::_internal_mutable_gems() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // CharacterContact
 
-// repeated .ServerProto.CharacterChat chats = 2;
+// map<int32, .ServerProto.CharacterChat> chats = 2;
 inline int CharacterContact::_internal_chats_size() const {
   return _internal_chats().size();
 }
@@ -3128,49 +3468,25 @@ inline void CharacterContact::clear_chats() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.chats_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[0],
-                  0x00000001U);
+                  0x00000004U);
 }
-inline ::ServerProto::CharacterChat* PROTOBUF_NONNULL CharacterContact::mutable_chats(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:ServerProto.CharacterContact.chats)
-  return _internal_mutable_chats()->Mutable(index);
+inline const ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>& CharacterContact::_internal_chats() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.chats_.GetMap();
 }
-inline ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>* PROTOBUF_NONNULL CharacterContact::mutable_chats()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
-  // @@protoc_insertion_point(field_mutable_list:ServerProto.CharacterContact.chats)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_chats();
-}
-inline const ::ServerProto::CharacterChat& CharacterContact::chats(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:ServerProto.CharacterContact.chats)
-  return _internal_chats().Get(index);
-}
-inline ::ServerProto::CharacterChat* PROTOBUF_NONNULL CharacterContact::add_chats()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::ServerProto::CharacterChat* _add =
-      _internal_mutable_chats()->InternalAddWithArena(
-          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
-  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
-  // @@protoc_insertion_point(field_add:ServerProto.CharacterContact.chats)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>& CharacterContact::chats() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:ServerProto.CharacterContact.chats)
+inline const ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>& CharacterContact::chats() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.CharacterContact.chats)
   return _internal_chats();
 }
-inline const ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>&
-CharacterContact::_internal_chats() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.chats_;
+inline ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>* PROTOBUF_NONNULL CharacterContact::_internal_mutable_chats() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.chats_.MutableMap();
 }
-inline ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterChat>* PROTOBUF_NONNULL
-CharacterContact::_internal_mutable_chats() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.chats_;
+inline ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>* PROTOBUF_NONNULL CharacterContact::mutable_chats()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.CharacterContact.chats)
+  return _internal_mutable_chats();
 }
 
 // bool top = 3;
@@ -3178,7 +3494,7 @@ inline void CharacterContact::clear_top() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.top_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000004U);
+                  0x00000002U);
 }
 inline bool CharacterContact::top() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterContact.top)
@@ -3186,7 +3502,7 @@ inline bool CharacterContact::top() const {
 }
 inline void CharacterContact::set_top(bool value) {
   _internal_set_top(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterContact.top)
 }
 inline bool CharacterContact::_internal_top() const {
@@ -3203,7 +3519,7 @@ inline void CharacterContact::clear_triggertime() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.triggertime_ = ::uint64_t{0u};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000002U);
+                  0x00000001U);
 }
 inline ::uint64_t CharacterContact::triggertime() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterContact.triggerTime)
@@ -3211,7 +3527,7 @@ inline ::uint64_t CharacterContact::triggertime() const {
 }
 inline void CharacterContact::set_triggertime(::uint64_t value) {
   _internal_set_triggertime(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterContact.triggerTime)
 }
 inline ::uint64_t CharacterContact::_internal_triggertime() const {
@@ -3232,7 +3548,7 @@ inline void CharacterInfo::clear_createtime() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.createtime_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000020U);
+                  0x00000040U);
 }
 inline ::int64_t CharacterInfo::createtime() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.createTime)
@@ -3240,7 +3556,7 @@ inline ::int64_t CharacterInfo::createtime() const {
 }
 inline void CharacterInfo::set_createtime(::int64_t value) {
   _internal_set_createtime(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.createTime)
 }
 inline ::int64_t CharacterInfo::_internal_createtime() const {
@@ -3257,7 +3573,7 @@ inline void CharacterInfo::clear_charid() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.charid_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000040U);
+                  0x00000080U);
 }
 inline ::uint32_t CharacterInfo::charid() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.charId)
@@ -3265,7 +3581,7 @@ inline ::uint32_t CharacterInfo::charid() const {
 }
 inline void CharacterInfo::set_charid(::uint32_t value) {
   _internal_set_charid(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.charId)
 }
 inline ::uint32_t CharacterInfo::_internal_charid() const {
@@ -3282,7 +3598,7 @@ inline void CharacterInfo::clear_level() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.level_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000080U);
+                  0x00000100U);
 }
 inline ::uint32_t CharacterInfo::level() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.level)
@@ -3290,7 +3606,7 @@ inline ::uint32_t CharacterInfo::level() const {
 }
 inline void CharacterInfo::set_level(::uint32_t value) {
   _internal_set_level(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.level)
 }
 inline ::uint32_t CharacterInfo::_internal_level() const {
@@ -3307,7 +3623,7 @@ inline void CharacterInfo::clear_exp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.exp_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000100U);
+                  0x00000200U);
 }
 inline ::uint32_t CharacterInfo::exp() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.exp)
@@ -3315,7 +3631,7 @@ inline ::uint32_t CharacterInfo::exp() const {
 }
 inline void CharacterInfo::set_exp(::uint32_t value) {
   _internal_set_exp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.exp)
 }
 inline ::uint32_t CharacterInfo::_internal_exp() const {
@@ -3332,7 +3648,7 @@ inline void CharacterInfo::clear_advance() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.advance_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000200U);
+                  0x00000400U);
 }
 inline ::uint32_t CharacterInfo::advance() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.advance)
@@ -3340,7 +3656,7 @@ inline ::uint32_t CharacterInfo::advance() const {
 }
 inline void CharacterInfo::set_advance(::uint32_t value) {
   _internal_set_advance(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000400U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.advance)
 }
 inline ::uint32_t CharacterInfo::_internal_advance() const {
@@ -3357,7 +3673,7 @@ inline void CharacterInfo::clear_rank() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.rank_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000400U);
+                  0x00000800U);
 }
 inline ::uint32_t CharacterInfo::rank() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.rank)
@@ -3365,7 +3681,7 @@ inline ::uint32_t CharacterInfo::rank() const {
 }
 inline void CharacterInfo::set_rank(::uint32_t value) {
   _internal_set_rank(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000400U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000800U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.rank)
 }
 inline ::uint32_t CharacterInfo::_internal_rank() const {
@@ -3382,7 +3698,7 @@ inline void CharacterInfo::clear_favorite() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.favorite_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000800U);
+                  0x00001000U);
 }
 inline bool CharacterInfo::favorite() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.favorite)
@@ -3390,7 +3706,7 @@ inline bool CharacterInfo::favorite() const {
 }
 inline void CharacterInfo::set_favorite(bool value) {
   _internal_set_favorite(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000800U);
+  SetHasBit(_impl_._has_bits_[0], 0x00001000U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.favorite)
 }
 inline bool CharacterInfo::_internal_favorite() const {
@@ -3407,7 +3723,7 @@ inline void CharacterInfo::clear_affinitylevel() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.affinitylevel_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00001000U);
+                  0x00002000U);
 }
 inline ::uint32_t CharacterInfo::affinitylevel() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.affinityLevel)
@@ -3415,7 +3731,7 @@ inline ::uint32_t CharacterInfo::affinitylevel() const {
 }
 inline void CharacterInfo::set_affinitylevel(::uint32_t value) {
   _internal_set_affinitylevel(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00001000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00002000U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.affinityLevel)
 }
 inline ::uint32_t CharacterInfo::_internal_affinitylevel() const {
@@ -3432,7 +3748,7 @@ inline void CharacterInfo::clear_affinityexp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.affinityexp_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00002000U);
+                  0x00004000U);
 }
 inline ::uint32_t CharacterInfo::affinityexp() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.affinityExp)
@@ -3440,7 +3756,7 @@ inline ::uint32_t CharacterInfo::affinityexp() const {
 }
 inline void CharacterInfo::set_affinityexp(::uint32_t value) {
   _internal_set_affinityexp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00002000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00004000U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.affinityExp)
 }
 inline ::uint32_t CharacterInfo::_internal_affinityexp() const {
@@ -3457,7 +3773,7 @@ inline void CharacterInfo::clear_skin() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.skin_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00004000U);
+                  0x00008000U);
 }
 inline ::uint32_t CharacterInfo::skin() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.skin)
@@ -3465,7 +3781,7 @@ inline ::uint32_t CharacterInfo::skin() const {
 }
 inline void CharacterInfo::set_skin(::uint32_t value) {
   _internal_set_skin(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00004000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00008000U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.skin)
 }
 inline ::uint32_t CharacterInfo::_internal_skin() const {
@@ -3477,107 +3793,122 @@ inline void CharacterInfo::_internal_set_skin(::uint32_t value) {
   _impl_.skin_ = value;
 }
 
-// uint32 skills = 12;
+// repeated uint32 skills = 12;
+inline int CharacterInfo::_internal_skills_size() const {
+  return _internal_skills().size();
+}
+inline int CharacterInfo::skills_size() const {
+  return _internal_skills_size();
+}
 inline void CharacterInfo::clear_skills() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.skills_ = 0u;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00008000U);
-}
-inline ::uint32_t CharacterInfo::skills() const {
-  // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.skills)
-  return _internal_skills();
-}
-inline void CharacterInfo::set_skills(::uint32_t value) {
-  _internal_set_skills(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00008000U);
-  // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.skills)
-}
-inline ::uint32_t CharacterInfo::_internal_skills() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.skills_;
-}
-inline void CharacterInfo::_internal_set_skills(::uint32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.skills_ = value;
-}
-
-// uint32 skinId = 13;
-inline void CharacterInfo::clear_skinid() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.skinid_ = 0u;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00010000U);
-}
-inline ::uint32_t CharacterInfo::skinid() const {
-  // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.skinId)
-  return _internal_skinid();
-}
-inline void CharacterInfo::set_skinid(::uint32_t value) {
-  _internal_set_skinid(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00010000U);
-  // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.skinId)
-}
-inline ::uint32_t CharacterInfo::_internal_skinid() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.skinid_;
-}
-inline void CharacterInfo::_internal_set_skinid(::uint32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.skinid_ = value;
-}
-
-// repeated uint64 repetalents = 14;
-inline int CharacterInfo::_internal_repetalents_size() const {
-  return _internal_repetalents().size();
-}
-inline int CharacterInfo::repetalents_size() const {
-  return _internal_repetalents_size();
-}
-inline void CharacterInfo::clear_repetalents() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.repetalents_.Clear();
+  _impl_.skills_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[0],
                   0x00000001U);
 }
-inline ::uint64_t CharacterInfo::repetalents(int index) const {
-  // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.repetalents)
-  return _internal_repetalents().Get(index);
+inline ::uint32_t CharacterInfo::skills(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.skills)
+  return _internal_skills().Get(index);
 }
-inline void CharacterInfo::set_repetalents(int index, ::uint64_t value) {
-  _internal_mutable_repetalents()->Set(index, value);
-  // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.repetalents)
+inline void CharacterInfo::set_skills(int index, ::uint32_t value) {
+  _internal_mutable_skills()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.skills)
 }
-inline void CharacterInfo::add_repetalents(::uint64_t value) {
+inline void CharacterInfo::add_skills(::uint32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _internal_mutable_repetalents()->Add(value);
+  _internal_mutable_skills()->Add(value);
   SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
-  // @@protoc_insertion_point(field_add:ServerProto.CharacterInfo.repetalents)
+  // @@protoc_insertion_point(field_add:ServerProto.CharacterInfo.skills)
 }
-inline const ::google::protobuf::RepeatedField<::uint64_t>& CharacterInfo::repetalents() const
+inline const ::google::protobuf::RepeatedField<::uint32_t>& CharacterInfo::skills() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:ServerProto.CharacterInfo.repetalents)
-  return _internal_repetalents();
+  // @@protoc_insertion_point(field_list:ServerProto.CharacterInfo.skills)
+  return _internal_skills();
 }
-inline ::google::protobuf::RepeatedField<::uint64_t>* PROTOBUF_NONNULL CharacterInfo::mutable_repetalents()
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL CharacterInfo::mutable_skills()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
-  // @@protoc_insertion_point(field_mutable_list:ServerProto.CharacterInfo.repetalents)
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.CharacterInfo.skills)
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_repetalents();
+  return _internal_mutable_skills();
 }
-inline const ::google::protobuf::RepeatedField<::uint64_t>&
-CharacterInfo::_internal_repetalents() const {
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+CharacterInfo::_internal_skills() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.repetalents_;
+  return _impl_.skills_;
 }
-inline ::google::protobuf::RepeatedField<::uint64_t>* PROTOBUF_NONNULL
-CharacterInfo::_internal_mutable_repetalents() {
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+CharacterInfo::_internal_mutable_skills() {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.repetalents_;
+  return &_impl_.skills_;
 }
 
-// repeated uint32 plots = 15;
+// bytes talents = 13;
+inline void CharacterInfo::clear_talents() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.talents_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline const ::std::string& CharacterInfo::talents() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.talents)
+  return _internal_talents();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CharacterInfo::set_talents(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  _impl_.talents_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.talents)
+}
+inline ::std::string* PROTOBUF_NONNULL CharacterInfo::mutable_talents()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::std::string* _s = _internal_mutable_talents();
+  // @@protoc_insertion_point(field_mutable:ServerProto.CharacterInfo.talents)
+  return _s;
+}
+inline const ::std::string& CharacterInfo::_internal_talents() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.talents_.Get();
+}
+inline void CharacterInfo::_internal_set_talents(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.talents_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CharacterInfo::_internal_mutable_talents() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.talents_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CharacterInfo::release_talents() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.CharacterInfo.talents)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000010U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  auto* released = _impl_.talents_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.talents_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CharacterInfo::set_allocated_talents(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+  _impl_.talents_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.talents_.IsDefault()) {
+    _impl_.talents_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.CharacterInfo.talents)
+}
+
+// repeated uint32 plots = 14;
 inline int CharacterInfo::_internal_plots_size() const {
   return _internal_plots().size();
 }
@@ -3627,12 +3958,12 @@ CharacterInfo::_internal_mutable_plots() {
   return &_impl_.plots_;
 }
 
-// uint32 gemPresetIndex = 16;
+// uint32 gemPresetIndex = 15;
 inline void CharacterInfo::clear_gempresetindex() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.gempresetindex_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00020000U);
+                  0x00010000U);
 }
 inline ::uint32_t CharacterInfo::gempresetindex() const {
   // @@protoc_insertion_point(field_get:ServerProto.CharacterInfo.gemPresetIndex)
@@ -3640,7 +3971,7 @@ inline ::uint32_t CharacterInfo::gempresetindex() const {
 }
 inline void CharacterInfo::set_gempresetindex(::uint32_t value) {
   _internal_set_gempresetindex(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00020000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00010000U);
   // @@protoc_insertion_point(field_set:ServerProto.CharacterInfo.gemPresetIndex)
 }
 inline ::uint32_t CharacterInfo::_internal_gempresetindex() const {
@@ -3652,7 +3983,7 @@ inline void CharacterInfo::_internal_set_gempresetindex(::uint32_t value) {
   _impl_.gempresetindex_ = value;
 }
 
-// repeated .ServerProto.CharacterGemPreset gemPresets = 17;
+// repeated .ServerProto.CharacterGemPreset gemPresets = 16;
 inline int CharacterInfo::_internal_gempresets_size() const {
   return _internal_gempresets().size();
 }
@@ -3708,7 +4039,7 @@ CharacterInfo::_internal_mutable_gempresets() {
   return &_impl_.gempresets_;
 }
 
-// repeated .ServerProto.CharacterGemSlot gemSlots = 18;
+// repeated .ServerProto.CharacterGemSlot gemSlots = 17;
 inline int CharacterInfo::_internal_gemslots_size() const {
   return _internal_gemslots().size();
 }
@@ -3764,9 +4095,9 @@ CharacterInfo::_internal_mutable_gemslots() {
   return &_impl_.gemslots_;
 }
 
-// .ServerProto.CharacterContact contact = 19;
+// .ServerProto.CharacterContact contact = 18;
 inline bool CharacterInfo::has_contact() const {
-  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000010U);
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000020U);
   PROTOBUF_ASSUME(!value || _impl_.contact_ != nullptr);
   return value;
 }
@@ -3774,7 +4105,7 @@ inline void CharacterInfo::clear_contact() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.contact_ != nullptr) _impl_.contact_->Clear();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000010U);
+                  0x00000020U);
 }
 inline const ::ServerProto::CharacterContact& CharacterInfo::_internal_contact() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -3793,16 +4124,16 @@ inline void CharacterInfo::unsafe_arena_set_allocated_contact(
   }
   _impl_.contact_ = reinterpret_cast<::ServerProto::CharacterContact*>(value);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerProto.CharacterInfo.contact)
 }
 inline ::ServerProto::CharacterContact* PROTOBUF_NULLABLE CharacterInfo::release_contact() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   ::ServerProto::CharacterContact* released = _impl_.contact_;
   _impl_.contact_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -3822,7 +4153,7 @@ inline ::ServerProto::CharacterContact* PROTOBUF_NULLABLE CharacterInfo::unsafe_
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:ServerProto.CharacterInfo.contact)
 
-  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   ::ServerProto::CharacterContact* temp = _impl_.contact_;
   _impl_.contact_ = nullptr;
   return temp;
@@ -3837,7 +4168,7 @@ inline ::ServerProto::CharacterContact* PROTOBUF_NONNULL CharacterInfo::_interna
 }
 inline ::ServerProto::CharacterContact* PROTOBUF_NONNULL CharacterInfo::mutable_contact()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   ::ServerProto::CharacterContact* _msg = _internal_mutable_contact();
   // @@protoc_insertion_point(field_mutable:ServerProto.CharacterInfo.contact)
   return _msg;
@@ -3854,9 +4185,9 @@ inline void CharacterInfo::set_allocated_contact(::ServerProto::CharacterContact
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   }
 
   _impl_.contact_ = reinterpret_cast<::ServerProto::CharacterContact*>(value);
@@ -3921,6 +4252,62 @@ inline ::google::protobuf::RepeatedPtrField<::ServerProto::CharacterInfo>* PROTO
 CharacterCompBin::_internal_mutable_charinfolist() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.charinfolist_;
+}
+
+// repeated .ServerProto.GameDiscInfoBin gameDiscList = 4;
+inline int CharacterCompBin::_internal_gamedisclist_size() const {
+  return _internal_gamedisclist().size();
+}
+inline int CharacterCompBin::gamedisclist_size() const {
+  return _internal_gamedisclist_size();
+}
+inline void CharacterCompBin::clear_gamedisclist() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.gamedisclist_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::ServerProto::GameDiscInfoBin* PROTOBUF_NONNULL CharacterCompBin::mutable_gamedisclist(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.CharacterCompBin.gameDiscList)
+  return _internal_mutable_gamedisclist()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>* PROTOBUF_NONNULL CharacterCompBin::mutable_gamedisclist()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.CharacterCompBin.gameDiscList)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_gamedisclist();
+}
+inline const ::ServerProto::GameDiscInfoBin& CharacterCompBin::gamedisclist(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.CharacterCompBin.gameDiscList)
+  return _internal_gamedisclist().Get(index);
+}
+inline ::ServerProto::GameDiscInfoBin* PROTOBUF_NONNULL CharacterCompBin::add_gamedisclist()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::GameDiscInfoBin* _add =
+      _internal_mutable_gamedisclist()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:ServerProto.CharacterCompBin.gameDiscList)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>& CharacterCompBin::gamedisclist() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.CharacterCompBin.gameDiscList)
+  return _internal_gamedisclist();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>&
+CharacterCompBin::_internal_gamedisclist() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.gamedisclist_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::GameDiscInfoBin>* PROTOBUF_NONNULL
+CharacterCompBin::_internal_mutable_gamedisclist() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.gamedisclist_;
 }
 
 // -------------------------------------------------------------------
@@ -4757,6 +5144,210 @@ inline void PlayerSaveData::set_allocated_charcomp(::ServerProto::CharacterCompB
 
   _impl_.charcomp_ = reinterpret_cast<::ServerProto::CharacterCompBin*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.charComp)
+}
+
+// -------------------------------------------------------------------
+
+// GameDiscInfoBin
+
+// int32 discId = 2;
+inline void GameDiscInfoBin::clear_discid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.discid_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::int32_t GameDiscInfoBin::discid() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.discId)
+  return _internal_discid();
+}
+inline void GameDiscInfoBin::set_discid(::int32_t value) {
+  _internal_set_discid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.discId)
+}
+inline ::int32_t GameDiscInfoBin::_internal_discid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.discid_;
+}
+inline void GameDiscInfoBin::_internal_set_discid(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.discid_ = value;
+}
+
+// int32 level = 3;
+inline void GameDiscInfoBin::clear_level() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.level_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::int32_t GameDiscInfoBin::level() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.level)
+  return _internal_level();
+}
+inline void GameDiscInfoBin::set_level(::int32_t value) {
+  _internal_set_level(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.level)
+}
+inline ::int32_t GameDiscInfoBin::_internal_level() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.level_;
+}
+inline void GameDiscInfoBin::_internal_set_level(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.level_ = value;
+}
+
+// int32 exp = 4;
+inline void GameDiscInfoBin::clear_exp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exp_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::int32_t GameDiscInfoBin::exp() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.exp)
+  return _internal_exp();
+}
+inline void GameDiscInfoBin::set_exp(::int32_t value) {
+  _internal_set_exp(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.exp)
+}
+inline ::int32_t GameDiscInfoBin::_internal_exp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.exp_;
+}
+inline void GameDiscInfoBin::_internal_set_exp(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exp_ = value;
+}
+
+// int32 phase = 5;
+inline void GameDiscInfoBin::clear_phase() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.phase_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::int32_t GameDiscInfoBin::phase() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.phase)
+  return _internal_phase();
+}
+inline void GameDiscInfoBin::set_phase(::int32_t value) {
+  _internal_set_phase(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.phase)
+}
+inline ::int32_t GameDiscInfoBin::_internal_phase() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.phase_;
+}
+inline void GameDiscInfoBin::_internal_set_phase(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.phase_ = value;
+}
+
+// int32 star = 6;
+inline void GameDiscInfoBin::clear_star() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.star_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline ::int32_t GameDiscInfoBin::star() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.star)
+  return _internal_star();
+}
+inline void GameDiscInfoBin::set_star(::int32_t value) {
+  _internal_set_star(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.star)
+}
+inline ::int32_t GameDiscInfoBin::_internal_star() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.star_;
+}
+inline void GameDiscInfoBin::_internal_set_star(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.star_ = value;
+}
+
+// bool read = 7;
+inline void GameDiscInfoBin::clear_read() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.read_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline bool GameDiscInfoBin::read() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.read)
+  return _internal_read();
+}
+inline void GameDiscInfoBin::set_read(bool value) {
+  _internal_set_read(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.read)
+}
+inline bool GameDiscInfoBin::_internal_read() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.read_;
+}
+inline void GameDiscInfoBin::_internal_set_read(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.read_ = value;
+}
+
+// bool avg = 8;
+inline void GameDiscInfoBin::clear_avg() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.avg_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline bool GameDiscInfoBin::avg() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.avg)
+  return _internal_avg();
+}
+inline void GameDiscInfoBin::set_avg(bool value) {
+  _internal_set_avg(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.avg)
+}
+inline bool GameDiscInfoBin::_internal_avg() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.avg_;
+}
+inline void GameDiscInfoBin::_internal_set_avg(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.avg_ = value;
+}
+
+// int64 createTime = 9;
+inline void GameDiscInfoBin::clear_createtime() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.createtime_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000080U);
+}
+inline ::int64_t GameDiscInfoBin::createtime() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.createTime)
+  return _internal_createtime();
+}
+inline void GameDiscInfoBin::set_createtime(::int64_t value) {
+  _internal_set_createtime(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.createTime)
+}
+inline ::int64_t GameDiscInfoBin::_internal_createtime() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.createtime_;
+}
+inline void GameDiscInfoBin::_internal_set_createtime(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.createtime_ = value;
 }
 
 #ifdef __GNUC__

@@ -1,33 +1,43 @@
 #include "ManagerBase.h"
+#include "Player.h"
 
 ManagerBase::ManagerBase()
-    : mPayerRef(nullptr)
+    : mPlayerRef(nullptr)
 {
 }
 
 ManagerBase::ManagerBase(Player* player)
-    : mPayerRef(player)
+    : mPlayerRef(player)
 {
 }
 
 Player* ManagerBase::GetPlayer() const
 {
-    return this->mPayerRef;
+    return mPlayerRef;
 }
 
 void ManagerBase::SetPlayer(Player* player)
 {
-    if (this->mPayerRef == nullptr)
-    {
-        this->mPayerRef = player;
-    }
+    mPlayerRef = player;
 }
 
 int ManagerBase::GetPlayerUid() const
 {
-    return this->GetPlayer()->GetUid();
+    return GetPlayer() ? static_cast<int>(GetPlayer()->GetUid()) : 0;
+}
+
+void ManagerBase::OnCreate()
+{
 }
 
 void ManagerBase::OnLoad()
+{
+}
+
+void ManagerBase::BeforeSave()
+{
+}
+
+void ManagerBase::EncodePlayerInfo(proto::PlayerInfo& out) const
 {
 }

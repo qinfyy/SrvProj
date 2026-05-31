@@ -1,20 +1,31 @@
-﻿#include "GameSession.h"
+#include "GameSession.h"
+
 #include "AeadTool.h"
-#include "Util.h"
-#include <random>
-#include <iomanip>
-#include <sstream>
-#include <openssl/rand.h>
+#include "DbMgr.h"
 #include "Logger.h"
-#include <chrono>
+#include "Util.h"
+
 #include <array>
+#include <chrono>
+#include <functional>
+#include <iomanip>
+#include <openssl/rand.h>
+#include <random>
+#include <sstream>
+#include <vector>
+
+#include "./Game/ActivityMgr.h"
+#include "./Game/CharacterMgr.h"
+#include "./Game/InventoryMgr.h"
+#include "./Game/QuestMgr.h"
+#include "./Game/InventoryMgr.h"
 
 bool GameSession::GenerateServerKey() {
     try {
         auto EcdhPair = AeadTool::GetECDHKeyPair();
 
         if (EcdhPair.first.empty() || EcdhPair.second.empty()) {
-            LOG_ERROR("生成的 ECDH 密钥对为空");
+            // LOG_ERROR("生成的 ECDH 密钥对为空");
             return false;
         }
 
@@ -49,7 +60,7 @@ bool GameSession::CalKey() {
     std::random_device rd;
     std::minstd_rand0 gen(rd());
     std::uniform_int_distribution<int> dis(0, 1);
-    mEncryptFunction = dis(gen);  // 0 = AES-GCM, 1 = ChaCha20-Poly1305
+    mEncryptFunction = dis(gen);
 
 	return true;
 }
@@ -73,9 +84,50 @@ std::string GameSession::GenerateToken() {
 }
 
 bool GameSession::Login(std::string loginToken) {
-    mPlayer = std::make_unique<Player>();
+    if (loginToken.empty()) {
+        loginToken = mToken.empty() ? "guest" : mToken;
+    }
 
-	mPlayer->Init();
+    mAccountUid = loginToken;
 
-	return true;
+    uint32_t uid = 0;
+    std::vector<uint8_t> blob;
+    auto player = std::make_unique<Player>();
+
+    if (DbMgr::Instance().LoadPlayerByAccountUid(mAccountUid, uid, blob)) {
+        if (!player->LoadFromBlob(uid, std::span<const uint8_t>(blob.data(), blob.size()))) {
+            LOG_ERROR("玩家存档解析失败, accountUid: {}", mAccountUid);
+            return false;
+        }
+    }
+    else {
+        uid = static_cast<uint32_t>(std::hash<std::string>{}(mAccountUid) & 0x7FFFFFFF);
+        if (uid == 0) {
+            uid = 1;
+        }
+
+        if (!player->InitNewPlayer(uid, "Player", false)) {
+            return false;
+        }
+
+        auto saveData = player->SaveToBlob();
+        if (!DbMgr::Instance().CreatePlayer(uid, mAccountUid, std::span<const uint8_t>(saveData.data(), saveData.size()))) {
+            LOG_ERROR("创建玩家存档失败, uid: {}, accountUid: {}", uid, mAccountUid);
+            return false;
+        }
+    }
+
+    player->OnLogin();
+    mPlayer = std::move(player);
+    SavePlayer();
+    return true;
+}
+
+bool GameSession::SavePlayer() {
+    if (!mPlayer) {
+        return false;
+    }
+
+    auto saveData = mPlayer->SaveToBlob();
+    return DbMgr::Instance().SavePlayer(mPlayer->GetUid(), std::span<const uint8_t>(saveData.data(), saveData.size()));
 }

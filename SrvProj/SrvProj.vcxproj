@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalOptions>/wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4996 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +110,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalOptions>/wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4996 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalOptions>/wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4996 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,7 +142,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalOptions>/wd4996 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/wd4996 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,7 +158,7 @@
     <ClCompile Include="DbMgr.cpp" />
     <ClCompile Include="GameServices.cpp" />
     <ClCompile Include="GameSession.cpp" />
-    <ClCompile Include="Game\Activity.cpp" />
+    <ClCompile Include="Game\ActivityMgr.cpp" />
     <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\ManagerBase.cpp" />
@@ -445,7 +445,9 @@
     <ClCompile Include="proto\proto_cpp\week_boss_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\week_boss_settle.pb.cc" />
     <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc" />
-    <ClCompile Include="Resources\BinClass\Character.cpp" />
+    <ClCompile Include="proto\table_cpp\client_table.pb.cc" />
+    <ClCompile Include="Resources\BinClass\CharacterRes.cpp" />
+    <ClCompile Include="Resources\BinClass\DiscRes.cpp" />
     <ClCompile Include="Resources\GameData.cpp" />
     <ClCompile Include="Resources\ResourceLoader.cpp" />
     <ClCompile Include="SrvProj.cpp" />
@@ -459,10 +461,12 @@
     <ClInclude Include="DbMgr.h" />
     <ClInclude Include="GameServices.h" />
     <ClInclude Include="GameSession.h" />
-    <ClInclude Include="Game\Activity.h" />
+    <ClInclude Include="Game\ActivityMgr.h" />
     <ClInclude Include="Game\CharacterMgr.h" />
+    <ClInclude Include="Game\InventoryMgr.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\ManagerBase.h" />
+    <ClInclude Include="Game\QuestMgr.h" />
     <ClInclude Include="Handlers\Activity.h" />
     <ClInclude Include="Handlers\GatewayController.h" />
     <ClInclude Include="Handlers\Login.h" />
@@ -746,7 +750,9 @@
     <ClInclude Include="proto\proto_cpp\week_boss_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h" />
     <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h" />
-    <ClInclude Include="Resources\BinClass\Character.h" />
+    <ClInclude Include="proto\table_cpp\client_table.pb.h" />
+    <ClInclude Include="Resources\BinClass\CharacterRes.h" />
+    <ClInclude Include="Resources\BinClass\DiscRes.h" />
     <ClInclude Include="Resources\GameData.h" />
     <ClInclude Include="Resources\ResBase.h" />
     <ClInclude Include="Resources\ResourceLoader.h" />
@@ -1037,6 +1043,8 @@
     <None Include="proto\proto\week_boss_apply.proto" />
     <None Include="proto\proto\week_boss_settle.proto" />
     <None Include="proto\ServerProto\PlayerData.proto" />
+    <None Include="proto\table.pb" />
+    <None Include="proto\table\client_table.proto" />
     <None Include="proto\编译Proto.ps1" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

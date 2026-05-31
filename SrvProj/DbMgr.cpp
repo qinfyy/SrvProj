@@ -214,8 +214,26 @@ bool DbMgr::LoginByOpenId(const std::string& openid, User& outUser) {
     return ok;
 }
 
+uint32_t DbMgr::GetNextPlayerUid() {
+    std::string sql = "SELECT IFNULL(MAX(uid), 0) + 1 FROM players;";
+    sqlite3_stmt* stmt = nullptr;
+
+    if (sqlite3_prepare_v2(mDb, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
+        return 1;
+    }
+
+    uint32_t uid = 1;
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        uid = static_cast<uint32_t>(sqlite3_column_int64(stmt, 0));
+    }
+
+    sqlite3_finalize(stmt);
+    return uid;
+}
+
 // Game Data
-bool DbMgr::SavePlayer(uint32_t uid, std::span<uint8_t> data) {
+bool DbMgr::SavePlayer(uint32_t uid, std::span<const uint8_t> data) {
     std::lock_guard lock(mDbMutex);
     CheckInitialized();
 
@@ -237,6 +255,10 @@ bool DbMgr::SavePlayer(uint32_t uid, std::span<uint8_t> data) {
 }
 
 bool DbMgr::LoadPlayer(uint32_t uid, std::vector<uint8_t>& outData) {
+    return LoadPlayerByUid(uid, outData);
+}
+
+bool DbMgr::LoadPlayerByUid(uint32_t uid, std::vector<uint8_t>& outData) {
     std::lock_guard lock(mDbMutex);
     CheckInitialized();
 
@@ -270,12 +292,51 @@ bool DbMgr::LoadPlayer(uint32_t uid, std::vector<uint8_t>& outData) {
     return ok;
 }
 
-bool DbMgr::CreatePlayer(uint32_t uid, std::span<uint8_t> data) {
+bool DbMgr::LoadPlayerByAccountUid(const std::string& accountUid, uint32_t& outUid, std::vector<uint8_t>& outData) {
     std::lock_guard lock(mDbMutex);
     CheckInitialized();
 
     sqlite3_stmt* stmt = nullptr;
-    const char* sql = "INSERT INTO players(uid, data) VALUES(?, ?);";
+    const char* sql = "SELECT uid, data FROM players WHERE account_uid = ? LIMIT 1;";
+
+    if (sqlite3_prepare_v2(mDb, sql, -1, &stmt, nullptr) != SQLITE_OK)
+    {
+        return false;
+    }
+
+    sqlite3_bind_text(stmt, 1, accountUid.c_str(), static_cast<int>(accountUid.size()), SQLITE_TRANSIENT);
+
+    bool ok = false;
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        outUid = static_cast<uint32_t>(sqlite3_column_int64(stmt, 0));
+        const void* blob = sqlite3_column_blob(stmt, 1);
+        int size = sqlite3_column_bytes(stmt, 1);
+        outData.resize(size);
+
+        if (size > 0 && blob)
+        {
+            memcpy(outData.data(), blob, size);
+        }
+
+        ok = true;
+    }
+
+    sqlite3_finalize(stmt);
+    return ok;
+}
+
+bool DbMgr::CreatePlayer(uint32_t uid, const std::string& accountUid, std::span<const uint8_t> data) {
+    std::lock_guard lock(mDbMutex);
+    CheckInitialized();
+
+    sqlite3_stmt* stmt = nullptr;
+    const char* sql = "INSERT INTO players(uid, account_uid, data) VALUES(?, ?, ?);";
+
+    if (uid == 0)
+    {
+        uid = GetNextPlayerUid();
+    }
 
     if (sqlite3_prepare_v2(mDb, sql, -1, &stmt, nullptr) != SQLITE_OK)
     {
@@ -283,11 +344,16 @@ bool DbMgr::CreatePlayer(uint32_t uid, std::span<uint8_t> data) {
     }
 
     sqlite3_bind_int64(stmt, 1, uid);
-    sqlite3_bind_blob(stmt, 2, data.data(), static_cast<int>(data.size()), SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 2, accountUid.c_str(), static_cast<int>(accountUid.size()), SQLITE_TRANSIENT);
+    sqlite3_bind_blob(stmt, 3, data.data(), static_cast<int>(data.size()), SQLITE_TRANSIENT);
 
     bool ok = (sqlite3_step(stmt) == SQLITE_DONE);
     sqlite3_finalize(stmt);
     return ok;
+}
+
+bool DbMgr::CreatePlayer(uint32_t uid, std::span<const uint8_t> data) {
+    return CreatePlayer(uid, std::to_string(uid), data);
 }
 
 bool DbMgr::GenerateToken(std::string& outToken) {

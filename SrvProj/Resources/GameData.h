@@ -2,106 +2,9 @@
 
 #include <unordered_map>
 #include <memory>
-#include ".\BinClass\Character.h"
-//#include ".\BinClass\CharacterAdvanceDef.h"
-//#include ".\BinClass\CharacterSkillUpgradeDef.h"
-//#include ".\BinClass\CharacterUpgradeDef.h"
-//#include ".\BinClass\CharItemExpDef.h"
-//#include ".\BinClass\CharacterSkinDef.h"
-//#include ".\BinClass\TalentGroupDef.h"
-//#include ".\BinClass\TalentDef.h"
-//#include ".\BinClass\CharGemDef.h"
-//#include ".\BinClass\CharGemSlotControlDef.h"
-//#include ".\BinClass\CharGemAttrGroupDef.h"
-//#include ".\BinClass\CharGemAttrValueDef.h"
-//#include ".\BinClass\AffinityLevelDef.h"
-//#include ".\BinClass\AffinityGiftDef.h"
-//#include ".\BinClass\PlotDef.h"
-//#include ".\BinClass\ChatDef.h"
-//#include ".\BinClass\DatingLandmarkDef.h"
-//#include ".\BinClass\DatingLandmarkEventDef.h"
-//#include ".\BinClass\DatingCharacterEventDef.h"
-//#include ".\BinClass\DiscDef.h"
-//#include ".\BinClass\DiscStrengthenDef.h"
-//#include ".\BinClass\DiscItemExpDef.h"
-//#include ".\BinClass\DiscPromoteDef.h"
-//#include ".\BinClass\DiscPromoteLimitDef.h"
-//#include ".\BinClass\SecondarySkillDef.h"
-//#include ".\BinClass\ItemDef.h"
-//#include ".\BinClass\ProductionDef.h"
-//#include ".\BinClass\PlayerHeadDef.h"
-//#include ".\BinClass\TitleDef.h"
-//#include ".\BinClass\HonorDef.h"
-//#include ".\BinClass\MallMonthlyCardDef.h"
-//#include ".\BinClass\MallPackageDef.h"
-//#include ".\BinClass\MallShopDef.h"
-//#include ".\BinClass\MallGemDef.h"
-//#include ".\BinClass\ResidentShopDef.h"
-//#include ".\BinClass\ResidentGoodsDef.h"
-//#include ".\BinClass\BattlePassDef.h"
-//#include ".\BinClass\BattlePassLevelDef.h"
-//#include ".\BinClass\BattlePassQuestDef.h"
-//#include ".\BinClass\BattlePassRewardDef.h"
-//#include ".\BinClass\AgentDef.h"
-//#include ".\BinClass\DictionaryTabDef.h"
-//#include ".\BinClass\DictionaryEntryDef.h"
-//#include ".\BinClass\GachaATypeProbDef.h"
-//#include ".\BinClass\GachaDef.h"
-//#include ".\BinClass\GachaNewbieDef.h"
-//#include ".\BinClass\GachaStorageDef.h"
-//#include ".\BinClass\GachaTypeDef.h"
-//#include ".\BinClass\StoryDef.h"
-//#include ".\BinClass\StorySetSectionDef.h"
-//#include ".\BinClass\StoryEvidenceDef.h"
-//#include ".\BinClass\MainScreenCGDef.h"
-//#include ".\BinClass\DailyQuestDef.h"
-//#include ".\BinClass\DailyQuestActiveDef.h"
-//#include ".\BinClass\WeeklyQuestDef.h"
-//#include ".\BinClass\WeeklyQuestActiveDef.h"
-//#include ".\BinClass\AchievementDef.h"
-//#include ".\BinClass\TutorialLevelDef.h"
-//#include ".\BinClass\DailyInstanceDef.h"
-//#include ".\BinClass\DailyInstanceRewardGroupDef.h"
-//#include ".\BinClass\RegionBossLevelDef.h"
-//#include ".\BinClass\SkillInstanceDef.h"
-//#include ".\BinClass\CharGemInstanceDef.h"
-//#include ".\BinClass\WeekBossLevelDef.h"
-//#include ".\BinClass\StarTowerDef.h"
-//#include ".\BinClass\StarTowerStageDef.h"
-//#include ".\BinClass\StarTowerGrowthNodeDef.h"
-//#include ".\BinClass\StarTowerFloorExpDef.h"
-//#include ".\BinClass\StarTowerTeamExpDef.h"
-//#include ".\BinClass\StarTowerEventDef.h"
-//#include ".\BinClass\StarTowerBuildRankDef.h"
-//#include ".\BinClass\SubNoteSkillPromoteGroupDef.h"
-//#include ".\BinClass\PotentialDef.h"
-//#include ".\BinClass\CharPotentialDef.h"
-//#include ".\BinClass\StarTowerBookFateCardBundleDef.h"
-//#include ".\BinClass\StarTowerBookFateCardQuestDef.h"
-//#include ".\BinClass\StarTowerBookFateCardDef.h"
-//#include ".\BinClass\FateCardDef.h"
-//#include ".\BinClass\InfinityTowerLevelDef.h"
-//#include ".\BinClass\InfinityTowerDifficultyDef.h"
-//#include ".\BinClass\VampireSurvivorDef.h"
-//#include ".\BinClass\VampireTalentDef.h"
-//#include ".\BinClass\ScoreBossControlDef.h"
-//#include ".\BinClass\ScoreBossRewardDef.h"
-//#include ".\BinClass\WorldClassDef.h"
-//#include ".\BinClass\GuideGroupDef.h"
-//#include ".\BinClass\HandbookDef.h"
-//#include ".\BinClass\SignInDef.h"
-//#include ".\BinClass\ActivityDef.h"
-//#include ".\BinClass\LoginRewardGroupControlDef.h"
-//#include ".\BinClass\TowerDefenseLevelDef.h"
-//#include ".\BinClass\TrialControlDef.h"
-//#include ".\BinClass\TrialGroupDef.h"
-//#include ".\BinClass\JointDrill2LevelDef.h"
-//#include ".\BinClass\ActivityLevelsLevelDef.h"
-//#include ".\BinClass\ActivityTaskDef.h"
-//#include ".\BinClass\ActivityTaskGroupDef.h"
-//#include ".\BinClass\ActivityShopDef.h"
-//#include ".\BinClass\ActivityShopControlDef.h"
-//#include ".binActivityGoodsDef.h"
+
+#include "BinClass/CharacterRes.h"
+#include "BinClass/DiscRes.h"
 
 class GameData {
 public:
@@ -111,8 +14,8 @@ public:
     GameData(const GameData&) = delete;
     GameData& operator=(const GameData&) = delete;
 
-    // ===== Characters =====
-    static inline std::unordered_map<int, CharacterDef> mCharacterDataTable;
+    // Characters
+    static std::unordered_map<int, CharacterRes> CharacterDataTable;
     //static inline std::unordered_map<int, CharacterAdvanceDef> mCharacterAdvanceDataTable;
     //static inline std::unordered_map<int, CharacterSkillUpgradeDef> mCharacterSkillUpgradeDataTable;
     //static inline std::unordered_map<int, CharacterUpgradeDef> mCharacterUpgradeDataTable;
@@ -133,7 +36,7 @@ public:
     //static inline std::unordered_map<int, PlotDef> mPlotDataTable;
 
     //// Characters: Phone
-    //static inline std::unordered_map<int, ChatDef> mChatDataTable;
+    static std::unordered_map<int, ChatRes> ChatDataTable;
 
     //// Characters: Dating
     //static inline std::unordered_map<int, DatingLandmarkDef> mDatingLandmarkDataTable;
@@ -141,7 +44,7 @@ public:
     //static inline std::unordered_map<int, DatingCharacterEventDef> mDatingCharacterEventDataTable;
 
     //// ===== Discs =====
-    //static inline std::unordered_map<int, DiscDef> mDiscDataTable;
+    static std::unordered_map<int, DiscRes> DiscDataTable;
     //static inline std::unordered_map<int, DiscStrengthenDef> mDiscStrengthenDataTable;
     //static inline std::unordered_map<int, DiscItemExpDef> mDiscItemExpDataTable;
     //static inline std::unordered_map<int, DiscPromoteDef> mDiscPromoteDataTable;

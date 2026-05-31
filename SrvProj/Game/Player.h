@@ -1,33 +1,54 @@
-﻿#pragma once
-#include "../proto/proto_cpp/player_data.pb.h"
-#include "../proto/ServerProto_cpp/playerData.pb.h"
+#pragma once
 
-using namespace proto;
-using namespace ServerProto;
+#include "../proto/proto_cpp/player_data.pb.h"
+#include "../proto/ServerProto_cpp/PlayerData.pb.h"
+
+#include <cstdint>
+#include <memory>
+#include <span>
+#include <string>
+#include <vector>
+#include "QuestMgr.h"
+
+class ActivityMgr;
+class CharacterStor;
+class InventoryMgr;
+class QuestMgr;
 
 class Player
 {
 public:
-	Player() = default;
-	~Player() = default;
+    Player();
+    ~Player();
 
-	void Init();
+    bool InitNewPlayer(uint32_t uid, std::string name, bool gender);
+    bool LoadFromBlob(uint32_t uid, std::span<const uint8_t> data);
+    std::vector<uint8_t> SaveToBlob() const;
 
-	PlayerInfo ToProto();
+    proto::PlayerInfo ToProto();
+    void OnLogin();
 
-	PlayerSaveData mPlayerSaveData; // 玩家数据存档，包含玩家基本数据和其他模块数据
+    ServerProto::PlayerSaveData& SaveData();
+    const ServerProto::PlayerSaveData& SaveData() const;
 
-	//PlayerBasicCompBin GetPlayerData() {
-	//	return mPlayerCompBin.playerdata();
-	//}
+    CharacterStor& Characters();
+    const CharacterStor& Characters() const;
 
-	PlayerBasicCompBin* GetMutablePlayerData() {
-		return mPlayerSaveData.mutable_playerdata();
-	}
+    ServerProto::PlayerBasicCompBin* GetMutablePlayerData();
+    const ServerProto::PlayerBasicCompBin& GetPlayerData() const;
 
-	int GetUid() const {
-		return mUid;
-	}
+    uint32_t GetUid() const;
+
 private:
-	int mUid;
+    void InitManagers();
+    void EncodeBasicInfo(proto::PlayerInfo& info) const;
+    void EncodeMinimalSystems(proto::PlayerInfo& info) const;
+
+    uint32_t mUid = 0;
+    ServerProto::PlayerSaveData mPlayerSaveData;
+
+    std::unique_ptr<CharacterStor> mCharacterStor;
+    std::unique_ptr<ActivityMgr> mActivityMgr;
+    std::unique_ptr<InventoryMgr> mInventoryMgr;
+    std::unique_ptr<QuestMgr> mQuestMgr;
 };

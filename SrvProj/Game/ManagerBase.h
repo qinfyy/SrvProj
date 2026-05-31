@@ -1,24 +1,27 @@
 #pragma once
-#include "Player.h"
+
+namespace proto {
+class PlayerInfo;
+}
+
+class Player;
 
 class ManagerBase
 {
 protected:
-    Player* mPayerRef;
+    Player* mPlayerRef;
 
 public:
     ManagerBase();
-
     explicit ManagerBase(Player* player);
-
     virtual ~ManagerBase() = default;
 
-public:
     Player* GetPlayer() const;
-
     void SetPlayer(Player* player);
-
     int GetPlayerUid() const;
 
+    virtual void OnCreate();
     virtual void OnLoad();
+    virtual void BeforeSave();
+    virtual void EncodePlayerInfo(proto::PlayerInfo& out) const;
 };

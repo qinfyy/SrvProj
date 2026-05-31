@@ -2,7 +2,7 @@
 #include "../proto/NetMsgId.pb.h"
 
 std::string activity_detail_req__Handler(GameSession* session, const std::string& req) {
-    if (!session) {
+    if (!session || !session->mPlayer) {
         return GameSession::BuildMessage(activity_detail_failed_ack);
     }
 

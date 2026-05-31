@@ -149,6 +149,9 @@ function Compile-Protobuf-Directory {
 # 编译 proto 文件夹
 #Compile-Protobuf-Directory "proto" "proto_cpp"
 
+# 编译 table 文件夹
+#Compile-Protobuf-Directory "table" "table_cpp"
+
 # 编译 ServerProto 文件夹
 Compile-Protobuf-Directory "ServerProto" "ServerProto_cpp"
 

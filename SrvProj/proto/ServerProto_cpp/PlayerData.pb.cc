@@ -76,6 +76,38 @@ struct PlayerBasicCompBinDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerBasicCompBinDefaultTypeInternal _PlayerBasicCompBin_default_instance_;
 
+inline constexpr GameDiscInfoBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        discid_{0},
+        level_{0},
+        exp_{0},
+        phase_{0},
+        star_{0},
+        read_{false},
+        avg_{false},
+        createtime_{::int64_t{0}} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GameDiscInfoBin::GameDiscInfoBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GameDiscInfoBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GameDiscInfoBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GameDiscInfoBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GameDiscInfoBinDefaultTypeInternal() {}
+  union {
+    GameDiscInfoBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GameDiscInfoBinDefaultTypeInternal _GameDiscInfoBin_default_instance_;
+
 inline constexpr CharacterGemPreset::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -192,13 +224,31 @@ struct CharacterGemSlotDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterGemSlotDefaultTypeInternal _CharacterGemSlot_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR CharacterContact_ChatsEntry_DoNotUse::CharacterContact_ChatsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : CharacterContact_ChatsEntry_DoNotUse::MapEntry(CharacterContact_ChatsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : CharacterContact_ChatsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    CharacterContact_ChatsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal _CharacterContact_ChatsEntry_DoNotUse_default_instance_;
 
 inline constexpr CharacterContact::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        chats_{},
         triggertime_{::uint64_t{0u}},
-        top_{false} {}
+        top_{false},
+        chats_{} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR CharacterContact::CharacterContact(::_pbi::ConstantInitialized)
@@ -223,12 +273,15 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr CharacterInfo::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        repetalents_{},
-        _repetalents_cached_byte_size_{0},
+        skills_{},
+        _skills_cached_byte_size_{0},
         plots_{},
         _plots_cached_byte_size_{0},
         gempresets_{},
         gemslots_{},
+        talents_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         contact_{nullptr},
         createtime_{::int64_t{0}},
         charid_{0u},
@@ -240,8 +293,6 @@ inline constexpr CharacterInfo::Impl_::Impl_(
         affinitylevel_{0u},
         affinityexp_{0u},
         skin_{0u},
-        skills_{0u},
-        skinid_{0u},
         gempresetindex_{0u} {}
 
 template <typename>
@@ -267,7 +318,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr CharacterCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        charinfolist_{} {}
+        charinfolist_{},
+        gamedisclist_{} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR CharacterCompBin::CharacterCompBin(::_pbi::ConstantInitialized)
@@ -361,17 +413,24 @@ const ::uint32_t
         1,
         0,
         0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact_ChatsEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact_ChatsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact_ChatsEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact, _impl_._has_bits_),
         6, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact, _impl_.chats_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact, _impl_.top_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterContact, _impl_.triggertime_),
-        0,
         2,
         1,
+        0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_._has_bits_),
-        21, // hasbit index offset
+        20, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.createtime_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.charid_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.level_),
@@ -383,14 +442,12 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.affinityexp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.skin_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.skills_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.skinid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.repetalents_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.talents_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.plots_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.gempresetindex_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.gempresets_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.gemslots_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterInfo, _impl_.contact_),
-        5,
         6,
         7,
         8,
@@ -401,18 +458,20 @@ const ::uint32_t
         13,
         14,
         15,
-        16,
         0,
+        4,
         1,
-        17,
+        16,
         2,
         3,
-        4,
+        5,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterCompBin, _impl_._has_bits_),
-        4, // hasbit index offset
+        5, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterCompBin, _impl_.charinfolist_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::CharacterCompBin, _impl_.gamedisclist_),
         0,
+        1,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_._has_bits_),
         22, // hasbit index offset
@@ -461,6 +520,25 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.charcomp_),
         0,
         1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_._has_bits_),
+        11, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.discid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.level_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.exp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.phase_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.star_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.read_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.avg_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_.createtime_),
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
 };
 
 static const ::_pbi::MigrationSchema
@@ -469,22 +547,26 @@ static const ::_pbi::MigrationSchema
         {11, sizeof(::ServerProto::CharacterGemPreset)},
         {18, sizeof(::ServerProto::CharacterGem)},
         {31, sizeof(::ServerProto::CharacterGemSlot)},
-        {38, sizeof(::ServerProto::CharacterContact)},
-        {47, sizeof(::ServerProto::CharacterInfo)},
-        {86, sizeof(::ServerProto::CharacterCompBin)},
-        {91, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {132, sizeof(::ServerProto::PlayerSaveData)},
+        {38, sizeof(::ServerProto::CharacterContact_ChatsEntry_DoNotUse)},
+        {45, sizeof(::ServerProto::CharacterContact)},
+        {54, sizeof(::ServerProto::CharacterInfo)},
+        {91, sizeof(::ServerProto::CharacterCompBin)},
+        {98, sizeof(::ServerProto::PlayerBasicCompBin)},
+        {139, sizeof(::ServerProto::PlayerSaveData)},
+        {146, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
     &::ServerProto::_CharacterGemPreset_default_instance_._instance,
     &::ServerProto::_CharacterGem_default_instance_._instance,
     &::ServerProto::_CharacterGemSlot_default_instance_._instance,
+    &::ServerProto::_CharacterContact_ChatsEntry_DoNotUse_default_instance_._instance,
     &::ServerProto::_CharacterContact_default_instance_._instance,
     &::ServerProto::_CharacterInfo_default_instance_._instance,
     &::ServerProto::_CharacterCompBin_default_instance_._instance,
     &::ServerProto::_PlayerBasicCompBin_default_instance_._instance,
     &::ServerProto::_PlayerSaveData_default_instance_._instance,
+    &::ServerProto::_GameDiscInfoBin_default_instance_._instance,
 };
 const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -496,46 +578,53 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "tes\030\003 \003(\r\022\020\n\010overlock\030\004 \003(\r\022\027\n\017alterAttr"
     "ibutes\030\005 \003(\r\022\025\n\ralterOverlock\030\006 \003(\r\"G\n\020C"
     "haracterGemSlot\022\n\n\002id\030\002 \001(\r\022\'\n\004gems\030\003 \003("
-    "\0132\031.ServerProto.CharacterGem\"_\n\020Characte"
-    "rContact\022)\n\005chats\030\002 \003(\0132\032.ServerProto.Ch"
-    "aracterChat\022\013\n\003top\030\003 \001(\010\022\023\n\013triggerTime\030"
-    "\004 \001(\004\"\254\003\n\rCharacterInfo\022\022\n\ncreateTime\030\002 "
-    "\001(\003\022\016\n\006charId\030\003 \001(\r\022\r\n\005level\030\004 \001(\r\022\013\n\003ex"
-    "p\030\005 \001(\r\022\017\n\007advance\030\006 \001(\r\022\014\n\004rank\030\007 \001(\r\022\020"
-    "\n\010favorite\030\010 \001(\010\022\025\n\raffinityLevel\030\t \001(\r\022"
-    "\023\n\013affinityExp\030\n \001(\r\022\014\n\004skin\030\013 \001(\r\022\016\n\006sk"
-    "ills\030\014 \001(\r\022\016\n\006skinId\030\r \001(\r\022\023\n\013repetalent"
-    "s\030\016 \003(\004\022\r\n\005plots\030\017 \003(\r\022\026\n\016gemPresetIndex"
-    "\030\020 \001(\r\0223\n\ngemPresets\030\021 \003(\0132\037.ServerProto"
-    ".CharacterGemPreset\022/\n\010gemSlots\030\022 \003(\0132\035."
-    "ServerProto.CharacterGemSlot\022.\n\007contact\030"
-    "\023 \001(\0132\035.ServerProto.CharacterContact\"D\n\020"
-    "CharacterCompBin\0220\n\014charInfoList\030\002 \003(\0132\032"
-    ".ServerProto.CharacterInfo\"\352\002\n\022PlayerBas"
-    "icCompBin\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003 "
-    "\001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022\020"
-    "\n\010headIcon\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013titl"
-    "ePrefix\030\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005mu"
-    "sic\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014 "
-    "\003(\005\022\016\n\006boards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003ex"
-    "p\030\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUpd"
-    "ate\030\021 \001(\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastEp"
-    "ochDay\030\023 \001(\003\022\021\n\tlastLogin\030\024 \001(\003\"v\n\016Playe"
-    "rSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerPr"
-    "oto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001(\013"
-    "2\035.ServerProto.CharacterCompBinb\006proto3"
+    "\0132\031.ServerProto.CharacterGem\"\267\001\n\020Charact"
+    "erContact\0227\n\005chats\030\002 \003(\0132(.ServerProto.C"
+    "haracterContact.ChatsEntry\022\013\n\003top\030\003 \001(\010\022"
+    "\023\n\013triggerTime\030\004 \001(\004\032H\n\nChatsEntry\022\013\n\003ke"
+    "y\030\001 \001(\005\022)\n\005value\030\002 \001(\0132\032.ServerProto.Cha"
+    "racterChat:\0028\001\"\230\003\n\rCharacterInfo\022\022\n\ncrea"
+    "teTime\030\002 \001(\003\022\016\n\006charId\030\003 \001(\r\022\r\n\005level\030\004 "
+    "\001(\r\022\013\n\003exp\030\005 \001(\r\022\017\n\007advance\030\006 \001(\r\022\014\n\004ran"
+    "k\030\007 \001(\r\022\020\n\010favorite\030\010 \001(\010\022\025\n\raffinityLev"
+    "el\030\t \001(\r\022\023\n\013affinityExp\030\n \001(\r\022\014\n\004skin\030\013 "
+    "\001(\r\022\016\n\006skills\030\014 \003(\r\022\017\n\007talents\030\r \001(\014\022\r\n\005"
+    "plots\030\016 \003(\r\022\026\n\016gemPresetIndex\030\017 \001(\r\0223\n\ng"
+    "emPresets\030\020 \003(\0132\037.ServerProto.CharacterG"
+    "emPreset\022/\n\010gemSlots\030\021 \003(\0132\035.ServerProto"
+    ".CharacterGemSlot\022.\n\007contact\030\022 \001(\0132\035.Ser"
+    "verProto.CharacterContact\"x\n\020CharacterCo"
+    "mpBin\0220\n\014charInfoList\030\002 \003(\0132\032.ServerProt"
+    "o.CharacterInfo\0222\n\014gameDiscList\030\004 \003(\0132\034."
+    "ServerProto.GameDiscInfoBin\"\352\002\n\022PlayerBa"
+    "sicCompBin\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003"
+    " \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022"
+    "\020\n\010headIcon\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013tit"
+    "lePrefix\030\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005m"
+    "usic\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014"
+    " \003(\005\022\016\n\006boards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003e"
+    "xp\030\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUp"
+    "date\030\021 \001(\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastE"
+    "pochDay\030\023 \001(\003\022\021\n\tlastLogin\030\024 \001(\003\"v\n\016Play"
+    "erSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerP"
+    "roto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001("
+    "\0132\035.ServerProto.CharacterCompBin\"\211\001\n\017Gam"
+    "eDiscInfoBin\022\016\n\006discId\030\002 \001(\005\022\r\n\005level\030\003 "
+    "\001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030"
+    "\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncrea"
+    "teTime\030\t \001(\003b\006proto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    1439,
+    1700,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
     nullptr,
     0,
-    9,
+    11,
     schemas,
     file_default_instances,
     TableStruct_PlayerData_2eproto::offsets,
@@ -2007,6 +2096,102 @@ void CharacterGemSlot::InternalSwap(CharacterGemSlot* PROTOBUF_RESTRICT PROTOBUF
 }
 // ===================================================================
 
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+CharacterContact_ChatsEntry_DoNotUse::CharacterContact_ChatsEntry_DoNotUse()
+    : SuperType(CharacterContact_ChatsEntry_DoNotUse_class_data_.base()) {}
+CharacterContact_ChatsEntry_DoNotUse::CharacterContact_ChatsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, CharacterContact_ChatsEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+CharacterContact_ChatsEntry_DoNotUse::CharacterContact_ChatsEntry_DoNotUse() : SuperType() {}
+CharacterContact_ChatsEntry_DoNotUse::CharacterContact_ChatsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL CharacterContact_ChatsEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CharacterContact_ChatsEntry_DoNotUse(arena);
+}
+constexpr auto CharacterContact_ChatsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(CharacterContact_ChatsEntry_DoNotUse),
+                                            alignof(CharacterContact_ChatsEntry_DoNotUse));
+}
+constexpr auto CharacterContact_ChatsEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CharacterContact_ChatsEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CharacterContact_ChatsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CharacterContact_ChatsEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CharacterContact_ChatsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&CharacterContact_ChatsEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CharacterContact_ChatsEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &CharacterContact_ChatsEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CharacterContact_ChatsEntry_DoNotUse_class_data_ =
+        CharacterContact_ChatsEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CharacterContact_ChatsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CharacterContact_ChatsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CharacterContact_ChatsEntry_DoNotUse_class_data_.tc_table);
+  return CharacterContact_ChatsEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
+CharacterContact_ChatsEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CharacterContact_ChatsEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    CharacterContact_ChatsEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::CharacterContact_ChatsEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .ServerProto.CharacterChat value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CharacterContact_ChatsEntry_DoNotUse, _impl_.value_)}},
+    // int32 key = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterContact_ChatsEntry_DoNotUse, _impl_.key_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CharacterContact_ChatsEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // int32 key = 1;
+    {PROTOBUF_FIELD_OFFSET(CharacterContact_ChatsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // .ServerProto.CharacterChat value = 2;
+    {PROTOBUF_FIELD_OFFSET(CharacterContact_ChatsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::CharacterChat>()},
+  }},
+  {{
+  }},
+};
+// ===================================================================
+
 class CharacterContact::_Internal {
  public:
   using HasBits =
@@ -2097,7 +2282,7 @@ constexpr auto CharacterContact::InternalNewImpl_() {
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
         sizeof(CharacterContact), alignof(CharacterContact), *arena_bits);
   } else {
     return ::google::protobuf::internal::MessageCreator(&CharacterContact::PlacementNew_,
@@ -2139,17 +2324,17 @@ CharacterContact::GetClassData() const {
   return CharacterContact_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 1, 0, 2>
+const ::_pbi::TcParseTable<1, 3, 2, 0, 2>
 CharacterContact::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_._has_bits_),
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    4, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
     4294967281,  // skipmap
     offsetof(decltype(_table_), field_entries),
     3,  // num_field_entries
-    1,  // num_aux_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     CharacterContact_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -2159,29 +2344,26 @@ CharacterContact::_table_ = {
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint64 triggerTime = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(CharacterContact, _impl_.triggertime_), 1>(),
-     {32, 1, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(CharacterContact, _impl_.triggertime_), 0>(),
+     {32, 0, 0,
       PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.triggertime_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    // repeated .ServerProto.CharacterChat chats = 2;
-    {::_pbi::TcParser::FastMtR1,
-     {18, 0, 0,
-      PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.chats_)}},
     // bool top = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CharacterContact, _impl_.top_), 2>(),
-     {24, 2, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CharacterContact, _impl_.top_), 1>(),
+     {24, 1, 0,
       PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.top_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated .ServerProto.CharacterChat chats = 2;
-    {PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.chats_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // map<int32, .ServerProto.CharacterChat> chats = 2;
+    {PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.chats_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // bool top = 3;
-    {PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.top_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.top_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // uint64 triggerTime = 4;
-    {PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.triggertime_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
+    {PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.triggertime_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
   }},
   {{
+      {::_pbi::TcParser::GetMapAuxInfo(
+          0, 0, 5, 11, 0)},
       {::_pbi::TcParser::GetTable<::ServerProto::CharacterChat>()},
   }},
   {{
@@ -2195,13 +2377,13 @@ PROTOBUF_NOINLINE void CharacterContact::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-    _impl_.chats_.Clear();
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x00000006U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     ::memset(&_impl_.triggertime_, 0, static_cast<::size_t>(
         reinterpret_cast<char*>(&_impl_.top_) -
         reinterpret_cast<char*>(&_impl_.triggertime_)) + sizeof(_impl_.top_));
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _impl_.chats_.Clear();
+    }
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -2226,21 +2408,31 @@ PROTOBUF_NOINLINE void CharacterContact::Clear() {
   (void)cached_has_bits;
 
   cached_has_bits = this_._impl_._has_bits_[0];
-  // repeated .ServerProto.CharacterChat chats = 2;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-    for (unsigned i = 0, n = static_cast<unsigned>(
-                             this_._internal_chats_size());
-         i < n; i++) {
-      const auto& repfield = this_._internal_chats().Get(i);
-      target =
-          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-              2, repfield, repfield.GetCachedSize(),
-              target, stream);
+  // map<int32, .ServerProto.CharacterChat> chats = 2;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_chats().empty()) {
+      using MapType = ::google::protobuf::Map<::int32_t, ::ServerProto::CharacterChat>;
+      using WireHelper = _pbi::MapEntryFuncs<::int32_t, ::ServerProto::CharacterChat,
+                                     _pbi::WireFormatLite::TYPE_INT32,
+                                     _pbi::WireFormatLite::TYPE_MESSAGE>;
+      const auto& field = this_._internal_chats();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              2, entry.first, entry.second, target, stream);
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              2, entry.first, entry.second, target, stream);
+        }
+      }
     }
   }
 
   // bool top = 3;
-  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
     if (this_._internal_top() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -2249,7 +2441,7 @@ PROTOBUF_NOINLINE void CharacterContact::Clear() {
   }
 
   // uint64 triggerTime = 4;
-  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
     if (this_._internal_triggertime() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
@@ -2283,24 +2475,27 @@ PROTOBUF_NOINLINE void CharacterContact::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
-    // repeated .ServerProto.CharacterChat chats = 2;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-      total_size += 1UL * this_._internal_chats_size();
-      for (const auto& msg : this_._internal_chats()) {
-        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-      }
-    }
     // uint64 triggerTime = 4;
-    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (this_._internal_triggertime() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
             this_._internal_triggertime());
       }
     }
     // bool top = 3;
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
       if (this_._internal_top() != 0) {
         total_size += 2;
+      }
+    }
+    // map<int32, .ServerProto.CharacterChat> chats = 2;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_chats_size());
+      for (const auto& entry : this_._internal_chats()) {
+        total_size += _pbi::MapEntryFuncs<::int32_t, ::ServerProto::CharacterChat,
+                                       _pbi::WireFormatLite::TYPE_INT32,
+                                       _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
       }
     }
   }
@@ -2316,7 +2511,6 @@ void CharacterContact::MergeImpl(::google::protobuf::MessageLite& to_msg,
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.CharacterContact)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -2324,20 +2518,18 @@ void CharacterContact::MergeImpl(::google::protobuf::MessageLite& to_msg,
 
   cached_has_bits = from._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-      _this->_internal_mutable_chats()->InternalMergeFromWithArena(
-          ::google::protobuf::MessageLite::internal_visibility(), arena,
-          from._internal_chats());
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (from._internal_triggertime() != 0) {
         _this->_impl_.triggertime_ = from._impl_.triggertime_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
       if (from._internal_top() != 0) {
         _this->_impl_.top_ = from._impl_.top_;
       }
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _this->_impl_.chats_.MergeFrom(from._impl_.chats_);
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -2357,13 +2549,13 @@ void CharacterContact::InternalSwap(CharacterContact* PROTOBUF_RESTRICT PROTOBUF
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.chats_.InternalSwap(&other->_impl_.chats_);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.top_)
       + sizeof(CharacterContact::_impl_.top_)
       - PROTOBUF_FIELD_OFFSET(CharacterContact, _impl_.triggertime_)>(
           reinterpret_cast<char*>(&_impl_.triggertime_),
           reinterpret_cast<char*>(&other->_impl_.triggertime_));
+  _impl_.chats_.InternalSwap(&other->_impl_.chats_);
 }
 
 ::google::protobuf::Metadata CharacterContact::GetMetadata() const {
@@ -2394,12 +2586,13 @@ PROTOBUF_NDEBUG_INLINE CharacterInfo::Impl_::Impl_(
     [[maybe_unused]] const ::ServerProto::CharacterInfo& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
-        repetalents_{visibility, arena, from.repetalents_},
-        _repetalents_cached_byte_size_{0},
+        skills_{visibility, arena, from.skills_},
+        _skills_cached_byte_size_{0},
         plots_{visibility, arena, from.plots_},
         _plots_cached_byte_size_{0},
         gempresets_{visibility, arena, from.gempresets_},
-        gemslots_{visibility, arena, from.gemslots_} {}
+        gemslots_{visibility, arena, from.gemslots_},
+        talents_(arena, from.talents_) {}
 
 CharacterInfo::CharacterInfo(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -2415,7 +2608,7 @@ CharacterInfo::CharacterInfo(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.contact_ = (CheckHasBit(cached_has_bits, 0x00000010U))
+  _impl_.contact_ = (CheckHasBit(cached_has_bits, 0x00000020U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.contact_)
                 : nullptr;
   ::memcpy(reinterpret_cast<char*>(&_impl_) +
@@ -2432,12 +2625,13 @@ PROTOBUF_NDEBUG_INLINE CharacterInfo::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
-        repetalents_{visibility, arena},
-        _repetalents_cached_byte_size_{0},
+        skills_{visibility, arena},
+        _skills_cached_byte_size_{0},
         plots_{visibility, arena},
         _plots_cached_byte_size_{0},
         gempresets_{visibility, arena},
-        gemslots_{visibility, arena} {}
+        gemslots_{visibility, arena},
+        talents_(arena) {}
 
 inline void CharacterInfo::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -2459,6 +2653,7 @@ inline void CharacterInfo::SharedDtor(MessageLite& self) {
   }
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.talents_.Destroy();
   delete this_._impl_.contact_;
   this_._impl_.~Impl_();
 }
@@ -2470,8 +2665,8 @@ inline void* PROTOBUF_NONNULL CharacterInfo::PlacementNew_(
 }
 constexpr auto CharacterInfo::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.repetalents_) +
-          decltype(CharacterInfo::_impl_.repetalents_)::
+      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skills_) +
+          decltype(CharacterInfo::_impl_.skills_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.plots_) +
@@ -2488,7 +2683,7 @@ constexpr auto CharacterInfo::InternalNewImpl_() {
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
         sizeof(CharacterInfo), alignof(CharacterInfo), *arena_bits);
   } else {
     return ::google::protobuf::internal::MessageCreator(&CharacterInfo::PlacementNew_,
@@ -2530,16 +2725,16 @@ CharacterInfo::GetClassData() const {
   return CharacterInfo_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 18, 3, 0, 2>
+const ::_pbi::TcParseTable<5, 17, 3, 0, 2>
 CharacterInfo::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_._has_bits_),
     0, // no _extensions_
-    19, 248,  // max_field_number, fast_idx_mask
+    18, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294443009,  // skipmap
+    4294705153,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    18,  // num_field_entries
+    17,  // num_field_entries
     3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     CharacterInfo_class_data_.base(),
@@ -2552,77 +2747,74 @@ CharacterInfo::_table_ = {
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     // int64 createTime = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(CharacterInfo, _impl_.createtime_), 5>(),
-     {16, 5, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(CharacterInfo, _impl_.createtime_), 6>(),
+     {16, 6, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.createtime_)}},
     // uint32 charId = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.charid_), 6>(),
-     {24, 6, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.charid_), 7>(),
+     {24, 7, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.charid_)}},
     // uint32 level = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.level_), 7>(),
-     {32, 7, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.level_), 8>(),
+     {32, 8, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.level_)}},
     // uint32 exp = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.exp_), 8>(),
-     {40, 8, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.exp_), 9>(),
+     {40, 9, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.exp_)}},
     // uint32 advance = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.advance_), 9>(),
-     {48, 9, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.advance_), 10>(),
+     {48, 10, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.advance_)}},
     // uint32 rank = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.rank_), 10>(),
-     {56, 10, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.rank_), 11>(),
+     {56, 11, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.rank_)}},
     // bool favorite = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CharacterInfo, _impl_.favorite_), 11>(),
-     {64, 11, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CharacterInfo, _impl_.favorite_), 12>(),
+     {64, 12, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.favorite_)}},
     // uint32 affinityLevel = 9;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.affinitylevel_), 12>(),
-     {72, 12, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.affinitylevel_), 13>(),
+     {72, 13, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.affinitylevel_)}},
     // uint32 affinityExp = 10;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.affinityexp_), 13>(),
-     {80, 13, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.affinityexp_), 14>(),
+     {80, 14, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.affinityexp_)}},
     // uint32 skin = 11;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.skin_), 14>(),
-     {88, 14, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.skin_), 15>(),
+     {88, 15, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skin_)}},
-    // uint32 skills = 12;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.skills_), 15>(),
-     {96, 15, 0,
-      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skills_)}},
-    // uint32 skinId = 13;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.skinid_), 16>(),
-     {104, 16, 0,
-      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skinid_)}},
-    // repeated uint64 repetalents = 14;
-    {::_pbi::TcParser::FastV64P1,
-     {114, 0, 0,
-      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.repetalents_)}},
-    // repeated uint32 plots = 15;
+    // repeated uint32 skills = 12;
     {::_pbi::TcParser::FastV32P1,
-     {122, 1, 0,
+     {98, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skills_)}},
+    // bytes talents = 13;
+    {::_pbi::TcParser::FastBS1,
+     {106, 4, 0,
+      PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.talents_)}},
+    // repeated uint32 plots = 14;
+    {::_pbi::TcParser::FastV32P1,
+     {114, 1, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.plots_)}},
-    // uint32 gemPresetIndex = 16;
-    {::_pbi::TcParser::FastV32S2,
-     {384, 17, 0,
+    // uint32 gemPresetIndex = 15;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CharacterInfo, _impl_.gempresetindex_), 16>(),
+     {120, 16, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gempresetindex_)}},
-    // repeated .ServerProto.CharacterGemPreset gemPresets = 17;
+    // repeated .ServerProto.CharacterGemPreset gemPresets = 16;
     {::_pbi::TcParser::FastMtR2,
-     {394, 2, 0,
+     {386, 2, 0,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gempresets_)}},
-    // repeated .ServerProto.CharacterGemSlot gemSlots = 18;
+    // repeated .ServerProto.CharacterGemSlot gemSlots = 17;
     {::_pbi::TcParser::FastMtR2,
-     {402, 3, 1,
+     {394, 3, 1,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gemslots_)}},
-    // .ServerProto.CharacterContact contact = 19;
+    // .ServerProto.CharacterContact contact = 18;
     {::_pbi::TcParser::FastMtS2,
-     {410, 4, 2,
+     {402, 5, 2,
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.contact_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -2639,41 +2831,39 @@ CharacterInfo::_table_ = {
     65535, 65535
   }}, {{
     // int64 createTime = 2;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.createtime_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.createtime_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // uint32 charId = 3;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.charid_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.charid_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 level = 4;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.level_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.level_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 exp = 5;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.exp_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.exp_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 advance = 6;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.advance_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.advance_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 rank = 7;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.rank_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.rank_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool favorite = 8;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.favorite_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.favorite_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // uint32 affinityLevel = 9;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.affinitylevel_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.affinitylevel_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 affinityExp = 10;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.affinityexp_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.affinityexp_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 skin = 11;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skin_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // uint32 skills = 12;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skills_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // uint32 skinId = 13;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skinid_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // repeated uint64 repetalents = 14;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.repetalents_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt64)},
-    // repeated uint32 plots = 15;
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skin_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated uint32 skills = 12;
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.skills_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // bytes talents = 13;
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.talents_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    // repeated uint32 plots = 14;
     {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.plots_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
-    // uint32 gemPresetIndex = 16;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gempresetindex_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // repeated .ServerProto.CharacterGemPreset gemPresets = 17;
+    // uint32 gemPresetIndex = 15;
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gempresetindex_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .ServerProto.CharacterGemPreset gemPresets = 16;
     {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gempresets_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated .ServerProto.CharacterGemSlot gemSlots = 18;
+    // repeated .ServerProto.CharacterGemSlot gemSlots = 17;
     {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gemslots_), _Internal::kHasBitsOffset + 3, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.CharacterContact contact = 19;
-    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.contact_), _Internal::kHasBitsOffset + 4, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.CharacterContact contact = 18;
+    {PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.contact_), _Internal::kHasBitsOffset + 5, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::CharacterGemPreset>()},
@@ -2691,9 +2881,9 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-      _impl_.repetalents_.Clear();
+      _impl_.skills_.Clear();
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
       _impl_.plots_.Clear();
@@ -2705,25 +2895,24 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
       _impl_.gemslots_.Clear();
     }
     if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      _impl_.talents_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       ABSL_DCHECK(_impl_.contact_ != nullptr);
       _impl_.contact_->Clear();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000000e0U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000c0U)) {
     ::memset(&_impl_.createtime_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.level_) -
-        reinterpret_cast<char*>(&_impl_.createtime_)) + sizeof(_impl_.level_));
+        reinterpret_cast<char*>(&_impl_.charid_) -
+        reinterpret_cast<char*>(&_impl_.createtime_)) + sizeof(_impl_.charid_));
   }
   if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
-    ::memset(&_impl_.exp_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.skills_) -
-        reinterpret_cast<char*>(&_impl_.exp_)) + sizeof(_impl_.skills_));
+    ::memset(&_impl_.level_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.skin_) -
+        reinterpret_cast<char*>(&_impl_.level_)) + sizeof(_impl_.skin_));
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00030000U)) {
-    ::memset(&_impl_.skinid_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.gempresetindex_) -
-        reinterpret_cast<char*>(&_impl_.skinid_)) + sizeof(_impl_.gempresetindex_));
-  }
+  _impl_.gempresetindex_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -2748,7 +2937,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
 
   cached_has_bits = this_._impl_._has_bits_[0];
   // int64 createTime = 2;
-  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
     if (this_._internal_createtime() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<2>(
@@ -2757,7 +2946,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 charId = 3;
-  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
     if (this_._internal_charid() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2766,7 +2955,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 level = 4;
-  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
     if (this_._internal_level() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2775,7 +2964,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 exp = 5;
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
     if (this_._internal_exp() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2784,7 +2973,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 advance = 6;
-  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
     if (this_._internal_advance() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2793,7 +2982,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 rank = 7;
-  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
     if (this_._internal_rank() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2802,7 +2991,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // bool favorite = 8;
-  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
     if (this_._internal_favorite() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -2811,7 +3000,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 affinityLevel = 9;
-  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00002000U)) {
     if (this_._internal_affinitylevel() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2820,7 +3009,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 affinityExp = 10;
-  if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
     if (this_._internal_affinityexp() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2829,7 +3018,7 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   }
 
   // uint32 skin = 11;
-  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
     if (this_._internal_skin() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2837,56 +3026,46 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
     }
   }
 
-  // uint32 skills = 12;
-  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
-    if (this_._internal_skills() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          12, this_._internal_skills(), target);
-    }
-  }
-
-  // uint32 skinId = 13;
-  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
-    if (this_._internal_skinid() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          13, this_._internal_skinid(), target);
-    }
-  }
-
-  // repeated uint64 repetalents = 14;
+  // repeated uint32 skills = 12;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
     {
-      int byte_size = this_._impl_._repetalents_cached_byte_size_.Get();
+      int byte_size = this_._impl_._skills_cached_byte_size_.Get();
       if (byte_size > 0) {
-        target = stream->WriteUInt64Packed(
-            14, this_._internal_repetalents(), byte_size, target);
+        target = stream->WriteUInt32Packed(
+            12, this_._internal_skills(), byte_size, target);
       }
     }
   }
 
-  // repeated uint32 plots = 15;
+  // bytes talents = 13;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (!this_._internal_talents().empty()) {
+      const ::std::string& _s = this_._internal_talents();
+      target = stream->WriteBytesMaybeAliased(13, _s, target);
+    }
+  }
+
+  // repeated uint32 plots = 14;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
     {
       int byte_size = this_._impl_._plots_cached_byte_size_.Get();
       if (byte_size > 0) {
         target = stream->WriteUInt32Packed(
-            15, this_._internal_plots(), byte_size, target);
+            14, this_._internal_plots(), byte_size, target);
       }
     }
   }
 
-  // uint32 gemPresetIndex = 16;
-  if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+  // uint32 gemPresetIndex = 15;
+  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
     if (this_._internal_gempresetindex() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          16, this_._internal_gempresetindex(), target);
+          15, this_._internal_gempresetindex(), target);
     }
   }
 
-  // repeated .ServerProto.CharacterGemPreset gemPresets = 17;
+  // repeated .ServerProto.CharacterGemPreset gemPresets = 16;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_gempresets_size());
@@ -2894,12 +3073,12 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
       const auto& repfield = this_._internal_gempresets().Get(i);
       target =
           ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-              17, repfield, repfield.GetCachedSize(),
+              16, repfield, repfield.GetCachedSize(),
               target, stream);
     }
   }
 
-  // repeated .ServerProto.CharacterGemSlot gemSlots = 18;
+  // repeated .ServerProto.CharacterGemSlot gemSlots = 17;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_gemslots_size());
@@ -2907,15 +3086,15 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
       const auto& repfield = this_._internal_gemslots().Get(i);
       target =
           ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-              18, repfield, repfield.GetCachedSize(),
+              17, repfield, repfield.GetCachedSize(),
               target, stream);
     }
   }
 
-  // .ServerProto.CharacterContact contact = 19;
-  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+  // .ServerProto.CharacterContact contact = 18;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-        19, *this_._impl_.contact_, this_._impl_.contact_->GetCachedSize(), target,
+        18, *this_._impl_.contact_, this_._impl_.contact_->GetCachedSize(), target,
         stream);
   }
 
@@ -2945,131 +3124,124 @@ PROTOBUF_NOINLINE void CharacterInfo::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
-    // repeated uint64 repetalents = 14;
+    // repeated uint32 skills = 12;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size +=
-          ::_pbi::WireFormatLite::UInt64SizeWithPackedTagSize(
-              this_._internal_repetalents(), 1,
-              this_._impl_._repetalents_cached_byte_size_);
+          ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
+              this_._internal_skills(), 1,
+              this_._impl_._skills_cached_byte_size_);
     }
-    // repeated uint32 plots = 15;
+    // repeated uint32 plots = 14;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
       total_size +=
           ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
               this_._internal_plots(), 1,
               this_._impl_._plots_cached_byte_size_);
     }
-    // repeated .ServerProto.CharacterGemPreset gemPresets = 17;
+    // repeated .ServerProto.CharacterGemPreset gemPresets = 16;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
       total_size += 2UL * this_._internal_gempresets_size();
       for (const auto& msg : this_._internal_gempresets()) {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
-    // repeated .ServerProto.CharacterGemSlot gemSlots = 18;
+    // repeated .ServerProto.CharacterGemSlot gemSlots = 17;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
       total_size += 2UL * this_._internal_gemslots_size();
       for (const auto& msg : this_._internal_gemslots()) {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
-    // .ServerProto.CharacterContact contact = 19;
+    // bytes talents = 13;
     if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (!this_._internal_talents().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_talents());
+      }
+    }
+    // .ServerProto.CharacterContact contact = 18;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.contact_);
     }
     // int64 createTime = 2;
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       if (this_._internal_createtime() != 0) {
         total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
             this_._internal_createtime());
       }
     }
     // uint32 charId = 3;
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
       if (this_._internal_charid() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_charid());
       }
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     // uint32 level = 4;
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
       if (this_._internal_level() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_level());
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     // uint32 exp = 5;
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (this_._internal_exp() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_exp());
       }
     }
     // uint32 advance = 6;
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
       if (this_._internal_advance() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_advance());
       }
     }
     // uint32 rank = 7;
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
       if (this_._internal_rank() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_rank());
       }
     }
     // bool favorite = 8;
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       if (this_._internal_favorite() != 0) {
         total_size += 2;
       }
     }
     // uint32 affinityLevel = 9;
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
       if (this_._internal_affinitylevel() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_affinitylevel());
       }
     }
     // uint32 affinityExp = 10;
-    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
       if (this_._internal_affinityexp() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_affinityexp());
       }
     }
     // uint32 skin = 11;
-    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (this_._internal_skin() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_skin());
       }
     }
-    // uint32 skills = 12;
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
-      if (this_._internal_skills() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_skills());
-      }
-    }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00030000U)) {
-    // uint32 skinId = 13;
+   {
+    // uint32 gemPresetIndex = 15;
     if (CheckHasBit(cached_has_bits, 0x00010000U)) {
-      if (this_._internal_skinid() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_skinid());
-      }
-    }
-    // uint32 gemPresetIndex = 16;
-    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (this_._internal_gempresetindex() != 0) {
-        total_size += 2 + ::_pbi::WireFormatLite::UInt32Size(
-                                        this_._internal_gempresetindex());
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_gempresetindex());
       }
     }
   }
@@ -3094,7 +3266,7 @@ void CharacterInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
   cached_has_bits = from._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-      _this->_internal_mutable_repetalents()->MergeFrom(from._internal_repetalents());
+      _this->_internal_mutable_skills()->MergeFrom(from._internal_skills());
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
       _this->_internal_mutable_plots()->MergeFrom(from._internal_plots());
@@ -3110,6 +3282,15 @@ void CharacterInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
           from._internal_gemslots());
     }
     if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (!from._internal_talents().empty()) {
+        _this->_internal_set_talents(from._internal_talents());
+      } else {
+        if (_this->_impl_.talents_.IsDefault()) {
+          _this->_internal_set_talents("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       ABSL_DCHECK(from._impl_.contact_ != nullptr);
       if (_this->_impl_.contact_ == nullptr) {
         _this->_impl_.contact_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.contact_);
@@ -3117,74 +3298,62 @@ void CharacterInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.contact_->MergeFrom(*from._impl_.contact_);
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       if (from._internal_createtime() != 0) {
         _this->_impl_.createtime_ = from._impl_.createtime_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
       if (from._internal_charid() != 0) {
         _this->_impl_.charid_ = from._impl_.charid_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
-      if (from._internal_level() != 0) {
-        _this->_impl_.level_ = from._impl_.level_;
       }
     }
   }
   if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (from._internal_level() != 0) {
+        _this->_impl_.level_ = from._impl_.level_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (from._internal_exp() != 0) {
         _this->_impl_.exp_ = from._impl_.exp_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
       if (from._internal_advance() != 0) {
         _this->_impl_.advance_ = from._impl_.advance_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
       if (from._internal_rank() != 0) {
         _this->_impl_.rank_ = from._impl_.rank_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       if (from._internal_favorite() != 0) {
         _this->_impl_.favorite_ = from._impl_.favorite_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
       if (from._internal_affinitylevel() != 0) {
         _this->_impl_.affinitylevel_ = from._impl_.affinitylevel_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
       if (from._internal_affinityexp() != 0) {
         _this->_impl_.affinityexp_ = from._impl_.affinityexp_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (from._internal_skin() != 0) {
         _this->_impl_.skin_ = from._impl_.skin_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
-      if (from._internal_skills() != 0) {
-        _this->_impl_.skills_ = from._impl_.skills_;
-      }
-    }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00030000U)) {
-    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
-      if (from._internal_skinid() != 0) {
-        _this->_impl_.skinid_ = from._impl_.skinid_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
-      if (from._internal_gempresetindex() != 0) {
-        _this->_impl_.gempresetindex_ = from._impl_.gempresetindex_;
-      }
+  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+    if (from._internal_gempresetindex() != 0) {
+      _this->_impl_.gempresetindex_ = from._impl_.gempresetindex_;
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -3202,12 +3371,15 @@ void CharacterInfo::CopyFrom(const CharacterInfo& from) {
 
 void CharacterInfo::InternalSwap(CharacterInfo* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.repetalents_.InternalSwap(&other->_impl_.repetalents_);
+  _impl_.skills_.InternalSwap(&other->_impl_.skills_);
   _impl_.plots_.InternalSwap(&other->_impl_.plots_);
   _impl_.gempresets_.InternalSwap(&other->_impl_.gempresets_);
   _impl_.gemslots_.InternalSwap(&other->_impl_.gemslots_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.talents_, &other->_impl_.talents_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CharacterInfo, _impl_.gempresetindex_)
       + sizeof(CharacterInfo::_impl_.gempresetindex_)
@@ -3244,7 +3416,8 @@ PROTOBUF_NDEBUG_INLINE CharacterCompBin::Impl_::Impl_(
     [[maybe_unused]] const ::ServerProto::CharacterCompBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
-        charinfolist_{visibility, arena, from.charinfolist_} {}
+        charinfolist_{visibility, arena, from.charinfolist_},
+        gamedisclist_{visibility, arena, from.gamedisclist_} {}
 
 CharacterCompBin::CharacterCompBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -3266,7 +3439,8 @@ PROTOBUF_NDEBUG_INLINE CharacterCompBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
-        charinfolist_{visibility, arena} {}
+        charinfolist_{visibility, arena},
+        gamedisclist_{visibility, arena} {}
 
 inline void CharacterCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -3294,6 +3468,10 @@ constexpr auto CharacterCompBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
       PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_.charinfolist_) +
           decltype(CharacterCompBin::_impl_.charinfolist_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_.gamedisclist_) +
+          decltype(CharacterCompBin::_impl_.gamedisclist_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
@@ -3340,17 +3518,17 @@ CharacterCompBin::GetClassData() const {
   return CharacterCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2>
+const ::_pbi::TcParseTable<2, 2, 2, 0, 2>
 CharacterCompBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_._has_bits_),
     0, // no _extensions_
-    2, 0,  // max_field_number, fast_idx_mask
+    4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967293,  // skipmap
+    4294967285,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    1,  // num_aux_entries
+    2,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     CharacterCompBin_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -3359,18 +3537,27 @@ CharacterCompBin::_table_ = {
     ::_pbi::TcParser::GetTable<::ServerProto::CharacterCompBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
+    // repeated .ServerProto.GameDiscInfoBin gameDiscList = 4;
+    {::_pbi::TcParser::FastMtR1,
+     {34, 1, 1,
+      PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_.gamedisclist_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // repeated .ServerProto.CharacterInfo charInfoList = 2;
     {::_pbi::TcParser::FastMtR1,
      {18, 0, 0,
       PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_.charinfolist_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // repeated .ServerProto.CharacterInfo charInfoList = 2;
     {PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_.charinfolist_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .ServerProto.GameDiscInfoBin gameDiscList = 4;
+    {PROTOBUF_FIELD_OFFSET(CharacterCompBin, _impl_.gamedisclist_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::CharacterInfo>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::GameDiscInfoBin>()},
   }},
   {{
   }},
@@ -3383,8 +3570,13 @@ PROTOBUF_NOINLINE void CharacterCompBin::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-    _impl_.charinfolist_.Clear();
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.charinfolist_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.gamedisclist_.Clear();
+    }
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -3422,6 +3614,19 @@ PROTOBUF_NOINLINE void CharacterCompBin::Clear() {
     }
   }
 
+  // repeated .ServerProto.GameDiscInfoBin gameDiscList = 4;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_gamedisclist_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_gamedisclist().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              4, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -3446,12 +3651,19 @@ PROTOBUF_NOINLINE void CharacterCompBin::Clear() {
   (void)cached_has_bits;
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-   {
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
     // repeated .ServerProto.CharacterInfo charInfoList = 2;
-    cached_has_bits = this_._impl_._has_bits_[0];
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_charinfolist_size();
       for (const auto& msg : this_._internal_charinfolist()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // repeated .ServerProto.GameDiscInfoBin gameDiscList = 4;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size += 1UL * this_._internal_gamedisclist_size();
+      for (const auto& msg : this_._internal_gamedisclist()) {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
@@ -3475,10 +3687,17 @@ void CharacterCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
-    _this->_internal_mutable_charinfolist()->InternalMergeFromWithArena(
-        ::google::protobuf::MessageLite::internal_visibility(), arena,
-        from._internal_charinfolist());
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_charinfolist()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_charinfolist());
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_internal_mutable_gamedisclist()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_gamedisclist());
+    }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
@@ -3498,6 +3717,7 @@ void CharacterCompBin::InternalSwap(CharacterCompBin* PROTOBUF_RESTRICT PROTOBUF
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.charinfolist_.InternalSwap(&other->_impl_.charinfolist_);
+  _impl_.gamedisclist_.InternalSwap(&other->_impl_.gamedisclist_);
 }
 
 ::google::protobuf::Metadata CharacterCompBin::GetMetadata() const {
@@ -4699,6 +4919,459 @@ void PlayerSaveData::InternalSwap(PlayerSaveData* PROTOBUF_RESTRICT PROTOBUF_NON
 }
 
 ::google::protobuf::Metadata PlayerSaveData::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class GameDiscInfoBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GameDiscInfoBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_._has_bits_);
+};
+
+GameDiscInfoBin::GameDiscInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GameDiscInfoBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.GameDiscInfoBin)
+}
+GameDiscInfoBin::GameDiscInfoBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GameDiscInfoBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GameDiscInfoBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(from._impl_) {
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+PROTOBUF_NDEBUG_INLINE GameDiscInfoBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void GameDiscInfoBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, discid_),
+           0,
+           offsetof(Impl_, createtime_) -
+               offsetof(Impl_, discid_) +
+               sizeof(Impl_::createtime_));
+}
+GameDiscInfoBin::~GameDiscInfoBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.GameDiscInfoBin)
+  SharedDtor(*this);
+}
+inline void GameDiscInfoBin::SharedDtor(MessageLite& self) {
+  GameDiscInfoBin& this_ = static_cast<GameDiscInfoBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GameDiscInfoBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GameDiscInfoBin(arena);
+}
+constexpr auto GameDiscInfoBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GameDiscInfoBin),
+                                            alignof(GameDiscInfoBin));
+}
+constexpr auto GameDiscInfoBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GameDiscInfoBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GameDiscInfoBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GameDiscInfoBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GameDiscInfoBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GameDiscInfoBin>(), &GameDiscInfoBin::ByteSizeLong,
+              &GameDiscInfoBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_._cached_size_),
+          false,
+      },
+      &GameDiscInfoBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GameDiscInfoBin_class_data_ =
+        GameDiscInfoBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GameDiscInfoBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GameDiscInfoBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GameDiscInfoBin_class_data_.tc_table);
+  return GameDiscInfoBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 8, 0, 0, 2>
+GameDiscInfoBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_._has_bits_),
+    0, // no _extensions_
+    9, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294966785,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    8,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    GameDiscInfoBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GameDiscInfoBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // bool avg = 8;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GameDiscInfoBin, _impl_.avg_), 6>(),
+     {64, 6, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.avg_)}},
+    // int64 createTime = 9;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GameDiscInfoBin, _impl_.createtime_), 7>(),
+     {72, 7, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.createtime_)}},
+    // int32 discId = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GameDiscInfoBin, _impl_.discid_), 0>(),
+     {16, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.discid_)}},
+    // int32 level = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GameDiscInfoBin, _impl_.level_), 1>(),
+     {24, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.level_)}},
+    // int32 exp = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GameDiscInfoBin, _impl_.exp_), 2>(),
+     {32, 2, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.exp_)}},
+    // int32 phase = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GameDiscInfoBin, _impl_.phase_), 3>(),
+     {40, 3, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.phase_)}},
+    // int32 star = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GameDiscInfoBin, _impl_.star_), 4>(),
+     {48, 4, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.star_)}},
+    // bool read = 7;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GameDiscInfoBin, _impl_.read_), 5>(),
+     {56, 5, 0,
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.read_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // int32 discId = 2;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.discid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 level = 3;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.level_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 exp = 4;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.exp_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 phase = 5;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.phase_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 star = 6;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.star_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // bool read = 7;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.read_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // bool avg = 8;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.avg_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // int64 createTime = 9;
+    {PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.createtime_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GameDiscInfoBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.GameDiscInfoBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    ::memset(&_impl_.discid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.createtime_) -
+        reinterpret_cast<char*>(&_impl_.discid_)) + sizeof(_impl_.createtime_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GameDiscInfoBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GameDiscInfoBin& this_ = static_cast<const GameDiscInfoBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GameDiscInfoBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GameDiscInfoBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.GameDiscInfoBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // int32 discId = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (this_._internal_discid() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<2>(
+              stream, this_._internal_discid(), target);
+    }
+  }
+
+  // int32 level = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_level() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<3>(
+              stream, this_._internal_level(), target);
+    }
+  }
+
+  // int32 exp = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_exp() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<4>(
+              stream, this_._internal_exp(), target);
+    }
+  }
+
+  // int32 phase = 5;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_phase() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<5>(
+              stream, this_._internal_phase(), target);
+    }
+  }
+
+  // int32 star = 6;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_star() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<6>(
+              stream, this_._internal_star(), target);
+    }
+  }
+
+  // bool read = 7;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (this_._internal_read() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          7, this_._internal_read(), target);
+    }
+  }
+
+  // bool avg = 8;
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (this_._internal_avg() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          8, this_._internal_avg(), target);
+    }
+  }
+
+  // int64 createTime = 9;
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (this_._internal_createtime() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<9>(
+              stream, this_._internal_createtime(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.GameDiscInfoBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GameDiscInfoBin::ByteSizeLong(const MessageLite& base) {
+  const GameDiscInfoBin& this_ = static_cast<const GameDiscInfoBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GameDiscInfoBin::ByteSizeLong() const {
+  const GameDiscInfoBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.GameDiscInfoBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    // int32 discId = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (this_._internal_discid() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_discid());
+      }
+    }
+    // int32 level = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_level() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_level());
+      }
+    }
+    // int32 exp = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_exp() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_exp());
+      }
+    }
+    // int32 phase = 5;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_phase() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_phase());
+      }
+    }
+    // int32 star = 6;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_star() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_star());
+      }
+    }
+    // bool read = 7;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (this_._internal_read() != 0) {
+        total_size += 2;
+      }
+    }
+    // bool avg = 8;
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (this_._internal_avg() != 0) {
+        total_size += 2;
+      }
+    }
+    // int64 createTime = 9;
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      if (this_._internal_createtime() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+            this_._internal_createtime());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GameDiscInfoBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GameDiscInfoBin*>(&to_msg);
+  auto& from = static_cast<const GameDiscInfoBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.GameDiscInfoBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (from._internal_discid() != 0) {
+        _this->_impl_.discid_ = from._impl_.discid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_level() != 0) {
+        _this->_impl_.level_ = from._impl_.level_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_exp() != 0) {
+        _this->_impl_.exp_ = from._impl_.exp_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_phase() != 0) {
+        _this->_impl_.phase_ = from._impl_.phase_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_star() != 0) {
+        _this->_impl_.star_ = from._impl_.star_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (from._internal_read() != 0) {
+        _this->_impl_.read_ = from._impl_.read_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (from._internal_avg() != 0) {
+        _this->_impl_.avg_ = from._impl_.avg_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      if (from._internal_createtime() != 0) {
+        _this->_impl_.createtime_ = from._impl_.createtime_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GameDiscInfoBin::CopyFrom(const GameDiscInfoBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.GameDiscInfoBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GameDiscInfoBin::InternalSwap(GameDiscInfoBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.createtime_)
+      + sizeof(GameDiscInfoBin::_impl_.createtime_)
+      - PROTOBUF_FIELD_OFFSET(GameDiscInfoBin, _impl_.discid_)>(
+          reinterpret_cast<char*>(&_impl_.discid_),
+          reinterpret_cast<char*>(&other->_impl_.discid_));
+}
+
+::google::protobuf::Metadata GameDiscInfoBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

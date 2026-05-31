@@ -9,6 +9,7 @@
 #include "AeadTool.h"
 #include "Util.h"
 #include "Config.h"
+#include ".\Resources\ResourceLoader.h"
 
 int main() {
     Logger::Instance().ShowTimeStamp(true)
@@ -46,6 +47,7 @@ int main() {
     LOG_INFO_CFMT("Srv Proj");
     //Logger::InfoCFmt("no file line");
     Config::Get().LoadFromFile();
+	LoadResources();
     if (!DbMgr::Instance().Init(Config::Get().DatabsasePath)) {
         return 1;
     }

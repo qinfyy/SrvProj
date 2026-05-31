@@ -28,7 +28,7 @@ message CharacterGemSlot {
 }
 
 message CharacterContact {
-    repeated CharacterChat chats = 2;
+    map<int32, CharacterChat> chats = 2;
     bool top = 3;
     uint64 triggerTime = 4;
 }
@@ -44,18 +44,18 @@ message CharacterInfo {
     uint32 affinityLevel = 9; //好感
     uint32 affinityExp = 10;
     uint32 skin = 11;
-    uint32 skills = 12;
-    uint32 skinId = 13;
-    repeated uint64 repetalents = 14;
-    repeated uint32 plots = 15;
-    uint32 gemPresetIndex = 16;
-    repeated CharacterGemPreset gemPresets = 17;
-    repeated CharacterGemSlot gemSlots = 18;
-    CharacterContact contact = 19;
+    repeated uint32 skills = 12;
+    bytes talents = 13;
+    repeated uint32 plots = 14;
+    uint32 gemPresetIndex = 15;
+    repeated CharacterGemPreset gemPresets = 16;
+    repeated CharacterGemSlot gemSlots = 17;
+    CharacterContact contact = 18;
 }
 
 message CharacterCompBin {
     repeated CharacterInfo charInfoList = 2;
+    repeated GameDiscInfoBin gameDiscList = 4;
 }
 
 message PlayerBasicCompBin {
@@ -90,3 +90,18 @@ message PlayerSaveData {
     CharacterCompBin charComp = 3;
 }
 
+message GameDiscInfoBin {
+    //private transient DiscDef data;
+    //private transient Player player;
+    
+    int32 discId = 2;
+    int32 level = 3;
+    int32 exp = 4;
+    int32 phase = 5;
+    int32 star = 6;
+    
+    bool read = 7;
+    bool avg = 8;
+    
+    int64 createTime = 9;
+}

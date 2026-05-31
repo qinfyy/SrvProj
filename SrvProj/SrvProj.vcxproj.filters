@@ -58,6 +58,12 @@
     <Filter Include="头文件\Resources\BinClass">
       <UniqueIdentifier>{98d75660-1566-4345-8d9a-7aa1f0c1c31b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="proto\table">
+      <UniqueIdentifier>{90664984-6336-4af5-a12d-6167b933c479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\table_cpp">
+      <UniqueIdentifier>{626651cb-b21d-4fac-85d1-f94ba8c0ac2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SrvProj.cpp">
@@ -933,7 +939,7 @@
     <ClCompile Include="Handlers\Activity.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Activity.cpp">
+    <ClCompile Include="Game\ActivityMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\ManagerBase.cpp">
@@ -954,7 +960,13 @@
     <ClCompile Include="Resources\ResourceLoader.cpp">
       <Filter>源文件\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\BinClass\Character.cpp">
+    <ClCompile Include="Resources\BinClass\CharacterRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\table_cpp\client_table.pb.cc">
+      <Filter>proto\table_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\DiscRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1835,7 +1847,7 @@
     <ClInclude Include="Handlers\Activity.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Activity.h">
+    <ClInclude Include="Game\ActivityMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\ManagerBase.h">
@@ -1859,7 +1871,19 @@
     <ClInclude Include="Resources\ResBase.h">
       <Filter>头文件\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\BinClass\Character.h">
+    <ClInclude Include="Resources\BinClass\CharacterRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\table_cpp\client_table.pb.h">
+      <Filter>proto\table_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\InventoryMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\QuestMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\DiscRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
   </ItemGroup>
@@ -2712,6 +2736,12 @@
     </None>
     <None Include="proto\ServerProto\PlayerData.proto">
       <Filter>proto\ServerProto</Filter>
+    </None>
+    <None Include="proto\table\client_table.proto">
+      <Filter>proto\table</Filter>
+    </None>
+    <None Include="proto\table.pb">
+      <Filter>proto</Filter>
     </None>
   </ItemGroup>
 </Project>
