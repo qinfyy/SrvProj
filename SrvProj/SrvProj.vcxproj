@@ -448,6 +448,9 @@
     <ClCompile Include="proto\table_cpp\client_table.pb.cc" />
     <ClCompile Include="Resources\BinClass\CharacterRes.cpp" />
     <ClCompile Include="Resources\BinClass\DiscRes.cpp" />
+    <ClCompile Include="Resources\BinClass\ItemsRes.cpp" />
+    <ClCompile Include="Resources\BinClass\QuestRes.cpp" />
+    <ClCompile Include="Resources\BinClass\StoryRes.cpp" />
     <ClCompile Include="Resources\GameData.cpp" />
     <ClCompile Include="Resources\ResourceLoader.cpp" />
     <ClCompile Include="SrvProj.cpp" />
@@ -753,6 +756,9 @@
     <ClInclude Include="proto\table_cpp\client_table.pb.h" />
     <ClInclude Include="Resources\BinClass\CharacterRes.h" />
     <ClInclude Include="Resources\BinClass\DiscRes.h" />
+    <ClInclude Include="Resources\BinClass\ItemsRes.h" />
+    <ClInclude Include="Resources\BinClass\QuestRes.h" />
+    <ClInclude Include="Resources\BinClass\StoryRes.h" />
     <ClInclude Include="Resources\GameData.h" />
     <ClInclude Include="Resources\ResBase.h" />
     <ClInclude Include="Resources\ResourceLoader.h" />

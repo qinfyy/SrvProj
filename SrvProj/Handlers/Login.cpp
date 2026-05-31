@@ -93,12 +93,10 @@ std::string player_ping_req__Handler(GameSession* session, const std::string& re
     }
 
     Pong pong;
-    pong.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count());
+    pong.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     session->SavePlayer();
     return GameSession::BuildMessage(player_ping_succeed_ack, pong.SerializeAsString());
 }
-
 
 std::string mall_package_list_req__Handler(GameSession* session, const std::string& req) {
     if (!session || !session->mPlayer) {

@@ -969,6 +969,15 @@
     <ClCompile Include="Resources\BinClass\DiscRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
+    <ClCompile Include="Resources\BinClass\ItemsRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\QuestRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\StoryRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -1884,6 +1893,15 @@
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\DiscRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ItemsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\QuestRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\StoryRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,8 +8,13 @@
 #include <nlohmann/json.hpp>
 #include <Archive.h>
 #include "ResBase.h"
-#include "BinClass/CharacterRes.h"
-#include "BinClass/DiscRes.h"
+#include "../Logger.h"
+
+#include "BinClass\CharacterRes.h"
+#include "BinClass\DiscRes.h"
+#include "BinClass\ItemsRes.h"
+#include "BinClass\QuestRes.h"
+#include "BinClass\StoryRes.h"
 
 template<typename T>
 static bool Read(std::istream& inputStream, T& out) {
@@ -196,11 +201,12 @@ void LoadRes(Archive* arc, Container& container) {
             if (!res.LoadFromPb(item.data)) {
                 throw std::runtime_error("从 protobuf 数据加载资源失败");
             }
-
-            container.emplace(std::stoi(item.key), std::move(res));
+			res.OnLoad();
+            container.emplace(res.GetId(), std::move(res));
         }
         catch (const std::exception& e) {
-            std::throw_with_nested(std::runtime_error("LoadRes: 解析 " + resName + "中 key = " + item.key + " 的记录失败"));
+            //std::throw_with_nested(std::runtime_error("LoadRes: 解析 " + resName + "中 key = " + item.key + " 的记录失败"));
+            LOG_ERROR("LoadRes: 解析 " + resName + "中 key = " + item.key + " 的记录失败, ERROR: " + std::string(e.what()));
         }
     }
 }
@@ -210,6 +216,41 @@ void LoadResources() {
     auto arc = Archive::Open(inputFilePath);
 
     LoadRes<CharacterRes>(arc.get(), GameData::CharacterDataTable);
+    LoadRes<CharacterAdvanceRes>(arc.get(), GameData::CharacterAdvanceDataTable);
+    LoadRes<CharacterSkillUpgradeRes>(arc.get(), GameData::CharacterSkillUpgradeDataTable);
+    LoadRes<CharacterUpgradeRes>(arc.get(), GameData::CharacterUpgradeDataTable);
+    LoadRes<CharItemExpRes>(arc.get(), GameData::CharItemExpDataTable);
+    LoadRes<CharacterSkinRes>(arc.get(), GameData::CharacterSkinDataTable);
+    LoadRes<TalentGroupRes>(arc.get(), GameData::TalentGroupDataTable);
+    LoadRes<TalentRes>(arc.get(), GameData::TalentDataTable);
+    LoadRes<CharGemRes>(arc.get(), GameData::CharGemDataTable);
+    LoadRes<CharGemSlotControlRes>(arc.get(), GameData::CharGemSlotControlDataTable);
+    LoadRes<CharGemAttrValueRes>(arc.get(), GameData::CharGemAttrValueDataTable);
+    LoadRes<AffinityGiftRes>(arc.get(), GameData::AffinityGiftDataTable);
+    LoadRes<AffinityLevelRes>(arc.get(), GameData::AffinityLevelDataTable);
+    LoadRes<PlotRes>(arc.get(), GameData::PlotDataTable);
     LoadRes<ChatRes>(arc.get(), GameData::ChatDataTable);
+    LoadRes<DatingLandmarkRes>(arc.get(), GameData::DatingLandmarkDataTable);
+    LoadRes<DatingLandmarkEventRes>(arc.get(), GameData::DatingLandmarkEventDataTable);
+    LoadRes<DatingCharacterEventRes>(arc.get(), GameData::DatingCharacterEventDataTable);
     LoadRes<DiscRes>(arc.get(), GameData::DiscDataTable);
+    LoadRes<DiscStrengthenRes>(arc.get(), GameData::DiscStrengthenDataTable);
+    LoadRes<DiscItemExpRes>(arc.get(), GameData::DiscItemExpDataTable);
+    LoadRes<DiscPromoteRes>(arc.get(), GameData::DiscPromoteDataTable);
+    LoadRes<DiscPromoteLimitRes>(arc.get(), GameData::DiscPromoteLimitDataTable);
+    LoadRes<SecondarySkillRes>(arc.get(), GameData::SecondarySkillDataTable);
+    LoadRes<ItemRes>(arc.get(), GameData::ItemDataTable);
+    LoadRes<ProductionRes>(arc.get(), GameData::ProductionDataTable);
+    LoadRes<PlayerHeadRes>(arc.get(), GameData::PlayerHeadDataTable);
+    LoadRes<TitleRes>(arc.get(), GameData::TitleDataTable);
+    LoadRes<HonorRes>(arc.get(), GameData::HonorDataTable);
+
+	LoadRes<StoryRes>(arc.get(), GameData::StoryDataTable);
+	LoadRes<StorySetSectionRes>(arc.get(), GameData::StorySetSectionDataTable);
+	LoadRes<StoryEvidenceRes>(arc.get(), GameData::StoryEvidenceDataTable);
+	LoadRes<MainScreenCGRes>(arc.get(), GameData::MainScreenCGDataTable);
+	LoadRes<DailyQuestRes>(arc.get(), GameData::DailyQuestDataTable);
+	LoadRes<DailyQuestActiveRes>(arc.get(), GameData::DailyQuestActiveDataTable);
+    LoadRes<WeeklyQuestRes>(arc.get(), GameData::WeeklyQuestDataTable);
+    LoadRes<WeeklyQuestActiveRes>(arc.get(), GameData::WeeklyQuestActiveDataTable);
 }

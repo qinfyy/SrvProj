@@ -11,3 +11,4 @@ std::string player_data_req__Handler(GameSession* session, const std::string& re
 std::string player_ping_req__Handler(GameSession* session, const std::string& req);
 
 std::string mall_package_list_req__Handler(GameSession* session, const std::string& req);
+

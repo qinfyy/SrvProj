@@ -3,6 +3,7 @@
 
 class ResBase {
 public:
+    ResBase() = default;
     virtual ~ResBase() = default;
 
     virtual int GetId() const = 0;

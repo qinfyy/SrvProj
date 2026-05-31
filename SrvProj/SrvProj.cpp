@@ -54,7 +54,6 @@ int main() {
 
     //GetServerList();
 	//GetNoticeList();
-    SetupRoutes();
     AccountServer server("0.0.0.0", 21000);
     if (!server.Start()) {
         return 1;

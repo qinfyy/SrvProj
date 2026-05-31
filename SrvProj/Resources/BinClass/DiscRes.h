@@ -32,3 +32,67 @@ public:
     int SecondarySkillGroupId2;
     int SubNoteSkillGroupId;
 };
+
+class DiscStrengthenRes : public ResBase {
+public:
+	DiscStrengthenRes() = default;
+	~DiscStrengthenRes() = default;
+
+	int GetId() const override { return Id; }
+	bool LoadFromPb(std::string data) override;
+
+	int Id;
+	int Exp;
+};
+class DiscItemExpRes : public ResBase {
+public:
+    public:
+    DiscItemExpRes() = default;
+	~DiscItemExpRes() = default;
+	int GetId() const override { return ItemId; }
+	bool LoadFromPb(std::string data) override;
+
+	int ItemId;
+	int Exp;
+};
+class DiscPromoteRes : public ResBase {
+public:
+	DiscPromoteRes() = default;
+	~DiscPromoteRes() = default;
+	int GetId() const override { return Id; }
+	bool LoadFromPb(std::string data) override;
+	int Id;
+	int Group;
+	int AdvanceLvl;
+	int ItemId1;
+	int Num1;
+	int ItemId2;
+	int Num2;
+	int ItemId3;
+	int Num3;
+	int ExpenseGold;
+};
+class DiscPromoteLimitRes : public ResBase {
+public:
+	DiscPromoteLimitRes() = default;
+	~DiscPromoteLimitRes() = default;
+	int GetId() const override { return Id; }
+	bool LoadFromPb(std::string data) override;
+	int Id;
+	int Rarity;
+	std::string Phase;
+	std::string MaxLevel;
+	int WorldClassLimit;
+};
+class SecondarySkillRes : public ResBase {
+public:
+	SecondarySkillRes() = default;
+	~SecondarySkillRes() = default;
+	int GetId() const override { return Id; }
+	bool LoadFromPb(std::string data) override;
+	int Id;
+	int GroupId;
+	int Score;
+	std::string NeedSubNoteSkills;
+
+};
