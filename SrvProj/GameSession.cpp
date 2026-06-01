@@ -85,7 +85,13 @@ std::string GameSession::GenerateToken() {
 
 bool GameSession::Login(std::string loginToken) {
     if (loginToken.empty()) {
-        loginToken = mToken.empty() ? "guest" : mToken;
+        if (!mToken.empty()) {
+            loginToken = mToken;
+        }
+        else {
+            LOG_ERROR("会话令牌为空");
+            return false;
+        }
     }
 
     mAccountUid = loginToken;
@@ -106,7 +112,7 @@ bool GameSession::Login(std::string loginToken) {
             uid = 1;
         }
 
-        if (!player->InitNewPlayer(uid, "Player", false)) {
+        if (!player->InitNewPlayer(uid, "me", false)) {
             return false;
         }
 

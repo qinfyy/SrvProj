@@ -4,6 +4,7 @@
 #include "../Resources/GameData.h"
 
 #include <chrono>
+#include <algorithm>
 #include <string>
 
 namespace {
@@ -12,6 +13,55 @@ int64_t NowSeconds()
     return std::chrono::duration_cast<std::chrono::seconds>(
         std::chrono::system_clock::now().time_since_epoch()).count();
 }
+}
+
+void CharacterStor::OnCreate()
+{
+    SortCharacters();
+    SortDiscs();
+
+    auto* bin = MutableBin();
+    for (int index = 0; index < bin->charinfolist_size(); ++index)
+    {
+        NormalizeCharacter(*bin->mutable_charinfolist(index));
+    }
+
+    for (int index = 0; index < bin->gamedisclist_size(); ++index)
+    {
+        NormalizeDisc(*bin->mutable_gamedisclist(index));
+    }
+}
+
+void CharacterStor::OnLoad()
+{
+    auto* bin = MutableBin();
+
+    for (int index = bin->charinfolist_size() - 1; index >= 0; --index)
+    {
+        auto* character = bin->mutable_charinfolist(index);
+        if (GameData::CharacterDataTable.find(character->charid()) == GameData::CharacterDataTable.end())
+        {
+            bin->mutable_charinfolist()->DeleteSubrange(index, 1);
+            continue;
+        }
+
+        NormalizeCharacter(*character);
+    }
+
+    for (int index = bin->gamedisclist_size() - 1; index >= 0; --index)
+    {
+        auto* disc = bin->mutable_gamedisclist(index);
+        if (GameData::DiscDataTable.find(disc->discid()) == GameData::DiscDataTable.end())
+        {
+            bin->mutable_gamedisclist()->DeleteSubrange(index, 1);
+            continue;
+        }
+
+        NormalizeDisc(*disc);
+    }
+
+    SortCharacters();
+    SortDiscs();
 }
 
 ServerProto::CharacterCompBin* CharacterStor::MutableBin()
@@ -47,32 +97,20 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
     charInfo->set_level(1);
     charInfo->set_exp(0);
     charInfo->set_advance(0);
-    charInfo->set_affinitylevel(1);
+    charInfo->set_affinitylevel(0);
     charInfo->set_affinityexp(0);
     charInfo->set_skin(data.DefaultSkinId);
     charInfo->set_talents(std::string(8, '\0'));
     charInfo->set_createtime(NowSeconds());
+    charInfo->set_gempresetindex(0);
 
     for (int i = 0; i < 5; ++i)
     {
         charInfo->add_skills(1);
     }
 
-    auto* contact = charInfo->mutable_contact();
-    contact->set_triggertime(charInfo->createtime());
-
-    for (const auto& [_, chatData] : GameData::ChatDataTable)
-    {
-        if (chatData.AddressBookId != data.Id || chatData.PreChatId != 0)
-        {
-            continue;
-        }
-
-        ServerProto::CharacterChat chat;
-        chat.set_id(chatData.Id);
-        (*contact->mutable_chats())[chatData.Id] = chat;
-    }
-
+    NormalizeCharacter(*charInfo);
+    SortCharacters();
     return charInfo;
 }
 
@@ -146,6 +184,8 @@ ServerProto::GameDiscInfoBin* CharacterStor::AddDisc(const DiscRes& data)
     disc->set_read(false);
     disc->set_avg(false);
     disc->set_createtime(NowSeconds());
+    NormalizeDisc(*disc);
+    SortDiscs();
     return disc;
 }
 
@@ -205,6 +245,200 @@ void CharacterStor::EncodePlayerInfo(proto::PlayerInfo& out) const
     }
 }
 
+int CharacterStor::GetNewPhoneMessageCount() const
+{
+    int count = 0;
+    for (const auto& character : Bin().charinfolist())
+    {
+        for (const auto& [_, chat] : character.contact().chats())
+        {
+            if (!chat.end())
+            {
+                ++count;
+                break;
+            }
+        }
+    }
+    return count;
+}
+
+void CharacterStor::NormalizeCharacter(ServerProto::CharacterInfo& character) const
+{
+    auto it = GameData::CharacterDataTable.find(character.charid());
+    if (it == GameData::CharacterDataTable.end())
+    {
+        return;
+    }
+
+    const CharacterRes& data = it->second;
+
+    if (character.level() <= 0)
+    {
+        character.set_level(1);
+    }
+
+    if (character.skin() <= 0)
+    {
+        character.set_skin(data.DefaultSkinId);
+    }
+
+    if (character.createtime() <= 0)
+    {
+        character.set_createtime(NowSeconds());
+    }
+
+    if (character.affinitylevel() < 0)
+    {
+        character.set_affinitylevel(0);
+    }
+
+    while (character.skills_size() < 5)
+    {
+        character.add_skills(1);
+    }
+
+    if (character.skills_size() > 5)
+    {
+        while (character.skills_size() > 5)
+        {
+            character.mutable_skills()->RemoveLast();
+        }
+    }
+
+    if (character.talents().empty())
+    {
+        character.set_talents(std::string(8, '\0'));
+    }
+
+    EnsureGemPresets(character);
+    EnsureGemSlots(character);
+    EnsureCharacterContact(character);
+}
+
+void CharacterStor::NormalizeDisc(ServerProto::GameDiscInfoBin& disc) const
+{
+    if (disc.level() <= 0)
+    {
+        disc.set_level(1);
+    }
+
+    if (disc.phase() < 0)
+    {
+        disc.set_phase(0);
+    }
+
+    if (disc.star() < 0)
+    {
+        disc.set_star(0);
+    }
+
+    if (disc.createtime() <= 0)
+    {
+        disc.set_createtime(NowSeconds());
+    }
+}
+
+void CharacterStor::EnsureCharacterContact(ServerProto::CharacterInfo& character) const
+{
+    auto* contact = character.mutable_contact();
+    if (contact->triggertime() <= 0)
+    {
+        contact->set_triggertime(character.createtime() > 0 ? character.createtime() : NowSeconds());
+    }
+
+    EnsureInitialChats(character);
+}
+
+void CharacterStor::EnsureGemPresets(ServerProto::CharacterInfo& character) const
+{
+    while (character.gempresets_size() < 3)
+    {
+        character.add_gempresets();
+    }
+
+    while (character.gempresets_size() > 3)
+    {
+        character.mutable_gempresets()->RemoveLast();
+    }
+
+    for (int index = 0; index < character.gempresets_size(); ++index)
+    {
+        auto* preset = character.mutable_gempresets(index);
+        while (preset->gems_size() < 3)
+        {
+            preset->add_gems(static_cast<uint32_t>(-1));
+        }
+
+        while (preset->gems_size() > 3)
+        {
+            preset->mutable_gems()->RemoveLast();
+        }
+    }
+}
+
+void CharacterStor::EnsureGemSlots(ServerProto::CharacterInfo& character) const
+{
+    while (character.gemslots_size() < 3)
+    {
+        auto* slot = character.add_gemslots();
+        slot->set_id(character.gemslots_size());
+    }
+
+    for (int index = 0; index < character.gemslots_size() && index < 3; ++index)
+    {
+        auto* slot = character.mutable_gemslots(index);
+        if (slot->id() <= 0)
+        {
+            slot->set_id(index + 1);
+        }
+    }
+}
+
+void CharacterStor::EnsureInitialChats(ServerProto::CharacterInfo& character) const
+{
+    auto it = GameData::CharacterDataTable.find(character.charid());
+    if (it == GameData::CharacterDataTable.end())
+    {
+        return;
+    }
+
+    auto* chats = character.mutable_contact()->mutable_chats();
+    if (!chats->empty())
+    {
+        return;
+    }
+
+    for (const auto& [_, chatData] : GameData::ChatDataTable)
+    {
+        if (chatData.AddressBookId != it->second.Id || chatData.PreChatId != 0)
+        {
+            continue;
+        }
+
+        ServerProto::CharacterChat chat;
+        chat.set_id(chatData.Id);
+        chat.set_process(0);
+        chat.set_end(false);
+        (*chats)[chatData.Id] = chat;
+    }
+}
+
+void CharacterStor::SortCharacters()
+{
+    auto* list = MutableBin()->mutable_charinfolist();
+    std::sort(list->begin(), list->end(), [](const ServerProto::CharacterInfo& left, const ServerProto::CharacterInfo& right) {
+        return left.charid() < right.charid();
+    });
+}
+
+void CharacterStor::SortDiscs()
+{
+    auto* list = MutableBin()->mutable_gamedisclist();
+    std::sort(list->begin(), list->end(), [](const ServerProto::GameDiscInfoBin& left, const ServerProto::GameDiscInfoBin& right) {
+        return left.discid() < right.discid();
+    });
+}
+
 proto::Char CharacterStor::ToProto(const ServerProto::CharacterInfo& characterInfo)
 {
     proto::Char cliChar;
@@ -218,6 +452,7 @@ proto::Char CharacterStor::ToProto(const ServerProto::CharacterInfo& characterIn
     cliChar.set_affinityexp(characterInfo.affinityexp());
     cliChar.set_talentnodes(characterInfo.talents());
     cliChar.set_createtime(characterInfo.createtime());
+    cliChar.mutable_affinityquests();
 
     for (uint32_t skill : characterInfo.skills())
     {

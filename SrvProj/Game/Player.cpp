@@ -54,11 +54,16 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     mUid = uid;
     mPlayerSaveData.Clear();
 
+    mCharacterStor->OnCreate();
+    mActivityMgr->OnCreate();
+    mInventoryMgr->OnCreate();
+    mQuestMgr->OnCreate();
+
     auto* data = GetMutablePlayerData();
     const int64_t now = NowSeconds();
 
     data->set_createtime(now);
-    data->set_name(name.empty() ? "Player" : std::move(name));
+    data->set_name(name.empty() ? "me" : std::move(name));
     data->set_signature("");
     data->set_gender(gender);
     data->set_headicon(gender ? 101 : 102);
@@ -82,11 +87,6 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     Characters().AddDiscFromId(211005);
     Characters().AddDiscFromId(211007);
     Characters().AddDiscFromId(211008);
-
-    mCharacterStor->OnCreate();
-    mActivityMgr->OnCreate();
-    mInventoryMgr->OnCreate();
-    mQuestMgr->OnCreate();
 
     return true;
 }
@@ -235,7 +235,7 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     info.add_honorlist(111001);
     info.mutable_agent();
     info.mutable_formation();
-    info.mutable_phone();
+    info.mutable_phone()->set_newmessage(Characters().GetNewPhoneMessageCount());
     info.mutable_story();
 
     auto* handbookChars = info.add_handbook();

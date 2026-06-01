@@ -12,6 +12,9 @@ class CharacterStor : public ManagerBase
 public:
     using ManagerBase::ManagerBase;
 
+    void OnCreate() override;
+    void OnLoad() override;
+
     ServerProto::CharacterCompBin* MutableBin();
     const ServerProto::CharacterCompBin& Bin() const;
 
@@ -28,8 +31,18 @@ public:
     bool HasDisc(int id) const;
 
     void EncodePlayerInfo(proto::PlayerInfo& out) const override;
+    int GetNewPhoneMessageCount() const;
 
 private:
+    void NormalizeCharacter(ServerProto::CharacterInfo& character) const;
+    void NormalizeDisc(ServerProto::GameDiscInfoBin& disc) const;
+    void EnsureCharacterContact(ServerProto::CharacterInfo& character) const;
+    void EnsureGemPresets(ServerProto::CharacterInfo& character) const;
+    void EnsureGemSlots(ServerProto::CharacterInfo& character) const;
+    void EnsureInitialChats(ServerProto::CharacterInfo& character) const;
+    void SortCharacters();
+    void SortDiscs();
+
     static proto::Char ToProto(const ServerProto::CharacterInfo& characterInfo);
     static proto::Disc ToProto(const ServerProto::GameDiscInfoBin& discInfo);
 };
