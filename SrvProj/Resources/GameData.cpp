@@ -8,63 +8,63 @@
 #include "BinClass\StarTower.h"
 
 
-std::unordered_map<int, CharacterRes> GameData::CharacterDataTable;
-std::unordered_map<int, CharacterAdvanceRes> GameData::CharacterAdvanceDataTable;
-std::unordered_map<int, CharacterSkillUpgradeRes> GameData::CharacterSkillUpgradeDataTable;
-std::unordered_map<int, CharacterUpgradeRes> GameData::CharacterUpgradeDataTable;
-std::unordered_map<int, CharItemExpRes> GameData::CharItemExpDataTable;
-std::unordered_map<int, CharacterSkinRes> GameData::CharacterSkinDataTable;
-std::unordered_map<int, TalentGroupRes> GameData::TalentGroupDataTable;
-std::unordered_map<int, TalentRes> GameData::TalentDataTable;
+std::unordered_map<std::string, CharacterRes> GameData::CharacterDataTable;
+std::unordered_map<std::string, CharacterAdvanceRes> GameData::CharacterAdvanceDataTable;
+std::unordered_map<std::string, CharacterSkillUpgradeRes> GameData::CharacterSkillUpgradeDataTable;
+std::unordered_map<std::string, CharacterUpgradeRes> GameData::CharacterUpgradeDataTable;
+std::unordered_map<std::string, CharItemExpRes> GameData::CharItemExpDataTable;
+std::unordered_map<std::string, CharacterSkinRes> GameData::CharacterSkinDataTable;
+std::unordered_map<std::string, TalentGroupRes> GameData::TalentGroupDataTable;
+std::unordered_map<std::string, TalentRes> GameData::TalentDataTable;
 
 // Characters: Emblems
-std::unordered_map<int, CharGemRes> GameData::CharGemDataTable;
-std::unordered_map<int, CharGemSlotControlRes> GameData::CharGemSlotControlDataTable;
-std::unordered_map<int, CharGemAttrValueRes> GameData::CharGemAttrValueDataTable;
+std::unordered_map<std::string, CharGemRes> GameData::CharGemDataTable;
+std::unordered_map<std::string, CharGemSlotControlRes> GameData::CharGemSlotControlDataTable;
+std::unordered_map<std::string, CharGemAttrValueRes> GameData::CharGemAttrValueDataTable;
 
 // Characters: Affinity
-std::unordered_map<int, AffinityLevelRes> GameData::AffinityLevelDataTable;
-std::unordered_map<int, AffinityGiftRes> GameData::AffinityGiftDataTable;
-std::unordered_map<int, PlotRes> GameData::PlotDataTable;
+std::unordered_map<std::string, AffinityLevelRes> GameData::AffinityLevelDataTable;
+std::unordered_map<std::string, AffinityGiftRes> GameData::AffinityGiftDataTable;
+std::unordered_map<std::string, PlotRes> GameData::PlotDataTable;
 
 // Characters: Phone
-std::unordered_map<int, ChatRes> GameData::ChatDataTable;
+std::unordered_map<std::string, ChatRes> GameData::ChatDataTable;
 
 // Characters: Dating
-std::unordered_map<int, DatingLandmarkRes> GameData::DatingLandmarkDataTable;
-std::unordered_map<int, DatingLandmarkEventRes> GameData::DatingLandmarkEventDataTable;
-std::unordered_map<int, DatingCharacterEventRes> GameData::DatingCharacterEventDataTable;
+std::unordered_map<std::string, DatingLandmarkRes> GameData::DatingLandmarkDataTable;
+std::unordered_map<std::string, DatingLandmarkEventRes> GameData::DatingLandmarkEventDataTable;
+std::unordered_map<std::string, DatingCharacterEventRes> GameData::DatingCharacterEventDataTable;
 
 //// ===== Discs =====
-std::unordered_map<int, DiscRes> GameData::DiscDataTable;
-std::unordered_map<int, DiscStrengthenRes> GameData::DiscStrengthenDataTable;
-std::unordered_map<int, DiscItemExpRes> GameData::DiscItemExpDataTable;
-std::unordered_map<int, DiscPromoteRes> GameData::DiscPromoteDataTable;
-std::unordered_map<int, DiscPromoteLimitRes> GameData::DiscPromoteLimitDataTable;
+std::unordered_map<std::string, DiscRes> GameData::DiscDataTable;
+std::unordered_map<std::string, DiscStrengthenRes> GameData::DiscStrengthenDataTable;
+std::unordered_map<std::string, DiscItemExpRes> GameData::DiscItemExpDataTable;
+std::unordered_map<std::string, DiscPromoteRes> GameData::DiscPromoteDataTable;
+std::unordered_map<std::string, DiscPromoteLimitRes> GameData::DiscPromoteLimitDataTable;
 
 // Discs: Melody items
-std::unordered_map<int, SecondarySkillRes> GameData::SecondarySkillDataTable;
+std::unordered_map<std::string, SecondarySkillRes> GameData::SecondarySkillDataTable;
 
 // ===== Items =====
-std::unordered_map<int, ItemRes> GameData::ItemDataTable;
-std::unordered_map<int, ProductionRes> GameData::ProductionDataTable;
-std::unordered_map<int, PlayerHeadRes> GameData::PlayerHeadDataTable;
-std::unordered_map<int, TitleRes> GameData::TitleDataTable;
-std::unordered_map<int, HonorRes> GameData::HonorDataTable;
+std::unordered_map<std::string, ItemRes> GameData::ItemDataTable;
+std::unordered_map<std::string, ProductionRes> GameData::ProductionDataTable;
+std::unordered_map<std::string, PlayerHeadRes> GameData::PlayerHeadDataTable;
+std::unordered_map<std::string, TitleRes> GameData::TitleDataTable;
+std::unordered_map<std::string, HonorRes> GameData::HonorDataTable;
 
 
 // ===== Story =====
-std::unordered_map<int, StoryRes> GameData::StoryDataTable;
-std::unordered_map<int, StorySetSectionRes> GameData::StorySetSectionDataTable;
-std::unordered_map<int, StoryEvidenceRes> GameData::StoryEvidenceDataTable;
+std::unordered_map<std::string, StoryRes> GameData::StoryDataTable;
+std::unordered_map<std::string, StorySetSectionRes> GameData::StorySetSectionDataTable;
+std::unordered_map<std::string, StoryEvidenceRes> GameData::StoryEvidenceDataTable;
 
-std::unordered_map<int, MainScreenCGRes> GameData::MainScreenCGDataTable;
+std::unordered_map<std::string, MainScreenCGRes> GameData::MainScreenCGDataTable;
 
 // ===== Daily/Weekly Quests =====
-std::unordered_map<int, DailyQuestRes> GameData::DailyQuestDataTable;
-std::unordered_map<int, DailyQuestActiveRes> GameData::DailyQuestActiveDataTable;
-std::unordered_map<int, WeeklyQuestRes> GameData::WeeklyQuestDataTable;
-std::unordered_map<int, WeeklyQuestActiveRes> GameData::WeeklyQuestActiveDataTable;
+std::unordered_map<std::string, DailyQuestRes> GameData::DailyQuestDataTable;
+std::unordered_map<std::string, DailyQuestActiveRes> GameData::DailyQuestActiveDataTable;
+std::unordered_map<std::string, WeeklyQuestRes> GameData::WeeklyQuestDataTable;
+std::unordered_map<std::string, WeeklyQuestActiveRes> GameData::WeeklyQuestActiveDataTable;
 
 
-std::unordered_map<int, StarTowerGrowthNodeRes> GameData::StarTowerGrowthNodeDataTable;
+std::unordered_map<std::string, StarTowerGrowthNodeRes> GameData::StarTowerGrowthNodeDataTable;

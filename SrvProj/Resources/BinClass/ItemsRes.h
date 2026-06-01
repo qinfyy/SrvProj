@@ -10,7 +10,7 @@ public:
     ItemRes() = default;
     ~ItemRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -31,7 +31,7 @@ public:
     ProductionRes() = default;
     ~ProductionRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -48,7 +48,7 @@ public:
     PlayerHeadRes() = default;
     ~PlayerHeadRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -63,7 +63,7 @@ public:
     TitleRes() = default;
     ~TitleRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -78,11 +78,25 @@ public:
     HonorRes() = default;
     ~HonorRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
     int Id;
     int Type;
     std::vector<int> Params;
+};
+
+class DropPkgRes : public ResBase {
+private:
+    DropPkgRes() = default;
+    ~DropPkgRes() = default;
+
+    std::string GetId() const override { return std::to_string(PkgId); }
+    void OnLoad() override {}
+    bool LoadFromPb(std::string data) override;
+
+
+    int PkgId;
+    int ItemId;
 };

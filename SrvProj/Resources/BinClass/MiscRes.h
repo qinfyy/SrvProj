@@ -5,58 +5,57 @@
 #include <memory>
 #include <string>
 
-class StoryRes : public ResBase {
+class WorldClassRes : public ResBase {
 public:
-    StoryRes() = default;
-    ~StoryRes() = default;
+    WorldClassRes() = default;
+    ~WorldClassRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
-    
-    int Id;
-    int Chapter;
-    std::string RewardDisplay;
+
 
 };
 
-class StorySetSectionRes : public ResBase {
+
+class GuideGroupRes : public ResBase {
 public:
-    StorySetSectionRes() = default;
-    ~StorySetSectionRes() = default;
+    GuideGroupRes() = default;
+    ~GuideGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-    int Id;
-    int ChapterId;
 
-    int RewardItem1Tid;
-    int RewardItem1Qty;
 };
 
-class StoryEvidenceRes : public ResBase {
+class HandbookRes : public ResBase {
 public:
-    StoryEvidenceRes() = default;
-    ~StoryEvidenceRes() = default;
+    HandbookRes() = default;
+    ~HandbookRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
     int Id;
+    int NodeId;
+    int Group;
+
+    int ItemId1;
+    int ItemQty1;
+
 };
 
-class MainScreenCGRes : public ResBase {
+class SignInRes : public ResBase {
 public:
-    MainScreenCGRes() = default;
-    ~MainScreenCGRes() = default;
+    SignInRes() = default;
+    ~SignInRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-    int Id;
-    bool IsShown;
+
 };

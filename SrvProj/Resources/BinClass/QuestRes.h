@@ -10,7 +10,7 @@ public:
     DailyQuestRes() = default;
     ~DailyQuestRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -30,7 +30,7 @@ public:
     DailyQuestActiveRes() = default;
     ~DailyQuestActiveRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -48,7 +48,7 @@ public:
     WeeklyQuestRes() = default;
     ~WeeklyQuestRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -68,7 +68,7 @@ public:
     WeeklyQuestActiveRes() = default;
     ~WeeklyQuestActiveRes() = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 

@@ -16,7 +16,7 @@ public:
     CharacterRes(CharacterRes&&) noexcept = default;
     CharacterRes& operator=(CharacterRes&&) noexcept = default;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
 
     void OnLoad() override;
 
@@ -110,7 +110,7 @@ public:
     int Qty4;
     int GoldQty;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -132,7 +132,7 @@ public:
     int Qty4;
     int GoldQty;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -142,7 +142,7 @@ public:
     int Level;
     int Exp;
 
-    int GetId() const override { return Level; }
+    std::string GetId() const override { return std::to_string(Level); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -152,7 +152,7 @@ public:
     int ItemId;
     int ExpValue;
 
-    int GetId() const override { return ItemId; }
+    std::string GetId() const override { return std::to_string(ItemId); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -163,7 +163,7 @@ public:
     int CharId;
     int Type;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -174,7 +174,7 @@ public:
     int CharId;
     int PreGroup;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -188,7 +188,7 @@ public:
     int GroupId;
     int Sort;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -201,7 +201,7 @@ public:
     int OverlockCostTid;
     int Type;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -222,7 +222,7 @@ public:
     int LockItemTid;
     int LockItemQty;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -236,7 +236,7 @@ public:
     int AttrTypeFirstSubtype;
     int OverlockCount;
     int Rarity;
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -247,7 +247,7 @@ public:
 
     int AffinityLevel;
     int NeedExp;
-    int GetId() const override { return AffinityLevel; }
+    std::string GetId() const override { return std::to_string(AffinityLevel); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -257,7 +257,7 @@ public:
     int Id;
     int BaseAffinity;
     std::vector<int> Tags;
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -268,7 +268,7 @@ public:
     int Char;
     int UnlockAffinityLevel;
     std::string Rewards;
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -287,7 +287,7 @@ public:
     int Reward1;
     int RewardQty1;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
 
     void OnLoad() override {}
 
@@ -298,7 +298,7 @@ class DatingLandmarkRes : public ResBase {
 public:
     int Id;
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -310,7 +310,7 @@ public:
     int Affinity;
     std::vector<int> DatingEventParams;
     std::string Response;
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };
@@ -318,7 +318,7 @@ public:
 class DatingCharacterEventRes : public ResBase {
 public:
     int Id;
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 };

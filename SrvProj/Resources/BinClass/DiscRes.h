@@ -11,7 +11,7 @@ public:
 	~DiscRes() = default;
 	
 
-    int GetId() const override { return Id; }
+    std::string GetId() const override { return std::to_string(Id); }
 
     void OnLoad() override;
 
@@ -38,7 +38,7 @@ public:
 	DiscStrengthenRes() = default;
 	~DiscStrengthenRes() = default;
 
-	int GetId() const override { return Id; }
+	std::string GetId() const override { return std::to_string(Id); }
 	bool LoadFromPb(std::string data) override;
 
 	int Id;
@@ -49,7 +49,7 @@ public:
     public:
     DiscItemExpRes() = default;
 	~DiscItemExpRes() = default;
-	int GetId() const override { return ItemId; }
+	std::string GetId() const override { return std::to_string(ItemId); }
 	bool LoadFromPb(std::string data) override;
 
 	int ItemId;
@@ -59,7 +59,7 @@ class DiscPromoteRes : public ResBase {
 public:
 	DiscPromoteRes() = default;
 	~DiscPromoteRes() = default;
-	int GetId() const override { return Id; }
+	std::string GetId() const override { return std::to_string(Id); }
 	bool LoadFromPb(std::string data) override;
 	int Id;
 	int Group;
@@ -76,7 +76,7 @@ class DiscPromoteLimitRes : public ResBase {
 public:
 	DiscPromoteLimitRes() = default;
 	~DiscPromoteLimitRes() = default;
-	int GetId() const override { return Id; }
+	std::string GetId() const override { return std::to_string(Id); }
 	bool LoadFromPb(std::string data) override;
 	int Id;
 	int Rarity;
@@ -88,7 +88,7 @@ class SecondarySkillRes : public ResBase {
 public:
 	SecondarySkillRes() = default;
 	~SecondarySkillRes() = default;
-	int GetId() const override { return Id; }
+	std::string GetId() const override { return std::to_string(Id); }
 	bool LoadFromPb(std::string data) override;
 	int Id;
 	int GroupId;

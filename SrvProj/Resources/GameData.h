@@ -2,6 +2,7 @@
 
 #include <unordered_map>
 #include <memory>
+#include <string>
 
 // 这里使用前置声明，在GameData.cpp和其他使用的地方中包含具体的头文件，避免在这里引入过多的依赖，导致后面触发循环依赖。
 class CharacterRes;
@@ -103,6 +104,7 @@ class ActivityTaskGroupRes;
 class ActivityShopRes;
 class ActivityShopControlRes;
 class ActivityGoodsRes;
+class DropPkgRes;
 
 class GameData {
 public:
@@ -113,168 +115,168 @@ public:
     GameData& operator=(const GameData&) = delete;
 
     // Characters
-    static std::unordered_map<int, CharacterRes> CharacterDataTable;
-    static std::unordered_map<int, CharacterAdvanceRes> CharacterAdvanceDataTable;
-    static std::unordered_map<int, CharacterSkillUpgradeRes> CharacterSkillUpgradeDataTable;
-    static std::unordered_map<int, CharacterUpgradeRes> CharacterUpgradeDataTable;
-    static std::unordered_map<int, CharItemExpRes> CharItemExpDataTable;
-    static std::unordered_map<int, CharacterSkinRes> CharacterSkinDataTable;
-    static std::unordered_map<int, TalentGroupRes> TalentGroupDataTable;
-    static std::unordered_map<int, TalentRes> TalentDataTable;
+    static std::unordered_map<std::string, CharacterRes> CharacterDataTable;
+    static std::unordered_map<std::string, CharacterAdvanceRes> CharacterAdvanceDataTable;
+    static std::unordered_map<std::string, CharacterSkillUpgradeRes> CharacterSkillUpgradeDataTable;
+    static std::unordered_map<std::string, CharacterUpgradeRes> CharacterUpgradeDataTable;
+    static std::unordered_map<std::string, CharItemExpRes> CharItemExpDataTable;
+    static std::unordered_map<std::string, CharacterSkinRes> CharacterSkinDataTable;
+    static std::unordered_map<std::string, TalentGroupRes> TalentGroupDataTable;
+    static std::unordered_map<std::string, TalentRes> TalentDataTable;
 
     // Characters: Emblems
-    static std::unordered_map<int, CharGemRes> CharGemDataTable;
-    static std::unordered_map<int, CharGemSlotControlRes> CharGemSlotControlDataTable;
+    static std::unordered_map<std::string, CharGemRes> CharGemDataTable;
+    static std::unordered_map<std::string, CharGemSlotControlRes> CharGemSlotControlDataTable;
 
-    static std::unordered_map<int, CharGemAttrValueRes> CharGemAttrValueDataTable;
+    static std::unordered_map<std::string, CharGemAttrValueRes> CharGemAttrValueDataTable;
 
     // Characters: Affinity
-    static std::unordered_map<int, AffinityLevelRes> AffinityLevelDataTable;
-    static std::unordered_map<int, AffinityGiftRes> AffinityGiftDataTable;
-    static std::unordered_map<int, PlotRes> PlotDataTable;
+    static std::unordered_map<std::string, AffinityLevelRes> AffinityLevelDataTable;
+    static std::unordered_map<std::string, AffinityGiftRes> AffinityGiftDataTable;
+    static std::unordered_map<std::string, PlotRes> PlotDataTable;
 
     // Characters: Phone
-    static std::unordered_map<int, ChatRes> ChatDataTable;
+    static std::unordered_map<std::string, ChatRes> ChatDataTable;
 
     // Characters: Dating
-    static std::unordered_map<int, DatingLandmarkRes> DatingLandmarkDataTable;
-    static std::unordered_map<int, DatingLandmarkEventRes> DatingLandmarkEventDataTable;
-    static std::unordered_map<int, DatingCharacterEventRes> DatingCharacterEventDataTable;
+    static std::unordered_map<std::string, DatingLandmarkRes> DatingLandmarkDataTable;
+    static std::unordered_map<std::string, DatingLandmarkEventRes> DatingLandmarkEventDataTable;
+    static std::unordered_map<std::string, DatingCharacterEventRes> DatingCharacterEventDataTable;
 
     //// ===== Discs =====
-    static std::unordered_map<int, DiscRes> DiscDataTable;
-    static std::unordered_map<int, DiscStrengthenRes> DiscStrengthenDataTable;
-    static std::unordered_map<int, DiscItemExpRes> DiscItemExpDataTable;
-    static std::unordered_map<int, DiscPromoteRes> DiscPromoteDataTable;
-    static std::unordered_map<int, DiscPromoteLimitRes> DiscPromoteLimitDataTable;
+    static std::unordered_map<std::string, DiscRes> DiscDataTable;
+    static std::unordered_map<std::string, DiscStrengthenRes> DiscStrengthenDataTable;
+    static std::unordered_map<std::string, DiscItemExpRes> DiscItemExpDataTable;
+    static std::unordered_map<std::string, DiscPromoteRes> DiscPromoteDataTable;
+    static std::unordered_map<std::string, DiscPromoteLimitRes> DiscPromoteLimitDataTable;
 
     // Discs: Melody items
-    static std::unordered_map<int, SecondarySkillRes> SecondarySkillDataTable;
+    static std::unordered_map<std::string, SecondarySkillRes> SecondarySkillDataTable;
 
     // ===== Items =====
-    static std::unordered_map<int, ItemRes> ItemDataTable;
-    static std::unordered_map<int, ProductionRes> ProductionDataTable;
-    static std::unordered_map<int, PlayerHeadRes> PlayerHeadDataTable;
-    static std::unordered_map<int, TitleRes> TitleDataTable;
-    static std::unordered_map<int, HonorRes> HonorDataTable;
-
+    static std::unordered_map<std::string, ItemRes> ItemDataTable;
+    static std::unordered_map<std::string, ProductionRes> ProductionDataTable;
+    static std::unordered_map<std::string, PlayerHeadRes> PlayerHeadDataTable;
+    static std::unordered_map<std::string, TitleRes> TitleDataTable;
+    static std::unordered_map<std::string, HonorRes> HonorDataTable;
+    static std::unordered_map<std::string, DropPkgRes> DropPkgDataTable;
     // ===== Shops =====
-    //static inline, std::unordered_map<int, MallMonthlyCardRes> mMallMonthlyCardDataTable;
-    //static inline, std::unordered_map<int, MallPackageRes> mMallPackageDataTable;
-    //static inline, std::unordered_map<int, MallShopRes> mMallShopDataTable;
-    //static inline, std::unordered_map<int, MallGemRes> mMallGemDataTable;
+    static std::unordered_map<std::string, MallMonthlyCardRes> MallMonthlyCardDataTable;
+    static std::unordered_map<std::string, MallPackageRes> MallPackageDataTable;
+    static std::unordered_map<std::string, MallShopRes> MallShopDataTable;
+    static std::unordered_map<std::string, MallGemRes> MallGemDataTable;
 
-    //static inline, std::unordered_map<int, ResidentShopRes> mResidentShopDataTable;
-    //static inline, std::unordered_map<int, ResidentGoodsRes> mResidentGoodsDataTable;
+    static std::unordered_map<std::string, ResidentShopRes> ResidentShopDataTable;
+    static std::unordered_map<std::string, ResidentGoodsRes> ResidentGoodsDataTable;
 
-    //// ===== Battle Pass =====
-    //static inline, std::unordered_map<int, BattlePassRes> mBattlePassDataTable;
-    //static inline, std::unordered_map<int, BattlePassLevelRes> mBattlePassLevelDataTable;
-    //static inline, std::unordered_map<int, BattlePassQuestRes> mBattlePassQuestDataTable;
-    //static inline, std::unordered_map<int, BattlePassRewardRes> mBattlePassRewardDataTable;
+    // ===== Battle Pass =====
+    static std::unordered_map<std::string, BattlePassRes> BattlePassDataTable;
+    static std::unordered_map<std::string, BattlePassLevelRes> BattlePassLevelDataTable;
+    static std::unordered_map<std::string, BattlePassQuestRes> BattlePassQuestDataTable;
+    static std::unordered_map<std::string, BattlePassRewardRes> BattlePassRewardDataTable;
 
-    //// ===== Commissions =====
-    //static inline, std::unordered_map<int, AgentRes> mAgentDataTable;
+    // ===== Commissions =====
+    static std::unordered_map<std::string, AgentRes> AgentDataTable;
 
     //// ===== Dictionary =====
-    //static inline, std::unordered_map<int, DictionaryTabRes> mDictionaryTabDataTable;
-    //static inline, std::unordered_map<int, DictionaryEntryRes> mDictionaryEntryDataTable;
+    //static std::unordered_map<std::string, DictionaryTabRes> mDictionaryTabDataTable;
+    //static std::unordered_map<std::string, DictionaryEntryRes> mDictionaryEntryDataTable;
 
     //// ===== Gacha =====
-    //static inline, std::unordered_map<int, GachaATypeProbRes> mGachaATypeProbDataTable;
-    //static inline, std::unordered_map<int, GachaRes> mGachaDataTable;
-    //static inline, std::unordered_map<int, GachaNewbieRes> mGachaNewbieDataTable;
-    //static inline, std::unordered_map<int, GachaStorageRes> mGachaStorageDataTable;
-    //static inline, std::unordered_map<int, GachaTypeRes> mGachaTypeDataTable;
+    //static std::unordered_map<std::string, GachaATypeProbRes> mGachaATypeProbDataTable;
+    //static std::unordered_map<std::string, GachaRes> mGachaDataTable;
+    //static std::unordered_map<std::string, GachaNewbieRes> mGachaNewbieDataTable;
+    //static std::unordered_map<std::string, GachaStorageRes> mGachaStorageDataTable;
+    //static std::unordered_map<std::string, GachaTypeRes> mGachaTypeDataTable;
 
     // ===== Story =====
-    static std::unordered_map<int, StoryRes> StoryDataTable;
-    static std::unordered_map<int, StorySetSectionRes> StorySetSectionDataTable;
-    static std::unordered_map<int, StoryEvidenceRes> StoryEvidenceDataTable;
+    static std::unordered_map<std::string, StoryRes> StoryDataTable;
+    static std::unordered_map<std::string, StorySetSectionRes> StorySetSectionDataTable;
+    static std::unordered_map<std::string, StoryEvidenceRes> StoryEvidenceDataTable;
 
-    static std::unordered_map<int, MainScreenCGRes> MainScreenCGDataTable;
+    static std::unordered_map<std::string, MainScreenCGRes> MainScreenCGDataTable;
 
     // ===== Daily/Weekly Quests =====
-    static std::unordered_map<int, DailyQuestRes> DailyQuestDataTable;
-    static std::unordered_map<int, DailyQuestActiveRes> DailyQuestActiveDataTable;
-    static std::unordered_map<int, WeeklyQuestRes> WeeklyQuestDataTable;
-    static std::unordered_map<int, WeeklyQuestActiveRes> WeeklyQuestActiveDataTable;
+    static std::unordered_map<std::string, DailyQuestRes> DailyQuestDataTable;
+    static std::unordered_map<std::string, DailyQuestActiveRes> DailyQuestActiveDataTable;
+    static std::unordered_map<std::string, WeeklyQuestRes> WeeklyQuestDataTable;
+    static std::unordered_map<std::string, WeeklyQuestActiveRes> WeeklyQuestActiveDataTable;
 
     //// ===== Achievements =====
-    //static inline, std::unordered_map<int, AchievementRes> mAchievementDataTable;
+    //static std::unordered_map<std::string, AchievementRes> mAchievementDataTable;
 
     //// ===== Tutorials =====
-    //static inline, std::unordered_map<int, TutorialLevelRes> mTutorialLevelDataTable;
+    //static std::unordered_map<std::string, TutorialLevelRes> mTutorialLevelDataTable;
 
     //// ===== Instances =====
-    //static inline, std::unordered_map<int, DailyInstanceRes> mDailyInstanceDataTable;
-    //static inline, std::unordered_map<int, DailyInstanceRewardGroupRes> mDailyInstanceRewardGroupDataTable;
-    //static inline, std::unordered_map<int, RegionBossLevelRes> mRegionBossLevelDataTable;
-    //static inline, std::unordered_map<int, SkillInstanceRes> mSkillInstanceDataTable;
-    //static inline, std::unordered_map<int, CharGemInstanceRes> mCharGemInstanceDataTable;
-    //static inline, std::unordered_map<int, WeekBossLevelRes> mWeekBossLevelDataTable;
+    //static std::unordered_map<std::string, DailyInstanceRes> mDailyInstanceDataTable;
+    //static std::unordered_map<std::string, DailyInstanceRewardGroupRes> mDailyInstanceRewardGroupDataTable;
+    //static std::unordered_map<std::string, RegionBossLevelRes> mRegionBossLevelDataTable;
+    //static std::unordered_map<std::string, SkillInstanceRes> mSkillInstanceDataTable;
+    //static std::unordered_map<std::string, CharGemInstanceRes> mCharGemInstanceDataTable;
+    //static std::unordered_map<std::string, WeekBossLevelRes> mWeekBossLevelDataTable;
 
-    //// ===== Star Tower =====
-    //static inline, std::unordered_map<int, StarTowerRes> mStarTowerDataTable;
-    //static inline, std::unordered_map<int, StarTowerStageRes> mStarTowerStageDataTable;
-    static std::unordered_map<int, StarTowerGrowthNodeRes> StarTowerGrowthNodeDataTable;
-    //static inline, std::unordered_map<int, StarTowerFloorExpRes> mStarTowerFloorExpDataTable;
-    //static inline, std::unordered_map<int, StarTowerTeamExpRes> mStarTowerTeamExpDataTable;
-    //static inline, std::unordered_map<int, StarTowerEventRes> mStarTowerEventDataTable;
-    //static inline, std::unordered_map<int, StarTowerBuildRankRes> mStarTowerBuildRankDataTable;
-    //static inline, std::unordered_map<int, SubNoteSkillPromoteGroupRes> mSubNoteSkillPromoteGroupDataTable;
+    // ===== Star Tower =====
+    static std::unordered_map<std::string, StarTowerRes> StarTowerDataTable;
+    static std::unordered_map<std::string, StarTowerStageRes> mtarTowerStageDataTable;
+    static std::unordered_map<std::string, StarTowerGrowthNodeRes> StarTowerGrowthNodeDataTable;
+    static std::unordered_map<std::string, StarTowerFloorExpRes> mStarTowerFloorExpDataTable;
+    static std::unordered_map<std::string, StarTowerTeamExpRes> mStarTowerTeamExpDataTable;
+    static std::unordered_map<std::string, StarTowerEventRes> mStarTowerEventDataTable;
+    static std::unordered_map<std::string, StarTowerBuildRankRes> mStarTowerBuildRankDataTable;
+    static std::unordered_map<std::string, SubNoteSkillPromoteGroupRes> mSubNoteSkillPromoteGroupDataTable;
 
-    //static inline, std::unordered_map<int, PotentialRes> mPotentialDataTable;
-    //static inline, std::unordered_map<int, CharPotentialRes> mCharPotentialDataTable;
+    static std::unordered_map<std::string, PotentialRes> mPotentialDataTable;
+    static std::unordered_map<std::string, CharPotentialRes> mCharPotentialDataTable;
 
-    //static inline, std::unordered_map<int, StarTowerBookFateCardBundleRes> mStarTowerBookFateCardBundleDataTable;
-    //static inline, std::unordered_map<int, StarTowerBookFateCardQuestRes> mStarTowerBookFateCardQuestDataTable;
-    //static inline, std::unordered_map<int, StarTowerBookFateCardRes> mStarTowerBookFateCardDataTable;
-    //static inline, std::unordered_map<int, FateCardRes> mFateCardDataTable;
+    static std::unordered_map<std::string, StarTowerBookFateCardBundleRes> mStarTowerBookFateCardBundleDataTable;
+    static std::unordered_map<std::string, StarTowerBookFateCardQuestRes> mStarTowerBookFateCardQuestDataTable;
+    static std::unordered_map<std::string, StarTowerBookFateCardRes> mStarTowerBookFateCardDataTable;
+    static std::unordered_map<std::string, FateCardRes> mFateCardDataTable;
 
-    //// ===== Infinity Tower =====
-    //static inline, std::unordered_map<int, InfinityTowerLevelRes> mInfinityTowerLevelDataTable;
-    //static inline, std::unordered_map<int, InfinityTowerDifficultyRes> mInfinityTowerDifficultyDataTable;
+    // ===== Infinity Tower =====
+    static std::unordered_map<std::string, InfinityTowerLevelRes> mInfinityTowerLevelDataTable;
+    static std::unordered_map<std::string, InfinityTowerDifficultyRes> mInfinityTowerDifficultyDataTable;
 
     //// ===== Vampire Survivor =====
-    //static inline, std::unordered_map<int, VampireSurvivorRes> mVampireSurvivorDataTable;
-    //static inline, std::unordered_map<int, VampireTalentRes> mVampireTalentDataTable;
+    //static std::unordered_map<std::string, VampireSurvivorRes> mVampireSurvivorDataTable;
+    //static std::unordered_map<std::string, VampireTalentRes> mVampireTalentDataTable;
 
     //// ===== Score Boss =====
-    //static inline, std::unordered_map<int, ScoreBossControlRes> mScoreBossControlDataTable;
-    //static inline, std::unordered_map<int, ScoreBossRewardRes> mScoreBossRewardDataTable;
+    //static std::unordered_map<std::string, ScoreBossControlRes> mScoreBossControlDataTable;
+    //static std::unordered_map<std::string, ScoreBossRewardRes> mScoreBossRewardDataTable;
 
-    //// ===== Misc =====
-    //static inline, std::unordered_map<int, WorldClassRes> mWorldClassDataTable;
-    //static inline, std::unordered_map<int, GuideGroupRes> mGuideGroupDataTable;
-    //static inline, std::unordered_map<int, HandbookRes> mHandbookDataTable;
-    //static inline, std::unordered_map<int, SignInRes> mSignInDataTable;
+    // ===== Misc =====
+    static std::unordered_map<std::string, WorldClassRes> mWorldClassDataTable;
+    static std::unordered_map<std::string, GuideGroupRes> mGuideGroupDataTable;
+    static std::unordered_map<std::string, HandbookRes> mHandbookDataTable;
+    static std::unordered_map<std::string, SignInRes> mSignInDataTable;
 
     //// ===== Activity =====
-    //static inline, std::unordered_map<int, ActivityRes> mActivityDataTable;
+    //static std::unordered_map<std::string, ActivityRes> mActivityDataTable;
 
     //// Activity: Login Reward
-    //static inline, std::unordered_map<int, LoginRewardGroupControlRes> mLoginRewardGroupControlDataTable;
+    //static std::unordered_map<std::string, LoginRewardGroupControlRes> mLoginRewardGroupControlDataTable;
 
     //// Activity: Tower Resense
-    //static inline, std::unordered_map<int, TowerResenseLevelRes> mTowerResenseLevelDataTable;
+    //static std::unordered_map<std::string, TowerResenseLevelRes> mTowerResenseLevelDataTable;
 
     //// Activity: Trials
-    //static inline, std::unordered_map<int, TrialControlRes> mTrialControlDataTable;
-    //static inline, std::unordered_map<int, TrialGroupRes> mTrialGroupDataTable;
+    //static std::unordered_map<std::string, TrialControlRes> mTrialControlDataTable;
+    //static std::unordered_map<std::string, TrialGroupRes> mTrialGroupDataTable;
 
     //// Activity: Joint Drill
-    //static inline, std::unordered_map<int, JointDrill2LevelRes> mJointDrill2LevelDataTable;
+    //static std::unordered_map<std::string, JointDrill2LevelRes> mJointDrill2LevelDataTable;
 
     //// Activity: Levels
-    //static inline, std::unordered_map<int, ActivityLevelsLevelRes> mActivityLevelsLevelDataTable;
+    //static std::unordered_map<std::string, ActivityLevelsLevelRes> mActivityLevelsLevelDataTable;
 
     //// Activity: Task
-    //static inline, std::unordered_map<int, ActivityTaskRes> mActivityTaskDataTable;
-    //static inline, std::unordered_map<int, ActivityTaskGroupRes> mActivityTaskGroupDataTable;
+    //static std::unordered_map<std::string, ActivityTaskRes> mActivityTaskDataTable;
+    //static std::unordered_map<std::string, ActivityTaskGroupRes> mActivityTaskGroupDataTable;
 
     //// Activity: Shop
-    //static inline, std::unordered_map<int, ActivityShopRes> mActivityShopDataTable;
-    //static inline, std::unordered_map<int, ActivityShopControlRes> mActivityShopControlDataTable;
-    //static inline, std::unordered_map<int, ActivityGoodsRes> mActivityGoodsDataTable;
+    //static std::unordered_map<std::string, ActivityShopRes> mActivityShopDataTable;
+    //static std::unordered_map<std::string, ActivityShopControlRes> mActivityShopControlDataTable;
+    //static std::unordered_map<std::string, ActivityGoodsRes> mActivityGoodsDataTable;
 };

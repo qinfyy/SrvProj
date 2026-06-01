@@ -6,7 +6,7 @@ public:
     ResBase() = default;
     virtual ~ResBase() = default;
 
-    virtual int GetId() const = 0;
+    virtual std::string GetId() const = 0;
 
     virtual void OnLoad() {
 
