@@ -19,7 +19,7 @@ std::string ike_req__Handler(GameSession* session, const std::string& req)
 {
     if (session) {
 		LOG_ERROR("该令牌的会话已存在: {}", session->mToken);
-        return GameSession::BuildMessage(ike_failed_ack);
+        return session->BuildMessage(ike_failed_ack);
     }
 
     IKEReq ikereq;
@@ -29,12 +29,12 @@ std::string ike_req__Handler(GameSession* session, const std::string& req)
 	session->mClientPublicKey = ikereq.pubkey();
 	bool succ1 = session->GenerateServerKey();
 	if (!succ1) {
-		return GameSession::BuildMessage(ike_failed_ack);
+		return session->BuildMessage(ike_failed_ack);
 	}
 
     bool succ2 = session->CalKey();
 	if (!succ2) {
-		return GameSession::BuildMessage(ike_failed_ack);
+		return session->BuildMessage(ike_failed_ack);
 	}
 
     IKEResp rsp;
@@ -43,12 +43,12 @@ std::string ike_req__Handler(GameSession* session, const std::string& req)
     rsp.set_cipher(session->mEncryptFunction);
     rsp.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
 
-    return GameSession::BuildMessage(ike_succeed_ack, rsp.SerializeAsString());
+    return session->BuildMessage(ike_succeed_ack, &rsp);
 }
 
 std::string player_login_req__Handler(GameSession* session, const std::string& req) {
     if (!session) {
-        return GameSession::BuildMessage(player_login_failed_ack);
+        return session->BuildMessage(player_login_failed_ack);
     }
 
     LoginReq reqPb;
@@ -69,47 +69,47 @@ std::string player_login_req__Handler(GameSession* session, const std::string& r
     if (!loginSucc) {
         Error errorPb;
         errorPb.set_code(100110); // ErrLogin
-        return GameSession::BuildMessage(player_login_failed_ack, errorPb.SerializeAsString());
+        return session->BuildMessage(player_login_failed_ack, &errorPb);
     }
     
     LoginResp rsp;
     rsp.set_token(session->mToken);
 
-    return GameSession::BuildMessage(player_login_succeed_ack, rsp.SerializeAsString());
+    return session->BuildMessage(player_login_succeed_ack, &rsp);
 }
 
 std::string player_data_req__Handler(GameSession* session, const std::string& req) {
 	if (!session || !session->mPlayer) {
-		return GameSession::BuildMessage(player_data_failed_ack);
+		return session->BuildMessage(player_data_failed_ack);
 	}
 
 	auto playerData = session->mPlayer->ToProto();
-    return GameSession::BuildMessage(player_data_succeed_ack, playerData.SerializeAsString());
+    return session->BuildMessage(player_data_succeed_ack, &playerData);
 }
 
 std::string player_ping_req__Handler(GameSession* session, const std::string& req) {
     if (!session || !session->mPlayer) {
-        return GameSession::BuildMessage(player_ping_failed_ack);
+        return session->BuildMessage(player_ping_failed_ack);
     }
 
     Pong pong;
     pong.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     session->SavePlayer();
-    return GameSession::BuildMessage(player_ping_succeed_ack, pong.SerializeAsString());
+    return session->BuildMessage(player_ping_succeed_ack, &pong);
 }
 
 std::string mall_package_list_req__Handler(GameSession* session, const std::string& req) {
     if (!session || !session->mPlayer) {
-        return GameSession::BuildMessage(mall_package_list_failed_ack);
+        return session->BuildMessage(mall_package_list_failed_ack);
     }
 
-    return GameSession::BuildMessage(mall_package_list_succeed_ack);
+    return session->BuildMessage(mall_package_list_succeed_ack);
 }
 
 std::string potential_preselection_list_req__Handler(GameSession* session, const std::string& req) {
 	if (!session || !session->mPlayer) {
-		return GameSession::BuildMessage(potential_preselection_list_failed_ack);
+		return session->BuildMessage(potential_preselection_list_failed_ack);
 	}
 
-	return GameSession::BuildMessage(potential_preselection_list_succeed_ack);
+	return session->BuildMessage(potential_preselection_list_succeed_ack);
 }

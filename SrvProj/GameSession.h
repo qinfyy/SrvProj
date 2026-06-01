@@ -5,6 +5,7 @@
 #include <string>
 
 #include "./Game/Player.h"
+#include <stack>
 
 class GameSession
 {
@@ -19,7 +20,8 @@ public:
     bool CalKey();
 
     static std::string GenerateToken();
-    static std::string BuildMessage(short msgId, const std::string& payload = "");
+    static std::string EncodeMessage(short msgId, const std::string& data);
+    std::string BuildMessage(short msgId, google::protobuf::Message* payload = nullptr);
 
     bool Login(std::string loginToken);
     bool SavePlayer();
@@ -29,4 +31,12 @@ public:
     std::string mServerPrivateKey;
     std::string mAccountUid;
     int64_t mLastActiveTime = 0;
+
+    void PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload);
+    bool HasNextPackages();
+
+private:
+    std::stack<std::pair<short, std::unique_ptr<google::protobuf::Message>>> mPushList;
+
+	void AddPacketListToMe(google::protobuf::Message* payload);
 };

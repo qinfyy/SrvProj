@@ -20,6 +20,9 @@
 #include "./Game/QuestMgr.h"
 #include "./Game/InventoryMgr.h"
 
+#include "proto/proto_cpp/public.pb.h"
+using namespace proto;
+
 bool GameSession::GenerateServerKey() {
     try {
         auto EcdhPair = AeadTool::GetECDHKeyPair();
@@ -65,15 +68,6 @@ bool GameSession::CalKey() {
 	return true;
 }
 
-std::string GameSession::BuildMessage(short msgId, const std::string& payload) {
-    std::string message;
-    message.reserve(2 + payload.size());
-    message.push_back(static_cast<char>((msgId >> 8) & 0xFF));
-    message.push_back(static_cast<char>(msgId & 0xFF));
-    message.append(payload);
-    return message;
-}
-
 std::string GameSession::GenerateToken() {
     std::array<uint8_t, 16> buf;
     if (RAND_bytes(buf.data(), buf.size()) != 1) {
@@ -98,7 +92,7 @@ bool GameSession::Login(std::string loginToken) {
 
     uint32_t uid = 0;
     std::vector<uint8_t> blob;
-    auto player = std::make_unique<Player>();
+    auto player = std::make_unique<Player>(this);
 
     if (DbMgr::Instance().LoadPlayerByAccountUid(mAccountUid, uid, blob)) {
         if (!player->LoadFromBlob(uid, std::span<const uint8_t>(blob.data(), blob.size()))) {
@@ -136,4 +130,99 @@ bool GameSession::SavePlayer() {
 
     auto saveData = mPlayer->SaveToBlob();
     return DbMgr::Instance().SavePlayer(mPlayer->GetUid(), std::span<const uint8_t>(saveData.data(), saveData.size()));
+}
+
+std::string GameSession::EncodeMessage(short msgId, const std::string& data) {
+    std::string message;
+    message.reserve(2 + data.size());
+    message.push_back(static_cast<char>((msgId >> 8) & 0xFF));
+    message.push_back(static_cast<char>(msgId & 0xFF));
+    message.append(data);
+    return message;
+}
+
+std::string GameSession::BuildMessage(short msgId, google::protobuf::Message* payload) {
+    std::string result;
+    if (HasNextPackages()) {
+        if (!payload) {
+            auto* nilPayload = new Nil();
+            AddPacketListToMe(nilPayload);
+            result = EncodeMessage(msgId, nilPayload->SerializeAsString());
+            delete nilPayload;
+        }
+        else {
+            AddPacketListToMe(payload);
+            result = EncodeMessage(msgId, payload->SerializeAsString());
+        }
+    }
+    else {
+        if (payload) {
+            result = EncodeMessage(msgId, payload->SerializeAsString());
+        }
+        else {
+            result = EncodeMessage(msgId, "");
+        }
+    }
+
+    return result;
+}
+
+bool HasNextPackageField(const google::protobuf::Message* message) {
+    if (!message) return false;
+
+    const auto* descriptor = message->GetDescriptor();
+    const auto* field = descriptor->FindFieldByName("nextPackage");
+
+    return field != nullptr;
+}
+
+void SetNextPackage(google::protobuf::Message* message, const std::string& data) {
+    if (!message) {
+        return;
+    }
+
+    const auto* descriptor = message->GetDescriptor();
+    const auto* field = descriptor->FindFieldByName("nextPackage");
+
+    auto* reflection = message->GetReflection();
+
+    reflection->SetString(message, field, data);
+}
+
+void GameSession::AddPacketListToMe(google::protobuf::Message* payload) {
+    if (!payload || !HasNextPackageField(payload) || !HasNextPackages()) {
+        return;
+    }
+
+    std::pair<short, std::unique_ptr<google::protobuf::Message>> prev;
+
+    while (HasNextPackages()) {
+        auto cur = std::move(mPushList.top());
+        mPushList.pop();
+
+        if (prev.second != nullptr) {
+            // 检查 prev 是否有 nextPackage 字段
+            if (!HasNextPackageField(prev.second.get())) {
+                break;
+            }
+
+            // 将 current 设置为 prev 的 nextPackage
+            SetNextPackage(prev.second.get(), EncodeMessage(cur.first, cur.second->SerializeAsString()));
+        }
+
+        prev = std::move(cur);
+    }
+
+    // 链接到 payload
+    if (prev.second != nullptr) {
+        SetNextPackage(payload, EncodeMessage(prev.first, prev.second->SerializeAsString()));
+    }
+}
+
+void GameSession::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload) {
+    mPushList.emplace(msgId, std::move(payload));
+}
+
+bool GameSession::HasNextPackages() {
+    return !mPushList.empty();
 }

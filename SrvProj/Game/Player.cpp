@@ -4,6 +4,7 @@
 #include "CharacterMgr.h"
 #include "InventoryMgr.h"
 #include "QuestMgr.h"
+#include "../GameSession.h"
 
 #include <chrono>
 #include <climits>
@@ -36,9 +37,15 @@ void AddCompletedNewbies(proto::AccInfo* acc)
 }
 }
 
-Player::Player()
+Player::Player(GameSession* sessionRef)
 {
+    mSessionRef = sessionRef;
     InitManagers();
+}
+
+void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload)
+{
+	GetSessionRef()->PushNextPackage(msgId, std::move(payload));
 }
 
 void Player::InitManagers()

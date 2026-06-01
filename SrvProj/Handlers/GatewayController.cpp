@@ -202,5 +202,5 @@ std::string DummyHandler(short reqId)
         return "";
     }
 
-    return GameSession::BuildMessage(static_cast<short>(failedAckValue->number()));
+    return GameSession::EncodeMessage(static_cast<short>(failedAckValue->number()), "");
 }

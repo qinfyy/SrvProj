@@ -10,6 +10,8 @@
 #include <vector>
 #include "QuestMgr.h"
 
+class GameSession;
+
 class ActivityMgr;
 class CharacterStor;
 class InventoryMgr;
@@ -18,7 +20,7 @@ class QuestMgr;
 class Player
 {
 public:
-    Player();
+    Player(GameSession* sessionRef);
     ~Player();
 
     bool InitNewPlayer(uint32_t uid, std::string name, bool gender);
@@ -39,10 +41,17 @@ public:
 
     uint32_t GetUid() const;
 
+    GameSession* GetSessionRef() const { return mSessionRef; }
+    void SetSessionRef(GameSession* sessionRef) { mSessionRef = sessionRef; }
+
+    void PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload);
+
 private:
     void InitManagers();
     void EncodeBasicInfo(proto::PlayerInfo& info) const;
     void EncodeMinimalSystems(proto::PlayerInfo& info) const;
+
+	GameSession* mSessionRef = nullptr;
 
     uint32_t mUid = 0;
     ServerProto::PlayerSaveData mPlayerSaveData;
