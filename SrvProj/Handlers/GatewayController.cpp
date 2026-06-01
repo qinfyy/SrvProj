@@ -18,6 +18,7 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_ping_req, player_ping_req__Handler},
     {mall_package_list_req, mall_package_list_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
+    {potential_preselection_list_req, potential_preselection_list_req__Handler},
 };
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {

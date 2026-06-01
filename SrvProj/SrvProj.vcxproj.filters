@@ -978,6 +978,12 @@
     <ClCompile Include="Resources\BinClass\StoryRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
+    <ClCompile Include="Game\StarTowerMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\StarTower.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -1902,6 +1908,12 @@
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\StoryRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StarTowerMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\StarTower.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
   </ItemGroup>

@@ -217,7 +217,7 @@ public:
     //// ===== Star Tower =====
     //static inline, std::unordered_map<int, StarTowerRes> mStarTowerDataTable;
     //static inline, std::unordered_map<int, StarTowerStageRes> mStarTowerStageDataTable;
-    //static inline, std::unordered_map<int, StarTowerGrowthNodeRes> mStarTowerGrowthNodeDataTable;
+    static std::unordered_map<int, StarTowerGrowthNodeRes> StarTowerGrowthNodeDataTable;
     //static inline, std::unordered_map<int, StarTowerFloorExpRes> mStarTowerFloorExpDataTable;
     //static inline, std::unordered_map<int, StarTowerTeamExpRes> mStarTowerTeamExpDataTable;
     //static inline, std::unordered_map<int, StarTowerEventRes> mStarTowerEventDataTable;

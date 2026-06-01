@@ -162,6 +162,7 @@
     <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\ManagerBase.cpp" />
+    <ClCompile Include="Game\StarTowerMgr.cpp" />
     <ClCompile Include="Handlers\Activity.cpp" />
     <ClCompile Include="Handlers\GatewayController.cpp" />
     <ClCompile Include="Handlers\Login.cpp" />
@@ -450,6 +451,7 @@
     <ClCompile Include="Resources\BinClass\DiscRes.cpp" />
     <ClCompile Include="Resources\BinClass\ItemsRes.cpp" />
     <ClCompile Include="Resources\BinClass\QuestRes.cpp" />
+    <ClCompile Include="Resources\BinClass\StarTower.cpp" />
     <ClCompile Include="Resources\BinClass\StoryRes.cpp" />
     <ClCompile Include="Resources\GameData.cpp" />
     <ClCompile Include="Resources\ResourceLoader.cpp" />
@@ -470,6 +472,7 @@
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\ManagerBase.h" />
     <ClInclude Include="Game\QuestMgr.h" />
+    <ClInclude Include="Game\StarTowerMgr.h" />
     <ClInclude Include="Handlers\Activity.h" />
     <ClInclude Include="Handlers\GatewayController.h" />
     <ClInclude Include="Handlers\Login.h" />
@@ -758,6 +761,7 @@
     <ClInclude Include="Resources\BinClass\DiscRes.h" />
     <ClInclude Include="Resources\BinClass\ItemsRes.h" />
     <ClInclude Include="Resources\BinClass\QuestRes.h" />
+    <ClInclude Include="Resources\BinClass\StarTower.h" />
     <ClInclude Include="Resources\BinClass\StoryRes.h" />
     <ClInclude Include="Resources\GameData.h" />
     <ClInclude Include="Resources\ResBase.h" />

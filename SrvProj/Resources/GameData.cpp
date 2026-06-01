@@ -5,6 +5,8 @@
 #include "BinClass\ItemsRes.h"
 #include "BinClass\QuestRes.h"
 #include "BinClass\StoryRes.h"
+#include "BinClass\StarTower.h"
+
 
 std::unordered_map<int, CharacterRes> GameData::CharacterDataTable;
 std::unordered_map<int, CharacterAdvanceRes> GameData::CharacterAdvanceDataTable;
@@ -63,3 +65,6 @@ std::unordered_map<int, DailyQuestRes> GameData::DailyQuestDataTable;
 std::unordered_map<int, DailyQuestActiveRes> GameData::DailyQuestActiveDataTable;
 std::unordered_map<int, WeeklyQuestRes> GameData::WeeklyQuestDataTable;
 std::unordered_map<int, WeeklyQuestActiveRes> GameData::WeeklyQuestActiveDataTable;
+
+
+std::unordered_map<int, StarTowerGrowthNodeRes> GameData::StarTowerGrowthNodeDataTable;

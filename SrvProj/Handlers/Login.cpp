@@ -105,3 +105,11 @@ std::string mall_package_list_req__Handler(GameSession* session, const std::stri
 
     return GameSession::BuildMessage(mall_package_list_succeed_ack);
 }
+
+std::string potential_preselection_list_req__Handler(GameSession* session, const std::string& req) {
+	if (!session || !session->mPlayer) {
+		return GameSession::BuildMessage(potential_preselection_list_failed_ack);
+	}
+
+	return GameSession::BuildMessage(potential_preselection_list_succeed_ack);
+}

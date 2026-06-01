@@ -15,6 +15,7 @@
 #include "BinClass\ItemsRes.h"
 #include "BinClass\QuestRes.h"
 #include "BinClass\StoryRes.h"
+#include "BinClass\StarTower.h"
 
 template<typename T>
 static bool Read(std::istream& inputStream, T& out) {
@@ -253,4 +254,5 @@ void LoadResources() {
 	LoadRes<DailyQuestActiveRes>(arc.get(), GameData::DailyQuestActiveDataTable);
     LoadRes<WeeklyQuestRes>(arc.get(), GameData::WeeklyQuestDataTable);
     LoadRes<WeeklyQuestActiveRes>(arc.get(), GameData::WeeklyQuestActiveDataTable);
+    LoadRes<StarTowerGrowthNodeRes>(arc.get(), GameData::StarTowerGrowthNodeDataTable);
 }
