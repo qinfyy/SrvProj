@@ -87,3 +87,16 @@ bool HonorRes::LoadFromPb(std::string data)
 
 	return true;
 }
+
+bool DropPkgRes::LoadFromPb(std::string data)
+{
+	DropPkg dp;
+	if (!dp.ParseFromString(data)) {
+		return false;
+	}
+
+	PkgId = dp.pkgid();
+	ItemId = dp.itemid();
+
+	return true;
+}

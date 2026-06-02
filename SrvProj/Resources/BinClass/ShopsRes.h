@@ -66,12 +66,11 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
     std::string Id;
-    int Stock;
-    int ItemId;
-    int CurrencyItemId;
-    int ItemQty;
+    //int Stock;
+    //int ItemId;
+    //int CurrencyItemId;
+    //int ItemQty;
 };
 
 class ResidentShopRes : public ResBase {
@@ -87,7 +86,7 @@ public:
 };
 
 class ResidentGoodsRes : public ResBase {
-private:
+public:
     ResidentGoodsRes() = default;
     ~ResidentGoodsRes() = default;
 

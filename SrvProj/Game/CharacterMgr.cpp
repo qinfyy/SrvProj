@@ -39,7 +39,7 @@ void CharacterStor::OnLoad()
     for (int index = bin->charinfolist_size() - 1; index >= 0; --index)
     {
         auto* character = bin->mutable_charinfolist(index);
-        if (GameData::CharacterDataTable.find(character->charid()) == GameData::CharacterDataTable.end())
+        if (GameData::CharacterDataTable.find(std::to_string(character->charid())) == GameData::CharacterDataTable.end())
         {
             bin->mutable_charinfolist()->DeleteSubrange(index, 1);
             continue;
@@ -51,7 +51,7 @@ void CharacterStor::OnLoad()
     for (int index = bin->gamedisclist_size() - 1; index >= 0; --index)
     {
         auto* disc = bin->mutable_gamedisclist(index);
-        if (GameData::DiscDataTable.find(disc->discid()) == GameData::DiscDataTable.end())
+        if (GameData::DiscDataTable.find(std::to_string(disc->discid())) == GameData::DiscDataTable.end())
         {
             bin->mutable_gamedisclist()->DeleteSubrange(index, 1);
             continue;
@@ -76,7 +76,7 @@ const ServerProto::CharacterCompBin& CharacterStor::Bin() const
 
 ServerProto::CharacterInfo* CharacterStor::AddCharacterFromId(int charId)
 {
-    auto it = GameData::CharacterDataTable.find(charId);
+    auto it = GameData::CharacterDataTable.find(std::to_string(charId));
     if (it == GameData::CharacterDataTable.end())
     {
         return nullptr;
@@ -159,7 +159,7 @@ bool CharacterStor::HasCharacter(int id) const
 
 ServerProto::GameDiscInfoBin* CharacterStor::AddDiscFromId(int discId)
 {
-    auto it = GameData::DiscDataTable.find(discId);
+    auto it = GameData::DiscDataTable.find(std::to_string(discId));
     if (it == GameData::DiscDataTable.end())
     {
         return nullptr;
@@ -264,7 +264,7 @@ int CharacterStor::GetNewPhoneMessageCount() const
 
 void CharacterStor::NormalizeCharacter(ServerProto::CharacterInfo& character) const
 {
-    auto it = GameData::CharacterDataTable.find(character.charid());
+    auto it = GameData::CharacterDataTable.find(std::to_string(character.charid()));
     if (it == GameData::CharacterDataTable.end())
     {
         return;
@@ -396,7 +396,7 @@ void CharacterStor::EnsureGemSlots(ServerProto::CharacterInfo& character) const
 
 void CharacterStor::EnsureInitialChats(ServerProto::CharacterInfo& character) const
 {
-    auto it = GameData::CharacterDataTable.find(character.charid());
+    auto it = GameData::CharacterDataTable.find(std::to_string(character.charid()));
     if (it == GameData::CharacterDataTable.end())
     {
         return;

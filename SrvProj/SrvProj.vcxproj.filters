@@ -996,6 +996,12 @@
     <ClCompile Include="Resources\BinClass\MiscRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
+    <ClCompile Include="Game\InventoryMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\QuestMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">

@@ -14,7 +14,9 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int Exp;
+    std::string Reward;
 };
 
 
@@ -27,7 +29,8 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    bool IsActive;
 };
 
 class HandbookRes : public ResBase {
@@ -40,11 +43,8 @@ public:
     bool LoadFromPb(std::string data) override;
 
     int Id;
-    int NodeId;
-    int Group;
-
-    int ItemId1;
-    int ItemQty1;
+    int Index;
+    int Type;
 
 };
 
@@ -53,9 +53,12 @@ public:
     SignInRes() = default;
     ~SignInRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
+    std::string GetId() const override { return std::to_string((Group << 16) + Day); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Group;
+    int Day;
+    int ItemId;
+    int ItemQty;
 };

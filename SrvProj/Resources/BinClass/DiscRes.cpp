@@ -5,6 +5,7 @@
 #include "../../proto/table_cpp/client_table.pb.h"
 
 void DiscRes::OnLoad() {
+
 }
 
 bool DiscRes::LoadFromPb(std::string data) {

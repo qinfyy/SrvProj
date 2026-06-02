@@ -26,7 +26,7 @@ public:
     };
 
     HttpServerConfig httpServerConfig;
-    std::string DatabsasePath = ".\\user.db";
+    std::string DatabsasePath = ".\\save.db";
 
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(Config, httpServerConfig, DatabsasePath)
 

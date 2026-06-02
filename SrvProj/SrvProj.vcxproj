@@ -160,8 +160,10 @@
     <ClCompile Include="GameSession.cpp" />
     <ClCompile Include="Game\ActivityMgr.cpp" />
     <ClCompile Include="Game\CharacterMgr.cpp" />
+    <ClCompile Include="Game\InventoryMgr.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\ManagerBase.cpp" />
+    <ClCompile Include="Game\QuestMgr.cpp" />
     <ClCompile Include="Game\StarTowerMgr.cpp" />
     <ClCompile Include="Handlers\Activity.cpp" />
     <ClCompile Include="Handlers\GatewayController.cpp" />

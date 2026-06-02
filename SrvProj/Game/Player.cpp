@@ -78,7 +78,7 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     data->set_titleprefix(1);
     data->set_titlesuffix(2);
     data->add_boards(410301);
-    data->set_level(1);
+	data->set_level(40); // 这里先设置满级，方便测试，后续写完了可以改成 1 级
     data->set_exp(0);
     data->set_energy(240);
     data->set_energylastupdate(now);

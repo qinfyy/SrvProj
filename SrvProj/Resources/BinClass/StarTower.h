@@ -14,7 +14,11 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int GroupId;
+    int Difficulty;
+    int SubNoteSkillDropGroupId;
+    std::vector<int> FloorNum;
 };
 
 
@@ -28,6 +32,11 @@ public:
     bool LoadFromPb(std::string data) override;
 
 
+    int Id;
+    int Stage;
+    int Floor;
+    int InteriorCurrencyQuantity;
+    int RoomType;
 };
 
 class StarTowerGrowthNodeRes : public ResBase {
@@ -57,7 +66,13 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int StarTowerId;
+    int Stage;
+    int NormalExp;
+    int EliteExp;
+    int BossExp;
+    int FinalBossExp;
 };
 
 class StarTowerTeamExpRes : public ResBase {
@@ -69,7 +84,10 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int GroupId;
+    int Level;
+    int NeedExp;
 };
 
 class StarTowerEventRes : public ResBase {
@@ -81,14 +99,9 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    std::vector<int> RelatedNPCs;
 };
-
-
-
-
-
-
 
 class StarTowerBuildRankRes : public ResBase {
 public:
@@ -99,7 +112,9 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int MinGrade;
+    int Rarity;
 };
 
 class SubNoteSkillPromoteGroupRes : public ResBase {
@@ -111,6 +126,8 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
+    int Id;
+    std::string SubNoteSkills;
 
 };
 
@@ -123,7 +140,12 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int CharId;
+    int Build;
+    int BranchType;
+    int MaxLevel;
+    std::vector<int> BuildScore;
 };
 
 class CharPotentialRes : public ResBase {
@@ -135,7 +157,13 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
+    int Id;
 
+    std::vector<int> MasterSpecificPotentialIds;
+    std::vector<int> AssistSpecificPotentialIds;
+    std::vector<int> CommonPotentialIds;
+    std::vector<int> MasterNormalPotentialIds;
+    std::vector<int> AssistNormalPotentialIds;
 };
 
 class StarTowerBookFateCardBundleRes : public ResBase {
@@ -147,6 +175,8 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
+    int Id;
+    //int BundleId;
 
 };
 
@@ -159,7 +189,7 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
 };
 
 class StarTowerBookFateCardRes : public ResBase {
@@ -171,7 +201,8 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-
+    int Id;
+    int BundleId;
 };
 
 class FateCardRes : public ResBase {
@@ -183,7 +214,12 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
+    int Id;
 
+    bool IsTower;
+    bool IsVampire;
+    bool IsVampireSpecial;
+    bool Removable;
 };
 
 class InfinityTowerLevelRes : public ResBase {
@@ -195,5 +231,20 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
+    int Id;
+    int DifficultyId;
+    std::string BaseAwardPreview;
+};
 
+class InfinityTowerDifficultyRes : public ResBase {
+public:
+    InfinityTowerDifficultyRes() = default;
+    ~InfinityTowerDifficultyRes() = default;
+
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override {}
+    bool LoadFromPb(std::string data) override;
+
+    int Id;
+    int TowerId;
 };

@@ -218,25 +218,25 @@ public:
 
     // ===== Star Tower =====
     static std::unordered_map<std::string, StarTowerRes> StarTowerDataTable;
-    static std::unordered_map<std::string, StarTowerStageRes> mtarTowerStageDataTable;
+    static std::unordered_map<std::string, StarTowerStageRes> StarTowerStageDataTable;
     static std::unordered_map<std::string, StarTowerGrowthNodeRes> StarTowerGrowthNodeDataTable;
-    static std::unordered_map<std::string, StarTowerFloorExpRes> mStarTowerFloorExpDataTable;
-    static std::unordered_map<std::string, StarTowerTeamExpRes> mStarTowerTeamExpDataTable;
-    static std::unordered_map<std::string, StarTowerEventRes> mStarTowerEventDataTable;
-    static std::unordered_map<std::string, StarTowerBuildRankRes> mStarTowerBuildRankDataTable;
-    static std::unordered_map<std::string, SubNoteSkillPromoteGroupRes> mSubNoteSkillPromoteGroupDataTable;
+    static std::unordered_map<std::string, StarTowerFloorExpRes> StarTowerFloorExpDataTable;
+    static std::unordered_map<std::string, StarTowerTeamExpRes> StarTowerTeamExpDataTable;
+    static std::unordered_map<std::string, StarTowerEventRes> StarTowerEventDataTable;
+    static std::unordered_map<std::string, StarTowerBuildRankRes> StarTowerBuildRankDataTable;
+    static std::unordered_map<std::string, SubNoteSkillPromoteGroupRes> SubNoteSkillPromoteGroupDataTable;
 
-    static std::unordered_map<std::string, PotentialRes> mPotentialDataTable;
-    static std::unordered_map<std::string, CharPotentialRes> mCharPotentialDataTable;
+    static std::unordered_map<std::string, PotentialRes> PotentialDataTable;
+    static std::unordered_map<std::string, CharPotentialRes> CharPotentialDataTable;
 
-    static std::unordered_map<std::string, StarTowerBookFateCardBundleRes> mStarTowerBookFateCardBundleDataTable;
-    static std::unordered_map<std::string, StarTowerBookFateCardQuestRes> mStarTowerBookFateCardQuestDataTable;
-    static std::unordered_map<std::string, StarTowerBookFateCardRes> mStarTowerBookFateCardDataTable;
-    static std::unordered_map<std::string, FateCardRes> mFateCardDataTable;
+    static std::unordered_map<std::string, StarTowerBookFateCardBundleRes> StarTowerBookFateCardBundleDataTable;
+    static std::unordered_map<std::string, StarTowerBookFateCardQuestRes> StarTowerBookFateCardQuestDataTable;
+    static std::unordered_map<std::string, StarTowerBookFateCardRes> StarTowerBookFateCardDataTable;
+    static std::unordered_map<std::string, FateCardRes> FateCardDataTable;
 
     // ===== Infinity Tower =====
-    static std::unordered_map<std::string, InfinityTowerLevelRes> mInfinityTowerLevelDataTable;
-    static std::unordered_map<std::string, InfinityTowerDifficultyRes> mInfinityTowerDifficultyDataTable;
+    static std::unordered_map<std::string, InfinityTowerLevelRes> InfinityTowerLevelDataTable;
+    static std::unordered_map<std::string, InfinityTowerDifficultyRes> InfinityTowerDifficultyDataTable;
 
     //// ===== Vampire Survivor =====
     //static std::unordered_map<std::string, VampireSurvivorRes> mVampireSurvivorDataTable;
@@ -247,10 +247,10 @@ public:
     //static std::unordered_map<std::string, ScoreBossRewardRes> mScoreBossRewardDataTable;
 
     // ===== Misc =====
-    static std::unordered_map<std::string, WorldClassRes> mWorldClassDataTable;
-    static std::unordered_map<std::string, GuideGroupRes> mGuideGroupDataTable;
-    static std::unordered_map<std::string, HandbookRes> mHandbookDataTable;
-    static std::unordered_map<std::string, SignInRes> mSignInDataTable;
+    static std::unordered_map<std::string, WorldClassRes> WorldClassDataTable;
+    static std::unordered_map<std::string, GuideGroupRes> GuideGroupDataTable;
+    static std::unordered_map<std::string, HandbookRes> HandbookDataTable;
+    static std::unordered_map<std::string, SignInRes> SignInDataTable;
 
     //// ===== Activity =====
     //static std::unordered_map<std::string, ActivityRes> mActivityDataTable;
