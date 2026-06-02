@@ -32,7 +32,29 @@ public:
     std::string mAccountUid;
     int64_t mLastActiveTime = 0;
 
-    void PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload);
+    template<typename T>
+    void PushNextPackage(short msgId, T&& payload) {
+        using DecayedT = std::decay_t<T>;
+        static_assert(std::is_base_of_v<google::protobuf::Message, DecayedT>, "T must derive from Message");
+
+        if constexpr (std::is_same_v<DecayedT, std::unique_ptr<google::protobuf::Message>>) {
+            // 情况1：已经是 unique_ptr<Message>
+            PushNextPackageImpl(msgId, std::move(payload));
+        }
+        else if constexpr (std::is_pointer_v<DecayedT>) {
+            // 情况2：raw 指针
+            if (payload) {
+                PushNextPackageImpl(msgId, std::unique_ptr<google::protobuf::Message>(payload));
+            }
+        }
+        else {
+            // 情况3：栈对象或临时对象
+            auto ptr = std::make_unique<DecayedT>(std::forward<T>(payload));
+            PushNextPackageImpl(msgId, std::move(ptr));
+        }
+    }
+
+    void PushNextPackageImpl(short msgId, std::unique_ptr<google::protobuf::Message> payload);
     bool HasNextPackages();
 
 private:

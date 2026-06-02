@@ -44,7 +44,10 @@ public:
     GameSession* GetSessionRef() const { return mSessionRef; }
     void SetSessionRef(GameSession* sessionRef) { mSessionRef = sessionRef; }
 
-    void PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload);
+    template<typename T>
+    void PushNextPackage(short msgId, T&& payload) {
+        GetSessionRef()->PushNextPackage(msgId, std::forward<T>(payload));
+    }
 
 private:
     void InitManagers();

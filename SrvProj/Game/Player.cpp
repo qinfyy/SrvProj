@@ -43,11 +43,6 @@ Player::Player(GameSession* sessionRef)
     InitManagers();
 }
 
-void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload)
-{
-	GetSessionRef()->PushNextPackage(msgId, std::move(payload));
-}
-
 void Player::InitManagers()
 {
     mCharacterStor = std::make_unique<CharacterStor>(this);

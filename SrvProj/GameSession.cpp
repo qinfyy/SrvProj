@@ -219,7 +219,7 @@ void GameSession::AddPacketListToMe(google::protobuf::Message* payload) {
     }
 }
 
-void GameSession::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload) {
+void GameSession::PushNextPackageImpl(short msgId, std::unique_ptr<google::protobuf::Message> payload) {
     mPushList.emplace(msgId, std::move(payload));
 }
 
