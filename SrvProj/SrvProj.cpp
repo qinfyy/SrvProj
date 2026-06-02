@@ -11,11 +11,52 @@
 #include "Config.h"
 #include ".\Resources\ResourceLoader.h"
 
+HANDLE g_hExitEvent = NULL;
+HANDLE g_hCleanupDone = NULL;    // 清理完成标志
+
+BOOL WINAPI ConsoleHandler(DWORD dwCtrlType) {
+    switch (dwCtrlType) {
+    case CTRL_C_EVENT:
+    case CTRL_BREAK_EVENT:
+    case CTRL_CLOSE_EVENT:
+    case CTRL_LOGOFF_EVENT:
+    case CTRL_SHUTDOWN_EVENT:
+        LOG_INFO("收到关闭信号，正在关闭服务器...");
+        if (g_hExitEvent) {
+            SetEvent(g_hExitEvent);
+        }
+
+        WaitForSingleObject(g_hCleanupDone, 5000);
+        return TRUE;
+    }
+    return FALSE;
+}
+
 int main() {
     Logger::Instance().ShowTimeStamp(true)
         .ShowFileName(true)
         .ShowLineNumber(true)
         .EnableColors(true).LogToFile();
+
+    g_hExitEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+    g_hCleanupDone = CreateEvent(NULL, TRUE, FALSE, NULL);
+
+    if (!g_hExitEvent || !g_hCleanupDone) {
+        LOG_ERROR("创建事件失败");
+        if (g_hExitEvent) {
+            CloseHandle(g_hExitEvent);
+        }
+
+        if (g_hCleanupDone) {
+            CloseHandle(g_hCleanupDone);
+        }
+        return 1;
+    }
+
+    if (!SetConsoleCtrlHandler(ConsoleHandler, TRUE)) {
+        LOG_ERROR("无法设置控制台中断事件处理器");
+        return 1;
+    }
 
     // AeadTool Test
     //[20:18:22] [INFO] Client Public: BIqTyNHu7VmQ+vIpLigrWuBR6EhLDnU0XWzNgMNJjm4TILtf0ROb/6LgZaJKWzWQSgR19sYYIpaomgmcOk+XXIY=
@@ -48,7 +89,7 @@ int main() {
     //Logger::InfoCFmt("no file line");
     Config::Get().LoadFromFile();
 	LoadResources();
-    if (!DbMgr::Instance().Init(Config::Get().DatabsasePath)) {
+    if (!DbMgr::Instance().Init(Config::Get().DatabasePath)) {
         return 1;
     }
 
@@ -59,7 +100,13 @@ int main() {
         return 1;
     }
 
-    Sleep(INFINITE);
+    WaitForSingleObject(g_hExitEvent, INFINITE);
+
+    server.Stop();
+    DbMgr::Instance().UnInit();
+
+    SetEvent(g_hCleanupDone);
+
     return 0;
 }
 

@@ -26,9 +26,9 @@ public:
     };
 
     HttpServerConfig httpServerConfig;
-    std::string DatabsasePath = ".\\save.db";
+    std::string DatabasePath = ".\\save.db";
 
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Config, httpServerConfig, DatabsasePath)
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Config, httpServerConfig, DatabasePath)
 
     bool LoadFromFile(const std::string& filename = ".\\Config.json");
     bool SaveToFile(const std::string& filename = ".\\Config.json");
