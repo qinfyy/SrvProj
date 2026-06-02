@@ -1,15 +1,15 @@
 ﻿#include "GameData.h"
 
-#include "BinClass\Achievements.h"
+#include "BinClass\AchievementsRes.h"
 #include "BinClass\BattlePass.h"
 #include "BinClass\CharacterRes.h"
-#include "BinClass\Commissions.h"
+#include "BinClass\CommissionsRes.h"
 #include "BinClass\DiscRes.h"
 #include "BinClass\ItemsRes.h"
 #include "BinClass\MiscRes.h"
 #include "BinClass\QuestRes.h"
 #include "BinClass\ShopsRes.h"
-#include "BinClass\StarTower.h"
+#include "BinClass\StarTowerRes.h"
 #include "BinClass\StoryRes.h"
 #include "BinClass\TutorialsRes.h"
 

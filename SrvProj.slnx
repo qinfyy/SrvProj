@@ -12,5 +12,7 @@
     <File Path="vcpkg.json" />
   </Folder>
   <Project Path="csarcx/csarcx.vcxproj" Id="954ccf3d-ca8a-4f1b-8616-f11b8c81d6f9" />
-  <Project Path="SrvProj/SrvProj.vcxproj" Id="fd202cff-38af-4f29-bc85-5f6ac50f0517" />
+  <Project Path="SrvProj/SrvProj.vcxproj" Id="fd202cff-38af-4f29-bc85-5f6ac50f0517">
+    <BuildDependency Project="csarcx/csarcx.vcxproj" />
+  </Project>
 </Solution>
