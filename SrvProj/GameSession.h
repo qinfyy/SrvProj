@@ -25,6 +25,10 @@ public:
 
     bool Login(std::string loginToken);
     bool SavePlayer();
+    void SetPlayer(std::unique_ptr<Player> player);
+    Player* GetPlayer() const;
+    bool HasPlayer() const;
+    void ClearNextPackages();
 
     std::string mClientPublicKey;
     std::string mServerPublicKey;
@@ -60,5 +64,5 @@ public:
 private:
     std::stack<std::pair<short, std::unique_ptr<google::protobuf::Message>>> mPushList;
 
-	void AddPacketListToMe(google::protobuf::Message* payload);
+    void AddPacketListToMe(google::protobuf::Message* payload);
 };

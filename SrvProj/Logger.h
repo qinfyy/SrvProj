@@ -122,7 +122,7 @@ public:
         return *this;
     }
 
-	// C++ style formatted logging
+    // C++ style formatted logging
     template<typename... Args>
     static void Log(const char* file, int line, LogLevel level, const std::string& fmt, Args&&... args)
     {
@@ -229,7 +229,7 @@ public:
         }
     }
 
-	// C style formatted logging
+    // C style formatted logging
     static void __cdecl LogCFmt(const char* file, int line, LogLevel level, const char* fmt, ...);
 
     static void __cdecl InfoCFmt(const char* fmt, ...);
@@ -293,7 +293,7 @@ private:
     bool mShowLineNumber = true;
     bool mShowTimeStamp = false;
     bool mEnableColors = true;
-	bool mShowDate = false;
+    bool mShowDate = false;
     LogOutput mOutput = LogOutput::Console;
     std::unordered_set<LogLevel> mExcludedLevels;
 

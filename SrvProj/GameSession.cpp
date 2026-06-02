@@ -1,4 +1,4 @@
-#include "GameSession.h"
+﻿#include "GameSession.h"
 
 #include "AeadTool.h"
 #include "DbMgr.h"
@@ -7,18 +7,16 @@
 
 #include <array>
 #include <chrono>
-#include <functional>
-#include <iomanip>
 #include <openssl/rand.h>
 #include <random>
 #include <sstream>
+#include <span>
 #include <vector>
 
 #include "./Game/ActivityMgr.h"
 #include "./Game/CharacterMgr.h"
 #include "./Game/InventoryMgr.h"
 #include "./Game/QuestMgr.h"
-#include "./Game/InventoryMgr.h"
 
 #include "proto/proto_cpp/public.pb.h"
 using namespace proto;
@@ -28,7 +26,6 @@ bool GameSession::GenerateServerKey() {
         auto EcdhPair = AeadTool::GetECDHKeyPair();
 
         if (EcdhPair.first.empty() || EcdhPair.second.empty()) {
-            // LOG_ERROR("生成的 ECDH 密钥对为空");
             return false;
         }
 
@@ -99,27 +96,11 @@ bool GameSession::Login(std::string loginToken) {
             LOG_ERROR("玩家存档解析失败, accountUid: {}", mAccountUid);
             return false;
         }
-    }
-    else {
-        uid = static_cast<uint32_t>(std::hash<std::string>{}(mAccountUid) & 0x7FFFFFFF);
-        if (uid == 0) {
-            uid = 1;
-        }
 
-        if (!player->InitNewPlayer(uid, "me", false)) {
-            return false;
-        }
-
-        auto saveData = player->SaveToBlob();
-        if (!DbMgr::Instance().CreatePlayer(uid, mAccountUid, std::span<const uint8_t>(saveData.data(), saveData.size()))) {
-            LOG_ERROR("创建玩家存档失败, uid: {}, accountUid: {}", uid, mAccountUid);
-            return false;
-        }
+        SetPlayer(std::move(player));
+        SavePlayer();
     }
 
-    player->OnLogin();
-    mPlayer = std::move(player);
-    SavePlayer();
     return true;
 }
 
@@ -130,6 +111,33 @@ bool GameSession::SavePlayer() {
 
     auto saveData = mPlayer->SaveToBlob();
     return DbMgr::Instance().SavePlayer(mPlayer->GetUid(), std::span<const uint8_t>(saveData.data(), saveData.size()));
+}
+
+void GameSession::SetPlayer(std::unique_ptr<Player> player) {
+    ClearNextPackages();
+
+    if (!player) {
+        mPlayer.reset();
+        return;
+    }
+
+    player->SetSessionRef(this);
+    mPlayer = std::move(player);
+    mPlayer->OnLogin();
+}
+
+Player* GameSession::GetPlayer() const {
+    return mPlayer.get();
+}
+
+bool GameSession::HasPlayer() const {
+    return mPlayer != nullptr;
+}
+
+void GameSession::ClearNextPackages() {
+    while (!mPushList.empty()) {
+        mPushList.pop();
+    }
 }
 
 std::string GameSession::EncodeMessage(short msgId, const std::string& data) {
@@ -201,19 +209,16 @@ void GameSession::AddPacketListToMe(google::protobuf::Message* payload) {
         mPushList.pop();
 
         if (prev.second != nullptr) {
-            // 检查 prev 是否有 nextPackage 字段
             if (!HasNextPackageField(prev.second.get())) {
                 break;
             }
 
-            // 将 current 设置为 prev 的 nextPackage
             SetNextPackage(prev.second.get(), EncodeMessage(cur.first, cur.second->SerializeAsString()));
         }
 
         prev = std::move(cur);
     }
 
-    // 链接到 payload
     if (prev.second != nullptr) {
         SetNextPackage(payload, EncodeMessage(prev.first, prev.second->SerializeAsString()));
     }

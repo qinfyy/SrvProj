@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "ManagerBase.h"
 #include "../proto/ServerProto_cpp/PlayerData.pb.h"

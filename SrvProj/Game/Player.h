@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../proto/proto_cpp/player_data.pb.h"
 #include "../proto/ServerProto_cpp/PlayerData.pb.h"
@@ -8,6 +8,8 @@
 #include <span>
 #include <string>
 #include <vector>
+#include <type_traits>
+#include <utility>
 #include "QuestMgr.h"
 
 class GameSession;
@@ -27,6 +29,7 @@ public:
     bool LoadFromBlob(uint32_t uid, std::span<const uint8_t> data);
     std::vector<uint8_t> SaveToBlob() const;
 
+    void OnCreate();
     proto::PlayerInfo ToProto();
     void OnLogin();
 
@@ -40,21 +43,27 @@ public:
     const ServerProto::PlayerBasicCompBin& GetPlayerData() const;
 
     uint32_t GetUid() const;
+    void SetUid(uint32_t uid);
 
     GameSession* GetSessionRef() const { return mSessionRef; }
     void SetSessionRef(GameSession* sessionRef) { mSessionRef = sessionRef; }
 
     template<typename T>
     void PushNextPackage(short msgId, T&& payload) {
-        GetSessionRef()->PushNextPackage(msgId, std::forward<T>(payload));
+        using DecayedT = std::decay_t<T>;
+        static_assert(std::is_base_of_v<google::protobuf::Message, DecayedT>, "T must derive from Message");
+        auto ptr = std::make_unique<DecayedT>(std::forward<T>(payload));
+        PushNextPackage(msgId, std::unique_ptr<google::protobuf::Message>(ptr.release()));
     }
+
+    void PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload);
 
 private:
     void InitManagers();
     void EncodeBasicInfo(proto::PlayerInfo& info) const;
     void EncodeMinimalSystems(proto::PlayerInfo& info) const;
 
-	GameSession* mSessionRef = nullptr;
+    GameSession* mSessionRef = nullptr;
 
     uint32_t mUid = 0;
     ServerProto::PlayerSaveData mPlayerSaveData;

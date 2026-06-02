@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../ResBase.h"
 #include <vector>
@@ -14,7 +14,7 @@ public:
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
-	int Id;
+    int Id;
 };
 
 class BattlePassLevelRes : public ResBase {

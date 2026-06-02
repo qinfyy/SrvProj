@@ -44,7 +44,7 @@ public:
     bool CreatePlayer(uint32_t uid, const std::string& accountUid, std::span<const uint8_t> data);
     bool CreatePlayer(uint32_t uid, std::span<const uint8_t> data);
 
-	// Token
+    // Token
     bool GenerateToken(std::string& outToken);
 
 private:
@@ -60,5 +60,5 @@ private:
     sqlite3* mDb = nullptr;
     std::mutex mDbMutex;
 
-	std::mutex mUidMutex;
+    std::mutex mUidMutex;
 };

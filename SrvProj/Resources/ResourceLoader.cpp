@@ -188,7 +188,7 @@ void ParseBytesFile(std::istream& inputStream, BytesFileHeader& outHeader, std::
 
 std::string GetBytesFileNameName(const std::string& typeName) {
     auto fileName = "bin/" + typeName.substr(0, typeName.length() - 3) + ".bytes";
-	return fileName;
+    return fileName;
 }
 
 template<typename T, typename Container>
@@ -196,7 +196,7 @@ void LoadRes(Archive* arc, Container& container) {
     auto resName = GetTypeName<T>();
     BytesFileHeader header;
     std::vector<GeneralItem> items;
-	auto bytesFileName = GetBytesFileNameName(resName);
+    auto bytesFileName = GetBytesFileNameName(resName);
     auto inFile = arc->ReadFile(bytesFileName);
     std::stringstream inStream;
     inStream.write(reinterpret_cast<const char*>(inFile.data()), inFile.size());
@@ -208,7 +208,7 @@ void LoadRes(Archive* arc, Container& container) {
             if (!res.LoadFromPb(item.data)) {
                 throw std::runtime_error("从 protobuf 数据加载资源失败");
             }
-			res.OnLoad();
+            res.OnLoad();
             container.emplace(res.GetId(), std::move(res));
         }
         catch (const std::exception& e) {

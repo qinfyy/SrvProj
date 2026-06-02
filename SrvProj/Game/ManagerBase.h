@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 namespace proto {
 class PlayerInfo;
@@ -22,6 +22,7 @@ public:
 
     virtual void OnCreate();
     virtual void OnLoad();
+    virtual void OnLogin();
     virtual void BeforeSave();
     virtual void EncodePlayerInfo(proto::PlayerInfo& out) const;
 };

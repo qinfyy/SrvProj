@@ -15,6 +15,7 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {ike_req, ike_req__Handler},
     {player_login_req, player_login_req__Handler},
     {player_data_req, player_data_req__Handler},
+    {player_reg_req, player_reg_req__Handler},
     {player_ping_req, player_ping_req__Handler},
     {mall_package_list_req, mall_package_list_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
@@ -100,7 +101,7 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             rspOut = handler(session, reqData);
         }
         else {
-			rspOut = DummyHandler(msgId);
+            rspOut = DummyHandler(msgId);
         }
 
         if (rspOut.empty()) {
@@ -108,7 +109,7 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             rsp.statusCode = 500;
             rsp.body = "";
             return;
-		}
+        }
         else {
             LOG_DEBUG("Request handled successfully, response size: {}", rspOut.size());
         }

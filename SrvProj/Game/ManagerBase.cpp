@@ -1,4 +1,4 @@
-#include "ManagerBase.h"
+﻿#include "ManagerBase.h"
 #include "Player.h"
 
 ManagerBase::ManagerBase()
@@ -31,6 +31,10 @@ void ManagerBase::OnCreate()
 }
 
 void ManagerBase::OnLoad()
+{
+}
+
+void ManagerBase::OnLogin()
 {
 }
 

@@ -26,6 +26,32 @@ namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ServerProto {
 
+inline constexpr QuestProgressBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        cur_{0u},
+        max_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR QuestProgressBin::QuestProgressBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(QuestProgressBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct QuestProgressBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QuestProgressBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QuestProgressBinDefaultTypeInternal() {}
+  union {
+    QuestProgressBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QuestProgressBinDefaultTypeInternal _QuestProgressBin_default_instance_;
+
 inline constexpr PlayerBasicCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -199,6 +225,35 @@ struct CharacterChatDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterChatDefaultTypeInternal _CharacterChat_default_instance_;
 
+inline constexpr QuestInfoBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        progress_{},
+        id_{0u},
+        type_{0u},
+        expire_{::int64_t{0}},
+        status_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR QuestInfoBin::QuestInfoBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(QuestInfoBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct QuestInfoBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QuestInfoBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QuestInfoBinDefaultTypeInternal() {}
+  union {
+    QuestInfoBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QuestInfoBinDefaultTypeInternal _QuestInfoBin_default_instance_;
+
 inline constexpr CharacterGemSlot::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -242,6 +297,32 @@ struct CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterContact_ChatsEntry_DoNotUseDefaultTypeInternal _CharacterContact_ChatsEntry_DoNotUse_default_instance_;
+
+inline constexpr QuestCompBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        quests_{},
+        firstloginnotifydone_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR QuestCompBin::QuestCompBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(QuestCompBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct QuestCompBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QuestCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QuestCompBinDefaultTypeInternal() {}
+  union {
+    QuestCompBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QuestCompBinDefaultTypeInternal _QuestCompBin_default_instance_;
 
 inline constexpr CharacterContact::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -345,7 +426,8 @@ inline constexpr PlayerSaveData::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         playerdata_{nullptr},
-        charcomp_{nullptr} {}
+        charcomp_{nullptr},
+        questcomp_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR PlayerSaveData::PlayerSaveData(::_pbi::ConstantInitialized)
@@ -473,6 +555,33 @@ const ::uint32_t
         0,
         1,
         0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestProgressBin, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestProgressBin, _impl_.cur_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestProgressBin, _impl_.max_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestInfoBin, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestInfoBin, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestInfoBin, _impl_.type_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestInfoBin, _impl_.status_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestInfoBin, _impl_.expire_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestInfoBin, _impl_.progress_),
+        1,
+        2,
+        4,
+        3,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.quests_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.firstloginnotifydone_),
+        0,
+        1,
+        0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_._has_bits_),
         22, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.createtime_),
@@ -515,11 +624,13 @@ const ::uint32_t
         17,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_._has_bits_),
-        5, // hasbit index offset
+        6, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.playerdata_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.charcomp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.questcomp_),
         0,
         1,
+        2,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_._has_bits_),
         11, // hasbit index offset
@@ -551,9 +662,12 @@ static const ::_pbi::MigrationSchema
         {45, sizeof(::ServerProto::CharacterContact)},
         {54, sizeof(::ServerProto::CharacterInfo)},
         {91, sizeof(::ServerProto::CharacterCompBin)},
-        {98, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {139, sizeof(::ServerProto::PlayerSaveData)},
-        {146, sizeof(::ServerProto::GameDiscInfoBin)},
+        {98, sizeof(::ServerProto::QuestProgressBin)},
+        {105, sizeof(::ServerProto::QuestInfoBin)},
+        {118, sizeof(::ServerProto::QuestCompBin)},
+        {125, sizeof(::ServerProto::PlayerBasicCompBin)},
+        {166, sizeof(::ServerProto::PlayerSaveData)},
+        {175, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
@@ -564,6 +678,9 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterContact_default_instance_._instance,
     &::ServerProto::_CharacterInfo_default_instance_._instance,
     &::ServerProto::_CharacterCompBin_default_instance_._instance,
+    &::ServerProto::_QuestProgressBin_default_instance_._instance,
+    &::ServerProto::_QuestInfoBin_default_instance_._instance,
+    &::ServerProto::_QuestCompBin_default_instance_._instance,
     &::ServerProto::_PlayerBasicCompBin_default_instance_._instance,
     &::ServerProto::_PlayerSaveData_default_instance_._instance,
     &::ServerProto::_GameDiscInfoBin_default_instance_._instance,
@@ -596,35 +713,43 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "verProto.CharacterContact\"x\n\020CharacterCo"
     "mpBin\0220\n\014charInfoList\030\002 \003(\0132\032.ServerProt"
     "o.CharacterInfo\0222\n\014gameDiscList\030\004 \003(\0132\034."
-    "ServerProto.GameDiscInfoBin\"\352\002\n\022PlayerBa"
-    "sicCompBin\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003"
-    " \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022"
-    "\020\n\010headIcon\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013tit"
-    "lePrefix\030\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005m"
-    "usic\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014"
-    " \003(\005\022\016\n\006boards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003e"
-    "xp\030\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUp"
-    "date\030\021 \001(\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastE"
-    "pochDay\030\023 \001(\003\022\021\n\tlastLogin\030\024 \001(\003\"v\n\016Play"
-    "erSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerP"
-    "roto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001("
-    "\0132\035.ServerProto.CharacterCompBin\"\211\001\n\017Gam"
-    "eDiscInfoBin\022\016\n\006discId\030\002 \001(\005\022\r\n\005level\030\003 "
-    "\001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030"
-    "\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncrea"
-    "teTime\030\t \001(\003b\006proto3"
+    "ServerProto.GameDiscInfoBin\",\n\020QuestProg"
+    "ressBin\022\013\n\003cur\030\001 \001(\r\022\013\n\003max\030\002 \001(\r\"y\n\014Que"
+    "stInfoBin\022\n\n\002id\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\022\016\n\006s"
+    "tatus\030\003 \001(\r\022\016\n\006expire\030\004 \001(\003\022/\n\010progress\030"
+    "\017 \003(\0132\035.ServerProto.QuestProgressBin\"W\n\014"
+    "QuestCompBin\022)\n\006quests\030\001 \003(\0132\031.ServerPro"
+    "to.QuestInfoBin\022\034\n\024firstLoginNotifyDone\030"
+    "\002 \001(\010\"\352\002\n\022PlayerBasicCompBin\022\022\n\ncreateTi"
+    "me\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 \001("
+    "\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n\006s"
+    "kinId\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013titl"
+    "eSuffix\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005honor\030\013 "
+    "\003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006boards\030\r \003(\005\022\r"
+    "\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006energy\030\020 \001"
+    "(\005\022\030\n\020energyLastUpdate\030\021 \001(\003\022\023\n\013signInIn"
+    "dex\030\022 \001(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022\021\n\tlastL"
+    "ogin\030\024 \001(\003\"\244\001\n\016PlayerSaveData\0223\n\nplayerd"
+    "ata\030\002 \001(\0132\037.ServerProto.PlayerBasicCompB"
+    "in\022/\n\010charComp\030\003 \001(\0132\035.ServerProto.Chara"
+    "cterCompBin\022,\n\tquestComp\030\004 \001(\0132\031.ServerP"
+    "roto.QuestCompBin\"\211\001\n\017GameDiscInfoBin\022\016\n"
+    "\006discId\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001("
+    "\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030\007"
+    " \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006p"
+    "roto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    1700,
+    2005,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
     nullptr,
     0,
-    11,
+    14,
     schemas,
     file_default_instances,
     TableStruct_PlayerData_2eproto::offsets,
@@ -3725,6 +3850,1036 @@ void CharacterCompBin::InternalSwap(CharacterCompBin* PROTOBUF_RESTRICT PROTOBUF
 }
 // ===================================================================
 
+class QuestProgressBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<QuestProgressBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_._has_bits_);
+};
+
+QuestProgressBin::QuestProgressBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, QuestProgressBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.QuestProgressBin)
+}
+QuestProgressBin::QuestProgressBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const QuestProgressBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, QuestProgressBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(from._impl_) {
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+PROTOBUF_NDEBUG_INLINE QuestProgressBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void QuestProgressBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, cur_),
+           0,
+           offsetof(Impl_, max_) -
+               offsetof(Impl_, cur_) +
+               sizeof(Impl_::max_));
+}
+QuestProgressBin::~QuestProgressBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.QuestProgressBin)
+  SharedDtor(*this);
+}
+inline void QuestProgressBin::SharedDtor(MessageLite& self) {
+  QuestProgressBin& this_ = static_cast<QuestProgressBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL QuestProgressBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) QuestProgressBin(arena);
+}
+constexpr auto QuestProgressBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(QuestProgressBin),
+                                            alignof(QuestProgressBin));
+}
+constexpr auto QuestProgressBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_QuestProgressBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &QuestProgressBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<QuestProgressBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &QuestProgressBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<QuestProgressBin>(), &QuestProgressBin::ByteSizeLong,
+              &QuestProgressBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_._cached_size_),
+          false,
+      },
+      &QuestProgressBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull QuestProgressBin_class_data_ =
+        QuestProgressBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+QuestProgressBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&QuestProgressBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(QuestProgressBin_class_data_.tc_table);
+  return QuestProgressBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
+QuestProgressBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    QuestProgressBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::QuestProgressBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 max = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestProgressBin, _impl_.max_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_.max_)}},
+    // uint32 cur = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestProgressBin, _impl_.cur_), 0>(),
+     {8, 0, 0,
+      PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_.cur_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 cur = 1;
+    {PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_.cur_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 max = 2;
+    {PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_.max_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void QuestProgressBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.QuestProgressBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    ::memset(&_impl_.cur_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.max_) -
+        reinterpret_cast<char*>(&_impl_.cur_)) + sizeof(_impl_.max_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL QuestProgressBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const QuestProgressBin& this_ = static_cast<const QuestProgressBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL QuestProgressBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const QuestProgressBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.QuestProgressBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 cur = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (this_._internal_cur() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_cur(), target);
+    }
+  }
+
+  // uint32 max = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_max() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_max(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.QuestProgressBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t QuestProgressBin::ByteSizeLong(const MessageLite& base) {
+  const QuestProgressBin& this_ = static_cast<const QuestProgressBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t QuestProgressBin::ByteSizeLong() const {
+  const QuestProgressBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.QuestProgressBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // uint32 cur = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (this_._internal_cur() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_cur());
+      }
+    }
+    // uint32 max = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_max() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_max());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void QuestProgressBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<QuestProgressBin*>(&to_msg);
+  auto& from = static_cast<const QuestProgressBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.QuestProgressBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (from._internal_cur() != 0) {
+        _this->_impl_.cur_ = from._impl_.cur_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_max() != 0) {
+        _this->_impl_.max_ = from._impl_.max_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void QuestProgressBin::CopyFrom(const QuestProgressBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.QuestProgressBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void QuestProgressBin::InternalSwap(QuestProgressBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_.max_)
+      + sizeof(QuestProgressBin::_impl_.max_)
+      - PROTOBUF_FIELD_OFFSET(QuestProgressBin, _impl_.cur_)>(
+          reinterpret_cast<char*>(&_impl_.cur_),
+          reinterpret_cast<char*>(&other->_impl_.cur_));
+}
+
+::google::protobuf::Metadata QuestProgressBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class QuestInfoBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<QuestInfoBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_._has_bits_);
+};
+
+QuestInfoBin::QuestInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, QuestInfoBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.QuestInfoBin)
+}
+PROTOBUF_NDEBUG_INLINE QuestInfoBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::QuestInfoBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        progress_{visibility, arena, from.progress_} {}
+
+QuestInfoBin::QuestInfoBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const QuestInfoBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, QuestInfoBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  QuestInfoBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, id_),
+           offsetof(Impl_, status_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::status_));
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.QuestInfoBin)
+}
+PROTOBUF_NDEBUG_INLINE QuestInfoBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        progress_{visibility, arena} {}
+
+inline void QuestInfoBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, status_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::status_));
+}
+QuestInfoBin::~QuestInfoBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.QuestInfoBin)
+  SharedDtor(*this);
+}
+inline void QuestInfoBin::SharedDtor(MessageLite& self) {
+  QuestInfoBin& this_ = static_cast<QuestInfoBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL QuestInfoBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) QuestInfoBin(arena);
+}
+constexpr auto QuestInfoBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.progress_) +
+          decltype(QuestInfoBin::_impl_.progress_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(QuestInfoBin), alignof(QuestInfoBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&QuestInfoBin::PlacementNew_,
+                                 sizeof(QuestInfoBin),
+                                 alignof(QuestInfoBin));
+  }
+}
+constexpr auto QuestInfoBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_QuestInfoBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &QuestInfoBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<QuestInfoBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &QuestInfoBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<QuestInfoBin>(), &QuestInfoBin::ByteSizeLong,
+              &QuestInfoBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_._cached_size_),
+          false,
+      },
+      &QuestInfoBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull QuestInfoBin_class_data_ =
+        QuestInfoBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+QuestInfoBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&QuestInfoBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(QuestInfoBin_class_data_.tc_table);
+  return QuestInfoBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 1, 0, 2>
+QuestInfoBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_._has_bits_),
+    0, // no _extensions_
+    15, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294950896,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    QuestInfoBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::QuestInfoBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestInfoBin, _impl_.id_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.id_)}},
+    // uint32 type = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestInfoBin, _impl_.type_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.type_)}},
+    // uint32 status = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestInfoBin, _impl_.status_), 4>(),
+     {24, 4, 0,
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.status_)}},
+    // int64 expire = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(QuestInfoBin, _impl_.expire_), 3>(),
+     {32, 3, 0,
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.expire_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .ServerProto.QuestProgressBin progress = 15;
+    {::_pbi::TcParser::FastMtR1,
+     {122, 0, 0,
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.progress_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 id = 1;
+    {PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.id_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 type = 2;
+    {PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.type_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 status = 3;
+    {PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.status_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // int64 expire = 4;
+    {PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.expire_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    // repeated .ServerProto.QuestProgressBin progress = 15;
+    {PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.progress_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::QuestProgressBin>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void QuestInfoBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.QuestInfoBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _impl_.progress_.Clear();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001eU)) {
+    ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.status_) -
+        reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.status_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL QuestInfoBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const QuestInfoBin& this_ = static_cast<const QuestInfoBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL QuestInfoBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const QuestInfoBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.QuestInfoBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 id = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_id() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_id(), target);
+    }
+  }
+
+  // uint32 type = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_type() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_type(), target);
+    }
+  }
+
+  // uint32 status = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_status() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_status(), target);
+    }
+  }
+
+  // int64 expire = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_expire() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<4>(
+              stream, this_._internal_expire(), target);
+    }
+  }
+
+  // repeated .ServerProto.QuestProgressBin progress = 15;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_progress_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_progress().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              15, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.QuestInfoBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t QuestInfoBin::ByteSizeLong(const MessageLite& base) {
+  const QuestInfoBin& this_ = static_cast<const QuestInfoBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t QuestInfoBin::ByteSizeLong() const {
+  const QuestInfoBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.QuestInfoBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // repeated .ServerProto.QuestProgressBin progress = 15;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_progress_size();
+      for (const auto& msg : this_._internal_progress()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // uint32 id = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_id() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_id());
+      }
+    }
+    // uint32 type = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_type() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_type());
+      }
+    }
+    // int64 expire = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_expire() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+            this_._internal_expire());
+      }
+    }
+    // uint32 status = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_status() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_status());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void QuestInfoBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<QuestInfoBin*>(&to_msg);
+  auto& from = static_cast<const QuestInfoBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.QuestInfoBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_progress()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_progress());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_id() != 0) {
+        _this->_impl_.id_ = from._impl_.id_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_type() != 0) {
+        _this->_impl_.type_ = from._impl_.type_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_expire() != 0) {
+        _this->_impl_.expire_ = from._impl_.expire_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_status() != 0) {
+        _this->_impl_.status_ = from._impl_.status_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void QuestInfoBin::CopyFrom(const QuestInfoBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.QuestInfoBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void QuestInfoBin::InternalSwap(QuestInfoBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.progress_.InternalSwap(&other->_impl_.progress_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.status_)
+      + sizeof(QuestInfoBin::_impl_.status_)
+      - PROTOBUF_FIELD_OFFSET(QuestInfoBin, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::google::protobuf::Metadata QuestInfoBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class QuestCompBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<QuestCompBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_._has_bits_);
+};
+
+QuestCompBin::QuestCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, QuestCompBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.QuestCompBin)
+}
+PROTOBUF_NDEBUG_INLINE QuestCompBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::QuestCompBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        quests_{visibility, arena, from.quests_} {}
+
+QuestCompBin::QuestCompBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const QuestCompBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, QuestCompBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  QuestCompBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.firstloginnotifydone_ = from._impl_.firstloginnotifydone_;
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.QuestCompBin)
+}
+PROTOBUF_NDEBUG_INLINE QuestCompBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        quests_{visibility, arena} {}
+
+inline void QuestCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.firstloginnotifydone_ = {};
+}
+QuestCompBin::~QuestCompBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.QuestCompBin)
+  SharedDtor(*this);
+}
+inline void QuestCompBin::SharedDtor(MessageLite& self) {
+  QuestCompBin& this_ = static_cast<QuestCompBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL QuestCompBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) QuestCompBin(arena);
+}
+constexpr auto QuestCompBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.quests_) +
+          decltype(QuestCompBin::_impl_.quests_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(QuestCompBin), alignof(QuestCompBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&QuestCompBin::PlacementNew_,
+                                 sizeof(QuestCompBin),
+                                 alignof(QuestCompBin));
+  }
+}
+constexpr auto QuestCompBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_QuestCompBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &QuestCompBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<QuestCompBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &QuestCompBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<QuestCompBin>(), &QuestCompBin::ByteSizeLong,
+              &QuestCompBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_._cached_size_),
+          false,
+      },
+      &QuestCompBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull QuestCompBin_class_data_ =
+        QuestCompBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+QuestCompBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&QuestCompBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(QuestCompBin_class_data_.tc_table);
+  return QuestCompBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
+QuestCompBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    QuestCompBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::QuestCompBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // bool firstLoginNotifyDone = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.firstloginnotifydone_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.firstloginnotifydone_)}},
+    // repeated .ServerProto.QuestInfoBin quests = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.quests_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .ServerProto.QuestInfoBin quests = 1;
+    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.quests_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bool firstLoginNotifyDone = 2;
+    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.firstloginnotifydone_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::QuestInfoBin>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void QuestCompBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.QuestCompBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _impl_.quests_.Clear();
+  }
+  _impl_.firstloginnotifydone_ = false;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL QuestCompBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const QuestCompBin& this_ = static_cast<const QuestCompBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL QuestCompBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const QuestCompBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.QuestCompBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // repeated .ServerProto.QuestInfoBin quests = 1;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_quests_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_quests().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              1, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bool firstLoginNotifyDone = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_firstloginnotifydone() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          2, this_._internal_firstloginnotifydone(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.QuestCompBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t QuestCompBin::ByteSizeLong(const MessageLite& base) {
+  const QuestCompBin& this_ = static_cast<const QuestCompBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t QuestCompBin::ByteSizeLong() const {
+  const QuestCompBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.QuestCompBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // repeated .ServerProto.QuestInfoBin quests = 1;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_quests_size();
+      for (const auto& msg : this_._internal_quests()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bool firstLoginNotifyDone = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_firstloginnotifydone() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void QuestCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<QuestCompBin*>(&to_msg);
+  auto& from = static_cast<const QuestCompBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.QuestCompBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_quests()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_quests());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_firstloginnotifydone() != 0) {
+        _this->_impl_.firstloginnotifydone_ = from._impl_.firstloginnotifydone_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void QuestCompBin::CopyFrom(const QuestCompBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.QuestCompBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void QuestCompBin::InternalSwap(QuestCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.quests_.InternalSwap(&other->_impl_.quests_);
+  swap(_impl_.firstloginnotifydone_, other->_impl_.firstloginnotifydone_);
+}
+
+::google::protobuf::Metadata QuestCompBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
 class PlayerBasicCompBin::_Internal {
  public:
   using HasBits =
@@ -4646,6 +5801,9 @@ PlayerSaveData::PlayerSaveData(
   _impl_.charcomp_ = (CheckHasBit(cached_has_bits, 0x00000002U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.charcomp_)
                 : nullptr;
+  _impl_.questcomp_ = (CheckHasBit(cached_has_bits, 0x00000004U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.questcomp_)
+                : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.PlayerSaveData)
 }
@@ -4659,9 +5817,9 @@ inline void PlayerSaveData::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, playerdata_),
            0,
-           offsetof(Impl_, charcomp_) -
+           offsetof(Impl_, questcomp_) -
                offsetof(Impl_, playerdata_) +
-               sizeof(Impl_::charcomp_));
+               sizeof(Impl_::questcomp_));
 }
 PlayerSaveData::~PlayerSaveData() {
   // @@protoc_insertion_point(destructor:ServerProto.PlayerSaveData)
@@ -4676,6 +5834,7 @@ inline void PlayerSaveData::SharedDtor(MessageLite& self) {
   ABSL_DCHECK(this_.GetArena() == nullptr);
   delete this_._impl_.playerdata_;
   delete this_._impl_.charcomp_;
+  delete this_._impl_.questcomp_;
   this_._impl_.~Impl_();
 }
 
@@ -4722,17 +5881,17 @@ PlayerSaveData::GetClassData() const {
   return PlayerSaveData_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+const ::_pbi::TcParseTable<2, 3, 3, 0, 2>
 PlayerSaveData::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_._has_bits_),
     0, // no _extensions_
-    3, 8,  // max_field_number, fast_idx_mask
+    4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967289,  // skipmap
+    4294967281,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    2,  // num_aux_entries
+    3,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     PlayerSaveData_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -4741,6 +5900,11 @@ PlayerSaveData::_table_ = {
     ::_pbi::TcParser::GetTable<::ServerProto::PlayerSaveData>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
+    // .ServerProto.QuestCompBin questComp = 4;
+    {::_pbi::TcParser::FastMtS1,
+     {34, 2, 2,
+      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.questcomp_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .ServerProto.PlayerBasicCompBin playerdata = 2;
     {::_pbi::TcParser::FastMtS1,
      {18, 0, 0,
@@ -4756,10 +5920,13 @@ PlayerSaveData::_table_ = {
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.playerdata_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .ServerProto.CharacterCompBin charComp = 3;
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.charcomp_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.QuestCompBin questComp = 4;
+    {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.questcomp_), _Internal::kHasBitsOffset + 2, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::PlayerBasicCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::CharacterCompBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::QuestCompBin>()},
   }},
   {{
   }},
@@ -4772,7 +5939,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       ABSL_DCHECK(_impl_.playerdata_ != nullptr);
       _impl_.playerdata_->Clear();
@@ -4780,6 +5947,10 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
     if (CheckHasBit(cached_has_bits, 0x00000002U)) {
       ABSL_DCHECK(_impl_.charcomp_ != nullptr);
       _impl_.charcomp_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(_impl_.questcomp_ != nullptr);
+      _impl_.questcomp_->Clear();
     }
   }
   _impl_._has_bits_.Clear();
@@ -4819,6 +5990,13 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
         stream);
   }
 
+  // .ServerProto.QuestCompBin questComp = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        4, *this_._impl_.questcomp_, this_._impl_.questcomp_->GetCachedSize(), target,
+        stream);
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -4844,7 +6022,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     // .ServerProto.PlayerBasicCompBin playerdata = 2;
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       total_size += 1 +
@@ -4854,6 +6032,11 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
     if (CheckHasBit(cached_has_bits, 0x00000002U)) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.charcomp_);
+    }
+    // .ServerProto.QuestCompBin questComp = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.questcomp_);
     }
   }
   return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -4875,7 +6058,7 @@ void PlayerSaveData::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       ABSL_DCHECK(from._impl_.playerdata_ != nullptr);
       if (_this->_impl_.playerdata_ == nullptr) {
@@ -4890,6 +6073,14 @@ void PlayerSaveData::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.charcomp_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.charcomp_);
       } else {
         _this->_impl_.charcomp_->MergeFrom(*from._impl_.charcomp_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(from._impl_.questcomp_ != nullptr);
+      if (_this->_impl_.questcomp_ == nullptr) {
+        _this->_impl_.questcomp_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.questcomp_);
+      } else {
+        _this->_impl_.questcomp_->MergeFrom(*from._impl_.questcomp_);
       }
     }
   }
@@ -4911,8 +6102,8 @@ void PlayerSaveData::InternalSwap(PlayerSaveData* PROTOBUF_RESTRICT PROTOBUF_NON
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.charcomp_)
-      + sizeof(PlayerSaveData::_impl_.charcomp_)
+      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.questcomp_)
+      + sizeof(PlayerSaveData::_impl_.questcomp_)
       - PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.playerdata_)>(
           reinterpret_cast<char*>(&_impl_.playerdata_),
           reinterpret_cast<char*>(&other->_impl_.playerdata_));

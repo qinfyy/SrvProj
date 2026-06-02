@@ -58,6 +58,24 @@ message CharacterCompBin {
     repeated GameDiscInfoBin gameDiscList = 4;
 }
 
+message QuestProgressBin {
+    uint32 cur = 1;
+    uint32 max = 2;
+}
+
+message QuestInfoBin {
+    uint32 id = 1;
+    uint32 type = 2;
+    uint32 status = 3;
+    int64 expire = 4;
+    repeated QuestProgressBin progress = 15;
+}
+
+message QuestCompBin {
+    repeated QuestInfoBin quests = 1;
+    bool firstLoginNotifyDone = 2;
+}
+
 message PlayerBasicCompBin {
     // int32 uid = 1;
 
@@ -88,6 +106,7 @@ message PlayerSaveData {
 
     PlayerBasicCompBin playerdata = 2;
     CharacterCompBin charComp = 3;
+    QuestCompBin questComp = 4;
 }
 
 message GameDiscInfoBin {

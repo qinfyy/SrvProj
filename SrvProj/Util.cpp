@@ -66,8 +66,8 @@ std::wstring AnsiToUtf16(const std::string& str) {
 }
 
 std::string AnsiToUtf8(const std::string& str) {
-	auto utf16 = AnsiToUtf16(str);
-	auto utf8 = Utf16ToUtf8(utf16);
+    auto utf16 = AnsiToUtf16(str);
+    auto utf8 = Utf16ToUtf8(utf16);
     return utf8;
 }
 

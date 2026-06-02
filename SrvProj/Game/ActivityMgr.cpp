@@ -1,4 +1,4 @@
-#include "ActivityMgr.h"
+﻿#include "ActivityMgr.h"
 
 #include <climits>
 

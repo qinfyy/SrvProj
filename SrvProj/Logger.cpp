@@ -320,7 +320,7 @@ std::string Logger::GetCurrentTimeString()
     }
 
     char timeBuf[16];
-	// HH:MM:SS
+    // HH:MM:SS
     sprintf_s(timeBuf, sizeof(timeBuf),"%02d:%02d:%02d", tm_buf.tm_hour, tm_buf.tm_min, tm_buf.tm_sec);
     strcat_s(buffer, sizeof(buffer), timeBuf);
     return std::string(buffer);

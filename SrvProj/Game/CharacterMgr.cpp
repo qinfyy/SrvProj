@@ -1,4 +1,4 @@
-#include "CharacterMgr.h"
+﻿#include "CharacterMgr.h"
 
 #include "Player.h"
 #include "../Resources/GameData.h"

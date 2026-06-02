@@ -76,10 +76,10 @@ int main() {
 
  //   LOG_DEBUG("clientPunlicKey: {}", Base64Encode(clientPunlicKey));
 
-	//auto sharedKey = AeadTool::CalECDHSharedKey(serverPriviteKey, clientPunlicKey);
-	////auto info = AeadTool::CalInfo(serverPunlicKey, clientPunlicKey);
+    //auto sharedKey = AeadTool::CalECDHSharedKey(serverPriviteKey, clientPunlicKey);
+    ////auto info = AeadTool::CalInfo(serverPunlicKey, clientPunlicKey);
  //   auto info = AeadTool::CalInfo(clientPunlicKey, serverPunlicKey);
-	//auto secretX = AeadTool::CalSecretX(serverPunlicKey, info, sharedKey);
+    //auto secretX = AeadTool::CalSecretX(serverPunlicKey, info, sharedKey);
  //   LOG_DEBUG("sharedKey: {}", Base64Encode(sharedKey));
  //   LOG_DEBUG("secretX: {}", Base64Encode(secretX));
 
@@ -88,13 +88,13 @@ int main() {
     LOG_INFO_CFMT("Srv Proj");
     //Logger::InfoCFmt("no file line");
     Config::Get().LoadFromFile();
-	LoadResources();
+    LoadResources();
     if (!DbMgr::Instance().Init(Config::Get().DatabasePath)) {
         return 1;
     }
 
     //GetServerList();
-	//GetNoticeList();
+    //GetNoticeList();
     AccountServer server("0.0.0.0", 21000);
     if (!server.Start()) {
         return 1;
