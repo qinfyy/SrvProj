@@ -10,6 +10,7 @@
 #include "ResBase.h"
 #include "../Logger.h"
 
+#include "BinClass\Achievements.h"
 #include "BinClass\BattlePass.h"
 #include "BinClass\CharacterRes.h"
 #include "BinClass\Commissions.h"
@@ -20,6 +21,7 @@
 #include "BinClass\ShopsRes.h"
 #include "BinClass\StarTower.h"
 #include "BinClass\StoryRes.h"
+#include "BinClass\TutorialsRes.h"
 
 template<typename T>
 static bool Read(std::istream& inputStream, T& out) {
@@ -307,13 +309,11 @@ void LoadResources() {
     LoadRes<WeeklyQuestRes>(arc.get(), GameData::WeeklyQuestDataTable);
     LoadRes<WeeklyQuestActiveRes>(arc.get(), GameData::WeeklyQuestActiveDataTable);
 
+    // ===== Achievements =====
+    LoadRes<AchievementRes>(arc.get(), GameData::AchievementDataTable);
 
-
-    //// ===== Achievements =====
-    //static LoadRes<AchievementRes> mAchievementDataTable);
-
-    //// ===== Tutorials =====
-    //static LoadRes<TutorialLevelRes> mTutorialLevelDataTable);
+    // ===== Tutorials =====
+    LoadRes<TutorialLevelRes>(arc.get(), GameData::TutorialLevelDataTable);
 
     //// ===== Instances =====
     //static LoadRes<DailyInstanceRes> mDailyInstanceDataTable);

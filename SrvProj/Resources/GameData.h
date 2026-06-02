@@ -202,11 +202,11 @@ public:
     static std::unordered_map<std::string, WeeklyQuestRes> WeeklyQuestDataTable;
     static std::unordered_map<std::string, WeeklyQuestActiveRes> WeeklyQuestActiveDataTable;
 
-    //// ===== Achievements =====
-    //static std::unordered_map<std::string, AchievementRes> mAchievementDataTable;
+    // ===== Achievements =====
+    static std::unordered_map<std::string, AchievementRes> AchievementDataTable;
 
-    //// ===== Tutorials =====
-    //static std::unordered_map<std::string, TutorialLevelRes> mTutorialLevelDataTable;
+    // ===== Tutorials =====
+    static std::unordered_map<std::string, TutorialLevelRes> TutorialLevelDataTable;
 
     //// ===== Instances =====
     //static std::unordered_map<std::string, DailyInstanceRes> mDailyInstanceDataTable;

@@ -981,13 +981,13 @@
     <ClCompile Include="Game\StarTowerMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\BinClass\StarTower.cpp">
+    <ClCompile Include="Resources\BinClass\StarTowerRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\BinClass\BattlePass.cpp">
+    <ClCompile Include="Resources\BinClass\BattlePassRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\BinClass\Commissions.cpp">
+    <ClCompile Include="Resources\BinClass\CommissionsRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
     <ClCompile Include="Resources\BinClass\ShopsRes.cpp">
@@ -1001,6 +1001,12 @@
     </ClCompile>
     <ClCompile Include="Game\QuestMgr.cpp">
       <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\TutorialsRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\AchievementRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1931,7 +1937,7 @@
     <ClInclude Include="Game\StarTowerMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\BinClass\StarTower.h">
+    <ClInclude Include="Resources\BinClass\StarTowerRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\ShopsRes.h">
@@ -1940,10 +1946,16 @@
     <ClInclude Include="Resources\BinClass\BattlePass.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\BinClass\Commissions.h">
+    <ClInclude Include="Resources\BinClass\CommissionsRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\MiscRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\AchievementsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\TutorialsRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
   </ItemGroup>

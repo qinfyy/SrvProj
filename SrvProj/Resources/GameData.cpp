@@ -1,5 +1,6 @@
 ﻿#include "GameData.h"
 
+#include "BinClass\Achievements.h"
 #include "BinClass\BattlePass.h"
 #include "BinClass\CharacterRes.h"
 #include "BinClass\Commissions.h"
@@ -10,6 +11,7 @@
 #include "BinClass\ShopsRes.h"
 #include "BinClass\StarTower.h"
 #include "BinClass\StoryRes.h"
+#include "BinClass\TutorialsRes.h"
 
 std::unordered_map<std::string, CharacterRes> GameData::CharacterDataTable;
 std::unordered_map<std::string, CharacterAdvanceRes> GameData::CharacterAdvanceDataTable;
@@ -101,11 +103,11 @@ std::unordered_map<std::string, WeeklyQuestActiveRes> GameData::WeeklyQuestActiv
 
 
 
-//// ===== Achievements =====
-//static std::unordered_map<std::string, AchievementRes> mAchievementDataTable;
+// ===== Achievements =====
+std::unordered_map<std::string, AchievementRes> GameData::AchievementDataTable;
 
-//// ===== Tutorials =====
-//static std::unordered_map<std::string, TutorialLevelRes> mTutorialLevelDataTable;
+// ===== Tutorials =====
+std::unordered_map<std::string, TutorialLevelRes> GameData::TutorialLevelDataTable;
 
 //// ===== Instances =====
 //static std::unordered_map<std::string, DailyInstanceRes> mDailyInstanceDataTable;
