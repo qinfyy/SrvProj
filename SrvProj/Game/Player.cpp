@@ -4,6 +4,7 @@
 #include "CharacterMgr.h"
 #include "InventoryMgr.h"
 #include "QuestMgr.h"
+#include "../GameConstants.h"
 #include "../GameSession.h"
 
 #include <algorithm>
@@ -88,9 +89,9 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     data->set_titlesuffix(2);
     data->clear_boards();
     data->add_boards(410301);
-    data->set_level(1);
+	data->set_level(40); // 先设定为40级，方便测试，正式服应该是1级，现在请不要修改它
     data->set_exp(0);
-    data->set_energy(240);
+    data->set_energy(GameConstants::MaxEnergy);
     data->set_energylastupdate(now);
     data->set_signinindex(1);
     data->set_lastepochday(0);
@@ -195,6 +196,105 @@ void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Mess
     mSessionRef->PushNextPackageImpl(msgId, std::move(payload));
 }
 
+int32_t Player::GetEnergy()
+{
+    auto* data = GetMutablePlayerData();
+    const int64_t now = NowSeconds();
+
+    if (data->energylastupdate() <= 0)
+    {
+        data->set_energylastupdate(now);
+    }
+
+    const int32_t currentEnergy = std::clamp(data->energy(), 0, GameConstants::MaxEnergy);
+    if (currentEnergy != data->energy())
+    {
+        data->set_energy(currentEnergy);
+    }
+
+    if (data->energy() >= GameConstants::MaxEnergy)
+    {
+        data->set_energylastupdate(now);
+        return data->energy();
+    }
+
+    const int64_t diff = now - data->energylastupdate();
+    if (diff < GameConstants::EnergyRegenTime)
+    {
+        return data->energy();
+    }
+
+    const int64_t bonusEnergy = diff / GameConstants::EnergyRegenTime;
+    const int64_t nextEnergy = static_cast<int64_t>(data->energy()) + bonusEnergy;
+    data->set_energy(static_cast<int32_t>(std::min<int64_t>(nextEnergy, GameConstants::MaxEnergy)));
+    data->set_energylastupdate(data->energylastupdate() + (bonusEnergy * GameConstants::EnergyRegenTime));
+
+    if (data->energy() >= GameConstants::MaxEnergy)
+    {
+        data->set_energylastupdate(now);
+    }
+
+    return data->energy();
+}
+
+int64_t Player::GetEnergyLastUpdate()
+{
+    GetEnergy();
+    return GetPlayerData().energylastupdate();
+}
+
+proto::Energy Player::GetEnergyProto()
+{
+    const int32_t energy = GetEnergy();
+    const int64_t now = NowSeconds();
+    const int64_t elapsed = now - GetPlayerData().energylastupdate();
+    const int64_t nextDuration = std::max<int64_t>(GameConstants::EnergyRegenTime - elapsed, 1);
+
+    proto::Energy proto;
+    proto.set_primary(static_cast<uint32_t>(energy));
+    proto.set_isprimary(true);
+    proto.set_updatetime(GetPlayerData().energylastupdate());
+    proto.set_nextduration(nextDuration);
+    return proto;
+}
+
+bool Player::AddEnergy(int32_t amount)
+{
+    if (amount <= 0)
+    {
+        return false;
+    }
+
+    auto* data = GetMutablePlayerData();
+    GetEnergy();
+
+    const int64_t nextEnergy = static_cast<int64_t>(data->energy()) + amount;
+    data->set_energy(static_cast<int32_t>(std::min<int64_t>(nextEnergy, GameConstants::MaxEnergy)));
+    return true;
+}
+
+bool Player::ConsumeEnergy(int32_t amount)
+{
+    if (amount <= 0)
+    {
+        return false;
+    }
+
+    auto* data = GetMutablePlayerData();
+    if (GetEnergy() < amount)
+    {
+        return false;
+    }
+
+    data->set_energy(data->energy() - amount);
+    if (data->energylastupdate() <= 0 || data->energy() == GameConstants::MaxEnergy - amount)
+    {
+        data->set_energylastupdate(NowSeconds());
+    }
+
+    return true;
+}
+
 ServerProto::PlayerSaveData& Player::SaveData()
 {
     return mPlayerSaveData;
@@ -235,7 +335,7 @@ void Player::SetUid(uint32_t uid)
     mUid = uid;
 }
 
-void Player::EncodeBasicInfo(proto::PlayerInfo& info) const
+void Player::EncodeBasicInfo(proto::PlayerInfo& info)
 {
     const auto& data = GetPlayerData();
 
@@ -288,11 +388,7 @@ void Player::EncodeBasicInfo(proto::PlayerInfo& info) const
     worldClass->set_cur(static_cast<uint32_t>(data.level()));
     worldClass->set_lastexp(data.exp());
 
-    auto* energy = info.mutable_energy()->mutable_energy();
-    energy->set_primary(data.energy());
-    energy->set_isprimary(true);
-    energy->set_updatetime(data.energylastupdate());
-    energy->set_nextduration(1);
+    info.mutable_energy()->mutable_energy()->CopyFrom(GetEnergyProto());
 
     for (int board : data.boards())
     {

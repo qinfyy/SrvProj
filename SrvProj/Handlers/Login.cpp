@@ -160,6 +160,16 @@ std::string player_ping_req__Handler(GameSession* session, const std::string& re
     return EncodeReply(session, player_ping_succeed_ack, &pong);
 }
 
+std::string energy_info_req__Handler(GameSession* session, const std::string& req) {
+    if (!session || !session->HasPlayer()) {
+        return EncodeReply(session, energy_info_failed_ack);
+    }
+
+    auto energy = session->GetPlayer()->GetEnergyProto();
+    session->SavePlayer();
+    return EncodeReply(session, energy_info_succeed_ack, &energy);
+}
+
 std::string mall_package_list_req__Handler(GameSession* session, const std::string& req) {
     if (!session || !session->HasPlayer()) {
         return EncodeReply(session, mall_package_list_failed_ack);

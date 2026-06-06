@@ -32,6 +32,11 @@ public:
     void OnCreate();
     proto::PlayerInfo ToProto();
     void OnLogin();
+    int32_t GetEnergy();
+    int64_t GetEnergyLastUpdate();
+    proto::Energy GetEnergyProto();
+    bool AddEnergy(int32_t amount);
+    bool ConsumeEnergy(int32_t amount);
 
     ServerProto::PlayerSaveData& SaveData();
     const ServerProto::PlayerSaveData& SaveData() const;
@@ -60,7 +65,7 @@ public:
 
 private:
     void InitManagers();
-    void EncodeBasicInfo(proto::PlayerInfo& info) const;
+    void EncodeBasicInfo(proto::PlayerInfo& info);
     void EncodeMinimalSystems(proto::PlayerInfo& info) const;
 
     GameSession* mSessionRef = nullptr;

@@ -17,6 +17,7 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_data_req, player_data_req__Handler},
     {player_reg_req, player_reg_req__Handler},
     {player_ping_req, player_ping_req__Handler},
+    {energy_info_req, energy_info_req__Handler},
     {mall_package_list_req, mall_package_list_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
     {potential_preselection_list_req, potential_preselection_list_req__Handler},

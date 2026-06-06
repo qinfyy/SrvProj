@@ -1008,6 +1008,24 @@
     <ClCompile Include="Resources\BinClass\AchievementRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
+    <ClCompile Include="Resources\BinClass\ActivityRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\DictionaryRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\GachaRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\InstancesRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\ScoreBossRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\VampireSurvivorRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -1041,6 +1059,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DbMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConstants.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ResultCode.h">
@@ -1956,6 +1977,24 @@
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\TutorialsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\DictionaryRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\GachaRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\InstancesRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ScoreBossRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\VampireSurvivorRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ActivityRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
   </ItemGroup>
