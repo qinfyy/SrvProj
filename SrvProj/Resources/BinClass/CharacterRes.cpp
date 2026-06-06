@@ -352,13 +352,14 @@ bool CharGemAttrValueRes::LoadFromPb(std::string data) {
 }
 
 bool AffinityLevelRes::LoadFromPb(std::string data) {
-    AffinityLevel level;
-    if (!level.ParseFromString(data)) {
+    nova::client::AffinityLevel al;
+    if (!al.ParseFromString(data)) {
         return false;
     }
 
-    AffinityLevel = level.affinitylevel();
-    NeedExp = level.needexp();
+    AffinityLevel = al.affinitylevel();
+    NeedExp = al.needexp();
+
     return true;
 }
 
@@ -428,6 +429,7 @@ bool DatingLandmarkRes::LoadFromPb(std::string data) {
     }
 
     Id = landmark.id();
+
     return true;
 }
 

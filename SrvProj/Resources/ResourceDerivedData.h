@@ -33,8 +33,8 @@ struct ItemRewardParam {
             return Min;
         }
 
-        const int low = std::min(Min, Max);
-        const int high = std::max(Min, Max);
+        const int low = (std::min)(Min, Max);
+        const int high = (std::max)(Min, Max);
         static thread_local std::mt19937 rng{ std::random_device{}() };
         std::uniform_int_distribution<int> dist(low, high);
         return dist(rng);

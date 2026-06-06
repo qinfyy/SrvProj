@@ -78,7 +78,7 @@ public:
     // 序列化字段
 
     int Id;
-	std::unordered_set<int> GroupIdSet;
+    std::unordered_set<int> GroupIdSet;
 
     // 非序列化字段
 };

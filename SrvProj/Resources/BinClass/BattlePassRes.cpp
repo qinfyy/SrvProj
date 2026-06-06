@@ -1,4 +1,4 @@
-﻿#include "BattlePass.h"
+﻿#include "BattlePassRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -9,6 +9,7 @@ bool BattlePassRes::LoadFromPb(std::string data)
     if (!bp.ParseFromString(data)) {
         return false;
     }
+
     Id = bp.id();
     return true;
 }
@@ -19,6 +20,7 @@ bool BattlePassLevelRes::LoadFromPb(std::string data)
     if (!bpl.ParseFromString(data)) {
         return false;
     }
+
     ID = bpl.id();
     Exp = bpl.exp();
     Tid = bpl.tid();

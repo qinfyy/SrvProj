@@ -12,7 +12,7 @@
 
 #include "BinClass\AchievementsRes.h"
 #include "BinClass\ActivityRes.h"
-#include "BinClass\BattlePass.h"
+#include "BinClass\BattlePassRes.h"
 #include "BinClass\CharacterRes.h"
 #include "BinClass\CommissionsRes.h"
 #include "BinClass\DictionaryRes.h"

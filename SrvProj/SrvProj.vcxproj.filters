@@ -1997,6 +1997,9 @@
     <ClInclude Include="Resources\BinClass\ActivityRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
+    <ClInclude Include="Resources\ResourceDerivedData.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="proto\proto\achievement_info.proto">
