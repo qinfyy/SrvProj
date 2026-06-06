@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include "../ResBase.h"
+#include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -11,8 +12,10 @@ public:
     ~VampireSurvivorRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int Mode;
@@ -31,6 +34,7 @@ public:
     int TimeScore2;
     int TimeLimit2;
 
+    // 非序列化字段
 };
 
 class VampireTalentRes : public ResBase {
@@ -39,10 +43,14 @@ public:
     ~VampireTalentRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     std::vector<int> Prev;
     int Point;
+
+    // 非序列化字段
 };

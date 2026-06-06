@@ -1,4 +1,4 @@
-#include "VampireSurvivorRes.h"
+﻿#include "VampireSurvivorRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -46,4 +46,12 @@ bool VampireTalentRes::LoadFromPb(std::string data)
     Point = vampireTalent.point();
 
     return true;
+}
+
+void VampireSurvivorRes::OnLoad()
+{
+}
+
+void VampireTalentRes::OnLoad()
+{
 }

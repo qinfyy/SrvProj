@@ -1,4 +1,4 @@
-#include "ActivityRes.h"
+﻿#include "ActivityRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -207,4 +207,52 @@ bool ActivityGoodsRes::LoadFromPb(std::string data)
     Price = activityGoods.price();
 
     return true;
+}
+
+void ActivityRes::OnLoad()
+{
+}
+
+void LoginRewardGroupControlRes::OnLoad()
+{
+}
+
+void TowerDefenseLevelRes::OnLoad()
+{
+}
+
+void TrialControlRes::OnLoad()
+{
+}
+
+void TrialGroupRes::OnLoad()
+{
+}
+
+void JointDrill2LevelRes::OnLoad()
+{
+}
+
+void ActivityLevelsLevelRes::OnLoad()
+{
+}
+
+void ActivityTaskRes::OnLoad()
+{
+}
+
+void ActivityTaskGroupRes::OnLoad()
+{
+}
+
+void ActivityShopRes::OnLoad()
+{
+}
+
+void ActivityShopControlRes::OnLoad()
+{
+}
+
+void ActivityGoodsRes::OnLoad()
+{
 }

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "../ResBase.h"
+#include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -11,8 +12,10 @@ public:
     ~DailyQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     bool Apear;
@@ -23,6 +26,8 @@ public:
     int CompleteCond;
     int CompleteCondClient;
     std::string CompleteCondParams;
+
+    // 非序列化字段
 };
 
 class DailyQuestActiveRes : public ResBase {
@@ -31,8 +36,10 @@ public:
     ~DailyQuestActiveRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int Active;
@@ -41,6 +48,8 @@ public:
     int Number1;
     int ItemTid2;
     int Number2;
+
+    // 非序列化字段
 };
 
 class WeeklyQuestRes : public ResBase {
@@ -49,8 +58,10 @@ public:
     ~WeeklyQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     bool Apear;
@@ -61,6 +72,8 @@ public:
     int CompleteCond;
     int CompleteCondClient;
     std::string CompleteCondParams;
+
+    // 非序列化字段
 };
 
 class WeeklyQuestActiveRes : public ResBase {
@@ -69,8 +82,10 @@ public:
     ~WeeklyQuestActiveRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int Active;
@@ -79,5 +94,7 @@ public:
     int Number1;
     int ItemTid2;
     int Number2;
+
+    // 非序列化字段
 };
 

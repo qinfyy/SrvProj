@@ -100,3 +100,27 @@ bool DropPkgRes::LoadFromPb(std::string data)
 
     return true;
 }
+
+void ItemRes::OnLoad()
+{
+}
+
+void ProductionRes::OnLoad()
+{
+}
+
+void PlayerHeadRes::OnLoad()
+{
+}
+
+void TitleRes::OnLoad()
+{
+}
+
+void HonorRes::OnLoad()
+{
+}
+
+void DropPkgRes::OnLoad()
+{
+}

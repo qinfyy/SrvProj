@@ -57,3 +57,19 @@ bool MainScreenCGRes::LoadFromPb(std::string data)
 
     return true;
 }
+
+void StoryRes::OnLoad()
+{
+}
+
+void StorySetSectionRes::OnLoad()
+{
+}
+
+void StoryEvidenceRes::OnLoad()
+{
+}
+
+void MainScreenCGRes::OnLoad()
+{
+}

@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include "../ResBase.h"
+#include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -12,11 +13,15 @@ public:
     ~ActivityRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int ActivityType;
+
+    // 非序列化字段
 };
 
 class LoginRewardGroupControlRes : public ResBase {
@@ -25,8 +30,10 @@ public:
     ~LoginRewardGroupControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
 
@@ -34,6 +41,8 @@ public:
     int Qty1;
     int RewardId2;
     int Qty2;
+
+    // 非序列化字段
 };
 
 class TowerDefenseLevelRes : public ResBase {
@@ -42,8 +51,10 @@ public:
     ~TowerDefenseLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int Condition2;
@@ -52,6 +63,8 @@ public:
     int Qty1;
     int Item2;
     int Qty2;
+
+    // 非序列化字段
 };
 
 class TrialControlRes : public ResBase {
@@ -60,11 +73,15 @@ public:
     ~TrialControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
 	std::unordered_set<int> GroupIdSet;
+
+    // 非序列化字段
 };
 
 class TrialGroupRes : public ResBase {
@@ -73,8 +90,10 @@ public:
     ~TrialGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
 
@@ -84,6 +103,8 @@ public:
     int Qty2;
     int RewardId3;
     int Qty3;
+
+    // 非序列化字段
 };
 
 class JointDrill2LevelRes : public ResBase {
@@ -92,8 +113,10 @@ public:
     ~JointDrill2LevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int BattleTime;
@@ -104,6 +127,8 @@ public:
     int BaseHpScore;
 
     std::string RewardPreview;
+
+    // 非序列化字段
 };
 
 class ActivityLevelsLevelRes : public ResBase {
@@ -112,13 +137,17 @@ public:
     ~ActivityLevelsLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int ActivityId;
     int EnergyConsume;
     std::string CompleteRewardPreview;
+
+    // 非序列化字段
 };
 
 class ActivityTaskRes : public ResBase {
@@ -127,8 +156,10 @@ public:
     ~ActivityTaskRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int ActivityTaskGroupId;
@@ -140,6 +171,8 @@ public:
     int Qty1;
     int Tid2;
     int Qty2;
+
+    // 非序列化字段
 };
 
 class ActivityTaskGroupRes : public ResBase {
@@ -148,8 +181,10 @@ public:
     ~ActivityTaskGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int ActivityId;
@@ -166,6 +201,8 @@ public:
     int RewardQty5;
     int Reward6;
     int RewardQty6;
+
+    // 非序列化字段
 };
 
 class ActivityShopRes : public ResBase {
@@ -174,13 +211,17 @@ public:
     ~ActivityShopRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int CurrencyItemId;
     int ExchangeItemId;
     double Rate;
+
+    // 非序列化字段
 };
 
 class ActivityShopControlRes : public ResBase {
@@ -189,11 +230,15 @@ public:
     ~ActivityShopControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     std::vector<int> ShopIds;
+
+    // 非序列化字段
 };
 
 class ActivityGoodsRes : public ResBase {
@@ -202,8 +247,10 @@ public:
     ~ActivityGoodsRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int ShopId;
@@ -212,4 +259,6 @@ public:
     int ItemQuantity;
     int MaximumLimit;
     int Price;
+
+    // 非序列化字段
 };

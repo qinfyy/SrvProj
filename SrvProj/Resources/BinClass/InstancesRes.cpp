@@ -1,4 +1,4 @@
-#include "InstancesRes.h"
+﻿#include "InstancesRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -99,4 +99,28 @@ bool WeekBossLevelRes::LoadFromPb(std::string data)
     BaseAwardPreview = weekBossLevel.baseawardpreview();
 
     return true;
+}
+
+void DailyInstanceRes::OnLoad()
+{
+}
+
+void DailyInstanceRewardGroupRes::OnLoad()
+{
+}
+
+void RegionBossLevelRes::OnLoad()
+{
+}
+
+void SkillInstanceRes::OnLoad()
+{
+}
+
+void CharGemInstanceRes::OnLoad()
+{
+}
+
+void WeekBossLevelRes::OnLoad()
+{
 }

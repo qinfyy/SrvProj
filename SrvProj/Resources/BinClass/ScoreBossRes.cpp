@@ -1,4 +1,4 @@
-#include "ScoreBossRes.h"
+﻿#include "ScoreBossRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -33,4 +33,12 @@ bool ScoreBossRewardRes::LoadFromPb(std::string data)
     RewardNum1 = scoreBossReward.rewardnum1();
 
     return true;
+}
+
+void ScoreBossControlRes::OnLoad()
+{
+}
+
+void ScoreBossRewardRes::OnLoad()
+{
 }

@@ -61,3 +61,19 @@ bool BattlePassRewardRes::LoadFromPb(std::string data)
 
     return true;
 }
+
+void BattlePassRes::OnLoad()
+{
+}
+
+void BattlePassLevelRes::OnLoad()
+{
+}
+
+void BattlePassQuestRes::OnLoad()
+{
+}
+
+void BattlePassRewardRes::OnLoad()
+{
+}

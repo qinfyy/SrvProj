@@ -1,4 +1,4 @@
-#include "DictionaryRes.h"
+﻿#include "DictionaryRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -27,4 +27,12 @@ bool DictionaryEntryRes::LoadFromPb(std::string data)
     Index = dictionaryEntry.index();
 
     return true;
+}
+
+void DictionaryTabRes::OnLoad()
+{
+}
+
+void DictionaryEntryRes::OnLoad()
+{
 }

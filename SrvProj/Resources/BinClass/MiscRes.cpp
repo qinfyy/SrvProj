@@ -52,3 +52,19 @@ bool SignInRes::LoadFromPb(std::string data)
     ItemQty = si.itemqty();
     return true;
 }
+
+void WorldClassRes::OnLoad()
+{
+}
+
+void GuideGroupRes::OnLoad()
+{
+}
+
+void HandbookRes::OnLoad()
+{
+}
+
+void SignInRes::OnLoad()
+{
+}

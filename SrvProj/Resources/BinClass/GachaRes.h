@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include "../ResBase.h"
+#include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -11,12 +12,16 @@ public:
     ~GachaATypeProbRes() = default;
 
     std::string GetId() const override { return std::to_string((Group << 16) | (Times & 0xFFFF)); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+     
+    // 序列化字段
 
     int Group;
     int Times;
     int Prob;
+
+    // 非序列化字段
 };
 
 class GachaRes : public ResBase {
@@ -25,8 +30,10 @@ public:
     ~GachaRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int StorageId;
@@ -53,6 +60,8 @@ public:
     int BTypeUpPkg;
 
     int BGuaranteePkg;
+
+    // 非序列化字段
 };
 
 class GachaNewbieRes : public ResBase {
@@ -61,12 +70,16 @@ public:
     ~GachaNewbieRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int SpinCount;
     int SaveCount;
+
+    // 非序列化字段
 };
 
 class GachaStorageRes : public ResBase {
@@ -75,8 +88,10 @@ public:
     ~GachaStorageRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
 
@@ -96,6 +111,8 @@ public:
     int BTypeGuaranteeProb;
 
     std::string GiveItems;
+
+    // 非序列化字段
 };
 
 class GachaTypeRes : public ResBase {
@@ -104,9 +121,13 @@ public:
     ~GachaTypeRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     std::vector<int> CoinItem;
+
+    // 非序列化字段
 };

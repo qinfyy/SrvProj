@@ -1,9 +1,17 @@
 ﻿#pragma once
 
 #include "../ResBase.h"
-#include <vector>
-#include <memory>
+#include "../ResourceDerivedData.h"
+
 #include <string>
+#include <unordered_map>
+#include <vector>
+
+class ChatRes;
+class CharacterDesRes;
+class DatingLandmarkEventRes;
+class HonorRes;
+class TalentRes;
 
 class CharacterRes : public ResBase {
 public:
@@ -17,11 +25,10 @@ public:
     CharacterRes& operator=(CharacterRes&&) noexcept = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-
     void OnLoad() override;
-
     bool LoadFromPb(std::string data) override;
 
+    // 序列化字段
     int AIId;
     int AdvanceGroup;
     int AdvanceSkinId;
@@ -92,14 +99,55 @@ public:
     int WalkSpd;
     int WalkToRunDuration;
     int Weight;
+
+    // 非序列化字段
+    CharacterDesRes* Des = nullptr;
+    HonorRes* Honor = nullptr;
+    int ElementType = 0;
+    std::vector<ChatRes*> Chats;
+};
+
+class CharacterDesRes : public ResBase {
+public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
+    int Id;
+    std::string Alias;
+    std::string CnCv;
+    std::string JpCv;
+    std::string CharColor;
+    std::string CharSkillColor;
+    std::string CharDes;
+    std::vector<int> Tag;
+    int Force;
+    std::vector<int> PreferTags;
+    std::vector<int> HateTags;
+    std::string Birthday;
+    std::string PotentialMain1;
+    std::string PotentialMain2;
+    std::string PotentialAssistant1;
+    std::string PotentialAssistant2;
+    std::string PotentialMainContent1;
+    std::string PotentialMainContent2;
+    std::string PotentialAssistantContent1;
+    std::string PotentialAssistantContent2;
+
+    // 非序列化字段
 };
 
 class CharacterAdvanceRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int Group;
     int AdvanceLvl;
-
     int Tid1;
     int Qty1;
     int Tid2;
@@ -110,18 +158,20 @@ public:
     int Qty4;
     int GoldQty;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
+    ItemParamMap Materials;
 };
-
 
 class CharacterSkillUpgradeRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(UpgradeId > 0 ? UpgradeId : Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int Group;
     int AdvanceNum;
-
     int Tid1;
     int Qty1;
     int Tid2;
@@ -132,193 +182,262 @@ public:
     int Qty4;
     int GoldQty;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
+    int UpgradeId = 0;
+    ItemParamMap Materials;
 };
 
 class CharacterUpgradeRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Level); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Level;
     int Exp;
 
-    std::string GetId() const override { return std::to_string(Level); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
 };
 
 class CharItemExpRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(ItemId); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int ItemId;
     int ExpValue;
 
-    std::string GetId() const override { return std::to_string(ItemId); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
 };
 
 class CharacterSkinRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int CharId;
     int Type;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
+    bool Released = false;
 };
 
 class TalentGroupRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int CharId;
     int PreGroup;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
+    TalentRes* MainTalent = nullptr;
+    std::vector<TalentRes*> Talents;
 };
-
 
 class TalentRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int Index;
     int Type;
     int GroupId;
     int Sort;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
 };
 
 class CharGemRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int GenerateCostTid;
     int RefreshCostTid;
     int OverlockCostTid;
     int Type;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
 };
 
 class CharGemSlotControlRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int Position;
     int MaxAlterNum;
     int UnlockLevel;
-
     int GeneratenCostQty;
     int RefreshCostQty;
     int OverlockCostQty;
     int OverlockDoraCostQty;
-
     int LockableNum;
     int LockItemTid;
     int LockItemQty;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
+    int UniqueAttrGroupProb = 0;
+    int UniqueAttrGroupId = 0;
+    std::vector<int> AttrGroupId;
 };
 
 class CharGemAttrValueRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
 
+    // 序列化字段
     int Id;
     int TypeId;
     int AttrType;
     int AttrTypeFirstSubtype;
     int OverlockCount;
     int Rarity;
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+
+    // 非序列化字段
 };
 
 class AffinityLevelRes : public ResBase {
 public:
-    AffinityLevelRes() = default;
+    std::string GetId() const override { return std::to_string(AffinityLevel); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
 
+    // 序列化字段
     int AffinityLevel;
     int NeedExp;
-    std::string GetId() const override { return std::to_string(AffinityLevel); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+
+    // 非序列化字段
+    static int MaxLevel;
 };
 
 class AffinityGiftRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int BaseAffinity;
     std::vector<int> Tags;
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+
+    // 非序列化字段
 };
 
 class PlotRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int Char;
     int UnlockAffinityLevel;
     std::string Rewards;
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
-};
 
+    // 非序列化字段
+    ItemParamMap RewardItems;
+};
 
 class ChatRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int AddressBookId;
     int PreChatId;
-
     int TriggerType;
     int TriggerCond;
     std::string TriggerCondParam;
-
     int Reward1;
     int RewardQty1;
 
-    std::string GetId() const override { return std::to_string(Id); }
-
-    void OnLoad() override {}
-
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
 };
 
 class DatingLandmarkRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+    // 非序列化字段
+    std::vector<DatingLandmarkEventRes*> AfterBranches;
+    std::unordered_map<std::string, std::vector<DatingLandmarkEventRes*>> CharacterEvents;
+    std::unordered_map<std::string, std::vector<DatingLandmarkEventRes*>> LandmarkEvents;
 };
 
 class DatingLandmarkEventRes : public ResBase {
 public:
+    std::string GetId() const override { return std::to_string(Id); }
+    int GetLandmarkId() const;
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
     int Id;
     int DatingEventType;
     int Affinity;
     std::vector<int> DatingEventParams;
     std::string Response;
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
-    bool LoadFromPb(std::string data) override;
+
+    // 非序列化字段
+    int Type = 0;
 };
 
 class DatingCharacterEventRes : public ResBase {
 public:
-    int Id;
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
+    int Id;
+
+    // 非序列化字段
+};
+
+class DatingBranchRes : public ResBase {
+public:
+    std::string GetId() const override { return std::to_string(Id); }
+    int GetLandmarkId() const;
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
+    int Id;
+    int DatingEventType;
+    std::vector<int> DatingEventParams;
+    std::vector<int> DatingEventExclude;
+
+    // 非序列化字段
 };

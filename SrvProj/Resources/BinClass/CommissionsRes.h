@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "../ResBase.h"
+#include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -11,8 +12,10 @@ public:
     ~AgentRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int Level;
@@ -35,4 +38,6 @@ public:
     int Time4;
     std::string RewardPreview4;
     std::string BonusPreview4;
+
+    // 非序列化字段
 };

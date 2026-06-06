@@ -1,4 +1,4 @@
-#include "GachaRes.h"
+﻿#include "GachaRes.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
@@ -99,4 +99,24 @@ bool GachaTypeRes::LoadFromPb(std::string data)
     }
 
     return true;
+}
+
+void GachaATypeProbRes::OnLoad()
+{
+}
+
+void GachaRes::OnLoad()
+{
+}
+
+void GachaNewbieRes::OnLoad()
+{
+}
+
+void GachaStorageRes::OnLoad()
+{
+}
+
+void GachaTypeRes::OnLoad()
+{
 }

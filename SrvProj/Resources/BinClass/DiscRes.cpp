@@ -110,3 +110,19 @@ bool SecondarySkillRes::LoadFromPb(std::string data) {
     return true;
 
 }
+
+void DiscStrengthenRes::OnLoad()
+{
+}
+
+void DiscPromoteRes::OnLoad()
+{
+}
+
+void DiscPromoteLimitRes::OnLoad()
+{
+}
+
+void SecondarySkillRes::OnLoad()
+{
+}

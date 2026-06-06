@@ -73,3 +73,19 @@ bool WeeklyQuestActiveRes::LoadFromPb(std::string data)
 
     return true;
 }
+
+void DailyQuestRes::OnLoad()
+{
+}
+
+void DailyQuestActiveRes::OnLoad()
+{
+}
+
+void WeeklyQuestRes::OnLoad()
+{
+}
+
+void WeeklyQuestActiveRes::OnLoad()
+{
+}

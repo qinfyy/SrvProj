@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "../ResBase.h"
+#include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
@@ -11,10 +12,14 @@ public:
     ~BattlePassRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
+    // 序列化字段
+
     int Id;
+
+    // 非序列化字段
 };
 
 class BattlePassLevelRes : public ResBase {
@@ -23,14 +28,18 @@ public:
     ~BattlePassLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(ID); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int ID;
     int Exp;
 
     int Tid;
     int Qty;
+
+    // 非序列化字段
 };
 
 class BattlePassQuestRes : public ResBase {
@@ -39,13 +48,16 @@ public:
     ~BattlePassQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int Id;
     int Type;
     int Exp;
 
+    // 非序列化字段
 };
 
 class BattlePassRewardRes : public ResBase {
@@ -54,8 +66,10 @@ public:
     ~BattlePassRewardRes() = default;
 
     std::string GetId() const override { return std::to_string(ID); }
-    void OnLoad() override {}
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
 
     int ID;
     int Level;
@@ -66,6 +80,8 @@ public:
     int Qty2;
     int Tid3;
     int Qty3;
+
+    // 非序列化字段
 };
 
 
