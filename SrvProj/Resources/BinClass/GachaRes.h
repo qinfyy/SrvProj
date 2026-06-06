@@ -10,7 +10,7 @@ public:
     GachaATypeProbRes() = default;
     ~GachaATypeProbRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
+    std::string GetId() const override { return std::to_string((Group << 16) | (Times & 0xFFFF)); }
     void OnLoad() override {}
     bool LoadFromPb(std::string data) override;
 
@@ -51,7 +51,6 @@ public:
 
     int ATypeUpPkg;
     int BTypeUpPkg;
-    int CTypeUpPkg;
 
     int BGuaranteePkg;
 };
@@ -92,7 +91,6 @@ public:
     int ATypeUpShowProb;
 
     int BTypeProb;
-    int BGuaranteeTimes;
     int BTypeUpProb;
     int BTypeUpShowProb;
     int BTypeGuaranteeProb;

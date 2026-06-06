@@ -88,7 +88,7 @@ public:
 };
 
 class DropPkgRes : public ResBase {
-private:
+public:
     DropPkgRes() = default;
     ~DropPkgRes() = default;
 

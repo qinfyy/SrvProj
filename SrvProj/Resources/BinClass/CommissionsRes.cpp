@@ -13,6 +13,11 @@ bool AgentRes::LoadFromPb(std::string data)
     Level = a.level();
     MemberLimit = a.memberlimit();
 
+    Tags.clear();
+    for (const auto& tag : a.tags()) {
+        Tags.push_back(tag);
+    }
+
     ExtraTags.clear();
     for (const auto& tag : a.extratags()) {
         ExtraTags.push_back(tag);

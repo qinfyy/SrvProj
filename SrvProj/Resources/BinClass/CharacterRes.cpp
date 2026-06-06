@@ -70,8 +70,8 @@ bool CharacterRes::LoadFromPb(std::string data) {
     SkillId = character.skillid();
     SkillSemiAutoRng = character.skillsemiautorng();
     SkillsUpgradeGroup.clear();
-    for (const auto& slot : character.gemslots()) {
-        SkillsUpgradeGroup.push_back(slot);
+    for (const auto& groupId : character.skillsupgradegroup()) {
+        SkillsUpgradeGroup.push_back(groupId);
     }
 
     SpRunSpd = character.sprunspd();
@@ -205,6 +205,7 @@ bool DatingLandmarkEventRes::LoadFromPb(std::string data)
     for (const auto& param : dle.datingeventparams()) {
         DatingEventParams.push_back(param);
     }
+    Response = dle.response();
     return true;
 }
 

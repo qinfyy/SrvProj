@@ -11,17 +11,23 @@
 #include "../Logger.h"
 
 #include "BinClass\AchievementsRes.h"
+#include "BinClass\ActivityRes.h"
 #include "BinClass\BattlePass.h"
 #include "BinClass\CharacterRes.h"
 #include "BinClass\CommissionsRes.h"
+#include "BinClass\DictionaryRes.h"
 #include "BinClass\DiscRes.h"
+#include "BinClass\GachaRes.h"
+#include "BinClass\InstancesRes.h"
 #include "BinClass\ItemsRes.h"
 #include "BinClass\MiscRes.h"
 #include "BinClass\QuestRes.h"
 #include "BinClass\ShopsRes.h"
+#include "BinClass\ScoreBossRes.h"
 #include "BinClass\StarTowerRes.h"
 #include "BinClass\StoryRes.h"
 #include "BinClass\TutorialsRes.h"
+#include "BinClass\VampireSurvivorRes.h"
 
 template<typename T>
 static bool Read(std::istream& inputStream, T& out) {
@@ -187,6 +193,13 @@ void ParseBytesFile(std::istream& inputStream, BytesFileHeader& outHeader, std::
 }
 
 std::string GetBytesFileNameName(const std::string& typeName) {
+    if (typeName == "LoginRewardGroupControlRes") {
+        return "bin/LoginRewardGroup.bytes";
+    }
+    if (typeName == "JointDrill2LevelRes") {
+        return "bin/JointDrill_2_Level.bytes";
+    }
+
     auto fileName = "bin/" + typeName.substr(0, typeName.length() - 3) + ".bytes";
     return fileName;
 }
@@ -198,6 +211,10 @@ void LoadRes(Archive* arc, Container& container) {
     std::vector<GeneralItem> items;
     auto bytesFileName = GetBytesFileNameName(resName);
     auto inFile = arc->ReadFile(bytesFileName);
+    if (inFile.empty()) {
+        throw std::runtime_error("无法读取文件: " + bytesFileName);
+    }
+
     std::stringstream inStream;
     inStream.write(reinterpret_cast<const char*>(inFile.data()), inFile.size());
     ParseBytesFile(inStream, header, items);
@@ -265,6 +282,7 @@ void LoadResources() {
     LoadRes<PlayerHeadRes>(arc.get(), GameData::PlayerHeadDataTable);
     LoadRes<TitleRes>(arc.get(), GameData::TitleDataTable);
     LoadRes<HonorRes>(arc.get(), GameData::HonorDataTable);
+    LoadRes<DropPkgRes>(arc.get(), GameData::DropPkgDataTable);
 
     // ===== Shops =====
     LoadRes<MallMonthlyCardRes>(arc.get(), GameData::MallMonthlyCardDataTable);
@@ -285,16 +303,16 @@ void LoadResources() {
     // ===== Commissions =====
     LoadRes<AgentRes>(arc.get(), GameData::AgentDataTable);
 
-    //// ===== Dictionary =====
-    //static LoadRes<DictionaryTabRes> mDictionaryTabDataTable);
-    //static LoadRes<DictionaryEntryRes> mDictionaryEntryDataTable);
+    // ===== Dictionary =====
+    LoadRes<DictionaryTabRes>(arc.get(), GameData::DictionaryTabDataTable);
+    LoadRes<DictionaryEntryRes>(arc.get(), GameData::DictionaryEntryDataTable);
 
-    //// ===== Gacha =====
-    //static LoadRes<GachaATypeProbRes> mGachaATypeProbDataTable);
-    //static LoadRes<GachaRes> mGachaDataTable);
-    //static LoadRes<GachaNewbieRes> mGachaNewbieDataTable);
-    //static LoadRes<GachaStorageRes> mGachaStorageDataTable);
-    //static LoadRes<GachaTypeRes> mGachaTypeDataTable);
+    // ===== Gacha =====
+    LoadRes<GachaATypeProbRes>(arc.get(), GameData::GachaATypeProbDataTable);
+    LoadRes<GachaRes>(arc.get(), GameData::GachaDataTable);
+    LoadRes<GachaNewbieRes>(arc.get(), GameData::GachaNewbieDataTable);
+    LoadRes<GachaStorageRes>(arc.get(), GameData::GachaStorageDataTable);
+    LoadRes<GachaTypeRes>(arc.get(), GameData::GachaTypeDataTable);
 
     // ===== Story =====
     LoadRes<StoryRes>(arc.get(), GameData::StoryDataTable);
@@ -315,13 +333,13 @@ void LoadResources() {
     // ===== Tutorials =====
     LoadRes<TutorialLevelRes>(arc.get(), GameData::TutorialLevelDataTable);
 
-    //// ===== Instances =====
-    //static LoadRes<DailyInstanceRes> mDailyInstanceDataTable);
-    //static LoadRes<DailyInstanceRewardGroupRes> mDailyInstanceRewardGroupDataTable);
-    //static LoadRes<RegionBossLevelRes> mRegionBossLevelDataTable);
-    //static LoadRes<SkillInstanceRes> mSkillInstanceDataTable);
-    //static LoadRes<CharGemInstanceRes> mCharGemInstanceDataTable);
-    //static LoadRes<WeekBossLevelRes> mWeekBossLevelDataTable);
+    // ===== Instances =====
+    LoadRes<DailyInstanceRes>(arc.get(), GameData::DailyInstanceDataTable);
+    LoadRes<DailyInstanceRewardGroupRes>(arc.get(), GameData::DailyInstanceRewardGroupDataTable);
+    LoadRes<RegionBossLevelRes>(arc.get(), GameData::RegionBossLevelDataTable);
+    LoadRes<SkillInstanceRes>(arc.get(), GameData::SkillInstanceDataTable);
+    LoadRes<CharGemInstanceRes>(arc.get(), GameData::CharGemInstanceDataTable);
+    LoadRes<WeekBossLevelRes>(arc.get(), GameData::WeekBossLevelDataTable);
 
     // ===== Star Tower =====
     LoadRes<StarTowerRes>(arc.get(), GameData::StarTowerDataTable);
@@ -345,13 +363,13 @@ void LoadResources() {
     LoadRes<InfinityTowerLevelRes>(arc.get(), GameData::InfinityTowerLevelDataTable);
     LoadRes<InfinityTowerDifficultyRes>(arc.get(), GameData::InfinityTowerDifficultyDataTable);
 
-    //// ===== Vampire Survivor =====
-    //static LoadRes<VampireSurvivorRes> mVampireSurvivorDataTable);
-    //static LoadRes<VampireTalentRes> mVampireTalentDataTable);
+    // ===== Vampire Survivor =====
+    LoadRes<VampireSurvivorRes>(arc.get(), GameData::VampireSurvivorDataTable);
+    LoadRes<VampireTalentRes>(arc.get(), GameData::VampireTalentDataTable);
 
-    //// ===== Score Boss =====
-    //static LoadRes<ScoreBossControlRes> mScoreBossControlDataTable);
-    //static LoadRes<ScoreBossRewardRes> mScoreBossRewardDataTable);
+    // ===== Score Boss =====
+    LoadRes<ScoreBossControlRes>(arc.get(), GameData::ScoreBossControlDataTable);
+    LoadRes<ScoreBossRewardRes>(arc.get(), GameData::ScoreBossRewardDataTable);
 
 
     // ===== Misc =====
@@ -360,32 +378,32 @@ void LoadResources() {
     LoadRes<HandbookRes>(arc.get(), GameData::HandbookDataTable);
     LoadRes<SignInRes>(arc.get(), GameData::SignInDataTable);
 
-    //// ===== Activity =====
-        //static LoadRes<ActivityRes> mActivityDataTable);
+    // ===== Activity =====
+    LoadRes<ActivityRes>(arc.get(), GameData::ActivityDataTable);
 
-        //// Activity: Login Reward
-        //static LoadRes<LoginRewardGroupControlRes> mLoginRewardGroupControlDataTable);
+    // Activity: Login Reward
+    LoadRes<LoginRewardGroupControlRes>(arc.get(), GameData::LoginRewardGroupControlDataTable);
 
-        //// Activity: Tower Resense
-        //static LoadRes<TowerResenseLevelRes> mTowerResenseLevelDataTable);
+    // Activity: Tower Defense
+    LoadRes<TowerDefenseLevelRes>(arc.get(), GameData::TowerDefenseLevelDataTable);
 
-        //// Activity: Trials
-        //static LoadRes<TrialControlRes> mTrialControlDataTable);
-        //static LoadRes<TrialGroupRes> mTrialGroupDataTable);
+    // Activity: Trials
+    LoadRes<TrialControlRes>(arc.get(), GameData::TrialControlDataTable);
+    LoadRes<TrialGroupRes>(arc.get(), GameData::TrialGroupDataTable);
 
-        //// Activity: Joint Drill
-        //static LoadRes<JointDrill2LevelRes> mJointDrill2LevelDataTable);
+    // Activity: Joint Drill
+    LoadRes<JointDrill2LevelRes>(arc.get(), GameData::JointDrill2LevelDataTable);
 
-        //// Activity: Levels
-        //static LoadRes<ActivityLevelsLevelRes> mActivityLevelsLevelDataTable);
+    // Activity: Levels
+    LoadRes<ActivityLevelsLevelRes>(arc.get(), GameData::ActivityLevelsLevelDataTable);
 
-        //// Activity: Task
-        //static LoadRes<ActivityTaskRes> mActivityTaskDataTable);
-        //static LoadRes<ActivityTaskGroupRes> mActivityTaskGroupDataTable);
+    // Activity: Task
+    LoadRes<ActivityTaskRes>(arc.get(), GameData::ActivityTaskDataTable);
+    LoadRes<ActivityTaskGroupRes>(arc.get(), GameData::ActivityTaskGroupDataTable);
 
-        //// Activity: Shop
-        //static LoadRes<ActivityShopRes> mActivityShopDataTable);
-        //static LoadRes<ActivityShopControlRes> mActivityShopControlDataTable);
-        //static LoadRes<ActivityGoodsRes> mActivityGoodsDataTable);
+    // Activity: Shop
+    LoadRes<ActivityShopRes>(arc.get(), GameData::ActivityShopDataTable);
+    LoadRes<ActivityShopControlRes>(arc.get(), GameData::ActivityShopControlDataTable);
+    LoadRes<ActivityGoodsRes>(arc.get(), GameData::ActivityGoodsDataTable);
 
 }

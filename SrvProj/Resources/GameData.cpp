@@ -1,17 +1,23 @@
 ﻿#include "GameData.h"
 
 #include "BinClass\AchievementsRes.h"
+#include "BinClass\ActivityRes.h"
 #include "BinClass\BattlePass.h"
 #include "BinClass\CharacterRes.h"
 #include "BinClass\CommissionsRes.h"
+#include "BinClass\DictionaryRes.h"
 #include "BinClass\DiscRes.h"
+#include "BinClass\GachaRes.h"
+#include "BinClass\InstancesRes.h"
 #include "BinClass\ItemsRes.h"
 #include "BinClass\MiscRes.h"
 #include "BinClass\QuestRes.h"
 #include "BinClass\ShopsRes.h"
+#include "BinClass\ScoreBossRes.h"
 #include "BinClass\StarTowerRes.h"
 #include "BinClass\StoryRes.h"
 #include "BinClass\TutorialsRes.h"
+#include "BinClass\VampireSurvivorRes.h"
 
 std::unordered_map<std::string, CharacterRes> GameData::CharacterDataTable;
 std::unordered_map<std::string, CharacterAdvanceRes> GameData::CharacterAdvanceDataTable;
@@ -56,6 +62,7 @@ std::unordered_map<std::string, ProductionRes> GameData::ProductionDataTable;
 std::unordered_map<std::string, PlayerHeadRes> GameData::PlayerHeadDataTable;
 std::unordered_map<std::string, TitleRes> GameData::TitleDataTable;
 std::unordered_map<std::string, HonorRes> GameData::HonorDataTable;
+std::unordered_map<std::string, DropPkgRes> GameData::DropPkgDataTable;
 
 // ===== Shops =====
 std::unordered_map<std::string, MallMonthlyCardRes> GameData::MallMonthlyCardDataTable;
@@ -77,16 +84,16 @@ std::unordered_map<std::string, BattlePassRewardRes> GameData::BattlePassRewardD
 // ===== Commissions =====
 std::unordered_map<std::string, AgentRes> GameData::AgentDataTable;
 
-//// ===== Dictionary =====
-//static std::unordered_map<std::string, DictionaryTabRes> mDictionaryTabDataTable;
-//static std::unordered_map<std::string, DictionaryEntryRes> mDictionaryEntryDataTable;
+// ===== Dictionary =====
+std::unordered_map<std::string, DictionaryTabRes> GameData::DictionaryTabDataTable;
+std::unordered_map<std::string, DictionaryEntryRes> GameData::DictionaryEntryDataTable;
 
-//// ===== Gacha =====
-//static std::unordered_map<std::string, GachaATypeProbRes> mGachaATypeProbDataTable;
-//static std::unordered_map<std::string, GachaRes> mGachaDataTable;
-//static std::unordered_map<std::string, GachaNewbieRes> mGachaNewbieDataTable;
-//static std::unordered_map<std::string, GachaStorageRes> mGachaStorageDataTable;
-//static std::unordered_map<std::string, GachaTypeRes> mGachaTypeDataTable;
+// ===== Gacha =====
+std::unordered_map<std::string, GachaATypeProbRes> GameData::GachaATypeProbDataTable;
+std::unordered_map<std::string, GachaRes> GameData::GachaDataTable;
+std::unordered_map<std::string, GachaNewbieRes> GameData::GachaNewbieDataTable;
+std::unordered_map<std::string, GachaStorageRes> GameData::GachaStorageDataTable;
+std::unordered_map<std::string, GachaTypeRes> GameData::GachaTypeDataTable;
 
 // ===== Story =====
 std::unordered_map<std::string, StoryRes> GameData::StoryDataTable;
@@ -109,13 +116,13 @@ std::unordered_map<std::string, AchievementRes> GameData::AchievementDataTable;
 // ===== Tutorials =====
 std::unordered_map<std::string, TutorialLevelRes> GameData::TutorialLevelDataTable;
 
-//// ===== Instances =====
-//static std::unordered_map<std::string, DailyInstanceRes> mDailyInstanceDataTable;
-//static std::unordered_map<std::string, DailyInstanceRewardGroupRes> mDailyInstanceRewardGroupDataTable;
-//static std::unordered_map<std::string, RegionBossLevelRes> mRegionBossLevelDataTable;
-//static std::unordered_map<std::string, SkillInstanceRes> mSkillInstanceDataTable;
-//static std::unordered_map<std::string, CharGemInstanceRes> mCharGemInstanceDataTable;
-//static std::unordered_map<std::string, WeekBossLevelRes> mWeekBossLevelDataTable;
+// ===== Instances =====
+std::unordered_map<std::string, DailyInstanceRes> GameData::DailyInstanceDataTable;
+std::unordered_map<std::string, DailyInstanceRewardGroupRes> GameData::DailyInstanceRewardGroupDataTable;
+std::unordered_map<std::string, RegionBossLevelRes> GameData::RegionBossLevelDataTable;
+std::unordered_map<std::string, SkillInstanceRes> GameData::SkillInstanceDataTable;
+std::unordered_map<std::string, CharGemInstanceRes> GameData::CharGemInstanceDataTable;
+std::unordered_map<std::string, WeekBossLevelRes> GameData::WeekBossLevelDataTable;
 
 // ===== Star Tower =====
 std::unordered_map<std::string, StarTowerRes> GameData::StarTowerDataTable;
@@ -139,13 +146,13 @@ std::unordered_map<std::string, FateCardRes> GameData::FateCardDataTable;
 std::unordered_map<std::string, InfinityTowerLevelRes> GameData::InfinityTowerLevelDataTable;
 std::unordered_map<std::string, InfinityTowerDifficultyRes> GameData::InfinityTowerDifficultyDataTable;
 
-//// ===== Vampire Survivor =====
-//static std::unordered_map<std::string, VampireSurvivorRes> mVampireSurvivorDataTable;
-//static std::unordered_map<std::string, VampireTalentRes> mVampireTalentDataTable;
+// ===== Vampire Survivor =====
+std::unordered_map<std::string, VampireSurvivorRes> GameData::VampireSurvivorDataTable;
+std::unordered_map<std::string, VampireTalentRes> GameData::VampireTalentDataTable;
 
-//// ===== Score Boss =====
-//static std::unordered_map<std::string, ScoreBossControlRes> mScoreBossControlDataTable;
-//static std::unordered_map<std::string, ScoreBossRewardRes> mScoreBossRewardDataTable;
+// ===== Score Boss =====
+std::unordered_map<std::string, ScoreBossControlRes> GameData::ScoreBossControlDataTable;
+std::unordered_map<std::string, ScoreBossRewardRes> GameData::ScoreBossRewardDataTable;
 
 
 // ===== Misc =====
@@ -154,30 +161,30 @@ std::unordered_map<std::string, GuideGroupRes> GameData::GuideGroupDataTable;
 std::unordered_map<std::string, HandbookRes> GameData::HandbookDataTable;
 std::unordered_map<std::string, SignInRes> GameData::SignInDataTable;
 
-//// ===== Activity =====
-    //static std::unordered_map<std::string, ActivityRes> mActivityDataTable;
+// ===== Activity =====
+std::unordered_map<std::string, ActivityRes> GameData::ActivityDataTable;
 
-    //// Activity: Login Reward
-    //static std::unordered_map<std::string, LoginRewardGroupControlRes> mLoginRewardGroupControlDataTable;
+// Activity: Login Reward
+std::unordered_map<std::string, LoginRewardGroupControlRes> GameData::LoginRewardGroupControlDataTable;
 
-    //// Activity: Tower Resense
-    //static std::unordered_map<std::string, TowerResenseLevelRes> mTowerResenseLevelDataTable;
+// Activity: Tower Defense
+std::unordered_map<std::string, TowerDefenseLevelRes> GameData::TowerDefenseLevelDataTable;
 
-    //// Activity: Trials
-    //static std::unordered_map<std::string, TrialControlRes> mTrialControlDataTable;
-    //static std::unordered_map<std::string, TrialGroupRes> mTrialGroupDataTable;
+// Activity: Trials
+std::unordered_map<std::string, TrialControlRes> GameData::TrialControlDataTable;
+std::unordered_map<std::string, TrialGroupRes> GameData::TrialGroupDataTable;
 
-    //// Activity: Joint Drill
-    //static std::unordered_map<std::string, JointDrill2LevelRes> mJointDrill2LevelDataTable;
+// Activity: Joint Drill
+std::unordered_map<std::string, JointDrill2LevelRes> GameData::JointDrill2LevelDataTable;
 
-    //// Activity: Levels
-    //static std::unordered_map<std::string, ActivityLevelsLevelRes> mActivityLevelsLevelDataTable;
+// Activity: Levels
+std::unordered_map<std::string, ActivityLevelsLevelRes> GameData::ActivityLevelsLevelDataTable;
 
-    //// Activity: Task
-    //static std::unordered_map<std::string, ActivityTaskRes> mActivityTaskDataTable;
-    //static std::unordered_map<std::string, ActivityTaskGroupRes> mActivityTaskGroupDataTable;
+// Activity: Task
+std::unordered_map<std::string, ActivityTaskRes> GameData::ActivityTaskDataTable;
+std::unordered_map<std::string, ActivityTaskGroupRes> GameData::ActivityTaskGroupDataTable;
 
-    //// Activity: Shop
-    //static std::unordered_map<std::string, ActivityShopRes> mActivityShopDataTable;
-    //static std::unordered_map<std::string, ActivityShopControlRes> mActivityShopControlDataTable;
-    //static std::unordered_map<std::string, ActivityGoodsRes> mActivityGoodsDataTable;
+// Activity: Shop
+std::unordered_map<std::string, ActivityShopRes> GameData::ActivityShopDataTable;
+std::unordered_map<std::string, ActivityShopControlRes> GameData::ActivityShopControlDataTable;
+std::unordered_map<std::string, ActivityGoodsRes> GameData::ActivityGoodsDataTable;

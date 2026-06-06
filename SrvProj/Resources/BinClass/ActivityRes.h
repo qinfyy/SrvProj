@@ -193,7 +193,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     int Id;
-    std::string ShopIds;
+    std::vector<int> ShopIds;
 };
 
 class ActivityGoodsRes : public ResBase {

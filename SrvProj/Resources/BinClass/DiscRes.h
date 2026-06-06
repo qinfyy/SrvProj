@@ -62,8 +62,6 @@ public:
     std::string GetId() const override { return std::to_string(Id); }
     bool LoadFromPb(std::string data) override;
     int Id;
-    int Group;
-    int AdvanceLvl;
     int ItemId1;
     int Num1;
     int ItemId2;
