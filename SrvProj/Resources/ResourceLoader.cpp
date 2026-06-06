@@ -206,6 +206,8 @@ std::string GetBytesFileNameName(const std::string& typeName) {
 
 template<typename T, typename Container>
 void LoadRes(Archive* arc, Container& container) {
+    static_assert(std::is_base_of_v<ResBase, T>, "T 必须继承自 ResBase");
+
     auto resName = GetTypeName<T>();
     BytesFileHeader header;
     std::vector<GeneralItem> items;
