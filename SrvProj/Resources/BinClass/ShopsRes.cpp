@@ -96,26 +96,3 @@ bool ResidentGoodsRes::LoadFromPb(std::string data)
     return true;
 }
 
-void MallMonthlyCardRes::OnLoad()
-{
-}
-
-void MallPackageRes::OnLoad()
-{
-}
-
-void MallShopRes::OnLoad()
-{
-}
-
-void MallGemRes::OnLoad()
-{
-}
-
-void ResidentShopRes::OnLoad()
-{
-}
-
-void ResidentGoodsRes::OnLoad()
-{
-}

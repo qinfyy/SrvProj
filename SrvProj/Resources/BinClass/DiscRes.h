@@ -10,12 +10,9 @@ class DiscRes : public ResBase {
 public:
     DiscRes() = default;
     ~DiscRes() = default;
-    
 
     std::string GetId() const override { return std::to_string(Id); }
-
-    void OnLoad() override;
-
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -24,13 +21,11 @@ public:
     bool Visible;
     bool Available;
     int EET;
-
     int StrengthenGroupId;
     int PromoteGroupId;
     int TransformItemId;
     std::vector<int> MaxStarTransformItem;
     std::vector<int> ReadReward;
-
     int SecondarySkillGroupId1;
     int SecondarySkillGroupId2;
     int SubNoteSkillGroupId;
@@ -45,6 +40,7 @@ public:
 
     std::string GetId() const override { return std::to_string(Id); }
     bool LoadFromPb(std::string data) override;
+    void OnLoad() override {};
 
     // 序列化字段
 
@@ -52,12 +48,16 @@ public:
     int Exp;
 
     // 非序列化字段
+
 };
+
 class DiscItemExpRes : public ResBase {
 public:
     DiscItemExpRes() = default;
     ~DiscItemExpRes() = default;
+
     std::string GetId() const override { return std::to_string(ItemId); }
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -67,14 +67,18 @@ public:
 
     // 非序列化字段
 };
+
 class DiscPromoteRes : public ResBase {
 public:
     DiscPromoteRes() = default;
     ~DiscPromoteRes() = default;
+
     std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int ItemId1;
     int Num1;
@@ -85,15 +89,20 @@ public:
     int ExpenseGold;
 
     // 非序列化字段
+
 };
+
 class DiscPromoteLimitRes : public ResBase {
 public:
     DiscPromoteLimitRes() = default;
     ~DiscPromoteLimitRes() = default;
+
     std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int Rarity;
     std::string Phase;
@@ -102,14 +111,18 @@ public:
 
     // 非序列化字段
 };
+
 class SecondarySkillRes : public ResBase {
 public:
     SecondarySkillRes() = default;
     ~SecondarySkillRes() = default;
+
     std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int GroupId;
     int Score;

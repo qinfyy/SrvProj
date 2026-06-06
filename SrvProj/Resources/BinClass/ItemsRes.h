@@ -12,7 +12,7 @@ public:
     ~ItemRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -23,7 +23,6 @@ public:
     int Stype;
     int Rarity;
     bool Stack;
-
     int UseMode;
     int UseAction;
     std::string UseArgs;
@@ -37,7 +36,7 @@ public:
     ~ProductionRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -58,7 +57,7 @@ public:
     ~PlayerHeadRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -77,7 +76,7 @@ public:
     ~TitleRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -95,7 +94,7 @@ public:
     ~HonorRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -113,11 +112,10 @@ public:
     ~DropPkgRes() = default;
 
     std::string GetId() const override { return std::to_string(PkgId); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
-
 
     int PkgId;
     int ItemId;

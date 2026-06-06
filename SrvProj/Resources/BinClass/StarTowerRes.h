@@ -12,7 +12,7 @@ public:
     ~StarTowerRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -26,18 +26,16 @@ public:
     // 非序列化字段
 };
 
-
 class StarTowerStageRes : public ResBase {
 public:
     StarTowerStageRes() = default;
     ~StarTowerStageRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
-
 
     int Id;
     int Stage;
@@ -54,7 +52,7 @@ public:
     ~StarTowerGrowthNodeRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -62,7 +60,6 @@ public:
     int Id;
     int NodeId;
     int Group;
-
     int ItemId1;
     int ItemQty1;
 
@@ -75,7 +72,7 @@ public:
     ~StarTowerFloorExpRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -97,7 +94,7 @@ public:
     ~StarTowerTeamExpRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -116,7 +113,7 @@ public:
     ~StarTowerEventRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -133,7 +130,7 @@ public:
     ~StarTowerBuildRankRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -151,7 +148,7 @@ public:
     ~SubNoteSkillPromoteGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -161,14 +158,13 @@ public:
 
     // 非序列化字段
 };
-
 class PotentialRes : public ResBase {
 public:
     PotentialRes() = default;
     ~PotentialRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -189,13 +185,12 @@ public:
     ~CharPotentialRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
-
     std::vector<int> MasterSpecificPotentialIds;
     std::vector<int> AssistSpecificPotentialIds;
     std::vector<int> CommonPotentialIds;
@@ -211,7 +206,7 @@ public:
     ~StarTowerBookFateCardBundleRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -221,14 +216,13 @@ public:
 
     // 非序列化字段
 };
-
 class StarTowerBookFateCardQuestRes : public ResBase {
 public:
     StarTowerBookFateCardQuestRes() = default;
     ~StarTowerBookFateCardQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -244,7 +238,7 @@ public:
     ~StarTowerBookFateCardRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -261,13 +255,12 @@ public:
     ~FateCardRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
-
     bool IsTower;
     bool IsVampire;
     bool IsVampireSpecial;
@@ -282,7 +275,7 @@ public:
     ~InfinityTowerLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -300,11 +293,10 @@ public:
     ~InfinityTowerDifficultyRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
-
     int Id;
     int TowerId;
 

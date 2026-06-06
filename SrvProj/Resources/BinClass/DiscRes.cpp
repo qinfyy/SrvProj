@@ -4,10 +4,6 @@
 #include <unordered_set>
 #include "../../proto/table_cpp/client_table.pb.h"
 
-void DiscRes::OnLoad() {
-
-}
-
 bool DiscRes::LoadFromPb(std::string data) {
     nova::client::Disc disc;
     if (!disc.ParseFromString(data)) {
@@ -79,9 +75,6 @@ bool DiscPromoteRes::LoadFromPb(std::string data) {
     return true;
 }
 
-//void DiscItemExpRes::OnLoad() {
-//}
-
 bool DiscPromoteLimitRes::LoadFromPb(std::string data) {
     nova::client::DiscPromoteLimit dpl;
     if (!dpl.ParseFromString(data)) {
@@ -111,18 +104,3 @@ bool SecondarySkillRes::LoadFromPb(std::string data) {
 
 }
 
-void DiscStrengthenRes::OnLoad()
-{
-}
-
-void DiscPromoteRes::OnLoad()
-{
-}
-
-void DiscPromoteLimitRes::OnLoad()
-{
-}
-
-void SecondarySkillRes::OnLoad()
-{
-}

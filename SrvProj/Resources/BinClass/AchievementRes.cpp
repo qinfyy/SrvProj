@@ -26,6 +26,3 @@ bool AchievementRes::LoadFromPb(std::string data)
     return true;
 }
 
-void AchievementRes::OnLoad()
-{
-}

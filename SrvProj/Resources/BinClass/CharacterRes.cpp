@@ -207,9 +207,6 @@ bool CharacterUpgradeRes::LoadFromPb(std::string data) {
     return true;
 }
 
-void CharacterUpgradeRes::OnLoad() {
-}
-
 bool CharItemExpRes::LoadFromPb(std::string data) {
     CharItemExp exp;
     if (!exp.ParseFromString(data)) {
@@ -219,9 +216,6 @@ bool CharItemExpRes::LoadFromPb(std::string data) {
     ItemId = exp.itemid();
     ExpValue = exp.expvalue();
     return true;
-}
-
-void CharItemExpRes::OnLoad() {
 }
 
 bool CharacterSkinRes::LoadFromPb(std::string data) {
@@ -299,9 +293,6 @@ bool CharGemRes::LoadFromPb(std::string data) {
     return true;
 }
 
-void CharGemRes::OnLoad() {
-}
-
 bool CharGemSlotControlRes::LoadFromPb(std::string data) {
     CharGemSlotControl control;
     if (!control.ParseFromString(data)) {
@@ -360,9 +351,6 @@ bool CharGemAttrValueRes::LoadFromPb(std::string data) {
     return true;
 }
 
-void CharGemAttrValueRes::OnLoad() {
-}
-
 bool AffinityLevelRes::LoadFromPb(std::string data) {
     AffinityLevel level;
     if (!level.ParseFromString(data)) {
@@ -390,9 +378,6 @@ bool AffinityGiftRes::LoadFromPb(std::string data) {
     BaseAffinity = gift.baseaffinity();
     Tags.assign(gift.tags().begin(), gift.tags().end());
     return true;
-}
-
-void AffinityGiftRes::OnLoad() {
 }
 
 bool PlotRes::LoadFromPb(std::string data) {
@@ -503,9 +488,6 @@ bool DatingCharacterEventRes::LoadFromPb(std::string data) {
     return true;
 }
 
-void DatingCharacterEventRes::OnLoad() {
-}
-
 bool DatingBranchRes::LoadFromPb(std::string data) {
     DatingBranch branch;
     if (!branch.ParseFromString(data)) {
@@ -523,5 +505,3 @@ int DatingBranchRes::GetLandmarkId() const {
     return DatingEventParams.empty() ? 0 : DatingEventParams.front();
 }
 
-void DatingBranchRes::OnLoad() {
-}

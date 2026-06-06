@@ -12,9 +12,9 @@ public:
     ~GachaATypeProbRes() = default;
 
     std::string GetId() const override { return std::to_string((Group << 16) | (Times & 0xFFFF)); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
-     
+
     // 序列化字段
 
     int Group;
@@ -30,7 +30,7 @@ public:
     ~GachaRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -38,27 +38,21 @@ public:
     int Id;
     int StorageId;
     int GachaType;
-
     int GuaranteeTimes;
     int GuaranteeTid;
     int GuaranteeQty;
     int ATypeGuaranteeTimes;
-
     int SpecificTid;
     int SpecificQty;
-
     int FirstTenShow;
     std::string StartTime;
     std::string EndTime;
-
     // Packages
     int ATypePkg;
     int BTypePkg;
     int CTypePkg;
-
     int ATypeUpPkg;
     int BTypeUpPkg;
-
     int BGuaranteePkg;
 
     // 非序列化字段
@@ -70,7 +64,7 @@ public:
     ~GachaNewbieRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -88,28 +82,24 @@ public:
     ~GachaStorageRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
-
     int DefaultId;
     int DefaultQty;
     int CostId;
     int CostQty;
-
     int ATypeGroup;
     int AUpGuaranteeTimes;
     int ATypeUpProb;
     int ATypeUpShowProb;
-
     int BTypeProb;
     int BTypeUpProb;
     int BTypeUpShowProb;
     int BTypeGuaranteeProb;
-
     std::string GiveItems;
 
     // 非序列化字段
@@ -121,7 +111,7 @@ public:
     ~GachaTypeRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -130,4 +120,5 @@ public:
     std::vector<int> CoinItem;
 
     // 非序列化字段
+
 };

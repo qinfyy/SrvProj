@@ -13,7 +13,7 @@ public:
     ~ActivityRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -30,13 +30,12 @@ public:
     ~LoginRewardGroupControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
-
     int RewardId1;
     int Qty1;
     int RewardId2;
@@ -51,7 +50,7 @@ public:
     ~TowerDefenseLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -73,7 +72,7 @@ public:
     ~TrialControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -90,13 +89,12 @@ public:
     ~TrialGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
-
     int RewardId1;
     int Qty1;
     int RewardId2;
@@ -113,19 +111,17 @@ public:
     ~JointDrill2LevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int BattleTime;
-
     int TimeScore;
     int ScorePerSec;
     int LevelScore;
     int BaseHpScore;
-
     std::string RewardPreview;
 
     // 非序列化字段
@@ -137,7 +133,7 @@ public:
     ~ActivityLevelsLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -156,17 +152,15 @@ public:
     ~ActivityTaskRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int ActivityTaskGroupId;
-
     int CompleteCond;
     int AimNumShow;
-
     int Tid1;
     int Qty1;
     int Tid2;
@@ -181,14 +175,13 @@ public:
     ~ActivityTaskGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int ActivityId;
-
     int Reward1;
     int RewardQty1;
     int Reward2;
@@ -211,7 +204,7 @@ public:
     ~ActivityShopRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -230,7 +223,7 @@ public:
     ~ActivityShopControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -247,14 +240,13 @@ public:
     ~ActivityGoodsRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int ShopId;
-
     int ItemId;
     int ItemQuantity;
     int MaximumLimit;

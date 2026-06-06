@@ -35,10 +35,3 @@ bool ScoreBossRewardRes::LoadFromPb(std::string data)
     return true;
 }
 
-void ScoreBossControlRes::OnLoad()
-{
-}
-
-void ScoreBossRewardRes::OnLoad()
-{
-}

@@ -774,7 +774,7 @@
     <ClInclude Include="proto\table_cpp\client_table.pb.h" />
     <ClInclude Include="Resources\BinClass\AchievementsRes.h" />
     <ClInclude Include="Resources\BinClass\ActivityRes.h" />
-    <ClInclude Include="Resources\BinClass\BattlePass.h" />
+    <ClInclude Include="Resources\BinClass\BattlePassRes.h" />
     <ClInclude Include="Resources\BinClass\CharacterRes.h" />
     <ClInclude Include="Resources\BinClass\CommissionsRes.h" />
     <ClInclude Include="Resources\BinClass\DictionaryRes.h" />

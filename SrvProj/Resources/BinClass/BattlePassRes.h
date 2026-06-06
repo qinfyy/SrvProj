@@ -1,15 +1,14 @@
 ﻿#pragma once
-
 #include "../ResBase.h"
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class WorldClassRes : public ResBase {
+class BattlePassRes : public ResBase {
 public:
-    WorldClassRes() = default;
-    ~WorldClassRes() = default;
+    BattlePassRes() = default;
+    ~BattlePassRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {};
@@ -18,62 +17,66 @@ public:
     // 序列化字段
 
     int Id;
+
+    // 非序列化字段
+};
+
+class BattlePassLevelRes : public ResBase {
+public:
+    BattlePassLevelRes() = default;
+    ~BattlePassLevelRes() = default;
+
+    std::string GetId() const override { return std::to_string(ID); }
+    void OnLoad() override {};
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
+
+    int ID;
     int Exp;
-    std::string Reward;
+    int Tid;
+    int Qty;
 
     // 非序列化字段
 };
 
-class GuideGroupRes : public ResBase {
+class BattlePassQuestRes : public ResBase {
 public:
-    GuideGroupRes() = default;
-    ~GuideGroupRes() = default;
+    BattlePassQuestRes() = default;
+    ~BattlePassQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
     void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
-
     int Id;
-    bool IsActive;
-
-    // 非序列化字段
-};
-
-class HandbookRes : public ResBase {
-public:
-    HandbookRes() = default;
-    ~HandbookRes() = default;
-
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
-
-    // 序列化字段
-
-    int Id;
-    int Index;
     int Type;
+    int Exp;
 
     // 非序列化字段
 };
 
-class SignInRes : public ResBase {
+class BattlePassRewardRes : public ResBase {
 public:
-    SignInRes() = default;
-    ~SignInRes() = default;
+    BattlePassRewardRes() = default;
+    ~BattlePassRewardRes() = default;
 
-    std::string GetId() const override { return std::to_string((Group << 16) + Day); }
+    std::string GetId() const override { return std::to_string(ID); }
     void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
-    int Group;
-    int Day;
-    int ItemId;
-    int ItemQty;
+    int ID;
+    int Level;
+    int Tid1;
+    int Qty1;
+    int Tid2;
+    int Qty2;
+    int Tid3;
+    int Qty3;
 
     // 非序列化字段
+
 };

@@ -42,6 +42,3 @@ bool AgentRes::LoadFromPb(std::string data)
     return true;
 }
 
-void AgentRes::OnLoad()
-{
-}

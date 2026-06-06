@@ -2,7 +2,6 @@
 
 #include "../ResBase.h"
 #include "../ResourceDerivedData.h"
-
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -17,10 +16,8 @@ class CharacterRes : public ResBase {
 public:
     CharacterRes() = default;
     ~CharacterRes() override = default;
-
     CharacterRes(const CharacterRes&) = delete;
     CharacterRes& operator=(const CharacterRes&) = delete;
-
     CharacterRes(CharacterRes&&) noexcept = default;
     CharacterRes& operator=(CharacterRes&&) noexcept = default;
 
@@ -29,6 +26,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int AIId;
     int AdvanceGroup;
     int AdvanceSkinId;
@@ -101,6 +99,7 @@ public:
     int Weight;
 
     // 非序列化字段
+
     CharacterDesRes* Des = nullptr;
     HonorRes* Honor = nullptr;
     int ElementType = 0;
@@ -114,6 +113,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     std::string Alias;
     std::string CnCv;
@@ -145,6 +145,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int Group;
     int AdvanceLvl;
@@ -159,6 +160,7 @@ public:
     int GoldQty;
 
     // 非序列化字段
+
     ItemParamMap Materials;
 };
 
@@ -169,6 +171,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int Group;
     int AdvanceNum;
@@ -183,6 +186,7 @@ public:
     int GoldQty;
 
     // 非序列化字段
+
     int UpgradeId = 0;
     ItemParamMap Materials;
 };
@@ -190,10 +194,11 @@ public:
 class CharacterUpgradeRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Level); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Level;
     int Exp;
 
@@ -203,16 +208,16 @@ public:
 class CharItemExpRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(ItemId); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int ItemId;
     int ExpValue;
 
     // 非序列化字段
 };
-
 class CharacterSkinRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Id); }
@@ -220,11 +225,13 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int CharId;
     int Type;
 
     // 非序列化字段
+
     bool Released = false;
 };
 
@@ -235,11 +242,13 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int CharId;
     int PreGroup;
 
     // 非序列化字段
+
     TalentRes* MainTalent = nullptr;
     std::vector<TalentRes*> Talents;
 };
@@ -251,6 +260,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int Index;
     int Type;
@@ -263,10 +273,11 @@ public:
 class CharGemRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int GenerateCostTid;
     int RefreshCostTid;
@@ -283,6 +294,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int Position;
     int MaxAlterNum;
@@ -296,6 +308,7 @@ public:
     int LockItemQty;
 
     // 非序列化字段
+
     int UniqueAttrGroupProb = 0;
     int UniqueAttrGroupId = 0;
     std::vector<int> AttrGroupId;
@@ -304,10 +317,11 @@ public:
 class CharGemAttrValueRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int TypeId;
     int AttrType;
@@ -325,20 +339,23 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int AffinityLevel;
     int NeedExp;
 
     // 非序列化字段
+
     static int MaxLevel;
 };
 
 class AffinityGiftRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int BaseAffinity;
     std::vector<int> Tags;
@@ -353,12 +370,14 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int Char;
     int UnlockAffinityLevel;
     std::string Rewards;
 
     // 非序列化字段
+
     ItemParamMap RewardItems;
 };
 
@@ -369,6 +388,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int AddressBookId;
     int PreChatId;
@@ -388,9 +408,11 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
 
     // 非序列化字段
+
     std::vector<DatingLandmarkEventRes*> AfterBranches;
     std::unordered_map<std::string, std::vector<DatingLandmarkEventRes*>> CharacterEvents;
     std::unordered_map<std::string, std::vector<DatingLandmarkEventRes*>> LandmarkEvents;
@@ -404,6 +426,7 @@ public:
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
     int DatingEventType;
     int Affinity;
@@ -411,16 +434,18 @@ public:
     std::string Response;
 
     // 非序列化字段
+
     int Type = 0;
 };
 
 class DatingCharacterEventRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
+
     int Id;
 
     // 非序列化字段
@@ -430,14 +455,5 @@ class DatingBranchRes : public ResBase {
 public:
     std::string GetId() const override { return std::to_string(Id); }
     int GetLandmarkId() const;
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
-
-    // 序列化字段
-    int Id;
-    int DatingEventType;
-    std::vector<int> DatingEventParams;
-    std::vector<int> DatingEventExclude;
-
-    // 非序列化字段
-};
+    void OnLoad() override {};
+    bool LoadFromPb(std::string data) override;    // 序列化字段    int Id;    int DatingEventType;    std::vector<int> DatingEventParams;    std::vector<int> DatingEventExclude;    // 非序列化字段};

@@ -1964,7 +1964,7 @@
     <ClInclude Include="Resources\BinClass\ShopsRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\BinClass\BattlePass.h">
+    <ClInclude Include="Resources\BinClass\BattlePassRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\CommissionsRes.h">

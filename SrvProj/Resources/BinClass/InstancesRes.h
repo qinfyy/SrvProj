@@ -12,7 +12,7 @@ public:
     ~DailyInstanceRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -33,7 +33,7 @@ public:
     ~DailyInstanceRewardGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(GroupId); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -51,7 +51,7 @@ public:
     ~RegionBossLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -72,7 +72,7 @@ public:
     ~SkillInstanceRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -93,7 +93,7 @@ public:
     ~CharGemInstanceRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -114,7 +114,7 @@ public:
     ~WeekBossLevelRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段

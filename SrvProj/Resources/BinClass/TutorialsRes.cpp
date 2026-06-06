@@ -18,6 +18,3 @@ bool TutorialLevelRes::LoadFromPb(std::string data)
     return true;
 }
 
-void TutorialLevelRes::OnLoad()
-{
-}

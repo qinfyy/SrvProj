@@ -29,10 +29,3 @@ bool DictionaryEntryRes::LoadFromPb(std::string data)
     return true;
 }
 
-void DictionaryTabRes::OnLoad()
-{
-}
-
-void DictionaryEntryRes::OnLoad()
-{
-}

@@ -12,7 +12,7 @@ public:
     ~DailyQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -22,7 +22,6 @@ public:
     int Active;
     int ItemTid;
     int ItemQty;
-
     int CompleteCond;
     int CompleteCondClient;
     std::string CompleteCondParams;
@@ -36,14 +35,13 @@ public:
     ~DailyQuestActiveRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int Active;
-
     int ItemTid1;
     int Number1;
     int ItemTid2;
@@ -51,14 +49,13 @@ public:
 
     // 非序列化字段
 };
-
 class WeeklyQuestRes : public ResBase {
 public:
     WeeklyQuestRes() = default;
     ~WeeklyQuestRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -68,7 +65,6 @@ public:
     int Active;
     int ItemTid;
     int ItemQty;
-
     int CompleteCond;
     int CompleteCondClient;
     std::string CompleteCondParams;
@@ -82,14 +78,13 @@ public:
     ~WeeklyQuestActiveRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int Active;
-
     int ItemTid1;
     int Number1;
     int ItemTid2;
@@ -97,4 +92,3 @@ public:
 
     // 非序列化字段
 };
-

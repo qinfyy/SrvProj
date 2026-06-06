@@ -12,7 +12,7 @@ public:
     ~MallMonthlyCardRes() = default;
 
     std::string GetId() const override { return Id; }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -32,7 +32,7 @@ public:
     ~MallPackageRes() = default;
 
     std::string GetId() const override { return Id; }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -51,19 +51,17 @@ class MallShopRes : public ResBase {
 public:
     MallShopRes() = default;
     ~MallShopRes() = default;
-    
+
     std::string GetId() const override { return Id; }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     std::string Id;
     int Stock;
-
     int ExchangeItemId;
     int ExchangeItemQty;
-
     int ItemId;
     int ItemQty;
 
@@ -76,7 +74,7 @@ public:
     ~MallGemRes() = default;
 
     std::string GetId() const override { return Id; }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -96,7 +94,7 @@ public:
     ~ResidentShopRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -112,22 +110,18 @@ public:
     ~ResidentGoodsRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
-
     int Id;
     int ShopId;
     int MaximumLimit;
-
     int ItemId;
     int ItemQuantity;
-
     int CurrencyItemId;
     int Price;
 
     // 非序列化字段
 };
-

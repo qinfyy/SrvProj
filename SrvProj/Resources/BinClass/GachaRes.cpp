@@ -101,22 +101,3 @@ bool GachaTypeRes::LoadFromPb(std::string data)
     return true;
 }
 
-void GachaATypeProbRes::OnLoad()
-{
-}
-
-void GachaRes::OnLoad()
-{
-}
-
-void GachaNewbieRes::OnLoad()
-{
-}
-
-void GachaStorageRes::OnLoad()
-{
-}
-
-void GachaTypeRes::OnLoad()
-{
-}

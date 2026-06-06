@@ -12,11 +12,11 @@ public:
     ~StoryRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
-    
+
     int Id;
     int Chapter;
     std::string RewardDisplay;
@@ -30,14 +30,13 @@ public:
     ~StorySetSectionRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int ChapterId;
-
     int RewardItem1Tid;
     int RewardItem1Qty;
 
@@ -50,7 +49,7 @@ public:
     ~StoryEvidenceRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -66,7 +65,7 @@ public:
     ~MainScreenCGRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段

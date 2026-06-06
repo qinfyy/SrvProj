@@ -13,7 +13,7 @@ public:
     ~ScoreBossControlRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -32,7 +32,7 @@ public:
     ~ScoreBossRewardRes() = default;
 
     std::string GetId() const override { return std::to_string(StarNeed); }
-    void OnLoad() override;
+    void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段

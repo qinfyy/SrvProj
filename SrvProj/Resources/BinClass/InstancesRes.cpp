@@ -10,14 +10,14 @@ bool DailyInstanceRes::LoadFromPb(std::string data)
         return false;
     }
 
-	Id = di.id();
-	AwardDropId = di.awarddropid();
+    Id = di.id();
+    AwardDropId = di.awarddropid();
     PreLevelId = di.prelevelid();
     PreLevelStar = di.prelevelstar();
     OneStarEnergyConsume = di.onestarenergyconsume();
     NeedWorldClass = di.needworldclass();
 
-	return true;
+    return true;
 }
 
 bool DailyInstanceRewardGroupRes::LoadFromPb(std::string data)
@@ -101,26 +101,3 @@ bool WeekBossLevelRes::LoadFromPb(std::string data)
     return true;
 }
 
-void DailyInstanceRes::OnLoad()
-{
-}
-
-void DailyInstanceRewardGroupRes::OnLoad()
-{
-}
-
-void RegionBossLevelRes::OnLoad()
-{
-}
-
-void SkillInstanceRes::OnLoad()
-{
-}
-
-void CharGemInstanceRes::OnLoad()
-{
-}
-
-void WeekBossLevelRes::OnLoad()
-{
-}

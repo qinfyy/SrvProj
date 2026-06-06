@@ -48,10 +48,3 @@ bool VampireTalentRes::LoadFromPb(std::string data)
     return true;
 }
 
-void VampireSurvivorRes::OnLoad()
-{
-}
-
-void VampireTalentRes::OnLoad()
-{
-}
