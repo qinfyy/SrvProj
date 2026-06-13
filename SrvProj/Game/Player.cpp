@@ -1,11 +1,15 @@
 ﻿#include "Player.h"
 
 #include "ActivityMgr.h"
+#include "AchievementMgr.h"
+#include "Bitset.h"
 #include "CharacterMgr.h"
 #include "InventoryMgr.h"
 #include "QuestMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
+#include "../Resources/BinClass/MiscRes.h"
+#include "../Resources/GameData.h"
 
 #include <algorithm>
 #include <chrono>
@@ -25,16 +29,24 @@ int64_t NowEpochDay()
     return NowSeconds() / 86400;
 }
 
-std::string BytesFrom(std::initializer_list<uint8_t> values)
+std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> handbookIds)
 {
-    std::string out;
-    out.reserve(values.size());
-
-    for (uint8_t value : values) {
-        out.push_back(static_cast<char>(value));
+    Bitset bitset;
+    for (uint32_t id : handbookIds)
+    {
+        const auto it = GameData::HandbookDataTable.find(std::to_string(id));
+        if (it == GameData::HandbookDataTable.end())
+        {
+            continue;
+        }
+        if (static_cast<uint32_t>(std::max(it->second.Type, 0)) != type)
+        {
+            continue;
+        }
+        bitset.SetBit(static_cast<uint32_t>(std::max(it->second.Index, 0)));
     }
 
-    return out;
+    return bitset.ToByteArray();
 }
 
 void AddCompletedNewbies(proto::AccInfo* acc)
@@ -67,6 +79,7 @@ void Player::InitManagers()
 {
     mCharacterStor = std::make_unique<CharacterStor>(this);
     mActivityMgr = std::make_unique<ActivityMgr>(this);
+    mAchievementMgr = std::make_unique<AchievementMgr>(this);
     mInventoryMgr = std::make_unique<InventoryMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
 }
@@ -119,6 +132,7 @@ void Player::OnCreate()
 {
     mCharacterStor->OnCreate();
     mActivityMgr->OnCreate();
+    mAchievementMgr->OnCreate();
     mInventoryMgr->OnCreate();
     mQuestMgr->OnCreate();
 }
@@ -140,6 +154,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
 
     mCharacterStor->OnLoad();
     mActivityMgr->OnLoad();
+    mAchievementMgr->OnLoad();
     mInventoryMgr->OnLoad();
     mQuestMgr->OnLoad();
     return true;
@@ -149,6 +164,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
 {
     mCharacterStor->BeforeSave();
     mActivityMgr->BeforeSave();
+    mAchievementMgr->BeforeSave();
     mInventoryMgr->BeforeSave();
     mQuestMgr->BeforeSave();
 
@@ -183,6 +199,7 @@ void Player::OnLogin()
 
     mCharacterStor->OnLogin();
     mActivityMgr->OnLogin();
+    mAchievementMgr->OnLogin();
     mInventoryMgr->OnLogin();
     mQuestMgr->OnLogin();
 }
@@ -292,6 +309,7 @@ bool Player::ConsumeEnergy(int32_t amount)
         data->set_energylastupdate(NowSeconds());
     }
 
+    Trigger(39, static_cast<uint32_t>(amount));
     return true;
 }
 
@@ -313,6 +331,32 @@ CharacterStor& Player::Characters()
 const CharacterStor& Player::Characters() const
 {
     return *mCharacterStor;
+}
+
+QuestMgr& Player::Quests()
+{
+    return *mQuestMgr;
+}
+
+const QuestMgr& Player::Quests() const
+{
+    return *mQuestMgr;
+}
+
+AchievementMgr& Player::Achievements()
+{
+    return *mAchievementMgr;
+}
+
+const AchievementMgr& Player::Achievements() const
+{
+    return *mAchievementMgr;
+}
+
+void Player::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, uint32_t param2)
+{
+    mQuestMgr->Trigger(condition, progress, param1, param2);
+    mAchievementMgr->Trigger(condition, progress, param1, param2);
 }
 
 ServerProto::PlayerBasicCompBin* Player::GetMutablePlayerData()
@@ -401,7 +445,7 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     auto* state = info.mutable_state();
     state->mutable_mail()->set_new_(true);
     state->mutable_battlepass()->set_state(1);
-    state->mutable_achievement();
+    state->mutable_achievement()->set_new_(Achievements().HasNewAchievements());
     state->mutable_friendenergy();
     state->mutable_mallpackage();
     state->mutable_scoreboss();
@@ -421,13 +465,13 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
 
     auto* handbookChars = info.add_handbook();
     handbookChars->set_type(1);
-    handbookChars->set_data(BytesFrom({0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01}));
+    handbookChars->set_data(BuildHandbookFlag(1, {410301, 410302, 410601}));
 
     auto* handbookDiscs = info.add_handbook();
     handbookDiscs->set_type(2);
-    handbookDiscs->set_data(BytesFrom({0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}));
+    handbookDiscs->set_data(BuildHandbookFlag(2, {}));
 
     auto* handbookCg = info.add_handbook();
     handbookCg->set_type(3);
-    handbookCg->set_data(BytesFrom({0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}));
+    handbookCg->set_data(BuildHandbookFlag(3, {}));
 }

@@ -1,4 +1,4 @@
-syntax = "proto3";
+﻿syntax = "proto3";
 
 package ServerProto;
 
@@ -68,12 +68,37 @@ message QuestInfoBin {
     uint32 type = 2;
     uint32 status = 3;
     int64 expire = 4;
+    uint32 condition = 5;
+    uint32 param = 6;
     repeated QuestProgressBin progress = 15;
 }
 
 message QuestCompBin {
     repeated QuestInfoBin quests = 1;
     bool firstLoginNotifyDone = 2;
+    repeated uint32 dailyActiveIds = 3;
+    repeated uint32 weeklyActiveIds = 4;
+    bool dailyShopRewardClaimed = 5;
+    bool dailyMallRewardClaimed = 6;
+    uint32 battlePassId = 7;
+    uint32 battlePassMode = 8;
+    uint32 battlePassLevel = 9;
+    uint32 battlePassExp = 10;
+    uint32 battlePassExpThisWeek = 11;
+    bytes battlePassBasicReward = 12;
+    bytes battlePassPremiumReward = 13;
+}
+
+message AchievementInfoBin {
+    uint32 id = 1;
+    uint32 status = 2;
+    int64 completed = 3;
+    bool claimed = 4;
+    repeated QuestProgressBin progress = 5;
+}
+
+message AchievementCompBin {
+    repeated AchievementInfoBin achievements = 1;
 }
 
 message PlayerBasicCompBin {
@@ -107,6 +132,7 @@ message PlayerSaveData {
     PlayerBasicCompBin playerdata = 2;
     CharacterCompBin charComp = 3;
     QuestCompBin questComp = 4;
+    AchievementCompBin achievementComp = 5;
 }
 
 message GameDiscInfoBin {

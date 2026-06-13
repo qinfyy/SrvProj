@@ -8,6 +8,7 @@
 #include "../proto/NetMsgId.pb.h"
 #include "Login.h"
 #include "Activity.h"
+#include "Quest.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 
@@ -21,6 +22,16 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {mall_package_list_req, mall_package_list_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
     {potential_preselection_list_req, potential_preselection_list_req__Handler},
+    {daily_shop_reward_receive_req, daily_shop_reward_receive_req__Handler},
+    {daily_mall_reward_receive_req, daily_mall_reward_receive_req__Handler},
+    {quest_daily_reward_receive_req, quest_daily_reward_receive_req__Handler},
+    {quest_daily_active_reward_receive_req, quest_daily_active_reward_receive_req__Handler},
+    {quest_weekly_reward_receive_req, quest_weekly_reward_receive_req__Handler},
+    {quest_weekly_active_reward_receive_req, quest_weekly_active_reward_receive_req__Handler},
+    {achievement_info_req, achievement_info_req__Handler},
+    {achievement_reward_receive_req, achievement_reward_receive_req__Handler},
+    {client_event_report_req, client_event_report_req__Handler},
+    {battle_pass_quest_reward_receive_req, battle_pass_quest_reward_receive_req__Handler},
 };
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {

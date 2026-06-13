@@ -10,11 +10,11 @@
 #include <vector>
 #include <type_traits>
 #include <utility>
-#include "QuestMgr.h"
 
 class GameSession;
 
 class ActivityMgr;
+class AchievementMgr;
 class CharacterStor;
 class InventoryMgr;
 class QuestMgr;
@@ -43,6 +43,14 @@ public:
 
     CharacterStor& Characters();
     const CharacterStor& Characters() const;
+
+    QuestMgr& Quests();
+    const QuestMgr& Quests() const;
+
+    AchievementMgr& Achievements();
+    const AchievementMgr& Achievements() const;
+
+    void Trigger(uint32_t condition, uint32_t progress, uint32_t param1 = 0, uint32_t param2 = 0);
 
     ServerProto::PlayerBasicCompBin* GetMutablePlayerData();
     const ServerProto::PlayerBasicCompBin& GetPlayerData() const;
@@ -75,6 +83,7 @@ private:
 
     std::unique_ptr<CharacterStor> mCharacterStor;
     std::unique_ptr<ActivityMgr> mActivityMgr;
+    std::unique_ptr<AchievementMgr> mAchievementMgr;
     std::unique_ptr<InventoryMgr> mInventoryMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
 };

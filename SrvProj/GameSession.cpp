@@ -179,9 +179,15 @@ bool HasNextPackageField(const google::protobuf::Message* message) {
     if (!message) return false;
 
     const auto* descriptor = message->GetDescriptor();
-    const auto* field = descriptor->FindFieldByName("nextPackage");
+    const auto* field = descriptor->FindFieldByNumber(2047);
+    if (!field) {
+        field = descriptor->FindFieldByName("NextPackage");
+    }
+    if (!field) {
+        field = descriptor->FindFieldByName("nextPackage");
+    }
 
-    return field != nullptr;
+    return field != nullptr && field->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_STRING;
 }
 
 void SetNextPackage(google::protobuf::Message* message, const std::string& data) {
@@ -190,7 +196,16 @@ void SetNextPackage(google::protobuf::Message* message, const std::string& data)
     }
 
     const auto* descriptor = message->GetDescriptor();
-    const auto* field = descriptor->FindFieldByName("nextPackage");
+    const auto* field = descriptor->FindFieldByNumber(2047);
+    if (!field) {
+        field = descriptor->FindFieldByName("NextPackage");
+    }
+    if (!field) {
+        field = descriptor->FindFieldByName("nextPackage");
+    }
+    if (!field || field->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_STRING) {
+        return;
+    }
 
     auto* reflection = message->GetReflection();
 
@@ -202,25 +217,29 @@ void GameSession::AddPacketListToMe(google::protobuf::Message* payload) {
         return;
     }
 
-    std::pair<short, std::unique_ptr<google::protobuf::Message>> prev;
+    std::pair<short, std::unique_ptr<google::protobuf::Message>> curPacket;
+    bool hasCurPacket = false;
 
     while (HasNextPackages()) {
-        auto cur = std::move(mPushList.top());
-        mPushList.pop();
-
-        if (prev.second != nullptr) {
-            if (!HasNextPackageField(prev.second.get())) {
-                break;
-            }
-
-            SetNextPackage(prev.second.get(), EncodeMessage(cur.first, cur.second->SerializeAsString()));
+        if (hasCurPacket && !HasNextPackageField(curPacket.second.get())) {
+            break;
         }
 
-        prev = std::move(cur);
+        auto nextPacket = std::move(mPushList.top());
+        mPushList.pop();
+
+        if (!hasCurPacket) {
+            curPacket = std::move(nextPacket);
+            hasCurPacket = true;
+            continue;
+        }
+
+        SetNextPackage(nextPacket.second.get(), EncodeMessage(curPacket.first, curPacket.second->SerializeAsString()));
+        curPacket = std::move(nextPacket);
     }
 
-    if (prev.second != nullptr) {
-        SetNextPackage(payload, EncodeMessage(prev.first, prev.second->SerializeAsString()));
+    if (hasCurPacket && curPacket.second != nullptr) {
+        SetNextPackage(payload, EncodeMessage(curPacket.first, curPacket.second->SerializeAsString()));
     }
 }
 

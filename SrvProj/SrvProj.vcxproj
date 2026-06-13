@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -159,6 +159,7 @@
     <ClCompile Include="GameServices.cpp" />
     <ClCompile Include="GameSession.cpp" />
     <ClCompile Include="Game\ActivityMgr.cpp" />
+    <ClCompile Include="Game\AchievementMgr.cpp" />
     <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Game\InventoryMgr.cpp" />
     <ClCompile Include="Game\Player.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Handlers\Activity.cpp" />
     <ClCompile Include="Handlers\GatewayController.cpp" />
     <ClCompile Include="Handlers\Login.cpp" />
+    <ClCompile Include="Handlers\Quest.cpp" />
     <ClCompile Include="HttpMessage.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="proto\dump.pb.cc" />
@@ -482,6 +484,8 @@
     <ClInclude Include="GameServices.h" />
     <ClInclude Include="GameSession.h" />
     <ClInclude Include="Game\ActivityMgr.h" />
+    <ClInclude Include="Game\AchievementMgr.h" />
+    <ClInclude Include="Game\Bitset.h" />
     <ClInclude Include="Game\CharacterMgr.h" />
     <ClInclude Include="Game\InventoryMgr.h" />
     <ClInclude Include="Game\Player.h" />
@@ -491,6 +495,7 @@
     <ClInclude Include="Handlers\Activity.h" />
     <ClInclude Include="Handlers\GatewayController.h" />
     <ClInclude Include="Handlers\Login.h" />
+    <ClInclude Include="Handlers\Quest.h" />
     <ClInclude Include="HttpMessage.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="proto\dump.pb.h" />

@@ -81,6 +81,9 @@
     <ClCompile Include="Handlers\Login.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
+    <ClCompile Include="Handlers\Quest.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
     <ClCompile Include="AccountServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -942,6 +945,9 @@
     <ClCompile Include="Game\ActivityMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\AchievementMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Game\ManagerBase.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
@@ -1038,6 +1044,9 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Login.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Quest.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="proto\dump.pb.h">
@@ -1908,6 +1917,12 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Game\ActivityMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AchievementMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bitset.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\ManagerBase.h">
