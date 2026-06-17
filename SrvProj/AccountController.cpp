@@ -29,13 +29,14 @@ std::optional<ServerListMeta> GetServerList()
             return std::nullopt;
 
         auto body = response.extract_vector().get();
-        if (body.size() <= 16)
+        if (body.size() <= 16) {
             return std::nullopt;
-
-        char iv[16];
-        memcpy(iv, body.data(), 16);
+        }
+    
+        std::array<char, 16> iv;
+        memcpy(iv.data(), body.data(), 16);
         std::string cipher(reinterpret_cast<const char*>(body.data() + 16), body.size() - 16);
-        std::string plain = AeadTool::DecryptAesCBCInfo(AeadTool::twServerMetaKey, iv, cipher);
+        std::string plain = AeadTool::DecryptAesCBCInfo(AeadTool::twServerMetaKey, std::string_view(iv.data(), iv.size()) , cipher);
         ServerListMeta obj;
         if (!obj.ParseFromString(plain))
             return std::nullopt;
@@ -52,7 +53,7 @@ void ServerListHandler(const HttpRequest& req, HttpResponse& rsp) {
     try {
         ServerListMeta meta;
 
-        meta.set_version(120);
+        meta.set_version(128);
 
         ServerAgent* agent = meta.add_agent();
         agent->set_name(U8("星塔旅人"));
