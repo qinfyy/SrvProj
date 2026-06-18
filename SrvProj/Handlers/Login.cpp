@@ -18,16 +18,6 @@
 
 using namespace proto;
 
-static std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Message* payload = nullptr)
-{
-    if (session)
-    {
-        return session->BuildMessage(msgId, payload);
-    }
-
-    return GameSession::EncodeMessage(msgId, payload ? payload->SerializeAsString() : "");
-}
-
 std::string ike_req__Handler(GameSession* session, const std::string& req)
 {
     if (session) {

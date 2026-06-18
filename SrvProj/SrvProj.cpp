@@ -9,6 +9,7 @@
 #include "AeadTool.h"
 #include "Util.h"
 #include "Config.h"
+#include "Command\CommandMgr.h"
 #include ".\Resources\ResourceLoader.h"
 
 HANDLE g_hExitEvent = NULL;
@@ -99,6 +100,8 @@ int main() {
     if (!server.Start()) {
         return 1;
     }
+
+    CommandMgr::StartConsoleThread();
 
     WaitForSingleObject(g_hExitEvent, INFINITE);
 

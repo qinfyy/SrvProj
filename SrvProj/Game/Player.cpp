@@ -5,11 +5,14 @@
 #include "Bitset.h"
 #include "CharacterMgr.h"
 #include "InventoryMgr.h"
+#include "MailMgr.h"
 #include "QuestMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/GameData.h"
+#include "../proto/NetMsgId.pb.h"
+#include "../proto/proto_cpp/notify_gm.pb.h"
 
 #include <algorithm>
 #include <chrono>
@@ -18,17 +21,6 @@
 #include <utility>
 
 namespace {
-int64_t NowSeconds()
-{
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-int64_t NowEpochDay()
-{
-    return NowSeconds() / 86400;
-}
-
 std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> handbookIds)
 {
     Bitset bitset;
@@ -81,6 +73,7 @@ void Player::InitManagers()
     mActivityMgr = std::make_unique<ActivityMgr>(this);
     mAchievementMgr = std::make_unique<AchievementMgr>(this);
     mInventoryMgr = std::make_unique<InventoryMgr>(this);
+    mMailMgr = std::make_unique<MailMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
 }
 
@@ -90,7 +83,8 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     mPlayerSaveData.Clear();
 
     auto* data = GetMutablePlayerData();
-    const int64_t now = NowSeconds();
+    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count();
 
     data->set_createtime(now);
     data->set_name(name.empty() ? "me" : std::move(name));
@@ -102,7 +96,7 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     data->set_titlesuffix(2);
     data->clear_boards();
     data->add_boards(410301);
-	data->set_level(40); // 先设定为40级，方便测试，正式服应该是1级，现在请不要修改它
+	data->set_level(1);
     data->set_exp(0);
     data->set_energy(GameConstants::MaxEnergy);
     data->set_energylastupdate(now);
@@ -134,6 +128,7 @@ void Player::OnCreate()
     mActivityMgr->OnCreate();
     mAchievementMgr->OnCreate();
     mInventoryMgr->OnCreate();
+    mMailMgr->OnCreate();
     mQuestMgr->OnCreate();
 }
 
@@ -156,6 +151,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
     mActivityMgr->OnLoad();
     mAchievementMgr->OnLoad();
     mInventoryMgr->OnLoad();
+    mMailMgr->OnLoad();
     mQuestMgr->OnLoad();
     return true;
 }
@@ -166,6 +162,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
     mActivityMgr->BeforeSave();
     mAchievementMgr->BeforeSave();
     mInventoryMgr->BeforeSave();
+    mMailMgr->BeforeSave();
     mQuestMgr->BeforeSave();
 
     std::vector<uint8_t> out(mPlayerSaveData.ByteSizeLong());
@@ -184,6 +181,7 @@ proto::PlayerInfo Player::ToProto()
     Characters().EncodePlayerInfo(info);
     mActivityMgr->EncodePlayerInfo(info);
     mInventoryMgr->EncodePlayerInfo(info);
+    mMailMgr->EncodePlayerInfo(info);
     mQuestMgr->EncodePlayerInfo(info);
     EncodeMinimalSystems(info);
 
@@ -193,14 +191,14 @@ proto::PlayerInfo Player::ToProto()
 void Player::OnLogin()
 {
     auto* data = GetMutablePlayerData();
-    const int64_t now = NowSeconds();
-    data->set_lastlogin(now);
-    data->set_lastepochday(NowEpochDay());
+    data->set_lastlogin(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+    data->set_lastepochday(std::chrono::duration_cast<std::chrono::days>(std::chrono::system_clock::now().time_since_epoch()).count());
 
     mCharacterStor->OnLogin();
     mActivityMgr->OnLogin();
     mAchievementMgr->OnLogin();
     mInventoryMgr->OnLogin();
+    mMailMgr->OnLogin();
     mQuestMgr->OnLogin();
 }
 
@@ -216,7 +214,8 @@ void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Mess
 int32_t Player::GetEnergy()
 {
     auto* data = GetMutablePlayerData();
-    const int64_t now = NowSeconds();
+    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count();
 
     if (data->energylastupdate() <= 0)
     {
@@ -263,7 +262,8 @@ int64_t Player::GetEnergyLastUpdate()
 proto::Energy Player::GetEnergyProto()
 {
     const int32_t energy = GetEnergy();
-    const int64_t now = NowSeconds();
+    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count();
     const int64_t elapsed = now - GetPlayerData().energylastupdate();
     const int64_t nextDuration = std::max<int64_t>(GameConstants::EnergyRegenTime - elapsed, 1);
 
@@ -306,7 +306,8 @@ bool Player::ConsumeEnergy(int32_t amount)
     data->set_energy(data->energy() - amount);
     if (data->energylastupdate() <= 0 || data->energy() == GameConstants::MaxEnergy - amount)
     {
-        data->set_energylastupdate(NowSeconds());
+        data->set_energylastupdate(std::chrono::duration_cast<std::chrono::seconds>(
+            std::chrono::system_clock::now().time_since_epoch()).count());
     }
 
     Trigger(39, static_cast<uint32_t>(amount));
@@ -353,6 +354,26 @@ const AchievementMgr& Player::Achievements() const
     return *mAchievementMgr;
 }
 
+InventoryMgr& Player::Inventory()
+{
+    return *mInventoryMgr;
+}
+
+const InventoryMgr& Player::Inventory() const
+{
+    return *mInventoryMgr;
+}
+
+MailMgr& Player::Mails()
+{
+    return *mMailMgr;
+}
+
+const MailMgr& Player::Mails() const
+{
+    return *mMailMgr;
+}
+
 void Player::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, uint32_t param2)
 {
     mQuestMgr->Trigger(condition, progress, param1, param2);
@@ -379,11 +400,42 @@ void Player::SetUid(uint32_t uid)
     mUid = uid;
 }
 
+bool Player::SetWorldLevel(uint32_t level)
+{
+    if (level == 0)
+    {
+        return false;
+    }
+
+    if (!GameData::WorldClassDataTable.empty() && GameData::WorldClassDataTable.find(std::to_string(level)) == GameData::WorldClassDataTable.end())
+    {
+        return false;
+    }
+
+    auto* data = GetMutablePlayerData();
+    data->set_level(static_cast<int32_t>(level));
+    data->set_exp(0);
+
+    proto::GmWorldClass notify;
+    notify.set_finalclass(level);
+    notify.set_lastexp(0);
+    PushNextPackage(world_class_number_notify, notify);
+
+    Trigger(71, level, level, 0);
+    return true;
+}
+
+void Player::SetSignature(const std::string& signature)
+{
+    GetMutablePlayerData()->set_signature(signature);
+}
+
 void Player::EncodeBasicInfo(proto::PlayerInfo& info)
 {
     const auto& data = GetPlayerData();
 
-    info.set_serverts(NowSeconds());
+    info.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count());
     info.set_signinindex(data.signinindex());
     info.set_musicinfo(data.music());
     info.set_achievements(std::string(64, '\0'));
@@ -443,7 +495,7 @@ void Player::EncodeBasicInfo(proto::PlayerInfo& info)
 void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
 {
     auto* state = info.mutable_state();
-    state->mutable_mail()->set_new_(true);
+    state->mutable_mail();
     state->mutable_battlepass()->set_state(1);
     state->mutable_achievement()->set_new_(Achievements().HasNewAchievements());
     state->mutable_friendenergy();
@@ -458,6 +510,7 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     info.add_titles()->set_titleid(1);
     info.add_titles()->set_titleid(2);
     info.add_honorlist(111001);
+
     info.mutable_agent();
     info.mutable_formation();
     info.mutable_phone()->set_newmessage(Characters().GetNewPhoneMessageCount());

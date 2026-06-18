@@ -250,3 +250,11 @@ void GameSession::PushNextPackageImpl(short msgId, std::unique_ptr<google::proto
 bool GameSession::HasNextPackages() {
     return !mPushList.empty();
 }
+
+std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Message* payload) {
+    if (session) {
+        return session->BuildMessage(msgId, payload);
+    }
+
+    return GameSession::EncodeMessage(msgId, payload ? payload->SerializeAsString() : "");
+}

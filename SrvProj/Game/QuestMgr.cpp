@@ -2,6 +2,7 @@
 
 #include "AchievementMgr.h"
 #include "Bitset.h"
+#include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameConstants.h"
 #include "../Logger.h"
@@ -692,7 +693,7 @@ bool QuestMgr::ClaimDailyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
         if (auto it = GameData::DailyQuestDataTable.find(std::to_string(quest.id())); it != GameData::DailyQuestDataTable.end())
         {
-            AddItemChange(out, static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty);
+            GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty, &out);
         }
 
         quest.set_status(2);
@@ -728,7 +729,7 @@ bool QuestMgr::ClaimWeeklyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
         if (auto it = GameData::WeeklyQuestDataTable.find(std::to_string(quest.id())); it != GameData::WeeklyQuestDataTable.end())
         {
-            AddItemChange(out, static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty);
+            GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty, &out);
         }
 
         quest.set_status(2);
@@ -770,8 +771,8 @@ bool QuestMgr::ClaimDailyActiveRewards(std::vector<uint32_t>& activeIds, proto::
 
         bin->add_dailyactiveids(id);
         activeIds.push_back(id);
-        AddItemChange(out, static_cast<uint32_t>(reward.ItemTid1), reward.Number1);
-        AddItemChange(out, static_cast<uint32_t>(reward.ItemTid2), reward.Number2);
+        GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(reward.ItemTid1), reward.Number1, &out);
+        GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(reward.ItemTid2), reward.Number2, &out);
     }
 
     return !activeIds.empty();
@@ -803,8 +804,8 @@ bool QuestMgr::ClaimWeeklyActiveRewards(std::vector<uint32_t>& activeIds, proto:
 
         bin->add_weeklyactiveids(id);
         activeIds.push_back(id);
-        AddItemChange(out, static_cast<uint32_t>(reward.ItemTid1), reward.Number1);
-        AddItemChange(out, static_cast<uint32_t>(reward.ItemTid2), reward.Number2);
+        GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(reward.ItemTid1), reward.Number1, &out);
+        GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(reward.ItemTid2), reward.Number2, &out);
     }
 
     return !activeIds.empty();
@@ -819,7 +820,7 @@ bool QuestMgr::ClaimDailyShopGift(proto::ChangeInfo& out)
     }
 
     bin->set_dailyshoprewardclaimed(true);
-    AddItemChange(out, GameConstants::GoldItemId, 10000);
+    GetPlayer()->Inventory().AddItem(GameConstants::GoldItemId, 10000, &out);
     Trigger(105, 1, 0, 0);
     return true;
 }
@@ -833,7 +834,7 @@ bool QuestMgr::ClaimDailyMallGift(proto::ChangeInfo& out)
     }
 
     bin->set_dailymallrewardclaimed(true);
-    AddItemChange(out, GameConstants::JointDrillTicketId, 1);
+    GetPlayer()->Inventory().AddItem(GameConstants::JointDrillTicketId, 1, &out);
     Trigger(105, 1, 0, 0);
     return true;
 }

@@ -14,16 +14,6 @@
 #include <vector>
 
 namespace {
-std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Message* payload = nullptr)
-{
-    if (session)
-    {
-        return session->BuildMessage(msgId, payload);
-    }
-
-    return GameSession::EncodeMessage(msgId, payload ? payload->SerializeAsString() : "");
-}
-
 bool HasLoggedInPlayer(GameSession* session)
 {
     return session && session->HasPlayer() && session->GetPlayer();

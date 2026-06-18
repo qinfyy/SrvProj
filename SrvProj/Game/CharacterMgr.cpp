@@ -1,17 +1,41 @@
 ﻿#include "CharacterMgr.h"
 
+#include "Bitset.h"
 #include "Player.h"
 #include "../Resources/GameData.h"
+#include "../proto/proto_cpp/public.pb.h"
 
 #include <chrono>
 #include <algorithm>
 #include <string>
 
 namespace {
-int64_t NowSeconds()
+uint32_t GetMinAdvanceForLevel(uint32_t level)
 {
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
+    if (level == 0)
+    {
+        return 0;
+    }
+
+    const uint32_t rawAdvance = (level - 1) / 10;
+    return std::min<uint32_t>(rawAdvance, 8);
+}
+
+std::string BuildTalentBytes(int talent)
+{
+    Bitset bitset;
+    const int stars = std::clamp(talent, 0, 5);
+    for (int i = 0; i < stars; ++i)
+    {
+        const uint32_t offset = static_cast<uint32_t>(i * 16);
+        for (uint32_t node = 1; node <= 10; ++node)
+        {
+            bitset.SetBit(offset + node);
+        }
+        bitset.SetBit(offset + 16);
+    }
+
+    return bitset.ToByteArray();
 }
 }
 
@@ -101,7 +125,7 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
     charInfo->set_affinityexp(0);
     charInfo->set_skin(data.DefaultSkinId);
     charInfo->set_talents(std::string(8, '\0'));
-    charInfo->set_createtime(NowSeconds());
+    charInfo->set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     charInfo->set_gempresetindex(0);
 
     for (int i = 0; i < 5; ++i)
@@ -111,6 +135,9 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
 
     NormalizeCharacter(*charInfo);
     SortCharacters();
+    GetPlayer()->Trigger(5, 1, static_cast<uint32_t>(data.Id), 0);
+    GetPlayer()->Trigger(20, static_cast<uint32_t>(Bin().charinfolist_size()), 0, 0);
+    TriggerCharacterAchievements(*charInfo);
     return charInfo;
 }
 
@@ -183,9 +210,11 @@ ServerProto::GameDiscInfoBin* CharacterStor::AddDisc(const DiscRes& data)
     disc->set_star(0);
     disc->set_read(false);
     disc->set_avg(false);
-    disc->set_createtime(NowSeconds());
+    disc->set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     NormalizeDisc(*disc);
     SortDiscs();
+    GetPlayer()->Trigger(28, 1, static_cast<uint32_t>(data.Id), 0);
+    GetPlayer()->Trigger(30, static_cast<uint32_t>(Bin().gamedisclist_size()), static_cast<uint32_t>(disc->level()), 0);
     return disc;
 }
 
@@ -230,6 +259,169 @@ const ServerProto::GameDiscInfoBin* CharacterStor::GetDiscById(int id) const
 bool CharacterStor::HasDisc(int id) const
 {
     return GetDiscById(id) != nullptr;
+}
+
+bool CharacterStor::ApplyCharacterCommandProperties(ServerProto::CharacterInfo& character, int level, int advance, int talent, int skill, int affinity)
+{
+    bool changed = false;
+
+    if (level > 0)
+    {
+        const uint32_t nextLevel = std::min<uint32_t>(static_cast<uint32_t>(level), 90);
+        if (character.level() != nextLevel)
+        {
+            character.set_level(nextLevel);
+            character.set_advance(std::max<uint32_t>(character.advance(), GetMinAdvanceForLevel(nextLevel)));
+            changed = true;
+        }
+    }
+
+    if (advance >= 0)
+    {
+        const uint32_t nextAdvance = std::min<uint32_t>(static_cast<uint32_t>(advance), 8);
+        if (character.advance() != nextAdvance)
+        {
+            character.set_advance(nextAdvance);
+            changed = true;
+        }
+    }
+
+    if (skill > 0)
+    {
+        const uint32_t nextSkill = std::min<uint32_t>(static_cast<uint32_t>(skill), 10);
+        while (character.skills_size() < 5)
+        {
+            character.add_skills(1);
+        }
+        for (int index = 0; index < character.skills_size(); ++index)
+        {
+            if (character.skills(index) != nextSkill)
+            {
+                character.set_skills(index, nextSkill);
+                changed = true;
+            }
+        }
+    }
+
+    if (talent >= 0)
+    {
+        const auto talents = BuildTalentBytes(talent);
+        if (character.talents() != talents)
+        {
+            character.set_talents(talents);
+            changed = true;
+        }
+    }
+
+    if (affinity >= 0)
+    {
+        const uint32_t maxAffinity = AffinityLevelRes::MaxLevel > 0
+            ? static_cast<uint32_t>(AffinityLevelRes::MaxLevel)
+            : 10;
+        const uint32_t nextAffinity = std::min<uint32_t>(static_cast<uint32_t>(affinity), maxAffinity);
+        if (character.affinitylevel() != nextAffinity)
+        {
+            character.set_affinitylevel(nextAffinity);
+            changed = true;
+        }
+    }
+
+    if (changed)
+    {
+        NormalizeCharacter(character);
+        TriggerCharacterAchievements(character);
+    }
+
+    return changed;
+}
+
+bool CharacterStor::ApplyDiscCommandProperties(ServerProto::GameDiscInfoBin& disc, int level, int phase, int star)
+{
+    bool changed = false;
+
+    if (level > 0)
+    {
+        const int32_t nextLevel = static_cast<int32_t>(std::min<uint32_t>(static_cast<uint32_t>(level), 90));
+        if (disc.level() != nextLevel)
+        {
+            disc.set_level(nextLevel);
+            disc.set_phase(std::max<int32_t>(disc.phase(), static_cast<int32_t>(GetMinAdvanceForLevel(nextLevel))));
+            changed = true;
+        }
+    }
+
+    if (phase >= 0)
+    {
+        const int32_t nextPhase = static_cast<int32_t>(std::min<uint32_t>(static_cast<uint32_t>(phase), 8));
+        if (disc.phase() != nextPhase)
+        {
+            disc.set_phase(nextPhase);
+            changed = true;
+        }
+    }
+
+    if (star >= 0)
+    {
+        const int32_t nextStar = static_cast<int32_t>(std::min<uint32_t>(static_cast<uint32_t>(star), 5));
+        if (disc.star() != nextStar)
+        {
+            disc.set_star(nextStar);
+            changed = true;
+        }
+    }
+
+    if (changed)
+    {
+        NormalizeDisc(disc);
+        GetPlayer()->Trigger(35, 1, static_cast<uint32_t>(disc.discid()), 0);
+    }
+
+    return changed;
+}
+
+void CharacterStor::AddCharacterChange(proto::ChangeInfo& change, const ServerProto::CharacterInfo& character) const
+{
+    change.add_props()->PackFrom(ToProto(character));
+}
+
+void CharacterStor::AddDiscChange(proto::ChangeInfo& change, const ServerProto::GameDiscInfoBin& disc) const
+{
+    change.add_props()->PackFrom(ToProto(disc));
+}
+
+void CharacterStor::TriggerCharacterAchievements(const ServerProto::CharacterInfo& character)
+{
+    int anyCount = 0;
+    int sameElementCount = 0;
+    int element = 0;
+
+    if (auto it = GameData::CharacterDataTable.find(std::to_string(character.charid())); it != GameData::CharacterDataTable.end())
+    {
+        element = it->second.ElementType;
+    }
+
+    for (const auto& owned : Bin().charinfolist())
+    {
+        if (owned.level() < character.level())
+        {
+            continue;
+        }
+
+        ++anyCount;
+        if (element > 0)
+        {
+            if (auto it = GameData::CharacterDataTable.find(std::to_string(owned.charid())); it != GameData::CharacterDataTable.end() && it->second.ElementType == element)
+            {
+                ++sameElementCount;
+            }
+        }
+    }
+
+    GetPlayer()->Trigger(16, static_cast<uint32_t>(anyCount), character.level(), 0);
+    if (element > 0)
+    {
+        GetPlayer()->Trigger(17, static_cast<uint32_t>(sameElementCount), character.level(), static_cast<uint32_t>(element));
+    }
 }
 
 void CharacterStor::EncodePlayerInfo(proto::PlayerInfo& out) const
@@ -284,7 +476,7 @@ void CharacterStor::NormalizeCharacter(ServerProto::CharacterInfo& character) co
 
     if (character.createtime() <= 0)
     {
-        character.set_createtime(NowSeconds());
+        character.set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     }
 
     if (character.affinitylevel() < 0)
@@ -334,7 +526,7 @@ void CharacterStor::NormalizeDisc(ServerProto::GameDiscInfoBin& disc) const
 
     if (disc.createtime() <= 0)
     {
-        disc.set_createtime(NowSeconds());
+        disc.set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     }
 }
 
@@ -343,7 +535,7 @@ void CharacterStor::EnsureCharacterContact(ServerProto::CharacterInfo& character
     auto* contact = character.mutable_contact();
     if (contact->triggertime() <= 0)
     {
-        contact->set_triggertime(character.createtime() > 0 ? character.createtime() : NowSeconds());
+        contact->set_triggertime(character.createtime() > 0 ? character.createtime() : std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
     }
 
     EnsureInitialChats(character);

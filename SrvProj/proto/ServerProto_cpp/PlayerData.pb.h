@@ -101,6 +101,30 @@ class GameDiscInfoBin;
 struct GameDiscInfoBinDefaultTypeInternal;
 extern GameDiscInfoBinDefaultTypeInternal _GameDiscInfoBin_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull GameDiscInfoBin_class_data_;
+class InventoryCompBin;
+struct InventoryCompBinDefaultTypeInternal;
+extern InventoryCompBinDefaultTypeInternal _InventoryCompBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_class_data_;
+class InventoryCompBin_ItemsEntry_DoNotUse;
+struct InventoryCompBin_ItemsEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_ItemsEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ItemsEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ItemsEntry_DoNotUse_class_data_;
+class InventoryCompBin_ResourcesEntry_DoNotUse;
+struct InventoryCompBin_ResourcesEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_ResourcesEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ResourcesEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ResourcesEntry_DoNotUse_class_data_;
+class MailAttachmentBin;
+struct MailAttachmentBinDefaultTypeInternal;
+extern MailAttachmentBinDefaultTypeInternal _MailAttachmentBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull MailAttachmentBin_class_data_;
+class MailCompBin;
+struct MailCompBinDefaultTypeInternal;
+extern MailCompBinDefaultTypeInternal _MailCompBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull MailCompBin_class_data_;
+class MailInfoBin;
+struct MailInfoBinDefaultTypeInternal;
+extern MailInfoBinDefaultTypeInternal _MailInfoBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull MailInfoBin_class_data_;
 class PlayerBasicCompBin;
 struct PlayerBasicCompBinDefaultTypeInternal;
 extern PlayerBasicCompBinDefaultTypeInternal _PlayerBasicCompBin_default_instance_;
@@ -391,7 +415,7 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerBasicCompBin*>(
         &_PlayerBasicCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 13;
+  static constexpr int kIndexInFileMessages = 19;
   friend void swap(PlayerBasicCompBin& a, PlayerBasicCompBin& b) { a.Swap(&b); }
   inline void Swap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -779,6 +803,286 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_class_data_;
 // -------------------------------------------------------------------
 
+class MailAttachmentBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.MailAttachmentBin) */ {
+ public:
+  inline MailAttachmentBin() : MailAttachmentBin(nullptr) {}
+  ~MailAttachmentBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(MailAttachmentBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(MailAttachmentBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MailAttachmentBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline MailAttachmentBin(const MailAttachmentBin& from) : MailAttachmentBin(nullptr, from) {}
+  inline MailAttachmentBin(MailAttachmentBin&& from) noexcept
+      : MailAttachmentBin(nullptr, ::std::move(from)) {}
+  inline MailAttachmentBin& operator=(const MailAttachmentBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MailAttachmentBin& operator=(MailAttachmentBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MailAttachmentBin& default_instance() {
+    return *reinterpret_cast<const MailAttachmentBin*>(
+        &_MailAttachmentBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 16;
+  friend void swap(MailAttachmentBin& a, MailAttachmentBin& b) { a.Swap(&b); }
+  inline void Swap(MailAttachmentBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MailAttachmentBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MailAttachmentBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<MailAttachmentBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const MailAttachmentBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const MailAttachmentBin& from) { MailAttachmentBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(MailAttachmentBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.MailAttachmentBin"; }
+
+  explicit MailAttachmentBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  MailAttachmentBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const MailAttachmentBin& from);
+  MailAttachmentBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, MailAttachmentBin&& from) noexcept
+      : MailAttachmentBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kQtyFieldNumber = 2,
+    kTidFieldNumber = 1,
+  };
+  // int64 qty = 2;
+  void clear_qty() ;
+  ::int64_t qty() const;
+  void set_qty(::int64_t value);
+
+  private:
+  ::int64_t _internal_qty() const;
+  void _internal_set_qty(::int64_t value);
+
+  public:
+  // uint32 tid = 1;
+  void clear_tid() ;
+  ::uint32_t tid() const;
+  void set_tid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_tid() const;
+  void _internal_set_tid(::uint32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.MailAttachmentBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const MailAttachmentBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::int64_t qty_;
+    ::uint32_t tid_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull MailAttachmentBin_class_data_;
+// -------------------------------------------------------------------
+
+class InventoryCompBin_ResourcesEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::int64_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_INT64> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::int64_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_INT64>;
+  InventoryCompBin_ResourcesEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_ResourcesEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_ResourcesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_ResourcesEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ResourcesEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
+class InventoryCompBin_ItemsEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::int64_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_INT64> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::int64_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_INT64>;
+  InventoryCompBin_ItemsEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_ItemsEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_ItemsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_ItemsEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ItemsEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
 class GameDiscInfoBin final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.GameDiscInfoBin) */ {
  public:
@@ -834,7 +1138,7 @@ class GameDiscInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GameDiscInfoBin*>(
         &_GameDiscInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 15;
+  static constexpr int kIndexInFileMessages = 21;
   friend void swap(GameDiscInfoBin& a, GameDiscInfoBin& b) { a.Swap(&b); }
   inline void Swap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2047,6 +2351,640 @@ class QuestInfoBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull QuestInfoBin_class_data_;
 // -------------------------------------------------------------------
 
+class MailInfoBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.MailInfoBin) */ {
+ public:
+  inline MailInfoBin() : MailInfoBin(nullptr) {}
+  ~MailInfoBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(MailInfoBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(MailInfoBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MailInfoBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline MailInfoBin(const MailInfoBin& from) : MailInfoBin(nullptr, from) {}
+  inline MailInfoBin(MailInfoBin&& from) noexcept
+      : MailInfoBin(nullptr, ::std::move(from)) {}
+  inline MailInfoBin& operator=(const MailInfoBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MailInfoBin& operator=(MailInfoBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MailInfoBin& default_instance() {
+    return *reinterpret_cast<const MailInfoBin*>(
+        &_MailInfoBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 17;
+  friend void swap(MailInfoBin& a, MailInfoBin& b) { a.Swap(&b); }
+  inline void Swap(MailInfoBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MailInfoBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MailInfoBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<MailInfoBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const MailInfoBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const MailInfoBin& from) { MailInfoBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(MailInfoBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.MailInfoBin"; }
+
+  explicit MailInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  MailInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const MailInfoBin& from);
+  MailInfoBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, MailInfoBin&& from) noexcept
+      : MailInfoBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kAttachmentsFieldNumber = 11,
+    kSubjectFieldNumber = 2,
+    kDescFieldNumber = 3,
+    kAuthorFieldNumber = 4,
+    kTimeFieldNumber = 5,
+    kDeadlineFieldNumber = 6,
+    kIdFieldNumber = 1,
+    kReadFieldNumber = 7,
+    kRecvFieldNumber = 8,
+    kPinFieldNumber = 9,
+    kFlagFieldNumber = 10,
+  };
+  // repeated .ServerProto.MailAttachmentBin attachments = 11;
+  int attachments_size() const;
+  private:
+  int _internal_attachments_size() const;
+
+  public:
+  void clear_attachments() ;
+  ::ServerProto::MailAttachmentBin* PROTOBUF_NONNULL mutable_attachments(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>* PROTOBUF_NONNULL mutable_attachments();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>& _internal_attachments() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>* PROTOBUF_NONNULL _internal_mutable_attachments();
+  public:
+  const ::ServerProto::MailAttachmentBin& attachments(int index) const;
+  ::ServerProto::MailAttachmentBin* PROTOBUF_NONNULL add_attachments();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>& attachments() const;
+  // string subject = 2;
+  void clear_subject() ;
+  const ::std::string& subject() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_subject(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_subject();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_subject();
+  void set_allocated_subject(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_subject() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_subject(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_subject();
+
+  public:
+  // string desc = 3;
+  void clear_desc() ;
+  const ::std::string& desc() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_desc(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_desc();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_desc();
+  void set_allocated_desc(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_desc() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_desc(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_desc();
+
+  public:
+  // string author = 4;
+  void clear_author() ;
+  const ::std::string& author() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_author(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_author();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_author();
+  void set_allocated_author(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_author() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_author(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_author();
+
+  public:
+  // int64 time = 5;
+  void clear_time() ;
+  ::int64_t time() const;
+  void set_time(::int64_t value);
+
+  private:
+  ::int64_t _internal_time() const;
+  void _internal_set_time(::int64_t value);
+
+  public:
+  // int64 deadline = 6;
+  void clear_deadline() ;
+  ::int64_t deadline() const;
+  void set_deadline(::int64_t value);
+
+  private:
+  ::int64_t _internal_deadline() const;
+  void _internal_set_deadline(::int64_t value);
+
+  public:
+  // uint32 id = 1;
+  void clear_id() ;
+  ::uint32_t id() const;
+  void set_id(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_id() const;
+  void _internal_set_id(::uint32_t value);
+
+  public:
+  // bool read = 7;
+  void clear_read() ;
+  bool read() const;
+  void set_read(bool value);
+
+  private:
+  bool _internal_read() const;
+  void _internal_set_read(bool value);
+
+  public:
+  // bool recv = 8;
+  void clear_recv() ;
+  bool recv() const;
+  void set_recv(bool value);
+
+  private:
+  bool _internal_recv() const;
+  void _internal_set_recv(bool value);
+
+  public:
+  // bool pin = 9;
+  void clear_pin() ;
+  bool pin() const;
+  void set_pin(bool value);
+
+  private:
+  bool _internal_pin() const;
+  void _internal_set_pin(bool value);
+
+  public:
+  // uint64 flag = 10;
+  void clear_flag() ;
+  ::uint64_t flag() const;
+  void set_flag(::uint64_t value);
+
+  private:
+  ::uint64_t _internal_flag() const;
+  void _internal_set_flag(::uint64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.MailInfoBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<4, 11,
+                                   1, 57,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const MailInfoBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::MailAttachmentBin > attachments_;
+    ::google::protobuf::internal::ArenaStringPtr subject_;
+    ::google::protobuf::internal::ArenaStringPtr desc_;
+    ::google::protobuf::internal::ArenaStringPtr author_;
+    ::int64_t time_;
+    ::int64_t deadline_;
+    ::uint32_t id_;
+    bool read_;
+    bool recv_;
+    bool pin_;
+    ::uint64_t flag_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull MailInfoBin_class_data_;
+// -------------------------------------------------------------------
+
+class InventoryCompBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.InventoryCompBin) */ {
+ public:
+  inline InventoryCompBin() : InventoryCompBin(nullptr) {}
+  ~InventoryCompBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(InventoryCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(InventoryCompBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline InventoryCompBin(const InventoryCompBin& from) : InventoryCompBin(nullptr, from) {}
+  inline InventoryCompBin(InventoryCompBin&& from) noexcept
+      : InventoryCompBin(nullptr, ::std::move(from)) {}
+  inline InventoryCompBin& operator=(const InventoryCompBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline InventoryCompBin& operator=(InventoryCompBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const InventoryCompBin& default_instance() {
+    return *reinterpret_cast<const InventoryCompBin*>(
+        &_InventoryCompBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 15;
+  friend void swap(InventoryCompBin& a, InventoryCompBin& b) { a.Swap(&b); }
+  inline void Swap(InventoryCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(InventoryCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  InventoryCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<InventoryCompBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const InventoryCompBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const InventoryCompBin& from) { InventoryCompBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(InventoryCompBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.InventoryCompBin"; }
+
+  explicit InventoryCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  InventoryCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const InventoryCompBin& from);
+  InventoryCompBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, InventoryCompBin&& from) noexcept
+      : InventoryCompBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kSkinsFieldNumber = 3,
+    kHeadIconsFieldNumber = 4,
+    kTitlesFieldNumber = 5,
+    kHonorsFieldNumber = 6,
+    kItemsFieldNumber = 1,
+    kResourcesFieldNumber = 2,
+  };
+  // repeated uint32 skins = 3;
+  int skins_size() const;
+  private:
+  int _internal_skins_size() const;
+
+  public:
+  void clear_skins() ;
+  ::uint32_t skins(int index) const;
+  void set_skins(int index, ::uint32_t value);
+  void add_skins(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& skins() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_skins();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_skins() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_skins();
+
+  public:
+  // repeated uint32 headIcons = 4;
+  int headicons_size() const;
+  private:
+  int _internal_headicons_size() const;
+
+  public:
+  void clear_headicons() ;
+  ::uint32_t headicons(int index) const;
+  void set_headicons(int index, ::uint32_t value);
+  void add_headicons(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& headicons() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_headicons();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_headicons() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_headicons();
+
+  public:
+  // repeated uint32 titles = 5;
+  int titles_size() const;
+  private:
+  int _internal_titles_size() const;
+
+  public:
+  void clear_titles() ;
+  ::uint32_t titles(int index) const;
+  void set_titles(int index, ::uint32_t value);
+  void add_titles(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& titles() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_titles();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_titles() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_titles();
+
+  public:
+  // repeated uint32 honors = 6;
+  int honors_size() const;
+  private:
+  int _internal_honors_size() const;
+
+  public:
+  void clear_honors() ;
+  ::uint32_t honors(int index) const;
+  void set_honors(int index, ::uint32_t value);
+  void add_honors(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& honors() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_honors();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_honors() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_honors();
+
+  public:
+  // map<uint32, int64> items = 1;
+  int items_size() const;
+  private:
+  int _internal_items_size() const;
+
+  public:
+  void clear_items() ;
+  const ::google::protobuf::Map<::uint32_t, ::int64_t>& items() const;
+  ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL mutable_items();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::int64_t>& _internal_items() const;
+  ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL _internal_mutable_items();
+
+  public:
+  // map<uint32, int64> resources = 2;
+  int resources_size() const;
+  private:
+  int _internal_resources_size() const;
+
+  public:
+  void clear_resources() ;
+  const ::google::protobuf::Map<::uint32_t, ::int64_t>& resources() const;
+  ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL mutable_resources();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::int64_t>& _internal_resources() const;
+  ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL _internal_mutable_resources();
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.InventoryCompBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 6,
+                                   2, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const InventoryCompBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> skins_;
+    ::google::protobuf::internal::CachedSize _skins_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> headicons_;
+    ::google::protobuf::internal::CachedSize _headicons_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> titles_;
+    ::google::protobuf::internal::CachedSize _titles_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> honors_;
+    ::google::protobuf::internal::CachedSize _honors_cached_byte_size_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_ItemsEntry_DoNotUse, ::uint32_t, ::int64_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_INT64>
+        items_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_ResourcesEntry_DoNotUse, ::uint32_t, ::int64_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_INT64>
+        resources_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_class_data_;
+// -------------------------------------------------------------------
+
 class CharacterGemSlot final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.CharacterGemSlot) */ {
  public:
@@ -2907,6 +3845,227 @@ class QuestCompBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull QuestCompBin_class_data_;
+// -------------------------------------------------------------------
+
+class MailCompBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.MailCompBin) */ {
+ public:
+  inline MailCompBin() : MailCompBin(nullptr) {}
+  ~MailCompBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(MailCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(MailCompBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MailCompBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline MailCompBin(const MailCompBin& from) : MailCompBin(nullptr, from) {}
+  inline MailCompBin(MailCompBin&& from) noexcept
+      : MailCompBin(nullptr, ::std::move(from)) {}
+  inline MailCompBin& operator=(const MailCompBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MailCompBin& operator=(MailCompBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MailCompBin& default_instance() {
+    return *reinterpret_cast<const MailCompBin*>(
+        &_MailCompBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 18;
+  friend void swap(MailCompBin& a, MailCompBin& b) { a.Swap(&b); }
+  inline void Swap(MailCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MailCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MailCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<MailCompBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const MailCompBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const MailCompBin& from) { MailCompBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(MailCompBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.MailCompBin"; }
+
+  explicit MailCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  MailCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const MailCompBin& from);
+  MailCompBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, MailCompBin&& from) noexcept
+      : MailCompBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMailsFieldNumber = 2,
+    kNextMailIdFieldNumber = 1,
+    kWelcomeMailCreatedFieldNumber = 3,
+  };
+  // repeated .ServerProto.MailInfoBin mails = 2;
+  int mails_size() const;
+  private:
+  int _internal_mails_size() const;
+
+  public:
+  void clear_mails() ;
+  ::ServerProto::MailInfoBin* PROTOBUF_NONNULL mutable_mails(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>* PROTOBUF_NONNULL mutable_mails();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>& _internal_mails() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>* PROTOBUF_NONNULL _internal_mutable_mails();
+  public:
+  const ::ServerProto::MailInfoBin& mails(int index) const;
+  ::ServerProto::MailInfoBin* PROTOBUF_NONNULL add_mails();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>& mails() const;
+  // uint32 nextMailId = 1;
+  void clear_nextmailid() ;
+  ::uint32_t nextmailid() const;
+  void set_nextmailid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_nextmailid() const;
+  void _internal_set_nextmailid(::uint32_t value);
+
+  public:
+  // bool welcomeMailCreated = 3;
+  void clear_welcomemailcreated() ;
+  bool welcomemailcreated() const;
+  void set_welcomemailcreated(bool value);
+
+  private:
+  bool _internal_welcomemailcreated() const;
+  void _internal_set_welcomemailcreated(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.MailCompBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 3,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const MailCompBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::MailInfoBin > mails_;
+    ::uint32_t nextmailid_;
+    bool welcomemailcreated_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull MailCompBin_class_data_;
 // -------------------------------------------------------------------
 
 class CharacterContact final : public ::google::protobuf::Message
@@ -4023,7 +5182,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerSaveData*>(
         &_PlayerSaveData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 14;
+  static constexpr int kIndexInFileMessages = 20;
   friend void swap(PlayerSaveData& a, PlayerSaveData& b) { a.Swap(&b); }
   inline void Swap(PlayerSaveData* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -4114,6 +5273,8 @@ class PlayerSaveData final : public ::google::protobuf::Message
     kCharCompFieldNumber = 3,
     kQuestCompFieldNumber = 4,
     kAchievementCompFieldNumber = 5,
+    kInventoryCompFieldNumber = 6,
+    kMailCompFieldNumber = 7,
   };
   // .ServerProto.PlayerBasicCompBin playerdata = 2;
   bool has_playerdata() const;
@@ -4175,12 +5336,42 @@ class PlayerSaveData final : public ::google::protobuf::Message
   ::ServerProto::AchievementCompBin* PROTOBUF_NONNULL _internal_mutable_achievementcomp();
 
   public:
+  // .ServerProto.InventoryCompBin inventoryComp = 6;
+  bool has_inventorycomp() const;
+  void clear_inventorycomp() ;
+  const ::ServerProto::InventoryCompBin& inventorycomp() const;
+  [[nodiscard]] ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE release_inventorycomp();
+  ::ServerProto::InventoryCompBin* PROTOBUF_NONNULL mutable_inventorycomp();
+  void set_allocated_inventorycomp(::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_inventorycomp(::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE value);
+  ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE unsafe_arena_release_inventorycomp();
+
+  private:
+  const ::ServerProto::InventoryCompBin& _internal_inventorycomp() const;
+  ::ServerProto::InventoryCompBin* PROTOBUF_NONNULL _internal_mutable_inventorycomp();
+
+  public:
+  // .ServerProto.MailCompBin mailComp = 7;
+  bool has_mailcomp() const;
+  void clear_mailcomp() ;
+  const ::ServerProto::MailCompBin& mailcomp() const;
+  [[nodiscard]] ::ServerProto::MailCompBin* PROTOBUF_NULLABLE release_mailcomp();
+  ::ServerProto::MailCompBin* PROTOBUF_NONNULL mutable_mailcomp();
+  void set_allocated_mailcomp(::ServerProto::MailCompBin* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_mailcomp(::ServerProto::MailCompBin* PROTOBUF_NULLABLE value);
+  ::ServerProto::MailCompBin* PROTOBUF_NULLABLE unsafe_arena_release_mailcomp();
+
+  private:
+  const ::ServerProto::MailCompBin& _internal_mailcomp() const;
+  ::ServerProto::MailCompBin* PROTOBUF_NONNULL _internal_mutable_mailcomp();
+
+  public:
   // @@protoc_insertion_point(class_scope:ServerProto.PlayerSaveData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 4,
-                                   4, 0,
+  static const ::google::protobuf::internal::TcParseTable<3, 6,
+                                   6, 0,
                                    2>
       _table_;
 
@@ -4205,6 +5396,8 @@ class PlayerSaveData final : public ::google::protobuf::Message
     ::ServerProto::CharacterCompBin* PROTOBUF_NULLABLE charcomp_;
     ::ServerProto::QuestCompBin* PROTOBUF_NULLABLE questcomp_;
     ::ServerProto::AchievementCompBin* PROTOBUF_NULLABLE achievementcomp_;
+    ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE inventorycomp_;
+    ::ServerProto::MailCompBin* PROTOBUF_NULLABLE mailcomp_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -6622,6 +7815,872 @@ AchievementCompBin::_internal_mutable_achievements() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// InventoryCompBin
+
+// map<uint32, int64> items = 1;
+inline int InventoryCompBin::_internal_items_size() const {
+  return _internal_items().size();
+}
+inline int InventoryCompBin::items_size() const {
+  return _internal_items_size();
+}
+inline void InventoryCompBin::clear_items() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.items_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::int64_t>& InventoryCompBin::_internal_items() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.items_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::int64_t>& InventoryCompBin::items() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.items)
+  return _internal_items();
+}
+inline ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_items() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.items_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_items()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.items)
+  return _internal_mutable_items();
+}
+
+// map<uint32, int64> resources = 2;
+inline int InventoryCompBin::_internal_resources_size() const {
+  return _internal_resources().size();
+}
+inline int InventoryCompBin::resources_size() const {
+  return _internal_resources_size();
+}
+inline void InventoryCompBin::clear_resources() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.resources_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::int64_t>& InventoryCompBin::_internal_resources() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.resources_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::int64_t>& InventoryCompBin::resources() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.resources)
+  return _internal_resources();
+}
+inline ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_resources() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.resources_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_resources()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000020U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.resources)
+  return _internal_mutable_resources();
+}
+
+// repeated uint32 skins = 3;
+inline int InventoryCompBin::_internal_skins_size() const {
+  return _internal_skins().size();
+}
+inline int InventoryCompBin::skins_size() const {
+  return _internal_skins_size();
+}
+inline void InventoryCompBin::clear_skins() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.skins_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t InventoryCompBin::skins(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.InventoryCompBin.skins)
+  return _internal_skins().Get(index);
+}
+inline void InventoryCompBin::set_skins(int index, ::uint32_t value) {
+  _internal_mutable_skins()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.InventoryCompBin.skins)
+}
+inline void InventoryCompBin::add_skins(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_skins()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.InventoryCompBin.skins)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& InventoryCompBin::skins() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.InventoryCompBin.skins)
+  return _internal_skins();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_skins()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.InventoryCompBin.skins)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_skins();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+InventoryCompBin::_internal_skins() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.skins_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+InventoryCompBin::_internal_mutable_skins() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.skins_;
+}
+
+// repeated uint32 headIcons = 4;
+inline int InventoryCompBin::_internal_headicons_size() const {
+  return _internal_headicons().size();
+}
+inline int InventoryCompBin::headicons_size() const {
+  return _internal_headicons_size();
+}
+inline void InventoryCompBin::clear_headicons() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.headicons_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t InventoryCompBin::headicons(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.InventoryCompBin.headIcons)
+  return _internal_headicons().Get(index);
+}
+inline void InventoryCompBin::set_headicons(int index, ::uint32_t value) {
+  _internal_mutable_headicons()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.InventoryCompBin.headIcons)
+}
+inline void InventoryCompBin::add_headicons(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_headicons()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:ServerProto.InventoryCompBin.headIcons)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& InventoryCompBin::headicons() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.InventoryCompBin.headIcons)
+  return _internal_headicons();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_headicons()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.InventoryCompBin.headIcons)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_headicons();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+InventoryCompBin::_internal_headicons() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.headicons_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+InventoryCompBin::_internal_mutable_headicons() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.headicons_;
+}
+
+// repeated uint32 titles = 5;
+inline int InventoryCompBin::_internal_titles_size() const {
+  return _internal_titles().size();
+}
+inline int InventoryCompBin::titles_size() const {
+  return _internal_titles_size();
+}
+inline void InventoryCompBin::clear_titles() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.titles_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::uint32_t InventoryCompBin::titles(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.InventoryCompBin.titles)
+  return _internal_titles().Get(index);
+}
+inline void InventoryCompBin::set_titles(int index, ::uint32_t value) {
+  _internal_mutable_titles()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.InventoryCompBin.titles)
+}
+inline void InventoryCompBin::add_titles(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_titles()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_add:ServerProto.InventoryCompBin.titles)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& InventoryCompBin::titles() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.InventoryCompBin.titles)
+  return _internal_titles();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_titles()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.InventoryCompBin.titles)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_titles();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+InventoryCompBin::_internal_titles() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.titles_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+InventoryCompBin::_internal_mutable_titles() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.titles_;
+}
+
+// repeated uint32 honors = 6;
+inline int InventoryCompBin::_internal_honors_size() const {
+  return _internal_honors().size();
+}
+inline int InventoryCompBin::honors_size() const {
+  return _internal_honors_size();
+}
+inline void InventoryCompBin::clear_honors() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.honors_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::uint32_t InventoryCompBin::honors(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.InventoryCompBin.honors)
+  return _internal_honors().Get(index);
+}
+inline void InventoryCompBin::set_honors(int index, ::uint32_t value) {
+  _internal_mutable_honors()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.InventoryCompBin.honors)
+}
+inline void InventoryCompBin::add_honors(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_honors()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_add:ServerProto.InventoryCompBin.honors)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& InventoryCompBin::honors() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.InventoryCompBin.honors)
+  return _internal_honors();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_honors()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.InventoryCompBin.honors)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_honors();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+InventoryCompBin::_internal_honors() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.honors_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+InventoryCompBin::_internal_mutable_honors() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.honors_;
+}
+
+// -------------------------------------------------------------------
+
+// MailAttachmentBin
+
+// uint32 tid = 1;
+inline void MailAttachmentBin::clear_tid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.tid_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t MailAttachmentBin::tid() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailAttachmentBin.tid)
+  return _internal_tid();
+}
+inline void MailAttachmentBin::set_tid(::uint32_t value) {
+  _internal_set_tid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailAttachmentBin.tid)
+}
+inline ::uint32_t MailAttachmentBin::_internal_tid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.tid_;
+}
+inline void MailAttachmentBin::_internal_set_tid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.tid_ = value;
+}
+
+// int64 qty = 2;
+inline void MailAttachmentBin::clear_qty() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.qty_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::int64_t MailAttachmentBin::qty() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailAttachmentBin.qty)
+  return _internal_qty();
+}
+inline void MailAttachmentBin::set_qty(::int64_t value) {
+  _internal_set_qty(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailAttachmentBin.qty)
+}
+inline ::int64_t MailAttachmentBin::_internal_qty() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.qty_;
+}
+inline void MailAttachmentBin::_internal_set_qty(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.qty_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MailInfoBin
+
+// uint32 id = 1;
+inline void MailInfoBin::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline ::uint32_t MailInfoBin::id() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.id)
+  return _internal_id();
+}
+inline void MailInfoBin::set_id(::uint32_t value) {
+  _internal_set_id(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.id)
+}
+inline ::uint32_t MailInfoBin::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void MailInfoBin::_internal_set_id(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// string subject = 2;
+inline void MailInfoBin::clear_subject() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.subject_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& MailInfoBin::subject() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.subject)
+  return _internal_subject();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void MailInfoBin::set_subject(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.subject_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.subject)
+}
+inline ::std::string* PROTOBUF_NONNULL MailInfoBin::mutable_subject()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_subject();
+  // @@protoc_insertion_point(field_mutable:ServerProto.MailInfoBin.subject)
+  return _s;
+}
+inline const ::std::string& MailInfoBin::_internal_subject() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.subject_.Get();
+}
+inline void MailInfoBin::_internal_set_subject(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.subject_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL MailInfoBin::_internal_mutable_subject() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.subject_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE MailInfoBin::release_subject() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.MailInfoBin.subject)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.subject_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.subject_.Set("", GetArena());
+  }
+  return released;
+}
+inline void MailInfoBin::set_allocated_subject(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.subject_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.subject_.IsDefault()) {
+    _impl_.subject_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.MailInfoBin.subject)
+}
+
+// string desc = 3;
+inline void MailInfoBin::clear_desc() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.desc_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::std::string& MailInfoBin::desc() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.desc)
+  return _internal_desc();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void MailInfoBin::set_desc(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  _impl_.desc_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.desc)
+}
+inline ::std::string* PROTOBUF_NONNULL MailInfoBin::mutable_desc()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::std::string* _s = _internal_mutable_desc();
+  // @@protoc_insertion_point(field_mutable:ServerProto.MailInfoBin.desc)
+  return _s;
+}
+inline const ::std::string& MailInfoBin::_internal_desc() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.desc_.Get();
+}
+inline void MailInfoBin::_internal_set_desc(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.desc_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL MailInfoBin::_internal_mutable_desc() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.desc_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE MailInfoBin::release_desc() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.MailInfoBin.desc)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  auto* released = _impl_.desc_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.desc_.Set("", GetArena());
+  }
+  return released;
+}
+inline void MailInfoBin::set_allocated_desc(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+  _impl_.desc_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.desc_.IsDefault()) {
+    _impl_.desc_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.MailInfoBin.desc)
+}
+
+// string author = 4;
+inline void MailInfoBin::clear_author() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.author_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::std::string& MailInfoBin::author() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.author)
+  return _internal_author();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void MailInfoBin::set_author(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  _impl_.author_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.author)
+}
+inline ::std::string* PROTOBUF_NONNULL MailInfoBin::mutable_author()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::std::string* _s = _internal_mutable_author();
+  // @@protoc_insertion_point(field_mutable:ServerProto.MailInfoBin.author)
+  return _s;
+}
+inline const ::std::string& MailInfoBin::_internal_author() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.author_.Get();
+}
+inline void MailInfoBin::_internal_set_author(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.author_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL MailInfoBin::_internal_mutable_author() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.author_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE MailInfoBin::release_author() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.MailInfoBin.author)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  auto* released = _impl_.author_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.author_.Set("", GetArena());
+  }
+  return released;
+}
+inline void MailInfoBin::set_allocated_author(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  }
+  _impl_.author_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.author_.IsDefault()) {
+    _impl_.author_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.MailInfoBin.author)
+}
+
+// int64 time = 5;
+inline void MailInfoBin::clear_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.time_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline ::int64_t MailInfoBin::time() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.time)
+  return _internal_time();
+}
+inline void MailInfoBin::set_time(::int64_t value) {
+  _internal_set_time(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.time)
+}
+inline ::int64_t MailInfoBin::_internal_time() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.time_;
+}
+inline void MailInfoBin::_internal_set_time(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.time_ = value;
+}
+
+// int64 deadline = 6;
+inline void MailInfoBin::clear_deadline() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.deadline_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline ::int64_t MailInfoBin::deadline() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.deadline)
+  return _internal_deadline();
+}
+inline void MailInfoBin::set_deadline(::int64_t value) {
+  _internal_set_deadline(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.deadline)
+}
+inline ::int64_t MailInfoBin::_internal_deadline() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.deadline_;
+}
+inline void MailInfoBin::_internal_set_deadline(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.deadline_ = value;
+}
+
+// bool read = 7;
+inline void MailInfoBin::clear_read() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.read_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000080U);
+}
+inline bool MailInfoBin::read() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.read)
+  return _internal_read();
+}
+inline void MailInfoBin::set_read(bool value) {
+  _internal_set_read(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.read)
+}
+inline bool MailInfoBin::_internal_read() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.read_;
+}
+inline void MailInfoBin::_internal_set_read(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.read_ = value;
+}
+
+// bool recv = 8;
+inline void MailInfoBin::clear_recv() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.recv_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000100U);
+}
+inline bool MailInfoBin::recv() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.recv)
+  return _internal_recv();
+}
+inline void MailInfoBin::set_recv(bool value) {
+  _internal_set_recv(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.recv)
+}
+inline bool MailInfoBin::_internal_recv() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.recv_;
+}
+inline void MailInfoBin::_internal_set_recv(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.recv_ = value;
+}
+
+// bool pin = 9;
+inline void MailInfoBin::clear_pin() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pin_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000200U);
+}
+inline bool MailInfoBin::pin() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.pin)
+  return _internal_pin();
+}
+inline void MailInfoBin::set_pin(bool value) {
+  _internal_set_pin(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.pin)
+}
+inline bool MailInfoBin::_internal_pin() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pin_;
+}
+inline void MailInfoBin::_internal_set_pin(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pin_ = value;
+}
+
+// uint64 flag = 10;
+inline void MailInfoBin::clear_flag() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.flag_ = ::uint64_t{0u};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000400U);
+}
+inline ::uint64_t MailInfoBin::flag() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.flag)
+  return _internal_flag();
+}
+inline void MailInfoBin::set_flag(::uint64_t value) {
+  _internal_set_flag(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000400U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailInfoBin.flag)
+}
+inline ::uint64_t MailInfoBin::_internal_flag() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.flag_;
+}
+inline void MailInfoBin::_internal_set_flag(::uint64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.flag_ = value;
+}
+
+// repeated .ServerProto.MailAttachmentBin attachments = 11;
+inline int MailInfoBin::_internal_attachments_size() const {
+  return _internal_attachments().size();
+}
+inline int MailInfoBin::attachments_size() const {
+  return _internal_attachments_size();
+}
+inline void MailInfoBin::clear_attachments() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.attachments_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::ServerProto::MailAttachmentBin* PROTOBUF_NONNULL MailInfoBin::mutable_attachments(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.MailInfoBin.attachments)
+  return _internal_mutable_attachments()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>* PROTOBUF_NONNULL MailInfoBin::mutable_attachments()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.MailInfoBin.attachments)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_attachments();
+}
+inline const ::ServerProto::MailAttachmentBin& MailInfoBin::attachments(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.MailInfoBin.attachments)
+  return _internal_attachments().Get(index);
+}
+inline ::ServerProto::MailAttachmentBin* PROTOBUF_NONNULL MailInfoBin::add_attachments()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::MailAttachmentBin* _add =
+      _internal_mutable_attachments()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.MailInfoBin.attachments)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>& MailInfoBin::attachments() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.MailInfoBin.attachments)
+  return _internal_attachments();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>&
+MailInfoBin::_internal_attachments() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.attachments_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::MailAttachmentBin>* PROTOBUF_NONNULL
+MailInfoBin::_internal_mutable_attachments() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.attachments_;
+}
+
+// -------------------------------------------------------------------
+
+// MailCompBin
+
+// uint32 nextMailId = 1;
+inline void MailCompBin::clear_nextmailid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.nextmailid_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t MailCompBin::nextmailid() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailCompBin.nextMailId)
+  return _internal_nextmailid();
+}
+inline void MailCompBin::set_nextmailid(::uint32_t value) {
+  _internal_set_nextmailid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailCompBin.nextMailId)
+}
+inline ::uint32_t MailCompBin::_internal_nextmailid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.nextmailid_;
+}
+inline void MailCompBin::_internal_set_nextmailid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.nextmailid_ = value;
+}
+
+// repeated .ServerProto.MailInfoBin mails = 2;
+inline int MailCompBin::_internal_mails_size() const {
+  return _internal_mails().size();
+}
+inline int MailCompBin::mails_size() const {
+  return _internal_mails_size();
+}
+inline void MailCompBin::clear_mails() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mails_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::ServerProto::MailInfoBin* PROTOBUF_NONNULL MailCompBin::mutable_mails(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.MailCompBin.mails)
+  return _internal_mutable_mails()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>* PROTOBUF_NONNULL MailCompBin::mutable_mails()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.MailCompBin.mails)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_mails();
+}
+inline const ::ServerProto::MailInfoBin& MailCompBin::mails(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.MailCompBin.mails)
+  return _internal_mails().Get(index);
+}
+inline ::ServerProto::MailInfoBin* PROTOBUF_NONNULL MailCompBin::add_mails()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::MailInfoBin* _add =
+      _internal_mutable_mails()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.MailCompBin.mails)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>& MailCompBin::mails() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.MailCompBin.mails)
+  return _internal_mails();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>&
+MailCompBin::_internal_mails() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.mails_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::MailInfoBin>* PROTOBUF_NONNULL
+MailCompBin::_internal_mutable_mails() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.mails_;
+}
+
+// bool welcomeMailCreated = 3;
+inline void MailCompBin::clear_welcomemailcreated() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.welcomemailcreated_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline bool MailCompBin::welcomemailcreated() const {
+  // @@protoc_insertion_point(field_get:ServerProto.MailCompBin.welcomeMailCreated)
+  return _internal_welcomemailcreated();
+}
+inline void MailCompBin::set_welcomemailcreated(bool value) {
+  _internal_set_welcomemailcreated(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.MailCompBin.welcomeMailCreated)
+}
+inline bool MailCompBin::_internal_welcomemailcreated() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.welcomemailcreated_;
+}
+inline void MailCompBin::_internal_set_welcomemailcreated(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.welcomemailcreated_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // PlayerBasicCompBin
 
 // int64 createTime = 2;
@@ -7652,6 +9711,204 @@ inline void PlayerSaveData::set_allocated_achievementcomp(::ServerProto::Achieve
 
   _impl_.achievementcomp_ = reinterpret_cast<::ServerProto::AchievementCompBin*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.achievementComp)
+}
+
+// .ServerProto.InventoryCompBin inventoryComp = 6;
+inline bool PlayerSaveData::has_inventorycomp() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000010U);
+  PROTOBUF_ASSUME(!value || _impl_.inventorycomp_ != nullptr);
+  return value;
+}
+inline void PlayerSaveData::clear_inventorycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.inventorycomp_ != nullptr) _impl_.inventorycomp_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline const ::ServerProto::InventoryCompBin& PlayerSaveData::_internal_inventorycomp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::ServerProto::InventoryCompBin* p = _impl_.inventorycomp_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ServerProto::InventoryCompBin&>(::ServerProto::_InventoryCompBin_default_instance_);
+}
+inline const ::ServerProto::InventoryCompBin& PlayerSaveData::inventorycomp() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.PlayerSaveData.inventoryComp)
+  return _internal_inventorycomp();
+}
+inline void PlayerSaveData::unsafe_arena_set_allocated_inventorycomp(
+    ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.inventorycomp_);
+  }
+  _impl_.inventorycomp_ = reinterpret_cast<::ServerProto::InventoryCompBin*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerProto.PlayerSaveData.inventoryComp)
+}
+inline ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE PlayerSaveData::release_inventorycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::ServerProto::InventoryCompBin* released = _impl_.inventorycomp_;
+  _impl_.inventorycomp_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE PlayerSaveData::unsafe_arena_release_inventorycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.PlayerSaveData.inventoryComp)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::ServerProto::InventoryCompBin* temp = _impl_.inventorycomp_;
+  _impl_.inventorycomp_ = nullptr;
+  return temp;
+}
+inline ::ServerProto::InventoryCompBin* PROTOBUF_NONNULL PlayerSaveData::_internal_mutable_inventorycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.inventorycomp_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::ServerProto::InventoryCompBin>(GetArena());
+    _impl_.inventorycomp_ = reinterpret_cast<::ServerProto::InventoryCompBin*>(p);
+  }
+  return _impl_.inventorycomp_;
+}
+inline ::ServerProto::InventoryCompBin* PROTOBUF_NONNULL PlayerSaveData::mutable_inventorycomp()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::ServerProto::InventoryCompBin* _msg = _internal_mutable_inventorycomp();
+  // @@protoc_insertion_point(field_mutable:ServerProto.PlayerSaveData.inventoryComp)
+  return _msg;
+}
+inline void PlayerSaveData::set_allocated_inventorycomp(::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.inventorycomp_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+
+  _impl_.inventorycomp_ = reinterpret_cast<::ServerProto::InventoryCompBin*>(value);
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.inventoryComp)
+}
+
+// .ServerProto.MailCompBin mailComp = 7;
+inline bool PlayerSaveData::has_mailcomp() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000020U);
+  PROTOBUF_ASSUME(!value || _impl_.mailcomp_ != nullptr);
+  return value;
+}
+inline void PlayerSaveData::clear_mailcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.mailcomp_ != nullptr) _impl_.mailcomp_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline const ::ServerProto::MailCompBin& PlayerSaveData::_internal_mailcomp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::ServerProto::MailCompBin* p = _impl_.mailcomp_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ServerProto::MailCompBin&>(::ServerProto::_MailCompBin_default_instance_);
+}
+inline const ::ServerProto::MailCompBin& PlayerSaveData::mailcomp() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.PlayerSaveData.mailComp)
+  return _internal_mailcomp();
+}
+inline void PlayerSaveData::unsafe_arena_set_allocated_mailcomp(
+    ::ServerProto::MailCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.mailcomp_);
+  }
+  _impl_.mailcomp_ = reinterpret_cast<::ServerProto::MailCompBin*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerProto.PlayerSaveData.mailComp)
+}
+inline ::ServerProto::MailCompBin* PROTOBUF_NULLABLE PlayerSaveData::release_mailcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ::ServerProto::MailCompBin* released = _impl_.mailcomp_;
+  _impl_.mailcomp_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::ServerProto::MailCompBin* PROTOBUF_NULLABLE PlayerSaveData::unsafe_arena_release_mailcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.PlayerSaveData.mailComp)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ::ServerProto::MailCompBin* temp = _impl_.mailcomp_;
+  _impl_.mailcomp_ = nullptr;
+  return temp;
+}
+inline ::ServerProto::MailCompBin* PROTOBUF_NONNULL PlayerSaveData::_internal_mutable_mailcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.mailcomp_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::ServerProto::MailCompBin>(GetArena());
+    _impl_.mailcomp_ = reinterpret_cast<::ServerProto::MailCompBin*>(p);
+  }
+  return _impl_.mailcomp_;
+}
+inline ::ServerProto::MailCompBin* PROTOBUF_NONNULL PlayerSaveData::mutable_mailcomp()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ::ServerProto::MailCompBin* _msg = _internal_mutable_mailcomp();
+  // @@protoc_insertion_point(field_mutable:ServerProto.PlayerSaveData.mailComp)
+  return _msg;
+}
+inline void PlayerSaveData::set_allocated_mailcomp(::ServerProto::MailCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.mailcomp_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  }
+
+  _impl_.mailcomp_ = reinterpret_cast<::ServerProto::MailCompBin*>(value);
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.mailComp)
 }
 
 // -------------------------------------------------------------------

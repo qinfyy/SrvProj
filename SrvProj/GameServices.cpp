@@ -20,6 +20,27 @@ GameSession* GameServices::GetSessionByToken(const std::string& token)
     return nullptr;
 }
 
+Player* GameServices::GetPlayerByUid(uint32_t uid)
+{
+    std::lock_guard lock(mSessionMutex);
+
+    for (auto& [token, session] : mSessionsByToken)
+    {
+        if (!session || !session->HasPlayer())
+        {
+            continue;
+        }
+
+        auto* player = session->GetPlayer();
+        if (player && player->GetUid() == uid)
+        {
+            return player;
+        }
+    }
+
+    return nullptr;
+}
+
 void GameServices::AddSession(std::unique_ptr<GameSession> session)
 {
     std::lock_guard lock(mSessionMutex);

@@ -9,6 +9,8 @@
 #include "Login.h"
 #include "Activity.h"
 #include "Quest.h"
+#include "Player.h"
+#include "Mail.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 
@@ -18,6 +20,8 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_data_req, player_data_req__Handler},
     {player_reg_req, player_reg_req__Handler},
     {player_ping_req, player_ping_req__Handler},
+    {player_signature_edit_req, player_signature_edit_req__Handler},
+    {player_learn_req, player_learn_req__Handler},
     {energy_info_req, energy_info_req__Handler},
     {mall_package_list_req, mall_package_list_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
@@ -32,6 +36,11 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {achievement_reward_receive_req, achievement_reward_receive_req__Handler},
     {client_event_report_req, client_event_report_req__Handler},
     {battle_pass_quest_reward_receive_req, battle_pass_quest_reward_receive_req__Handler},
+    {mail_list_req, mail_list_req__Handler},
+    {mail_read_req, mail_read_req__Handler},
+    {mail_recv_req, mail_recv_req__Handler},
+    {mail_remove_req, mail_remove_req__Handler},
+    {mail_pin_req, mail_pin_req__Handler},
 };
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {

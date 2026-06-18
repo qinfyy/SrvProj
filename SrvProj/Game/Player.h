@@ -17,6 +17,7 @@ class ActivityMgr;
 class AchievementMgr;
 class CharacterStor;
 class InventoryMgr;
+class MailMgr;
 class QuestMgr;
 
 class Player
@@ -50,6 +51,12 @@ public:
     AchievementMgr& Achievements();
     const AchievementMgr& Achievements() const;
 
+    InventoryMgr& Inventory();
+    const InventoryMgr& Inventory() const;
+
+    MailMgr& Mails();
+    const MailMgr& Mails() const;
+
     void Trigger(uint32_t condition, uint32_t progress, uint32_t param1 = 0, uint32_t param2 = 0);
 
     ServerProto::PlayerBasicCompBin* GetMutablePlayerData();
@@ -57,6 +64,8 @@ public:
 
     uint32_t GetUid() const;
     void SetUid(uint32_t uid);
+    bool SetWorldLevel(uint32_t level);
+    void SetSignature(const std::string& signature);
 
     GameSession* GetSessionRef() const { return mSessionRef; }
     void SetSessionRef(GameSession* sessionRef) { mSessionRef = sessionRef; }
@@ -85,5 +94,6 @@ private:
     std::unique_ptr<ActivityMgr> mActivityMgr;
     std::unique_ptr<AchievementMgr> mAchievementMgr;
     std::unique_ptr<InventoryMgr> mInventoryMgr;
+    std::unique_ptr<MailMgr> mMailMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
 };

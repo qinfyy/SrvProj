@@ -207,7 +207,8 @@ bool DbMgr::LoginByOpenId(const std::string& openid, User& outUser) {
 
         outUser.uid = uid ? uid : "";
         outUser.token = token ? token : "";
-        outUser.openId = openid;        ok = true;
+        outUser.openId = openid;
+        ok = true;
     }
 
     sqlite3_finalize(stmt);

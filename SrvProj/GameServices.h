@@ -1,8 +1,11 @@
 ﻿#pragma once
 #include "GameSession.h"
+#include <cstdint>
 #include <string>
 #include <unordered_map>
 #include <mutex>
+
+class Player;
 
 class GameServices
 {
@@ -25,6 +28,7 @@ public:
     }
     
     GameSession* GetSessionByToken(const std::string& token);
+    Player* GetPlayerByUid(uint32_t uid);
     void AddSession(std::unique_ptr<GameSession> session);
 
     GameSession* CreateSession();

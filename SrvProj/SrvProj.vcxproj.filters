@@ -31,6 +31,12 @@
     <Filter Include="头文件\Game">
       <UniqueIdentifier>{02fff372-d4a7-4e5f-840f-7e3bb8c9c2bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Command">
+      <UniqueIdentifier>{d52f20f4-06b8-4e8a-9b7d-b32e2f318a15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Command">
+      <UniqueIdentifier>{0c9c3948-5d8f-47d3-a95c-f4da41f98c3f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="proto\proto">
       <UniqueIdentifier>{8846eca2-b288-44a7-8b54-237483bccb21}</UniqueIdentifier>
     </Filter>
@@ -942,6 +948,12 @@
     <ClCompile Include="Handlers\Activity.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
+    <ClCompile Include="Handlers\PlayerHandler.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Mail.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
     <ClCompile Include="Game\ActivityMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
@@ -953,6 +965,12 @@
     </ClCompile>
     <ClCompile Include="Game\CharacterMgr.cpp">
       <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\BasicCommands.cpp">
+      <Filter>源文件\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\CommandMgr.cpp">
+      <Filter>源文件\Command</Filter>
     </ClCompile>
     <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc">
       <Filter>proto\ServerProto_cpp</Filter>
@@ -1005,6 +1023,9 @@
     <ClCompile Include="Game\InventoryMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\MailMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Game\QuestMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
@@ -1044,6 +1065,12 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Login.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Mail.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Player.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Quest.h">
@@ -1931,6 +1958,12 @@
     <ClInclude Include="Game\CharacterMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Command\BasicCommands.h">
+      <Filter>头文件\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\CommandMgr.h">
+      <Filter>头文件\Command</Filter>
+    </ClInclude>
     <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h">
       <Filter>proto\ServerProto_cpp</Filter>
     </ClInclude>
@@ -1953,6 +1986,9 @@
       <Filter>proto\table_cpp</Filter>
     </ClInclude>
     <ClInclude Include="Game\InventoryMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MailMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\QuestMgr.h">

@@ -66,3 +66,5 @@ private:
 
     void AddPacketListToMe(google::protobuf::Message* payload);
 };
+
+std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Message* payload = nullptr);

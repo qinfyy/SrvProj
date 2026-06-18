@@ -30,6 +30,12 @@ public:
     const ServerProto::GameDiscInfoBin* GetDiscById(int id) const;
     bool HasDisc(int id) const;
 
+    bool ApplyCharacterCommandProperties(ServerProto::CharacterInfo& character, int level, int advance, int talent, int skill, int affinity);
+    bool ApplyDiscCommandProperties(ServerProto::GameDiscInfoBin& disc, int level, int phase, int star);
+    void AddCharacterChange(proto::ChangeInfo& change, const ServerProto::CharacterInfo& character) const;
+    void AddDiscChange(proto::ChangeInfo& change, const ServerProto::GameDiscInfoBin& disc) const;
+    void TriggerCharacterAchievements(const ServerProto::CharacterInfo& character);
+
     void EncodePlayerInfo(proto::PlayerInfo& out) const override;
     int GetNewPhoneMessageCount() const;
 

@@ -1,6 +1,7 @@
 ﻿#include "AchievementMgr.h"
 
 #include "Player.h"
+#include "InventoryMgr.h"
 #include "../Logger.h"
 #include "../Resources/BinClass/AchievementsRes.h"
 #include "../Resources/GameData.h"
@@ -20,12 +21,6 @@
 #endif
 
 namespace {
-int64_t NowSeconds()
-{
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
 void AddItemChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
 {
     if (tid == 0 || qty == 0)
@@ -317,7 +312,7 @@ bool AchievementMgr::UpdateAchievement(
     progress->set_cur(nextCur);
     if (max > 0 && nextCur >= max)
     {
-        achievement->set_completed(NowSeconds());
+        achievement->set_completed(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
         achievement->set_status(1);
         completed = true;
     }
@@ -521,7 +516,7 @@ bool AchievementMgr::ClaimRewards(const google::protobuf::RepeatedField<uint32_t
 
         if (auto it = GameData::AchievementDataTable.find(std::to_string(id)); it != GameData::AchievementDataTable.end())
         {
-            AddItemChange(out, static_cast<uint32_t>(it->second.Tid1), it->second.Qty1);
+            GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.Tid1), it->second.Qty1, &out);
         }
 
         achievement->set_claimed(true);
