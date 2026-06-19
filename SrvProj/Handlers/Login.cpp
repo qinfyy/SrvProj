@@ -160,14 +160,6 @@ std::string energy_info_req__Handler(GameSession* session, const std::string& re
     return EncodeReply(session, energy_info_succeed_ack, &energy);
 }
 
-std::string mall_package_list_req__Handler(GameSession* session, const std::string& req) {
-    if (!session || !session->HasPlayer()) {
-        return EncodeReply(session, mall_package_list_failed_ack);
-    }
-
-    return EncodeReply(session, mall_package_list_succeed_ack);
-}
-
 std::string potential_preselection_list_req__Handler(GameSession* session, const std::string& req) {
     if (!session || !session->HasPlayer()) {
         return EncodeReply(session, potential_preselection_list_failed_ack);

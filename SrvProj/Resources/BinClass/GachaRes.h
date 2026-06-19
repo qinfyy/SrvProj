@@ -2,6 +2,8 @@
 
 #include "../ResBase.h"
 #include "../ResourceDerivedData.h"
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 #include <memory>
 #include <string>
@@ -14,6 +16,8 @@ public:
     std::string GetId() const override { return std::to_string((Group << 16) | (Times & 0xFFFF)); }
     void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
+    static int GetProb(int group, int times, int defaultProb);
+    static int GetMaxProb();
 
     // 序列化字段
 
@@ -24,14 +28,54 @@ public:
     // 非序列化字段
 };
 
+class GachaPkgRes : public ResBase {
+public:
+    GachaPkgRes() = default;
+    ~GachaPkgRes() = default;
+
+    std::string GetId() const override { return std::to_string(PkgId) + ":" + std::to_string(GoodsId); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    static void ClearPackages();
+    static const WeightedList<int>* GetPackageById(int packageId);
+
+    // 序列化字段
+
+    int PkgId;
+    int GoodsId;
+    int Weight;
+
+    // 非序列化字段
+
+    static std::unordered_map<int, WeightedList<int>> Packages;
+};
+
 class GachaRes : public ResBase {
 public:
+    enum class GachaPackageType {
+        A,
+        AUp,
+        B,
+        BUp,
+        C
+    };
+
+    struct GachaPackage {
+        GachaPackageType Type = GachaPackageType::C;
+        int Id = 0;
+    };
+
     GachaRes() = default;
     ~GachaRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
+    bool CanGuarantee() const { return GuaranteeTimes > 0; }
+    bool IsActiveAt(long long now) const { return Valid && now >= StartTimeSeconds && now <= EndTimeSeconds; }
+    bool ContainsAllowedCoinItem(int itemId) const { return AllowedCoinItems.find(itemId) != AllowedCoinItems.end(); }
+    int GetDisplayAUpGuaranteeTimes() const;
 
     // 序列化字段
 
@@ -56,6 +100,19 @@ public:
     int BGuaranteePkg;
 
     // 非序列化字段
+
+    WeightedList<GachaPackage> PackageA;
+    WeightedList<GachaPackage> PackageB;
+    WeightedList<GachaPackage> PackageC;
+    std::unordered_set<int> AllowedCoinItems;
+    long long StartTimeSeconds = 0;
+    long long EndTimeSeconds = 0;
+    bool Valid = true;
+
+private:
+    bool HasValidPackage(int packageId) const;
+    bool IsSpinConfigValid() const;
+    void MarkInvalid(const std::string& message);
 };
 
 class GachaNewbieRes : public ResBase {

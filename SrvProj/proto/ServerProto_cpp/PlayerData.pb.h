@@ -97,6 +97,38 @@ class CharacterInfo;
 struct CharacterInfoDefaultTypeInternal;
 extern CharacterInfoDefaultTypeInternal _CharacterInfo_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull CharacterInfo_class_data_;
+class GachaBannerInfoBin;
+struct GachaBannerInfoBinDefaultTypeInternal;
+extern GachaBannerInfoBinDefaultTypeInternal _GachaBannerInfoBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaBannerInfoBin_class_data_;
+class GachaCardGroupBin;
+struct GachaCardGroupBinDefaultTypeInternal;
+extern GachaCardGroupBinDefaultTypeInternal _GachaCardGroupBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaCardGroupBin_class_data_;
+class GachaCompBin;
+struct GachaCompBinDefaultTypeInternal;
+extern GachaCompBinDefaultTypeInternal _GachaCompBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_class_data_;
+class GachaCompBin_BannersEntry_DoNotUse;
+struct GachaCompBin_BannersEntry_DoNotUseDefaultTypeInternal;
+extern GachaCompBin_BannersEntry_DoNotUseDefaultTypeInternal _GachaCompBin_BannersEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_BannersEntry_DoNotUse_class_data_;
+class GachaCompBin_NewbieStatesEntry_DoNotUse;
+struct GachaCompBin_NewbieStatesEntry_DoNotUseDefaultTypeInternal;
+extern GachaCompBin_NewbieStatesEntry_DoNotUseDefaultTypeInternal _GachaCompBin_NewbieStatesEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_;
+class GachaCompBin_PityStatesEntry_DoNotUse;
+struct GachaCompBin_PityStatesEntry_DoNotUseDefaultTypeInternal;
+extern GachaCompBin_PityStatesEntry_DoNotUseDefaultTypeInternal _GachaCompBin_PityStatesEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_PityStatesEntry_DoNotUse_class_data_;
+class GachaHistoryBin;
+struct GachaHistoryBinDefaultTypeInternal;
+extern GachaHistoryBinDefaultTypeInternal _GachaHistoryBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaHistoryBin_class_data_;
+class GachaPityStateBin;
+struct GachaPityStateBinDefaultTypeInternal;
+extern GachaPityStateBinDefaultTypeInternal _GachaPityStateBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull GachaPityStateBin_class_data_;
 class GameDiscInfoBin;
 struct GameDiscInfoBinDefaultTypeInternal;
 extern GameDiscInfoBinDefaultTypeInternal _GameDiscInfoBin_default_instance_;
@@ -105,14 +137,34 @@ class InventoryCompBin;
 struct InventoryCompBinDefaultTypeInternal;
 extern InventoryCompBinDefaultTypeInternal _InventoryCompBin_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_class_data_;
+class InventoryCompBin_GemMaidenClaimedEntry_DoNotUse;
+struct InventoryCompBin_GemMaidenClaimedEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_GemMaidenClaimedEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_;
 class InventoryCompBin_ItemsEntry_DoNotUse;
 struct InventoryCompBin_ItemsEntry_DoNotUseDefaultTypeInternal;
 extern InventoryCompBin_ItemsEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ItemsEntry_DoNotUse_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ItemsEntry_DoNotUse_class_data_;
+class InventoryCompBin_MallBuyCountEntry_DoNotUse;
+struct InventoryCompBin_MallBuyCountEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_MallBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_MallBuyCountEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_;
+class InventoryCompBin_MallPackageBuyCountEntry_DoNotUse;
+struct InventoryCompBin_MallPackageBuyCountEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_MallPackageBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_;
+class InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse;
+struct InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_;
 class InventoryCompBin_ResourcesEntry_DoNotUse;
 struct InventoryCompBin_ResourcesEntry_DoNotUseDefaultTypeInternal;
 extern InventoryCompBin_ResourcesEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ResourcesEntry_DoNotUse_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ResourcesEntry_DoNotUse_class_data_;
+class InventoryCompBin_ShopBuyCountEntry_DoNotUse;
+struct InventoryCompBin_ShopBuyCountEntry_DoNotUseDefaultTypeInternal;
+extern InventoryCompBin_ShopBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ShopBuyCountEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_;
 class MailAttachmentBin;
 struct MailAttachmentBinDefaultTypeInternal;
 extern MailAttachmentBinDefaultTypeInternal _MailAttachmentBin_default_instance_;
@@ -125,10 +177,22 @@ class MailInfoBin;
 struct MailInfoBinDefaultTypeInternal;
 extern MailInfoBinDefaultTypeInternal _MailInfoBin_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull MailInfoBin_class_data_;
+class NewbieGachaStateBin;
+struct NewbieGachaStateBinDefaultTypeInternal;
+extern NewbieGachaStateBinDefaultTypeInternal _NewbieGachaStateBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull NewbieGachaStateBin_class_data_;
 class PlayerBasicCompBin;
 struct PlayerBasicCompBinDefaultTypeInternal;
 extern PlayerBasicCompBinDefaultTypeInternal _PlayerBasicCompBin_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_class_data_;
+class PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse;
+struct PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUseDefaultTypeInternal;
+extern PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUseDefaultTypeInternal _PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_;
+class PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse;
+struct PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUseDefaultTypeInternal;
+extern PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUseDefaultTypeInternal _PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_;
 class PlayerSaveData;
 struct PlayerSaveDataDefaultTypeInternal;
 extern PlayerSaveDataDefaultTypeInternal _PlayerSaveData_default_instance_;
@@ -360,447 +424,82 @@ class QuestProgressBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull QuestProgressBin_class_data_;
 // -------------------------------------------------------------------
 
-class PlayerBasicCompBin final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:ServerProto.PlayerBasicCompBin) */ {
+class PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
  public:
-  inline PlayerBasicCompBin() : PlayerBasicCompBin(nullptr) {}
-  ~PlayerBasicCompBin() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(PlayerBasicCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(PlayerBasicCompBin));
-  }
-#endif
-
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse();
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR PlayerBasicCompBin(::google::protobuf::internal::ConstantInitialized);
-
-  inline PlayerBasicCompBin(const PlayerBasicCompBin& from) : PlayerBasicCompBin(nullptr, from) {}
-  inline PlayerBasicCompBin(PlayerBasicCompBin&& from) noexcept
-      : PlayerBasicCompBin(nullptr, ::std::move(from)) {}
-  inline PlayerBasicCompBin& operator=(const PlayerBasicCompBin& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline PlayerBasicCompBin& operator=(PlayerBasicCompBin&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
+  explicit PROTOBUF_CONSTEXPR PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_default_instance_;
   }
 
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
 
-  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const PlayerBasicCompBin& default_instance() {
-    return *reinterpret_cast<const PlayerBasicCompBin*>(
-        &_PlayerBasicCompBin_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 19;
-  friend void swap(PlayerBasicCompBin& a, PlayerBasicCompBin& b) { a.Swap(&b); }
-  inline void Swap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
+  static constexpr auto InternalGenerateClassData_();
 
-  // implements Message ----------------------------------------------
-
-  PlayerBasicCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<PlayerBasicCompBin>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const PlayerBasicCompBin& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const PlayerBasicCompBin& from) { PlayerBasicCompBin::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
-                        const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
-      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
-      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
-      ::uint8_t* PROTOBUF_NONNULL target,
-      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
-      ::uint8_t* PROTOBUF_NONNULL target,
-      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(PlayerBasicCompBin* PROTOBUF_NONNULL other);
  private:
-  template <typename T>
-  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "ServerProto.PlayerBasicCompBin"; }
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
 
-  explicit PlayerBasicCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
-  PlayerBasicCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const PlayerBasicCompBin& from);
-  PlayerBasicCompBin(
-      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, PlayerBasicCompBin&& from) noexcept
-      : PlayerBasicCompBin(arena) {
-    *this = ::std::move(from);
-  }
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 73,
+                                   2>
+      _table_;
+
   const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
   static void* PROTOBUF_NONNULL PlacementNew_(
       const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
       ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
   static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
 
+class PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
  public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_default_instance_;
+  }
+
+
   static constexpr auto InternalGenerateClassData_();
 
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kHonorFieldNumber = 11,
-    kShowCharsFieldNumber = 12,
-    kBoardsFieldNumber = 13,
-    kNameFieldNumber = 3,
-    kSignatureFieldNumber = 4,
-    kCreateTimeFieldNumber = 2,
-    kGenderFieldNumber = 5,
-    kHeadIconFieldNumber = 6,
-    kSkinIdFieldNumber = 7,
-    kTitlePrefixFieldNumber = 8,
-    kMusicFieldNumber = 10,
-    kTitleSuffixFieldNumber = 9,
-    kLevelFieldNumber = 14,
-    kExpFieldNumber = 15,
-    kEnergyFieldNumber = 16,
-    kEnergyLastUpdateFieldNumber = 17,
-    kLastEpochDayFieldNumber = 19,
-    kLastLoginFieldNumber = 20,
-    kSignInIndexFieldNumber = 18,
-  };
-  // repeated int32 honor = 11;
-  int honor_size() const;
-  private:
-  int _internal_honor_size() const;
-
-  public:
-  void clear_honor() ;
-  ::int32_t honor(int index) const;
-  void set_honor(int index, ::int32_t value);
-  void add_honor(::int32_t value);
-  const ::google::protobuf::RepeatedField<::int32_t>& honor() const;
-  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL mutable_honor();
-
-  private:
-  const ::google::protobuf::RepeatedField<::int32_t>& _internal_honor() const;
-  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_honor();
-
-  public:
-  // repeated int32 showChars = 12;
-  int showchars_size() const;
-  private:
-  int _internal_showchars_size() const;
-
-  public:
-  void clear_showchars() ;
-  ::int32_t showchars(int index) const;
-  void set_showchars(int index, ::int32_t value);
-  void add_showchars(::int32_t value);
-  const ::google::protobuf::RepeatedField<::int32_t>& showchars() const;
-  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL mutable_showchars();
-
-  private:
-  const ::google::protobuf::RepeatedField<::int32_t>& _internal_showchars() const;
-  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_showchars();
-
-  public:
-  // repeated int32 boards = 13;
-  int boards_size() const;
-  private:
-  int _internal_boards_size() const;
-
-  public:
-  void clear_boards() ;
-  ::int32_t boards(int index) const;
-  void set_boards(int index, ::int32_t value);
-  void add_boards(::int32_t value);
-  const ::google::protobuf::RepeatedField<::int32_t>& boards() const;
-  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL mutable_boards();
-
-  private:
-  const ::google::protobuf::RepeatedField<::int32_t>& _internal_boards() const;
-  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_boards();
-
-  public:
-  // string name = 3;
-  void clear_name() ;
-  const ::std::string& name() const;
-  template <typename Arg_ = const ::std::string&, typename... Args_>
-  void set_name(Arg_&& arg, Args_... args);
-  ::std::string* PROTOBUF_NONNULL mutable_name();
-  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_name();
-  void set_allocated_name(::std::string* PROTOBUF_NULLABLE value);
-
-  private:
-  const ::std::string& _internal_name() const;
-  PROTOBUF_ALWAYS_INLINE void _internal_set_name(const ::std::string& value);
-  ::std::string* PROTOBUF_NONNULL _internal_mutable_name();
-
-  public:
-  // string signature = 4;
-  void clear_signature() ;
-  const ::std::string& signature() const;
-  template <typename Arg_ = const ::std::string&, typename... Args_>
-  void set_signature(Arg_&& arg, Args_... args);
-  ::std::string* PROTOBUF_NONNULL mutable_signature();
-  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_signature();
-  void set_allocated_signature(::std::string* PROTOBUF_NULLABLE value);
-
-  private:
-  const ::std::string& _internal_signature() const;
-  PROTOBUF_ALWAYS_INLINE void _internal_set_signature(const ::std::string& value);
-  ::std::string* PROTOBUF_NONNULL _internal_mutable_signature();
-
-  public:
-  // int64 createTime = 2;
-  void clear_createtime() ;
-  ::int64_t createtime() const;
-  void set_createtime(::int64_t value);
-
-  private:
-  ::int64_t _internal_createtime() const;
-  void _internal_set_createtime(::int64_t value);
-
-  public:
-  // bool gender = 5;
-  void clear_gender() ;
-  bool gender() const;
-  void set_gender(bool value);
-
-  private:
-  bool _internal_gender() const;
-  void _internal_set_gender(bool value);
-
-  public:
-  // int32 headIcon = 6;
-  void clear_headicon() ;
-  ::int32_t headicon() const;
-  void set_headicon(::int32_t value);
-
-  private:
-  ::int32_t _internal_headicon() const;
-  void _internal_set_headicon(::int32_t value);
-
-  public:
-  // int32 skinId = 7;
-  void clear_skinid() ;
-  ::int32_t skinid() const;
-  void set_skinid(::int32_t value);
-
-  private:
-  ::int32_t _internal_skinid() const;
-  void _internal_set_skinid(::int32_t value);
-
-  public:
-  // int32 titlePrefix = 8;
-  void clear_titleprefix() ;
-  ::int32_t titleprefix() const;
-  void set_titleprefix(::int32_t value);
-
-  private:
-  ::int32_t _internal_titleprefix() const;
-  void _internal_set_titleprefix(::int32_t value);
-
-  public:
-  // int64 music = 10;
-  void clear_music() ;
-  ::int64_t music() const;
-  void set_music(::int64_t value);
-
-  private:
-  ::int64_t _internal_music() const;
-  void _internal_set_music(::int64_t value);
-
-  public:
-  // int32 titleSuffix = 9;
-  void clear_titlesuffix() ;
-  ::int32_t titlesuffix() const;
-  void set_titlesuffix(::int32_t value);
-
-  private:
-  ::int32_t _internal_titlesuffix() const;
-  void _internal_set_titlesuffix(::int32_t value);
-
-  public:
-  // int32 level = 14;
-  void clear_level() ;
-  ::int32_t level() const;
-  void set_level(::int32_t value);
-
-  private:
-  ::int32_t _internal_level() const;
-  void _internal_set_level(::int32_t value);
-
-  public:
-  // int32 exp = 15;
-  void clear_exp() ;
-  ::int32_t exp() const;
-  void set_exp(::int32_t value);
-
-  private:
-  ::int32_t _internal_exp() const;
-  void _internal_set_exp(::int32_t value);
-
-  public:
-  // int32 energy = 16;
-  void clear_energy() ;
-  ::int32_t energy() const;
-  void set_energy(::int32_t value);
-
-  private:
-  ::int32_t _internal_energy() const;
-  void _internal_set_energy(::int32_t value);
-
-  public:
-  // int64 energyLastUpdate = 17;
-  void clear_energylastupdate() ;
-  ::int64_t energylastupdate() const;
-  void set_energylastupdate(::int64_t value);
-
-  private:
-  ::int64_t _internal_energylastupdate() const;
-  void _internal_set_energylastupdate(::int64_t value);
-
-  public:
-  // int64 lastEpochDay = 19;
-  void clear_lastepochday() ;
-  ::int64_t lastepochday() const;
-  void set_lastepochday(::int64_t value);
-
-  private:
-  ::int64_t _internal_lastepochday() const;
-  void _internal_set_lastepochday(::int64_t value);
-
-  public:
-  // int64 lastLogin = 20;
-  void clear_lastlogin() ;
-  ::int64_t lastlogin() const;
-  void set_lastlogin(::int64_t value);
-
-  private:
-  ::int64_t _internal_lastlogin() const;
-  void _internal_set_lastlogin(::int64_t value);
-
-  public:
-  // int32 signInIndex = 18;
-  void clear_signinindex() ;
-  ::int32_t signinindex() const;
-  void set_signinindex(::int32_t value);
-
-  private:
-  ::int32_t _internal_signinindex() const;
-  void _internal_set_signinindex(::int32_t value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:ServerProto.PlayerBasicCompBin)
  private:
-  class _Internal;
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<5, 19,
-                                   0, 68,
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 69,
                                    2>
       _table_;
 
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(
-        ::google::protobuf::internal::InternalVisibility visibility,
-        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
-    inline explicit Impl_(
-        ::google::protobuf::internal::InternalVisibility visibility,
-        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-        const PlayerBasicCompBin& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::RepeatedField<::int32_t> honor_;
-    ::google::protobuf::internal::CachedSize _honor_cached_byte_size_;
-    ::google::protobuf::RepeatedField<::int32_t> showchars_;
-    ::google::protobuf::internal::CachedSize _showchars_cached_byte_size_;
-    ::google::protobuf::RepeatedField<::int32_t> boards_;
-    ::google::protobuf::internal::CachedSize _boards_cached_byte_size_;
-    ::google::protobuf::internal::ArenaStringPtr name_;
-    ::google::protobuf::internal::ArenaStringPtr signature_;
-    ::int64_t createtime_;
-    bool gender_;
-    ::int32_t headicon_;
-    ::int32_t skinid_;
-    ::int32_t titleprefix_;
-    ::int64_t music_;
-    ::int32_t titlesuffix_;
-    ::int32_t level_;
-    ::int32_t exp_;
-    ::int32_t energy_;
-    ::int64_t energylastupdate_;
-    ::int64_t lastepochday_;
-    ::int64_t lastlogin_;
-    ::int32_t signinindex_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_PlayerData_2eproto;
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
 };
-
-extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_class_data_;
+extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_;
 // -------------------------------------------------------------------
 
 class MailAttachmentBin final : public ::google::protobuf::Message
@@ -858,7 +557,7 @@ class MailAttachmentBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const MailAttachmentBin*>(
         &_MailAttachmentBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 16;
+  static constexpr int kIndexInFileMessages = 21;
   friend void swap(MailAttachmentBin& a, MailAttachmentBin& b) { a.Swap(&b); }
   inline void Swap(MailAttachmentBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1005,6 +704,45 @@ class MailAttachmentBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull MailAttachmentBin_class_data_;
 // -------------------------------------------------------------------
 
+class InventoryCompBin_ShopBuyCountEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  InventoryCompBin_ShopBuyCountEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_ShopBuyCountEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_ShopBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_ShopBuyCountEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
 class InventoryCompBin_ResourcesEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<::uint32_t, ::int64_t,
                              ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
@@ -1044,6 +782,123 @@ class InventoryCompBin_ResourcesEntry_DoNotUse final
 extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ResourcesEntry_DoNotUse_class_data_;
 // -------------------------------------------------------------------
 
+class InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 65,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
+class InventoryCompBin_MallPackageBuyCountEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  InventoryCompBin_MallPackageBuyCountEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_MallPackageBuyCountEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_MallPackageBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 65,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
+class InventoryCompBin_MallBuyCountEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  InventoryCompBin_MallBuyCountEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_MallBuyCountEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_MallBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_MallBuyCountEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 58,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
 class InventoryCompBin_ItemsEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<::uint32_t, ::int64_t,
                              ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
@@ -1081,6 +936,45 @@ class InventoryCompBin_ItemsEntry_DoNotUse final
   static constexpr auto InternalNewImpl_();
 };
 extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_ItemsEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
+class InventoryCompBin_GemMaidenClaimedEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  InventoryCompBin_GemMaidenClaimedEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR InventoryCompBin_GemMaidenClaimedEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit InventoryCompBin_GemMaidenClaimedEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 62,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_;
 // -------------------------------------------------------------------
 
 class GameDiscInfoBin final : public ::google::protobuf::Message
@@ -1138,7 +1032,7 @@ class GameDiscInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GameDiscInfoBin*>(
         &_GameDiscInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 21;
+  static constexpr int kIndexInFileMessages = 37;
   friend void swap(GameDiscInfoBin& a, GameDiscInfoBin& b) { a.Swap(&b); }
   inline void Swap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1355,6 +1249,892 @@ class GameDiscInfoBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull GameDiscInfoBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaPityStateBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.GachaPityStateBin) */ {
+ public:
+  inline GachaPityStateBin() : GachaPityStateBin(nullptr) {}
+  ~GachaPityStateBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GachaPityStateBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GachaPityStateBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaPityStateBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline GachaPityStateBin(const GachaPityStateBin& from) : GachaPityStateBin(nullptr, from) {}
+  inline GachaPityStateBin(GachaPityStateBin&& from) noexcept
+      : GachaPityStateBin(nullptr, ::std::move(from)) {}
+  inline GachaPityStateBin& operator=(const GachaPityStateBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GachaPityStateBin& operator=(GachaPityStateBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GachaPityStateBin& default_instance() {
+    return *reinterpret_cast<const GachaPityStateBin*>(
+        &_GachaPityStateBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 25;
+  friend void swap(GachaPityStateBin& a, GachaPityStateBin& b) { a.Swap(&b); }
+  inline void Swap(GachaPityStateBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GachaPityStateBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GachaPityStateBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GachaPityStateBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GachaPityStateBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GachaPityStateBin& from) { GachaPityStateBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GachaPityStateBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.GachaPityStateBin"; }
+
+  explicit GachaPityStateBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  GachaPityStateBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaPityStateBin& from);
+  GachaPityStateBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, GachaPityStateBin&& from) noexcept
+      : GachaPityStateBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMissTimesAFieldNumber = 1,
+    kMissTimesUpAFieldNumber = 2,
+    kMissTimesBFieldNumber = 3,
+    kBGuaranteeDebtFieldNumber = 4,
+  };
+  // uint32 missTimesA = 1;
+  void clear_misstimesa() ;
+  ::uint32_t misstimesa() const;
+  void set_misstimesa(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_misstimesa() const;
+  void _internal_set_misstimesa(::uint32_t value);
+
+  public:
+  // uint32 missTimesUpA = 2;
+  void clear_misstimesupa() ;
+  ::uint32_t misstimesupa() const;
+  void set_misstimesupa(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_misstimesupa() const;
+  void _internal_set_misstimesupa(::uint32_t value);
+
+  public:
+  // uint32 missTimesB = 3;
+  void clear_misstimesb() ;
+  ::uint32_t misstimesb() const;
+  void set_misstimesb(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_misstimesb() const;
+  void _internal_set_misstimesb(::uint32_t value);
+
+  public:
+  // bool bGuaranteeDebt = 4;
+  void clear_bguaranteedebt() ;
+  bool bguaranteedebt() const;
+  void set_bguaranteedebt(bool value);
+
+  private:
+  bool _internal_bguaranteedebt() const;
+  void _internal_set_bguaranteedebt(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.GachaPityStateBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 4,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const GachaPityStateBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t misstimesa_;
+    ::uint32_t misstimesupa_;
+    ::uint32_t misstimesb_;
+    bool bguaranteedebt_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull GachaPityStateBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaHistoryBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.GachaHistoryBin) */ {
+ public:
+  inline GachaHistoryBin() : GachaHistoryBin(nullptr) {}
+  ~GachaHistoryBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GachaHistoryBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GachaHistoryBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaHistoryBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline GachaHistoryBin(const GachaHistoryBin& from) : GachaHistoryBin(nullptr, from) {}
+  inline GachaHistoryBin(GachaHistoryBin&& from) noexcept
+      : GachaHistoryBin(nullptr, ::std::move(from)) {}
+  inline GachaHistoryBin& operator=(const GachaHistoryBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GachaHistoryBin& operator=(GachaHistoryBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GachaHistoryBin& default_instance() {
+    return *reinterpret_cast<const GachaHistoryBin*>(
+        &_GachaHistoryBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 28;
+  friend void swap(GachaHistoryBin& a, GachaHistoryBin& b) { a.Swap(&b); }
+  inline void Swap(GachaHistoryBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GachaHistoryBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GachaHistoryBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GachaHistoryBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GachaHistoryBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GachaHistoryBin& from) { GachaHistoryBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GachaHistoryBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.GachaHistoryBin"; }
+
+  explicit GachaHistoryBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  GachaHistoryBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaHistoryBin& from);
+  GachaHistoryBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, GachaHistoryBin&& from) noexcept
+      : GachaHistoryBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kIdsFieldNumber = 4,
+    kStorageIdFieldNumber = 1,
+    kGachaIdFieldNumber = 2,
+    kTimeFieldNumber = 3,
+  };
+  // repeated uint32 ids = 4;
+  int ids_size() const;
+  private:
+  int _internal_ids_size() const;
+
+  public:
+  void clear_ids() ;
+  ::uint32_t ids(int index) const;
+  void set_ids(int index, ::uint32_t value);
+  void add_ids(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& ids() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_ids();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_ids() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_ids();
+
+  public:
+  // uint32 storageId = 1;
+  void clear_storageid() ;
+  ::uint32_t storageid() const;
+  void set_storageid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_storageid() const;
+  void _internal_set_storageid(::uint32_t value);
+
+  public:
+  // uint32 gachaId = 2;
+  void clear_gachaid() ;
+  ::uint32_t gachaid() const;
+  void set_gachaid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_gachaid() const;
+  void _internal_set_gachaid(::uint32_t value);
+
+  public:
+  // int64 time = 3;
+  void clear_time() ;
+  ::int64_t time() const;
+  void set_time(::int64_t value);
+
+  private:
+  ::int64_t _internal_time() const;
+  void _internal_set_time(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.GachaHistoryBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 4,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const GachaHistoryBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> ids_;
+    ::google::protobuf::internal::CachedSize _ids_cached_byte_size_;
+    ::uint32_t storageid_;
+    ::uint32_t gachaid_;
+    ::int64_t time_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull GachaHistoryBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaCardGroupBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.GachaCardGroupBin) */ {
+ public:
+  inline GachaCardGroupBin() : GachaCardGroupBin(nullptr) {}
+  ~GachaCardGroupBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GachaCardGroupBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GachaCardGroupBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaCardGroupBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline GachaCardGroupBin(const GachaCardGroupBin& from) : GachaCardGroupBin(nullptr, from) {}
+  inline GachaCardGroupBin(GachaCardGroupBin&& from) noexcept
+      : GachaCardGroupBin(nullptr, ::std::move(from)) {}
+  inline GachaCardGroupBin& operator=(const GachaCardGroupBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GachaCardGroupBin& operator=(GachaCardGroupBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GachaCardGroupBin& default_instance() {
+    return *reinterpret_cast<const GachaCardGroupBin*>(
+        &_GachaCardGroupBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 26;
+  friend void swap(GachaCardGroupBin& a, GachaCardGroupBin& b) { a.Swap(&b); }
+  inline void Swap(GachaCardGroupBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GachaCardGroupBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GachaCardGroupBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GachaCardGroupBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GachaCardGroupBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GachaCardGroupBin& from) { GachaCardGroupBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GachaCardGroupBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.GachaCardGroupBin"; }
+
+  explicit GachaCardGroupBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  GachaCardGroupBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaCardGroupBin& from);
+  GachaCardGroupBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, GachaCardGroupBin&& from) noexcept
+      : GachaCardGroupBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kCardsFieldNumber = 1,
+  };
+  // repeated uint32 cards = 1;
+  int cards_size() const;
+  private:
+  int _internal_cards_size() const;
+
+  public:
+  void clear_cards() ;
+  ::uint32_t cards(int index) const;
+  void set_cards(int index, ::uint32_t value);
+  void add_cards(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& cards() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_cards();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_cards() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_cards();
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.GachaCardGroupBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 1,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const GachaCardGroupBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> cards_;
+    ::google::protobuf::internal::CachedSize _cards_cached_byte_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull GachaCardGroupBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaBannerInfoBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.GachaBannerInfoBin) */ {
+ public:
+  inline GachaBannerInfoBin() : GachaBannerInfoBin(nullptr) {}
+  ~GachaBannerInfoBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GachaBannerInfoBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GachaBannerInfoBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaBannerInfoBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline GachaBannerInfoBin(const GachaBannerInfoBin& from) : GachaBannerInfoBin(nullptr, from) {}
+  inline GachaBannerInfoBin(GachaBannerInfoBin&& from) noexcept
+      : GachaBannerInfoBin(nullptr, ::std::move(from)) {}
+  inline GachaBannerInfoBin& operator=(const GachaBannerInfoBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GachaBannerInfoBin& operator=(GachaBannerInfoBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GachaBannerInfoBin& default_instance() {
+    return *reinterpret_cast<const GachaBannerInfoBin*>(
+        &_GachaBannerInfoBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 24;
+  friend void swap(GachaBannerInfoBin& a, GachaBannerInfoBin& b) { a.Swap(&b); }
+  inline void Swap(GachaBannerInfoBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GachaBannerInfoBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GachaBannerInfoBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GachaBannerInfoBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GachaBannerInfoBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GachaBannerInfoBin& from) { GachaBannerInfoBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GachaBannerInfoBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.GachaBannerInfoBin"; }
+
+  explicit GachaBannerInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  GachaBannerInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaBannerInfoBin& from);
+  GachaBannerInfoBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, GachaBannerInfoBin&& from) noexcept
+      : GachaBannerInfoBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kIdFieldNumber = 1,
+    kTotalFieldNumber = 2,
+    kUsedFirstTenFieldNumber = 3,
+    kUsedGuaranteeFieldNumber = 4,
+  };
+  // uint32 id = 1;
+  void clear_id() ;
+  ::uint32_t id() const;
+  void set_id(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_id() const;
+  void _internal_set_id(::uint32_t value);
+
+  public:
+  // uint32 total = 2;
+  void clear_total() ;
+  ::uint32_t total() const;
+  void set_total(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_total() const;
+  void _internal_set_total(::uint32_t value);
+
+  public:
+  // bool usedFirstTen = 3;
+  void clear_usedfirstten() ;
+  bool usedfirstten() const;
+  void set_usedfirstten(bool value);
+
+  private:
+  bool _internal_usedfirstten() const;
+  void _internal_set_usedfirstten(bool value);
+
+  public:
+  // bool usedGuarantee = 4;
+  void clear_usedguarantee() ;
+  bool usedguarantee() const;
+  void set_usedguarantee(bool value);
+
+  private:
+  bool _internal_usedguarantee() const;
+  void _internal_set_usedguarantee(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.GachaBannerInfoBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 4,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const GachaBannerInfoBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t id_;
+    ::uint32_t total_;
+    bool usedfirstten_;
+    bool usedguarantee_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull GachaBannerInfoBin_class_data_;
 // -------------------------------------------------------------------
 
 class CharacterGemPreset final : public ::google::protobuf::Message
@@ -2351,6 +3131,767 @@ class QuestInfoBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull QuestInfoBin_class_data_;
 // -------------------------------------------------------------------
 
+class PlayerBasicCompBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.PlayerBasicCompBin) */ {
+ public:
+  inline PlayerBasicCompBin() : PlayerBasicCompBin(nullptr) {}
+  ~PlayerBasicCompBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(PlayerBasicCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(PlayerBasicCompBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR PlayerBasicCompBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline PlayerBasicCompBin(const PlayerBasicCompBin& from) : PlayerBasicCompBin(nullptr, from) {}
+  inline PlayerBasicCompBin(PlayerBasicCompBin&& from) noexcept
+      : PlayerBasicCompBin(nullptr, ::std::move(from)) {}
+  inline PlayerBasicCompBin& operator=(const PlayerBasicCompBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PlayerBasicCompBin& operator=(PlayerBasicCompBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PlayerBasicCompBin& default_instance() {
+    return *reinterpret_cast<const PlayerBasicCompBin*>(
+        &_PlayerBasicCompBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 35;
+  friend void swap(PlayerBasicCompBin& a, PlayerBasicCompBin& b) { a.Swap(&b); }
+  inline void Swap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PlayerBasicCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<PlayerBasicCompBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const PlayerBasicCompBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const PlayerBasicCompBin& from) { PlayerBasicCompBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(PlayerBasicCompBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.PlayerBasicCompBin"; }
+
+  explicit PlayerBasicCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  PlayerBasicCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const PlayerBasicCompBin& from);
+  PlayerBasicCompBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, PlayerBasicCompBin&& from) noexcept
+      : PlayerBasicCompBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kHonorFieldNumber = 11,
+    kShowCharsFieldNumber = 12,
+    kBoardsFieldNumber = 13,
+    kNameFieldNumber = 3,
+    kSignatureFieldNumber = 4,
+    kCreateTimeFieldNumber = 2,
+    kGenderFieldNumber = 5,
+    kHeadIconFieldNumber = 6,
+    kSkinIdFieldNumber = 7,
+    kTitlePrefixFieldNumber = 8,
+    kMusicFieldNumber = 10,
+    kTitleSuffixFieldNumber = 9,
+    kLevelFieldNumber = 14,
+    kExpFieldNumber = 15,
+    kEnergyFieldNumber = 16,
+    kEnergyLastUpdateFieldNumber = 17,
+    kLastEpochDayFieldNumber = 19,
+    kLastLoginFieldNumber = 20,
+    kSignInIndexFieldNumber = 18,
+    kMonthlyCardExpireDaysFieldNumber = 21,
+    kMonthlyCardLastRewardDaysFieldNumber = 22,
+  };
+  // repeated int32 honor = 11;
+  int honor_size() const;
+  private:
+  int _internal_honor_size() const;
+
+  public:
+  void clear_honor() ;
+  ::int32_t honor(int index) const;
+  void set_honor(int index, ::int32_t value);
+  void add_honor(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& honor() const;
+  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL mutable_honor();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_honor() const;
+  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_honor();
+
+  public:
+  // repeated int32 showChars = 12;
+  int showchars_size() const;
+  private:
+  int _internal_showchars_size() const;
+
+  public:
+  void clear_showchars() ;
+  ::int32_t showchars(int index) const;
+  void set_showchars(int index, ::int32_t value);
+  void add_showchars(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& showchars() const;
+  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL mutable_showchars();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_showchars() const;
+  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_showchars();
+
+  public:
+  // repeated int32 boards = 13;
+  int boards_size() const;
+  private:
+  int _internal_boards_size() const;
+
+  public:
+  void clear_boards() ;
+  ::int32_t boards(int index) const;
+  void set_boards(int index, ::int32_t value);
+  void add_boards(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& boards() const;
+  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL mutable_boards();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_boards() const;
+  ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_boards();
+
+  public:
+  // string name = 3;
+  void clear_name() ;
+  const ::std::string& name() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_name(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_name();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_name();
+  void set_allocated_name(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_name() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_name(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_name();
+
+  public:
+  // string signature = 4;
+  void clear_signature() ;
+  const ::std::string& signature() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_signature(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_signature();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_signature();
+  void set_allocated_signature(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_signature() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_signature(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_signature();
+
+  public:
+  // int64 createTime = 2;
+  void clear_createtime() ;
+  ::int64_t createtime() const;
+  void set_createtime(::int64_t value);
+
+  private:
+  ::int64_t _internal_createtime() const;
+  void _internal_set_createtime(::int64_t value);
+
+  public:
+  // bool gender = 5;
+  void clear_gender() ;
+  bool gender() const;
+  void set_gender(bool value);
+
+  private:
+  bool _internal_gender() const;
+  void _internal_set_gender(bool value);
+
+  public:
+  // int32 headIcon = 6;
+  void clear_headicon() ;
+  ::int32_t headicon() const;
+  void set_headicon(::int32_t value);
+
+  private:
+  ::int32_t _internal_headicon() const;
+  void _internal_set_headicon(::int32_t value);
+
+  public:
+  // int32 skinId = 7;
+  void clear_skinid() ;
+  ::int32_t skinid() const;
+  void set_skinid(::int32_t value);
+
+  private:
+  ::int32_t _internal_skinid() const;
+  void _internal_set_skinid(::int32_t value);
+
+  public:
+  // int32 titlePrefix = 8;
+  void clear_titleprefix() ;
+  ::int32_t titleprefix() const;
+  void set_titleprefix(::int32_t value);
+
+  private:
+  ::int32_t _internal_titleprefix() const;
+  void _internal_set_titleprefix(::int32_t value);
+
+  public:
+  // int64 music = 10;
+  void clear_music() ;
+  ::int64_t music() const;
+  void set_music(::int64_t value);
+
+  private:
+  ::int64_t _internal_music() const;
+  void _internal_set_music(::int64_t value);
+
+  public:
+  // int32 titleSuffix = 9;
+  void clear_titlesuffix() ;
+  ::int32_t titlesuffix() const;
+  void set_titlesuffix(::int32_t value);
+
+  private:
+  ::int32_t _internal_titlesuffix() const;
+  void _internal_set_titlesuffix(::int32_t value);
+
+  public:
+  // int32 level = 14;
+  void clear_level() ;
+  ::int32_t level() const;
+  void set_level(::int32_t value);
+
+  private:
+  ::int32_t _internal_level() const;
+  void _internal_set_level(::int32_t value);
+
+  public:
+  // int32 exp = 15;
+  void clear_exp() ;
+  ::int32_t exp() const;
+  void set_exp(::int32_t value);
+
+  private:
+  ::int32_t _internal_exp() const;
+  void _internal_set_exp(::int32_t value);
+
+  public:
+  // int32 energy = 16;
+  void clear_energy() ;
+  ::int32_t energy() const;
+  void set_energy(::int32_t value);
+
+  private:
+  ::int32_t _internal_energy() const;
+  void _internal_set_energy(::int32_t value);
+
+  public:
+  // int64 energyLastUpdate = 17;
+  void clear_energylastupdate() ;
+  ::int64_t energylastupdate() const;
+  void set_energylastupdate(::int64_t value);
+
+  private:
+  ::int64_t _internal_energylastupdate() const;
+  void _internal_set_energylastupdate(::int64_t value);
+
+  public:
+  // int64 lastEpochDay = 19;
+  void clear_lastepochday() ;
+  ::int64_t lastepochday() const;
+  void set_lastepochday(::int64_t value);
+
+  private:
+  ::int64_t _internal_lastepochday() const;
+  void _internal_set_lastepochday(::int64_t value);
+
+  public:
+  // int64 lastLogin = 20;
+  void clear_lastlogin() ;
+  ::int64_t lastlogin() const;
+  void set_lastlogin(::int64_t value);
+
+  private:
+  ::int64_t _internal_lastlogin() const;
+  void _internal_set_lastlogin(::int64_t value);
+
+  public:
+  // int32 signInIndex = 18;
+  void clear_signinindex() ;
+  ::int32_t signinindex() const;
+  void set_signinindex(::int32_t value);
+
+  private:
+  ::int32_t _internal_signinindex() const;
+  void _internal_set_signinindex(::int32_t value);
+
+  public:
+  // map<string, uint32> monthlyCardExpireDays = 21;
+  int monthlycardexpiredays_size() const;
+  private:
+  int _internal_monthlycardexpiredays_size() const;
+
+  public:
+  void clear_monthlycardexpiredays() ;
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& monthlycardexpiredays() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL mutable_monthlycardexpiredays();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& _internal_monthlycardexpiredays() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_monthlycardexpiredays();
+
+  public:
+  // map<string, uint32> monthlyCardLastRewardDays = 22;
+  int monthlycardlastrewarddays_size() const;
+  private:
+  int _internal_monthlycardlastrewarddays_size() const;
+
+  public:
+  void clear_monthlycardlastrewarddays() ;
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& monthlycardlastrewarddays() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL mutable_monthlycardlastrewarddays();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& _internal_monthlycardlastrewarddays() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_monthlycardlastrewarddays();
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.PlayerBasicCompBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<5, 21,
+                                   2, 114,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const PlayerBasicCompBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::int32_t> honor_;
+    ::google::protobuf::internal::CachedSize _honor_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int32_t> showchars_;
+    ::google::protobuf::internal::CachedSize _showchars_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int32_t> boards_;
+    ::google::protobuf::internal::CachedSize _boards_cached_byte_size_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr signature_;
+    ::int64_t createtime_;
+    bool gender_;
+    ::int32_t headicon_;
+    ::int32_t skinid_;
+    ::int32_t titleprefix_;
+    ::int64_t music_;
+    ::int32_t titlesuffix_;
+    ::int32_t level_;
+    ::int32_t exp_;
+    ::int32_t energy_;
+    ::int64_t energylastupdate_;
+    ::int64_t lastepochday_;
+    ::int64_t lastlogin_;
+    ::int32_t signinindex_;
+    ::google::protobuf::internal::MapField<PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, ::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        monthlycardexpiredays_;
+    ::google::protobuf::internal::MapField<PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, ::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        monthlycardlastrewarddays_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_class_data_;
+// -------------------------------------------------------------------
+
+class NewbieGachaStateBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.NewbieGachaStateBin) */ {
+ public:
+  inline NewbieGachaStateBin() : NewbieGachaStateBin(nullptr) {}
+  ~NewbieGachaStateBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(NewbieGachaStateBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(NewbieGachaStateBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR NewbieGachaStateBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline NewbieGachaStateBin(const NewbieGachaStateBin& from) : NewbieGachaStateBin(nullptr, from) {}
+  inline NewbieGachaStateBin(NewbieGachaStateBin&& from) noexcept
+      : NewbieGachaStateBin(nullptr, ::std::move(from)) {}
+  inline NewbieGachaStateBin& operator=(const NewbieGachaStateBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NewbieGachaStateBin& operator=(NewbieGachaStateBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NewbieGachaStateBin& default_instance() {
+    return *reinterpret_cast<const NewbieGachaStateBin*>(
+        &_NewbieGachaStateBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 27;
+  friend void swap(NewbieGachaStateBin& a, NewbieGachaStateBin& b) { a.Swap(&b); }
+  inline void Swap(NewbieGachaStateBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NewbieGachaStateBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  NewbieGachaStateBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<NewbieGachaStateBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const NewbieGachaStateBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const NewbieGachaStateBin& from) { NewbieGachaStateBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(NewbieGachaStateBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.NewbieGachaStateBin"; }
+
+  explicit NewbieGachaStateBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  NewbieGachaStateBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const NewbieGachaStateBin& from);
+  NewbieGachaStateBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, NewbieGachaStateBin&& from) noexcept
+      : NewbieGachaStateBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kPendingResultFieldNumber = 6,
+    kSavedResultsFieldNumber = 7,
+    kIdFieldNumber = 1,
+    kRemainingSpinCountFieldNumber = 2,
+    kSaveCountFieldNumber = 3,
+    kSelectedResultFieldNumber = 4,
+    kReceivedFieldNumber = 5,
+  };
+  // repeated uint32 pendingResult = 6;
+  int pendingresult_size() const;
+  private:
+  int _internal_pendingresult_size() const;
+
+  public:
+  void clear_pendingresult() ;
+  ::uint32_t pendingresult(int index) const;
+  void set_pendingresult(int index, ::uint32_t value);
+  void add_pendingresult(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& pendingresult() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_pendingresult();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_pendingresult() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_pendingresult();
+
+  public:
+  // repeated .ServerProto.GachaCardGroupBin savedResults = 7;
+  int savedresults_size() const;
+  private:
+  int _internal_savedresults_size() const;
+
+  public:
+  void clear_savedresults() ;
+  ::ServerProto::GachaCardGroupBin* PROTOBUF_NONNULL mutable_savedresults(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>* PROTOBUF_NONNULL mutable_savedresults();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>& _internal_savedresults() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>* PROTOBUF_NONNULL _internal_mutable_savedresults();
+  public:
+  const ::ServerProto::GachaCardGroupBin& savedresults(int index) const;
+  ::ServerProto::GachaCardGroupBin* PROTOBUF_NONNULL add_savedresults();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>& savedresults() const;
+  // uint32 id = 1;
+  void clear_id() ;
+  ::uint32_t id() const;
+  void set_id(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_id() const;
+  void _internal_set_id(::uint32_t value);
+
+  public:
+  // uint32 remainingSpinCount = 2;
+  void clear_remainingspincount() ;
+  ::uint32_t remainingspincount() const;
+  void set_remainingspincount(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_remainingspincount() const;
+  void _internal_set_remainingspincount(::uint32_t value);
+
+  public:
+  // uint32 saveCount = 3;
+  void clear_savecount() ;
+  ::uint32_t savecount() const;
+  void set_savecount(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_savecount() const;
+  void _internal_set_savecount(::uint32_t value);
+
+  public:
+  // int32 selectedResult = 4;
+  void clear_selectedresult() ;
+  ::int32_t selectedresult() const;
+  void set_selectedresult(::int32_t value);
+
+  private:
+  ::int32_t _internal_selectedresult() const;
+  void _internal_set_selectedresult(::int32_t value);
+
+  public:
+  // bool received = 5;
+  void clear_received() ;
+  bool received() const;
+  void set_received(bool value);
+
+  private:
+  bool _internal_received() const;
+  void _internal_set_received(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.NewbieGachaStateBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<3, 7,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const NewbieGachaStateBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> pendingresult_;
+    ::google::protobuf::internal::CachedSize _pendingresult_cached_byte_size_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::GachaCardGroupBin > savedresults_;
+    ::uint32_t id_;
+    ::uint32_t remainingspincount_;
+    ::uint32_t savecount_;
+    ::int32_t selectedresult_;
+    bool received_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull NewbieGachaStateBin_class_data_;
+// -------------------------------------------------------------------
+
 class MailInfoBin final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.MailInfoBin) */ {
  public:
@@ -2406,7 +3947,7 @@ class MailInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const MailInfoBin*>(
         &_MailInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 17;
+  static constexpr int kIndexInFileMessages = 22;
   friend void swap(MailInfoBin& a, MailInfoBin& b) { a.Swap(&b); }
   inline void Swap(MailInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2738,7 +4279,7 @@ class InventoryCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const InventoryCompBin*>(
         &_InventoryCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 15;
+  static constexpr int kIndexInFileMessages = 20;
   friend void swap(InventoryCompBin& a, InventoryCompBin& b) { a.Swap(&b); }
   inline void Swap(InventoryCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2831,6 +4372,11 @@ class InventoryCompBin final : public ::google::protobuf::Message
     kHonorsFieldNumber = 6,
     kItemsFieldNumber = 1,
     kResourcesFieldNumber = 2,
+    kShopBuyCountFieldNumber = 7,
+    kMallBuyCountFieldNumber = 8,
+    kMallPackageBuyCountFieldNumber = 9,
+    kGemMaidenClaimedFieldNumber = 10,
+    kMonthlyCardBuyCountFieldNumber = 11,
   };
   // repeated uint32 skins = 3;
   int skins_size() const;
@@ -2934,12 +4480,87 @@ class InventoryCompBin final : public ::google::protobuf::Message
   ::google::protobuf::Map<::uint32_t, ::int64_t>* PROTOBUF_NONNULL _internal_mutable_resources();
 
   public:
+  // map<uint32, uint32> shopBuyCount = 7;
+  int shopbuycount_size() const;
+  private:
+  int _internal_shopbuycount_size() const;
+
+  public:
+  void clear_shopbuycount() ;
+  const ::google::protobuf::Map<::uint32_t, ::uint32_t>& shopbuycount() const;
+  ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL mutable_shopbuycount();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::uint32_t>& _internal_shopbuycount() const;
+  ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_shopbuycount();
+
+  public:
+  // map<string, uint32> mallBuyCount = 8;
+  int mallbuycount_size() const;
+  private:
+  int _internal_mallbuycount_size() const;
+
+  public:
+  void clear_mallbuycount() ;
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& mallbuycount() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL mutable_mallbuycount();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& _internal_mallbuycount() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_mallbuycount();
+
+  public:
+  // map<string, uint32> mallPackageBuyCount = 9;
+  int mallpackagebuycount_size() const;
+  private:
+  int _internal_mallpackagebuycount_size() const;
+
+  public:
+  void clear_mallpackagebuycount() ;
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& mallpackagebuycount() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL mutable_mallpackagebuycount();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& _internal_mallpackagebuycount() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_mallpackagebuycount();
+
+  public:
+  // map<string, uint32> gemMaidenClaimed = 10;
+  int gemmaidenclaimed_size() const;
+  private:
+  int _internal_gemmaidenclaimed_size() const;
+
+  public:
+  void clear_gemmaidenclaimed() ;
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& gemmaidenclaimed() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL mutable_gemmaidenclaimed();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& _internal_gemmaidenclaimed() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_gemmaidenclaimed();
+
+  public:
+  // map<string, uint32> monthlyCardBuyCount = 11;
+  int monthlycardbuycount_size() const;
+  private:
+  int _internal_monthlycardbuycount_size() const;
+
+  public:
+  void clear_monthlycardbuycount() ;
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& monthlycardbuycount() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL mutable_monthlycardbuycount();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::uint32_t>& _internal_monthlycardbuycount() const;
+  ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_monthlycardbuycount();
+
+  public:
   // @@protoc_insertion_point(class_scope:ServerProto.InventoryCompBin)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 6,
-                                   2, 0,
+  static const ::google::protobuf::internal::TcParseTable<2, 11,
+                                   7, 111,
                                    2>
       _table_;
 
@@ -2976,6 +4597,26 @@ class InventoryCompBin final : public ::google::protobuf::Message
                       ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
                       ::google::protobuf::internal::WireFormatLite::TYPE_INT64>
         resources_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_ShopBuyCountEntry_DoNotUse, ::uint32_t, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        shopbuycount_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_MallBuyCountEntry_DoNotUse, ::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        mallbuycount_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, ::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        mallpackagebuycount_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, ::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        gemmaidenclaimed_;
+    ::google::protobuf::internal::MapField<InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, ::std::string, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        monthlycardbuycount_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2983,6 +4624,84 @@ class InventoryCompBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull InventoryCompBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaCompBin_PityStatesEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  GachaCompBin_PityStatesEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaCompBin_PityStatesEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit GachaCompBin_PityStatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_GachaCompBin_PityStatesEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_PityStatesEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
+class GachaCompBin_BannersEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  GachaCompBin_BannersEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaCompBin_BannersEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit GachaCompBin_BannersEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_GachaCompBin_BannersEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_BannersEntry_DoNotUse_class_data_;
 // -------------------------------------------------------------------
 
 class CharacterGemSlot final : public ::google::protobuf::Message
@@ -3902,7 +5621,7 @@ class MailCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const MailCompBin*>(
         &_MailCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 18;
+  static constexpr int kIndexInFileMessages = 23;
   friend void swap(MailCompBin& a, MailCompBin& b) { a.Swap(&b); }
   inline void Swap(MailCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -4066,6 +5785,45 @@ class MailCompBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull MailCompBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaCompBin_NewbieStatesEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  GachaCompBin_NewbieStatesEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaCompBin_NewbieStatesEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit GachaCompBin_NewbieStatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_GachaCompBin_NewbieStatesEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_;
 // -------------------------------------------------------------------
 
 class CharacterContact final : public ::google::protobuf::Message
@@ -4485,6 +6243,263 @@ class AchievementCompBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull AchievementCompBin_class_data_;
+// -------------------------------------------------------------------
+
+class GachaCompBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.GachaCompBin) */ {
+ public:
+  inline GachaCompBin() : GachaCompBin(nullptr) {}
+  ~GachaCompBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GachaCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GachaCompBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GachaCompBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline GachaCompBin(const GachaCompBin& from) : GachaCompBin(nullptr, from) {}
+  inline GachaCompBin(GachaCompBin&& from) noexcept
+      : GachaCompBin(nullptr, ::std::move(from)) {}
+  inline GachaCompBin& operator=(const GachaCompBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GachaCompBin& operator=(GachaCompBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GachaCompBin& default_instance() {
+    return *reinterpret_cast<const GachaCompBin*>(
+        &_GachaCompBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 32;
+  friend void swap(GachaCompBin& a, GachaCompBin& b) { a.Swap(&b); }
+  inline void Swap(GachaCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GachaCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GachaCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GachaCompBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GachaCompBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GachaCompBin& from) { GachaCompBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GachaCompBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.GachaCompBin"; }
+
+  explicit GachaCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  GachaCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaCompBin& from);
+  GachaCompBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, GachaCompBin&& from) noexcept
+      : GachaCompBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kHistoriesFieldNumber = 4,
+    kBannersFieldNumber = 1,
+    kPityStatesFieldNumber = 2,
+    kNewbieStatesFieldNumber = 3,
+  };
+  // repeated .ServerProto.GachaHistoryBin histories = 4;
+  int histories_size() const;
+  private:
+  int _internal_histories_size() const;
+
+  public:
+  void clear_histories() ;
+  ::ServerProto::GachaHistoryBin* PROTOBUF_NONNULL mutable_histories(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>* PROTOBUF_NONNULL mutable_histories();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>& _internal_histories() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>* PROTOBUF_NONNULL _internal_mutable_histories();
+  public:
+  const ::ServerProto::GachaHistoryBin& histories(int index) const;
+  ::ServerProto::GachaHistoryBin* PROTOBUF_NONNULL add_histories();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>& histories() const;
+  // map<uint32, .ServerProto.GachaBannerInfoBin> banners = 1;
+  int banners_size() const;
+  private:
+  int _internal_banners_size() const;
+
+  public:
+  void clear_banners() ;
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>& banners() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>* PROTOBUF_NONNULL mutable_banners();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>& _internal_banners() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>* PROTOBUF_NONNULL _internal_mutable_banners();
+
+  public:
+  // map<uint32, .ServerProto.GachaPityStateBin> pityStates = 2;
+  int pitystates_size() const;
+  private:
+  int _internal_pitystates_size() const;
+
+  public:
+  void clear_pitystates() ;
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>& pitystates() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>* PROTOBUF_NONNULL mutable_pitystates();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>& _internal_pitystates() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>* PROTOBUF_NONNULL _internal_mutable_pitystates();
+
+  public:
+  // map<uint32, .ServerProto.NewbieGachaStateBin> newbieStates = 3;
+  int newbiestates_size() const;
+  private:
+  int _internal_newbiestates_size() const;
+
+  public:
+  void clear_newbiestates() ;
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>& newbiestates() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>* PROTOBUF_NONNULL mutable_newbiestates();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>& _internal_newbiestates() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>* PROTOBUF_NONNULL _internal_mutable_newbiestates();
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.GachaCompBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 4,
+                                   7, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const GachaCompBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::GachaHistoryBin > histories_;
+    ::google::protobuf::internal::MapField<GachaCompBin_BannersEntry_DoNotUse, ::uint32_t, ::ServerProto::GachaBannerInfoBin,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        banners_;
+    ::google::protobuf::internal::MapField<GachaCompBin_PityStatesEntry_DoNotUse, ::uint32_t, ::ServerProto::GachaPityStateBin,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        pitystates_;
+    ::google::protobuf::internal::MapField<GachaCompBin_NewbieStatesEntry_DoNotUse, ::uint32_t, ::ServerProto::NewbieGachaStateBin,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        newbiestates_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull GachaCompBin_class_data_;
 // -------------------------------------------------------------------
 
 class CharacterInfo final : public ::google::protobuf::Message
@@ -5182,7 +7197,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerSaveData*>(
         &_PlayerSaveData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 20;
+  static constexpr int kIndexInFileMessages = 36;
   friend void swap(PlayerSaveData& a, PlayerSaveData& b) { a.Swap(&b); }
   inline void Swap(PlayerSaveData* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -5275,6 +7290,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     kAchievementCompFieldNumber = 5,
     kInventoryCompFieldNumber = 6,
     kMailCompFieldNumber = 7,
+    kGachaCompFieldNumber = 8,
   };
   // .ServerProto.PlayerBasicCompBin playerdata = 2;
   bool has_playerdata() const;
@@ -5366,12 +7382,27 @@ class PlayerSaveData final : public ::google::protobuf::Message
   ::ServerProto::MailCompBin* PROTOBUF_NONNULL _internal_mutable_mailcomp();
 
   public:
+  // .ServerProto.GachaCompBin gachaComp = 8;
+  bool has_gachacomp() const;
+  void clear_gachacomp() ;
+  const ::ServerProto::GachaCompBin& gachacomp() const;
+  [[nodiscard]] ::ServerProto::GachaCompBin* PROTOBUF_NULLABLE release_gachacomp();
+  ::ServerProto::GachaCompBin* PROTOBUF_NONNULL mutable_gachacomp();
+  void set_allocated_gachacomp(::ServerProto::GachaCompBin* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_gachacomp(::ServerProto::GachaCompBin* PROTOBUF_NULLABLE value);
+  ::ServerProto::GachaCompBin* PROTOBUF_NULLABLE unsafe_arena_release_gachacomp();
+
+  private:
+  const ::ServerProto::GachaCompBin& _internal_gachacomp() const;
+  ::ServerProto::GachaCompBin* PROTOBUF_NONNULL _internal_mutable_gachacomp();
+
+  public:
   // @@protoc_insertion_point(class_scope:ServerProto.PlayerSaveData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<3, 6,
-                                   6, 0,
+  static const ::google::protobuf::internal::TcParseTable<3, 7,
+                                   7, 0,
                                    2>
       _table_;
 
@@ -5398,6 +7429,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     ::ServerProto::AchievementCompBin* PROTOBUF_NULLABLE achievementcomp_;
     ::ServerProto::InventoryCompBin* PROTOBUF_NULLABLE inventorycomp_;
     ::ServerProto::MailCompBin* PROTOBUF_NULLABLE mailcomp_;
+    ::ServerProto::GachaCompBin* PROTOBUF_NULLABLE gachacomp_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -7819,6 +9851,16 @@ AchievementCompBin::_internal_mutable_achievements() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // InventoryCompBin
 
 // map<uint32, int64> items = 1;
@@ -8083,6 +10125,166 @@ inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
 InventoryCompBin::_internal_mutable_honors() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.honors_;
+}
+
+// map<uint32, uint32> shopBuyCount = 7;
+inline int InventoryCompBin::_internal_shopbuycount_size() const {
+  return _internal_shopbuycount().size();
+}
+inline int InventoryCompBin::shopbuycount_size() const {
+  return _internal_shopbuycount_size();
+}
+inline void InventoryCompBin::clear_shopbuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.shopbuycount_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::uint32_t>& InventoryCompBin::_internal_shopbuycount() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.shopbuycount_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::uint32_t>& InventoryCompBin::shopbuycount() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.shopBuyCount)
+  return _internal_shopbuycount();
+}
+inline ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_shopbuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.shopbuycount_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_shopbuycount()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000040U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.shopBuyCount)
+  return _internal_mutable_shopbuycount();
+}
+
+// map<string, uint32> mallBuyCount = 8;
+inline int InventoryCompBin::_internal_mallbuycount_size() const {
+  return _internal_mallbuycount().size();
+}
+inline int InventoryCompBin::mallbuycount_size() const {
+  return _internal_mallbuycount_size();
+}
+inline void InventoryCompBin::clear_mallbuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mallbuycount_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000080U);
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::_internal_mallbuycount() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.mallbuycount_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::mallbuycount() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.mallBuyCount)
+  return _internal_mallbuycount();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_mallbuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.mallbuycount_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_mallbuycount()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000080U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.mallBuyCount)
+  return _internal_mutable_mallbuycount();
+}
+
+// map<string, uint32> mallPackageBuyCount = 9;
+inline int InventoryCompBin::_internal_mallpackagebuycount_size() const {
+  return _internal_mallpackagebuycount().size();
+}
+inline int InventoryCompBin::mallpackagebuycount_size() const {
+  return _internal_mallpackagebuycount_size();
+}
+inline void InventoryCompBin::clear_mallpackagebuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mallpackagebuycount_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000100U);
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::_internal_mallpackagebuycount() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.mallpackagebuycount_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::mallpackagebuycount() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.mallPackageBuyCount)
+  return _internal_mallpackagebuycount();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_mallpackagebuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.mallpackagebuycount_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_mallpackagebuycount()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000100U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.mallPackageBuyCount)
+  return _internal_mutable_mallpackagebuycount();
+}
+
+// map<string, uint32> gemMaidenClaimed = 10;
+inline int InventoryCompBin::_internal_gemmaidenclaimed_size() const {
+  return _internal_gemmaidenclaimed().size();
+}
+inline int InventoryCompBin::gemmaidenclaimed_size() const {
+  return _internal_gemmaidenclaimed_size();
+}
+inline void InventoryCompBin::clear_gemmaidenclaimed() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.gemmaidenclaimed_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000200U);
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::_internal_gemmaidenclaimed() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.gemmaidenclaimed_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::gemmaidenclaimed() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.gemMaidenClaimed)
+  return _internal_gemmaidenclaimed();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_gemmaidenclaimed() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.gemmaidenclaimed_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_gemmaidenclaimed()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000200U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.gemMaidenClaimed)
+  return _internal_mutable_gemmaidenclaimed();
+}
+
+// map<string, uint32> monthlyCardBuyCount = 11;
+inline int InventoryCompBin::_internal_monthlycardbuycount_size() const {
+  return _internal_monthlycardbuycount().size();
+}
+inline int InventoryCompBin::monthlycardbuycount_size() const {
+  return _internal_monthlycardbuycount_size();
+}
+inline void InventoryCompBin::clear_monthlycardbuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.monthlycardbuycount_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000400U);
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::_internal_monthlycardbuycount() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.monthlycardbuycount_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& InventoryCompBin::monthlycardbuycount() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.InventoryCompBin.monthlyCardBuyCount)
+  return _internal_monthlycardbuycount();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::_internal_mutable_monthlycardbuycount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.monthlycardbuycount_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL InventoryCompBin::mutable_monthlycardbuycount()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000400U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.InventoryCompBin.monthlyCardBuyCount)
+  return _internal_mutable_monthlycardbuycount();
 }
 
 // -------------------------------------------------------------------
@@ -8678,6 +10880,798 @@ inline void MailCompBin::_internal_set_welcomemailcreated(bool value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.welcomemailcreated_ = value;
 }
+
+// -------------------------------------------------------------------
+
+// GachaBannerInfoBin
+
+// uint32 id = 1;
+inline void GachaBannerInfoBin::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t GachaBannerInfoBin::id() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaBannerInfoBin.id)
+  return _internal_id();
+}
+inline void GachaBannerInfoBin::set_id(::uint32_t value) {
+  _internal_set_id(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaBannerInfoBin.id)
+}
+inline ::uint32_t GachaBannerInfoBin::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void GachaBannerInfoBin::_internal_set_id(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// uint32 total = 2;
+inline void GachaBannerInfoBin::clear_total() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.total_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t GachaBannerInfoBin::total() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaBannerInfoBin.total)
+  return _internal_total();
+}
+inline void GachaBannerInfoBin::set_total(::uint32_t value) {
+  _internal_set_total(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaBannerInfoBin.total)
+}
+inline ::uint32_t GachaBannerInfoBin::_internal_total() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.total_;
+}
+inline void GachaBannerInfoBin::_internal_set_total(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.total_ = value;
+}
+
+// bool usedFirstTen = 3;
+inline void GachaBannerInfoBin::clear_usedfirstten() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.usedfirstten_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline bool GachaBannerInfoBin::usedfirstten() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaBannerInfoBin.usedFirstTen)
+  return _internal_usedfirstten();
+}
+inline void GachaBannerInfoBin::set_usedfirstten(bool value) {
+  _internal_set_usedfirstten(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaBannerInfoBin.usedFirstTen)
+}
+inline bool GachaBannerInfoBin::_internal_usedfirstten() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.usedfirstten_;
+}
+inline void GachaBannerInfoBin::_internal_set_usedfirstten(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.usedfirstten_ = value;
+}
+
+// bool usedGuarantee = 4;
+inline void GachaBannerInfoBin::clear_usedguarantee() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.usedguarantee_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline bool GachaBannerInfoBin::usedguarantee() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaBannerInfoBin.usedGuarantee)
+  return _internal_usedguarantee();
+}
+inline void GachaBannerInfoBin::set_usedguarantee(bool value) {
+  _internal_set_usedguarantee(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaBannerInfoBin.usedGuarantee)
+}
+inline bool GachaBannerInfoBin::_internal_usedguarantee() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.usedguarantee_;
+}
+inline void GachaBannerInfoBin::_internal_set_usedguarantee(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.usedguarantee_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GachaPityStateBin
+
+// uint32 missTimesA = 1;
+inline void GachaPityStateBin::clear_misstimesa() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.misstimesa_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t GachaPityStateBin::misstimesa() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaPityStateBin.missTimesA)
+  return _internal_misstimesa();
+}
+inline void GachaPityStateBin::set_misstimesa(::uint32_t value) {
+  _internal_set_misstimesa(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaPityStateBin.missTimesA)
+}
+inline ::uint32_t GachaPityStateBin::_internal_misstimesa() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.misstimesa_;
+}
+inline void GachaPityStateBin::_internal_set_misstimesa(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.misstimesa_ = value;
+}
+
+// uint32 missTimesUpA = 2;
+inline void GachaPityStateBin::clear_misstimesupa() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.misstimesupa_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t GachaPityStateBin::misstimesupa() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaPityStateBin.missTimesUpA)
+  return _internal_misstimesupa();
+}
+inline void GachaPityStateBin::set_misstimesupa(::uint32_t value) {
+  _internal_set_misstimesupa(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaPityStateBin.missTimesUpA)
+}
+inline ::uint32_t GachaPityStateBin::_internal_misstimesupa() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.misstimesupa_;
+}
+inline void GachaPityStateBin::_internal_set_misstimesupa(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.misstimesupa_ = value;
+}
+
+// uint32 missTimesB = 3;
+inline void GachaPityStateBin::clear_misstimesb() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.misstimesb_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::uint32_t GachaPityStateBin::misstimesb() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaPityStateBin.missTimesB)
+  return _internal_misstimesb();
+}
+inline void GachaPityStateBin::set_misstimesb(::uint32_t value) {
+  _internal_set_misstimesb(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaPityStateBin.missTimesB)
+}
+inline ::uint32_t GachaPityStateBin::_internal_misstimesb() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.misstimesb_;
+}
+inline void GachaPityStateBin::_internal_set_misstimesb(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.misstimesb_ = value;
+}
+
+// bool bGuaranteeDebt = 4;
+inline void GachaPityStateBin::clear_bguaranteedebt() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.bguaranteedebt_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline bool GachaPityStateBin::bguaranteedebt() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaPityStateBin.bGuaranteeDebt)
+  return _internal_bguaranteedebt();
+}
+inline void GachaPityStateBin::set_bguaranteedebt(bool value) {
+  _internal_set_bguaranteedebt(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaPityStateBin.bGuaranteeDebt)
+}
+inline bool GachaPityStateBin::_internal_bguaranteedebt() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.bguaranteedebt_;
+}
+inline void GachaPityStateBin::_internal_set_bguaranteedebt(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.bguaranteedebt_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GachaCardGroupBin
+
+// repeated uint32 cards = 1;
+inline int GachaCardGroupBin::_internal_cards_size() const {
+  return _internal_cards().size();
+}
+inline int GachaCardGroupBin::cards_size() const {
+  return _internal_cards_size();
+}
+inline void GachaCardGroupBin::clear_cards() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.cards_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t GachaCardGroupBin::cards(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaCardGroupBin.cards)
+  return _internal_cards().Get(index);
+}
+inline void GachaCardGroupBin::set_cards(int index, ::uint32_t value) {
+  _internal_mutable_cards()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaCardGroupBin.cards)
+}
+inline void GachaCardGroupBin::add_cards(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_cards()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.GachaCardGroupBin.cards)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& GachaCardGroupBin::cards() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.GachaCardGroupBin.cards)
+  return _internal_cards();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL GachaCardGroupBin::mutable_cards()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.GachaCardGroupBin.cards)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_cards();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+GachaCardGroupBin::_internal_cards() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.cards_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+GachaCardGroupBin::_internal_mutable_cards() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.cards_;
+}
+
+// -------------------------------------------------------------------
+
+// NewbieGachaStateBin
+
+// uint32 id = 1;
+inline void NewbieGachaStateBin::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::uint32_t NewbieGachaStateBin::id() const {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.id)
+  return _internal_id();
+}
+inline void NewbieGachaStateBin::set_id(::uint32_t value) {
+  _internal_set_id(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.NewbieGachaStateBin.id)
+}
+inline ::uint32_t NewbieGachaStateBin::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void NewbieGachaStateBin::_internal_set_id(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// uint32 remainingSpinCount = 2;
+inline void NewbieGachaStateBin::clear_remainingspincount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.remainingspincount_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::uint32_t NewbieGachaStateBin::remainingspincount() const {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.remainingSpinCount)
+  return _internal_remainingspincount();
+}
+inline void NewbieGachaStateBin::set_remainingspincount(::uint32_t value) {
+  _internal_set_remainingspincount(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.NewbieGachaStateBin.remainingSpinCount)
+}
+inline ::uint32_t NewbieGachaStateBin::_internal_remainingspincount() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.remainingspincount_;
+}
+inline void NewbieGachaStateBin::_internal_set_remainingspincount(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.remainingspincount_ = value;
+}
+
+// uint32 saveCount = 3;
+inline void NewbieGachaStateBin::clear_savecount() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.savecount_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline ::uint32_t NewbieGachaStateBin::savecount() const {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.saveCount)
+  return _internal_savecount();
+}
+inline void NewbieGachaStateBin::set_savecount(::uint32_t value) {
+  _internal_set_savecount(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:ServerProto.NewbieGachaStateBin.saveCount)
+}
+inline ::uint32_t NewbieGachaStateBin::_internal_savecount() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.savecount_;
+}
+inline void NewbieGachaStateBin::_internal_set_savecount(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.savecount_ = value;
+}
+
+// int32 selectedResult = 4;
+inline void NewbieGachaStateBin::clear_selectedresult() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.selectedresult_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline ::int32_t NewbieGachaStateBin::selectedresult() const {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.selectedResult)
+  return _internal_selectedresult();
+}
+inline void NewbieGachaStateBin::set_selectedresult(::int32_t value) {
+  _internal_set_selectedresult(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  // @@protoc_insertion_point(field_set:ServerProto.NewbieGachaStateBin.selectedResult)
+}
+inline ::int32_t NewbieGachaStateBin::_internal_selectedresult() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.selectedresult_;
+}
+inline void NewbieGachaStateBin::_internal_set_selectedresult(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.selectedresult_ = value;
+}
+
+// bool received = 5;
+inline void NewbieGachaStateBin::clear_received() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.received_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline bool NewbieGachaStateBin::received() const {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.received)
+  return _internal_received();
+}
+inline void NewbieGachaStateBin::set_received(bool value) {
+  _internal_set_received(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  // @@protoc_insertion_point(field_set:ServerProto.NewbieGachaStateBin.received)
+}
+inline bool NewbieGachaStateBin::_internal_received() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.received_;
+}
+inline void NewbieGachaStateBin::_internal_set_received(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.received_ = value;
+}
+
+// repeated uint32 pendingResult = 6;
+inline int NewbieGachaStateBin::_internal_pendingresult_size() const {
+  return _internal_pendingresult().size();
+}
+inline int NewbieGachaStateBin::pendingresult_size() const {
+  return _internal_pendingresult_size();
+}
+inline void NewbieGachaStateBin::clear_pendingresult() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pendingresult_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t NewbieGachaStateBin::pendingresult(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.pendingResult)
+  return _internal_pendingresult().Get(index);
+}
+inline void NewbieGachaStateBin::set_pendingresult(int index, ::uint32_t value) {
+  _internal_mutable_pendingresult()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.NewbieGachaStateBin.pendingResult)
+}
+inline void NewbieGachaStateBin::add_pendingresult(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_pendingresult()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.NewbieGachaStateBin.pendingResult)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& NewbieGachaStateBin::pendingresult() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.NewbieGachaStateBin.pendingResult)
+  return _internal_pendingresult();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL NewbieGachaStateBin::mutable_pendingresult()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.NewbieGachaStateBin.pendingResult)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_pendingresult();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+NewbieGachaStateBin::_internal_pendingresult() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pendingresult_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+NewbieGachaStateBin::_internal_mutable_pendingresult() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.pendingresult_;
+}
+
+// repeated .ServerProto.GachaCardGroupBin savedResults = 7;
+inline int NewbieGachaStateBin::_internal_savedresults_size() const {
+  return _internal_savedresults().size();
+}
+inline int NewbieGachaStateBin::savedresults_size() const {
+  return _internal_savedresults_size();
+}
+inline void NewbieGachaStateBin::clear_savedresults() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.savedresults_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::ServerProto::GachaCardGroupBin* PROTOBUF_NONNULL NewbieGachaStateBin::mutable_savedresults(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.NewbieGachaStateBin.savedResults)
+  return _internal_mutable_savedresults()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>* PROTOBUF_NONNULL NewbieGachaStateBin::mutable_savedresults()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.NewbieGachaStateBin.savedResults)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_savedresults();
+}
+inline const ::ServerProto::GachaCardGroupBin& NewbieGachaStateBin::savedresults(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.NewbieGachaStateBin.savedResults)
+  return _internal_savedresults().Get(index);
+}
+inline ::ServerProto::GachaCardGroupBin* PROTOBUF_NONNULL NewbieGachaStateBin::add_savedresults()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::GachaCardGroupBin* _add =
+      _internal_mutable_savedresults()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:ServerProto.NewbieGachaStateBin.savedResults)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>& NewbieGachaStateBin::savedresults() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.NewbieGachaStateBin.savedResults)
+  return _internal_savedresults();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>&
+NewbieGachaStateBin::_internal_savedresults() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.savedresults_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::GachaCardGroupBin>* PROTOBUF_NONNULL
+NewbieGachaStateBin::_internal_mutable_savedresults() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.savedresults_;
+}
+
+// -------------------------------------------------------------------
+
+// GachaHistoryBin
+
+// uint32 storageId = 1;
+inline void GachaHistoryBin::clear_storageid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.storageid_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t GachaHistoryBin::storageid() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaHistoryBin.storageId)
+  return _internal_storageid();
+}
+inline void GachaHistoryBin::set_storageid(::uint32_t value) {
+  _internal_set_storageid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaHistoryBin.storageId)
+}
+inline ::uint32_t GachaHistoryBin::_internal_storageid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.storageid_;
+}
+inline void GachaHistoryBin::_internal_set_storageid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.storageid_ = value;
+}
+
+// uint32 gachaId = 2;
+inline void GachaHistoryBin::clear_gachaid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.gachaid_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::uint32_t GachaHistoryBin::gachaid() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaHistoryBin.gachaId)
+  return _internal_gachaid();
+}
+inline void GachaHistoryBin::set_gachaid(::uint32_t value) {
+  _internal_set_gachaid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaHistoryBin.gachaId)
+}
+inline ::uint32_t GachaHistoryBin::_internal_gachaid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.gachaid_;
+}
+inline void GachaHistoryBin::_internal_set_gachaid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.gachaid_ = value;
+}
+
+// int64 time = 3;
+inline void GachaHistoryBin::clear_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.time_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::int64_t GachaHistoryBin::time() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaHistoryBin.time)
+  return _internal_time();
+}
+inline void GachaHistoryBin::set_time(::int64_t value) {
+  _internal_set_time(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaHistoryBin.time)
+}
+inline ::int64_t GachaHistoryBin::_internal_time() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.time_;
+}
+inline void GachaHistoryBin::_internal_set_time(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.time_ = value;
+}
+
+// repeated uint32 ids = 4;
+inline int GachaHistoryBin::_internal_ids_size() const {
+  return _internal_ids().size();
+}
+inline int GachaHistoryBin::ids_size() const {
+  return _internal_ids_size();
+}
+inline void GachaHistoryBin::clear_ids() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ids_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t GachaHistoryBin::ids(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaHistoryBin.ids)
+  return _internal_ids().Get(index);
+}
+inline void GachaHistoryBin::set_ids(int index, ::uint32_t value) {
+  _internal_mutable_ids()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.GachaHistoryBin.ids)
+}
+inline void GachaHistoryBin::add_ids(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_ids()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.GachaHistoryBin.ids)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& GachaHistoryBin::ids() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.GachaHistoryBin.ids)
+  return _internal_ids();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL GachaHistoryBin::mutable_ids()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.GachaHistoryBin.ids)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_ids();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+GachaHistoryBin::_internal_ids() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.ids_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+GachaHistoryBin::_internal_mutable_ids() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.ids_;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// GachaCompBin
+
+// map<uint32, .ServerProto.GachaBannerInfoBin> banners = 1;
+inline int GachaCompBin::_internal_banners_size() const {
+  return _internal_banners().size();
+}
+inline int GachaCompBin::banners_size() const {
+  return _internal_banners_size();
+}
+inline void GachaCompBin::clear_banners() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.banners_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>& GachaCompBin::_internal_banners() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.banners_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>& GachaCompBin::banners() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.GachaCompBin.banners)
+  return _internal_banners();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>* PROTOBUF_NONNULL GachaCompBin::_internal_mutable_banners() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.banners_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>* PROTOBUF_NONNULL GachaCompBin::mutable_banners()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.GachaCompBin.banners)
+  return _internal_mutable_banners();
+}
+
+// map<uint32, .ServerProto.GachaPityStateBin> pityStates = 2;
+inline int GachaCompBin::_internal_pitystates_size() const {
+  return _internal_pitystates().size();
+}
+inline int GachaCompBin::pitystates_size() const {
+  return _internal_pitystates_size();
+}
+inline void GachaCompBin::clear_pitystates() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pitystates_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>& GachaCompBin::_internal_pitystates() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pitystates_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>& GachaCompBin::pitystates() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.GachaCompBin.pityStates)
+  return _internal_pitystates();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>* PROTOBUF_NONNULL GachaCompBin::_internal_mutable_pitystates() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.pitystates_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>* PROTOBUF_NONNULL GachaCompBin::mutable_pitystates()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.GachaCompBin.pityStates)
+  return _internal_mutable_pitystates();
+}
+
+// map<uint32, .ServerProto.NewbieGachaStateBin> newbieStates = 3;
+inline int GachaCompBin::_internal_newbiestates_size() const {
+  return _internal_newbiestates().size();
+}
+inline int GachaCompBin::newbiestates_size() const {
+  return _internal_newbiestates_size();
+}
+inline void GachaCompBin::clear_newbiestates() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.newbiestates_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>& GachaCompBin::_internal_newbiestates() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.newbiestates_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>& GachaCompBin::newbiestates() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.GachaCompBin.newbieStates)
+  return _internal_newbiestates();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>* PROTOBUF_NONNULL GachaCompBin::_internal_mutable_newbiestates() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.newbiestates_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>* PROTOBUF_NONNULL GachaCompBin::mutable_newbiestates()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.GachaCompBin.newbieStates)
+  return _internal_mutable_newbiestates();
+}
+
+// repeated .ServerProto.GachaHistoryBin histories = 4;
+inline int GachaCompBin::_internal_histories_size() const {
+  return _internal_histories().size();
+}
+inline int GachaCompBin::histories_size() const {
+  return _internal_histories_size();
+}
+inline void GachaCompBin::clear_histories() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.histories_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::ServerProto::GachaHistoryBin* PROTOBUF_NONNULL GachaCompBin::mutable_histories(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.GachaCompBin.histories)
+  return _internal_mutable_histories()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>* PROTOBUF_NONNULL GachaCompBin::mutable_histories()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.GachaCompBin.histories)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_histories();
+}
+inline const ::ServerProto::GachaHistoryBin& GachaCompBin::histories(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.GachaCompBin.histories)
+  return _internal_histories().Get(index);
+}
+inline ::ServerProto::GachaHistoryBin* PROTOBUF_NONNULL GachaCompBin::add_histories()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::GachaHistoryBin* _add =
+      _internal_mutable_histories()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.GachaCompBin.histories)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>& GachaCompBin::histories() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.GachaCompBin.histories)
+  return _internal_histories();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>&
+GachaCompBin::_internal_histories() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.histories_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::GachaHistoryBin>* PROTOBUF_NONNULL
+GachaCompBin::_internal_mutable_histories() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.histories_;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
@@ -9313,6 +12307,70 @@ inline void PlayerBasicCompBin::_internal_set_lastlogin(::int64_t value) {
   _impl_.lastlogin_ = value;
 }
 
+// map<string, uint32> monthlyCardExpireDays = 21;
+inline int PlayerBasicCompBin::_internal_monthlycardexpiredays_size() const {
+  return _internal_monthlycardexpiredays().size();
+}
+inline int PlayerBasicCompBin::monthlycardexpiredays_size() const {
+  return _internal_monthlycardexpiredays_size();
+}
+inline void PlayerBasicCompBin::clear_monthlycardexpiredays() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.monthlycardexpiredays_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00080000U);
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& PlayerBasicCompBin::_internal_monthlycardexpiredays() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.monthlycardexpiredays_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& PlayerBasicCompBin::monthlycardexpiredays() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.PlayerBasicCompBin.monthlyCardExpireDays)
+  return _internal_monthlycardexpiredays();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL PlayerBasicCompBin::_internal_mutable_monthlycardexpiredays() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.monthlycardexpiredays_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_monthlycardexpiredays()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00080000U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.PlayerBasicCompBin.monthlyCardExpireDays)
+  return _internal_mutable_monthlycardexpiredays();
+}
+
+// map<string, uint32> monthlyCardLastRewardDays = 22;
+inline int PlayerBasicCompBin::_internal_monthlycardlastrewarddays_size() const {
+  return _internal_monthlycardlastrewarddays().size();
+}
+inline int PlayerBasicCompBin::monthlycardlastrewarddays_size() const {
+  return _internal_monthlycardlastrewarddays_size();
+}
+inline void PlayerBasicCompBin::clear_monthlycardlastrewarddays() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.monthlycardlastrewarddays_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00100000U);
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& PlayerBasicCompBin::_internal_monthlycardlastrewarddays() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.monthlycardlastrewarddays_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::uint32_t>& PlayerBasicCompBin::monthlycardlastrewarddays() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.PlayerBasicCompBin.monthlyCardLastRewardDays)
+  return _internal_monthlycardlastrewarddays();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL PlayerBasicCompBin::_internal_mutable_monthlycardlastrewarddays() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.monthlycardlastrewarddays_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_monthlycardlastrewarddays()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00100000U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.PlayerBasicCompBin.monthlyCardLastRewardDays)
+  return _internal_mutable_monthlycardlastrewarddays();
+}
+
 // -------------------------------------------------------------------
 
 // PlayerSaveData
@@ -9909,6 +12967,105 @@ inline void PlayerSaveData::set_allocated_mailcomp(::ServerProto::MailCompBin* P
 
   _impl_.mailcomp_ = reinterpret_cast<::ServerProto::MailCompBin*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.mailComp)
+}
+
+// .ServerProto.GachaCompBin gachaComp = 8;
+inline bool PlayerSaveData::has_gachacomp() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000040U);
+  PROTOBUF_ASSUME(!value || _impl_.gachacomp_ != nullptr);
+  return value;
+}
+inline void PlayerSaveData::clear_gachacomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.gachacomp_ != nullptr) _impl_.gachacomp_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline const ::ServerProto::GachaCompBin& PlayerSaveData::_internal_gachacomp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::ServerProto::GachaCompBin* p = _impl_.gachacomp_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ServerProto::GachaCompBin&>(::ServerProto::_GachaCompBin_default_instance_);
+}
+inline const ::ServerProto::GachaCompBin& PlayerSaveData::gachacomp() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.PlayerSaveData.gachaComp)
+  return _internal_gachacomp();
+}
+inline void PlayerSaveData::unsafe_arena_set_allocated_gachacomp(
+    ::ServerProto::GachaCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.gachacomp_);
+  }
+  _impl_.gachacomp_ = reinterpret_cast<::ServerProto::GachaCompBin*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerProto.PlayerSaveData.gachaComp)
+}
+inline ::ServerProto::GachaCompBin* PROTOBUF_NULLABLE PlayerSaveData::release_gachacomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  ::ServerProto::GachaCompBin* released = _impl_.gachacomp_;
+  _impl_.gachacomp_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::ServerProto::GachaCompBin* PROTOBUF_NULLABLE PlayerSaveData::unsafe_arena_release_gachacomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.PlayerSaveData.gachaComp)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  ::ServerProto::GachaCompBin* temp = _impl_.gachacomp_;
+  _impl_.gachacomp_ = nullptr;
+  return temp;
+}
+inline ::ServerProto::GachaCompBin* PROTOBUF_NONNULL PlayerSaveData::_internal_mutable_gachacomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.gachacomp_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::ServerProto::GachaCompBin>(GetArena());
+    _impl_.gachacomp_ = reinterpret_cast<::ServerProto::GachaCompBin*>(p);
+  }
+  return _impl_.gachacomp_;
+}
+inline ::ServerProto::GachaCompBin* PROTOBUF_NONNULL PlayerSaveData::mutable_gachacomp()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  ::ServerProto::GachaCompBin* _msg = _internal_mutable_gachacomp();
+  // @@protoc_insertion_point(field_mutable:ServerProto.PlayerSaveData.gachaComp)
+  return _msg;
+}
+inline void PlayerSaveData::set_allocated_gachacomp(::ServerProto::GachaCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.gachacomp_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  }
+
+  _impl_.gachacomp_ = reinterpret_cast<::ServerProto::GachaCompBin*>(value);
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.gachaComp)
 }
 
 // -------------------------------------------------------------------

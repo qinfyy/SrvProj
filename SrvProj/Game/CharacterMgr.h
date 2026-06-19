@@ -6,6 +6,13 @@
 #include "../proto/proto_cpp/public.pb.h"
 #include "../Resources/BinClass/CharacterRes.h"
 #include "../Resources/BinClass/DiscRes.h"
+#include "../proto/proto_cpp/char_affinity_gift_send.pb.h"
+#include "../proto/proto_cpp/char_gem_refresh.pb.h"
+#include "../proto/proto_cpp/char_upgrade.pb.h"
+#include "../proto/proto_cpp/disc_all_limit_break.pb.h"
+#include "../proto/proto_cpp/disc_limit_break.pb.h"
+#include "../proto/proto_cpp/disc_promote.pb.h"
+#include "../proto/proto_cpp/disc_strengthen.pb.h"
 
 class CharacterStor : public ManagerBase
 {
@@ -36,6 +43,25 @@ public:
     void AddDiscChange(proto::ChangeInfo& change, const ServerProto::GameDiscInfoBin& disc) const;
     void TriggerCharacterAchievements(const ServerProto::CharacterInfo& character);
 
+    bool UpgradeCharacter(uint32_t charId, const ItemParamMap& items, proto::CharUpgradeResp& out);
+    bool AdvanceCharacter(uint32_t charId, proto::ChangeInfo& change);
+    bool UpgradeCharacterSkill(uint32_t charId, uint32_t index, proto::ChangeInfo& change);
+    bool SetCharacterSkin(uint32_t charId, uint32_t skinId);
+    bool ToggleCharacterFavorite(uint32_t charId);
+    bool SendAffinityGift(uint32_t charId, const ItemParamMap& items, proto::CharAffinityGiftSendResp& out);
+    bool UseGemPreset(uint32_t charId, uint32_t presetId);
+    bool EquipGem(uint32_t charId, uint32_t slotId, int32_t gemIndex, uint32_t presetId);
+    bool RefreshGem(uint32_t charId, uint32_t slotId, uint32_t gemIndex, const google::protobuf::RepeatedField<uint32_t>& lockAttrs, proto::CharGemRefreshResp& out);
+    bool ReplaceGemAttribute(uint32_t charId, uint32_t slotId, uint32_t gemIndex);
+    bool SetGemLock(uint32_t charId, uint32_t slotId, uint32_t gemIndex, bool locked);
+    bool OverlockGem(uint32_t charId, uint32_t slotId, uint32_t gemIndex, uint32_t attrIndex, proto::ChangeInfo& change);
+
+    bool StrengthenDisc(uint32_t discId, const ItemParamMap& items, proto::DiscStrengthenResp& out);
+    bool PromoteDisc(uint32_t discId, proto::DiscPromoteResp& out);
+    bool LimitBreakDisc(uint32_t discId, uint32_t qty, proto::DiscLimitBreakResp& out);
+    bool LimitBreakAllDiscs(proto::DiscAllLimitBreakResp& out);
+    bool ReceiveDiscReadReward(uint32_t discId, uint32_t readType, proto::ChangeInfo& change);
+
     void EncodePlayerInfo(proto::PlayerInfo& out) const override;
     int GetNewPhoneMessageCount() const;
 
@@ -48,7 +74,11 @@ private:
     void EnsureInitialChats(ServerProto::CharacterInfo& character) const;
     void SortCharacters();
     void SortDiscs();
+    ServerProto::CharacterGemSlot* GetGemSlot(ServerProto::CharacterInfo& character, uint32_t slotId) const;
+    ServerProto::CharacterGem* GetGem(ServerProto::CharacterInfo& character, uint32_t slotId, uint32_t gemIndex) const;
 
     static proto::Char ToProto(const ServerProto::CharacterInfo& characterInfo);
     static proto::Disc ToProto(const ServerProto::GameDiscInfoBin& discInfo);
+    static proto::AffinityInfo ToAffinityProto(const ServerProto::CharacterInfo& characterInfo);
+    static proto::CharGem ToProto(const ServerProto::CharacterGem& gem);
 };

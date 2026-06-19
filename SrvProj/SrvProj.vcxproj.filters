@@ -948,6 +948,21 @@
     <ClCompile Include="Handlers\Activity.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
+    <ClCompile Include="Handlers\Character.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Disc.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Gacha.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Item.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Mall.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
     <ClCompile Include="Handlers\PlayerHandler.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
@@ -960,10 +975,19 @@
     <ClCompile Include="Game\AchievementMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\ChangeInfoUtil.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Game\ManagerBase.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\CharacterMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GachaMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MallMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="Command\BasicCommands.cpp">
@@ -1943,6 +1967,21 @@
     <ClInclude Include="Handlers\Activity.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
+    <ClInclude Include="Handlers\Character.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Disc.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Gacha.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Item.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Mall.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
     <ClInclude Include="Game\ActivityMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
@@ -1952,10 +1991,19 @@
     <ClInclude Include="Game\Bitset.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\ChangeInfoUtil.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Game\ManagerBase.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\CharacterMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GachaMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MallMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Command\BasicCommands.h">

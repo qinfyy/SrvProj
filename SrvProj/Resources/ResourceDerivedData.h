@@ -5,6 +5,7 @@
 #include <cmath>
 #include <ctime>
 #include <iomanip>
+#include <iterator>
 #include <map>
 #include <random>
 #include <sstream>
@@ -122,6 +123,30 @@ struct WeightedList {
 
     size_t Size() const { return Items.size(); }
     bool Empty() const { return Items.empty(); }
+
+    const T* Next() const {
+        if (Items.empty() || Total <= 0.0) {
+            return nullptr;
+        }
+
+        static thread_local std::mt19937 rng{ std::random_device{}() };
+        std::uniform_real_distribution<double> dist(0.0, Total);
+        const double value = dist(rng);
+
+        auto it = std::lower_bound(
+            Items.begin(),
+            Items.end(),
+            value,
+            [](const auto& item, double target) {
+                return item.first < target;
+            });
+
+        if (it == Items.end()) {
+            it = std::prev(Items.end());
+        }
+
+        return &it->second;
+    }
 };
 
 struct QuestParams {

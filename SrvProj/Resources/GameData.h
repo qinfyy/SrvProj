@@ -35,6 +35,7 @@ class PlayerHeadRes;
 class TitleRes;
 class HonorRes;
 class MallMonthlyCardRes;
+class MonthlyCardRes;
 class MallPackageRes;
 class MallShopRes;
 class MallGemRes;
@@ -48,6 +49,7 @@ class AgentRes;
 class DictionaryTabRes;
 class DictionaryEntryRes;
 class GachaATypeProbRes;
+class GachaPkgRes;
 class GachaRes;
 class GachaNewbieRes;
 class GachaStorageRes;
@@ -162,6 +164,7 @@ public:
     static std::unordered_map<std::string, DropPkgRes> DropPkgDataTable;
     // ===== Shops =====
     static std::unordered_map<std::string, MallMonthlyCardRes> MallMonthlyCardDataTable;
+    static std::unordered_map<std::string, MonthlyCardRes> MonthlyCardDataTable;
     static std::unordered_map<std::string, MallPackageRes> MallPackageDataTable;
     static std::unordered_map<std::string, MallShopRes> MallShopDataTable;
     static std::unordered_map<std::string, MallGemRes> MallGemDataTable;
@@ -184,6 +187,7 @@ public:
 
     // ===== Gacha =====
     static std::unordered_map<std::string, GachaATypeProbRes> GachaATypeProbDataTable;
+    static std::unordered_map<std::string, GachaPkgRes> GachaPkgDataTable;
     static std::unordered_map<std::string, GachaRes> GachaDataTable;
     static std::unordered_map<std::string, GachaNewbieRes> GachaNewbieDataTable;
     static std::unordered_map<std::string, GachaStorageRes> GachaStorageDataTable;

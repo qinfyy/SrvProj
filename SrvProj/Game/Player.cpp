@@ -3,15 +3,19 @@
 #include "ActivityMgr.h"
 #include "AchievementMgr.h"
 #include "Bitset.h"
+#include "ChangeInfoUtil.h"
 #include "CharacterMgr.h"
+#include "GachaMgr.h"
 #include "InventoryMgr.h"
 #include "MailMgr.h"
 #include "QuestMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../Resources/BinClass/MiscRes.h"
+#include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
 #include "../proto/NetMsgId.pb.h"
+#include "../proto/proto_cpp/notify.pb.h"
 #include "../proto/proto_cpp/notify_gm.pb.h"
 
 #include <algorithm>
@@ -57,6 +61,67 @@ void AddCompletedNewbies(proto::AccInfo* acc)
         newbie->set_stepid(-1);
     }
 }
+
+int64_t NowSeconds()
+{
+    return std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count();
+}
+
+uint32_t CurrentEpochDay()
+{
+    return static_cast<uint32_t>(NowSeconds() / (60 * 60 * 24));
+}
+
+int64_t ResetTimeSecondsByEpochDay(uint32_t epochDay)
+{
+    return static_cast<int64_t>(epochDay) * 60 * 60 * 24;
+}
+
+bool MatchShopCondition(const Player& player, int condType, const std::vector<int>& params)
+{
+    if (condType == 0)
+    {
+        return true;
+    }
+
+    if (condType == 71)
+    {
+        const int requiredLevel = params.empty() ? 0 : params.front();
+        return player.GetPlayerData().level() >= requiredLevel;
+    }
+
+    return false;
+}
+
+bool IsPackageVisibleForPlayer(const Player& player, const MallPackageRes& data)
+{
+    const int64_t now = NowSeconds();
+    if (data.ListTimeSeconds > 0 && now < data.ListTimeSeconds)
+    {
+        return false;
+    }
+    if (data.DeListTimeSeconds > 0 && now >= data.DeListTimeSeconds)
+    {
+        return false;
+    }
+
+    return MatchShopCondition(player, data.ListCondType, data.ListCond);
+}
+
+bool CanPurchasePackage(const Player& player, const MallPackageRes& data)
+{
+    if (!IsPackageVisibleForPlayer(player, data))
+    {
+        return false;
+    }
+    if (data.Stock > 0 && player.Inventory().GetMallPackagePurchaseCount(data.Id) >= static_cast<uint32_t>(data.Stock))
+    {
+        return false;
+    }
+
+    return MatchShopCondition(player, data.OrderCondType, data.OrderCond);
+}
 }
 
 Player::~Player() = default;
@@ -73,6 +138,7 @@ void Player::InitManagers()
     mActivityMgr = std::make_unique<ActivityMgr>(this);
     mAchievementMgr = std::make_unique<AchievementMgr>(this);
     mInventoryMgr = std::make_unique<InventoryMgr>(this);
+    mGachaMgr = std::make_unique<GachaMgr>(this);
     mMailMgr = std::make_unique<MailMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
 }
@@ -128,6 +194,7 @@ void Player::OnCreate()
     mActivityMgr->OnCreate();
     mAchievementMgr->OnCreate();
     mInventoryMgr->OnCreate();
+    mGachaMgr->OnCreate();
     mMailMgr->OnCreate();
     mQuestMgr->OnCreate();
 }
@@ -151,6 +218,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
     mActivityMgr->OnLoad();
     mAchievementMgr->OnLoad();
     mInventoryMgr->OnLoad();
+    mGachaMgr->OnLoad();
     mMailMgr->OnLoad();
     mQuestMgr->OnLoad();
     return true;
@@ -162,6 +230,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
     mActivityMgr->BeforeSave();
     mAchievementMgr->BeforeSave();
     mInventoryMgr->BeforeSave();
+    mGachaMgr->BeforeSave();
     mMailMgr->BeforeSave();
     mQuestMgr->BeforeSave();
 
@@ -198,8 +267,10 @@ void Player::OnLogin()
     mActivityMgr->OnLogin();
     mAchievementMgr->OnLogin();
     mInventoryMgr->OnLogin();
+    mGachaMgr->OnLogin();
     mMailMgr->OnLogin();
     mQuestMgr->OnLogin();
+    RefreshMonthlyCardRewards(true);
 }
 
 void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload)
@@ -364,6 +435,16 @@ const InventoryMgr& Player::Inventory() const
     return *mInventoryMgr;
 }
 
+GachaMgr& Player::Gachas()
+{
+    return *mGachaMgr;
+}
+
+const GachaMgr& Player::Gachas() const
+{
+    return *mGachaMgr;
+}
+
 MailMgr& Player::Mails()
 {
     return *mMailMgr;
@@ -428,6 +509,197 @@ bool Player::SetWorldLevel(uint32_t level)
 void Player::SetSignature(const std::string& signature)
 {
     GetMutablePlayerData()->set_signature(signature);
+}
+
+bool Player::HasAvailableFreeMallPackage() const
+{
+    for (const auto& [_, data] : GameData::MallPackageDataTable)
+    {
+        if (data.CurrencyType != GameConstants::CurrencyTypeFree)
+        {
+            continue;
+        }
+
+        if (CanPurchasePackage(*this, data))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void Player::QueueMallPackageStateNotify()
+{
+    proto::MallPackageState state;
+    state.set_new_(HasAvailableFreeMallPackage());
+    PushNextPackage(mall_package_state_notify, state);
+}
+
+uint32_t Player::GetMonthlyCardRemainingDays(const std::string& cardId) const
+{
+    if (cardId.empty())
+    {
+        return 0;
+    }
+
+    const auto& days = GetPlayerData().monthlycardexpiredays();
+    const auto it = days.find(cardId);
+    if (it == days.end())
+    {
+        return 0;
+    }
+
+    const uint32_t today = CurrentEpochDay();
+    if (it->second < today)
+    {
+        return 0;
+    }
+
+    return it->second - today;
+}
+
+bool Player::ReceivedMonthlyCardRewardToday(const std::string& cardId) const
+{
+    if (cardId.empty())
+    {
+        return false;
+    }
+
+    const auto& rewardDays = GetPlayerData().monthlycardlastrewarddays();
+    const auto it = rewardDays.find(cardId);
+    return it != rewardDays.end() && it->second >= CurrentEpochDay();
+}
+
+int64_t Player::GetMonthlyCardEndTime(const std::string& cardId) const
+{
+    if (cardId.empty())
+    {
+        return 0;
+    }
+
+    const auto& days = GetPlayerData().monthlycardexpiredays();
+    const auto it = days.find(cardId);
+    if (it == days.end() || it->second == 0)
+    {
+        return 0;
+    }
+
+    return ResetTimeSecondsByEpochDay(it->second + 1);
+}
+
+void Player::ActivateMonthlyCard(const std::string& cardId, uint32_t durationDays)
+{
+    if (cardId.empty() || durationDays == 0)
+    {
+        return;
+    }
+
+    const uint32_t today = CurrentEpochDay();
+    const uint32_t remainingDays = GetMonthlyCardRemainingDays(cardId);
+    const bool claimedToday = ReceivedMonthlyCardRewardToday(cardId);
+    const uint32_t newRemainingDays = (remainingDays > 0 || claimedToday)
+        ? remainingDays + durationDays
+        : (durationDays > 0 ? durationDays - 1 : 0);
+
+    (*GetMutablePlayerData()->mutable_monthlycardexpiredays())[cardId] = today + newRemainingDays;
+}
+
+bool Player::CanClaimMonthlyCardReward(const std::string& cardId) const
+{
+    if (cardId.empty())
+    {
+        return false;
+    }
+
+    const auto& days = GetPlayerData().monthlycardexpiredays();
+    const auto it = days.find(cardId);
+    if (it == days.end())
+    {
+        return false;
+    }
+
+    const uint32_t today = CurrentEpochDay();
+    return it->second > 0 && today <= it->second && !ReceivedMonthlyCardRewardToday(cardId);
+}
+
+bool Player::CreateMonthlyCardRewardChange(const std::string& cardId, proto::ChangeInfo& out)
+{
+    if (!CanClaimMonthlyCardReward(cardId))
+    {
+        return false;
+    }
+
+    auto cardIt = GameData::MallMonthlyCardDataTable.find(cardId);
+    if (cardIt == GameData::MallMonthlyCardDataTable.end())
+    {
+        return false;
+    }
+
+    const int monthlyCardId = cardIt->second.MonthlyCardId;
+    const auto rewardIt = GameData::MonthlyCardDataTable.find(std::to_string(monthlyCardId));
+    if (rewardIt == GameData::MonthlyCardDataTable.end() || rewardIt->second.Rewards.Empty())
+    {
+        return false;
+    }
+
+    if (!Inventory().AddItems(rewardIt->second.Rewards, &out))
+    {
+        return false;
+    }
+
+    (*GetMutablePlayerData()->mutable_monthlycardlastrewarddays())[cardId] = CurrentEpochDay();
+    return true;
+}
+
+bool Player::GrantMonthlyCardReward(const std::string& cardId, bool notifyOnly)
+{
+    auto cardIt = GameData::MallMonthlyCardDataTable.find(cardId);
+    if (cardIt == GameData::MallMonthlyCardDataTable.end())
+    {
+        return false;
+    }
+
+    proto::ChangeInfo change;
+    if (!CreateMonthlyCardRewardChange(cardId, change))
+    {
+        return false;
+    }
+
+    proto::MonthlyCardRewards notify;
+    notify.set_id(static_cast<uint32_t>(cardIt->second.MonthlyCardId));
+    notify.set_remaining(GetMonthlyCardRemainingDays(cardId));
+    notify.set_switch_(!notifyOnly);
+    notify.set_endtime(GetMonthlyCardEndTime(cardId));
+    notify.mutable_change()->CopyFrom(change);
+
+    const auto rewardIt = GameData::MonthlyCardDataTable.find(std::to_string(cardIt->second.MonthlyCardId));
+    if (rewardIt != GameData::MonthlyCardDataTable.end())
+    {
+        for (const auto& [tid, qty] : rewardIt->second.Rewards.Items)
+        {
+            ChangeInfoUtil::AddItemTpl(notify.add_rewards(), static_cast<uint32_t>(tid), qty);
+        }
+    }
+
+    PushNextPackage(monthly_card_rewards_notify, notify);
+    Inventory().PushItemsChange(change);
+    return true;
+}
+
+void Player::RefreshMonthlyCardRewards(bool notifyOnly)
+{
+    std::vector<std::string> cardIds;
+    cardIds.reserve(static_cast<size_t>(GetPlayerData().monthlycardexpiredays_size()));
+    for (const auto& [cardId, _] : GetPlayerData().monthlycardexpiredays())
+    {
+        cardIds.push_back(cardId);
+    }
+
+    for (const auto& cardId : cardIds)
+    {
+        GrantMonthlyCardReward(cardId, notifyOnly);
+    }
 }
 
 void Player::EncodeBasicInfo(proto::PlayerInfo& info)

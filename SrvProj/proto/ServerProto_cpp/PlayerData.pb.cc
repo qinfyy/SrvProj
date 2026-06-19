@@ -51,56 +51,42 @@ struct QuestProgressBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QuestProgressBinDefaultTypeInternal _QuestProgressBin_default_instance_;
-
-inline constexpr PlayerBasicCompBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        honor_{},
-        _honor_cached_byte_size_{0},
-        showchars_{},
-        _showchars_cached_byte_size_{0},
-        boards_{},
-        _boards_cached_byte_size_{0},
-        name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        signature_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        createtime_{::int64_t{0}},
-        gender_{false},
-        headicon_{0},
-        skinid_{0},
-        titleprefix_{0},
-        music_{::int64_t{0}},
-        titlesuffix_{0},
-        level_{0},
-        exp_{0},
-        energy_{0},
-        energylastupdate_{::int64_t{0}},
-        lastepochday_{::int64_t{0}},
-        lastlogin_{::int64_t{0}},
-        signinindex_{0} {}
-
 template <typename>
-PROTOBUF_CONSTEXPR PlayerBasicCompBin::PlayerBasicCompBin(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(PlayerBasicCompBin_class_data_.base()),
+    : PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::MapEntry(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_.base()){}
 #else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
+    : PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::MapEntry() {
 }
-struct PlayerBasicCompBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerBasicCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerBasicCompBinDefaultTypeInternal() {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    PlayerBasicCompBin _instance;
+    PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerBasicCompBinDefaultTypeInternal _PlayerBasicCompBin_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUseDefaultTypeInternal _PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::MapEntry(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUseDefaultTypeInternal _PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_default_instance_;
 
 inline constexpr MailAttachmentBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -128,6 +114,24 @@ struct MailAttachmentBinDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MailAttachmentBinDefaultTypeInternal _MailAttachmentBin_default_instance_;
 template <typename>
+PROTOBUF_CONSTEXPR InventoryCompBin_ShopBuyCountEntry_DoNotUse::InventoryCompBin_ShopBuyCountEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : InventoryCompBin_ShopBuyCountEntry_DoNotUse::MapEntry(InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : InventoryCompBin_ShopBuyCountEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct InventoryCompBin_ShopBuyCountEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InventoryCompBin_ShopBuyCountEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InventoryCompBin_ShopBuyCountEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    InventoryCompBin_ShopBuyCountEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_ShopBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ShopBuyCountEntry_DoNotUse_default_instance_;
+template <typename>
 PROTOBUF_CONSTEXPR InventoryCompBin_ResourcesEntry_DoNotUse::InventoryCompBin_ResourcesEntry_DoNotUse(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : InventoryCompBin_ResourcesEntry_DoNotUse::MapEntry(InventoryCompBin_ResourcesEntry_DoNotUse_class_data_.base()){}
@@ -146,6 +150,60 @@ struct InventoryCompBin_ResourcesEntry_DoNotUseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_ResourcesEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ResourcesEntry_DoNotUse_default_instance_;
 template <typename>
+PROTOBUF_CONSTEXPR InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::MapEntry(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::MapEntry(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct InventoryCompBin_MallPackageBuyCountEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InventoryCompBin_MallPackageBuyCountEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InventoryCompBin_MallPackageBuyCountEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    InventoryCompBin_MallPackageBuyCountEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_MallPackageBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR InventoryCompBin_MallBuyCountEntry_DoNotUse::InventoryCompBin_MallBuyCountEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : InventoryCompBin_MallBuyCountEntry_DoNotUse::MapEntry(InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : InventoryCompBin_MallBuyCountEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct InventoryCompBin_MallBuyCountEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InventoryCompBin_MallBuyCountEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InventoryCompBin_MallBuyCountEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    InventoryCompBin_MallBuyCountEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_MallBuyCountEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_MallBuyCountEntry_DoNotUse_default_instance_;
+template <typename>
 PROTOBUF_CONSTEXPR InventoryCompBin_ItemsEntry_DoNotUse::InventoryCompBin_ItemsEntry_DoNotUse(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : InventoryCompBin_ItemsEntry_DoNotUse::MapEntry(InventoryCompBin_ItemsEntry_DoNotUse_class_data_.base()){}
@@ -163,6 +221,24 @@ struct InventoryCompBin_ItemsEntry_DoNotUseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_ItemsEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_ItemsEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::MapEntry(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct InventoryCompBin_GemMaidenClaimedEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InventoryCompBin_GemMaidenClaimedEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InventoryCompBin_GemMaidenClaimedEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    InventoryCompBin_GemMaidenClaimedEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBin_GemMaidenClaimedEntry_DoNotUseDefaultTypeInternal _InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_default_instance_;
 
 inline constexpr GameDiscInfoBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -195,6 +271,117 @@ struct GameDiscInfoBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GameDiscInfoBinDefaultTypeInternal _GameDiscInfoBin_default_instance_;
+
+inline constexpr GachaPityStateBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        misstimesa_{0u},
+        misstimesupa_{0u},
+        misstimesb_{0u},
+        bguaranteedebt_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GachaPityStateBin::GachaPityStateBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GachaPityStateBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GachaPityStateBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaPityStateBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaPityStateBinDefaultTypeInternal() {}
+  union {
+    GachaPityStateBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaPityStateBinDefaultTypeInternal _GachaPityStateBin_default_instance_;
+
+inline constexpr GachaHistoryBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        ids_{},
+        _ids_cached_byte_size_{0},
+        storageid_{0u},
+        gachaid_{0u},
+        time_{::int64_t{0}} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GachaHistoryBin::GachaHistoryBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GachaHistoryBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GachaHistoryBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaHistoryBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaHistoryBinDefaultTypeInternal() {}
+  union {
+    GachaHistoryBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaHistoryBinDefaultTypeInternal _GachaHistoryBin_default_instance_;
+
+inline constexpr GachaCardGroupBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        cards_{},
+        _cards_cached_byte_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GachaCardGroupBin::GachaCardGroupBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GachaCardGroupBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GachaCardGroupBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaCardGroupBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaCardGroupBinDefaultTypeInternal() {}
+  union {
+    GachaCardGroupBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaCardGroupBinDefaultTypeInternal _GachaCardGroupBin_default_instance_;
+
+inline constexpr GachaBannerInfoBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        id_{0u},
+        total_{0u},
+        usedfirstten_{false},
+        usedguarantee_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GachaBannerInfoBin::GachaBannerInfoBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GachaBannerInfoBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GachaBannerInfoBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaBannerInfoBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaBannerInfoBinDefaultTypeInternal() {}
+  union {
+    GachaBannerInfoBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaBannerInfoBinDefaultTypeInternal _GachaBannerInfoBin_default_instance_;
 
 inline constexpr CharacterGemPreset::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -318,6 +505,90 @@ struct QuestInfoBinDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QuestInfoBinDefaultTypeInternal _QuestInfoBin_default_instance_;
 
+inline constexpr PlayerBasicCompBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        honor_{},
+        _honor_cached_byte_size_{0},
+        showchars_{},
+        _showchars_cached_byte_size_{0},
+        boards_{},
+        _boards_cached_byte_size_{0},
+        name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        signature_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        createtime_{::int64_t{0}},
+        gender_{false},
+        headicon_{0},
+        skinid_{0},
+        titleprefix_{0},
+        music_{::int64_t{0}},
+        titlesuffix_{0},
+        level_{0},
+        exp_{0},
+        energy_{0},
+        energylastupdate_{::int64_t{0}},
+        lastepochday_{::int64_t{0}},
+        lastlogin_{::int64_t{0}},
+        signinindex_{0},
+        monthlycardexpiredays_{},
+        monthlycardlastrewarddays_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerBasicCompBin::PlayerBasicCompBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerBasicCompBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerBasicCompBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerBasicCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerBasicCompBinDefaultTypeInternal() {}
+  union {
+    PlayerBasicCompBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerBasicCompBinDefaultTypeInternal _PlayerBasicCompBin_default_instance_;
+
+inline constexpr NewbieGachaStateBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        pendingresult_{},
+        _pendingresult_cached_byte_size_{0},
+        savedresults_{},
+        id_{0u},
+        remainingspincount_{0u},
+        savecount_{0u},
+        selectedresult_{0},
+        received_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR NewbieGachaStateBin::NewbieGachaStateBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(NewbieGachaStateBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct NewbieGachaStateBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR NewbieGachaStateBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~NewbieGachaStateBinDefaultTypeInternal() {}
+  union {
+    NewbieGachaStateBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NewbieGachaStateBinDefaultTypeInternal _NewbieGachaStateBin_default_instance_;
+
 inline constexpr MailInfoBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -371,7 +642,12 @@ inline constexpr InventoryCompBin::Impl_::Impl_(
         honors_{},
         _honors_cached_byte_size_{0},
         items_{},
-        resources_{} {}
+        resources_{},
+        shopbuycount_{},
+        mallbuycount_{},
+        mallpackagebuycount_{},
+        gemmaidenclaimed_{},
+        monthlycardbuycount_{} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR InventoryCompBin::InventoryCompBin(::_pbi::ConstantInitialized)
@@ -392,6 +668,42 @@ struct InventoryCompBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InventoryCompBinDefaultTypeInternal _InventoryCompBin_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR GachaCompBin_PityStatesEntry_DoNotUse::GachaCompBin_PityStatesEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : GachaCompBin_PityStatesEntry_DoNotUse::MapEntry(GachaCompBin_PityStatesEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : GachaCompBin_PityStatesEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct GachaCompBin_PityStatesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaCompBin_PityStatesEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaCompBin_PityStatesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    GachaCompBin_PityStatesEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaCompBin_PityStatesEntry_DoNotUseDefaultTypeInternal _GachaCompBin_PityStatesEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR GachaCompBin_BannersEntry_DoNotUse::GachaCompBin_BannersEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : GachaCompBin_BannersEntry_DoNotUse::MapEntry(GachaCompBin_BannersEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : GachaCompBin_BannersEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct GachaCompBin_BannersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaCompBin_BannersEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaCompBin_BannersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    GachaCompBin_BannersEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaCompBin_BannersEntry_DoNotUseDefaultTypeInternal _GachaCompBin_BannersEntry_DoNotUse_default_instance_;
 
 inline constexpr CharacterGemSlot::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -535,6 +847,24 @@ struct MailCompBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MailCompBinDefaultTypeInternal _MailCompBin_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR GachaCompBin_NewbieStatesEntry_DoNotUse::GachaCompBin_NewbieStatesEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : GachaCompBin_NewbieStatesEntry_DoNotUse::MapEntry(GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : GachaCompBin_NewbieStatesEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct GachaCompBin_NewbieStatesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaCompBin_NewbieStatesEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaCompBin_NewbieStatesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    GachaCompBin_NewbieStatesEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaCompBin_NewbieStatesEntry_DoNotUseDefaultTypeInternal _GachaCompBin_NewbieStatesEntry_DoNotUse_default_instance_;
 
 inline constexpr CharacterContact::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -587,6 +917,34 @@ struct AchievementCompBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AchievementCompBinDefaultTypeInternal _AchievementCompBin_default_instance_;
+
+inline constexpr GachaCompBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        histories_{},
+        banners_{},
+        pitystates_{},
+        newbiestates_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GachaCompBin::GachaCompBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GachaCompBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GachaCompBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GachaCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GachaCompBinDefaultTypeInternal() {}
+  union {
+    GachaCompBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GachaCompBinDefaultTypeInternal _GachaCompBin_default_instance_;
 
 inline constexpr CharacterInfo::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -667,7 +1025,8 @@ inline constexpr PlayerSaveData::Impl_::Impl_(
         questcomp_{nullptr},
         achievementcomp_{nullptr},
         inventorycomp_{nullptr},
-        mailcomp_{nullptr} {}
+        mailcomp_{nullptr},
+        gachacomp_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR PlayerSaveData::PlayerSaveData(::_pbi::ConstantInitialized)
@@ -880,20 +1239,65 @@ const ::uint32_t
         0,
         1,
         0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_._has_bits_),
-        9, // hasbit index offset
+        14, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.items_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.resources_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.skins_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.headicons_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.titles_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.honors_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.shopbuycount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.mallbuycount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.mallpackagebuycount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.gemmaidenclaimed_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::InventoryCompBin, _impl_.monthlycardbuycount_),
         4,
         5,
         0,
         1,
         2,
         3,
+        6,
+        7,
+        8,
+        9,
+        10,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::MailAttachmentBin, _impl_._has_bits_),
         5, // hasbit index offset
@@ -936,8 +1340,109 @@ const ::uint32_t
         0,
         2,
         0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaBannerInfoBin, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaBannerInfoBin, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaBannerInfoBin, _impl_.total_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaBannerInfoBin, _impl_.usedfirstten_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaBannerInfoBin, _impl_.usedguarantee_),
+        0,
+        1,
+        2,
+        3,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaPityStateBin, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaPityStateBin, _impl_.misstimesa_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaPityStateBin, _impl_.misstimesupa_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaPityStateBin, _impl_.misstimesb_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaPityStateBin, _impl_.bguaranteedebt_),
+        0,
+        1,
+        2,
+        3,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCardGroupBin, _impl_._has_bits_),
+        4, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCardGroupBin, _impl_.cards_),
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_._has_bits_),
+        10, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.remainingspincount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.savecount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.selectedresult_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.received_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.pendingresult_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::NewbieGachaStateBin, _impl_.savedresults_),
+        2,
+        3,
+        4,
+        5,
+        6,
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaHistoryBin, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaHistoryBin, _impl_.storageid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaHistoryBin, _impl_.gachaid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaHistoryBin, _impl_.time_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaHistoryBin, _impl_.ids_),
+        1,
+        2,
+        3,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_BannersEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_BannersEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_BannersEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin, _impl_.banners_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin, _impl_.pitystates_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin, _impl_.newbiestates_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::GachaCompBin, _impl_.histories_),
+        1,
+        2,
+        3,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_._has_bits_),
-        22, // hasbit index offset
+        24, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.createtime_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.name_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.signature_),
@@ -957,6 +1462,8 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.signinindex_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.lastepochday_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.lastlogin_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.monthlycardexpiredays_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.monthlycardlastrewarddays_),
         5,
         3,
         4,
@@ -976,21 +1483,25 @@ const ::uint32_t
         18,
         16,
         17,
+        19,
+        20,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_._has_bits_),
-        9, // hasbit index offset
+        10, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.playerdata_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.charcomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.questcomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.achievementcomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.inventorycomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.mailcomp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.gachacomp_),
         0,
         1,
         2,
         3,
         4,
         5,
+        6,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_._has_bits_),
         11, // hasbit index offset
@@ -1029,13 +1540,29 @@ static const ::_pbi::MigrationSchema
         {164, sizeof(::ServerProto::AchievementCompBin)},
         {169, sizeof(::ServerProto::InventoryCompBin_ItemsEntry_DoNotUse)},
         {176, sizeof(::ServerProto::InventoryCompBin_ResourcesEntry_DoNotUse)},
-        {183, sizeof(::ServerProto::InventoryCompBin)},
-        {198, sizeof(::ServerProto::MailAttachmentBin)},
-        {205, sizeof(::ServerProto::MailInfoBin)},
-        {230, sizeof(::ServerProto::MailCompBin)},
-        {239, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {280, sizeof(::ServerProto::PlayerSaveData)},
-        {295, sizeof(::ServerProto::GameDiscInfoBin)},
+        {183, sizeof(::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse)},
+        {190, sizeof(::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse)},
+        {197, sizeof(::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse)},
+        {204, sizeof(::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse)},
+        {211, sizeof(::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse)},
+        {218, sizeof(::ServerProto::InventoryCompBin)},
+        {243, sizeof(::ServerProto::MailAttachmentBin)},
+        {250, sizeof(::ServerProto::MailInfoBin)},
+        {275, sizeof(::ServerProto::MailCompBin)},
+        {284, sizeof(::ServerProto::GachaBannerInfoBin)},
+        {295, sizeof(::ServerProto::GachaPityStateBin)},
+        {306, sizeof(::ServerProto::GachaCardGroupBin)},
+        {311, sizeof(::ServerProto::NewbieGachaStateBin)},
+        {328, sizeof(::ServerProto::GachaHistoryBin)},
+        {339, sizeof(::ServerProto::GachaCompBin_BannersEntry_DoNotUse)},
+        {346, sizeof(::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse)},
+        {353, sizeof(::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse)},
+        {360, sizeof(::ServerProto::GachaCompBin)},
+        {371, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
+        {378, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
+        {385, sizeof(::ServerProto::PlayerBasicCompBin)},
+        {430, sizeof(::ServerProto::PlayerSaveData)},
+        {447, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
@@ -1053,10 +1580,26 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_AchievementCompBin_default_instance_._instance,
     &::ServerProto::_InventoryCompBin_ItemsEntry_DoNotUse_default_instance_._instance,
     &::ServerProto::_InventoryCompBin_ResourcesEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_InventoryCompBin_ShopBuyCountEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_InventoryCompBin_MallBuyCountEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_default_instance_._instance,
     &::ServerProto::_InventoryCompBin_default_instance_._instance,
     &::ServerProto::_MailAttachmentBin_default_instance_._instance,
     &::ServerProto::_MailInfoBin_default_instance_._instance,
     &::ServerProto::_MailCompBin_default_instance_._instance,
+    &::ServerProto::_GachaBannerInfoBin_default_instance_._instance,
+    &::ServerProto::_GachaPityStateBin_default_instance_._instance,
+    &::ServerProto::_GachaCardGroupBin_default_instance_._instance,
+    &::ServerProto::_NewbieGachaStateBin_default_instance_._instance,
+    &::ServerProto::_GachaHistoryBin_default_instance_._instance,
+    &::ServerProto::_GachaCompBin_BannersEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_GachaCompBin_PityStatesEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_GachaCompBin_NewbieStatesEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_GachaCompBin_default_instance_._instance,
+    &::ServerProto::_PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_default_instance_._instance,
     &::ServerProto::_PlayerBasicCompBin_default_instance_._instance,
     &::ServerProto::_PlayerSaveData_default_instance_._instance,
     &::ServerProto::_GameDiscInfoBin_default_instance_._instance,
@@ -1109,57 +1652,109 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "mpleted\030\003 \001(\003\022\017\n\007claimed\030\004 \001(\010\022/\n\010progre"
     "ss\030\005 \003(\0132\035.ServerProto.QuestProgressBin\""
     "K\n\022AchievementCompBin\0225\n\014achievements\030\001 "
-    "\003(\0132\037.ServerProto.AchievementInfoBin\"\256\002\n"
+    "\003(\0132\037.ServerProto.AchievementInfoBin\"\320\007\n"
     "\020InventoryCompBin\0227\n\005items\030\001 \003(\0132(.Serve"
     "rProto.InventoryCompBin.ItemsEntry\022\?\n\tre"
     "sources\030\002 \003(\0132,.ServerProto.InventoryCom"
     "pBin.ResourcesEntry\022\r\n\005skins\030\003 \003(\r\022\021\n\the"
     "adIcons\030\004 \003(\r\022\016\n\006titles\030\005 \003(\r\022\016\n\006honors\030"
-    "\006 \003(\r\032,\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005valu"
-    "e\030\002 \001(\003:\0028\001\0320\n\016ResourcesEntry\022\013\n\003key\030\001 \001"
-    "(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"-\n\021MailAttachmentB"
-    "in\022\013\n\003tid\030\001 \001(\r\022\013\n\003qty\030\002 \001(\003\"\324\001\n\013MailInf"
-    "oBin\022\n\n\002id\030\001 \001(\r\022\017\n\007subject\030\002 \001(\t\022\014\n\004des"
-    "c\030\003 \001(\t\022\016\n\006author\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\022\020\n"
-    "\010deadline\030\006 \001(\003\022\014\n\004read\030\007 \001(\010\022\014\n\004recv\030\010 "
-    "\001(\010\022\013\n\003pin\030\t \001(\010\022\014\n\004flag\030\n \001(\004\0223\n\013attach"
-    "ments\030\013 \003(\0132\036.ServerProto.MailAttachment"
-    "Bin\"f\n\013MailCompBin\022\022\n\nnextMailId\030\001 \001(\r\022\'"
-    "\n\005mails\030\002 \003(\0132\030.ServerProto.MailInfoBin\022"
-    "\032\n\022welcomeMailCreated\030\003 \001(\010\"\352\002\n\022PlayerBa"
-    "sicCompBin\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003"
-    " \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022"
-    "\020\n\010headIcon\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013tit"
-    "lePrefix\030\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005m"
-    "usic\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014"
-    " \003(\005\022\016\n\006boards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003e"
-    "xp\030\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUp"
-    "date\030\021 \001(\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastE"
-    "pochDay\030\023 \001(\003\022\021\n\tlastLogin\030\024 \001(\003\"\300\002\n\016Pla"
-    "yerSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.Server"
-    "Proto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001"
-    "(\0132\035.ServerProto.CharacterCompBin\022,\n\tque"
-    "stComp\030\004 \001(\0132\031.ServerProto.QuestCompBin\022"
-    "8\n\017achievementComp\030\005 \001(\0132\037.ServerProto.A"
-    "chievementCompBin\0224\n\rinventoryComp\030\006 \001(\013"
-    "2\035.ServerProto.InventoryCompBin\022*\n\010mailC"
-    "omp\030\007 \001(\0132\030.ServerProto.MailCompBin\"\211\001\n\017"
-    "GameDiscInfoBin\022\016\n\006discId\030\002 \001(\005\022\r\n\005level"
-    "\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004st"
-    "ar\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\nc"
-    "reateTime\030\t \001(\003b\006proto3"
+    "\006 \003(\r\022E\n\014shopBuyCount\030\007 \003(\0132/.ServerProt"
+    "o.InventoryCompBin.ShopBuyCountEntry\022E\n\014"
+    "mallBuyCount\030\010 \003(\0132/.ServerProto.Invento"
+    "ryCompBin.MallBuyCountEntry\022S\n\023mallPacka"
+    "geBuyCount\030\t \003(\01326.ServerProto.Inventory"
+    "CompBin.MallPackageBuyCountEntry\022M\n\020gemM"
+    "aidenClaimed\030\n \003(\01323.ServerProto.Invento"
+    "ryCompBin.GemMaidenClaimedEntry\022S\n\023month"
+    "lyCardBuyCount\030\013 \003(\01326.ServerProto.Inven"
+    "toryCompBin.MonthlyCardBuyCountEntry\032,\n\n"
+    "ItemsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\002"
+    "8\001\0320\n\016ResourcesEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val"
+    "ue\030\002 \001(\003:\0028\001\0323\n\021ShopBuyCountEntry\022\013\n\003key"
+    "\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0323\n\021MallBuyCoun"
+    "tEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032:"
+    "\n\030MallPackageBuyCountEntry\022\013\n\003key\030\001 \001(\t\022"
+    "\r\n\005value\030\002 \001(\r:\0028\001\0327\n\025GemMaidenClaimedEn"
+    "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032:\n\030M"
+    "onthlyCardBuyCountEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
+    "value\030\002 \001(\r:\0028\001\"-\n\021MailAttachmentBin\022\013\n\003"
+    "tid\030\001 \001(\r\022\013\n\003qty\030\002 \001(\003\"\324\001\n\013MailInfoBin\022\n"
+    "\n\002id\030\001 \001(\r\022\017\n\007subject\030\002 \001(\t\022\014\n\004desc\030\003 \001("
+    "\t\022\016\n\006author\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\022\020\n\010deadl"
+    "ine\030\006 \001(\003\022\014\n\004read\030\007 \001(\010\022\014\n\004recv\030\010 \001(\010\022\013\n"
+    "\003pin\030\t \001(\010\022\014\n\004flag\030\n \001(\004\0223\n\013attachments\030"
+    "\013 \003(\0132\036.ServerProto.MailAttachmentBin\"f\n"
+    "\013MailCompBin\022\022\n\nnextMailId\030\001 \001(\r\022\'\n\005mail"
+    "s\030\002 \003(\0132\030.ServerProto.MailInfoBin\022\032\n\022wel"
+    "comeMailCreated\030\003 \001(\010\"\\\n\022GachaBannerInfo"
+    "Bin\022\n\n\002id\030\001 \001(\r\022\r\n\005total\030\002 \001(\r\022\024\n\014usedFi"
+    "rstTen\030\003 \001(\010\022\025\n\rusedGuarantee\030\004 \001(\010\"i\n\021G"
+    "achaPityStateBin\022\022\n\nmissTimesA\030\001 \001(\r\022\024\n\014"
+    "missTimesUpA\030\002 \001(\r\022\022\n\nmissTimesB\030\003 \001(\r\022\026"
+    "\n\016bGuaranteeDebt\030\004 \001(\010\"\"\n\021GachaCardGroup"
+    "Bin\022\r\n\005cards\030\001 \003(\r\"\307\001\n\023NewbieGachaStateB"
+    "in\022\n\n\002id\030\001 \001(\r\022\032\n\022remainingSpinCount\030\002 \001"
+    "(\r\022\021\n\tsaveCount\030\003 \001(\r\022\026\n\016selectedResult\030"
+    "\004 \001(\005\022\020\n\010received\030\005 \001(\010\022\025\n\rpendingResult"
+    "\030\006 \003(\r\0224\n\014savedResults\030\007 \003(\0132\036.ServerPro"
+    "to.GachaCardGroupBin\"P\n\017GachaHistoryBin\022"
+    "\021\n\tstorageId\030\001 \001(\r\022\017\n\007gachaId\030\002 \001(\r\022\014\n\004t"
+    "ime\030\003 \001(\003\022\013\n\003ids\030\004 \003(\r\"\365\003\n\014GachaCompBin\022"
+    "7\n\007banners\030\001 \003(\0132&.ServerProto.GachaComp"
+    "Bin.BannersEntry\022=\n\npityStates\030\002 \003(\0132).S"
+    "erverProto.GachaCompBin.PityStatesEntry\022"
+    "A\n\014newbieStates\030\003 \003(\0132+.ServerProto.Gach"
+    "aCompBin.NewbieStatesEntry\022/\n\thistories\030"
+    "\004 \003(\0132\034.ServerProto.GachaHistoryBin\032O\n\014B"
+    "annersEntry\022\013\n\003key\030\001 \001(\r\022.\n\005value\030\002 \001(\0132"
+    "\037.ServerProto.GachaBannerInfoBin:\0028\001\032Q\n\017"
+    "PityStatesEntry\022\013\n\003key\030\001 \001(\r\022-\n\005value\030\002 "
+    "\001(\0132\036.ServerProto.GachaPityStateBin:\0028\001\032"
+    "U\n\021NewbieStatesEntry\022\013\n\003key\030\001 \001(\r\022/\n\005val"
+    "ue\030\002 \001(\0132 .ServerProto.NewbieGachaStateB"
+    "in:\0028\001\"\250\005\n\022PlayerBasicCompBin\022\022\n\ncreateT"
+    "ime\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 \001"
+    "(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n\006"
+    "skinId\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013tit"
+    "leSuffix\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005honor\030\013"
+    " \003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006boards\030\r \003(\005\022"
+    "\r\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006energy\030\020 "
+    "\001(\005\022\030\n\020energyLastUpdate\030\021 \001(\003\022\023\n\013signInI"
+    "ndex\030\022 \001(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022\021\n\tlast"
+    "Login\030\024 \001(\003\022Y\n\025monthlyCardExpireDays\030\025 \003"
+    "(\0132:.ServerProto.PlayerBasicCompBin.Mont"
+    "hlyCardExpireDaysEntry\022a\n\031monthlyCardLas"
+    "tRewardDays\030\026 \003(\0132>.ServerProto.PlayerBa"
+    "sicCompBin.MonthlyCardLastRewardDaysEntr"
+    "y\032<\n\032MonthlyCardExpireDaysEntry\022\013\n\003key\030\001"
+    " \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032@\n\036MonthlyCardLa"
+    "stRewardDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
+    "\002 \001(\r:\0028\001\"\356\002\n\016PlayerSaveData\0223\n\nplayerda"
+    "ta\030\002 \001(\0132\037.ServerProto.PlayerBasicCompBi"
+    "n\022/\n\010charComp\030\003 \001(\0132\035.ServerProto.Charac"
+    "terCompBin\022,\n\tquestComp\030\004 \001(\0132\031.ServerPr"
+    "oto.QuestCompBin\0228\n\017achievementComp\030\005 \001("
+    "\0132\037.ServerProto.AchievementCompBin\0224\n\rin"
+    "ventoryComp\030\006 \001(\0132\035.ServerProto.Inventor"
+    "yCompBin\022*\n\010mailComp\030\007 \001(\0132\030.ServerProto"
+    ".MailCompBin\022,\n\tgachaComp\030\010 \001(\0132\031.Server"
+    "Proto.GachaCompBin\"\211\001\n\017GameDiscInfoBin\022\016"
+    "\n\006discId\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001"
+    "(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030"
+    "\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006"
+    "proto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    3383,
+    5446,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
     nullptr,
     0,
-    22,
+    38,
     schemas,
     file_default_instances,
     TableStruct_PlayerData_2eproto::offsets,
@@ -6609,6 +7204,488 @@ InventoryCompBin_ResourcesEntry_DoNotUse::_table_ = {
 };
 // ===================================================================
 
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+InventoryCompBin_ShopBuyCountEntry_DoNotUse::InventoryCompBin_ShopBuyCountEntry_DoNotUse()
+    : SuperType(InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_.base()) {}
+InventoryCompBin_ShopBuyCountEntry_DoNotUse::InventoryCompBin_ShopBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+InventoryCompBin_ShopBuyCountEntry_DoNotUse::InventoryCompBin_ShopBuyCountEntry_DoNotUse() : SuperType() {}
+InventoryCompBin_ShopBuyCountEntry_DoNotUse::InventoryCompBin_ShopBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL InventoryCompBin_ShopBuyCountEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) InventoryCompBin_ShopBuyCountEntry_DoNotUse(arena);
+}
+constexpr auto InventoryCompBin_ShopBuyCountEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(InventoryCompBin_ShopBuyCountEntry_DoNotUse),
+                                            alignof(InventoryCompBin_ShopBuyCountEntry_DoNotUse));
+}
+constexpr auto InventoryCompBin_ShopBuyCountEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_InventoryCompBin_ShopBuyCountEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &InventoryCompBin_ShopBuyCountEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<InventoryCompBin_ShopBuyCountEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &InventoryCompBin_ShopBuyCountEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&InventoryCompBin_ShopBuyCountEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &InventoryCompBin_ShopBuyCountEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_ =
+        InventoryCompBin_ShopBuyCountEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+InventoryCompBin_ShopBuyCountEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_.tc_table);
+  return InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
+InventoryCompBin_ShopBuyCountEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    InventoryCompBin_ShopBuyCountEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.value_)}},
+    // uint32 key = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.key_), 0>(),
+     {8, 0, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 key = 1;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_ShopBuyCountEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+InventoryCompBin_MallBuyCountEntry_DoNotUse::InventoryCompBin_MallBuyCountEntry_DoNotUse()
+    : SuperType(InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_.base()) {}
+InventoryCompBin_MallBuyCountEntry_DoNotUse::InventoryCompBin_MallBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+InventoryCompBin_MallBuyCountEntry_DoNotUse::InventoryCompBin_MallBuyCountEntry_DoNotUse() : SuperType() {}
+InventoryCompBin_MallBuyCountEntry_DoNotUse::InventoryCompBin_MallBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL InventoryCompBin_MallBuyCountEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) InventoryCompBin_MallBuyCountEntry_DoNotUse(arena);
+}
+constexpr auto InventoryCompBin_MallBuyCountEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(InventoryCompBin_MallBuyCountEntry_DoNotUse),
+                                            alignof(InventoryCompBin_MallBuyCountEntry_DoNotUse));
+}
+constexpr auto InventoryCompBin_MallBuyCountEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_InventoryCompBin_MallBuyCountEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &InventoryCompBin_MallBuyCountEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<InventoryCompBin_MallBuyCountEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &InventoryCompBin_MallBuyCountEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&InventoryCompBin_MallBuyCountEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &InventoryCompBin_MallBuyCountEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_ =
+        InventoryCompBin_MallBuyCountEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+InventoryCompBin_MallBuyCountEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_.tc_table);
+  return InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 58, 2>
+InventoryCompBin_MallBuyCountEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    InventoryCompBin_MallBuyCountEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallBuyCountEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\56\3\0\0\0\0\0\0"
+    "ServerProto.InventoryCompBin.MallBuyCountEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse()
+    : SuperType(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_.base()) {}
+InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse() : SuperType() {}
+InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) InventoryCompBin_MallPackageBuyCountEntry_DoNotUse(arena);
+}
+constexpr auto InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse),
+                                            alignof(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse));
+}
+constexpr auto InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<InventoryCompBin_MallPackageBuyCountEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_ =
+        InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_.tc_table);
+  return InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 65, 2>
+InventoryCompBin_MallPackageBuyCountEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    InventoryCompBin_MallPackageBuyCountEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_MallPackageBuyCountEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\65\3\0\0\0\0\0\0"
+    "ServerProto.InventoryCompBin.MallPackageBuyCountEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse()
+    : SuperType(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_.base()) {}
+InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse() : SuperType() {}
+InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) InventoryCompBin_GemMaidenClaimedEntry_DoNotUse(arena);
+}
+constexpr auto InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse),
+                                            alignof(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse));
+}
+constexpr auto InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<InventoryCompBin_GemMaidenClaimedEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_ =
+        InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_.tc_table);
+  return InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 62, 2>
+InventoryCompBin_GemMaidenClaimedEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    InventoryCompBin_GemMaidenClaimedEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_GemMaidenClaimedEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\62\3\0\0\0\0\0\0"
+    "ServerProto.InventoryCompBin.GemMaidenClaimedEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse()
+    : SuperType(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_.base()) {}
+InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse() : SuperType() {}
+InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse(arena);
+}
+constexpr auto InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse),
+                                            alignof(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse));
+}
+constexpr auto InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_ =
+        InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_.tc_table);
+  return InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 65, 2>
+InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\65\3\0\0\0\0\0\0"
+    "ServerProto.InventoryCompBin.MonthlyCardBuyCountEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
 class InventoryCompBin::_Internal {
  public:
   using HasBits =
@@ -6641,7 +7718,12 @@ PROTOBUF_NDEBUG_INLINE InventoryCompBin::Impl_::Impl_(
         honors_{visibility, arena, from.honors_},
         _honors_cached_byte_size_{0},
         items_{visibility, arena, from.items_},
-        resources_{visibility, arena, from.resources_} {}
+        resources_{visibility, arena, from.resources_},
+        shopbuycount_{visibility, arena, from.shopbuycount_},
+        mallbuycount_{visibility, arena, from.mallbuycount_},
+        mallpackagebuycount_{visibility, arena, from.mallpackagebuycount_},
+        gemmaidenclaimed_{visibility, arena, from.gemmaidenclaimed_},
+        monthlycardbuycount_{visibility, arena, from.monthlycardbuycount_} {}
 
 InventoryCompBin::InventoryCompBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -6672,7 +7754,12 @@ PROTOBUF_NDEBUG_INLINE InventoryCompBin::Impl_::Impl_(
         honors_{visibility, arena},
         _honors_cached_byte_size_{0},
         items_{visibility, arena},
-        resources_{visibility, arena} {}
+        resources_{visibility, arena},
+        shopbuycount_{visibility, arena},
+        mallbuycount_{visibility, arena},
+        mallpackagebuycount_{visibility, arena},
+        gemmaidenclaimed_{visibility, arena},
+        monthlycardbuycount_{visibility, arena} {}
 
 inline void InventoryCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -6722,6 +7809,26 @@ constexpr auto InventoryCompBin::InternalNewImpl_() {
           decltype(InventoryCompBin::_impl_.honors_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.shopbuycount_) +
+          decltype(InventoryCompBin::_impl_.shopbuycount_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.mallbuycount_) +
+          decltype(InventoryCompBin::_impl_.mallbuycount_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.mallpackagebuycount_) +
+          decltype(InventoryCompBin::_impl_.mallpackagebuycount_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.gemmaidenclaimed_) +
+          decltype(InventoryCompBin::_impl_.gemmaidenclaimed_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.monthlycardbuycount_) +
+          decltype(InventoryCompBin::_impl_.monthlycardbuycount_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
@@ -6766,17 +7873,17 @@ InventoryCompBin::GetClassData() const {
   return InventoryCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 6, 2, 0, 2>
+const ::_pbi::TcParseTable<2, 11, 7, 111, 2>
 InventoryCompBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_._has_bits_),
     0, // no _extensions_
-    6, 24,  // max_field_number, fast_idx_mask
+    11, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294965248,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    2,  // num_aux_entries
+    11,  // num_field_entries
+    7,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     InventoryCompBin_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -6816,14 +7923,40 @@ InventoryCompBin::_table_ = {
     {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.titles_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 honors = 6;
     {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.honors_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // map<uint32, uint32> shopBuyCount = 7;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.shopbuycount_), _Internal::kHasBitsOffset + 6, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<string, uint32> mallBuyCount = 8;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.mallbuycount_), _Internal::kHasBitsOffset + 7, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<string, uint32> mallPackageBuyCount = 9;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.mallpackagebuycount_), _Internal::kHasBitsOffset + 8, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<string, uint32> gemMaidenClaimed = 10;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.gemmaidenclaimed_), _Internal::kHasBitsOffset + 9, 5, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<string, uint32> monthlyCardBuyCount = 11;
+    {PROTOBUF_FIELD_OFFSET(InventoryCompBin, _impl_.monthlycardbuycount_), _Internal::kHasBitsOffset + 10, 6, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
   }},
   {{
       {::_pbi::TcParser::GetMapAuxInfo(
           0, 0, 13, 3, 0)},
       {::_pbi::TcParser::GetMapAuxInfo(
           0, 0, 13, 3, 0)},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          0, 0, 13, 13, 0)},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 13, 0)},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 13, 0)},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 13, 0)},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 13, 0)},
   }},
   {{
+    "\34\0\0\0\0\0\0\0\14\23\20\23\0\0\0\0"
+    "ServerProto.InventoryCompBin"
+    "mallBuyCount"
+    "mallPackageBuyCount"
+    "gemMaidenClaimed"
+    "monthlyCardBuyCount"
   }},
 };
 PROTOBUF_NOINLINE void InventoryCompBin::Clear() {
@@ -6834,7 +7967,7 @@ PROTOBUF_NOINLINE void InventoryCompBin::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.skins_.Clear();
     }
@@ -6852,6 +7985,23 @@ PROTOBUF_NOINLINE void InventoryCompBin::Clear() {
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000020U)) {
       _impl_.resources_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+      _impl_.shopbuycount_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+      _impl_.mallbuycount_.Clear();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+      _impl_.mallpackagebuycount_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+      _impl_.gemmaidenclaimed_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      _impl_.monthlycardbuycount_.Clear();
     }
   }
   _impl_._has_bits_.Clear();
@@ -6967,6 +8117,145 @@ PROTOBUF_NOINLINE void InventoryCompBin::Clear() {
     }
   }
 
+  // map<uint32, uint32> shopBuyCount = 7;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+    if (!this_._internal_shopbuycount().empty()) {
+      using MapType = ::google::protobuf::Map<::uint32_t, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_UINT32,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_shopbuycount();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              7, entry.first, entry.second, target, stream);
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              7, entry.first, entry.second, target, stream);
+        }
+      }
+    }
+  }
+
+  // map<string, uint32> mallBuyCount = 8;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+    if (!this_._internal_mallbuycount().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_mallbuycount();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              8, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.mallBuyCount");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              8, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.mallBuyCount");
+        }
+      }
+    }
+  }
+
+  // map<string, uint32> mallPackageBuyCount = 9;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+    if (!this_._internal_mallpackagebuycount().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_mallpackagebuycount();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              9, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.mallPackageBuyCount");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              9, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.mallPackageBuyCount");
+        }
+      }
+    }
+  }
+
+  // map<string, uint32> gemMaidenClaimed = 10;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+    if (!this_._internal_gemmaidenclaimed().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_gemmaidenclaimed();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              10, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.gemMaidenClaimed");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              10, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.gemMaidenClaimed");
+        }
+      }
+    }
+  }
+
+  // map<string, uint32> monthlyCardBuyCount = 11;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+    if (!this_._internal_monthlycardbuycount().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_monthlycardbuycount();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              11, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.monthlyCardBuyCount");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              11, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.InventoryCompBin.monthlyCardBuyCount");
+        }
+      }
+    }
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -6992,7 +8281,7 @@ PROTOBUF_NOINLINE void InventoryCompBin::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     // repeated uint32 skins = 3;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size +=
@@ -7041,6 +8330,58 @@ PROTOBUF_NOINLINE void InventoryCompBin::Clear() {
                                        _pbi::WireFormatLite::TYPE_INT64>::ByteSizeLong(entry.first, entry.second);
       }
     }
+    // map<uint32, uint32> shopBuyCount = 7;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_shopbuycount_size());
+      for (const auto& entry : this_._internal_shopbuycount()) {
+        total_size += _pbi::MapEntryFuncs<::uint32_t, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_UINT32,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // map<string, uint32> mallBuyCount = 8;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_mallbuycount_size());
+      for (const auto& entry : this_._internal_mallbuycount()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+    // map<string, uint32> mallPackageBuyCount = 9;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_mallpackagebuycount_size());
+      for (const auto& entry : this_._internal_mallpackagebuycount()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // map<string, uint32> gemMaidenClaimed = 10;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_gemmaidenclaimed_size());
+      for (const auto& entry : this_._internal_gemmaidenclaimed()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // map<string, uint32> monthlyCardBuyCount = 11;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_monthlycardbuycount_size());
+      for (const auto& entry : this_._internal_monthlycardbuycount()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
   }
   return this_.MaybeComputeUnknownFieldsSize(total_size,
                                              &this_._impl_._cached_size_);
@@ -7060,7 +8401,7 @@ void InventoryCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _this->_internal_mutable_skins()->MergeFrom(from._internal_skins());
     }
@@ -7078,6 +8419,23 @@ void InventoryCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000020U)) {
       _this->_impl_.resources_.MergeFrom(from._impl_.resources_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+      _this->_impl_.shopbuycount_.MergeFrom(from._impl_.shopbuycount_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+      _this->_impl_.mallbuycount_.MergeFrom(from._impl_.mallbuycount_);
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+      _this->_impl_.mallpackagebuycount_.MergeFrom(from._impl_.mallpackagebuycount_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+      _this->_impl_.gemmaidenclaimed_.MergeFrom(from._impl_.gemmaidenclaimed_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      _this->_impl_.monthlycardbuycount_.MergeFrom(from._impl_.monthlycardbuycount_);
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -7103,6 +8461,11 @@ void InventoryCompBin::InternalSwap(InventoryCompBin* PROTOBUF_RESTRICT PROTOBUF
   _impl_.honors_.InternalSwap(&other->_impl_.honors_);
   _impl_.items_.InternalSwap(&other->_impl_.items_);
   _impl_.resources_.InternalSwap(&other->_impl_.resources_);
+  _impl_.shopbuycount_.InternalSwap(&other->_impl_.shopbuycount_);
+  _impl_.mallbuycount_.InternalSwap(&other->_impl_.mallbuycount_);
+  _impl_.mallpackagebuycount_.InternalSwap(&other->_impl_.mallpackagebuycount_);
+  _impl_.gemmaidenclaimed_.InternalSwap(&other->_impl_.gemmaidenclaimed_);
+  _impl_.monthlycardbuycount_.InternalSwap(&other->_impl_.monthlycardbuycount_);
 }
 
 ::google::protobuf::Metadata InventoryCompBin::GetMetadata() const {
@@ -8403,6 +9766,2771 @@ void MailCompBin::InternalSwap(MailCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL o
 }
 // ===================================================================
 
+class GachaBannerInfoBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GachaBannerInfoBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_._has_bits_);
+};
+
+GachaBannerInfoBin::GachaBannerInfoBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaBannerInfoBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.GachaBannerInfoBin)
+}
+GachaBannerInfoBin::GachaBannerInfoBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaBannerInfoBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaBannerInfoBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(from._impl_) {
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+PROTOBUF_NDEBUG_INLINE GachaBannerInfoBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void GachaBannerInfoBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, usedguarantee_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::usedguarantee_));
+}
+GachaBannerInfoBin::~GachaBannerInfoBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.GachaBannerInfoBin)
+  SharedDtor(*this);
+}
+inline void GachaBannerInfoBin::SharedDtor(MessageLite& self) {
+  GachaBannerInfoBin& this_ = static_cast<GachaBannerInfoBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GachaBannerInfoBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaBannerInfoBin(arena);
+}
+constexpr auto GachaBannerInfoBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GachaBannerInfoBin),
+                                            alignof(GachaBannerInfoBin));
+}
+constexpr auto GachaBannerInfoBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaBannerInfoBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaBannerInfoBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaBannerInfoBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaBannerInfoBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GachaBannerInfoBin>(), &GachaBannerInfoBin::ByteSizeLong,
+              &GachaBannerInfoBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_._cached_size_),
+          false,
+      },
+      &GachaBannerInfoBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaBannerInfoBin_class_data_ =
+        GachaBannerInfoBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaBannerInfoBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaBannerInfoBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaBannerInfoBin_class_data_.tc_table);
+  return GachaBannerInfoBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 0, 2>
+GachaBannerInfoBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    GachaBannerInfoBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaBannerInfoBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // bool usedGuarantee = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GachaBannerInfoBin, _impl_.usedguarantee_), 3>(),
+     {32, 3, 0,
+      PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.usedguarantee_)}},
+    // uint32 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaBannerInfoBin, _impl_.id_), 0>(),
+     {8, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.id_)}},
+    // uint32 total = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaBannerInfoBin, _impl_.total_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.total_)}},
+    // bool usedFirstTen = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GachaBannerInfoBin, _impl_.usedfirstten_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.usedfirstten_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 id = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 total = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.total_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bool usedFirstTen = 3;
+    {PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.usedfirstten_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // bool usedGuarantee = 4;
+    {PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.usedguarantee_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GachaBannerInfoBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.GachaBannerInfoBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.usedguarantee_) -
+        reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.usedguarantee_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GachaBannerInfoBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GachaBannerInfoBin& this_ = static_cast<const GachaBannerInfoBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GachaBannerInfoBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GachaBannerInfoBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.GachaBannerInfoBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 id = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (this_._internal_id() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_id(), target);
+    }
+  }
+
+  // uint32 total = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_total() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_total(), target);
+    }
+  }
+
+  // bool usedFirstTen = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_usedfirstten() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          3, this_._internal_usedfirstten(), target);
+    }
+  }
+
+  // bool usedGuarantee = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_usedguarantee() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          4, this_._internal_usedguarantee(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.GachaBannerInfoBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GachaBannerInfoBin::ByteSizeLong(const MessageLite& base) {
+  const GachaBannerInfoBin& this_ = static_cast<const GachaBannerInfoBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GachaBannerInfoBin::ByteSizeLong() const {
+  const GachaBannerInfoBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.GachaBannerInfoBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // uint32 id = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (this_._internal_id() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_id());
+      }
+    }
+    // uint32 total = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_total() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_total());
+      }
+    }
+    // bool usedFirstTen = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_usedfirstten() != 0) {
+        total_size += 2;
+      }
+    }
+    // bool usedGuarantee = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_usedguarantee() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GachaBannerInfoBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GachaBannerInfoBin*>(&to_msg);
+  auto& from = static_cast<const GachaBannerInfoBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.GachaBannerInfoBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (from._internal_id() != 0) {
+        _this->_impl_.id_ = from._impl_.id_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_total() != 0) {
+        _this->_impl_.total_ = from._impl_.total_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_usedfirstten() != 0) {
+        _this->_impl_.usedfirstten_ = from._impl_.usedfirstten_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_usedguarantee() != 0) {
+        _this->_impl_.usedguarantee_ = from._impl_.usedguarantee_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GachaBannerInfoBin::CopyFrom(const GachaBannerInfoBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.GachaBannerInfoBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GachaBannerInfoBin::InternalSwap(GachaBannerInfoBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.usedguarantee_)
+      + sizeof(GachaBannerInfoBin::_impl_.usedguarantee_)
+      - PROTOBUF_FIELD_OFFSET(GachaBannerInfoBin, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::google::protobuf::Metadata GachaBannerInfoBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class GachaPityStateBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GachaPityStateBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_._has_bits_);
+};
+
+GachaPityStateBin::GachaPityStateBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaPityStateBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.GachaPityStateBin)
+}
+GachaPityStateBin::GachaPityStateBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const GachaPityStateBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaPityStateBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(from._impl_) {
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+PROTOBUF_NDEBUG_INLINE GachaPityStateBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void GachaPityStateBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, misstimesa_),
+           0,
+           offsetof(Impl_, bguaranteedebt_) -
+               offsetof(Impl_, misstimesa_) +
+               sizeof(Impl_::bguaranteedebt_));
+}
+GachaPityStateBin::~GachaPityStateBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.GachaPityStateBin)
+  SharedDtor(*this);
+}
+inline void GachaPityStateBin::SharedDtor(MessageLite& self) {
+  GachaPityStateBin& this_ = static_cast<GachaPityStateBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GachaPityStateBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaPityStateBin(arena);
+}
+constexpr auto GachaPityStateBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GachaPityStateBin),
+                                            alignof(GachaPityStateBin));
+}
+constexpr auto GachaPityStateBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaPityStateBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaPityStateBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaPityStateBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaPityStateBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GachaPityStateBin>(), &GachaPityStateBin::ByteSizeLong,
+              &GachaPityStateBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_._cached_size_),
+          false,
+      },
+      &GachaPityStateBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaPityStateBin_class_data_ =
+        GachaPityStateBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaPityStateBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaPityStateBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaPityStateBin_class_data_.tc_table);
+  return GachaPityStateBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 0, 2>
+GachaPityStateBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    GachaPityStateBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaPityStateBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // bool bGuaranteeDebt = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GachaPityStateBin, _impl_.bguaranteedebt_), 3>(),
+     {32, 3, 0,
+      PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.bguaranteedebt_)}},
+    // uint32 missTimesA = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaPityStateBin, _impl_.misstimesa_), 0>(),
+     {8, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesa_)}},
+    // uint32 missTimesUpA = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaPityStateBin, _impl_.misstimesupa_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesupa_)}},
+    // uint32 missTimesB = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaPityStateBin, _impl_.misstimesb_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesb_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 missTimesA = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesa_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 missTimesUpA = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesupa_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 missTimesB = 3;
+    {PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesb_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bool bGuaranteeDebt = 4;
+    {PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.bguaranteedebt_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GachaPityStateBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.GachaPityStateBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    ::memset(&_impl_.misstimesa_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.bguaranteedebt_) -
+        reinterpret_cast<char*>(&_impl_.misstimesa_)) + sizeof(_impl_.bguaranteedebt_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GachaPityStateBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GachaPityStateBin& this_ = static_cast<const GachaPityStateBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GachaPityStateBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GachaPityStateBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.GachaPityStateBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 missTimesA = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (this_._internal_misstimesa() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_misstimesa(), target);
+    }
+  }
+
+  // uint32 missTimesUpA = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_misstimesupa() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_misstimesupa(), target);
+    }
+  }
+
+  // uint32 missTimesB = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_misstimesb() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_misstimesb(), target);
+    }
+  }
+
+  // bool bGuaranteeDebt = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_bguaranteedebt() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          4, this_._internal_bguaranteedebt(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.GachaPityStateBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GachaPityStateBin::ByteSizeLong(const MessageLite& base) {
+  const GachaPityStateBin& this_ = static_cast<const GachaPityStateBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GachaPityStateBin::ByteSizeLong() const {
+  const GachaPityStateBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.GachaPityStateBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // uint32 missTimesA = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (this_._internal_misstimesa() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_misstimesa());
+      }
+    }
+    // uint32 missTimesUpA = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_misstimesupa() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_misstimesupa());
+      }
+    }
+    // uint32 missTimesB = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_misstimesb() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_misstimesb());
+      }
+    }
+    // bool bGuaranteeDebt = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_bguaranteedebt() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GachaPityStateBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GachaPityStateBin*>(&to_msg);
+  auto& from = static_cast<const GachaPityStateBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.GachaPityStateBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (from._internal_misstimesa() != 0) {
+        _this->_impl_.misstimesa_ = from._impl_.misstimesa_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_misstimesupa() != 0) {
+        _this->_impl_.misstimesupa_ = from._impl_.misstimesupa_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_misstimesb() != 0) {
+        _this->_impl_.misstimesb_ = from._impl_.misstimesb_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_bguaranteedebt() != 0) {
+        _this->_impl_.bguaranteedebt_ = from._impl_.bguaranteedebt_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GachaPityStateBin::CopyFrom(const GachaPityStateBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.GachaPityStateBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GachaPityStateBin::InternalSwap(GachaPityStateBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.bguaranteedebt_)
+      + sizeof(GachaPityStateBin::_impl_.bguaranteedebt_)
+      - PROTOBUF_FIELD_OFFSET(GachaPityStateBin, _impl_.misstimesa_)>(
+          reinterpret_cast<char*>(&_impl_.misstimesa_),
+          reinterpret_cast<char*>(&other->_impl_.misstimesa_));
+}
+
+::google::protobuf::Metadata GachaPityStateBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class GachaCardGroupBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GachaCardGroupBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GachaCardGroupBin, _impl_._has_bits_);
+};
+
+GachaCardGroupBin::GachaCardGroupBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaCardGroupBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.GachaCardGroupBin)
+}
+PROTOBUF_NDEBUG_INLINE GachaCardGroupBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::GachaCardGroupBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        cards_{visibility, arena, from.cards_},
+        _cards_cached_byte_size_{0} {}
+
+GachaCardGroupBin::GachaCardGroupBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const GachaCardGroupBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaCardGroupBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GachaCardGroupBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.GachaCardGroupBin)
+}
+PROTOBUF_NDEBUG_INLINE GachaCardGroupBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        cards_{visibility, arena},
+        _cards_cached_byte_size_{0} {}
+
+inline void GachaCardGroupBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+GachaCardGroupBin::~GachaCardGroupBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.GachaCardGroupBin)
+  SharedDtor(*this);
+}
+inline void GachaCardGroupBin::SharedDtor(MessageLite& self) {
+  GachaCardGroupBin& this_ = static_cast<GachaCardGroupBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GachaCardGroupBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaCardGroupBin(arena);
+}
+constexpr auto GachaCardGroupBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(GachaCardGroupBin, _impl_.cards_) +
+          decltype(GachaCardGroupBin::_impl_.cards_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(GachaCardGroupBin), alignof(GachaCardGroupBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&GachaCardGroupBin::PlacementNew_,
+                                 sizeof(GachaCardGroupBin),
+                                 alignof(GachaCardGroupBin));
+  }
+}
+constexpr auto GachaCardGroupBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaCardGroupBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaCardGroupBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaCardGroupBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaCardGroupBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GachaCardGroupBin>(), &GachaCardGroupBin::ByteSizeLong,
+              &GachaCardGroupBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaCardGroupBin, _impl_._cached_size_),
+          false,
+      },
+      &GachaCardGroupBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaCardGroupBin_class_data_ =
+        GachaCardGroupBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaCardGroupBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaCardGroupBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaCardGroupBin_class_data_.tc_table);
+  return GachaCardGroupBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2>
+GachaCardGroupBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaCardGroupBin, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    GachaCardGroupBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaCardGroupBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated uint32 cards = 1;
+    {::_pbi::TcParser::FastV32P1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCardGroupBin, _impl_.cards_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated uint32 cards = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaCardGroupBin, _impl_.cards_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GachaCardGroupBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.GachaCardGroupBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _impl_.cards_.Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GachaCardGroupBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GachaCardGroupBin& this_ = static_cast<const GachaCardGroupBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GachaCardGroupBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GachaCardGroupBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.GachaCardGroupBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // repeated uint32 cards = 1;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    {
+      int byte_size = this_._impl_._cards_cached_byte_size_.Get();
+      if (byte_size > 0) {
+        target = stream->WriteUInt32Packed(
+            1, this_._internal_cards(), byte_size, target);
+      }
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.GachaCardGroupBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GachaCardGroupBin::ByteSizeLong(const MessageLite& base) {
+  const GachaCardGroupBin& this_ = static_cast<const GachaCardGroupBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GachaCardGroupBin::ByteSizeLong() const {
+  const GachaCardGroupBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.GachaCardGroupBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+   {
+    // repeated uint32 cards = 1;
+    cached_has_bits = this_._impl_._has_bits_[0];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
+              this_._internal_cards(), 1,
+              this_._impl_._cards_cached_byte_size_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GachaCardGroupBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GachaCardGroupBin*>(&to_msg);
+  auto& from = static_cast<const GachaCardGroupBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.GachaCardGroupBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _this->_internal_mutable_cards()->MergeFrom(from._internal_cards());
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GachaCardGroupBin::CopyFrom(const GachaCardGroupBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.GachaCardGroupBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GachaCardGroupBin::InternalSwap(GachaCardGroupBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.cards_.InternalSwap(&other->_impl_.cards_);
+}
+
+::google::protobuf::Metadata GachaCardGroupBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class NewbieGachaStateBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<NewbieGachaStateBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_._has_bits_);
+};
+
+NewbieGachaStateBin::NewbieGachaStateBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, NewbieGachaStateBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.NewbieGachaStateBin)
+}
+PROTOBUF_NDEBUG_INLINE NewbieGachaStateBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::NewbieGachaStateBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        pendingresult_{visibility, arena, from.pendingresult_},
+        _pendingresult_cached_byte_size_{0},
+        savedresults_{visibility, arena, from.savedresults_} {}
+
+NewbieGachaStateBin::NewbieGachaStateBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const NewbieGachaStateBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, NewbieGachaStateBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  NewbieGachaStateBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, id_),
+           offsetof(Impl_, received_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::received_));
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.NewbieGachaStateBin)
+}
+PROTOBUF_NDEBUG_INLINE NewbieGachaStateBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        pendingresult_{visibility, arena},
+        _pendingresult_cached_byte_size_{0},
+        savedresults_{visibility, arena} {}
+
+inline void NewbieGachaStateBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, received_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::received_));
+}
+NewbieGachaStateBin::~NewbieGachaStateBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.NewbieGachaStateBin)
+  SharedDtor(*this);
+}
+inline void NewbieGachaStateBin::SharedDtor(MessageLite& self) {
+  NewbieGachaStateBin& this_ = static_cast<NewbieGachaStateBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL NewbieGachaStateBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) NewbieGachaStateBin(arena);
+}
+constexpr auto NewbieGachaStateBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.pendingresult_) +
+          decltype(NewbieGachaStateBin::_impl_.pendingresult_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.savedresults_) +
+          decltype(NewbieGachaStateBin::_impl_.savedresults_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(NewbieGachaStateBin), alignof(NewbieGachaStateBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&NewbieGachaStateBin::PlacementNew_,
+                                 sizeof(NewbieGachaStateBin),
+                                 alignof(NewbieGachaStateBin));
+  }
+}
+constexpr auto NewbieGachaStateBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_NewbieGachaStateBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &NewbieGachaStateBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<NewbieGachaStateBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &NewbieGachaStateBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<NewbieGachaStateBin>(), &NewbieGachaStateBin::ByteSizeLong,
+              &NewbieGachaStateBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_._cached_size_),
+          false,
+      },
+      &NewbieGachaStateBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull NewbieGachaStateBin_class_data_ =
+        NewbieGachaStateBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+NewbieGachaStateBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&NewbieGachaStateBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(NewbieGachaStateBin_class_data_.tc_table);
+  return NewbieGachaStateBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 7, 1, 0, 2>
+NewbieGachaStateBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_._has_bits_),
+    0, // no _extensions_
+    7, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967168,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    7,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    NewbieGachaStateBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::NewbieGachaStateBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(NewbieGachaStateBin, _impl_.id_), 2>(),
+     {8, 2, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.id_)}},
+    // uint32 remainingSpinCount = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(NewbieGachaStateBin, _impl_.remainingspincount_), 3>(),
+     {16, 3, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.remainingspincount_)}},
+    // uint32 saveCount = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(NewbieGachaStateBin, _impl_.savecount_), 4>(),
+     {24, 4, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.savecount_)}},
+    // int32 selectedResult = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(NewbieGachaStateBin, _impl_.selectedresult_), 5>(),
+     {32, 5, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.selectedresult_)}},
+    // bool received = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(NewbieGachaStateBin, _impl_.received_), 6>(),
+     {40, 6, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.received_)}},
+    // repeated uint32 pendingResult = 6;
+    {::_pbi::TcParser::FastV32P1,
+     {50, 0, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.pendingresult_)}},
+    // repeated .ServerProto.GachaCardGroupBin savedResults = 7;
+    {::_pbi::TcParser::FastMtR1,
+     {58, 1, 0,
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.savedresults_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 id = 1;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.id_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 remainingSpinCount = 2;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.remainingspincount_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 saveCount = 3;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.savecount_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // int32 selectedResult = 4;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.selectedresult_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // bool received = 5;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.received_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // repeated uint32 pendingResult = 6;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.pendingresult_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // repeated .ServerProto.GachaCardGroupBin savedResults = 7;
+    {PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.savedresults_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaCardGroupBin>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void NewbieGachaStateBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.NewbieGachaStateBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.pendingresult_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.savedresults_.Clear();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007cU)) {
+    ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.received_) -
+        reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.received_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL NewbieGachaStateBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const NewbieGachaStateBin& this_ = static_cast<const NewbieGachaStateBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL NewbieGachaStateBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const NewbieGachaStateBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.NewbieGachaStateBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 id = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_id() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_id(), target);
+    }
+  }
+
+  // uint32 remainingSpinCount = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_remainingspincount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_remainingspincount(), target);
+    }
+  }
+
+  // uint32 saveCount = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_savecount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_savecount(), target);
+    }
+  }
+
+  // int32 selectedResult = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (this_._internal_selectedresult() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<4>(
+              stream, this_._internal_selectedresult(), target);
+    }
+  }
+
+  // bool received = 5;
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (this_._internal_received() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          5, this_._internal_received(), target);
+    }
+  }
+
+  // repeated uint32 pendingResult = 6;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    {
+      int byte_size = this_._impl_._pendingresult_cached_byte_size_.Get();
+      if (byte_size > 0) {
+        target = stream->WriteUInt32Packed(
+            6, this_._internal_pendingresult(), byte_size, target);
+      }
+    }
+  }
+
+  // repeated .ServerProto.GachaCardGroupBin savedResults = 7;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_savedresults_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_savedresults().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              7, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.NewbieGachaStateBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t NewbieGachaStateBin::ByteSizeLong(const MessageLite& base) {
+  const NewbieGachaStateBin& this_ = static_cast<const NewbieGachaStateBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t NewbieGachaStateBin::ByteSizeLong() const {
+  const NewbieGachaStateBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.NewbieGachaStateBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+    // repeated uint32 pendingResult = 6;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
+              this_._internal_pendingresult(), 1,
+              this_._impl_._pendingresult_cached_byte_size_);
+    }
+    // repeated .ServerProto.GachaCardGroupBin savedResults = 7;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size += 1UL * this_._internal_savedresults_size();
+      for (const auto& msg : this_._internal_savedresults()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // uint32 id = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_id() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_id());
+      }
+    }
+    // uint32 remainingSpinCount = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_remainingspincount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_remainingspincount());
+      }
+    }
+    // uint32 saveCount = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_savecount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_savecount());
+      }
+    }
+    // int32 selectedResult = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (this_._internal_selectedresult() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_selectedresult());
+      }
+    }
+    // bool received = 5;
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (this_._internal_received() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void NewbieGachaStateBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<NewbieGachaStateBin*>(&to_msg);
+  auto& from = static_cast<const NewbieGachaStateBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.NewbieGachaStateBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_pendingresult()->MergeFrom(from._internal_pendingresult());
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_internal_mutable_savedresults()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_savedresults());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_id() != 0) {
+        _this->_impl_.id_ = from._impl_.id_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_remainingspincount() != 0) {
+        _this->_impl_.remainingspincount_ = from._impl_.remainingspincount_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_savecount() != 0) {
+        _this->_impl_.savecount_ = from._impl_.savecount_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (from._internal_selectedresult() != 0) {
+        _this->_impl_.selectedresult_ = from._impl_.selectedresult_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (from._internal_received() != 0) {
+        _this->_impl_.received_ = from._impl_.received_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void NewbieGachaStateBin::CopyFrom(const NewbieGachaStateBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.NewbieGachaStateBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void NewbieGachaStateBin::InternalSwap(NewbieGachaStateBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.pendingresult_.InternalSwap(&other->_impl_.pendingresult_);
+  _impl_.savedresults_.InternalSwap(&other->_impl_.savedresults_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.received_)
+      + sizeof(NewbieGachaStateBin::_impl_.received_)
+      - PROTOBUF_FIELD_OFFSET(NewbieGachaStateBin, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::google::protobuf::Metadata NewbieGachaStateBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class GachaHistoryBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GachaHistoryBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_._has_bits_);
+};
+
+GachaHistoryBin::GachaHistoryBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaHistoryBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.GachaHistoryBin)
+}
+PROTOBUF_NDEBUG_INLINE GachaHistoryBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::GachaHistoryBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        ids_{visibility, arena, from.ids_},
+        _ids_cached_byte_size_{0} {}
+
+GachaHistoryBin::GachaHistoryBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const GachaHistoryBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaHistoryBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GachaHistoryBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, storageid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, storageid_),
+           offsetof(Impl_, time_) -
+               offsetof(Impl_, storageid_) +
+               sizeof(Impl_::time_));
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.GachaHistoryBin)
+}
+PROTOBUF_NDEBUG_INLINE GachaHistoryBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        ids_{visibility, arena},
+        _ids_cached_byte_size_{0} {}
+
+inline void GachaHistoryBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, storageid_),
+           0,
+           offsetof(Impl_, time_) -
+               offsetof(Impl_, storageid_) +
+               sizeof(Impl_::time_));
+}
+GachaHistoryBin::~GachaHistoryBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.GachaHistoryBin)
+  SharedDtor(*this);
+}
+inline void GachaHistoryBin::SharedDtor(MessageLite& self) {
+  GachaHistoryBin& this_ = static_cast<GachaHistoryBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GachaHistoryBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaHistoryBin(arena);
+}
+constexpr auto GachaHistoryBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.ids_) +
+          decltype(GachaHistoryBin::_impl_.ids_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(GachaHistoryBin), alignof(GachaHistoryBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&GachaHistoryBin::PlacementNew_,
+                                 sizeof(GachaHistoryBin),
+                                 alignof(GachaHistoryBin));
+  }
+}
+constexpr auto GachaHistoryBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaHistoryBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaHistoryBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaHistoryBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaHistoryBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GachaHistoryBin>(), &GachaHistoryBin::ByteSizeLong,
+              &GachaHistoryBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_._cached_size_),
+          false,
+      },
+      &GachaHistoryBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaHistoryBin_class_data_ =
+        GachaHistoryBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaHistoryBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaHistoryBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaHistoryBin_class_data_.tc_table);
+  return GachaHistoryBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 0, 2>
+GachaHistoryBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    GachaHistoryBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaHistoryBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated uint32 ids = 4;
+    {::_pbi::TcParser::FastV32P1,
+     {34, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.ids_)}},
+    // uint32 storageId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaHistoryBin, _impl_.storageid_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.storageid_)}},
+    // uint32 gachaId = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaHistoryBin, _impl_.gachaid_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.gachaid_)}},
+    // int64 time = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GachaHistoryBin, _impl_.time_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.time_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 storageId = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.storageid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 gachaId = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.gachaid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // int64 time = 3;
+    {PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.time_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    // repeated uint32 ids = 4;
+    {PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.ids_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GachaHistoryBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.GachaHistoryBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _impl_.ids_.Clear();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000eU)) {
+    ::memset(&_impl_.storageid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.time_) -
+        reinterpret_cast<char*>(&_impl_.storageid_)) + sizeof(_impl_.time_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GachaHistoryBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GachaHistoryBin& this_ = static_cast<const GachaHistoryBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GachaHistoryBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GachaHistoryBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.GachaHistoryBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 storageId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_storageid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_storageid(), target);
+    }
+  }
+
+  // uint32 gachaId = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_gachaid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_gachaid(), target);
+    }
+  }
+
+  // int64 time = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_time() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<3>(
+              stream, this_._internal_time(), target);
+    }
+  }
+
+  // repeated uint32 ids = 4;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    {
+      int byte_size = this_._impl_._ids_cached_byte_size_.Get();
+      if (byte_size > 0) {
+        target = stream->WriteUInt32Packed(
+            4, this_._internal_ids(), byte_size, target);
+      }
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.GachaHistoryBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GachaHistoryBin::ByteSizeLong(const MessageLite& base) {
+  const GachaHistoryBin& this_ = static_cast<const GachaHistoryBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GachaHistoryBin::ByteSizeLong() const {
+  const GachaHistoryBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.GachaHistoryBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // repeated uint32 ids = 4;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
+              this_._internal_ids(), 1,
+              this_._impl_._ids_cached_byte_size_);
+    }
+    // uint32 storageId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_storageid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_storageid());
+      }
+    }
+    // uint32 gachaId = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_gachaid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_gachaid());
+      }
+    }
+    // int64 time = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_time() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+            this_._internal_time());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GachaHistoryBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GachaHistoryBin*>(&to_msg);
+  auto& from = static_cast<const GachaHistoryBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.GachaHistoryBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_ids()->MergeFrom(from._internal_ids());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_storageid() != 0) {
+        _this->_impl_.storageid_ = from._impl_.storageid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_gachaid() != 0) {
+        _this->_impl_.gachaid_ = from._impl_.gachaid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_time() != 0) {
+        _this->_impl_.time_ = from._impl_.time_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GachaHistoryBin::CopyFrom(const GachaHistoryBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.GachaHistoryBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GachaHistoryBin::InternalSwap(GachaHistoryBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.ids_.InternalSwap(&other->_impl_.ids_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.time_)
+      + sizeof(GachaHistoryBin::_impl_.time_)
+      - PROTOBUF_FIELD_OFFSET(GachaHistoryBin, _impl_.storageid_)>(
+          reinterpret_cast<char*>(&_impl_.storageid_),
+          reinterpret_cast<char*>(&other->_impl_.storageid_));
+}
+
+::google::protobuf::Metadata GachaHistoryBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+GachaCompBin_BannersEntry_DoNotUse::GachaCompBin_BannersEntry_DoNotUse()
+    : SuperType(GachaCompBin_BannersEntry_DoNotUse_class_data_.base()) {}
+GachaCompBin_BannersEntry_DoNotUse::GachaCompBin_BannersEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, GachaCompBin_BannersEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+GachaCompBin_BannersEntry_DoNotUse::GachaCompBin_BannersEntry_DoNotUse() : SuperType() {}
+GachaCompBin_BannersEntry_DoNotUse::GachaCompBin_BannersEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL GachaCompBin_BannersEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaCompBin_BannersEntry_DoNotUse(arena);
+}
+constexpr auto GachaCompBin_BannersEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GachaCompBin_BannersEntry_DoNotUse),
+                                            alignof(GachaCompBin_BannersEntry_DoNotUse));
+}
+constexpr auto GachaCompBin_BannersEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaCompBin_BannersEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaCompBin_BannersEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaCompBin_BannersEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaCompBin_BannersEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&GachaCompBin_BannersEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaCompBin_BannersEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &GachaCompBin_BannersEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaCompBin_BannersEntry_DoNotUse_class_data_ =
+        GachaCompBin_BannersEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaCompBin_BannersEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaCompBin_BannersEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaCompBin_BannersEntry_DoNotUse_class_data_.tc_table);
+  return GachaCompBin_BannersEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
+GachaCompBin_BannersEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaCompBin_BannersEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    GachaCompBin_BannersEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin_BannersEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .ServerProto.GachaBannerInfoBin value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin_BannersEntry_DoNotUse, _impl_.value_)}},
+    // uint32 key = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaCompBin_BannersEntry_DoNotUse, _impl_.key_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin_BannersEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 key = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin_BannersEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // .ServerProto.GachaBannerInfoBin value = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin_BannersEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaBannerInfoBin>()},
+  }},
+  {{
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+GachaCompBin_PityStatesEntry_DoNotUse::GachaCompBin_PityStatesEntry_DoNotUse()
+    : SuperType(GachaCompBin_PityStatesEntry_DoNotUse_class_data_.base()) {}
+GachaCompBin_PityStatesEntry_DoNotUse::GachaCompBin_PityStatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, GachaCompBin_PityStatesEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+GachaCompBin_PityStatesEntry_DoNotUse::GachaCompBin_PityStatesEntry_DoNotUse() : SuperType() {}
+GachaCompBin_PityStatesEntry_DoNotUse::GachaCompBin_PityStatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL GachaCompBin_PityStatesEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaCompBin_PityStatesEntry_DoNotUse(arena);
+}
+constexpr auto GachaCompBin_PityStatesEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GachaCompBin_PityStatesEntry_DoNotUse),
+                                            alignof(GachaCompBin_PityStatesEntry_DoNotUse));
+}
+constexpr auto GachaCompBin_PityStatesEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaCompBin_PityStatesEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaCompBin_PityStatesEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaCompBin_PityStatesEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaCompBin_PityStatesEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&GachaCompBin_PityStatesEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaCompBin_PityStatesEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &GachaCompBin_PityStatesEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaCompBin_PityStatesEntry_DoNotUse_class_data_ =
+        GachaCompBin_PityStatesEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaCompBin_PityStatesEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaCompBin_PityStatesEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaCompBin_PityStatesEntry_DoNotUse_class_data_.tc_table);
+  return GachaCompBin_PityStatesEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
+GachaCompBin_PityStatesEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaCompBin_PityStatesEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    GachaCompBin_PityStatesEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .ServerProto.GachaPityStateBin value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin_PityStatesEntry_DoNotUse, _impl_.value_)}},
+    // uint32 key = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaCompBin_PityStatesEntry_DoNotUse, _impl_.key_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin_PityStatesEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 key = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin_PityStatesEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // .ServerProto.GachaPityStateBin value = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin_PityStatesEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaPityStateBin>()},
+  }},
+  {{
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+GachaCompBin_NewbieStatesEntry_DoNotUse::GachaCompBin_NewbieStatesEntry_DoNotUse()
+    : SuperType(GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_.base()) {}
+GachaCompBin_NewbieStatesEntry_DoNotUse::GachaCompBin_NewbieStatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+GachaCompBin_NewbieStatesEntry_DoNotUse::GachaCompBin_NewbieStatesEntry_DoNotUse() : SuperType() {}
+GachaCompBin_NewbieStatesEntry_DoNotUse::GachaCompBin_NewbieStatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL GachaCompBin_NewbieStatesEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaCompBin_NewbieStatesEntry_DoNotUse(arena);
+}
+constexpr auto GachaCompBin_NewbieStatesEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GachaCompBin_NewbieStatesEntry_DoNotUse),
+                                            alignof(GachaCompBin_NewbieStatesEntry_DoNotUse));
+}
+constexpr auto GachaCompBin_NewbieStatesEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaCompBin_NewbieStatesEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaCompBin_NewbieStatesEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaCompBin_NewbieStatesEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaCompBin_NewbieStatesEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&GachaCompBin_NewbieStatesEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &GachaCompBin_NewbieStatesEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_ =
+        GachaCompBin_NewbieStatesEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaCompBin_NewbieStatesEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_.tc_table);
+  return GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
+GachaCompBin_NewbieStatesEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    GachaCompBin_NewbieStatesEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .ServerProto.NewbieGachaStateBin value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.value_)}},
+    // uint32 key = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.key_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 key = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // .ServerProto.NewbieGachaStateBin value = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin_NewbieStatesEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::NewbieGachaStateBin>()},
+  }},
+  {{
+  }},
+};
+// ===================================================================
+
+class GachaCompBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GachaCompBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_._has_bits_);
+};
+
+GachaCompBin::GachaCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaCompBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.GachaCompBin)
+}
+PROTOBUF_NDEBUG_INLINE GachaCompBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::GachaCompBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        histories_{visibility, arena, from.histories_},
+        banners_{visibility, arena, from.banners_},
+        pitystates_{visibility, arena, from.pitystates_},
+        newbiestates_{visibility, arena, from.newbiestates_} {}
+
+GachaCompBin::GachaCompBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const GachaCompBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GachaCompBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GachaCompBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.GachaCompBin)
+}
+PROTOBUF_NDEBUG_INLINE GachaCompBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        histories_{visibility, arena},
+        banners_{visibility, arena},
+        pitystates_{visibility, arena},
+        newbiestates_{visibility, arena} {}
+
+inline void GachaCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+GachaCompBin::~GachaCompBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.GachaCompBin)
+  SharedDtor(*this);
+}
+inline void GachaCompBin::SharedDtor(MessageLite& self) {
+  GachaCompBin& this_ = static_cast<GachaCompBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GachaCompBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GachaCompBin(arena);
+}
+constexpr auto GachaCompBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.banners_) +
+          decltype(GachaCompBin::_impl_.banners_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.pitystates_) +
+          decltype(GachaCompBin::_impl_.pitystates_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.newbiestates_) +
+          decltype(GachaCompBin::_impl_.newbiestates_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.histories_) +
+          decltype(GachaCompBin::_impl_.histories_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(GachaCompBin), alignof(GachaCompBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&GachaCompBin::PlacementNew_,
+                                 sizeof(GachaCompBin),
+                                 alignof(GachaCompBin));
+  }
+}
+constexpr auto GachaCompBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GachaCompBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GachaCompBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GachaCompBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GachaCompBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GachaCompBin>(), &GachaCompBin::ByteSizeLong,
+              &GachaCompBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_._cached_size_),
+          false,
+      },
+      &GachaCompBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GachaCompBin_class_data_ =
+        GachaCompBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GachaCompBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GachaCompBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GachaCompBin_class_data_.tc_table);
+  return GachaCompBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 4, 7, 0, 2>
+GachaCompBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    7,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    GachaCompBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated .ServerProto.GachaHistoryBin histories = 4;
+    {::_pbi::TcParser::FastMtR1,
+     {34, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.histories_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // map<uint32, .ServerProto.GachaBannerInfoBin> banners = 1;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.banners_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<uint32, .ServerProto.GachaPityStateBin> pityStates = 2;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.pitystates_), _Internal::kHasBitsOffset + 2, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<uint32, .ServerProto.NewbieGachaStateBin> newbieStates = 3;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.newbiestates_), _Internal::kHasBitsOffset + 3, 5, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // repeated .ServerProto.GachaHistoryBin histories = 4;
+    {PROTOBUF_FIELD_OFFSET(GachaCompBin, _impl_.histories_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaHistoryBin>()},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          0, 0, 13, 11, 0)},
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaBannerInfoBin>()},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          0, 0, 13, 11, 0)},
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaPityStateBin>()},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          0, 0, 13, 11, 0)},
+      {::_pbi::TcParser::GetTable<::ServerProto::NewbieGachaStateBin>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GachaCompBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.GachaCompBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.histories_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.banners_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _impl_.pitystates_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+      _impl_.newbiestates_.Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GachaCompBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GachaCompBin& this_ = static_cast<const GachaCompBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GachaCompBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GachaCompBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.GachaCompBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // map<uint32, .ServerProto.GachaBannerInfoBin> banners = 1;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_banners().empty()) {
+      using MapType = ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaBannerInfoBin>;
+      using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::ServerProto::GachaBannerInfoBin,
+                                     _pbi::WireFormatLite::TYPE_UINT32,
+                                     _pbi::WireFormatLite::TYPE_MESSAGE>;
+      const auto& field = this_._internal_banners();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              1, entry.first, entry.second, target, stream);
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              1, entry.first, entry.second, target, stream);
+        }
+      }
+    }
+  }
+
+  // map<uint32, .ServerProto.GachaPityStateBin> pityStates = 2;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_pitystates().empty()) {
+      using MapType = ::google::protobuf::Map<::uint32_t, ::ServerProto::GachaPityStateBin>;
+      using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::ServerProto::GachaPityStateBin,
+                                     _pbi::WireFormatLite::TYPE_UINT32,
+                                     _pbi::WireFormatLite::TYPE_MESSAGE>;
+      const auto& field = this_._internal_pitystates();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              2, entry.first, entry.second, target, stream);
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              2, entry.first, entry.second, target, stream);
+        }
+      }
+    }
+  }
+
+  // map<uint32, .ServerProto.NewbieGachaStateBin> newbieStates = 3;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+    if (!this_._internal_newbiestates().empty()) {
+      using MapType = ::google::protobuf::Map<::uint32_t, ::ServerProto::NewbieGachaStateBin>;
+      using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::ServerProto::NewbieGachaStateBin,
+                                     _pbi::WireFormatLite::TYPE_UINT32,
+                                     _pbi::WireFormatLite::TYPE_MESSAGE>;
+      const auto& field = this_._internal_newbiestates();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterFlat<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              3, entry.first, entry.second, target, stream);
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              3, entry.first, entry.second, target, stream);
+        }
+      }
+    }
+  }
+
+  // repeated .ServerProto.GachaHistoryBin histories = 4;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_histories_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_histories().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              4, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.GachaCompBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GachaCompBin::ByteSizeLong(const MessageLite& base) {
+  const GachaCompBin& this_ = static_cast<const GachaCompBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GachaCompBin::ByteSizeLong() const {
+  const GachaCompBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.GachaCompBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // repeated .ServerProto.GachaHistoryBin histories = 4;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_histories_size();
+      for (const auto& msg : this_._internal_histories()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // map<uint32, .ServerProto.GachaBannerInfoBin> banners = 1;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_banners_size());
+      for (const auto& entry : this_._internal_banners()) {
+        total_size += _pbi::MapEntryFuncs<::uint32_t, ::ServerProto::GachaBannerInfoBin,
+                                       _pbi::WireFormatLite::TYPE_UINT32,
+                                       _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // map<uint32, .ServerProto.GachaPityStateBin> pityStates = 2;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_pitystates_size());
+      for (const auto& entry : this_._internal_pitystates()) {
+        total_size += _pbi::MapEntryFuncs<::uint32_t, ::ServerProto::GachaPityStateBin,
+                                       _pbi::WireFormatLite::TYPE_UINT32,
+                                       _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // map<uint32, .ServerProto.NewbieGachaStateBin> newbieStates = 3;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_newbiestates_size());
+      for (const auto& entry : this_._internal_newbiestates()) {
+        total_size += _pbi::MapEntryFuncs<::uint32_t, ::ServerProto::NewbieGachaStateBin,
+                                       _pbi::WireFormatLite::TYPE_UINT32,
+                                       _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GachaCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GachaCompBin*>(&to_msg);
+  auto& from = static_cast<const GachaCompBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.GachaCompBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_histories()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_histories());
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_impl_.banners_.MergeFrom(from._impl_.banners_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _this->_impl_.pitystates_.MergeFrom(from._impl_.pitystates_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+      _this->_impl_.newbiestates_.MergeFrom(from._impl_.newbiestates_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GachaCompBin::CopyFrom(const GachaCompBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.GachaCompBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GachaCompBin::InternalSwap(GachaCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.histories_.InternalSwap(&other->_impl_.histories_);
+  _impl_.banners_.InternalSwap(&other->_impl_.banners_);
+  _impl_.pitystates_.InternalSwap(&other->_impl_.pitystates_);
+  _impl_.newbiestates_.InternalSwap(&other->_impl_.newbiestates_);
+}
+
+::google::protobuf::Metadata GachaCompBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse()
+    : SuperType(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_.base()) {}
+PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse() : SuperType() {}
+PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse(arena);
+}
+constexpr auto PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse),
+                                            alignof(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse));
+}
+constexpr auto PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_ =
+        PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_.tc_table);
+  return PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 69, 2>
+PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\71\3\0\0\0\0\0\0"
+    "ServerProto.PlayerBasicCompBin.MonthlyCardExpireDaysEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse()
+    : SuperType(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_.base()) {}
+PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse() : SuperType() {}
+PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse(arena);
+}
+constexpr auto PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse),
+                                            alignof(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse));
+}
+constexpr auto PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_ =
+        PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_.tc_table);
+  return PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 73, 2>
+PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint32 value = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.value_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // uint32 value = 2;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+  }},
+  // no aux_entries
+  {{
+    "\75\3\0\0\0\0\0\0"
+    "ServerProto.PlayerBasicCompBin.MonthlyCardLastRewardDaysEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
 class PlayerBasicCompBin::_Internal {
  public:
   using HasBits =
@@ -8433,7 +12561,9 @@ PROTOBUF_NDEBUG_INLINE PlayerBasicCompBin::Impl_::Impl_(
         boards_{visibility, arena, from.boards_},
         _boards_cached_byte_size_{0},
         name_(arena, from.name_),
-        signature_(arena, from.signature_) {}
+        signature_(arena, from.signature_),
+        monthlycardexpiredays_{visibility, arena, from.monthlycardexpiredays_},
+        monthlycardlastrewarddays_{visibility, arena, from.monthlycardlastrewarddays_} {}
 
 PlayerBasicCompBin::PlayerBasicCompBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -8469,7 +12599,9 @@ PROTOBUF_NDEBUG_INLINE PlayerBasicCompBin::Impl_::Impl_(
         boards_{visibility, arena},
         _boards_cached_byte_size_{0},
         name_(arena),
-        signature_(arena) {}
+        signature_(arena),
+        monthlycardexpiredays_{visibility, arena},
+        monthlycardlastrewarddays_{visibility, arena} {}
 
 inline void PlayerBasicCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -8513,6 +12645,14 @@ constexpr auto PlayerBasicCompBin::InternalNewImpl_() {
                   ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.boards_) +
           decltype(PlayerBasicCompBin::_impl_.boards_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardexpiredays_) +
+          decltype(PlayerBasicCompBin::_impl_.monthlycardexpiredays_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardlastrewarddays_) +
+          decltype(PlayerBasicCompBin::_impl_.monthlycardlastrewarddays_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
@@ -8559,18 +12699,18 @@ PlayerBasicCompBin::GetClassData() const {
   return PlayerBasicCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 19, 0, 68, 2>
+const ::_pbi::TcParseTable<5, 21, 2, 114, 2>
 PlayerBasicCompBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_._has_bits_),
     0, // no _extensions_
-    20, 248,  // max_field_number, fast_idx_mask
+    22, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4293918721,  // skipmap
+    4290772993,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    19,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    21,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     PlayerBasicCompBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
@@ -8708,13 +12848,24 @@ PlayerBasicCompBin::_table_ = {
     {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastepochday_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // int64 lastLogin = 20;
     {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastlogin_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    // map<string, uint32> monthlyCardExpireDays = 21;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardexpiredays_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // map<string, uint32> monthlyCardLastRewardDays = 22;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardlastrewarddays_), _Internal::kHasBitsOffset + 20, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
   }},
-  // no aux_entries
   {{
-    "\36\0\4\11\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 13, 0)},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 13, 0)},
+  }},
+  {{
+    "\36\0\4\11\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\25\31\0\0"
     "ServerProto.PlayerBasicCompBin"
     "name"
     "signature"
+    "monthlyCardExpireDays"
+    "monthlyCardLastRewardDays"
   }},
 };
 PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
@@ -8752,10 +12903,16 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
         reinterpret_cast<char*>(&_impl_.energylastupdate_) -
         reinterpret_cast<char*>(&_impl_.skinid_)) + sizeof(_impl_.energylastupdate_));
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00070000U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     ::memset(&_impl_.lastepochday_, 0, static_cast<::size_t>(
         reinterpret_cast<char*>(&_impl_.signinindex_) -
         reinterpret_cast<char*>(&_impl_.lastepochday_)) + sizeof(_impl_.signinindex_));
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+      _impl_.monthlycardexpiredays_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+      _impl_.monthlycardlastrewarddays_.Clear();
+    }
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -8959,6 +13116,64 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
     }
   }
 
+  // map<string, uint32> monthlyCardExpireDays = 21;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+    if (!this_._internal_monthlycardexpiredays().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_monthlycardexpiredays();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              21, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.PlayerBasicCompBin.monthlyCardExpireDays");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              21, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.PlayerBasicCompBin.monthlyCardExpireDays");
+        }
+      }
+    }
+  }
+
+  // map<string, uint32> monthlyCardLastRewardDays = 22;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+    if (!this_._internal_monthlycardlastrewarddays().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_UINT32>;
+      const auto& field = this_._internal_monthlycardlastrewarddays();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              22, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.PlayerBasicCompBin.monthlyCardLastRewardDays");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              22, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.PlayerBasicCompBin.monthlyCardLastRewardDays");
+        }
+      }
+    }
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -9099,7 +13314,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
       }
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00070000U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     // int64 lastEpochDay = 19;
     if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (this_._internal_lastepochday() != 0) {
@@ -9119,6 +13334,26 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
       if (this_._internal_signinindex() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int32Size(
                                         this_._internal_signinindex());
+      }
+    }
+    // map<string, uint32> monthlyCardExpireDays = 21;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+      total_size +=
+          2 * ::google::protobuf::internal::FromIntSize(this_._internal_monthlycardexpiredays_size());
+      for (const auto& entry : this_._internal_monthlycardexpiredays()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // map<string, uint32> monthlyCardLastRewardDays = 22;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+      total_size +=
+          2 * ::google::protobuf::internal::FromIntSize(this_._internal_monthlycardlastrewarddays_size());
+      for (const auto& entry : this_._internal_monthlycardlastrewarddays()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::uint32_t,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_UINT32>::ByteSizeLong(entry.first, entry.second);
       }
     }
   }
@@ -9226,7 +13461,7 @@ void PlayerBasicCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       }
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00070000U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (from._internal_lastepochday() != 0) {
         _this->_impl_.lastepochday_ = from._impl_.lastepochday_;
@@ -9241,6 +13476,12 @@ void PlayerBasicCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       if (from._internal_signinindex() != 0) {
         _this->_impl_.signinindex_ = from._impl_.signinindex_;
       }
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+      _this->_impl_.monthlycardexpiredays_.MergeFrom(from._impl_.monthlycardexpiredays_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+      _this->_impl_.monthlycardlastrewarddays_.MergeFrom(from._impl_.monthlycardlastrewarddays_);
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -9273,6 +13514,8 @@ void PlayerBasicCompBin::InternalSwap(PlayerBasicCompBin* PROTOBUF_RESTRICT PROT
       - PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.createtime_)>(
           reinterpret_cast<char*>(&_impl_.createtime_),
           reinterpret_cast<char*>(&other->_impl_.createtime_));
+  _impl_.monthlycardexpiredays_.InternalSwap(&other->_impl_.monthlycardexpiredays_);
+  _impl_.monthlycardlastrewarddays_.InternalSwap(&other->_impl_.monthlycardlastrewarddays_);
 }
 
 ::google::protobuf::Metadata PlayerBasicCompBin::GetMetadata() const {
@@ -9336,6 +13579,9 @@ PlayerSaveData::PlayerSaveData(
   _impl_.mailcomp_ = (CheckHasBit(cached_has_bits, 0x00000020U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.mailcomp_)
                 : nullptr;
+  _impl_.gachacomp_ = (CheckHasBit(cached_has_bits, 0x00000040U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.gachacomp_)
+                : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.PlayerSaveData)
 }
@@ -9349,9 +13595,9 @@ inline void PlayerSaveData::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, playerdata_),
            0,
-           offsetof(Impl_, mailcomp_) -
+           offsetof(Impl_, gachacomp_) -
                offsetof(Impl_, playerdata_) +
-               sizeof(Impl_::mailcomp_));
+               sizeof(Impl_::gachacomp_));
 }
 PlayerSaveData::~PlayerSaveData() {
   // @@protoc_insertion_point(destructor:ServerProto.PlayerSaveData)
@@ -9370,6 +13616,7 @@ inline void PlayerSaveData::SharedDtor(MessageLite& self) {
   delete this_._impl_.achievementcomp_;
   delete this_._impl_.inventorycomp_;
   delete this_._impl_.mailcomp_;
+  delete this_._impl_.gachacomp_;
   this_._impl_.~Impl_();
 }
 
@@ -9416,17 +13663,17 @@ PlayerSaveData::GetClassData() const {
   return PlayerSaveData_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 6, 0, 2>
+const ::_pbi::TcParseTable<3, 7, 7, 0, 2>
 PlayerSaveData::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_._has_bits_),
     0, // no _extensions_
-    7, 56,  // max_field_number, fast_idx_mask
+    8, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967169,  // skipmap
+    4294967041,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    6,  // num_aux_entries
+    7,  // num_field_entries
+    7,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     PlayerSaveData_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -9435,7 +13682,10 @@ PlayerSaveData::_table_ = {
     ::_pbi::TcParser::GetTable<::ServerProto::PlayerSaveData>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
+    // .ServerProto.GachaCompBin gachaComp = 8;
+    {::_pbi::TcParser::FastMtS1,
+     {66, 6, 6,
+      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.gachacomp_)}},
     {::_pbi::TcParser::MiniParse, {}},
     // .ServerProto.PlayerBasicCompBin playerdata = 2;
     {::_pbi::TcParser::FastMtS1,
@@ -9476,6 +13726,8 @@ PlayerSaveData::_table_ = {
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.inventorycomp_), _Internal::kHasBitsOffset + 4, 4, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .ServerProto.MailCompBin mailComp = 7;
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.mailcomp_), _Internal::kHasBitsOffset + 5, 5, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.GachaCompBin gachaComp = 8;
+    {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.gachacomp_), _Internal::kHasBitsOffset + 6, 6, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::PlayerBasicCompBin>()},
@@ -9484,6 +13736,7 @@ PlayerSaveData::_table_ = {
       {::_pbi::TcParser::GetTable<::ServerProto::AchievementCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::MailCompBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin>()},
   }},
   {{
   }},
@@ -9496,7 +13749,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       ABSL_DCHECK(_impl_.playerdata_ != nullptr);
       _impl_.playerdata_->Clear();
@@ -9520,6 +13773,10 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
     if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       ABSL_DCHECK(_impl_.mailcomp_ != nullptr);
       _impl_.mailcomp_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      ABSL_DCHECK(_impl_.gachacomp_ != nullptr);
+      _impl_.gachacomp_->Clear();
     }
   }
   _impl_._has_bits_.Clear();
@@ -9587,6 +13844,13 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
         stream);
   }
 
+  // .ServerProto.GachaCompBin gachaComp = 8;
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        8, *this_._impl_.gachacomp_, this_._impl_.gachacomp_->GetCachedSize(), target,
+        stream);
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -9612,7 +13876,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
     // .ServerProto.PlayerBasicCompBin playerdata = 2;
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       total_size += 1 +
@@ -9643,6 +13907,11 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.mailcomp_);
     }
+    // .ServerProto.GachaCompBin gachaComp = 8;
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.gachacomp_);
+    }
   }
   return this_.MaybeComputeUnknownFieldsSize(total_size,
                                              &this_._impl_._cached_size_);
@@ -9663,7 +13932,7 @@ void PlayerSaveData::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       ABSL_DCHECK(from._impl_.playerdata_ != nullptr);
       if (_this->_impl_.playerdata_ == nullptr) {
@@ -9712,6 +13981,14 @@ void PlayerSaveData::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.mailcomp_->MergeFrom(*from._impl_.mailcomp_);
       }
     }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      ABSL_DCHECK(from._impl_.gachacomp_ != nullptr);
+      if (_this->_impl_.gachacomp_ == nullptr) {
+        _this->_impl_.gachacomp_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.gachacomp_);
+      } else {
+        _this->_impl_.gachacomp_->MergeFrom(*from._impl_.gachacomp_);
+      }
+    }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
@@ -9731,8 +14008,8 @@ void PlayerSaveData::InternalSwap(PlayerSaveData* PROTOBUF_RESTRICT PROTOBUF_NON
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.mailcomp_)
-      + sizeof(PlayerSaveData::_impl_.mailcomp_)
+      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.gachacomp_)
+      + sizeof(PlayerSaveData::_impl_.gachacomp_)
       - PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.playerdata_)>(
           reinterpret_cast<char*>(&_impl_.playerdata_),
           reinterpret_cast<char*>(&other->_impl_.playerdata_));

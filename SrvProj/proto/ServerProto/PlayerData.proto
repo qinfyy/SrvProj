@@ -108,6 +108,11 @@ message InventoryCompBin {
     repeated uint32 headIcons = 4;
     repeated uint32 titles = 5;
     repeated uint32 honors = 6;
+    map<uint32, uint32> shopBuyCount = 7;
+    map<string, uint32> mallBuyCount = 8;
+    map<string, uint32> mallPackageBuyCount = 9;
+    map<string, uint32> gemMaidenClaimed = 10;
+    map<string, uint32> monthlyCardBuyCount = 11;
 }
 
 message MailAttachmentBin {
@@ -135,6 +140,48 @@ message MailCompBin {
     bool welcomeMailCreated = 3;
 }
 
+message GachaBannerInfoBin {
+    uint32 id = 1;
+    uint32 total = 2;
+    bool usedFirstTen = 3;
+    bool usedGuarantee = 4;
+}
+
+message GachaPityStateBin {
+    uint32 missTimesA = 1;
+    uint32 missTimesUpA = 2;
+    uint32 missTimesB = 3;
+    bool bGuaranteeDebt = 4;
+}
+
+message GachaCardGroupBin {
+    repeated uint32 cards = 1;
+}
+
+message NewbieGachaStateBin {
+    uint32 id = 1;
+    uint32 remainingSpinCount = 2;
+    uint32 saveCount = 3;
+    int32 selectedResult = 4;
+    bool received = 5;
+    repeated uint32 pendingResult = 6;
+    repeated GachaCardGroupBin savedResults = 7;
+}
+
+message GachaHistoryBin {
+    uint32 storageId = 1;
+    uint32 gachaId = 2;
+    int64 time = 3;
+    repeated uint32 ids = 4;
+}
+
+message GachaCompBin {
+    map<uint32, GachaBannerInfoBin> banners = 1;
+    map<uint32, GachaPityStateBin> pityStates = 2;
+    map<uint32, NewbieGachaStateBin> newbieStates = 3;
+    repeated GachaHistoryBin histories = 4;
+}
+
 message PlayerBasicCompBin {
     // int32 uid = 1;
 
@@ -158,6 +205,8 @@ message PlayerBasicCompBin {
     int32 signInIndex = 18;
     int64 lastEpochDay = 19;       // 上次纪元日（用于每日重置）
     int64 lastLogin = 20;          // 上次登录时间
+    map<string, uint32> monthlyCardExpireDays = 21;
+    map<string, uint32> monthlyCardLastRewardDays = 22;
 }
 
 message PlayerSaveData {
@@ -169,6 +218,7 @@ message PlayerSaveData {
     AchievementCompBin achievementComp = 5;
     InventoryCompBin inventoryComp = 6;
     MailCompBin mailComp = 7;
+    GachaCompBin gachaComp = 8;
 }
 
 message GameDiscInfoBin {

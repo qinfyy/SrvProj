@@ -66,6 +66,7 @@ std::unordered_map<std::string, DropPkgRes> GameData::DropPkgDataTable;
 
 // ===== Shops =====
 std::unordered_map<std::string, MallMonthlyCardRes> GameData::MallMonthlyCardDataTable;
+std::unordered_map<std::string, MonthlyCardRes> GameData::MonthlyCardDataTable;
 std::unordered_map<std::string, MallPackageRes> GameData::MallPackageDataTable;
 std::unordered_map<std::string, MallShopRes> GameData::MallShopDataTable;
 std::unordered_map<std::string, MallGemRes> GameData::MallGemDataTable;
@@ -90,6 +91,7 @@ std::unordered_map<std::string, DictionaryEntryRes> GameData::DictionaryEntryDat
 
 // ===== Gacha =====
 std::unordered_map<std::string, GachaATypeProbRes> GameData::GachaATypeProbDataTable;
+std::unordered_map<std::string, GachaPkgRes> GameData::GachaPkgDataTable;
 std::unordered_map<std::string, GachaRes> GameData::GachaDataTable;
 std::unordered_map<std::string, GachaNewbieRes> GameData::GachaNewbieDataTable;
 std::unordered_map<std::string, GachaStorageRes> GameData::GachaStorageDataTable;

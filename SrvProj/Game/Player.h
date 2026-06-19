@@ -16,6 +16,7 @@ class GameSession;
 class ActivityMgr;
 class AchievementMgr;
 class CharacterStor;
+class GachaMgr;
 class InventoryMgr;
 class MailMgr;
 class QuestMgr;
@@ -54,6 +55,9 @@ public:
     InventoryMgr& Inventory();
     const InventoryMgr& Inventory() const;
 
+    GachaMgr& Gachas();
+    const GachaMgr& Gachas() const;
+
     MailMgr& Mails();
     const MailMgr& Mails() const;
 
@@ -66,6 +70,14 @@ public:
     void SetUid(uint32_t uid);
     bool SetWorldLevel(uint32_t level);
     void SetSignature(const std::string& signature);
+    bool HasAvailableFreeMallPackage() const;
+    void QueueMallPackageStateNotify();
+    uint32_t GetMonthlyCardRemainingDays(const std::string& cardId) const;
+    bool ReceivedMonthlyCardRewardToday(const std::string& cardId) const;
+    int64_t GetMonthlyCardEndTime(const std::string& cardId) const;
+    void ActivateMonthlyCard(const std::string& cardId, uint32_t durationDays);
+    bool CreateMonthlyCardRewardChange(const std::string& cardId, proto::ChangeInfo& out);
+    bool GrantMonthlyCardReward(const std::string& cardId, bool notifyOnly);
 
     GameSession* GetSessionRef() const { return mSessionRef; }
     void SetSessionRef(GameSession* sessionRef) { mSessionRef = sessionRef; }
@@ -84,6 +96,8 @@ private:
     void InitManagers();
     void EncodeBasicInfo(proto::PlayerInfo& info);
     void EncodeMinimalSystems(proto::PlayerInfo& info) const;
+    bool CanClaimMonthlyCardReward(const std::string& cardId) const;
+    void RefreshMonthlyCardRewards(bool notifyOnly);
 
     GameSession* mSessionRef = nullptr;
 
@@ -94,6 +108,7 @@ private:
     std::unique_ptr<ActivityMgr> mActivityMgr;
     std::unique_ptr<AchievementMgr> mAchievementMgr;
     std::unique_ptr<InventoryMgr> mInventoryMgr;
+    std::unique_ptr<GachaMgr> mGachaMgr;
     std::unique_ptr<MailMgr> mMailMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
 };

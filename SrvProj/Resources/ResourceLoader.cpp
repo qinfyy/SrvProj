@@ -457,6 +457,7 @@ void LoadResources() {
 
     // ===== Shops =====
     LoadRes<MallMonthlyCardRes>(arc.get(), GameData::MallMonthlyCardDataTable);
+    LoadRes<MonthlyCardRes>(arc.get(), GameData::MonthlyCardDataTable);
     LoadRes<MallPackageRes>(arc.get(), GameData::MallPackageDataTable);
     LoadRes<MallShopRes>(arc.get(), GameData::MallShopDataTable);
     LoadRes<MallGemRes>(arc.get(), GameData::MallGemDataTable);
@@ -607,5 +608,7 @@ void LoadResources() {
     // LOWEST
 
     // ===== Gacha =====
+    GachaPkgRes::ClearPackages();
+    LoadRes<GachaPkgRes>(arc.get(), GameData::GachaPkgDataTable);
     LoadRes<GachaRes>(arc.get(), GameData::GachaDataTable);
 }

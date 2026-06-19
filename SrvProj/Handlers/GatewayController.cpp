@@ -11,6 +11,11 @@
 #include "Quest.h"
 #include "Player.h"
 #include "Mail.h"
+#include "Gacha.h"
+#include "Mall.h"
+#include "Item.h"
+#include "Character.h"
+#include "Disc.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 
@@ -23,7 +28,36 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_signature_edit_req, player_signature_edit_req__Handler},
     {player_learn_req, player_learn_req__Handler},
     {energy_info_req, energy_info_req__Handler},
+    {mall_gem_list_req, mall_gem_list_req__Handler},
+    {mall_gem_order_req, mall_gem_order_req__Handler},
+    {mall_order_cancel_req, mall_order_cancel_req__Handler},
+    {mall_order_collect_req, mall_order_collect_req__Handler},
+    {mall_monthlyCard_list_req, mall_monthlyCard_list_req__Handler},
+    {mall_monthlyCard_order_req, mall_monthlyCard_order_req__Handler},
     {mall_package_list_req, mall_package_list_req__Handler},
+    {mall_package_order_req, mall_package_order_req__Handler},
+    {mall_shop_list_req, mall_shop_list_req__Handler},
+    {mall_shop_order_req, mall_shop_order_req__Handler},
+    {item_use_req, item_use_req__Handler},
+    {item_product_req, item_product_req__Handler},
+    {item_quick_growth_req, item_quick_growth_req__Handler},
+    {char_upgrade_req, char_upgrade_req__Handler},
+    {char_advance_req, char_advance_req__Handler},
+    {char_skill_upgrade_req, char_skill_upgrade_req__Handler},
+    {char_skin_set_req, char_skin_set_req__Handler},
+    {char_affinity_gift_send_req, char_affinity_gift_send_req__Handler},
+    {char_favorite_set_req, char_favorite_set_req__Handler},
+    {char_gem_use_preset_req, char_gem_use_preset_req__Handler},
+    {char_gem_equip_gem_req, char_gem_equip_gem_req__Handler},
+    {char_gem_refresh_req, char_gem_refresh_req__Handler},
+    {char_gem_replace_attribute_req, char_gem_replace_attribute_req__Handler},
+    {char_gem_update_gem_lock_status_req, char_gem_update_gem_lock_status_req__Handler},
+    {char_gem_overlock_req, char_gem_overlock_req__Handler},
+    {disc_strengthen_req, disc_strengthen_req__Handler},
+    {disc_promote_req, disc_promote_req__Handler},
+    {disc_limit_break_req, disc_limit_break_req__Handler},
+    {disc_read_reward_receive_req, disc_read_reward_receive_req__Handler},
+    {disc_all_limit_break_req, disc_all_limit_break_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
     {potential_preselection_list_req, potential_preselection_list_req__Handler},
     {daily_shop_reward_receive_req, daily_shop_reward_receive_req__Handler},
@@ -41,6 +75,14 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {mail_recv_req, mail_recv_req__Handler},
     {mail_remove_req, mail_remove_req__Handler},
     {mail_pin_req, mail_pin_req__Handler},
+    {gacha_spin_req, gacha_spin_req__Handler},
+    {gacha_information_req, gacha_information_req__Handler},
+    {gacha_histories_req, gacha_histories_req__Handler},
+    {gacha_guarantee_reward_receive_req, gacha_guarantee_reward_receive_req__Handler},
+    {gacha_newbie_spin_req, gacha_newbie_spin_req__Handler},
+    {gacha_newbie_save_req, gacha_newbie_save_req__Handler},
+    {gacha_newbie_obtain_req, gacha_newbie_obtain_req__Handler},
+    {gacha_newbie_info_req, gacha_newbie_info_req__Handler},
 };
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
