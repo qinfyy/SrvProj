@@ -2,13 +2,13 @@
 
 #include "Player.h"
 #include "InventoryMgr.h"
+#include "../GameTime.h"
 #include "../Logger.h"
 #include "../Resources/BinClass/AchievementsRes.h"
 #include "../Resources/GameData.h"
 #include "../proto/NetMsgId.pb.h"
 
 #include <algorithm>
-#include <chrono>
 #include <cstdint>
 #include <limits>
 #include <string>
@@ -312,7 +312,7 @@ bool AchievementMgr::UpdateAchievement(
     progress->set_cur(nextCur);
     if (max > 0 && nextCur >= max)
     {
-        achievement->set_completed(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+        achievement->set_completed(GameTime::NowSeconds());
         achievement->set_status(1);
         completed = true;
     }

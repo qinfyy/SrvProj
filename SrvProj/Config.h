@@ -25,10 +25,20 @@ public:
         NLOHMANN_DEFINE_TYPE_INTRUSIVE(HttpServerConfig, ip, publicIp, port)
     };
 
+    class ServerTime {
+    public:
+        bool spoofTime = false;
+        std::string spoofDate = "2025-11-01 08:00:00"; // yyyy-mm-dd HH:MM:SS
+
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(ServerTime, spoofTime, spoofDate)
+    };
+
     HttpServerConfig httpServerConfig;
     std::string DatabasePath = ".\\save.db";
+    std::string TimeZone = "UTC";
+    ServerTime serverTime;
 
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Config, httpServerConfig, DatabasePath)
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, DatabasePath, TimeZone, serverTime)
 
     bool LoadFromFile(const std::string& filename = ".\\Config.json");
     bool SaveToFile(const std::string& filename = ".\\Config.json");

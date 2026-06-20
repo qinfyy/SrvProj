@@ -4,7 +4,6 @@
 #include <cstdint>
 #include <functional>
 #include <string>
-#include <unordered_set>
 #include <vector>
 
 class Player;
@@ -30,6 +29,8 @@ struct CommandArgs
     std::vector<std::string> list;
 };
 
+using CommandFunction = CommandResult(*)(const CommandArgs&);
+
 struct CommandRegEntry
 {
     std::string label;
@@ -37,28 +38,8 @@ struct CommandRegEntry
     std::vector<std::string> aliases;
     std::string permission;
     bool requireTarget = false;
-    std::function<CommandResult(const CommandArgs&)> commandFunction;
+    CommandFunction commandFunction;
 };
-
-class CommandRegEntryHashByLabel
-{
-public:
-    std::size_t operator()(const CommandRegEntry& entry) const noexcept
-    {
-        return std::hash<std::string>{}(entry.label);
-    }
-};
-
-class CommandRegEntryEqualByLabel
-{
-public:
-    bool operator()(const CommandRegEntry& a, const CommandRegEntry& b) const noexcept
-    {
-        return a.label == b.label;
-    }
-};
-
-using CommandRegistry = std::unordered_set<CommandRegEntry, CommandRegEntryHashByLabel, CommandRegEntryEqualByLabel>;
 
 class CommandMgr
 {
@@ -68,7 +49,7 @@ public:
     CommandResult Invoke(Player* sender, const std::string& input);
     static bool HasCommandPrefix(const std::string& input);
     static void StartConsoleThread();
-    const CommandRegistry& GetCommandRegistry() const;
+    const std::vector<CommandRegEntry>& GetCommandRegistry() const;
 
 private:
     CommandMgr() = default;

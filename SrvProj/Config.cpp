@@ -23,7 +23,7 @@ bool Config::LoadFromFile(const std::string & filename)
     }
     catch (const std::exception& e)
     {
-        LOG_ERROR("Load error: {}", e.what());
+        LOG_ERROR("加载配置失败: {}", e.what());
         return false;
     }
 }
@@ -41,7 +41,7 @@ bool Config::SaveToFile(const std::string& filename)
     }
     catch (const std::exception& e)
     {
-        LOG_ERROR("Save error: {}", e.what());
+        LOG_ERROR("保存配置失败: {}", e.what());
         return false;
     }
 }

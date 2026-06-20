@@ -17,19 +17,14 @@ public:
     GameServices(GameServices&&) = delete;
     GameServices& operator=(GameServices&&) = delete;
 
-    void Init()
-    {
+    void Init();
 
-    }
-
-    void Shutdown()
-    {
-
-    }
+    void Shutdown();
     
     GameSession* GetSessionByToken(const std::string& token);
     Player* GetPlayerByUid(uint32_t uid);
     void AddSession(std::unique_ptr<GameSession> session);
+    bool ForceSaveAllPlayerData();
 
     GameSession* CreateSession();
 

@@ -4,10 +4,10 @@
 #include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
 #include "Player.h"
+#include "../GameTime.h"
 #include "../Resources/GameData.h"
 #include "../proto/proto_cpp/public.pb.h"
 
-#include <chrono>
 #include <algorithm>
 #include <cmath>
 #include <limits>
@@ -230,7 +230,7 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
     charInfo->set_affinityexp(0);
     charInfo->set_skin(data.DefaultSkinId);
     charInfo->set_talents(std::string(8, '\0'));
-    charInfo->set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+    charInfo->set_createtime(GameTime::NowSeconds());
     charInfo->set_gempresetindex(0);
 
     for (int i = 0; i < 5; ++i)
@@ -315,7 +315,7 @@ ServerProto::GameDiscInfoBin* CharacterStor::AddDisc(const DiscRes& data)
     disc->set_star(0);
     disc->set_read(false);
     disc->set_avg(false);
-    disc->set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+    disc->set_createtime(GameTime::NowSeconds());
     NormalizeDisc(*disc);
     SortDiscs();
     GetPlayer()->Trigger(28, 1, static_cast<uint32_t>(data.Id), 0);
@@ -1124,7 +1124,7 @@ void CharacterStor::NormalizeCharacter(ServerProto::CharacterInfo& character) co
 
     if (character.createtime() <= 0)
     {
-        character.set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+        character.set_createtime(GameTime::NowSeconds());
     }
 
     if (character.affinitylevel() < 0)
@@ -1174,7 +1174,7 @@ void CharacterStor::NormalizeDisc(ServerProto::GameDiscInfoBin& disc) const
 
     if (disc.createtime() <= 0)
     {
-        disc.set_createtime(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+        disc.set_createtime(GameTime::NowSeconds());
     }
 }
 
@@ -1183,7 +1183,7 @@ void CharacterStor::EnsureCharacterContact(ServerProto::CharacterInfo& character
     auto* contact = character.mutable_contact();
     if (contact->triggertime() <= 0)
     {
-        contact->set_triggertime(character.createtime() > 0 ? character.createtime() : std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+        contact->set_triggertime(character.createtime() > 0 ? character.createtime() : GameTime::NowSeconds());
     }
 
     EnsureInitialChats(character);

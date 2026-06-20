@@ -430,3 +430,10 @@ void VersionHandler(const HttpRequest& req, HttpResponse& rsp) {
     rsp.headers["Content-Type"] = "application/json";
     rsp.body = rspText;
 }
+
+void OrderProductsHandler(const HttpRequest& req, HttpResponse& rsp) {
+	const char* rspText = U8("{\"Code\":200,\"Msg\":\"OK\"}");
+	rsp.statusCode = 200;
+	rsp.headers["Content-Type"] = "application/json";
+	rsp.body = rspText;
+}

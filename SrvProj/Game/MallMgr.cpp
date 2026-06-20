@@ -4,6 +4,7 @@
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameConstants.h"
+#include "../GameTime.h"
 #include "../GameSession.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
@@ -11,9 +12,7 @@
 #include "../proto/proto_cpp/notify.pb.h"
 
 #include <algorithm>
-#include <chrono>
 #include <cstdint>
-#include <ctime>
 
 #ifdef min
 #undef min
@@ -23,42 +22,6 @@
 #endif
 
 namespace {
-int64_t NowSeconds()
-{
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-uint32_t CurrentEpochDay()
-{
-    return static_cast<uint32_t>(NowSeconds() / (60 * 60 * 24));
-}
-
-int64_t NextDailyReset()
-{
-    return static_cast<int64_t>(CurrentEpochDay() + 1) * 60 * 60 * 24;
-}
-
-int64_t NextWeeklyReset()
-{
-    const uint32_t today = CurrentEpochDay();
-    const uint32_t daysSinceMonday = (today + 3) % 7;
-    return static_cast<int64_t>(today + (7 - daysSinceMonday)) * 60 * 60 * 24;
-}
-
-int64_t NextMonthlyReset()
-{
-    const std::time_t nowTime = static_cast<std::time_t>(NowSeconds());
-    std::tm utc{};
-    gmtime_s(&utc, &nowTime);
-    utc.tm_mday = 1;
-    utc.tm_hour = 0;
-    utc.tm_min = 0;
-    utc.tm_sec = 0;
-    utc.tm_mon += 1;
-    return static_cast<int64_t>(_mkgmtime(&utc));
-}
-
 uint32_t PackageStock(const Player& player, const MallPackageRes& data)
 {
     if (data.Stock <= 0)
@@ -106,7 +69,7 @@ bool MallMgr::MatchCondition(const Player& player, int condType, const std::vect
 
 bool MallMgr::IsPackageVisible(const Player& player, const MallPackageRes& data) const
 {
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     if (data.ListTimeSeconds > 0 && now < data.ListTimeSeconds)
     {
         return false;
@@ -131,7 +94,7 @@ bool MallMgr::CanPurchasePackage(const Player& player, const MallPackageRes& dat
 
 bool MallMgr::IsShopVisible(const MallShopRes& data) const
 {
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     return (data.ListTimeSeconds <= 0 || now >= data.ListTimeSeconds) &&
         (data.DeListTimeSeconds <= 0 || now < data.DeListTimeSeconds);
 }
@@ -152,11 +115,11 @@ int64_t MallMgr::GetNextRefreshTime(int refreshType) const
     switch (refreshType)
     {
     case GameConstants::RefreshTypeDaily:
-        return NextDailyReset();
+        return GameTime::NextDailyReset();
     case GameConstants::RefreshTypeWeekly:
-        return NextWeeklyReset();
+        return GameTime::NextWeeklyReset();
     case GameConstants::RefreshTypeMonthly:
-        return NextMonthlyReset();
+        return GameTime::NextMonthlyReset();
     default:
         return 0;
     }
@@ -237,7 +200,7 @@ proto::OrderInfo MallMgr::CreateOrder(GameSession* session, OrderType type, cons
     }
 
     const uint32_t uid = session->GetPlayer()->GetUid();
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     const std::string orderId = typeName + "." + std::to_string(uid) + "." + std::to_string(now);
 
     {
@@ -251,7 +214,7 @@ proto::OrderInfo MallMgr::CreateOrder(GameSession* session, OrderType type, cons
 
     out.set_id(orderId);
     out.set_extradata(typeName + ":" + id + ":" + orderId);
-    out.set_notifyurl("http://localhost:21000/mock-pay");
+    out.set_notifyurl("http://localhost:21000/mock-pay"); // DEBUG
     out.set_nextpackage(GameSession::EncodeMessage(order_paid_notify, notify.SerializeAsString()));
     return out;
 }

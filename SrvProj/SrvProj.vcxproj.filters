@@ -1002,6 +1002,9 @@
     <ClCompile Include="Config.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Resources\GameData.cpp">
       <Filter>源文件\Resources</Filter>
     </ClCompile>
@@ -2016,6 +2019,9 @@
       <Filter>proto\ServerProto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Resources\GameData.h">

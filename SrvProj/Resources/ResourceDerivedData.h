@@ -17,6 +17,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "../GameTime.h"
+
 constexpr int GOLD_ITEM_ID = 1;
 constexpr int QUEST_TYPE_BATTLE_PASS_DAILY = 6;
 constexpr int QUEST_TYPE_BATTLE_PASS_WEEKLY = 7;
@@ -245,28 +247,7 @@ inline void ParseRewardPreviewNoFirst(const std::string& text, ItemRewardList& r
 }
 
 inline long long DateToSeconds(const std::string& text) {
-    if (text.empty()) {
-        return 0;
-    }
-
-    std::tm tm{};
-    std::istringstream ss(text.substr(0, 19));
-    if (text.find('T') != std::string::npos) {
-        ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%S");
-    }
-    else {
-        ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
-    }
-
-    if (ss.fail()) {
-        return 0;
-    }
-
-#if defined(_WIN32)
-    return static_cast<long long>(_mkgmtime(&tm));
-#else
-    return static_cast<long long>(timegm(&tm));
-#endif
+    return static_cast<long long>(GameTime::DateToSecondsInConfiguredTimeZone(text));
 }
 
 inline QuestParams GetBattlePassQuestParams(int id) {

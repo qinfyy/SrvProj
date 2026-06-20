@@ -3,11 +3,11 @@
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameConstants.h"
+#include "../GameTime.h"
 #include "../proto/NetMsgId.pb.h"
 #include "../proto/proto_cpp/mail_recv.pb.h"
 
 #include <algorithm>
-#include <chrono>
 #include <limits>
 
 namespace {
@@ -89,7 +89,7 @@ uint32_t MailMgr::AddSystemMail(const std::string& subject,
     bool notify)
 {
     auto* mail = MutableBin()->add_mails();
-    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    const int64_t now = GameTime::NowSeconds();
 
     mail->set_id(AllocateMailId());
     mail->set_subject(subject);

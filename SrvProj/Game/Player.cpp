@@ -11,6 +11,7 @@
 #include "QuestMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
+#include "../GameTime.h"
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
@@ -19,10 +20,10 @@
 #include "../proto/proto_cpp/notify_gm.pb.h"
 
 #include <algorithm>
-#include <chrono>
 #include <cstdint>
 #include <initializer_list>
 #include <utility>
+#include "../DbMgr.h"
 
 namespace {
 std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> handbookIds)
@@ -62,22 +63,6 @@ void AddCompletedNewbies(proto::AccInfo* acc)
     }
 }
 
-int64_t NowSeconds()
-{
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-uint32_t CurrentEpochDay()
-{
-    return static_cast<uint32_t>(NowSeconds() / (60 * 60 * 24));
-}
-
-int64_t ResetTimeSecondsByEpochDay(uint32_t epochDay)
-{
-    return static_cast<int64_t>(epochDay) * 60 * 60 * 24;
-}
-
 bool MatchShopCondition(const Player& player, int condType, const std::vector<int>& params)
 {
     if (condType == 0)
@@ -96,7 +81,7 @@ bool MatchShopCondition(const Player& player, int condType, const std::vector<in
 
 bool IsPackageVisibleForPlayer(const Player& player, const MallPackageRes& data)
 {
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     if (data.ListTimeSeconds > 0 && now < data.ListTimeSeconds)
     {
         return false;
@@ -143,14 +128,19 @@ void Player::InitManagers()
     mQuestMgr = std::make_unique<QuestMgr>(this);
 }
 
+bool Player::Save()
+{
+    auto saveData = SaveToBlob();
+    return DbMgr::Instance().SavePlayer(GetUid(), std::span<const uint8_t>(saveData.data(), saveData.size()));
+}
+
 bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
 {
     mUid = uid;
     mPlayerSaveData.Clear();
 
     auto* data = GetMutablePlayerData();
-    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
+    const int64_t now = GameTime::NowSeconds();
 
     data->set_createtime(now);
     data->set_name(name.empty() ? "me" : std::move(name));
@@ -260,8 +250,8 @@ proto::PlayerInfo Player::ToProto()
 void Player::OnLogin()
 {
     auto* data = GetMutablePlayerData();
-    data->set_lastlogin(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
-    data->set_lastepochday(std::chrono::duration_cast<std::chrono::days>(std::chrono::system_clock::now().time_since_epoch()).count());
+    data->set_lastlogin(GameTime::NowSeconds());
+    data->set_lastepochday(GameTime::CurrentEpochDay());
 
     mCharacterStor->OnLogin();
     mActivityMgr->OnLogin();
@@ -285,8 +275,7 @@ void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Mess
 int32_t Player::GetEnergy()
 {
     auto* data = GetMutablePlayerData();
-    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
+    const int64_t now = GameTime::NowSeconds();
 
     if (data->energylastupdate() <= 0)
     {
@@ -333,8 +322,7 @@ int64_t Player::GetEnergyLastUpdate()
 proto::Energy Player::GetEnergyProto()
 {
     const int32_t energy = GetEnergy();
-    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
+    const int64_t now = GameTime::NowSeconds();
     const int64_t elapsed = now - GetPlayerData().energylastupdate();
     const int64_t nextDuration = std::max<int64_t>(GameConstants::EnergyRegenTime - elapsed, 1);
 
@@ -377,8 +365,7 @@ bool Player::ConsumeEnergy(int32_t amount)
     data->set_energy(data->energy() - amount);
     if (data->energylastupdate() <= 0 || data->energy() == GameConstants::MaxEnergy - amount)
     {
-        data->set_energylastupdate(std::chrono::duration_cast<std::chrono::seconds>(
-            std::chrono::system_clock::now().time_since_epoch()).count());
+        data->set_energylastupdate(GameTime::NowSeconds());
     }
 
     Trigger(39, static_cast<uint32_t>(amount));
@@ -550,7 +537,7 @@ uint32_t Player::GetMonthlyCardRemainingDays(const std::string& cardId) const
         return 0;
     }
 
-    const uint32_t today = CurrentEpochDay();
+    const uint32_t today = GameTime::CurrentEpochDay();
     if (it->second < today)
     {
         return 0;
@@ -568,7 +555,7 @@ bool Player::ReceivedMonthlyCardRewardToday(const std::string& cardId) const
 
     const auto& rewardDays = GetPlayerData().monthlycardlastrewarddays();
     const auto it = rewardDays.find(cardId);
-    return it != rewardDays.end() && it->second >= CurrentEpochDay();
+    return it != rewardDays.end() && it->second >= GameTime::CurrentEpochDay();
 }
 
 int64_t Player::GetMonthlyCardEndTime(const std::string& cardId) const
@@ -585,7 +572,7 @@ int64_t Player::GetMonthlyCardEndTime(const std::string& cardId) const
         return 0;
     }
 
-    return ResetTimeSecondsByEpochDay(it->second + 1);
+    return GameTime::ResetTimeSecondsByEpochDay(it->second + 1);
 }
 
 void Player::ActivateMonthlyCard(const std::string& cardId, uint32_t durationDays)
@@ -595,7 +582,7 @@ void Player::ActivateMonthlyCard(const std::string& cardId, uint32_t durationDay
         return;
     }
 
-    const uint32_t today = CurrentEpochDay();
+    const uint32_t today = GameTime::CurrentEpochDay();
     const uint32_t remainingDays = GetMonthlyCardRemainingDays(cardId);
     const bool claimedToday = ReceivedMonthlyCardRewardToday(cardId);
     const uint32_t newRemainingDays = (remainingDays > 0 || claimedToday)
@@ -619,7 +606,7 @@ bool Player::CanClaimMonthlyCardReward(const std::string& cardId) const
         return false;
     }
 
-    const uint32_t today = CurrentEpochDay();
+    const uint32_t today = GameTime::CurrentEpochDay();
     return it->second > 0 && today <= it->second && !ReceivedMonthlyCardRewardToday(cardId);
 }
 
@@ -648,7 +635,7 @@ bool Player::CreateMonthlyCardRewardChange(const std::string& cardId, proto::Cha
         return false;
     }
 
-    (*GetMutablePlayerData()->mutable_monthlycardlastrewarddays())[cardId] = CurrentEpochDay();
+    (*GetMutablePlayerData()->mutable_monthlycardlastrewarddays())[cardId] = GameTime::CurrentEpochDay();
     return true;
 }
 
@@ -706,8 +693,7 @@ void Player::EncodeBasicInfo(proto::PlayerInfo& info)
 {
     const auto& data = GetPlayerData();
 
-    info.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count());
+    info.set_serverts(GameTime::ServerNowSeconds());
     info.set_signinindex(data.signinindex());
     info.set_musicinfo(data.music());
     info.set_achievements(std::string(64, '\0'));

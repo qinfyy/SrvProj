@@ -158,6 +158,7 @@
     <ClCompile Include="DbMgr.cpp" />
     <ClCompile Include="GameServices.cpp" />
     <ClCompile Include="GameSession.cpp" />
+    <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="Game\ActivityMgr.cpp" />
     <ClCompile Include="Game\AchievementMgr.cpp" />
     <ClCompile Include="Game\ChangeInfoUtil.cpp" />
@@ -496,6 +497,7 @@
     <ClInclude Include="GameConstants.h" />
     <ClInclude Include="GameServices.h" />
     <ClInclude Include="GameSession.h" />
+    <ClInclude Include="GameTime.h" />
     <ClInclude Include="Game\ActivityMgr.h" />
     <ClInclude Include="Game\AchievementMgr.h" />
     <ClInclude Include="Game\Bitset.h" />

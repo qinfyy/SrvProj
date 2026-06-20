@@ -5,6 +5,7 @@
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameConstants.h"
+#include "../GameTime.h"
 #include "../Resources/BinClass/CharacterRes.h"
 #include "../Resources/BinClass/DiscRes.h"
 #include "../Resources/BinClass/GachaRes.h"
@@ -12,7 +13,6 @@
 #include "../Resources/GameData.h"
 
 #include <algorithm>
-#include <chrono>
 #include <cstdint>
 #include <limits>
 #include <random>
@@ -36,12 +36,6 @@ constexpr int kNewbieTenPullCount = 10;
 constexpr double kNewbieFiveRate = 0.75;
 constexpr double kNewbieMultiFourRate = 10.0 / 15.0;
 constexpr double kNewbieThreeFourRate = 0.35;
-
-int64_t NowSeconds()
-{
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
 
 int32_t ClampChangeQty(int64_t qty)
 {
@@ -133,12 +127,12 @@ void GachaMgr::OnCreate()
 
 void GachaMgr::OnLoad()
 {
-    TrimHistories(NowSeconds());
+    TrimHistories(GameTime::ServerNowSeconds());
 }
 
 void GachaMgr::BeforeSave()
 {
-    TrimHistories(NowSeconds());
+    TrimHistories(GameTime::ServerNowSeconds());
 }
 
 ServerProto::GachaCompBin* GachaMgr::MutableBin()
@@ -621,7 +615,7 @@ bool GachaMgr::Spin(uint32_t bannerId, uint32_t amount, proto::GachaSpinResp& ou
     }
 
     const auto& data = dataIt->second;
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     if (!data.IsActiveAt(now))
     {
         return false;
@@ -741,7 +735,7 @@ proto::GachaInfo GachaMgr::BuildInfoProto(const GachaRes& data, const ServerProt
 proto::GachaInformationResp GachaMgr::BuildInformation()
 {
     proto::GachaInformationResp out;
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     for (const auto& [_, data] : GameData::GachaDataTable)
     {
         if (!data.IsActiveAt(now))
@@ -763,7 +757,7 @@ bool GachaMgr::BuildHistories(uint32_t storageId, proto::GachaHistories& out) co
         return false;
     }
 
-    const int64_t retentionStart = NowSeconds() - kHistoryRetentionSeconds;
+    const int64_t retentionStart = GameTime::ServerNowSeconds() - kHistoryRetentionSeconds;
     std::vector<const ServerProto::GachaHistoryBin*> histories;
     for (const auto& history : Bin().histories())
     {
@@ -811,7 +805,7 @@ bool GachaMgr::ReceiveGuarantee(uint32_t bannerId, proto::ChangeInfo& out)
     }
 
     const auto& data = dataIt->second;
-    if (!data.IsActiveAt(NowSeconds()) || !data.CanGuarantee() || banner->total() < static_cast<uint32_t>(data.GuaranteeTimes) || banner->usedguarantee())
+    if (!data.IsActiveAt(GameTime::ServerNowSeconds()) || !data.CanGuarantee() || banner->total() < static_cast<uint32_t>(data.GuaranteeTimes) || banner->usedguarantee())
     {
         return false;
     }

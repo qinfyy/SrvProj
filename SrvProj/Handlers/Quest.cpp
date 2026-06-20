@@ -175,8 +175,6 @@ std::string client_event_report_req__Handler(GameSession* session, const std::st
         return EncodeReply(session, client_event_report_failed_ack);
     }
 
-    proto::Nil rsp;
-
     proto::Events events;
     if (!req.empty() && events.ParseFromString(req))
     {
@@ -184,7 +182,7 @@ std::string client_event_report_req__Handler(GameSession* session, const std::st
     }
 
     session->SavePlayer();
-    return EncodeReply(session, client_event_report_succeed_ack, &rsp);
+    return EncodeReply(session, client_event_report_succeed_ack);
 }
 
 std::string battle_pass_quest_reward_receive_req__Handler(GameSession* session, const std::string& req)

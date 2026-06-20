@@ -17,12 +17,15 @@ bool HasPlayer(GameSession* session)
 
 void FinishChange(GameSession* session, const proto::ChangeInfo& change)
 {
-    if (!session || !session->HasPlayer() || change.props_size() <= 0)
+    if (!session || !session->HasPlayer())
     {
         return;
     }
 
-    session->GetPlayer()->Inventory().PushItemsChange(change);
+    if (change.props_size() > 0)
+    {
+        session->GetPlayer()->Inventory().PushItemsChange(change);
+    }
     session->SavePlayer();
 }
 }

@@ -91,6 +91,7 @@ public:
     }
 
     void PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload);
+    bool Save();
 
 private:
     void InitManagers();

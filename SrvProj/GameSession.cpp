@@ -109,8 +109,7 @@ bool GameSession::SavePlayer() {
         return false;
     }
 
-    auto saveData = mPlayer->SaveToBlob();
-    return DbMgr::Instance().SavePlayer(mPlayer->GetUid(), std::span<const uint8_t>(saveData.data(), saveData.size()));
+	return mPlayer->Save();
 }
 
 void GameSession::SetPlayer(std::unique_ptr<Player> player) {
@@ -245,10 +244,14 @@ void GameSession::AddPacketListToMe(google::protobuf::Message* payload) {
 
 void GameSession::PushNextPackageImpl(short msgId, std::unique_ptr<google::protobuf::Message> payload) {
     mPushList.emplace(msgId, std::move(payload));
+
+    //__debugbreak();
 }
 
 bool GameSession::HasNextPackages() {
     return !mPushList.empty();
+
+    //__debugbreak();
 }
 
 std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Message* payload) {

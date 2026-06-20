@@ -166,11 +166,11 @@ CommandArgs CommandMgr::ParseArgs(Player* sender, std::vector<std::string> args)
     return out;
 }
 
-const CommandRegistry& CommandMgr::GetCommandRegistry() const
+const std::vector<CommandRegEntry>& CommandMgr::GetCommandRegistry() const
 {
-    static const CommandRegistry registry = []() {
-        CommandRegistry out;
-        out.insert(CommandRegEntry{
+    static const std::vector<CommandRegEntry> registry = []() {
+        std::vector<CommandRegEntry> out;
+        out.push_back(CommandRegEntry{
             "help",
             U8("/help - 显示当前可用命令列表。"),
             {"h", "?"},
@@ -179,7 +179,7 @@ const CommandRegistry& CommandMgr::GetCommandRegistry() const
             BasicCommands::Help
         });
 
-        out.insert(CommandRegEntry{
+        out.push_back(CommandRegEntry{
             "level",
             U8("/level <等级> 或 /level @uid <等级> - 设置目标玩家世界等级，别名：setlevel、l。"),
             {"setlevel", "l"},
@@ -188,7 +188,7 @@ const CommandRegistry& CommandMgr::GetCommandRegistry() const
             BasicCommands::Level
         });
 
-        out.insert(CommandRegEntry{
+        out.push_back(CommandRegEntry{
             "give",
             U8("/give <物品ID> x数量 或 /give @uid <物品ID> x数量 - 通过邮件发放物品，别名：g、item。"),
             {"g", "item"},
@@ -197,7 +197,7 @@ const CommandRegistry& CommandMgr::GetCommandRegistry() const
             BasicCommands::Give
         });
 
-        out.insert(CommandRegEntry{
+        out.push_back(CommandRegEntry{
             "giveall",
             U8("/giveall <materials|characters|discs|skins> [lv等级] [a突破] [t天赋] [s技能] [f好感] - 批量发放或补齐资源，别名：ga。"),
             {"ga"},

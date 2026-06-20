@@ -1,11 +1,11 @@
 ﻿#include "Login.h"
 
 #include <string>
-#include <chrono>
 #include <span>
 #include <vector>
 
 #include "../DbMgr.h"
+#include "../GameTime.h"
 #include "../GameServices.h"
 #include "../GameSession.h"
 #include "../Logger.h"
@@ -44,7 +44,7 @@ std::string ike_req__Handler(GameSession* session, const std::string& req)
     rsp.set_pubkey(session->mServerPublicKey);
     rsp.set_token(session->mToken);
     rsp.set_cipher(session->mEncryptFunction);
-    rsp.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+    rsp.set_serverts(GameTime::NowSeconds());
 
     return EncodeReply(session, ike_succeed_ack, &rsp);
 }
@@ -145,7 +145,7 @@ std::string player_ping_req__Handler(GameSession* session, const std::string& re
     }
 
     Pong pong;
-    pong.set_serverts(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count());
+    pong.set_serverts(GameTime::NowSeconds());
     session->SavePlayer();
     return EncodeReply(session, player_ping_succeed_ack, &pong);
 }

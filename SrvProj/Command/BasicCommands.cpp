@@ -78,11 +78,6 @@ int64_t ParseInt64(const std::string& text, int64_t fallback = 0)
         return fallback;
     }
 }
-
-bool IsFixedHelpLabel(const std::string& label)
-{
-    return IsCommandLabel(label, {"help", "level", "give", "giveall"});
-}
 }
 
 CommandResult BasicCommands::Help(const CommandArgs& args)
@@ -90,23 +85,11 @@ CommandResult BasicCommands::Help(const CommandArgs& args)
     (void)args;
 
     const auto& registry = CommandMgr::Instance().GetCommandRegistry();
-    std::vector<const CommandRegEntry*> entries;
-    entries.reserve(registry.size());
-
-    for (const auto& entry : registry)
-    {
-        entries.push_back(&entry);
-    }
-
-    std::sort(entries.begin(), entries.end(), [](const CommandRegEntry* a, const CommandRegEntry* b) {
-        return a->label < b->label;
-        });
-
     std::ostringstream message;
     message << U8("当前可用命令：") << '\n';
-    for (const auto* entry : entries)
+    for (const CommandRegEntry& entry : registry)
     {
-        message << entry->description << '\n';
+        message << entry.description << '\n';
     }
 
     message << U8("提示：客户端签名命令可以使用 !、/ 或 \\ 前缀；控制台命令可以不加前缀。以后新增命令时，只需要在命令注册表中添加说明。");

@@ -9,6 +9,7 @@
 #include "AeadTool.h"
 #include "Util.h"
 #include "Config.h"
+#include "GameServices.h"
 #include "Command\CommandMgr.h"
 #include ".\Resources\ResourceLoader.h"
 
@@ -27,7 +28,7 @@ BOOL WINAPI ConsoleHandler(DWORD dwCtrlType) {
             SetEvent(g_hExitEvent);
         }
 
-        WaitForSingleObject(g_hCleanupDone, 5000);
+        WaitForSingleObject(g_hCleanupDone, INFINITE);
         return TRUE;
     }
     return FALSE;
@@ -106,6 +107,7 @@ int main() {
     WaitForSingleObject(g_hExitEvent, INFINITE);
 
     server.Stop();
+    GameServices::Instance().Shutdown();
     DbMgr::Instance().UnInit();
 
     SetEvent(g_hCleanupDone);

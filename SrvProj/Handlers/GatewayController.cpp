@@ -16,6 +16,7 @@
 #include "Item.h"
 #include "Character.h"
 #include "Disc.h"
+#include "../GameTime.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
 
@@ -150,7 +151,7 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
             msgId, reqData.size(), sessionToken, hasKey3, encryptFunction);
 
         if (session) {
-            session->mLastActiveTime = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+            session->mLastActiveTime = GameTime::NowMilliseconds();
         }
 
         ReqHandler handler = nullptr;
