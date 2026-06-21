@@ -39,6 +39,7 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {mall_package_order_req, mall_package_order_req__Handler},
     {mall_shop_list_req, mall_shop_list_req__Handler},
     {mall_shop_order_req, mall_shop_order_req__Handler},
+    {gem_convert_req, gem_convert_req__Handler},
     {item_use_req, item_use_req__Handler},
     {item_product_req, item_product_req__Handler},
     {item_quick_growth_req, item_quick_growth_req__Handler},
@@ -153,6 +154,7 @@ void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
         if (session) {
             session->mLastActiveTime = GameTime::NowMilliseconds();
         }
+        GameServices::Instance().CleanupExpiredSessions();
 
         ReqHandler handler = nullptr;
         if (auto it = g_HandlerMap.find(msgId); it != g_HandlerMap.end())

@@ -1,4 +1,4 @@
-#include "Mail.h"
+﻿#include "Mail.h"
 
 #include "../Game/MailMgr.h"
 #include "../Game/Player.h"
@@ -63,16 +63,21 @@ std::string mail_recv_req__Handler(GameSession* session, const std::string& req)
         return EncodeReply(session, mail_recv_failed_ack);
     }
 
-    proto::MailRequest reqPb;
-    if (!ParseMailRequest(req, reqPb))
-    {
-        return EncodeReply(session, mail_recv_failed_ack);
-    }
-
     proto::MailRecvResp rsp;
-    if (!session->GetPlayer()->Mails().Receive(reqPb.id(), rsp))
+    if (req.empty())
     {
-        return EncodeReply(session, mail_recv_failed_ack);
+        if (!session->GetPlayer()->Mails().ReceiveAll(rsp))
+        {
+            return EncodeReply(session, mail_recv_failed_ack);
+        }
+    }
+    else
+    {
+        proto::MailRequest reqPb;
+        if (!ParseMailRequest(req, reqPb) || !session->GetPlayer()->Mails().Receive(reqPb.id(), rsp))
+        {
+            return EncodeReply(session, mail_recv_failed_ack);
+        }
     }
 
     session->SavePlayer();

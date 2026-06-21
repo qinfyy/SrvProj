@@ -2,6 +2,7 @@
 
 #include "AeadTool.h"
 #include "DbMgr.h"
+#include "GameServices.h"
 #include "Logger.h"
 #include "Util.h"
 
@@ -95,6 +96,12 @@ bool GameSession::Login(std::string loginToken) {
         if (!player->LoadFromBlob(uid, std::span<const uint8_t>(blob.data(), blob.size()))) {
             LOG_ERROR("玩家存档解析失败, accountUid: {}", mAccountUid);
             return false;
+        }
+
+        auto* oldSession = GameServices::Instance().GetSessionByPlayerUid(uid);
+        if (oldSession && oldSession != this)
+        {
+            GameServices::Instance().KickSessionByPlayerUid(uid);
         }
 
         SetPlayer(std::move(player));
@@ -220,25 +227,68 @@ void GameSession::AddPacketListToMe(google::protobuf::Message* payload) {
     bool hasCurPacket = false;
 
     while (HasNextPackages()) {
-        if (hasCurPacket && !HasNextPackageField(curPacket.second.get())) {
-            break;
-        }
-
         auto nextPacket = std::move(mPushList.top());
         mPushList.pop();
+
+        Nil* nextNilPayload = nullptr;
+        google::protobuf::Message* nextPayload = nextPacket.second.get();
+        if (!nextPayload) {
+            nextNilPayload = new Nil();
+            nextPayload = nextNilPayload;
+        }
 
         if (!hasCurPacket) {
             curPacket = std::move(nextPacket);
             hasCurPacket = true;
+            if (nextNilPayload) {
+                delete nextNilPayload;
+            }
             continue;
         }
 
-        SetNextPackage(nextPacket.second.get(), EncodeMessage(curPacket.first, curPacket.second->SerializeAsString()));
+        Nil* curNilPayload = nullptr;
+        google::protobuf::Message* curPayload = curPacket.second.get();
+        if (!curPayload) {
+            curNilPayload = new Nil();
+            curPayload = curNilPayload;
+        }
+
+        if (!HasNextPackageField(curPayload)) {
+            if (curNilPayload) {
+                delete curNilPayload;
+            }
+            if (nextNilPayload) {
+                delete nextNilPayload;
+            }
+            mPushList.push(std::move(nextPacket));
+            break;
+        }
+
+        SetNextPackage(nextPayload, EncodeMessage(curPacket.first, curPayload->SerializeAsString()));
+
+        if (curNilPayload) {
+            delete curNilPayload;
+        }
+        if (nextNilPayload) {
+            delete nextNilPayload;
+        }
+
         curPacket = std::move(nextPacket);
     }
 
-    if (hasCurPacket && curPacket.second != nullptr) {
-        SetNextPackage(payload, EncodeMessage(curPacket.first, curPacket.second->SerializeAsString()));
+    if (hasCurPacket) {
+        Nil* curNilPayload = nullptr;
+        google::protobuf::Message* curPayload = curPacket.second.get();
+        if (!curPayload) {
+            curNilPayload = new Nil();
+            curPayload = curNilPayload;
+        }
+
+        SetNextPackage(payload, EncodeMessage(curPacket.first, curPayload->SerializeAsString()));
+
+        if (curNilPayload) {
+            delete curNilPayload;
+        }
     }
 }
 

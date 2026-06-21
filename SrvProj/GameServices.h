@@ -23,8 +23,11 @@ public:
     
     GameSession* GetSessionByToken(const std::string& token);
     Player* GetPlayerByUid(uint32_t uid);
+    GameSession* GetSessionByPlayerUid(uint32_t uid);
     void AddSession(std::unique_ptr<GameSession> session);
     bool ForceSaveAllPlayerData();
+    void CleanupExpiredSessions();
+    bool KickSessionByPlayerUid(uint32_t uid);
 
     GameSession* CreateSession();
 

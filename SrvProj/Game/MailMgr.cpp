@@ -1,4 +1,4 @@
-#include "MailMgr.h"
+﻿#include "MailMgr.h"
 
 #include "InventoryMgr.h"
 #include "Player.h"
@@ -244,6 +244,56 @@ bool MailMgr::Receive(uint32_t id, proto::MailRecvResp& rsp)
     mail->set_recv(true);
     mail->set_read(true);
     rsp.add_ids(id);
+    PushMailState(HasNewMail());
+    return true;
+}
+
+bool MailMgr::ReceiveAll(proto::MailRecvResp& rsp)
+{
+    std::vector<std::pair<uint32_t, int64_t>> attachments;
+    bool changed = false;
+
+    auto* bin = MutableBin();
+    for (int i = 0; i < bin->mails_size(); ++i)
+    {
+        auto* mail = bin->mutable_mails(i);
+        if (!mail || mail->recv() || mail->attachments_size() <= 0)
+        {
+            continue;
+        }
+
+        bool hasAttachment = false;
+        for (const auto& attachment : mail->attachments())
+        {
+            if (attachment.tid() == 0 || attachment.qty() <= 0)
+            {
+                continue;
+            }
+            attachments.emplace_back(attachment.tid(), attachment.qty());
+            hasAttachment = true;
+        }
+
+        if (!hasAttachment)
+        {
+            continue;
+        }
+
+        mail->set_recv(true);
+        mail->set_read(true);
+        rsp.add_ids(mail->id());
+        changed = true;
+    }
+
+    if (!changed)
+    {
+        return false;
+    }
+
+    if (!attachments.empty())
+    {
+        GetPlayer()->Inventory().AddItems(attachments, rsp.mutable_items());
+    }
+
     PushMailState(HasNewMail());
     return true;
 }

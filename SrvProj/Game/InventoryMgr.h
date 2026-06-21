@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "ManagerBase.h"
 #include "../proto/ServerProto_cpp/PlayerData.pb.h"
@@ -45,6 +45,7 @@ public:
     bool AddHonor(uint32_t id);
 
     bool BuyItem(uint32_t currencyId, int64_t currencyCount, const ItemParamMap& products, uint32_t buyCount, proto::ChangeInfo& change);
+    bool ConvertStellaniteLuminaToDust(uint32_t qty, proto::ChangeInfo& change);
     bool UseItem(uint32_t id, uint32_t count, uint32_t selectId, proto::ChangeInfo& change);
     bool Produce(uint32_t id, uint32_t count, proto::ChangeInfo& change);
     bool BuyMallPackage(const MallPackageRes& data, proto::ChangeInfo& change);

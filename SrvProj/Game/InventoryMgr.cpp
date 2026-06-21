@@ -1,4 +1,4 @@
-#include "InventoryMgr.h"
+﻿#include "InventoryMgr.h"
 
 #include "ChangeInfoUtil.h"
 #include "CharacterMgr.h"
@@ -559,6 +559,26 @@ bool InventoryMgr::BuyItem(uint32_t currencyId, int64_t currencyCount, const Ite
     return true;
 }
 
+bool InventoryMgr::ConvertStellaniteLuminaToDust(uint32_t qty, proto::ChangeInfo& change)
+{
+    if (qty == 0)
+    {
+        return false;
+    }
+
+    if (!HasMallPackageCurrency(GameConstants::PaidStellaniteLuminaItemId, qty))
+    {
+        return false;
+    }
+
+    if (!ConsumeMallPackageCurrency(GameConstants::PaidStellaniteLuminaItemId, qty, change))
+    {
+        return false;
+    }
+
+    return AddItem(GameConstants::StellaniteDustItemId, qty, &change);
+}
+
 bool InventoryMgr::UseItem(uint32_t id, uint32_t count, uint32_t selectId, proto::ChangeInfo& change)
 {
     if (id == 0)
@@ -687,7 +707,40 @@ bool InventoryMgr::BuyMallMonthlyCard(const MallMonthlyCardRes& data, proto::Cha
 
 bool InventoryMgr::BuyMallShopItem(const MallShopRes& data, uint32_t buyCount, proto::ChangeInfo& change)
 {
-    if (!BuyItem(static_cast<uint32_t>(data.ExchangeItemId), data.ExchangeItemQty, data.Products, buyCount, change))
+    if (buyCount == 0)
+    {
+        return false;
+    }
+
+    ItemParamMap normalizedProducts;
+    if (!data.Products.Items.empty())
+    {
+        for (const auto& [tid, qty] : data.Products.Items)
+        {
+            if (tid <= 0 || qty <= 0)
+            {
+                continue;
+            }
+
+            int perUnitQty = qty;
+            if (data.ItemId > 0 && tid == data.ItemId && data.ItemQty > 0 && qty >= data.ItemQty && qty % data.ItemQty == 0)
+            {
+                perUnitQty = qty / data.ItemQty;
+            }
+            normalizedProducts.Add(tid, perUnitQty);
+        }
+    }
+    else if (data.ItemId > 0 && data.ItemQty > 0)
+    {
+        normalizedProducts.Add(data.ItemId, 1);
+    }
+
+    if (normalizedProducts.Items.empty())
+    {
+        return false;
+    }
+
+    if (!BuyItem(static_cast<uint32_t>(data.ExchangeItemId), data.ExchangeItemQty, normalizedProducts, buyCount, change))
     {
         return false;
     }

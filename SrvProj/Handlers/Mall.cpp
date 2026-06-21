@@ -1,4 +1,4 @@
-#include "Mall.h"
+﻿#include "Mall.h"
 
 #include "../Game/InventoryMgr.h"
 #include "../Game/MallMgr.h"
@@ -16,6 +16,7 @@
 #include "../proto/proto_cpp/mall_shop_list.pb.h"
 #include "../proto/proto_cpp/mall_shop_order.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
+#include "../proto/proto_cpp/gem_convert.pb.h"
 
 namespace {
 bool HasPlayer(GameSession* session)
@@ -240,4 +241,30 @@ std::string mall_shop_order_req__Handler(GameSession* session, const std::string
     session->GetPlayer()->Inventory().PushItemsChange(change);
     session->SavePlayer();
     return EncodeReply(session, mall_shop_order_succeed_ack, &change);
+}
+
+
+std::string gem_convert_req__Handler(GameSession* session, const std::string& req)
+{
+    if (!HasPlayer(session))
+    {
+        return EncodeReply(session, gem_convert_failed_ack);
+    }
+
+    proto::UI32 request;
+    if (!request.ParseFromString(req) || request.value() == 0)
+    {
+        return EncodeReply(session, gem_convert_failed_ack);
+    }
+
+    proto::ChangeInfo change;
+    auto& inventory = session->GetPlayer()->Inventory();
+    if (!inventory.ConvertStellaniteLuminaToDust(request.value(), change))
+    {
+        return EncodeReply(session, gem_convert_failed_ack);
+    }
+
+    inventory.PushItemsChange(change);
+    session->SavePlayer();
+    return EncodeReply(session, gem_convert_succeed_ack, &change);
 }

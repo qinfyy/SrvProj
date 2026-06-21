@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "ManagerBase.h"
 #include "../proto/ServerProto_cpp/PlayerData.pb.h"
@@ -33,6 +33,7 @@ public:
     bool SetPin(uint32_t id, bool pin, uint64_t flag);
     bool Remove(uint32_t id, std::vector<uint32_t>& removedIds);
     bool Receive(uint32_t id, proto::MailRecvResp& rsp);
+    bool ReceiveAll(proto::MailRecvResp& rsp);
     void PushMailState(bool hasNew, bool revoke = false);
 
 private:

@@ -222,9 +222,6 @@ message PlayerSaveData {
 }
 
 message GameDiscInfoBin {
-    //private transient DiscDef data;
-    //private transient Player player;
-    
     int32 discId = 2;
     int32 level = 3;
     int32 exp = 4;

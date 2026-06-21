@@ -1,6 +1,7 @@
 ﻿#include "GameServices.h"
 #include <mutex>
 #include "Logger.h"
+#include "GameTime.h"
 
 GameServices& GameServices::Instance()
 {
@@ -10,6 +11,10 @@ GameServices& GameServices::Instance()
 
 void GameServices::Init() {
 
+}
+
+namespace {
+constexpr int64_t SessionTimeoutMilliseconds = 5LL * 60LL * 1000LL;
 }
 
 void GameServices::Shutdown() {
@@ -44,6 +49,27 @@ Player* GameServices::GetPlayerByUid(uint32_t uid)
         if (player && player->GetUid() == uid)
         {
             return player;
+        }
+    }
+
+    return nullptr;
+}
+
+GameSession* GameServices::GetSessionByPlayerUid(uint32_t uid)
+{
+    std::lock_guard lock(mSessionMutex);
+
+    for (auto& [token, session] : mSessionsByToken)
+    {
+        if (!session || !session->HasPlayer())
+        {
+            continue;
+        }
+
+        auto* player = session->GetPlayer();
+        if (player && player->GetUid() == uid)
+        {
+            return session.get();
         }
     }
 
@@ -106,4 +132,60 @@ GameSession* GameServices::CreateSession() {
     rawPtr->mToken = token;
 
     return rawPtr;
+}
+
+
+void GameServices::CleanupExpiredSessions()
+{
+    std::lock_guard lock(mSessionMutex);
+    const int64_t now = GameTime::NowMilliseconds();
+
+    for (auto it = mSessionsByToken.begin(); it != mSessionsByToken.end(); )
+    {
+        auto* session = it->second.get();
+        if (!session)
+        {
+            it = mSessionsByToken.erase(it);
+            continue;
+        }
+
+        if (session->mLastActiveTime > 0 && now - session->mLastActiveTime >= SessionTimeoutMilliseconds)
+        {
+            if (session->HasPlayer())
+            {
+                session->SavePlayer();
+            }
+            LOG_INFO("会话过期, token: {}", session->mToken);
+            it = mSessionsByToken.erase(it);
+            continue;
+        }
+
+        ++it;
+    }
+}
+
+bool GameServices::KickSessionByPlayerUid(uint32_t uid)
+{
+    std::lock_guard lock(mSessionMutex);
+    for (auto it = mSessionsByToken.begin(); it != mSessionsByToken.end(); ++it)
+    {
+        auto* session = it->second.get();
+        if (!session || !session->HasPlayer())
+        {
+            continue;
+        }
+
+        auto* player = session->GetPlayer();
+        if (!player || player->GetUid() != uid)
+        {
+            continue;
+        }
+
+        session->SavePlayer();
+        LOG_INFO("踢出玩家, uid: {}, token: {}", uid, session->mToken);
+        mSessionsByToken.erase(it);
+        return true;
+    }
+
+    return false;
 }

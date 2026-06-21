@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <string>
 
@@ -14,3 +14,4 @@ std::string mall_package_list_req__Handler(GameSession* session, const std::stri
 std::string mall_package_order_req__Handler(GameSession* session, const std::string& req);
 std::string mall_shop_list_req__Handler(GameSession* session, const std::string& req);
 std::string mall_shop_order_req__Handler(GameSession* session, const std::string& req);
+std::string gem_convert_req__Handler(GameSession* session, const std::string& req);
