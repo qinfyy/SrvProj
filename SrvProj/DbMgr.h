@@ -44,9 +44,6 @@ public:
     bool CreatePlayer(uint32_t uid, const std::string& accountUid, std::span<const uint8_t> data);
     bool CreatePlayer(uint32_t uid, std::span<const uint8_t> data);
 
-    // Token
-    bool GenerateToken(std::string& outToken);
-
 private:
     DbMgr() = default;
     ~DbMgr();

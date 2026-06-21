@@ -19,7 +19,6 @@ public:
     bool GenerateServerKey();
     bool CalKey();
 
-    static std::string GenerateToken();
     static std::string EncodeMessage(short msgId, const std::string& data);
     std::string BuildMessage(short msgId, google::protobuf::Message* payload = nullptr);
 

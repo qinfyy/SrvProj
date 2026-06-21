@@ -66,15 +66,6 @@ bool GameSession::CalKey() {
 	return true;
 }
 
-std::string GameSession::GenerateToken() {
-    std::array<uint8_t, 16> buf;
-    if (RAND_bytes(buf.data(), buf.size()) != 1) {
-        throw std::runtime_error("RAND_bytes 失败");
-    }
-
-    return ToHex(buf);
-}
-
 bool GameSession::Login(std::string loginToken) {
     if (loginToken.empty()) {
         if (!mToken.empty()) {

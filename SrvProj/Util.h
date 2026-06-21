@@ -26,3 +26,5 @@ std::string ToHex(std::span<uint8_t> bin, bool lowerCase = false, bool addSpace 
 std::string Base64Encode(std::string_view input);
 
 std::string Base64Decode(const std::string& input);
+
+bool GenerateToken(std::string& outToken, bool lowerCase);

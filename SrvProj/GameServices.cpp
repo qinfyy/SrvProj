@@ -2,6 +2,7 @@
 #include <mutex>
 #include "Logger.h"
 #include "GameTime.h"
+#include "Util.h"
 
 GameServices& GameServices::Instance()
 {
@@ -123,7 +124,11 @@ GameSession* GameServices::CreateSession() {
 
     std::string token;
     do {
-        token = GameSession::GenerateToken();
+        bool success = GenerateToken(token, false);
+		if (success) {
+			LOG_ERROR("生成会话令牌失败");
+			return nullptr;
+		}
     } while (mSessionsByToken.find(token) != mSessionsByToken.end());
 
     mSessionsByToken[token] = std::make_unique<GameSession>();

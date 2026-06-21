@@ -2,12 +2,13 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <span>
+#include <array>
 #include <windows.h>
-#include <iostream>
 #include <openssl/evp.h>
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
-#include <span>
+#include <openssl/rand.h>
 
 std::string Utf16ToUtf8(const std::wstring& wstr)
 {
@@ -156,4 +157,16 @@ std::string Base64Decode(const std::string& input)
     }
 
     return "";
+}
+
+bool GenerateToken(std::string& outToken, bool lowerCase) {
+    std::array<uint8_t, 16> buf;
+
+    if (RAND_bytes(buf.data(), buf.size()) != 1) {
+        outToken.clear();
+        return false;
+    }
+
+    outToken = ToHex(buf, lowerCase);
+    return true;
 }

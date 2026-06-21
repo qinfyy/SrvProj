@@ -2,8 +2,6 @@
 #include <sstream>
 #include <functional>
 #include <ctime>
-#include <openssl/rand.h>
-#include <array>
 #include <stdexcept>
 #include "Util.h"
 #include "Logger.h"
@@ -166,7 +164,7 @@ bool DbMgr::RegisterByOpenId(const std::string& openid, User& outUser) {
     outUser.uid = GetNextUid();
     outUser.openId = openid;
 
-    if (!GenerateToken(outUser.token)) {
+    if (!GenerateToken(outUser.token, true)) {
         LOG_ERROR("用户令牌生成失败");
         return ok;
     }
@@ -355,16 +353,4 @@ bool DbMgr::CreatePlayer(uint32_t uid, const std::string& accountUid, std::span<
 
 bool DbMgr::CreatePlayer(uint32_t uid, std::span<const uint8_t> data) {
     return CreatePlayer(uid, std::to_string(uid), data);
-}
-
-bool DbMgr::GenerateToken(std::string& outToken) {
-    std::array<uint8_t, 16> buf;
-
-    if (RAND_bytes(buf.data(), buf.size()) != 1) {
-        outToken.clear();
-        return false;
-    }
-
-    outToken = ToHex(buf, true);
-    return true;
 }
