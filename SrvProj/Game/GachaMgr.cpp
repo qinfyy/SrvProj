@@ -690,7 +690,6 @@ bool GachaMgr::Spin(uint32_t bannerId, uint32_t amount, proto::GachaSpinResp& ou
     out.set_totaltimes(banner.Total);
     out.set_aupguaranteetimes(static_cast<uint32_t>((std::max)(data.GetDisplayAUpGuaranteeTimes(), 0)));
     out.mutable_change()->CopyFrom(change);
-    GetPlayer()->Inventory().PushItemsChange(change);
     for (uint32_t cardId : cards)
     {
         auto* card = out.add_cards();

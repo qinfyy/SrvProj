@@ -22,10 +22,6 @@ void FinishChange(GameSession* session, const proto::ChangeInfo& change)
         return;
     }
 
-    if (change.props_size() > 0)
-    {
-        session->GetPlayer()->Inventory().PushItemsChange(change);
-    }
     session->SavePlayer();
 }
 }

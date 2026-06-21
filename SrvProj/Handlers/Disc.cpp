@@ -25,7 +25,6 @@ void SaveAndPush(GameSession* session, const proto::ChangeInfo& change)
         return;
     }
 
-    session->GetPlayer()->Inventory().PushItemsChange(change);
     session->SavePlayer();
 }
 

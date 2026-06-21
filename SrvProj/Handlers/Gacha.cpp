@@ -197,7 +197,6 @@ std::string gacha_guarantee_reward_receive_req__Handler(GameSession* session, co
         return EncodeReply(session, gacha_guarantee_reward_receive_failed_ack);
     }
 
-    session->GetPlayer()->Inventory().PushItemsChange(response);
     session->SavePlayer();
     return EncodeReply(session, gacha_guarantee_reward_receive_succeed_ack, &response);
 }
@@ -277,7 +276,6 @@ std::string gacha_newbie_obtain_req__Handler(GameSession* session, const std::st
         return EncodeReply(session, gacha_newbie_obtain_failed_ack);
     }
 
-    session->GetPlayer()->Inventory().PushItemsChange(response);
     session->SavePlayer();
     return EncodeReply(session, gacha_newbie_obtain_succeed_ack, &response);
 }

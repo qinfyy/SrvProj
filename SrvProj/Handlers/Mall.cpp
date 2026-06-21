@@ -93,7 +93,6 @@ std::string mall_order_collect_req__Handler(GameSession* session, const std::str
     if (change.props_size() > 0)
     {
         response.mutable_items()->CopyFrom(change);
-        session->GetPlayer()->Inventory().PushItemsChange(change);
     }
 
     session->SavePlayer();
@@ -193,7 +192,6 @@ std::string mall_package_order_req__Handler(GameSession* session, const std::str
     }
 
     response.mutable_change()->CopyFrom(change);
-    session->GetPlayer()->Inventory().PushItemsChange(change);
     if (it->second.CurrencyType == GameConstants::CurrencyTypeFree)
     {
         session->GetPlayer()->QueueMallPackageStateNotify();
@@ -238,7 +236,6 @@ std::string mall_shop_order_req__Handler(GameSession* session, const std::string
         return EncodeReply(session, mall_shop_order_failed_ack);
     }
 
-    session->GetPlayer()->Inventory().PushItemsChange(change);
     session->SavePlayer();
     return EncodeReply(session, mall_shop_order_succeed_ack, &change);
 }
@@ -264,7 +261,6 @@ std::string gem_convert_req__Handler(GameSession* session, const std::string& re
         return EncodeReply(session, gem_convert_failed_ack);
     }
 
-    inventory.PushItemsChange(change);
     session->SavePlayer();
     return EncodeReply(session, gem_convert_succeed_ack, &change);
 }

@@ -84,6 +84,8 @@ bool MallMgr::IsPackageVisible(const Player& player, const MallPackageRes& data)
 
 bool MallMgr::CanPurchasePackage(const Player& player, const MallPackageRes& data) const
 {
+    auto ipv = IsPackageVisible(player, data);
+    auto ps = PackageStock(player, data);
     if (!IsPackageVisible(player, data) || PackageStock(player, data) == 0)
     {
         return false;
@@ -200,7 +202,7 @@ proto::OrderInfo MallMgr::CreateOrder(GameSession* session, OrderType type, cons
     }
 
     const uint32_t uid = session->GetPlayer()->GetUid();
-    const int64_t now = GameTime::ServerNowSeconds();
+    const int64_t now = GameTime::NowSeconds();
     const std::string orderId = typeName + "." + std::to_string(uid) + "." + std::to_string(now);
 
     {

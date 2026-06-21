@@ -432,7 +432,8 @@ void VersionHandler(const HttpRequest& req, HttpResponse& rsp) {
 }
 
 void OrderProductsHandler(const HttpRequest& req, HttpResponse& rsp) {
-	const char* rspText = U8("{\"Code\":200,\"Msg\":\"OK\"}");
+    LOG_DEBUG("{}", req.body);
+	const char* rspText = U8("{\"Code\":0,\"Data\":{\"List\":[{\"ID\":\"gem.1\",\"Price\":9.99,\"CurrencyCode\":\"USD\"}]}}");
 	rsp.statusCode = 200;
 	rsp.headers["Content-Type"] = "application/json";
 	rsp.body = rspText;
