@@ -2,6 +2,7 @@
 #include "HttpMessage.h"
 #include "AccountController.h"
 #include "Handlers/GatewayController.h"
+#include "PaymentController.h"
 
 static std::string GetClientAddr(sockaddr_in addr) {
     char ip[INET_ADDRSTRLEN];

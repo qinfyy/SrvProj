@@ -17,7 +17,8 @@ class HttpResponse;
 
 using RouteHandler = std::function<void(const HttpRequest&, HttpResponse&)>;
 
-struct RouteEntry {
+class RouteEntry {
+public:
     std::string method;
     std::string pattern;
     RouteHandler handler;

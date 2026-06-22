@@ -10,6 +10,7 @@
 #include "../Resources/ResourceDerivedData.h"
 #include "../GameSession.h"
 #include "../GameServices.h"
+#include "../PaymentController.h"
 #include "../proto/NetMsgId.pb.h"
 #include "../proto/proto_cpp/notify.pb.h"
 
@@ -784,14 +785,14 @@ bool BattlePassMgr::CreateOrder(uint32_t mode, proto::OrderInfo& rsp)
         return false;
     }
 
-    GameServices::WebOrderContext context;
+    PaymentContextService::WebOrderContext context;
     context.Token = webToken;
     context.Source = "battlepass";
     context.ProductKey = std::to_string(mode);
     context.GameOrderId = orderId;
     context.PlayerUid = GetPlayer()->GetUid();
     context.CreatedAt = NowSeconds();
-    GameServices::Instance().RegisterWebOrderContext(context);
+    PaymentContextService::Instance().RegisterWebOrderContext(context);
 
     rsp.set_id(orderId);
     rsp.set_extradata(webToken);

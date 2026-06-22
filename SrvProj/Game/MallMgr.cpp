@@ -7,6 +7,7 @@
 #include "../GameTime.h"
 #include "../GameSession.h"
 #include "../GameServices.h"
+#include "../PaymentController.h"
 #include "../Config.h"
 #include "../Util.h"
 #include "../Resources/BinClass/ShopsRes.h"
@@ -218,14 +219,14 @@ proto::OrderInfo MallMgr::CreateOrder(GameSession* session, OrderType type, cons
         mPendingCollects[uid] = { type, id, orderId };
     }
 
-    GameServices::WebOrderContext context;
+    PaymentContextService::WebOrderContext context;
     context.Token = webToken;
     context.Source = typeName;
     context.ProductKey = id;
     context.GameOrderId = orderId;
     context.PlayerUid = uid;
     context.CreatedAt = now;
-    GameServices::Instance().RegisterWebOrderContext(context);
+    PaymentContextService::Instance().RegisterWebOrderContext(context);
 
     proto::OrderStateChange notify;
     notify.set_orderid(orderId);

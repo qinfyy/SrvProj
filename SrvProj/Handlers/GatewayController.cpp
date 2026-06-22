@@ -9,7 +9,7 @@
 #include "Login.h"
 #include "Activity.h"
 #include "Quest.h"
-#include "Player.h"
+#include "PlayerHandler.h"
 #include "Mail.h"
 #include "Gacha.h"
 #include "Mall.h"
