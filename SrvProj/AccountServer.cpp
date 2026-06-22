@@ -49,6 +49,9 @@ void AccountServer::SetupRoutes() {
     RegisterRoute("POST", "/common/config", CommonConfigHandler);
     RegisterRoute("POST", "/agent-zone-1/", AgentHandler);
     RegisterRoute("POST", "/order/products", OrderProductsHandler);
+    RegisterRoute("POST", "/order/create", OrderCreateHandler);
+    RegisterRoute("POST", "/order/notify", OrderNotifyHandler);
+    RegisterRoute("GET", "/mock-pay", MockPayPageHandler);
 
     if (mEnableRegisteredLogging && mLogLevel <= LogLevel::Info) {
         LOG_INFO("Route setup completed, total routes: {}", mRoutes.size());

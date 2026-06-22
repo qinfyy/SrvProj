@@ -26,3 +26,6 @@ void VersionHandler(const HttpRequest& req, HttpResponse& rsp);
 void CommonConfigHandler(const HttpRequest& req, HttpResponse& rsp);
 
 void OrderProductsHandler(const HttpRequest& req, HttpResponse& rsp);
+void OrderCreateHandler(const HttpRequest& req, HttpResponse& rsp);
+void MockPayPageHandler(const HttpRequest& req, HttpResponse& rsp);
+void OrderNotifyHandler(const HttpRequest& req, HttpResponse& rsp);

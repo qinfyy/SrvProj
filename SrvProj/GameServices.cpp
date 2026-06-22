@@ -125,7 +125,7 @@ GameSession* GameServices::CreateSession() {
     std::string token;
     do {
         bool success = GenerateToken(token, false);
-		if (success) {
+		if (!success) {
 			LOG_ERROR("生成会话令牌失败");
 			return nullptr;
 		}
@@ -193,4 +193,44 @@ bool GameServices::KickSessionByPlayerUid(uint32_t uid)
     }
 
     return false;
+}
+
+void GameServices::RegisterWebOrderContext(const WebOrderContext& context)
+{
+    if (context.Token.empty())
+    {
+        return;
+    }
+
+    std::lock_guard lock(mWebOrderMutex);
+    mWebOrderContexts[context.Token] = context;
+}
+
+bool GameServices::GetWebOrderContext(const std::string& token, WebOrderContext& outContext)
+{
+    if (token.empty())
+    {
+        return false;
+    }
+
+    std::lock_guard lock(mWebOrderMutex);
+    const auto it = mWebOrderContexts.find(token);
+    if (it == mWebOrderContexts.end())
+    {
+        return false;
+    }
+
+    outContext = it->second;
+    return true;
+}
+
+void GameServices::RemoveWebOrderContext(const std::string& token)
+{
+    if (token.empty())
+    {
+        return;
+    }
+
+    std::lock_guard lock(mWebOrderMutex);
+    mWebOrderContexts.erase(token);
 }

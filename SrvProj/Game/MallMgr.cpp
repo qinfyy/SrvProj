@@ -6,6 +6,9 @@
 #include "../GameConstants.h"
 #include "../GameTime.h"
 #include "../GameSession.h"
+#include "../GameServices.h"
+#include "../Config.h"
+#include "../Util.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
 #include "../proto/NetMsgId.pb.h"
@@ -204,19 +207,36 @@ proto::OrderInfo MallMgr::CreateOrder(GameSession* session, OrderType type, cons
     const uint32_t uid = session->GetPlayer()->GetUid();
     const int64_t now = GameTime::NowSeconds();
     const std::string orderId = typeName + "." + std::to_string(uid) + "." + std::to_string(now);
+    std::string webToken;
+    if (!GenerateToken(webToken, false))
+    {
+        return out;
+    }
 
     {
         std::lock_guard<std::mutex> lock(mMutex);
         mPendingCollects[uid] = { type, id, orderId };
     }
 
+    GameServices::WebOrderContext context;
+    context.Token = webToken;
+    context.Source = typeName;
+    context.ProductKey = id;
+    context.GameOrderId = orderId;
+    context.PlayerUid = uid;
+    context.CreatedAt = now;
+    GameServices::Instance().RegisterWebOrderContext(context);
+
     proto::OrderStateChange notify;
     notify.set_orderid(orderId);
     notify.set_store(1);
 
     out.set_id(orderId);
-    out.set_extradata(typeName + ":" + id + ":" + orderId);
-    out.set_notifyurl("http://localhost:21000/mock-pay"); // DEBUG
+    out.set_extradata(webToken);
+
+    auto notifyUrl = "http://" + Config::Get().httpServerConfig.publicIp + ":" + std::to_string(Config::Get().httpServerConfig.port) + "/order/notify";
+
+    out.set_notifyurl(notifyUrl);
     out.set_nextpackage(GameSession::EncodeMessage(order_paid_notify, notify.SerializeAsString()));
     return out;
 }

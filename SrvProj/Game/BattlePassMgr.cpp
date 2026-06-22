@@ -9,6 +9,7 @@
 #include "../Resources/GameData.h"
 #include "../Resources/ResourceDerivedData.h"
 #include "../GameSession.h"
+#include "../GameServices.h"
 #include "../proto/NetMsgId.pb.h"
 #include "../proto/proto_cpp/notify.pb.h"
 
@@ -777,9 +778,26 @@ bool BattlePassMgr::CreateOrder(uint32_t mode, proto::OrderInfo& rsp)
     MutableBin()->set_pendingordermode(mode);
 
     const std::string orderId = "battlepass." + std::to_string(GetPlayer()->GetUid()) + "." + std::to_string(NowMilliseconds());
+    std::string webToken;
+    if (!GenerateToken(webToken, false))
+    {
+        return false;
+    }
+
+    GameServices::WebOrderContext context;
+    context.Token = webToken;
+    context.Source = "battlepass";
+    context.ProductKey = std::to_string(mode);
+    context.GameOrderId = orderId;
+    context.PlayerUid = GetPlayer()->GetUid();
+    context.CreatedAt = NowSeconds();
+    GameServices::Instance().RegisterWebOrderContext(context);
+
     rsp.set_id(orderId);
-    rsp.set_extradata("battlepass:" + std::to_string(Bin().battlepassid()) + ":" + std::to_string(mode) + ":" + orderId);
-    rsp.set_notifyurl("http://localhost:" + std::to_string(Config::Get().httpServerConfig.port) + "/mock-pay");
+    rsp.set_extradata(webToken);
+    const auto& cfg = Config::Get().httpServerConfig;
+    const std::string host = cfg.publicIp.empty() ? "127.0.0.1" : cfg.publicIp;
+    rsp.set_notifyurl("http://" + host + ":" + std::to_string(cfg.port) + "/order/notify");
 
     proto::OrderStateChange paidNotify;
     paidNotify.set_orderid(orderId);

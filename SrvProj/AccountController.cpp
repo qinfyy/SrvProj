@@ -9,9 +9,12 @@
 #include "Util.h"
 #include "Logger.h"
 #include <vector>
+#include <unordered_map>
 #include "proto/dump.pb.h"
 #include "DbMgr.h"
 #include "ResultCode.h"
+#include "GameServices.h"
+#include "GameTime.h"
 
 
 std::optional<ServerListMeta> GetServerList()
@@ -431,10 +434,213 @@ void VersionHandler(const HttpRequest& req, HttpResponse& rsp) {
     rsp.body = rspText;
 }
 
+namespace
+{
+const char* kOrderProductsResponse = U8(
+    "{\"Code\":200,\"Data\":{\"List\":["
+    "{\"ID\":\"3742098088\",\"Name\":\"希娅_养成礼包\",\"Price\":400,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.res\",\"GameProductID\":\"pack.02_res\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742162634\",\"Name\":\"75 星之彩\",\"Price\":33,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina75\",\"GameProductID\":\"gem.tier7\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742180328\",\"Name\":\"千都世_角色资源礼包\",\"Price\":400,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.res\",\"GameProductID\":\"pack.01_res\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742190926\",\"Name\":\"1015 星之彩\",\"Price\":400,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina1015\",\"GameProductID\":\"gem.tier4\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742197373\",\"Name\":\"每周_角色资源礼包\",\"Price\":190,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.role_w\",\"GameProductID\":\"pack.01_role_w\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742208918\",\"Name\":\"皮肤_98\",\"Price\":490,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.skin.98\",\"GameProductID\":\"skin.98.01\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742267540\",\"Name\":\"希娅_pu星盘券礼包\",\"Price\":490,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.new_disc\",\"GameProductID\":\"pack.02_disc\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742268311\",\"Name\":\"490 星之彩\",\"Price\":190,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina490\",\"GameProductID\":\"gem.tier5\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742291527\",\"Name\":\"每月_pu角色券礼包\",\"Price\":600,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.role_m\",\"GameProductID\":\"pack.01_role_m\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742292395\",\"Name\":\"希娅_pu角色券礼包\",\"Price\":490,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.new_role\",\"GameProductID\":\"pack.02_role\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742319192\",\"Name\":\"8500 星之彩\",\"Price\":3000,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina8500\",\"GameProductID\":\"gem.tier1\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742392240\",\"Name\":\"新手_SR角色自选礼包\",\"Price\":150,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.sr\",\"GameProductID\":\"pack.sr\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742392588\",\"Name\":\"开服_pu星盘券礼包\",\"Price\":490,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.op_disc\",\"GameProductID\":\"pack.op_disc\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742398399\",\"Name\":\"希娅_礼物礼包\",\"Price\":290,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.gift\",\"GameProductID\":\"pack.02_gift\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742410933\",\"Name\":\"98_BP\",\"Price\":490,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.battlepass.98\",\"GameProductID\":\"battlepass.98\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742421531\",\"Name\":\"千都世_礼物礼包\",\"Price\":290,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.gift\",\"GameProductID\":\"pack.01_gift\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742464254\",\"Name\":\"每月_pu星盘券礼包\",\"Price\":600,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.disc_m\",\"GameProductID\":\"pack.01_disc_m\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742528647\",\"Name\":\"新手_pu角色券礼包\",\"Price\":340,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.role\",\"GameProductID\":\"pack.role\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742542814\",\"Name\":\"新手_6元破冰礼包\",\"Price\":33,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.first\",\"GameProductID\":\"pack.first\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742543170\",\"Name\":\"4300 星之彩\",\"Price\":1600,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina4300\",\"GameProductID\":\"gem.tier2\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742556595\",\"Name\":\"每周_星盘资源礼包\",\"Price\":190,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.disc_w\",\"GameProductID\":\"pack.01_disc_w\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742577471\",\"Name\":\"开服_pu角色券礼包\",\"Price\":490,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.op_role\",\"GameProductID\":\"pack.op_role\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742639592\",\"Name\":\"新手_pu星盘券礼包\",\"Price\":340,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.disc\",\"GameProductID\":\"pack.disc\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742663664\",\"Name\":\"月卡\",\"Price\":150,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.monthlycard.small\",\"GameProductID\":\"monthlyCard.small\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742807914\",\"Name\":\"2200 星之彩\",\"Price\":840,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina2200\",\"GameProductID\":\"gem.tier3\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742822198\",\"Name\":\"230 星之彩\",\"Price\":90,\"Desc\":\"\",\"StoreProductID\":\"com.yostar.stellasora.stellanitelumina230\",\"GameProductID\":\"gem.tier6\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742909739\",\"Name\":\"新手_普池角色券礼包\",\"Price\":290,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.pack.role_common\",\"GameProductID\":\"pack.role_common\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742925108\",\"Name\":\"68_BP\",\"Price\":290,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.battlepass.58\",\"GameProductID\":\"battlepass.58\",\"CurrencyCode\":\"TWD\",\"ProductType\":1},"
+    "{\"ID\":\"3742929455\",\"Name\":\"38_BP\",\"Price\":250,\"Desc\":\"\",\"StoreProductID\":\"com.stargazer.stellasora.battlepass.50\",\"GameProductID\":\"battlepass.50\",\"CurrencyCode\":\"TWD\",\"ProductType\":1}"
+    "]},\"Msg\":\"OK\"}");
+
+struct HttpOrderProduct
+{
+    std::string ProductId;
+    std::string StoreProductId;
+    std::string GameProductId;
+    int Price = 0;
+    std::string Name;
+};
+
+const std::unordered_map<std::string, HttpOrderProduct>& GetHttpOrderProducts()
+{
+    static const std::unordered_map<std::string, HttpOrderProduct> kProducts = []() {
+        std::unordered_map<std::string, HttpOrderProduct> out;
+        try
+        {
+            const auto root = nlohmann::json::parse(kOrderProductsResponse);
+            const auto& list = root["Data"]["List"];
+            for (const auto& item : list)
+            {
+                HttpOrderProduct product;
+                product.ProductId = item.value("ID", "");
+                product.StoreProductId = item.value("StoreProductID", "");
+                product.GameProductId = item.value("GameProductID", "");
+                product.Price = item.value("Price", 0);
+                product.Name = item.value("Name", "");
+                if (!product.ProductId.empty())
+                {
+                    out.emplace(product.ProductId, std::move(product));
+                }
+            }
+        }
+        catch (const std::exception& e)
+        {
+            LOG_WARNING("解析商品列表失败: {}", e.what());
+        }
+
+        return out;
+    }();
+
+    return kProducts;
+}
+
+std::string MakeMockRedirectUrl(const std::string& orderId, const std::string& productId)
+{
+    return "http://127.0.0.1:21000/mock-pay?orderId=" + orderId + "&productId=" + productId;
+}
+
+std::string BuildLocalNotifyUrl()
+{
+    return "http://127.0.0.1:21000/order/notify";
+}
+}
+
 void OrderProductsHandler(const HttpRequest& req, HttpResponse& rsp) {
-    LOG_DEBUG("{}", req.body);
-	const char* rspText = U8("{\"Code\":0,\"Data\":{\"List\":[{\"ID\":\"gem.1\",\"Price\":9.99,\"CurrencyCode\":\"USD\"}]}}");
-	rsp.statusCode = 200;
-	rsp.headers["Content-Type"] = "application/json";
-	rsp.body = rspText;
+    rsp.statusCode = 200;
+    rsp.headers["Content-Type"] = "application/json; charset=utf-8";
+    rsp.body = kOrderProductsResponse;
+}
+
+void OrderCreateHandler(const HttpRequest& req, HttpResponse& rsp)
+{
+    nlohmann::json reqJson;
+    try
+    {
+        reqJson = nlohmann::json::parse(req.body);
+    }
+    catch (const std::exception& e)
+    {
+        LOG_WARNING("订单创建请求解析失败: {}", e.what());
+        rsp.statusCode = 200;
+        rsp.headers["Content-Type"] = "application/json; charset=utf-8";
+        rsp.body = U8("{\"Code\":") + std::to_string(ResultCode::CLIENT_PARAMETER_ERROR) + U8(",\"Data\":{},\"Msg\":\"请求无效\"}");
+        return;
+    }
+
+    const std::string productId = reqJson.value("ProductId", "");
+    const std::string extraData = reqJson.value("ExtraData", "");
+    const auto& products = GetHttpOrderProducts();
+    const auto productIt = products.find(productId);
+    if (productIt == products.end())
+    {
+        rsp.statusCode = 200;
+        rsp.headers["Content-Type"] = "application/json; charset=utf-8";
+        rsp.body = "{\"Code\":" + std::to_string(ResultCode::PAY_PRODUCTID_NOT_EXIST) + ",\"Data\":{},\"Msg\":\"商品不存在\"}";
+        return;
+    }
+
+    GameServices::WebOrderContext context;
+    const bool hasContext = GameServices::Instance().GetWebOrderContext(extraData, context);
+
+    std::string orderId;
+    if (!GenerateToken(orderId, false))
+    {
+        rsp.statusCode = 200;
+        rsp.headers["Content-Type"] = "application/json; charset=utf-8";
+        rsp.body = "{\"Code\":" + std::to_string(ResultCode::SERVER_ERROR) + ",\"Data\":{},\"Msg\":\"订单创建失败\"}";
+        return;
+    }
+
+    const int64_t createdAt = GameTime::NowSeconds();
+    const std::string redirectUrl = MakeMockRedirectUrl(orderId, productId);
+
+    nlohmann::json order = {
+        {"CreatedAt", createdAt},
+        {"GameExtraData", extraData},
+        {"ID", orderId},
+        {"StoreName", "mock"},
+        {"StoreProductID", productIt->second.StoreProductId}
+    };
+
+    if (hasContext)
+    {
+        order["LinkedGameOrderID"] = context.GameOrderId;
+        order["LinkedSource"] = context.Source;
+        order["LinkedProductKey"] = context.ProductKey;
+        order["LinkedPlayerUID"] = context.PlayerUid;
+    }
+
+    nlohmann::json resp = {
+        {"Code", 200},
+        {"Data", {
+            {"Order", order},
+            {"PC", {
+                {"RedirectURL", redirectUrl}
+            }}
+        }},
+        {"Msg", "OK"}
+    };
+
+    rsp.statusCode = 200;
+    rsp.headers["Content-Type"] = "application/json; charset=utf-8";
+    rsp.body = resp.dump();
+}
+
+void MockPayPageHandler(const HttpRequest& req, HttpResponse& rsp)
+{
+    const std::string orderId = req.GetQueryParam("orderId");
+    const std::string productId = req.GetQueryParam("productId");
+
+    std::string html = U8(
+        "<!doctype html><html><head><meta charset=\"utf-8\">"
+        "<title>Mock Pay</title>"
+        "<style>"
+        "body{font-family:Segoe UI,Microsoft YaHei,sans-serif;background:#f6f3ed;color:#222;margin:0;}"
+        ".wrap{max-width:720px;margin:64px auto;padding:32px;background:#fff;border:1px solid #ddd;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.06);}"
+        "h1{margin-top:0;font-size:44px;}"
+        "p{font-size:24px;line-height:1.6;}"
+        "code{background:#f3f3f3;padding:2px 6px;border-radius:6px;font-size:22px;}"
+        ".btn{display:inline-block;margin-top:20px;padding:12px 18px;background:#1f6feb;color:#fff;text-decoration:none;border-radius:10px;}"
+        ".muted{color:#666;}"
+        ".close-hint{font-size:20px;color:#888;margin-top:20px;}"
+        "</style></head><body><div class=\"wrap\">"
+        "<h1>Mock Pay</h1>"
+        "<p>订单号：<code>") + orderId + U8("</code></p>"
+            "<p>商品 ID：<code>") + productId + U8("</code></p>"
+                "<p class=\"close-hint\">请点击左上角按钮关闭</p>"
+                "</div></body></html>");
+
+    rsp.statusCode = 200;
+    rsp.headers["Content-Type"] = "text/html; charset=utf-8";
+    rsp.body = html;
+}
+
+void OrderNotifyHandler(const HttpRequest& req, HttpResponse& rsp)
+{
+    nlohmann::json resp = {
+        {"Code", 200},
+        {"Data", nlohmann::json::object()},
+        {"Msg", "OK"}
+    };
+
+    rsp.statusCode = 200;
+    rsp.headers["Content-Type"] = "application/json; charset=utf-8";
+    rsp.body = resp.dump();
 }
