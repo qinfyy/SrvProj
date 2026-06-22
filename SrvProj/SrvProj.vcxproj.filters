@@ -1078,7 +1078,7 @@
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
     <ClCompile Include="Handlers\Quest.cpp">
-      <Filter>源文件\Resources</Filter>
+      <Filter>源文件\Handlers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1095,9 +1095,6 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Mail.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Player.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Quest.h">
@@ -2104,6 +2101,9 @@
     </ClInclude>
     <ClInclude Include="Resources\ResourceDerivedData.h">
       <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\PlayerHandler.h">
+      <Filter>头文件\Handlers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

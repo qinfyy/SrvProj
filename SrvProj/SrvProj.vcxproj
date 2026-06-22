@@ -522,7 +522,7 @@
     <ClInclude Include="Handlers\Login.h" />
     <ClInclude Include="Handlers\Mail.h" />
     <ClInclude Include="Handlers\Mall.h" />
-    <ClInclude Include="Handlers\Player.h" />
+    <ClInclude Include="Handlers\PlayerHandler.h" />
     <ClInclude Include="Handlers\Quest.h" />
     <ClInclude Include="HttpMessage.h" />
     <ClInclude Include="Logger.h" />
