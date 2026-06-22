@@ -1,10 +1,12 @@
 ﻿#include "BasicCommands.h"
 
 #include "CommandMgr.h"
+#include "../DbMgr.h"
 #include "../Game/CharacterMgr.h"
 #include "../Game/InventoryMgr.h"
 #include "../Game/MailMgr.h"
 #include "../Game/Player.h"
+#include "../GameServices.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../Resources/BinClass/CharacterRes.h"
@@ -78,17 +80,60 @@ int64_t ParseInt64(const std::string& text, int64_t fallback = 0)
         return fallback;
     }
 }
+
+std::vector<std::string> SplitPermissions(const std::string& text)
+{
+    std::vector<std::string> permissions;
+    size_t start = 0;
+
+    while (start <= text.size())
+    {
+        const size_t pos = text.find(';', start);
+        const std::string part = pos == std::string::npos ? text.substr(start) : text.substr(start, pos - start);
+        if (!part.empty())
+        {
+            permissions.push_back(part);
+        }
+
+        if (pos == std::string::npos)
+        {
+            break;
+        }
+
+        start = pos + 1;
+    }
+
+    return permissions;
+}
+
+std::string JoinPermissions(const std::vector<std::string>& permissions)
+{
+    std::ostringstream out;
+    for (size_t i = 0; i < permissions.size(); ++i)
+    {
+        if (i > 0)
+        {
+            out << ';';
+        }
+        out << permissions[i];
+    }
+    return out.str();
+}
+
 }
 
 CommandResult BasicCommands::Help(const CommandArgs& args)
 {
-    (void)args;
-
     const auto& registry = CommandMgr::Instance().GetCommandRegistry();
     std::ostringstream message;
     message << U8("当前可用命令：") << '\n';
     for (const CommandRegEntry& entry : registry)
     {
+        if (!CommandMgr::Instance().CheckPermission(args.sender, entry))
+        {
+            continue;
+        }
+
         message << entry.description << '\n';
     }
 
@@ -119,7 +164,7 @@ CommandResult BasicCommands::Level(const CommandArgs& args)
         session->SavePlayer();
     }
 
-    return {true, true, "Level set to " + std::to_string(level)};
+    return {true, true, std::string(U8("设置等级成功: ")) + std::to_string(level)};
 }
 
 CommandResult BasicCommands::Give(const CommandArgs& args)
@@ -167,7 +212,7 @@ CommandResult BasicCommands::Give(const CommandArgs& args)
         session->SavePlayer();
     }
 
-    return {true, true, "Give command success, check your mail"};
+    return {true, true, U8("发放成功，请到邮件中领取")};
 }
 
 CommandResult BasicCommands::GiveAll(const CommandArgs& args)
@@ -279,5 +324,171 @@ CommandResult BasicCommands::GiveAll(const CommandArgs& args)
         session->SavePlayer();
     }
 
-    return {true, true, "GiveAll command success, count=" + std::to_string(count)};
+    return {true, true, std::string(U8("批量发放成功，变更数量: ")) + std::to_string(count)};
+}
+
+CommandResult BasicCommands::Kick(const CommandArgs& args)
+{
+    if (args.targetUid == 0)
+    {
+        return {true, false, U8("kick 命令必须使用 /kick @uid")};
+    }
+
+    if (!args.target)
+    {
+        return {true, false, U8("目标玩家不存在或不在线")};
+    }
+
+    if (!GameServices::Instance().KickSessionByPlayerUid(args.targetUid))
+    {
+        return {true, false, U8("踢出玩家失败")};
+    }
+
+    return {true, true, std::string(U8("已踢出玩家: ")) + std::to_string(args.targetUid)};
+}
+
+CommandResult BasicCommands::Permission(const CommandArgs& args)
+{
+    if (args.list.empty())
+    {
+        return {true, false, U8("用法: /permission <add|remove|clear|display> @uid [权限]")};
+    }
+
+    const std::string action = ToLower(args.list.front());
+    if (args.targetUid == 0)
+    {
+        return {true, false, U8("permission 命令必须指定目标玩家，例如 /permission display @10001")};
+    }
+
+    Player* targetPlayer = args.target;
+    std::unique_ptr<Player> offlinePlayer;
+
+    if (!targetPlayer)
+    {
+        targetPlayer = GameServices::Instance().GetPlayerByUid(args.targetUid);
+    }
+
+    if (!targetPlayer)
+    {
+        offlinePlayer = LoadOfflinePlayer(args.targetUid);
+        if (!offlinePlayer)
+        {
+            return {true, false, U8("目标玩家不存在")};
+        }
+
+        targetPlayer = offlinePlayer.get();
+    }
+
+    if (action == "clear")
+    {
+        targetPlayer->ClearPermissions();
+
+        const bool ok = targetPlayer->GetSessionRef() ? targetPlayer->Save() : SaveOfflinePlayer(*targetPlayer);
+        if (!ok)
+        {
+            return {true, false, U8("清除权限失败")};
+        }
+
+        return {true, true, std::string(U8("已清除玩家全部权限: ")) + std::to_string(args.targetUid)};
+    }
+
+    if (action == "display")
+    {
+        const auto permissions = targetPlayer->GetPermissions();
+        std::ostringstream message;
+        message << U8("玩家 ") << args.targetUid << U8(" 的权限: ");
+        if (permissions.empty())
+        {
+            message << U8("（空）");
+        }
+        else
+        {
+            for (size_t i = 0; i < permissions.size(); ++i)
+            {
+                if (i > 0)
+                {
+                    message << U8(", ");
+                }
+                message << permissions[i];
+            }
+        }
+
+        return {true, true, message.str()};
+    }
+
+    if (args.list.size() < 2)
+    {
+        return {true, false, U8("缺少权限参数")};
+    }
+
+    const auto permissions = SplitPermissions(args.list[1]);
+    if (permissions.empty())
+    {
+        return {true, false, U8("权限参数无效")};
+    }
+
+    std::vector<std::string> changedPermissions;
+    std::vector<std::string> failedPermissions;
+    if (action == "add")
+    {
+        for (const auto& permission : permissions)
+        {
+            if (targetPlayer->AddPermission(permission))
+            {
+                changedPermissions.push_back(permission);
+            }
+            else
+            {
+                failedPermissions.push_back(permission);
+            }
+        }
+    }
+    else if (action == "remove")
+    {
+        for (const auto& permission : permissions)
+        {
+            if (targetPlayer->RemovePermission(permission))
+            {
+                changedPermissions.push_back(permission);
+            }
+            else
+            {
+                failedPermissions.push_back(permission);
+            }
+        }
+    }
+    else
+    {
+        return {true, false, U8("未知操作，只支持 add、remove、clear、display")};
+    }
+
+    if (changedPermissions.empty())
+    {
+        return {true, false, action == "add" ? U8("没有新增任何权限") : U8("没有移除任何权限")};
+    }
+
+    const bool ok = targetPlayer->GetSessionRef() ? targetPlayer->Save() : SaveOfflinePlayer(*targetPlayer);
+    if (!ok)
+    {
+        return {true, false, U8("保存权限失败")};
+    }
+
+    if (action == "add")
+    {
+        std::ostringstream message;
+        message << U8("已为玩家 ") << args.targetUid << U8(" 添加权限: ") << JoinPermissions(changedPermissions);
+        if (!failedPermissions.empty())
+        {
+            message << U8("，未生效: ") << JoinPermissions(failedPermissions);
+        }
+        return {true, true, message.str()};
+    }
+
+    std::ostringstream message;
+    message << U8("已为玩家 ") << args.targetUid << U8(" 移除权限: ") << JoinPermissions(changedPermissions);
+    if (!failedPermissions.empty())
+    {
+        message << U8("，未生效: ") << JoinPermissions(failedPermissions);
+    }
+    return {true, true, message.str()};
 }

@@ -3276,6 +3276,7 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
     kHonorFieldNumber = 11,
     kShowCharsFieldNumber = 12,
     kBoardsFieldNumber = 13,
+    kPermissionsFieldNumber = 23,
     kNameFieldNumber = 3,
     kSignatureFieldNumber = 4,
     kCreateTimeFieldNumber = 2,
@@ -3347,6 +3348,28 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
   private:
   const ::google::protobuf::RepeatedField<::int32_t>& _internal_boards() const;
   ::google::protobuf::RepeatedField<::int32_t>* PROTOBUF_NONNULL _internal_mutable_boards();
+
+  public:
+  // repeated string permissions = 23;
+  int permissions_size() const;
+  private:
+  int _internal_permissions_size() const;
+
+  public:
+  void clear_permissions() ;
+  const ::std::string& permissions(int index) const;
+  ::std::string* PROTOBUF_NONNULL mutable_permissions(int index);
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_permissions(int index, Arg_&& value, Args_... args);
+  ::std::string* PROTOBUF_NONNULL add_permissions();
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void add_permissions(Arg_&& value, Args_... args);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& permissions() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL mutable_permissions();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::std::string>& _internal_permissions() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL _internal_mutable_permissions();
 
   public:
   // string name = 3;
@@ -3553,8 +3576,8 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<5, 21,
-                                   2, 114,
+  static const ::google::protobuf::internal::TcParseTable<5, 22,
+                                   2, 125,
                                    2>
       _table_;
 
@@ -3581,6 +3604,7 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
     ::google::protobuf::internal::CachedSize _showchars_cached_byte_size_;
     ::google::protobuf::RepeatedField<::int32_t> boards_;
     ::google::protobuf::internal::CachedSize _boards_cached_byte_size_;
+    ::google::protobuf::RepeatedPtrField<::std::string> permissions_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::internal::ArenaStringPtr signature_;
     ::int64_t createtime_;
@@ -11682,7 +11706,7 @@ inline void PlayerBasicCompBin::clear_createtime() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.createtime_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000020U);
+                  0x00000040U);
 }
 inline ::int64_t PlayerBasicCompBin::createtime() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.createTime)
@@ -11690,7 +11714,7 @@ inline ::int64_t PlayerBasicCompBin::createtime() const {
 }
 inline void PlayerBasicCompBin::set_createtime(::int64_t value) {
   _internal_set_createtime(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.createTime)
 }
 inline ::int64_t PlayerBasicCompBin::_internal_createtime() const {
@@ -11707,7 +11731,7 @@ inline void PlayerBasicCompBin::clear_name() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.name_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000008U);
+                  0x00000010U);
 }
 inline const ::std::string& PlayerBasicCompBin::name() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -11717,13 +11741,13 @@ inline const ::std::string& PlayerBasicCompBin::name() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void PlayerBasicCompBin::set_name(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   _impl_.name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.name)
 }
 inline ::std::string* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_name()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   ::std::string* _s = _internal_mutable_name();
   // @@protoc_insertion_point(field_mutable:ServerProto.PlayerBasicCompBin.name)
   return _s;
@@ -11743,10 +11767,10 @@ inline ::std::string* PROTOBUF_NONNULL PlayerBasicCompBin::_internal_mutable_nam
 inline ::std::string* PROTOBUF_NULLABLE PlayerBasicCompBin::release_name() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:ServerProto.PlayerBasicCompBin.name)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000010U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   auto* released = _impl_.name_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.name_.Set("", GetArena());
@@ -11756,9 +11780,9 @@ inline ::std::string* PROTOBUF_NULLABLE PlayerBasicCompBin::release_name() {
 inline void PlayerBasicCompBin::set_allocated_name(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   }
   _impl_.name_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.name_.IsDefault()) {
@@ -11772,7 +11796,7 @@ inline void PlayerBasicCompBin::clear_signature() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.signature_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000010U);
+                  0x00000020U);
 }
 inline const ::std::string& PlayerBasicCompBin::signature() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -11782,13 +11806,13 @@ inline const ::std::string& PlayerBasicCompBin::signature() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void PlayerBasicCompBin::set_signature(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   _impl_.signature_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.signature)
 }
 inline ::std::string* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_signature()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   ::std::string* _s = _internal_mutable_signature();
   // @@protoc_insertion_point(field_mutable:ServerProto.PlayerBasicCompBin.signature)
   return _s;
@@ -11808,10 +11832,10 @@ inline ::std::string* PROTOBUF_NONNULL PlayerBasicCompBin::_internal_mutable_sig
 inline ::std::string* PROTOBUF_NULLABLE PlayerBasicCompBin::release_signature() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:ServerProto.PlayerBasicCompBin.signature)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000010U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000020U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   auto* released = _impl_.signature_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.signature_.Set("", GetArena());
@@ -11821,9 +11845,9 @@ inline ::std::string* PROTOBUF_NULLABLE PlayerBasicCompBin::release_signature() 
 inline void PlayerBasicCompBin::set_allocated_signature(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   }
   _impl_.signature_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.signature_.IsDefault()) {
@@ -11837,7 +11861,7 @@ inline void PlayerBasicCompBin::clear_gender() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.gender_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000040U);
+                  0x00000080U);
 }
 inline bool PlayerBasicCompBin::gender() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.gender)
@@ -11845,7 +11869,7 @@ inline bool PlayerBasicCompBin::gender() const {
 }
 inline void PlayerBasicCompBin::set_gender(bool value) {
   _internal_set_gender(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.gender)
 }
 inline bool PlayerBasicCompBin::_internal_gender() const {
@@ -11862,7 +11886,7 @@ inline void PlayerBasicCompBin::clear_headicon() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.headicon_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000080U);
+                  0x00000100U);
 }
 inline ::int32_t PlayerBasicCompBin::headicon() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.headIcon)
@@ -11870,7 +11894,7 @@ inline ::int32_t PlayerBasicCompBin::headicon() const {
 }
 inline void PlayerBasicCompBin::set_headicon(::int32_t value) {
   _internal_set_headicon(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.headIcon)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_headicon() const {
@@ -11887,7 +11911,7 @@ inline void PlayerBasicCompBin::clear_skinid() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.skinid_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000100U);
+                  0x00000200U);
 }
 inline ::int32_t PlayerBasicCompBin::skinid() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.skinId)
@@ -11895,7 +11919,7 @@ inline ::int32_t PlayerBasicCompBin::skinid() const {
 }
 inline void PlayerBasicCompBin::set_skinid(::int32_t value) {
   _internal_set_skinid(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.skinId)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_skinid() const {
@@ -11912,7 +11936,7 @@ inline void PlayerBasicCompBin::clear_titleprefix() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.titleprefix_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000200U);
+                  0x00000400U);
 }
 inline ::int32_t PlayerBasicCompBin::titleprefix() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.titlePrefix)
@@ -11920,7 +11944,7 @@ inline ::int32_t PlayerBasicCompBin::titleprefix() const {
 }
 inline void PlayerBasicCompBin::set_titleprefix(::int32_t value) {
   _internal_set_titleprefix(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000400U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.titlePrefix)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_titleprefix() const {
@@ -11937,7 +11961,7 @@ inline void PlayerBasicCompBin::clear_titlesuffix() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.titlesuffix_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000800U);
+                  0x00001000U);
 }
 inline ::int32_t PlayerBasicCompBin::titlesuffix() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.titleSuffix)
@@ -11945,7 +11969,7 @@ inline ::int32_t PlayerBasicCompBin::titlesuffix() const {
 }
 inline void PlayerBasicCompBin::set_titlesuffix(::int32_t value) {
   _internal_set_titlesuffix(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000800U);
+  SetHasBit(_impl_._has_bits_[0], 0x00001000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.titleSuffix)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_titlesuffix() const {
@@ -11962,7 +11986,7 @@ inline void PlayerBasicCompBin::clear_music() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.music_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000400U);
+                  0x00000800U);
 }
 inline ::int64_t PlayerBasicCompBin::music() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.music)
@@ -11970,7 +11994,7 @@ inline ::int64_t PlayerBasicCompBin::music() const {
 }
 inline void PlayerBasicCompBin::set_music(::int64_t value) {
   _internal_set_music(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000400U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000800U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.music)
 }
 inline ::int64_t PlayerBasicCompBin::_internal_music() const {
@@ -12137,7 +12161,7 @@ inline void PlayerBasicCompBin::clear_level() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.level_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00001000U);
+                  0x00002000U);
 }
 inline ::int32_t PlayerBasicCompBin::level() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.level)
@@ -12145,7 +12169,7 @@ inline ::int32_t PlayerBasicCompBin::level() const {
 }
 inline void PlayerBasicCompBin::set_level(::int32_t value) {
   _internal_set_level(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00001000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00002000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.level)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_level() const {
@@ -12162,7 +12186,7 @@ inline void PlayerBasicCompBin::clear_exp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.exp_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00002000U);
+                  0x00004000U);
 }
 inline ::int32_t PlayerBasicCompBin::exp() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.exp)
@@ -12170,7 +12194,7 @@ inline ::int32_t PlayerBasicCompBin::exp() const {
 }
 inline void PlayerBasicCompBin::set_exp(::int32_t value) {
   _internal_set_exp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00002000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00004000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.exp)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_exp() const {
@@ -12187,7 +12211,7 @@ inline void PlayerBasicCompBin::clear_energy() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.energy_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00004000U);
+                  0x00008000U);
 }
 inline ::int32_t PlayerBasicCompBin::energy() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.energy)
@@ -12195,7 +12219,7 @@ inline ::int32_t PlayerBasicCompBin::energy() const {
 }
 inline void PlayerBasicCompBin::set_energy(::int32_t value) {
   _internal_set_energy(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00004000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00008000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.energy)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_energy() const {
@@ -12212,7 +12236,7 @@ inline void PlayerBasicCompBin::clear_energylastupdate() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.energylastupdate_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00008000U);
+                  0x00010000U);
 }
 inline ::int64_t PlayerBasicCompBin::energylastupdate() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.energyLastUpdate)
@@ -12220,7 +12244,7 @@ inline ::int64_t PlayerBasicCompBin::energylastupdate() const {
 }
 inline void PlayerBasicCompBin::set_energylastupdate(::int64_t value) {
   _internal_set_energylastupdate(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00008000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00010000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.energyLastUpdate)
 }
 inline ::int64_t PlayerBasicCompBin::_internal_energylastupdate() const {
@@ -12237,7 +12261,7 @@ inline void PlayerBasicCompBin::clear_signinindex() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.signinindex_ = 0;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00040000U);
+                  0x00080000U);
 }
 inline ::int32_t PlayerBasicCompBin::signinindex() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.signInIndex)
@@ -12245,7 +12269,7 @@ inline ::int32_t PlayerBasicCompBin::signinindex() const {
 }
 inline void PlayerBasicCompBin::set_signinindex(::int32_t value) {
   _internal_set_signinindex(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00040000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00080000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.signInIndex)
 }
 inline ::int32_t PlayerBasicCompBin::_internal_signinindex() const {
@@ -12262,7 +12286,7 @@ inline void PlayerBasicCompBin::clear_lastepochday() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.lastepochday_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00010000U);
+                  0x00020000U);
 }
 inline ::int64_t PlayerBasicCompBin::lastepochday() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.lastEpochDay)
@@ -12270,7 +12294,7 @@ inline ::int64_t PlayerBasicCompBin::lastepochday() const {
 }
 inline void PlayerBasicCompBin::set_lastepochday(::int64_t value) {
   _internal_set_lastepochday(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00010000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00020000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.lastEpochDay)
 }
 inline ::int64_t PlayerBasicCompBin::_internal_lastepochday() const {
@@ -12287,7 +12311,7 @@ inline void PlayerBasicCompBin::clear_lastlogin() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.lastlogin_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00020000U);
+                  0x00040000U);
 }
 inline ::int64_t PlayerBasicCompBin::lastlogin() const {
   // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.lastLogin)
@@ -12295,7 +12319,7 @@ inline ::int64_t PlayerBasicCompBin::lastlogin() const {
 }
 inline void PlayerBasicCompBin::set_lastlogin(::int64_t value) {
   _internal_set_lastlogin(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00020000U);
+  SetHasBit(_impl_._has_bits_[0], 0x00040000U);
   // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.lastLogin)
 }
 inline ::int64_t PlayerBasicCompBin::_internal_lastlogin() const {
@@ -12318,7 +12342,7 @@ inline void PlayerBasicCompBin::clear_monthlycardexpiredays() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.monthlycardexpiredays_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[0],
-                  0x00080000U);
+                  0x00100000U);
 }
 inline const ::google::protobuf::Map<::std::string, ::uint32_t>& PlayerBasicCompBin::_internal_monthlycardexpiredays() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -12334,7 +12358,7 @@ inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL Play
 }
 inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_monthlycardexpiredays()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00080000U);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00100000U);
   // @@protoc_insertion_point(field_mutable_map:ServerProto.PlayerBasicCompBin.monthlyCardExpireDays)
   return _internal_mutable_monthlycardexpiredays();
 }
@@ -12350,7 +12374,7 @@ inline void PlayerBasicCompBin::clear_monthlycardlastrewarddays() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.monthlycardlastrewarddays_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[0],
-                  0x00100000U);
+                  0x00200000U);
 }
 inline const ::google::protobuf::Map<::std::string, ::uint32_t>& PlayerBasicCompBin::_internal_monthlycardlastrewarddays() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -12366,9 +12390,81 @@ inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL Play
 }
 inline ::google::protobuf::Map<::std::string, ::uint32_t>* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_monthlycardlastrewarddays()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00100000U);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00200000U);
   // @@protoc_insertion_point(field_mutable_map:ServerProto.PlayerBasicCompBin.monthlyCardLastRewardDays)
   return _internal_mutable_monthlycardlastrewarddays();
+}
+
+// repeated string permissions = 23;
+inline int PlayerBasicCompBin::_internal_permissions_size() const {
+  return _internal_permissions().size();
+}
+inline int PlayerBasicCompBin::permissions_size() const {
+  return _internal_permissions_size();
+}
+inline void PlayerBasicCompBin::clear_permissions() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.permissions_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::std::string* PROTOBUF_NONNULL PlayerBasicCompBin::add_permissions()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::std::string* _s =
+      _internal_mutable_permissions()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_add_mutable:ServerProto.PlayerBasicCompBin.permissions)
+  return _s;
+}
+inline const ::std::string& PlayerBasicCompBin::permissions(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.PlayerBasicCompBin.permissions)
+  return _internal_permissions().Get(index);
+}
+inline ::std::string* PROTOBUF_NONNULL PlayerBasicCompBin::mutable_permissions(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.PlayerBasicCompBin.permissions)
+  return _internal_mutable_permissions()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void PlayerBasicCompBin::set_permissions(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(*_internal_mutable_permissions()->Mutable(index), ::std::forward<Arg_>(value),
+                        args... );
+  // @@protoc_insertion_point(field_set:ServerProto.PlayerBasicCompBin.permissions)
+}
+template <typename Arg_, typename... Args_>
+inline void PlayerBasicCompBin::add_permissions(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(
+      ::google::protobuf::MessageLite::internal_visibility(), GetArena(),
+      *_internal_mutable_permissions(), ::std::forward<Arg_>(value),
+      args... );
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_add:ServerProto.PlayerBasicCompBin.permissions)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>& PlayerBasicCompBin::permissions()
+    const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.PlayerBasicCompBin.permissions)
+  return _internal_permissions();
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL
+PlayerBasicCompBin::mutable_permissions() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.PlayerBasicCompBin.permissions)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_permissions();
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+PlayerBasicCompBin::_internal_permissions() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.permissions_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL
+PlayerBasicCompBin::_internal_mutable_permissions() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.permissions_;
 }
 
 // -------------------------------------------------------------------

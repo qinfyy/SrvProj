@@ -37,8 +37,9 @@ public:
     std::string DatabasePath = ".\\save.db";
     std::string TimeZone = "UTC";
     ServerTime serverTime;
+    std::vector<std::string> playerDefaultPermissions = { "*" };
 
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, DatabasePath, TimeZone, serverTime)
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions)
 
     bool LoadFromFile(const std::string& filename = ".\\Config.json");
     bool SaveToFile(const std::string& filename = ".\\Config.json");

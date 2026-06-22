@@ -207,6 +207,7 @@ message PlayerBasicCompBin {
     int64 lastLogin = 20;          // 上次登录时间
     map<string, uint32> monthlyCardExpireDays = 21;
     map<string, uint32> monthlyCardLastRewardDays = 22;
+    repeated string permissions = 23; // 服务器命令使用权限
 }
 
 message PlayerSaveData {

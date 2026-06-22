@@ -70,6 +70,11 @@ public:
     void SetUid(uint32_t uid);
     bool SetWorldLevel(uint32_t level);
     void SetSignature(const std::string& signature);
+    std::vector<std::string> GetPermissions() const;
+    bool AddPermission(const std::string& permission);
+    bool RemovePermission(const std::string& permission);
+    void ClearPermissions();
+    bool HasPermission(const std::string& permission) const;
     bool HasAvailableFreeMallPackage() const;
     void QueueMallPackageStateNotify();
     uint32_t GetMonthlyCardRemainingDays(const std::string& cardId) const;
@@ -97,6 +102,7 @@ private:
     void InitManagers();
     void EncodeBasicInfo(proto::PlayerInfo& info);
     void EncodeMinimalSystems(proto::PlayerInfo& info) const;
+    static bool PermissionMatchesWildcard(const std::string& wildcard, const std::vector<std::string>& permissionParts);
     bool CanClaimMonthlyCardReward(const std::string& cardId) const;
     void RefreshMonthlyCardRewards(bool notifyOnly);
 

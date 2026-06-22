@@ -514,6 +514,7 @@ inline constexpr PlayerBasicCompBin::Impl_::Impl_(
         _showchars_cached_byte_size_{0},
         boards_{},
         _boards_cached_byte_size_{0},
+        permissions_{},
         name_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
@@ -1442,7 +1443,7 @@ const ::uint32_t
         1,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_._has_bits_),
-        24, // hasbit index offset
+        25, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.createtime_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.name_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.signature_),
@@ -1464,27 +1465,29 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.lastlogin_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.monthlycardexpiredays_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.monthlycardlastrewarddays_),
-        5,
-        3,
-        4,
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin, _impl_.permissions_),
         6,
+        4,
+        5,
         7,
         8,
         9,
-        11,
         10,
+        12,
+        11,
         0,
         1,
         2,
-        12,
         13,
         14,
         15,
-        18,
         16,
-        17,
         19,
+        17,
+        18,
         20,
+        21,
+        3,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_._has_bits_),
         10, // hasbit index offset
@@ -1561,8 +1564,8 @@ static const ::_pbi::MigrationSchema
         {371, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
         {378, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
         {385, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {430, sizeof(::ServerProto::PlayerSaveData)},
-        {447, sizeof(::ServerProto::GameDiscInfoBin)},
+        {432, sizeof(::ServerProto::PlayerSaveData)},
+        {449, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
@@ -1712,7 +1715,7 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "\001(\0132\036.ServerProto.GachaPityStateBin:\0028\001\032"
     "U\n\021NewbieStatesEntry\022\013\n\003key\030\001 \001(\r\022/\n\005val"
     "ue\030\002 \001(\0132 .ServerProto.NewbieGachaStateB"
-    "in:\0028\001\"\250\005\n\022PlayerBasicCompBin\022\022\n\ncreateT"
+    "in:\0028\001\"\275\005\n\022PlayerBasicCompBin\022\022\n\ncreateT"
     "ime\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 \001"
     "(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n\006"
     "skinId\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013tit"
@@ -1726,29 +1729,29 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "hlyCardExpireDaysEntry\022a\n\031monthlyCardLas"
     "tRewardDays\030\026 \003(\0132>.ServerProto.PlayerBa"
     "sicCompBin.MonthlyCardLastRewardDaysEntr"
-    "y\032<\n\032MonthlyCardExpireDaysEntry\022\013\n\003key\030\001"
-    " \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032@\n\036MonthlyCardLa"
-    "stRewardDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-    "\002 \001(\r:\0028\001\"\356\002\n\016PlayerSaveData\0223\n\nplayerda"
-    "ta\030\002 \001(\0132\037.ServerProto.PlayerBasicCompBi"
-    "n\022/\n\010charComp\030\003 \001(\0132\035.ServerProto.Charac"
-    "terCompBin\022,\n\tquestComp\030\004 \001(\0132\031.ServerPr"
-    "oto.QuestCompBin\0228\n\017achievementComp\030\005 \001("
-    "\0132\037.ServerProto.AchievementCompBin\0224\n\rin"
-    "ventoryComp\030\006 \001(\0132\035.ServerProto.Inventor"
-    "yCompBin\022*\n\010mailComp\030\007 \001(\0132\030.ServerProto"
-    ".MailCompBin\022,\n\tgachaComp\030\010 \001(\0132\031.Server"
-    "Proto.GachaCompBin\"\211\001\n\017GameDiscInfoBin\022\016"
-    "\n\006discId\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001"
-    "(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030"
-    "\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006"
-    "proto3"
+    "y\022\023\n\013permissions\030\027 \003(\t\032<\n\032MonthlyCardExp"
+    "ireDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r"
+    ":\0028\001\032@\n\036MonthlyCardLastRewardDaysEntry\022\013"
+    "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\356\002\n\016Playe"
+    "rSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerPr"
+    "oto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001(\013"
+    "2\035.ServerProto.CharacterCompBin\022,\n\tquest"
+    "Comp\030\004 \001(\0132\031.ServerProto.QuestCompBin\0228\n"
+    "\017achievementComp\030\005 \001(\0132\037.ServerProto.Ach"
+    "ievementCompBin\0224\n\rinventoryComp\030\006 \001(\0132\035"
+    ".ServerProto.InventoryCompBin\022*\n\010mailCom"
+    "p\030\007 \001(\0132\030.ServerProto.MailCompBin\022,\n\tgac"
+    "haComp\030\010 \001(\0132\031.ServerProto.GachaCompBin\""
+    "\211\001\n\017GameDiscInfoBin\022\016\n\006discId\030\002 \001(\005\022\r\n\005l"
+    "evel\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014"
+    "\n\004star\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022"
+    "\022\n\ncreateTime\030\t \001(\003b\006proto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    5446,
+    5467,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
@@ -12560,6 +12563,7 @@ PROTOBUF_NDEBUG_INLINE PlayerBasicCompBin::Impl_::Impl_(
         _showchars_cached_byte_size_{0},
         boards_{visibility, arena, from.boards_},
         _boards_cached_byte_size_{0},
+        permissions_{visibility, arena, from.permissions_},
         name_(arena, from.name_),
         signature_(arena, from.signature_),
         monthlycardexpiredays_{visibility, arena, from.monthlycardexpiredays_},
@@ -12598,6 +12602,7 @@ PROTOBUF_NDEBUG_INLINE PlayerBasicCompBin::Impl_::Impl_(
         _showchars_cached_byte_size_{0},
         boards_{visibility, arena},
         _boards_cached_byte_size_{0},
+        permissions_{visibility, arena},
         name_(arena),
         signature_(arena),
         monthlycardexpiredays_{visibility, arena},
@@ -12655,6 +12660,10 @@ constexpr auto PlayerBasicCompBin::InternalNewImpl_() {
           decltype(PlayerBasicCompBin::_impl_.monthlycardlastrewarddays_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.permissions_) +
+          decltype(PlayerBasicCompBin::_impl_.permissions_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
@@ -12699,16 +12708,16 @@ PlayerBasicCompBin::GetClassData() const {
   return PlayerBasicCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 21, 2, 114, 2>
+const ::_pbi::TcParseTable<5, 22, 2, 125, 2>
 PlayerBasicCompBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_._has_bits_),
     0, // no _extensions_
-    22, 248,  // max_field_number, fast_idx_mask
+    23, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4290772993,  // skipmap
+    4286578689,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    21,  // num_field_entries
+    22,  // num_field_entries
     2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     PlayerBasicCompBin_class_data_.base(),
@@ -12721,40 +12730,40 @@ PlayerBasicCompBin::_table_ = {
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     // int64 createTime = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerBasicCompBin, _impl_.createtime_), 5>(),
-     {16, 5, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerBasicCompBin, _impl_.createtime_), 6>(),
+     {16, 6, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.createtime_)}},
     // string name = 3;
     {::_pbi::TcParser::FastUS1,
-     {26, 3, 0,
+     {26, 4, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.name_)}},
     // string signature = 4;
     {::_pbi::TcParser::FastUS1,
-     {34, 4, 0,
+     {34, 5, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.signature_)}},
     // bool gender = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerBasicCompBin, _impl_.gender_), 6>(),
-     {40, 6, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerBasicCompBin, _impl_.gender_), 7>(),
+     {40, 7, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.gender_)}},
     // int32 headIcon = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.headicon_), 7>(),
-     {48, 7, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.headicon_), 8>(),
+     {48, 8, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.headicon_)}},
     // int32 skinId = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.skinid_), 8>(),
-     {56, 8, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.skinid_), 9>(),
+     {56, 9, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.skinid_)}},
     // int32 titlePrefix = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.titleprefix_), 9>(),
-     {64, 9, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.titleprefix_), 10>(),
+     {64, 10, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.titleprefix_)}},
     // int32 titleSuffix = 9;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.titlesuffix_), 11>(),
-     {72, 11, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.titlesuffix_), 12>(),
+     {72, 12, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.titlesuffix_)}},
     // int64 music = 10;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerBasicCompBin, _impl_.music_), 10>(),
-     {80, 10, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerBasicCompBin, _impl_.music_), 11>(),
+     {80, 11, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.music_)}},
     // repeated int32 honor = 11;
     {::_pbi::TcParser::FastV32P1,
@@ -12769,36 +12778,39 @@ PlayerBasicCompBin::_table_ = {
      {106, 2, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.boards_)}},
     // int32 level = 14;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.level_), 12>(),
-     {112, 12, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.level_), 13>(),
+     {112, 13, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.level_)}},
     // int32 exp = 15;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.exp_), 13>(),
-     {120, 13, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerBasicCompBin, _impl_.exp_), 14>(),
+     {120, 14, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.exp_)}},
     // int32 energy = 16;
     {::_pbi::TcParser::FastV32S2,
-     {384, 14, 0,
+     {384, 15, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.energy_)}},
     // int64 energyLastUpdate = 17;
     {::_pbi::TcParser::FastV64S2,
-     {392, 15, 0,
+     {392, 16, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.energylastupdate_)}},
     // int32 signInIndex = 18;
     {::_pbi::TcParser::FastV32S2,
-     {400, 18, 0,
+     {400, 19, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.signinindex_)}},
     // int64 lastEpochDay = 19;
     {::_pbi::TcParser::FastV64S2,
-     {408, 16, 0,
+     {408, 17, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastepochday_)}},
     // int64 lastLogin = 20;
     {::_pbi::TcParser::FastV64S2,
-     {416, 17, 0,
+     {416, 18, 0,
       PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastlogin_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // repeated string permissions = 23;
+    {::_pbi::TcParser::FastUR2,
+     {442, 3, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.permissions_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -12811,23 +12823,23 @@ PlayerBasicCompBin::_table_ = {
     65535, 65535
   }}, {{
     // int64 createTime = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.createtime_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.createtime_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // string name = 3;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.name_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.name_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string signature = 4;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.signature_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.signature_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // bool gender = 5;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.gender_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.gender_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // int32 headIcon = 6;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.headicon_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.headicon_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int32 skinId = 7;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.skinid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.skinid_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int32 titlePrefix = 8;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.titleprefix_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.titleprefix_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int32 titleSuffix = 9;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.titlesuffix_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.titlesuffix_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int64 music = 10;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.music_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.music_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // repeated int32 honor = 11;
     {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.honor_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedInt32)},
     // repeated int32 showChars = 12;
@@ -12835,23 +12847,25 @@ PlayerBasicCompBin::_table_ = {
     // repeated int32 boards = 13;
     {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.boards_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedInt32)},
     // int32 level = 14;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.level_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.level_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int32 exp = 15;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.exp_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.exp_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int32 energy = 16;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.energy_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.energy_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int64 energyLastUpdate = 17;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.energylastupdate_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.energylastupdate_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // int32 signInIndex = 18;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.signinindex_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.signinindex_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int64 lastEpochDay = 19;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastepochday_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastepochday_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // int64 lastLogin = 20;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastlogin_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.lastlogin_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // map<string, uint32> monthlyCardExpireDays = 21;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardexpiredays_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardexpiredays_), _Internal::kHasBitsOffset + 20, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<string, uint32> monthlyCardLastRewardDays = 22;
-    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardlastrewarddays_), _Internal::kHasBitsOffset + 20, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.monthlycardlastrewarddays_), _Internal::kHasBitsOffset + 21, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // repeated string permissions = 23;
+    {PROTOBUF_FIELD_OFFSET(PlayerBasicCompBin, _impl_.permissions_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
   }},
   {{
       {::_pbi::TcParser::GetMapAuxInfo(
@@ -12860,12 +12874,13 @@ PlayerBasicCompBin::_table_ = {
           1, 0, 9, 13, 0)},
   }},
   {{
-    "\36\0\4\11\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\25\31\0\0"
+    "\36\0\4\11\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\25\31\13\0"
     "ServerProto.PlayerBasicCompBin"
     "name"
     "signature"
     "monthlyCardExpireDays"
     "monthlyCardLastRewardDays"
+    "permissions"
   }},
 };
 PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
@@ -12876,7 +12891,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.honor_.Clear();
     }
@@ -12886,31 +12901,34 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
       _impl_.boards_.Clear();
     }
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
-      _impl_.name_.ClearNonDefaultToEmpty();
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+      _impl_.permissions_.Clear();
     }
     if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      _impl_.name_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       _impl_.signature_.ClearNonDefaultToEmpty();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000000e0U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000c0U)) {
     ::memset(&_impl_.createtime_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.headicon_) -
-        reinterpret_cast<char*>(&_impl_.createtime_)) + sizeof(_impl_.headicon_));
+        reinterpret_cast<char*>(&_impl_.gender_) -
+        reinterpret_cast<char*>(&_impl_.createtime_)) + sizeof(_impl_.gender_));
   }
   if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
-    ::memset(&_impl_.skinid_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.energylastupdate_) -
-        reinterpret_cast<char*>(&_impl_.skinid_)) + sizeof(_impl_.energylastupdate_));
+    ::memset(&_impl_.headicon_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.energy_) -
+        reinterpret_cast<char*>(&_impl_.headicon_)) + sizeof(_impl_.energy_));
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
-    ::memset(&_impl_.lastepochday_, 0, static_cast<::size_t>(
+  if (BatchCheckHasBit(cached_has_bits, 0x003f0000U)) {
+    ::memset(&_impl_.energylastupdate_, 0, static_cast<::size_t>(
         reinterpret_cast<char*>(&_impl_.signinindex_) -
-        reinterpret_cast<char*>(&_impl_.lastepochday_)) + sizeof(_impl_.signinindex_));
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+        reinterpret_cast<char*>(&_impl_.energylastupdate_)) + sizeof(_impl_.signinindex_));
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
       _impl_.monthlycardexpiredays_.Clear();
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
       _impl_.monthlycardlastrewarddays_.Clear();
     }
   }
@@ -12938,7 +12956,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
 
   cached_has_bits = this_._impl_._has_bits_[0];
   // int64 createTime = 2;
-  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
     if (this_._internal_createtime() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<2>(
@@ -12947,7 +12965,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // string name = 3;
-  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
     if (!this_._internal_name().empty()) {
       const ::std::string& _s = this_._internal_name();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -12957,7 +12975,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // string signature = 4;
-  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     if (!this_._internal_signature().empty()) {
       const ::std::string& _s = this_._internal_signature();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -12967,7 +12985,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // bool gender = 5;
-  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
     if (this_._internal_gender() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -12976,7 +12994,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 headIcon = 6;
-  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
     if (this_._internal_headicon() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<6>(
@@ -12985,7 +13003,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 skinId = 7;
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
     if (this_._internal_skinid() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<7>(
@@ -12994,7 +13012,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 titlePrefix = 8;
-  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
     if (this_._internal_titleprefix() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<8>(
@@ -13003,7 +13021,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 titleSuffix = 9;
-  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
     if (this_._internal_titlesuffix() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<9>(
@@ -13012,7 +13030,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int64 music = 10;
-  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
     if (this_._internal_music() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<10>(
@@ -13054,7 +13072,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 level = 14;
-  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00002000U)) {
     if (this_._internal_level() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<14>(
@@ -13063,7 +13081,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 exp = 15;
-  if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
     if (this_._internal_exp() != 0) {
       target =
           ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<15>(
@@ -13072,7 +13090,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 energy = 16;
-  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
     if (this_._internal_energy() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt32ToArray(
@@ -13081,7 +13099,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int64 energyLastUpdate = 17;
-  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
     if (this_._internal_energylastupdate() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -13090,7 +13108,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int32 signInIndex = 18;
-  if (CheckHasBit(cached_has_bits, 0x00040000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00080000U)) {
     if (this_._internal_signinindex() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt32ToArray(
@@ -13099,7 +13117,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int64 lastEpochDay = 19;
-  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00020000U)) {
     if (this_._internal_lastepochday() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -13108,7 +13126,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // int64 lastLogin = 20;
-  if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00040000U)) {
     if (this_._internal_lastlogin() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -13117,7 +13135,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // map<string, uint32> monthlyCardExpireDays = 21;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
     if (!this_._internal_monthlycardexpiredays().empty()) {
       using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
@@ -13146,7 +13164,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
   }
 
   // map<string, uint32> monthlyCardLastRewardDays = 22;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
     if (!this_._internal_monthlycardlastrewarddays().empty()) {
       using MapType = ::google::protobuf::Map<::std::string, ::uint32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::std::string, ::uint32_t,
@@ -13171,6 +13189,16 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.PlayerBasicCompBin.monthlyCardLastRewardDays");
         }
       }
+    }
+  }
+
+  // repeated string permissions = 23;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+    for (int i = 0, n = this_._internal_permissions_size(); i < n; ++i) {
+      const auto& s = this_._internal_permissions().Get(i);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.PlayerBasicCompBin.permissions");
+      target = stream->WriteString(23, s, target);
     }
   }
 
@@ -13221,123 +13249,132 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
               this_._internal_boards(), 1,
               this_._impl_._boards_cached_byte_size_);
     }
+    // repeated string permissions = 23;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+      total_size +=
+          2 * ::google::protobuf::internal::FromIntSize(this_._internal_permissions().size());
+      for (int i = 0, n = this_._internal_permissions().size(); i < n; ++i) {
+        total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+            this_._internal_permissions().Get(i));
+      }
+    }
     // string name = 3;
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       if (!this_._internal_name().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_name());
       }
     }
     // string signature = 4;
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (!this_._internal_signature().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_signature());
       }
     }
     // int64 createTime = 2;
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       if (this_._internal_createtime() != 0) {
         total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
             this_._internal_createtime());
       }
     }
     // bool gender = 5;
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
       if (this_._internal_gender() != 0) {
         total_size += 2;
       }
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     // int32 headIcon = 6;
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
       if (this_._internal_headicon() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_headicon());
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     // int32 skinId = 7;
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (this_._internal_skinid() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_skinid());
       }
     }
     // int32 titlePrefix = 8;
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
       if (this_._internal_titleprefix() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_titleprefix());
       }
     }
     // int64 music = 10;
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
       if (this_._internal_music() != 0) {
         total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
             this_._internal_music());
       }
     }
     // int32 titleSuffix = 9;
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       if (this_._internal_titlesuffix() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_titlesuffix());
       }
     }
     // int32 level = 14;
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
       if (this_._internal_level() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_level());
       }
     }
     // int32 exp = 15;
-    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
       if (this_._internal_exp() != 0) {
         total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
             this_._internal_exp());
       }
     }
     // int32 energy = 16;
-    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (this_._internal_energy() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int32Size(
                                         this_._internal_energy());
       }
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x003f0000U)) {
     // int64 energyLastUpdate = 17;
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (this_._internal_energylastupdate() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_energylastupdate());
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     // int64 lastEpochDay = 19;
-    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (this_._internal_lastepochday() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_lastepochday());
       }
     }
     // int64 lastLogin = 20;
-    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
       if (this_._internal_lastlogin() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_lastlogin());
       }
     }
     // int32 signInIndex = 18;
-    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
       if (this_._internal_signinindex() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int32Size(
                                         this_._internal_signinindex());
       }
     }
     // map<string, uint32> monthlyCardExpireDays = 21;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_monthlycardexpiredays_size());
       for (const auto& entry : this_._internal_monthlycardexpiredays()) {
@@ -13347,7 +13384,7 @@ PROTOBUF_NOINLINE void PlayerBasicCompBin::Clear() {
       }
     }
     // map<string, uint32> monthlyCardLastRewardDays = 22;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_monthlycardlastrewarddays_size());
       for (const auto& entry : this_._internal_monthlycardlastrewarddays()) {
@@ -13369,6 +13406,7 @@ void PlayerBasicCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
+  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.PlayerBasicCompBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -13385,7 +13423,12 @@ void PlayerBasicCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
       _this->_internal_mutable_boards()->MergeFrom(from._internal_boards());
     }
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
+      _this->_internal_mutable_permissions()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_permissions());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       if (!from._internal_name().empty()) {
         _this->_internal_set_name(from._internal_name());
       } else {
@@ -13394,7 +13437,7 @@ void PlayerBasicCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (!from._internal_signature().empty()) {
         _this->_internal_set_signature(from._internal_signature());
       } else {
@@ -13403,84 +13446,84 @@ void PlayerBasicCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       if (from._internal_createtime() != 0) {
         _this->_impl_.createtime_ = from._impl_.createtime_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
       if (from._internal_gender() != 0) {
         _this->_impl_.gender_ = from._impl_.gender_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
-      if (from._internal_headicon() != 0) {
-        _this->_impl_.headicon_ = from._impl_.headicon_;
       }
     }
   }
   if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (from._internal_headicon() != 0) {
+        _this->_impl_.headicon_ = from._impl_.headicon_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (from._internal_skinid() != 0) {
         _this->_impl_.skinid_ = from._impl_.skinid_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
       if (from._internal_titleprefix() != 0) {
         _this->_impl_.titleprefix_ = from._impl_.titleprefix_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
       if (from._internal_music() != 0) {
         _this->_impl_.music_ = from._impl_.music_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       if (from._internal_titlesuffix() != 0) {
         _this->_impl_.titlesuffix_ = from._impl_.titlesuffix_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
       if (from._internal_level() != 0) {
         _this->_impl_.level_ = from._impl_.level_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
       if (from._internal_exp() != 0) {
         _this->_impl_.exp_ = from._impl_.exp_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (from._internal_energy() != 0) {
         _this->_impl_.energy_ = from._impl_.energy_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x003f0000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (from._internal_energylastupdate() != 0) {
         _this->_impl_.energylastupdate_ = from._impl_.energylastupdate_;
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
-    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (from._internal_lastepochday() != 0) {
         _this->_impl_.lastepochday_ = from._impl_.lastepochday_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
       if (from._internal_lastlogin() != 0) {
         _this->_impl_.lastlogin_ = from._impl_.lastlogin_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
       if (from._internal_signinindex() != 0) {
         _this->_impl_.signinindex_ = from._impl_.signinindex_;
       }
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
       _this->_impl_.monthlycardexpiredays_.MergeFrom(from._impl_.monthlycardexpiredays_);
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
       _this->_impl_.monthlycardlastrewarddays_.MergeFrom(from._impl_.monthlycardlastrewarddays_);
     }
   }
@@ -13506,6 +13549,7 @@ void PlayerBasicCompBin::InternalSwap(PlayerBasicCompBin* PROTOBUF_RESTRICT PROT
   _impl_.honor_.InternalSwap(&other->_impl_.honor_);
   _impl_.showchars_.InternalSwap(&other->_impl_.showchars_);
   _impl_.boards_.InternalSwap(&other->_impl_.boards_);
+  _impl_.permissions_.InternalSwap(&other->_impl_.permissions_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.signature_, &other->_impl_.signature_, arena);
   ::google::protobuf::internal::memswap<

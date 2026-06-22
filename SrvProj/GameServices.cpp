@@ -1,4 +1,6 @@
 ﻿#include "GameServices.h"
+#include "DbMgr.h"
+#include "Game/Player.h"
 #include <mutex>
 #include "Logger.h"
 #include "GameTime.h"
@@ -193,4 +195,32 @@ bool GameServices::KickSessionByPlayerUid(uint32_t uid)
     }
 
     return false;
+}
+
+std::unique_ptr<Player> LoadOfflinePlayer(uint32_t uid)
+{
+	if (uid == 0)
+	{
+		return nullptr;
+	}
+
+    std::vector<uint8_t> blob;
+    if (!DbMgr::Instance().LoadPlayerByUid(uid, blob))
+    {
+        return nullptr;
+    }
+
+    auto player = std::make_unique<Player>(nullptr);
+    if (!player->LoadFromBlob(uid, std::span<const uint8_t>(blob.data(), blob.size())))
+    {
+        return nullptr;
+    }
+
+    return player;
+}
+
+bool SaveOfflinePlayer(Player& player)
+{
+    const auto data = player.SaveToBlob();
+    return DbMgr::Instance().SavePlayer(player.GetUid(), std::span<const uint8_t>(data.data(), data.size()));
 }

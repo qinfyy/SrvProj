@@ -38,6 +38,7 @@ struct CommandRegEntry
     std::vector<std::string> aliases;
     std::string permission;
     bool requireTarget = false;
+    bool requireTargetOnline = true;
     CommandFunction commandFunction;
 };
 
@@ -49,12 +50,14 @@ public:
     CommandResult Invoke(Player* sender, const std::string& input);
     static bool HasCommandPrefix(const std::string& input);
     static void StartConsoleThread();
+    bool CheckPermission(Player* sender, const CommandRegEntry& command) const;
+    bool CheckTargetPermission(Player* sender, const CommandRegEntry& command) const;
     const std::vector<CommandRegEntry>& GetCommandRegistry() const;
 
 private:
     CommandMgr() = default;
 
-    CommandArgs ParseArgs(Player* sender, std::vector<std::string> args) const;
+    CommandArgs ParseArgs(Player* sender, std::vector<std::string> args, bool requireTargetOnline) const;
     const CommandRegEntry* FindCommand(const std::string& label) const;
 
     static std::vector<std::string> Split(const std::string& input);

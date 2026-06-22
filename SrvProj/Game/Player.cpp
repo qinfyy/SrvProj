@@ -5,6 +5,7 @@
 #include "Bitset.h"
 #include "ChangeInfoUtil.h"
 #include "CharacterMgr.h"
+#include "../Config.h"
 #include "GachaMgr.h"
 #include "InventoryMgr.h"
 #include "MailMgr.h"
@@ -22,6 +23,7 @@
 #include <algorithm>
 #include <cstdint>
 #include <initializer_list>
+#include <unordered_set>
 #include <utility>
 #include "../DbMgr.h"
 
@@ -107,6 +109,27 @@ bool CanPurchasePackage(const Player& player, const MallPackageRes& data)
 
     return MatchShopCondition(player, data.OrderCondType, data.OrderCond);
 }
+
+std::vector<std::string> SplitPermission(const std::string& permission)
+{
+    std::vector<std::string> parts;
+    size_t start = 0;
+
+    while (start <= permission.size())
+    {
+        const size_t pos = permission.find('.', start);
+        if (pos == std::string::npos)
+        {
+            parts.push_back(permission.substr(start));
+            break;
+        }
+
+        parts.push_back(permission.substr(start, pos - start));
+        start = pos + 1;
+    }
+
+    return parts;
+}
 }
 
 Player::~Player() = default;
@@ -159,6 +182,14 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     data->set_signinindex(1);
     data->set_lastepochday(0);
     data->set_lastlogin(now);
+    data->clear_permissions();
+    for (const auto& permission : Config::Get().playerDefaultPermissions)
+    {
+        if (!permission.empty())
+        {
+            data->add_permissions(permission);
+        }
+    }
 
     data->clear_showchars();
     data->add_showchars(0);
@@ -496,6 +527,130 @@ bool Player::SetWorldLevel(uint32_t level)
 void Player::SetSignature(const std::string& signature)
 {
     GetMutablePlayerData()->set_signature(signature);
+}
+
+std::vector<std::string> Player::GetPermissions() const
+{
+    std::vector<std::string> permissions;
+    permissions.reserve(static_cast<size_t>(GetPlayerData().permissions_size()));
+
+    for (const auto& permission : GetPlayerData().permissions())
+    {
+        permissions.push_back(permission);
+    }
+
+    return permissions;
+}
+
+bool Player::AddPermission(const std::string& permission)
+{
+    if (permission.empty())
+    {
+        return false;
+    }
+
+    auto* data = GetMutablePlayerData();
+    for (const auto& value : data->permissions())
+    {
+        if (value == permission)
+        {
+            return false;
+        }
+    }
+
+    data->add_permissions(permission);
+    return true;
+}
+
+bool Player::RemovePermission(const std::string& permission)
+{
+    if (permission.empty())
+    {
+        return false;
+    }
+
+    auto* data = GetMutablePlayerData();
+    for (int i = 0; i < data->permissions_size(); ++i)
+    {
+        if (data->permissions(i) != permission)
+        {
+            continue;
+        }
+
+        data->mutable_permissions()->DeleteSubrange(i, 1);
+        return true;
+    }
+
+    return false;
+}
+
+void Player::ClearPermissions()
+{
+    GetMutablePlayerData()->clear_permissions();
+}
+
+bool Player::PermissionMatchesWildcard(const std::string& wildcard, const std::vector<std::string>& permissionParts)
+{
+    const auto wildcardParts = SplitPermission(wildcard);
+    if (permissionParts.size() < wildcardParts.size())
+    {
+        return false;
+    }
+
+    for (size_t i = 0; i < wildcardParts.size(); ++i)
+    {
+        if (wildcardParts[i] == "**")
+        {
+            return true;
+        }
+
+        if (wildcardParts[i] == "*")
+        {
+            if (i >= permissionParts.size() - 1)
+            {
+                return true;
+            }
+            continue;
+        }
+
+        if (wildcardParts[i] != permissionParts[i])
+        {
+            return false;
+        }
+    }
+
+    return wildcardParts.size() == permissionParts.size();
+}
+
+bool Player::HasPermission(const std::string& permission) const
+{
+    if (permission.empty())
+    {
+        return true;
+    }
+
+    std::vector<std::string> permissions = GetPermissions();
+
+    if (std::find(permissions.begin(), permissions.end(), permission) != permissions.end())
+    {
+        return true;
+    }
+
+    const auto permissionParts = SplitPermission(permission);
+    for (const auto& value : permissions)
+    {
+        if (!value.empty() && value[0] == '-' && PermissionMatchesWildcard(value.substr(1), permissionParts))
+        {
+            return false;
+        }
+
+        if (PermissionMatchesWildcard(value, permissionParts))
+        {
+            return true;
+        }
+    }
+
+    return std::find(permissions.begin(), permissions.end(), "*") != permissions.end();
 }
 
 bool Player::HasAvailableFreeMallPackage() const

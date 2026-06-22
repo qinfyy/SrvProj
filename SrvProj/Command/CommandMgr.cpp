@@ -1,6 +1,7 @@
 ﻿#include "CommandMgr.h"
 #include "BasicCommands.h"
 
+#include "../Game/Player.h"
 #include "../GameServices.h"
 #include "../Logger.h"
 #include "../Util.h"
@@ -94,21 +95,26 @@ int64_t CommandMgr::ParseInt64(const std::string& text, int64_t fallback)
     }
 }
 
-CommandArgs CommandMgr::ParseArgs(Player* sender, std::vector<std::string> args) const
+CommandArgs CommandMgr::ParseArgs(Player* sender, std::vector<std::string> args, bool requireTargetOnline) const
 {
     CommandArgs out;
     out.sender = sender;
-    out.target = sender;
     out.amount = 0;
+
+    if (out.sender) {
+        out.target = sender;
+        out.targetUid = out.target->GetUid();
+    }
 
     for (auto it = args.begin(); it != args.end();)
     {
         std::string arg = ToLower(*it);
         bool consumed = false;
 
-        if (arg.size() > 1 && arg[0] == '@')
+        if (arg.size() > 1 && (arg[0] == '@' || (arg.size() > 2 && arg.rfind("at", 0) == 0 && IsSignedNumberText(arg.substr(2)))))
         {
-            const int64_t uid = ParseInt64(arg.substr(1), 0);
+            const std::string uidText = arg[0] == '@' ? arg.substr(1) : arg.substr(2);
+            const int64_t uid = ParseInt64(uidText, 0);
             if (uid > 0)
             {
                 out.targetUid = static_cast<uint32_t>(uid);
@@ -174,8 +180,9 @@ const std::vector<CommandRegEntry>& CommandMgr::GetCommandRegistry() const
             "help",
             U8("/help - 显示当前可用命令列表。"),
             {"h", "?"},
-            "",
+            "player.help",
             false,
+            true,
             BasicCommands::Help
         });
 
@@ -183,7 +190,8 @@ const std::vector<CommandRegEntry>& CommandMgr::GetCommandRegistry() const
             "level",
             U8("/level <等级> 或 /level @uid <等级> - 设置目标玩家世界等级，别名：setlevel、l。"),
             {"setlevel", "l"},
-            "",
+            "player.level",
+            true,
             true,
             BasicCommands::Level
         });
@@ -192,7 +200,8 @@ const std::vector<CommandRegEntry>& CommandMgr::GetCommandRegistry() const
             "give",
             U8("/give <物品ID> x数量 或 /give @uid <物品ID> x数量 - 通过邮件发放物品，别名：g、item。"),
             {"g", "item"},
-            "",
+            "player.give",
+            true,
             true,
             BasicCommands::Give
         });
@@ -201,14 +210,55 @@ const std::vector<CommandRegEntry>& CommandMgr::GetCommandRegistry() const
             "giveall",
             U8("/giveall <materials|characters|discs|skins> [lv等级] [a突破] [t天赋] [s技能] [f好感] - 批量发放或补齐资源，别名：ga。"),
             {"ga"},
-            "",
+            "player.give",
+            true,
             true,
             BasicCommands::GiveAll
+        });
+
+        out.push_back(CommandRegEntry{
+            "kick",
+            U8("/kick @uid - 踢出指定在线玩家。"),
+            {},
+            "admin.kick",
+            true,
+            true,
+            BasicCommands::Kick
+        });
+
+        out.push_back(CommandRegEntry{
+            "permission",
+            U8("/permission <add|remove|clear|display> @uid [权限] - 管理或查看指定玩家的命令权限。"),
+            {"perm"},
+            "admin.permission",
+            true,
+            false,
+            BasicCommands::Permission
         });
 
         return out;
     }();
     return registry;
+}
+
+bool CommandMgr::CheckPermission(Player* sender, const CommandRegEntry& command) const
+{
+    if (!sender || command.permission.empty())
+    {
+        return true;
+    }
+
+    return sender->HasPermission(command.permission);
+}
+
+bool CommandMgr::CheckTargetPermission(Player* sender, const CommandRegEntry& command) const
+{
+    if (!sender || command.permission.empty())
+    {
+        return true;
+    }
+
+    return sender->HasPermission("target." + command.permission);
 }
 
 const CommandRegEntry* CommandMgr::FindCommand(const std::string& label) const
@@ -251,16 +301,37 @@ CommandResult CommandMgr::Invoke(Player* sender, const std::string& input)
         return {false, false, U8("无效命令")};
     }
 
-    const auto args = ParseArgs(sender, std::move(tokens));
     const auto* command = FindCommand(label);
     if (!command || !command->commandFunction)
     {
         return {false, false, U8("无效命令")};
     }
 
-    if (command->requireTarget && !args.target)
+    const auto args = ParseArgs(sender, std::move(tokens), command->requireTargetOnline);
+
+    if (!CheckPermission(sender, *command))
     {
-        return {true, false, U8("目标玩家不存在或不在线")};
+        return {true, false, U8("你没有权限使用这个命令")};
+    }
+
+    if (command->requireTarget)
+    {
+        if (command->requireTargetOnline)
+        {
+            if (!args.target)
+            {
+                return {true, false, U8("目标玩家不存在或不在线")};
+            }
+        }
+        else if (args.targetUid == 0)
+        {
+            return {true, false, U8("必须指定目标玩家")};
+        }
+    }
+
+    if (sender != args.target && !CheckTargetPermission(sender, *command))
+    {
+        return {true, false, U8("你没有权限对其他玩家使用这个命令")};
     }
 
     return command->commandFunction(args);

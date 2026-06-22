@@ -5,6 +5,8 @@
 #include <string>
 #include <unordered_map>
 #include <mutex>
+#include <memory>
+#include <vector>
 
 class Player;
 
@@ -40,3 +42,6 @@ private:
     std::mutex mSessionMutex;
 
 };
+
+std::unique_ptr<Player> LoadOfflinePlayer(uint32_t uid);
+bool SaveOfflinePlayer(Player& player);
