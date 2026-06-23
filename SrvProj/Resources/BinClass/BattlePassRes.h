@@ -11,14 +11,25 @@ public:
     ~BattlePassRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
+    std::string StartTimeText;
+    std::string EndTimeText;
+    std::string LuxuryProductId;
+    std::string PremiumProductId;
+    int LuxuryBonusLevel = 0;
+    int LuxuryTid = 0;
+    int LuxuryQty = 0;
+    int ComplementaryTid = 0;
+    int ComplementaryQty = 0;
 
     // 非序列化字段
+    int64_t StartTime = 0;
+    int64_t EndTime = 0;
 };
 
 class BattlePassLevelRes : public ResBase {
@@ -62,7 +73,7 @@ public:
     BattlePassRewardRes() = default;
     ~BattlePassRewardRes() = default;
 
-    std::string GetId() const override { return std::to_string(ID); }
+    std::string GetId() const override { return std::to_string(ID) + "|" + std::to_string(Level); }
     void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 

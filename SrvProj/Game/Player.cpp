@@ -2,6 +2,7 @@
 
 #include "ActivityMgr.h"
 #include "AchievementMgr.h"
+#include "BattlePassMgr.h"
 #include "Bitset.h"
 #include "ChangeInfoUtil.h"
 #include "CharacterMgr.h"
@@ -21,6 +22,7 @@
 #include "../proto/proto_cpp/notify_gm.pb.h"
 
 #include <algorithm>
+#include <chrono>
 #include <cstdint>
 #include <initializer_list>
 #include <unordered_set>
@@ -130,6 +132,22 @@ std::vector<std::string> SplitPermission(const std::string& permission)
 
     return parts;
 }
+
+int64_t GetWeekResetBucket(uint32_t epochDay)
+{
+    using namespace std::chrono;
+    const sys_days day{ days{ static_cast<int64_t>(epochDay) } };
+    const int isoWeekDay = weekday{ day }.iso_encoding();
+    return (static_cast<int64_t>(epochDay) - (isoWeekDay - 1)) / 7;
+}
+
+int64_t GetMonthResetBucket(uint32_t epochDay)
+{
+    using namespace std::chrono;
+    const sys_days day{ days{ static_cast<int64_t>(epochDay) } };
+    const year_month_day ymd{ day };
+    return (static_cast<int>(ymd.year()) * 12LL) + static_cast<unsigned>(ymd.month());
+}
 }
 
 Player::~Player() = default;
@@ -148,6 +166,7 @@ void Player::InitManagers()
     mInventoryMgr = std::make_unique<InventoryMgr>(this);
     mGachaMgr = std::make_unique<GachaMgr>(this);
     mMailMgr = std::make_unique<MailMgr>(this);
+    mBattlePassMgr = std::make_unique<BattlePassMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
 }
 
@@ -217,6 +236,7 @@ void Player::OnCreate()
     mInventoryMgr->OnCreate();
     mGachaMgr->OnCreate();
     mMailMgr->OnCreate();
+    mBattlePassMgr->OnCreate();
     mQuestMgr->OnCreate();
 }
 
@@ -241,6 +261,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
     mInventoryMgr->OnLoad();
     mGachaMgr->OnLoad();
     mMailMgr->OnLoad();
+    mBattlePassMgr->OnLoad();
     mQuestMgr->OnLoad();
     return true;
 }
@@ -253,6 +274,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
     mInventoryMgr->BeforeSave();
     mGachaMgr->BeforeSave();
     mMailMgr->BeforeSave();
+    mBattlePassMgr->BeforeSave();
     mQuestMgr->BeforeSave();
 
     std::vector<uint8_t> out(mPlayerSaveData.ByteSizeLong());
@@ -272,6 +294,7 @@ proto::PlayerInfo Player::ToProto()
     mActivityMgr->EncodePlayerInfo(info);
     mInventoryMgr->EncodePlayerInfo(info);
     mMailMgr->EncodePlayerInfo(info);
+    mBattlePassMgr->EncodePlayerInfo(info);
     mQuestMgr->EncodePlayerInfo(info);
     EncodeMinimalSystems(info);
 
@@ -281,8 +304,10 @@ proto::PlayerInfo Player::ToProto()
 void Player::OnLogin()
 {
     auto* data = GetMutablePlayerData();
+    const uint32_t oldLevel = static_cast<uint32_t>((std::max)(data->level(), 0));
+
+    CheckResetDailies();
     data->set_lastlogin(GameTime::NowSeconds());
-    data->set_lastepochday(GameTime::CurrentEpochDay());
 
     mCharacterStor->OnLogin();
     mActivityMgr->OnLogin();
@@ -290,8 +315,9 @@ void Player::OnLogin()
     mInventoryMgr->OnLogin();
     mGachaMgr->OnLogin();
     mMailMgr->OnLogin();
+    mBattlePassMgr->OnLogin();
     mQuestMgr->OnLogin();
-    RefreshMonthlyCardRewards(true);
+    QueueBattlePassUnlockNotify(oldLevel);
 }
 
 void Player::PushNextPackage(short msgId, std::unique_ptr<google::protobuf::Message> payload)
@@ -433,6 +459,16 @@ const QuestMgr& Player::Quests() const
     return *mQuestMgr;
 }
 
+BattlePassMgr& Player::BattlePasses()
+{
+    return *mBattlePassMgr;
+}
+
+const BattlePassMgr& Player::BattlePasses() const
+{
+    return *mBattlePassMgr;
+}
+
 AchievementMgr& Player::Achievements()
 {
     return *mAchievementMgr;
@@ -476,6 +512,7 @@ const MailMgr& Player::Mails() const
 void Player::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, uint32_t param2)
 {
     mQuestMgr->Trigger(condition, progress, param1, param2);
+    mBattlePassMgr->Trigger(condition, progress, param1, param2);
     mAchievementMgr->Trigger(condition, progress, param1, param2);
 }
 
@@ -512,6 +549,7 @@ bool Player::SetWorldLevel(uint32_t level)
     }
 
     auto* data = GetMutablePlayerData();
+    const uint32_t oldLevel = static_cast<uint32_t>((std::max)(data->level(), 0));
     data->set_level(static_cast<int32_t>(level));
     data->set_exp(0);
 
@@ -521,6 +559,7 @@ bool Player::SetWorldLevel(uint32_t level)
     PushNextPackage(world_class_number_notify, notify);
 
     Trigger(71, level, level, 0);
+    QueueBattlePassUnlockNotify(oldLevel);
     return true;
 }
 
@@ -671,11 +710,26 @@ bool Player::HasAvailableFreeMallPackage() const
     return false;
 }
 
+bool Player::IsBattlePassUnlocked() const
+{
+    return static_cast<uint32_t>((std::max)(GetPlayerData().level(), 0)) >= GameConstants::BattlePassUnlockLevel;
+}
+
 void Player::QueueMallPackageStateNotify()
 {
     proto::MallPackageState state;
     state.set_new_(HasAvailableFreeMallPackage());
     PushNextPackage(mall_package_state_notify, state);
+}
+
+void Player::QueueBattlePassStateNotify()
+{
+    PushNextPackage(battle_pass_state_notify, BuildBattlePassStateProto());
+}
+
+void Player::QueueBattlePassInfoNotify()
+{
+    PushNextPackage(battle_pass_info_succeed_ack, BattlePasses().ToProto());
 }
 
 uint32_t Player::GetMonthlyCardRemainingDays(const std::string& cardId) const
@@ -844,6 +898,74 @@ void Player::RefreshMonthlyCardRewards(bool notifyOnly)
     }
 }
 
+void Player::CheckResetDailies()
+{
+    auto* data = GetMutablePlayerData();
+    const uint32_t currentDay = GameTime::CurrentEpochDay();
+    const uint32_t lastDay = data->lastepochday() < 0 ? 0u : static_cast<uint32_t>(data->lastepochday());
+
+    if (currentDay <= lastDay)
+    {
+        if (data->signinindex() <= 0)
+        {
+            data->set_signinindex(1);
+        }
+
+        RefreshMonthlyCardRewards(false);
+        return;
+    }
+
+    const bool hasWeekChanged = GetWeekResetBucket(currentDay) > GetWeekResetBucket(lastDay);
+    const bool hasMonthChanged = GetMonthResetBucket(currentDay) > GetMonthResetBucket(lastDay);
+
+    ResetDailies(hasWeekChanged, hasMonthChanged);
+    Trigger(51, 1, 0, 0);
+    RefreshMonthlyCardRewards(true);
+
+    data->set_lastepochday(currentDay);
+}
+
+void Player::ResetDailies(bool resetWeekly, bool resetMonthly)
+{
+    Quests().ResetDailyQuests(resetWeekly);
+    BattlePasses().ResetDailyQuests(resetWeekly);
+
+    const int64_t tickets = Inventory().GetResourceCount(GameConstants::JointDrillTicketId);
+    if (tickets < 3)
+    {
+        Inventory().AddItem(GameConstants::JointDrillTicketId, 3 - tickets);
+    }
+
+    if (resetWeekly)
+    {
+        const int64_t entries = Inventory().GetResourceCount(GameConstants::WeeklyEntryItemId);
+        if (entries < 3)
+        {
+            Inventory().AddItem(GameConstants::WeeklyEntryItemId, 3 - entries);
+        }
+    }
+
+    if (resetMonthly)
+    {
+        // 当前 SrvProj 还没有完整的月度商店/通行证购买重置模块，这里保持占位。
+    }
+}
+
+proto::BattlePassState Player::BuildBattlePassStateProto() const
+{
+    proto::BattlePassState state;
+    state.set_state(IsBattlePassUnlocked() ? BattlePasses().GetClientState() : 0);
+    return state;
+}
+
+void Player::QueueBattlePassUnlockNotify(uint32_t oldLevel)
+{
+    if (oldLevel < GameConstants::BattlePassUnlockLevel && IsBattlePassUnlocked())
+    {
+        QueueBattlePassInfoNotify();
+    }
+}
+
 void Player::EncodeBasicInfo(proto::PlayerInfo& info)
 {
     const auto& data = GetPlayerData();
@@ -852,8 +974,8 @@ void Player::EncodeBasicInfo(proto::PlayerInfo& info)
     info.set_signinindex(data.signinindex());
     info.set_musicinfo(data.music());
     info.set_achievements(std::string(64, '\0'));
-    info.set_dailyshoprewardstatus(true);
-    info.set_dailymallrewardstatus(true);
+    info.set_dailyshoprewardstatus(Quests().HasDailyShopReward());
+    info.set_dailymallrewardstatus(Quests().HasDailyMallReward());
 
     auto* acc = info.mutable_acc();
     acc->set_id(mUid);
@@ -909,7 +1031,7 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
 {
     auto* state = info.mutable_state();
     state->mutable_mail();
-    state->mutable_battlepass()->set_state(1);
+    state->mutable_battlepass()->CopyFrom(BuildBattlePassStateProto());
     state->mutable_achievement()->set_new_(Achievements().HasNewAchievements());
     state->mutable_friendenergy();
     state->mutable_mallpackage();

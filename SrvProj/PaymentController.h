@@ -20,6 +20,13 @@ public:
         int64_t CreatedAt = 0;
     };
 
+    struct BattlePassCollectContext
+    {
+        uint32_t PlayerUid = 0;
+        uint32_t RequestedMode = 0;
+        uint32_t BattlePassId = 0;
+    };
+
     static PaymentContextService& Instance();
 
     PaymentContextService(const PaymentContextService&) = delete;
@@ -30,6 +37,8 @@ public:
     void RegisterWebOrderContext(const WebOrderContext& context);
     bool GetWebOrderContext(const std::string& token, WebOrderContext& outContext);
     void RemoveWebOrderContext(const std::string& token);
+    void RegisterBattlePassCollectContext(const BattlePassCollectContext& context);
+    bool ConsumeBattlePassCollectContext(uint32_t playerUid, BattlePassCollectContext& outContext);
 
 private:
     PaymentContextService() = default;
@@ -37,6 +46,8 @@ private:
 
     std::unordered_map<std::string, WebOrderContext> mWebOrderContexts;
     std::mutex mWebOrderMutex;
+    std::unordered_map<uint32_t, BattlePassCollectContext> mBattlePassCollectContexts;
+    std::mutex mBattlePassCollectMutex;
 };
 
 void OrderProductsHandler(const HttpRequest& req, HttpResponse& rsp);

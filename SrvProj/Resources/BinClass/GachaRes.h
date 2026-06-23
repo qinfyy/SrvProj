@@ -13,7 +13,7 @@ public:
     GachaATypeProbRes() = default;
     ~GachaATypeProbRes() = default;
 
-    std::string GetId() const override { return std::to_string((Group << 16) | (Times & 0xFFFF)); }
+    std::string GetId() const override { return std::to_string(Group) + "|" + std::to_string(Times); }
     void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
     static int GetProb(int group, int times, int defaultProb);

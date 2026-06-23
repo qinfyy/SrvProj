@@ -6,7 +6,6 @@
 #include "../GameSession.h"
 #include "../proto/NetMsgId.pb.h"
 #include "../proto/proto_cpp/achievement_reward_receive.pb.h"
-#include "../proto/proto_cpp/battle_pass_quest_reward_receive.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 #include "../proto/proto_cpp/quest_daily_active_reward_recevie.pb.h"
 #include "../proto/proto_cpp/quest_weekly_active_reward_recevie.pb.h"
@@ -183,36 +182,6 @@ std::string client_event_report_req__Handler(GameSession* session, const std::st
 
     session->SavePlayer();
     return EncodeReply(session, client_event_report_succeed_ack);
-}
-
-std::string battle_pass_quest_reward_receive_req__Handler(GameSession* session, const std::string& req)
-{
-    if (!HasLoggedInPlayer(session))
-    {
-        return EncodeReply(session, battle_pass_quest_reward_receive_failed_ack);
-    }
-
-    uint32_t questId = 0;
-    if (!ParseOptionalUI32(req, questId) || questId == 0)
-    {
-        return EncodeReply(session, battle_pass_quest_reward_receive_failed_ack);
-    }
-
-    uint32_t level = 0;
-    uint32_t exp = 0;
-    uint32_t expThisWeek = 0;
-    if (!session->GetPlayer()->Quests().ClaimBattlePassQuestReward(questId, level, exp, expThisWeek))
-    {
-        return EncodeReply(session, battle_pass_quest_reward_receive_failed_ack);
-    }
-
-    proto::BattlePassQuestRewardResp rsp;
-    rsp.set_level(level);
-    rsp.set_exp(exp);
-    rsp.set_expthisweek(expThisWeek);
-
-    session->SavePlayer();
-    return EncodeReply(session, battle_pass_quest_reward_receive_succeed_ack, &rsp);
 }
 
 std::string daily_shop_reward_receive_req__Handler(GameSession* session, const std::string& req)

@@ -64,7 +64,7 @@ public:
     SignInRes() = default;
     ~SignInRes() = default;
 
-    std::string GetId() const override { return std::to_string((Group << 16) + Day); }
+    std::string GetId() const override { return std::to_string(Group) + "|" + std::to_string(Day); }
     void OnLoad() override {};
     bool LoadFromPb(std::string data) override;
 

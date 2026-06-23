@@ -107,6 +107,36 @@ void PaymentContextService::RemoveWebOrderContext(const std::string& token)
     mWebOrderContexts.erase(token);
 }
 
+void PaymentContextService::RegisterBattlePassCollectContext(const BattlePassCollectContext& context)
+{
+    if (context.PlayerUid == 0 || context.RequestedMode == 0)
+    {
+        return;
+    }
+
+    std::lock_guard lock(mBattlePassCollectMutex);
+    mBattlePassCollectContexts[context.PlayerUid] = context;
+}
+
+bool PaymentContextService::ConsumeBattlePassCollectContext(uint32_t playerUid, BattlePassCollectContext& outContext)
+{
+    if (playerUid == 0)
+    {
+        return false;
+    }
+
+    std::lock_guard lock(mBattlePassCollectMutex);
+    const auto it = mBattlePassCollectContexts.find(playerUid);
+    if (it == mBattlePassCollectContexts.end())
+    {
+        return false;
+    }
+
+    outContext = it->second;
+    mBattlePassCollectContexts.erase(it);
+    return true;
+}
+
 void OrderProductsHandler(const HttpRequest&, HttpResponse& rsp)
 {
     rsp.statusCode = 200;

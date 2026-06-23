@@ -945,7 +945,13 @@
     <ClCompile Include="Game\Player.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattlePassMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Handlers\Activity.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\BattlePass.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
     <ClCompile Include="Handlers\Character.cpp">
@@ -1101,6 +1107,9 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Quest.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\BattlePass.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="proto\dump.pb.h">
@@ -1968,6 +1977,9 @@
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="Game\Player.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattlePassMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Activity.h">

@@ -21,8 +21,8 @@ std::unordered_map<int, WeightedList<int>> GachaPkgRes::Packages;
 
 int GachaATypeProbRes::GetProb(int group, int times, int defaultProb)
 {
-    const int key = (group << 16) | (times & 0xFFFF);
-    const auto it = GameData::GachaATypeProbDataTable.find(std::to_string(key));
+    const std::string key = std::to_string(group) + "|" + std::to_string(times);
+    const auto it = GameData::GachaATypeProbDataTable.find(key);
     if (it == GameData::GachaATypeProbDataTable.end())
     {
         return defaultProb;

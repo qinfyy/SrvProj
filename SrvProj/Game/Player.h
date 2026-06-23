@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "../proto/proto_cpp/player_data.pb.h"
+#include "../proto/proto_cpp/public.pb.h"
 #include "../proto/ServerProto_cpp/PlayerData.pb.h"
 
 #include <cstdint>
@@ -19,6 +20,7 @@ class CharacterStor;
 class GachaMgr;
 class InventoryMgr;
 class MailMgr;
+class BattlePassMgr;
 class QuestMgr;
 
 class Player
@@ -49,6 +51,9 @@ public:
     QuestMgr& Quests();
     const QuestMgr& Quests() const;
 
+    BattlePassMgr& BattlePasses();
+    const BattlePassMgr& BattlePasses() const;
+
     AchievementMgr& Achievements();
     const AchievementMgr& Achievements() const;
 
@@ -75,8 +80,11 @@ public:
     bool RemovePermission(const std::string& permission);
     void ClearPermissions();
     bool HasPermission(const std::string& permission) const;
+    bool IsBattlePassUnlocked() const;
     bool HasAvailableFreeMallPackage() const;
     void QueueMallPackageStateNotify();
+    void QueueBattlePassStateNotify();
+    void QueueBattlePassInfoNotify();
     uint32_t GetMonthlyCardRemainingDays(const std::string& cardId) const;
     bool ReceivedMonthlyCardRewardToday(const std::string& cardId) const;
     int64_t GetMonthlyCardEndTime(const std::string& cardId) const;
@@ -102,6 +110,10 @@ private:
     void InitManagers();
     void EncodeBasicInfo(proto::PlayerInfo& info);
     void EncodeMinimalSystems(proto::PlayerInfo& info) const;
+    void CheckResetDailies();
+    void ResetDailies(bool resetWeekly, bool resetMonthly);
+    proto::BattlePassState BuildBattlePassStateProto() const;
+    void QueueBattlePassUnlockNotify(uint32_t oldLevel);
     static bool PermissionMatchesWildcard(const std::string& wildcard, const std::vector<std::string>& permissionParts);
     bool CanClaimMonthlyCardReward(const std::string& cardId) const;
     void RefreshMonthlyCardRewards(bool notifyOnly);
@@ -117,5 +129,6 @@ private:
     std::unique_ptr<InventoryMgr> mInventoryMgr;
     std::unique_ptr<GachaMgr> mGachaMgr;
     std::unique_ptr<MailMgr> mMailMgr;
+    std::unique_ptr<BattlePassMgr> mBattlePassMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
 };

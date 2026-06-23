@@ -6,12 +6,10 @@
 #include "Player.h"
 #include "../GameConstants.h"
 #include "../Logger.h"
-#include "../Resources/BinClass/BattlePassRes.h"
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/BinClass/QuestRes.h"
 #include "../Resources/GameData.h"
 #include "../proto/NetMsgId.pb.h"
-#include "../proto/proto_cpp/battle_pass_info.pb.h"
 #include "../proto/proto_cpp/notify.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 
@@ -31,14 +29,8 @@
 #endif
 
 namespace {
-constexpr uint32_t kCondBattleTotal = 3;
-constexpr uint32_t kCondEnergyDeplete = 39;
 constexpr uint32_t kCondLoginTotal = 51;
 constexpr uint32_t kCondQuestWithSpecificType = 55;
-constexpr uint32_t kCondAgentFinishTotal = 83;
-constexpr uint32_t kCondWeekBossClearSpecificDifficultyAndTotal = 92;
-constexpr uint32_t kCondAgentApplyTotal = 106;
-constexpr uint32_t kCondTowerEnterFloor = 538;
 
 struct QuestSeed {
     uint32_t id;
@@ -210,31 +202,6 @@ proto::HandbookInfo BuildHandbookInfo(uint32_t type, const std::string& data)
     return info;
 }
 
-QuestParams BattlePassQuestParams(uint32_t id)
-{
-    switch (id)
-    {
-    case 1001: return {kCondLoginTotal, 1, 0};
-    case 1002: return {kCondEnergyDeplete, 160, 0};
-    case 1003: return {kCondBattleTotal, 6, 0};
-    case 1004: return {kCondQuestWithSpecificType, 5, proto::Daily};
-    case 2001: return {kCondTowerEnterFloor, 1, 0};
-    case 2002: return {kCondWeekBossClearSpecificDifficultyAndTotal, 3, 0};
-    case 2003: return {kCondBattleTotal, 20, 0};
-    case 2004: return {kCondLoginTotal, 5, 0};
-    case 2005: return {kCondAgentFinishTotal, 3, 0};
-    case 2006: return {49, 100000, GameConstants::GoldItemId};
-    case 2007: return {45, 5, 0};
-    case 2008: return {kCondEnergyDeplete, 1200, 0};
-    default: return {};
-    }
-}
-
-proto::QuestType GetBattlePassQuestType(const BattlePassQuestRes& data)
-{
-    return data.Type == 1 ? proto::BattlePassDaily : proto::BattlePassWeekly;
-}
-
 uint32_t ResourceIdFromKey(const std::string& key)
 {
     try
@@ -275,16 +242,6 @@ QuestParams GetQuestParams(proto::QuestType type, uint32_t id, uint32_t fallback
             };
         }
     }
-    else if (type == proto::BattlePassDaily || type == proto::BattlePassWeekly)
-    {
-        auto params = BattlePassQuestParams(id);
-        if (params.max == 0)
-        {
-            params.max = fallbackMax;
-        }
-        return params;
-    }
-
     return {0, fallbackMax, 0};
 }
 
@@ -298,9 +255,6 @@ bool HasQuestResource(uint32_t id, proto::QuestType type)
         return GameData::DailyQuestDataTable.find(key) != GameData::DailyQuestDataTable.end();
     case proto::Weekly:
         return GameData::WeeklyQuestDataTable.find(key) != GameData::WeeklyQuestDataTable.end();
-    case proto::BattlePassDaily:
-    case proto::BattlePassWeekly:
-        return GameData::BattlePassQuestDataTable.find(key) != GameData::BattlePassQuestDataTable.end();
     default:
         return true;
     }
@@ -373,20 +327,6 @@ std::vector<QuestSeed> BuildFirstLoginQuestSnapshotSeeds()
     for (uint32_t id : weeklyOrder)
     {
         seeds.push_back({id, proto::Weekly});
-    }
-
-    const auto battlePassOrder = OrderedIds(
-        {1004, 2008, 2002, 1002, 2001, 2003, 2006, 2007, 2005, 2004, 1001, 1003},
-        SortedResourceIds(GameData::BattlePassQuestDataTable));
-    for (uint32_t id : battlePassOrder)
-    {
-        const auto it = GameData::BattlePassQuestDataTable.find(std::to_string(id));
-        if (it == GameData::BattlePassQuestDataTable.end())
-        {
-            continue;
-        }
-
-        seeds.push_back({id, GetBattlePassQuestType(it->second)});
     }
 
     return seeds;
@@ -480,14 +420,6 @@ void QuestMgr::InitializeDefaultQuests(bool markFirstLoginDone)
     bin->set_dailyshoprewardclaimed(false);
     bin->set_dailymallrewardclaimed(false);
 
-    bin->set_battlepassid(GameConstants::BattlePassId);
-    bin->set_battlepassmode(0);
-    bin->set_battlepasslevel(0);
-    bin->set_battlepassexp(0);
-    bin->set_battlepassexpthisweek(0);
-    bin->set_battlepassbasicreward(Bitset().ToByteArray());
-    bin->set_battlepasspremiumreward(Bitset().ToByteArray());
-
     for (uint32_t id : SortedResourceIds(GameData::DailyQuestDataTable))
     {
         auto* quest = UpsertQuest(proto::Daily, id, 0);
@@ -499,21 +431,6 @@ void QuestMgr::InitializeDefaultQuests(bool markFirstLoginDone)
     for (uint32_t id : SortedResourceIds(GameData::WeeklyQuestDataTable))
     {
         auto* quest = UpsertQuest(proto::Weekly, id, 0);
-        quest->set_status(0);
-        quest->set_expire(0);
-        quest->mutable_progress(0)->set_cur(0);
-    }
-
-    for (uint32_t id : SortedResourceIds(GameData::BattlePassQuestDataTable))
-    {
-        const auto key = std::to_string(id);
-        const auto it = GameData::BattlePassQuestDataTable.find(key);
-        if (it == GameData::BattlePassQuestDataTable.end())
-        {
-            continue;
-        }
-
-        auto* quest = UpsertQuest(GetBattlePassQuestType(it->second), id, 0);
         quest->set_status(0);
         quest->set_expire(0);
         quest->mutable_progress(0)->set_cur(0);
@@ -554,19 +471,6 @@ void QuestMgr::OnLoad()
         quest.set_condition(params.condition);
         quest.set_param(params.param);
         quest.mutable_progress(0)->set_max(params.max);
-    }
-
-    if (bin->battlepassid() == 0)
-    {
-        bin->set_battlepassid(GameConstants::BattlePassId);
-    }
-    if (bin->battlepassbasicreward().empty())
-    {
-        bin->set_battlepassbasicreward(Bitset().ToByteArray());
-    }
-    if (bin->battlepasspremiumreward().empty())
-    {
-        bin->set_battlepasspremiumreward(Bitset().ToByteArray());
     }
 
     bin->set_firstloginnotifydone(true);
@@ -625,6 +529,40 @@ void QuestMgr::OnLogin()
     }
 }
 
+void QuestMgr::ResetDailyQuests(bool resetWeekly)
+{
+    auto* bin = MutableBin();
+
+    for (uint32_t id : SortedResourceIds(GameData::DailyQuestDataTable))
+    {
+        auto* quest = UpsertQuest(proto::Daily, id, 0);
+        quest->set_status(0);
+        quest->set_expire(0);
+        quest->mutable_progress(0)->set_cur(0);
+        SyncQuest(*quest);
+    }
+
+    bin->clear_dailyactiveids();
+    bin->set_dailyshoprewardclaimed(false);
+    bin->set_dailymallrewardclaimed(false);
+
+    if (!resetWeekly)
+    {
+        return;
+    }
+
+    for (uint32_t id : SortedResourceIds(GameData::WeeklyQuestDataTable))
+    {
+        auto* quest = UpsertQuest(proto::Weekly, id, 0);
+        quest->set_status(0);
+        quest->set_expire(0);
+        quest->mutable_progress(0)->set_cur(0);
+        SyncQuest(*quest);
+    }
+
+    bin->clear_weeklyactiveids();
+}
+
 void QuestMgr::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, uint32_t param2)
 {
     if (progress == 0)
@@ -675,29 +613,46 @@ void QuestMgr::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, u
 
 bool QuestMgr::ClaimDailyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 {
-    uint32_t claimedCount = 0;
+    std::vector<ServerProto::QuestInfoBin*> claimList;
     for (auto& quest : *MutableBin()->mutable_quests())
     {
         if (quest.type() != static_cast<uint32_t>(proto::Daily))
         {
             continue;
         }
-        if (questId != 0 && quest.id() != questId)
+
+        if (questId > 0)
         {
+            if (quest.id() == questId && quest.status() != 2)
+            {
+                claimList.push_back(&quest);
+            }
             continue;
         }
+
         if (QuestStatus(quest.status(), quest.progress_size() > 0 ? quest.progress(0).cur() : 0, quest.progress_size() > 0 ? quest.progress(0).max() : 0) != 1)
         {
             continue;
         }
 
-        if (auto it = GameData::DailyQuestDataTable.find(std::to_string(quest.id())); it != GameData::DailyQuestDataTable.end())
+        claimList.push_back(&quest);
+    }
+
+    uint32_t claimedCount = 0;
+    for (auto* quest : claimList)
+    {
+        if (!quest)
+        {
+            continue;
+        }
+
+        if (auto it = GameData::DailyQuestDataTable.find(std::to_string(quest->id())); it != GameData::DailyQuestDataTable.end())
         {
             GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty, &out);
         }
 
-        quest.set_status(2);
-        SyncQuest(quest);
+        quest->set_status(2);
+        SyncQuest(*quest);
         ++claimedCount;
     }
 
@@ -711,29 +666,46 @@ bool QuestMgr::ClaimDailyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
 bool QuestMgr::ClaimWeeklyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 {
-    uint32_t claimedCount = 0;
+    std::vector<ServerProto::QuestInfoBin*> claimList;
     for (auto& quest : *MutableBin()->mutable_quests())
     {
         if (quest.type() != static_cast<uint32_t>(proto::Weekly))
         {
             continue;
         }
-        if (questId != 0 && quest.id() != questId)
+
+        if (questId > 0)
         {
+            if (quest.id() == questId && quest.status() != 2)
+            {
+                claimList.push_back(&quest);
+            }
             continue;
         }
+
         if (QuestStatus(quest.status(), quest.progress_size() > 0 ? quest.progress(0).cur() : 0, quest.progress_size() > 0 ? quest.progress(0).max() : 0) != 1)
         {
             continue;
         }
 
-        if (auto it = GameData::WeeklyQuestDataTable.find(std::to_string(quest.id())); it != GameData::WeeklyQuestDataTable.end())
+        claimList.push_back(&quest);
+    }
+
+    uint32_t claimedCount = 0;
+    for (auto* quest : claimList)
+    {
+        if (!quest)
+        {
+            continue;
+        }
+
+        if (auto it = GameData::WeeklyQuestDataTable.find(std::to_string(quest->id())); it != GameData::WeeklyQuestDataTable.end())
         {
             GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty, &out);
         }
 
-        quest.set_status(2);
-        SyncQuest(quest);
+        quest->set_status(2);
+        SyncQuest(*quest);
         ++claimedCount;
     }
 
@@ -839,34 +811,6 @@ bool QuestMgr::ClaimDailyMallGift(proto::ChangeInfo& out)
     return true;
 }
 
-bool QuestMgr::ClaimBattlePassQuestReward(uint32_t questId, uint32_t& level, uint32_t& exp, uint32_t& expThisWeek)
-{
-    ServerProto::QuestInfoBin* quest = nullptr;
-    if ((quest = FindQuest(proto::BattlePassDaily, questId)) == nullptr)
-    {
-        quest = FindQuest(proto::BattlePassWeekly, questId);
-    }
-
-    if (!quest || QuestStatus(quest->status(), quest->progress_size() > 0 ? quest->progress(0).cur() : 0, quest->progress_size() > 0 ? quest->progress(0).max() : 0) != 1)
-    {
-        return false;
-    }
-
-    quest->set_status(2);
-    SyncQuest(*quest);
-
-    level = 1;
-    exp = 0;
-    expThisWeek = 0;
-    if (auto it = GameData::BattlePassQuestDataTable.find(std::to_string(questId)); it != GameData::BattlePassQuestDataTable.end())
-    {
-        exp = static_cast<uint32_t>(std::max(it->second.Exp, 0));
-        expThisWeek = exp;
-    }
-
-    return true;
-}
-
 bool QuestMgr::HasDailyShopReward() const
 {
     return !Bin().dailyshoprewardclaimed();
@@ -883,12 +827,6 @@ void QuestMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 
     for (const auto& quest : Bin().quests())
     {
-        if (quest.type() == static_cast<uint32_t>(proto::BattlePassDaily) ||
-            quest.type() == static_cast<uint32_t>(proto::BattlePassWeekly))
-        {
-            continue;
-        }
-
         quests->add_list()->CopyFrom(BuildQuestProto(quest));
     }
 

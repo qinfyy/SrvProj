@@ -9,7 +9,7 @@ class Bitset
 {
 public:
     Bitset();
-    explicit Bitset(std::string_view littleEndianBytes);
+    explicit Bitset(std::string_view bytes);
 
     bool IsEmpty() const;
     void Clear();
@@ -30,18 +30,22 @@ inline Bitset::Bitset() : mData(1, 0)
 {
 }
 
-inline Bitset::Bitset(std::string_view littleEndianBytes) : mData(1, 0)
+inline Bitset::Bitset(std::string_view bytes) : mData(1, 0)
 {
-    if (littleEndianBytes.empty())
+    if (bytes.empty())
     {
         return;
     }
 
-    mData.assign((littleEndianBytes.size() + 7) / 8, 0);
-    for (size_t i = 0; i < littleEndianBytes.size(); ++i)
+    mData.assign((bytes.size() + 7) / 8, 0);
+    for (size_t offset = 0; offset < bytes.size(); offset += 8)
     {
-        const auto value = static_cast<uint64_t>(static_cast<uint8_t>(littleEndianBytes[i]));
-        mData[i / 8] |= value << ((i % 8) * 8);
+        const size_t blockSize = (std::min<size_t>)(8, bytes.size() - offset);
+        for (size_t i = 0; i < blockSize; ++i)
+        {
+            const auto value = static_cast<uint64_t>(static_cast<uint8_t>(bytes[offset + i]));
+            mData[offset / 8] |= value << ((blockSize - 1 - i) * 8);
+        }
     }
 }
 

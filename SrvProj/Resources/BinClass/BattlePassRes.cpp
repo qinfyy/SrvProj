@@ -1,17 +1,34 @@
-﻿#include "BattlePassRes.h"
+#include "BattlePassRes.h"
+
+#include "../../GameTime.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
 
 bool BattlePassRes::LoadFromPb(std::string data)
 {
-    BattlePass bp;    
+    BattlePass bp;
     if (!bp.ParseFromString(data)) {
         return false;
     }
 
     Id = bp.id();
+    StartTimeText = bp.starttime();
+    EndTimeText = bp.endtime();
+    LuxuryProductId = bp.luxuryproductid();
+    PremiumProductId = bp.premiumproductid();
+    LuxuryBonusLevel = bp.luxurybonuslevel();
+    LuxuryTid = bp.luxurytid();
+    LuxuryQty = bp.luxuryqty();
+    ComplementaryTid = bp.complementarytid();
+    ComplementaryQty = bp.complementaryqty();
     return true;
+}
+
+void BattlePassRes::OnLoad()
+{
+    StartTime = GameTime::DateToSecondsInConfiguredTimeZone(StartTimeText);
+    EndTime = GameTime::DateToSecondsInConfiguredTimeZone(EndTimeText);
 }
 
 bool BattlePassLevelRes::LoadFromPb(std::string data)
@@ -40,7 +57,6 @@ bool BattlePassQuestRes::LoadFromPb(std::string data)
     Type = bpq.type();
     Exp = bpq.exp();
     return true;
-
 }
 
 bool BattlePassRewardRes::LoadFromPb(std::string data)
@@ -54,13 +70,10 @@ bool BattlePassRewardRes::LoadFromPb(std::string data)
     Level = bpr.level();
     Tid1 = bpr.tid1();
     Qty1 = bpr.qty1();
-
     Tid2 = bpr.tid2();
     Qty2 = bpr.qty2();
-
     Tid3 = bpr.tid3();
     Qty3 = bpr.qty3();
 
     return true;
 }
-

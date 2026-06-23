@@ -787,20 +787,9 @@ inline constexpr QuestCompBin::Impl_::Impl_(
         _dailyactiveids_cached_byte_size_{0},
         weeklyactiveids_{},
         _weeklyactiveids_cached_byte_size_{0},
-        battlepassbasicreward_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        battlepasspremiumreward_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
         firstloginnotifydone_{false},
         dailyshoprewardclaimed_{false},
-        dailymallrewardclaimed_{false},
-        battlepassid_{0u},
-        battlepassmode_{0u},
-        battlepasslevel_{0u},
-        battlepassexp_{0u},
-        battlepassexpthisweek_{0u} {}
+        dailymallrewardclaimed_{false} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR QuestCompBin::QuestCompBin(::_pbi::ConstantInitialized)
@@ -893,6 +882,42 @@ struct CharacterContactDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterContactDefaultTypeInternal _CharacterContact_default_instance_;
+
+inline constexpr BattlePassCompBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        quests_{},
+        basicreward_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        premiumreward_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        battlepassid_{0u},
+        mode_{0u},
+        level_{0u},
+        exp_{0u},
+        expweek_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR BattlePassCompBin::BattlePassCompBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(BattlePassCompBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct BattlePassCompBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BattlePassCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BattlePassCompBinDefaultTypeInternal() {}
+  union {
+    BattlePassCompBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BattlePassCompBinDefaultTypeInternal _BattlePassCompBin_default_instance_;
 
 inline constexpr AchievementCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1027,7 +1052,8 @@ inline constexpr PlayerSaveData::Impl_::Impl_(
         achievementcomp_{nullptr},
         inventorycomp_{nullptr},
         mailcomp_{nullptr},
-        gachacomp_{nullptr} {}
+        gachacomp_{nullptr},
+        battlepasscomp_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR PlayerSaveData::PlayerSaveData(::_pbi::ConstantInitialized)
@@ -1180,33 +1206,38 @@ const ::uint32_t
         0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_._has_bits_),
-        16, // hasbit index offset
+        9, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.quests_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.firstloginnotifydone_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.dailyactiveids_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.weeklyactiveids_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.dailyshoprewardclaimed_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.dailymallrewardclaimed_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepassid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepassmode_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepasslevel_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepassexp_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepassexpthisweek_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepassbasicreward_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::QuestCompBin, _impl_.battlepasspremiumreward_),
         0,
-        5,
+        3,
         1,
         2,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
+        4,
+        5,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_._has_bits_),
+        11, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.battlepassid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.mode_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.level_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.exp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.expweek_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.basicreward_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.premiumreward_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::BattlePassCompBin, _impl_.quests_),
         3,
         4,
+        5,
+        6,
+        7,
+        1,
+        2,
+        0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::AchievementInfoBin, _impl_._has_bits_),
         8, // hasbit index offset
@@ -1490,7 +1521,7 @@ const ::uint32_t
         3,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_._has_bits_),
-        10, // hasbit index offset
+        11, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.playerdata_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.charcomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.questcomp_),
@@ -1498,6 +1529,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.inventorycomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.mailcomp_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.gachacomp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerSaveData, _impl_.battlepasscomp_),
         0,
         1,
         2,
@@ -1505,6 +1537,7 @@ const ::uint32_t
         4,
         5,
         6,
+        7,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::GameDiscInfoBin, _impl_._has_bits_),
         11, // hasbit index offset
@@ -1539,33 +1572,34 @@ static const ::_pbi::MigrationSchema
         {98, sizeof(::ServerProto::QuestProgressBin)},
         {105, sizeof(::ServerProto::QuestInfoBin)},
         {122, sizeof(::ServerProto::QuestCompBin)},
-        {151, sizeof(::ServerProto::AchievementInfoBin)},
-        {164, sizeof(::ServerProto::AchievementCompBin)},
-        {169, sizeof(::ServerProto::InventoryCompBin_ItemsEntry_DoNotUse)},
-        {176, sizeof(::ServerProto::InventoryCompBin_ResourcesEntry_DoNotUse)},
-        {183, sizeof(::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse)},
-        {190, sizeof(::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse)},
-        {197, sizeof(::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse)},
-        {204, sizeof(::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse)},
-        {211, sizeof(::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse)},
-        {218, sizeof(::ServerProto::InventoryCompBin)},
-        {243, sizeof(::ServerProto::MailAttachmentBin)},
-        {250, sizeof(::ServerProto::MailInfoBin)},
-        {275, sizeof(::ServerProto::MailCompBin)},
-        {284, sizeof(::ServerProto::GachaBannerInfoBin)},
-        {295, sizeof(::ServerProto::GachaPityStateBin)},
-        {306, sizeof(::ServerProto::GachaCardGroupBin)},
-        {311, sizeof(::ServerProto::NewbieGachaStateBin)},
-        {328, sizeof(::ServerProto::GachaHistoryBin)},
-        {339, sizeof(::ServerProto::GachaCompBin_BannersEntry_DoNotUse)},
-        {346, sizeof(::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse)},
-        {353, sizeof(::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse)},
-        {360, sizeof(::ServerProto::GachaCompBin)},
-        {371, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
-        {378, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
-        {385, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {432, sizeof(::ServerProto::PlayerSaveData)},
-        {449, sizeof(::ServerProto::GameDiscInfoBin)},
+        {137, sizeof(::ServerProto::BattlePassCompBin)},
+        {156, sizeof(::ServerProto::AchievementInfoBin)},
+        {169, sizeof(::ServerProto::AchievementCompBin)},
+        {174, sizeof(::ServerProto::InventoryCompBin_ItemsEntry_DoNotUse)},
+        {181, sizeof(::ServerProto::InventoryCompBin_ResourcesEntry_DoNotUse)},
+        {188, sizeof(::ServerProto::InventoryCompBin_ShopBuyCountEntry_DoNotUse)},
+        {195, sizeof(::ServerProto::InventoryCompBin_MallBuyCountEntry_DoNotUse)},
+        {202, sizeof(::ServerProto::InventoryCompBin_MallPackageBuyCountEntry_DoNotUse)},
+        {209, sizeof(::ServerProto::InventoryCompBin_GemMaidenClaimedEntry_DoNotUse)},
+        {216, sizeof(::ServerProto::InventoryCompBin_MonthlyCardBuyCountEntry_DoNotUse)},
+        {223, sizeof(::ServerProto::InventoryCompBin)},
+        {248, sizeof(::ServerProto::MailAttachmentBin)},
+        {255, sizeof(::ServerProto::MailInfoBin)},
+        {280, sizeof(::ServerProto::MailCompBin)},
+        {289, sizeof(::ServerProto::GachaBannerInfoBin)},
+        {300, sizeof(::ServerProto::GachaPityStateBin)},
+        {311, sizeof(::ServerProto::GachaCardGroupBin)},
+        {316, sizeof(::ServerProto::NewbieGachaStateBin)},
+        {333, sizeof(::ServerProto::GachaHistoryBin)},
+        {344, sizeof(::ServerProto::GachaCompBin_BannersEntry_DoNotUse)},
+        {351, sizeof(::ServerProto::GachaCompBin_PityStatesEntry_DoNotUse)},
+        {358, sizeof(::ServerProto::GachaCompBin_NewbieStatesEntry_DoNotUse)},
+        {365, sizeof(::ServerProto::GachaCompBin)},
+        {376, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
+        {383, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
+        {390, sizeof(::ServerProto::PlayerBasicCompBin)},
+        {437, sizeof(::ServerProto::PlayerSaveData)},
+        {456, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
@@ -1579,6 +1613,7 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_QuestProgressBin_default_instance_._instance,
     &::ServerProto::_QuestInfoBin_default_instance_._instance,
     &::ServerProto::_QuestCompBin_default_instance_._instance,
+    &::ServerProto::_BattlePassCompBin_default_instance_._instance,
     &::ServerProto::_AchievementInfoBin_default_instance_._instance,
     &::ServerProto::_AchievementCompBin_default_instance_._instance,
     &::ServerProto::_InventoryCompBin_ItemsEntry_DoNotUse_default_instance_._instance,
@@ -1640,124 +1675,126 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "estInfoBin\022\n\n\002id\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\022\016\n\006"
     "status\030\003 \001(\r\022\016\n\006expire\030\004 \001(\003\022\021\n\tconditio"
     "n\030\005 \001(\r\022\r\n\005param\030\006 \001(\r\022/\n\010progress\030\017 \003(\013"
-    "2\035.ServerProto.QuestProgressBin\"\205\003\n\014Ques"
+    "2\035.ServerProto.QuestProgressBin\"\310\001\n\014Ques"
     "tCompBin\022)\n\006quests\030\001 \003(\0132\031.ServerProto.Q"
     "uestInfoBin\022\034\n\024firstLoginNotifyDone\030\002 \001("
     "\010\022\026\n\016dailyActiveIds\030\003 \003(\r\022\027\n\017weeklyActiv"
     "eIds\030\004 \003(\r\022\036\n\026dailyShopRewardClaimed\030\005 \001"
-    "(\010\022\036\n\026dailyMallRewardClaimed\030\006 \001(\010\022\024\n\014ba"
-    "ttlePassId\030\007 \001(\r\022\026\n\016battlePassMode\030\010 \001(\r"
-    "\022\027\n\017battlePassLevel\030\t \001(\r\022\025\n\rbattlePassE"
-    "xp\030\n \001(\r\022\035\n\025battlePassExpThisWeek\030\013 \001(\r\022"
-    "\035\n\025battlePassBasicReward\030\014 \001(\014\022\037\n\027battle"
-    "PassPremiumReward\030\r \001(\014\"\205\001\n\022AchievementI"
-    "nfoBin\022\n\n\002id\030\001 \001(\r\022\016\n\006status\030\002 \001(\r\022\021\n\tco"
-    "mpleted\030\003 \001(\003\022\017\n\007claimed\030\004 \001(\010\022/\n\010progre"
-    "ss\030\005 \003(\0132\035.ServerProto.QuestProgressBin\""
-    "K\n\022AchievementCompBin\0225\n\014achievements\030\001 "
-    "\003(\0132\037.ServerProto.AchievementInfoBin\"\320\007\n"
-    "\020InventoryCompBin\0227\n\005items\030\001 \003(\0132(.Serve"
-    "rProto.InventoryCompBin.ItemsEntry\022\?\n\tre"
-    "sources\030\002 \003(\0132,.ServerProto.InventoryCom"
-    "pBin.ResourcesEntry\022\r\n\005skins\030\003 \003(\r\022\021\n\the"
-    "adIcons\030\004 \003(\r\022\016\n\006titles\030\005 \003(\r\022\016\n\006honors\030"
-    "\006 \003(\r\022E\n\014shopBuyCount\030\007 \003(\0132/.ServerProt"
-    "o.InventoryCompBin.ShopBuyCountEntry\022E\n\014"
-    "mallBuyCount\030\010 \003(\0132/.ServerProto.Invento"
-    "ryCompBin.MallBuyCountEntry\022S\n\023mallPacka"
-    "geBuyCount\030\t \003(\01326.ServerProto.Inventory"
-    "CompBin.MallPackageBuyCountEntry\022M\n\020gemM"
-    "aidenClaimed\030\n \003(\01323.ServerProto.Invento"
-    "ryCompBin.GemMaidenClaimedEntry\022S\n\023month"
-    "lyCardBuyCount\030\013 \003(\01326.ServerProto.Inven"
-    "toryCompBin.MonthlyCardBuyCountEntry\032,\n\n"
-    "ItemsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\002"
-    "8\001\0320\n\016ResourcesEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005val"
-    "ue\030\002 \001(\003:\0028\001\0323\n\021ShopBuyCountEntry\022\013\n\003key"
-    "\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0323\n\021MallBuyCoun"
-    "tEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032:"
-    "\n\030MallPackageBuyCountEntry\022\013\n\003key\030\001 \001(\t\022"
-    "\r\n\005value\030\002 \001(\r:\0028\001\0327\n\025GemMaidenClaimedEn"
-    "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032:\n\030M"
-    "onthlyCardBuyCountEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
-    "value\030\002 \001(\r:\0028\001\"-\n\021MailAttachmentBin\022\013\n\003"
-    "tid\030\001 \001(\r\022\013\n\003qty\030\002 \001(\003\"\324\001\n\013MailInfoBin\022\n"
-    "\n\002id\030\001 \001(\r\022\017\n\007subject\030\002 \001(\t\022\014\n\004desc\030\003 \001("
-    "\t\022\016\n\006author\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\022\020\n\010deadl"
-    "ine\030\006 \001(\003\022\014\n\004read\030\007 \001(\010\022\014\n\004recv\030\010 \001(\010\022\013\n"
-    "\003pin\030\t \001(\010\022\014\n\004flag\030\n \001(\004\0223\n\013attachments\030"
-    "\013 \003(\0132\036.ServerProto.MailAttachmentBin\"f\n"
-    "\013MailCompBin\022\022\n\nnextMailId\030\001 \001(\r\022\'\n\005mail"
-    "s\030\002 \003(\0132\030.ServerProto.MailInfoBin\022\032\n\022wel"
-    "comeMailCreated\030\003 \001(\010\"\\\n\022GachaBannerInfo"
-    "Bin\022\n\n\002id\030\001 \001(\r\022\r\n\005total\030\002 \001(\r\022\024\n\014usedFi"
-    "rstTen\030\003 \001(\010\022\025\n\rusedGuarantee\030\004 \001(\010\"i\n\021G"
-    "achaPityStateBin\022\022\n\nmissTimesA\030\001 \001(\r\022\024\n\014"
-    "missTimesUpA\030\002 \001(\r\022\022\n\nmissTimesB\030\003 \001(\r\022\026"
-    "\n\016bGuaranteeDebt\030\004 \001(\010\"\"\n\021GachaCardGroup"
-    "Bin\022\r\n\005cards\030\001 \003(\r\"\307\001\n\023NewbieGachaStateB"
-    "in\022\n\n\002id\030\001 \001(\r\022\032\n\022remainingSpinCount\030\002 \001"
-    "(\r\022\021\n\tsaveCount\030\003 \001(\r\022\026\n\016selectedResult\030"
-    "\004 \001(\005\022\020\n\010received\030\005 \001(\010\022\025\n\rpendingResult"
-    "\030\006 \003(\r\0224\n\014savedResults\030\007 \003(\0132\036.ServerPro"
-    "to.GachaCardGroupBin\"P\n\017GachaHistoryBin\022"
-    "\021\n\tstorageId\030\001 \001(\r\022\017\n\007gachaId\030\002 \001(\r\022\014\n\004t"
-    "ime\030\003 \001(\003\022\013\n\003ids\030\004 \003(\r\"\365\003\n\014GachaCompBin\022"
-    "7\n\007banners\030\001 \003(\0132&.ServerProto.GachaComp"
-    "Bin.BannersEntry\022=\n\npityStates\030\002 \003(\0132).S"
-    "erverProto.GachaCompBin.PityStatesEntry\022"
-    "A\n\014newbieStates\030\003 \003(\0132+.ServerProto.Gach"
-    "aCompBin.NewbieStatesEntry\022/\n\thistories\030"
-    "\004 \003(\0132\034.ServerProto.GachaHistoryBin\032O\n\014B"
-    "annersEntry\022\013\n\003key\030\001 \001(\r\022.\n\005value\030\002 \001(\0132"
-    "\037.ServerProto.GachaBannerInfoBin:\0028\001\032Q\n\017"
-    "PityStatesEntry\022\013\n\003key\030\001 \001(\r\022-\n\005value\030\002 "
-    "\001(\0132\036.ServerProto.GachaPityStateBin:\0028\001\032"
-    "U\n\021NewbieStatesEntry\022\013\n\003key\030\001 \001(\r\022/\n\005val"
-    "ue\030\002 \001(\0132 .ServerProto.NewbieGachaStateB"
-    "in:\0028\001\"\275\005\n\022PlayerBasicCompBin\022\022\n\ncreateT"
-    "ime\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 \001"
-    "(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n\006"
-    "skinId\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013tit"
-    "leSuffix\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005honor\030\013"
-    " \003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006boards\030\r \003(\005\022"
-    "\r\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006energy\030\020 "
-    "\001(\005\022\030\n\020energyLastUpdate\030\021 \001(\003\022\023\n\013signInI"
-    "ndex\030\022 \001(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022\021\n\tlast"
-    "Login\030\024 \001(\003\022Y\n\025monthlyCardExpireDays\030\025 \003"
-    "(\0132:.ServerProto.PlayerBasicCompBin.Mont"
-    "hlyCardExpireDaysEntry\022a\n\031monthlyCardLas"
-    "tRewardDays\030\026 \003(\0132>.ServerProto.PlayerBa"
-    "sicCompBin.MonthlyCardLastRewardDaysEntr"
-    "y\022\023\n\013permissions\030\027 \003(\t\032<\n\032MonthlyCardExp"
-    "ireDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r"
-    ":\0028\001\032@\n\036MonthlyCardLastRewardDaysEntry\022\013"
-    "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\356\002\n\016Playe"
-    "rSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerPr"
-    "oto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001(\013"
-    "2\035.ServerProto.CharacterCompBin\022,\n\tquest"
-    "Comp\030\004 \001(\0132\031.ServerProto.QuestCompBin\0228\n"
-    "\017achievementComp\030\005 \001(\0132\037.ServerProto.Ach"
-    "ievementCompBin\0224\n\rinventoryComp\030\006 \001(\0132\035"
-    ".ServerProto.InventoryCompBin\022*\n\010mailCom"
-    "p\030\007 \001(\0132\030.ServerProto.MailCompBin\022,\n\tgac"
-    "haComp\030\010 \001(\0132\031.ServerProto.GachaCompBin\""
-    "\211\001\n\017GameDiscInfoBin\022\016\n\006discId\030\002 \001(\005\022\r\n\005l"
-    "evel\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014"
-    "\n\004star\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022"
-    "\022\n\ncreateTime\030\t \001(\003b\006proto3"
+    "(\010\022\036\n\026dailyMallRewardClaimed\030\006 \001(\010\"\273\001\n\021B"
+    "attlePassCompBin\022\024\n\014battlePassId\030\001 \001(\r\022\014"
+    "\n\004mode\030\002 \001(\r\022\r\n\005level\030\003 \001(\r\022\013\n\003exp\030\004 \001(\r"
+    "\022\017\n\007expWeek\030\005 \001(\r\022\023\n\013basicReward\030\006 \001(\014\022\025"
+    "\n\rpremiumReward\030\007 \001(\014\022)\n\006quests\030\010 \003(\0132\031."
+    "ServerProto.QuestInfoBin\"\205\001\n\022Achievement"
+    "InfoBin\022\n\n\002id\030\001 \001(\r\022\016\n\006status\030\002 \001(\r\022\021\n\tc"
+    "ompleted\030\003 \001(\003\022\017\n\007claimed\030\004 \001(\010\022/\n\010progr"
+    "ess\030\005 \003(\0132\035.ServerProto.QuestProgressBin"
+    "\"K\n\022AchievementCompBin\0225\n\014achievements\030\001"
+    " \003(\0132\037.ServerProto.AchievementInfoBin\"\320\007"
+    "\n\020InventoryCompBin\0227\n\005items\030\001 \003(\0132(.Serv"
+    "erProto.InventoryCompBin.ItemsEntry\022\?\n\tr"
+    "esources\030\002 \003(\0132,.ServerProto.InventoryCo"
+    "mpBin.ResourcesEntry\022\r\n\005skins\030\003 \003(\r\022\021\n\th"
+    "eadIcons\030\004 \003(\r\022\016\n\006titles\030\005 \003(\r\022\016\n\006honors"
+    "\030\006 \003(\r\022E\n\014shopBuyCount\030\007 \003(\0132/.ServerPro"
+    "to.InventoryCompBin.ShopBuyCountEntry\022E\n"
+    "\014mallBuyCount\030\010 \003(\0132/.ServerProto.Invent"
+    "oryCompBin.MallBuyCountEntry\022S\n\023mallPack"
+    "ageBuyCount\030\t \003(\01326.ServerProto.Inventor"
+    "yCompBin.MallPackageBuyCountEntry\022M\n\020gem"
+    "MaidenClaimed\030\n \003(\01323.ServerProto.Invent"
+    "oryCompBin.GemMaidenClaimedEntry\022S\n\023mont"
+    "hlyCardBuyCount\030\013 \003(\01326.ServerProto.Inve"
+    "ntoryCompBin.MonthlyCardBuyCountEntry\032,\n"
+    "\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:"
+    "\0028\001\0320\n\016ResourcesEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005va"
+    "lue\030\002 \001(\003:\0028\001\0323\n\021ShopBuyCountEntry\022\013\n\003ke"
+    "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0323\n\021MallBuyCou"
+    "ntEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032"
+    ":\n\030MallPackageBuyCountEntry\022\013\n\003key\030\001 \001(\t"
+    "\022\r\n\005value\030\002 \001(\r:\0028\001\0327\n\025GemMaidenClaimedE"
+    "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032:\n\030"
+    "MonthlyCardBuyCountEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
+    "\005value\030\002 \001(\r:\0028\001\"-\n\021MailAttachmentBin\022\013\n"
+    "\003tid\030\001 \001(\r\022\013\n\003qty\030\002 \001(\003\"\324\001\n\013MailInfoBin\022"
+    "\n\n\002id\030\001 \001(\r\022\017\n\007subject\030\002 \001(\t\022\014\n\004desc\030\003 \001"
+    "(\t\022\016\n\006author\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\022\020\n\010dead"
+    "line\030\006 \001(\003\022\014\n\004read\030\007 \001(\010\022\014\n\004recv\030\010 \001(\010\022\013"
+    "\n\003pin\030\t \001(\010\022\014\n\004flag\030\n \001(\004\0223\n\013attachments"
+    "\030\013 \003(\0132\036.ServerProto.MailAttachmentBin\"f"
+    "\n\013MailCompBin\022\022\n\nnextMailId\030\001 \001(\r\022\'\n\005mai"
+    "ls\030\002 \003(\0132\030.ServerProto.MailInfoBin\022\032\n\022we"
+    "lcomeMailCreated\030\003 \001(\010\"\\\n\022GachaBannerInf"
+    "oBin\022\n\n\002id\030\001 \001(\r\022\r\n\005total\030\002 \001(\r\022\024\n\014usedF"
+    "irstTen\030\003 \001(\010\022\025\n\rusedGuarantee\030\004 \001(\010\"i\n\021"
+    "GachaPityStateBin\022\022\n\nmissTimesA\030\001 \001(\r\022\024\n"
+    "\014missTimesUpA\030\002 \001(\r\022\022\n\nmissTimesB\030\003 \001(\r\022"
+    "\026\n\016bGuaranteeDebt\030\004 \001(\010\"\"\n\021GachaCardGrou"
+    "pBin\022\r\n\005cards\030\001 \003(\r\"\307\001\n\023NewbieGachaState"
+    "Bin\022\n\n\002id\030\001 \001(\r\022\032\n\022remainingSpinCount\030\002 "
+    "\001(\r\022\021\n\tsaveCount\030\003 \001(\r\022\026\n\016selectedResult"
+    "\030\004 \001(\005\022\020\n\010received\030\005 \001(\010\022\025\n\rpendingResul"
+    "t\030\006 \003(\r\0224\n\014savedResults\030\007 \003(\0132\036.ServerPr"
+    "oto.GachaCardGroupBin\"P\n\017GachaHistoryBin"
+    "\022\021\n\tstorageId\030\001 \001(\r\022\017\n\007gachaId\030\002 \001(\r\022\014\n\004"
+    "time\030\003 \001(\003\022\013\n\003ids\030\004 \003(\r\"\365\003\n\014GachaCompBin"
+    "\0227\n\007banners\030\001 \003(\0132&.ServerProto.GachaCom"
+    "pBin.BannersEntry\022=\n\npityStates\030\002 \003(\0132)."
+    "ServerProto.GachaCompBin.PityStatesEntry"
+    "\022A\n\014newbieStates\030\003 \003(\0132+.ServerProto.Gac"
+    "haCompBin.NewbieStatesEntry\022/\n\thistories"
+    "\030\004 \003(\0132\034.ServerProto.GachaHistoryBin\032O\n\014"
+    "BannersEntry\022\013\n\003key\030\001 \001(\r\022.\n\005value\030\002 \001(\013"
+    "2\037.ServerProto.GachaBannerInfoBin:\0028\001\032Q\n"
+    "\017PityStatesEntry\022\013\n\003key\030\001 \001(\r\022-\n\005value\030\002"
+    " \001(\0132\036.ServerProto.GachaPityStateBin:\0028\001"
+    "\032U\n\021NewbieStatesEntry\022\013\n\003key\030\001 \001(\r\022/\n\005va"
+    "lue\030\002 \001(\0132 .ServerProto.NewbieGachaState"
+    "Bin:\0028\001\"\275\005\n\022PlayerBasicCompBin\022\022\n\ncreate"
+    "Time\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 "
+    "\001(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n"
+    "\006skinId\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013ti"
+    "tleSuffix\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005honor\030"
+    "\013 \003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006boards\030\r \003(\005"
+    "\022\r\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006energy\030\020"
+    " \001(\005\022\030\n\020energyLastUpdate\030\021 \001(\003\022\023\n\013signIn"
+    "Index\030\022 \001(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022\021\n\tlas"
+    "tLogin\030\024 \001(\003\022Y\n\025monthlyCardExpireDays\030\025 "
+    "\003(\0132:.ServerProto.PlayerBasicCompBin.Mon"
+    "thlyCardExpireDaysEntry\022a\n\031monthlyCardLa"
+    "stRewardDays\030\026 \003(\0132>.ServerProto.PlayerB"
+    "asicCompBin.MonthlyCardLastRewardDaysEnt"
+    "ry\022\023\n\013permissions\030\027 \003(\t\032<\n\032MonthlyCardEx"
+    "pireDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001("
+    "\r:\0028\001\032@\n\036MonthlyCardLastRewardDaysEntry\022"
+    "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\246\003\n\016Play"
+    "erSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerP"
+    "roto.PlayerBasicCompBin\022/\n\010charComp\030\003 \001("
+    "\0132\035.ServerProto.CharacterCompBin\022,\n\tques"
+    "tComp\030\004 \001(\0132\031.ServerProto.QuestCompBin\0228"
+    "\n\017achievementComp\030\005 \001(\0132\037.ServerProto.Ac"
+    "hievementCompBin\0224\n\rinventoryComp\030\006 \001(\0132"
+    "\035.ServerProto.InventoryCompBin\022*\n\010mailCo"
+    "mp\030\007 \001(\0132\030.ServerProto.MailCompBin\022,\n\tga"
+    "chaComp\030\010 \001(\0132\031.ServerProto.GachaCompBin"
+    "\0226\n\016battlePassComp\030\t \001(\0132\036.ServerProto.B"
+    "attlePassCompBin\"\211\001\n\017GameDiscInfoBin\022\016\n\006"
+    "discId\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005"
+    "\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030\007 "
+    "\001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006pr"
+    "oto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    5467,
+    5524,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
     nullptr,
     0,
-    38,
+    39,
     schemas,
     file_default_instances,
     TableStruct_PlayerData_2eproto::offsets,
@@ -5651,9 +5688,7 @@ PROTOBUF_NDEBUG_INLINE QuestCompBin::Impl_::Impl_(
         dailyactiveids_{visibility, arena, from.dailyactiveids_},
         _dailyactiveids_cached_byte_size_{0},
         weeklyactiveids_{visibility, arena, from.weeklyactiveids_},
-        _weeklyactiveids_cached_byte_size_{0},
-        battlepassbasicreward_(arena, from.battlepassbasicreward_),
-        battlepasspremiumreward_(arena, from.battlepasspremiumreward_) {}
+        _weeklyactiveids_cached_byte_size_{0} {}
 
 QuestCompBin::QuestCompBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -5672,9 +5707,9 @@ QuestCompBin::QuestCompBin(
                offsetof(Impl_, firstloginnotifydone_),
            reinterpret_cast<const char*>(&from._impl_) +
                offsetof(Impl_, firstloginnotifydone_),
-           offsetof(Impl_, battlepassexpthisweek_) -
+           offsetof(Impl_, dailymallrewardclaimed_) -
                offsetof(Impl_, firstloginnotifydone_) +
-               sizeof(Impl_::battlepassexpthisweek_));
+               sizeof(Impl_::dailymallrewardclaimed_));
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.QuestCompBin)
 }
@@ -5686,18 +5721,16 @@ PROTOBUF_NDEBUG_INLINE QuestCompBin::Impl_::Impl_(
         dailyactiveids_{visibility, arena},
         _dailyactiveids_cached_byte_size_{0},
         weeklyactiveids_{visibility, arena},
-        _weeklyactiveids_cached_byte_size_{0},
-        battlepassbasicreward_(arena),
-        battlepasspremiumreward_(arena) {}
+        _weeklyactiveids_cached_byte_size_{0} {}
 
 inline void QuestCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, firstloginnotifydone_),
            0,
-           offsetof(Impl_, battlepassexpthisweek_) -
+           offsetof(Impl_, dailymallrewardclaimed_) -
                offsetof(Impl_, firstloginnotifydone_) +
-               sizeof(Impl_::battlepassexpthisweek_));
+               sizeof(Impl_::dailymallrewardclaimed_));
 }
 QuestCompBin::~QuestCompBin() {
   // @@protoc_insertion_point(destructor:ServerProto.QuestCompBin)
@@ -5710,8 +5743,6 @@ inline void QuestCompBin::SharedDtor(MessageLite& self) {
   }
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.battlepassbasicreward_.Destroy();
-  this_._impl_.battlepasspremiumreward_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -5736,7 +5767,7 @@ constexpr auto QuestCompBin::InternalNewImpl_() {
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::CopyInit(
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
         sizeof(QuestCompBin), alignof(QuestCompBin), *arena_bits);
   } else {
     return ::google::protobuf::internal::MessageCreator(&QuestCompBin::PlacementNew_,
@@ -5778,16 +5809,16 @@ QuestCompBin::GetClassData() const {
   return QuestCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 13, 1, 0, 2>
+const ::_pbi::TcParseTable<3, 6, 1, 0, 2>
 QuestCompBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_._has_bits_),
     0, // no _extensions_
-    13, 120,  // max_field_number, fast_idx_mask
+    6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294959104,  // skipmap
+    4294967232,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    13,  // num_field_entries
+    6,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     QuestCompBin_class_data_.base(),
@@ -5803,8 +5834,8 @@ QuestCompBin::_table_ = {
      {10, 0, 0,
       PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.quests_)}},
     // bool firstLoginNotifyDone = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.firstloginnotifydone_), 5>(),
-     {16, 5, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.firstloginnotifydone_), 3>(),
+     {16, 3, 0,
       PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.firstloginnotifydone_)}},
     // repeated uint32 dailyActiveIds = 3;
     {::_pbi::TcParser::FastV32P1,
@@ -5815,42 +5846,13 @@ QuestCompBin::_table_ = {
      {34, 2, 0,
       PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.weeklyactiveids_)}},
     // bool dailyShopRewardClaimed = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.dailyshoprewardclaimed_), 6>(),
-     {40, 6, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.dailyshoprewardclaimed_), 4>(),
+     {40, 4, 0,
       PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailyshoprewardclaimed_)}},
     // bool dailyMallRewardClaimed = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.dailymallrewardclaimed_), 7>(),
-     {48, 7, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(QuestCompBin, _impl_.dailymallrewardclaimed_), 5>(),
+     {48, 5, 0,
       PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailymallrewardclaimed_)}},
-    // uint32 battlePassId = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestCompBin, _impl_.battlepassid_), 8>(),
-     {56, 8, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassid_)}},
-    // uint32 battlePassMode = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestCompBin, _impl_.battlepassmode_), 9>(),
-     {64, 9, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassmode_)}},
-    // uint32 battlePassLevel = 9;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestCompBin, _impl_.battlepasslevel_), 10>(),
-     {72, 10, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepasslevel_)}},
-    // uint32 battlePassExp = 10;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestCompBin, _impl_.battlepassexp_), 11>(),
-     {80, 11, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassexp_)}},
-    // uint32 battlePassExpThisWeek = 11;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QuestCompBin, _impl_.battlepassexpthisweek_), 12>(),
-     {88, 12, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassexpthisweek_)}},
-    // bytes battlePassBasicReward = 12;
-    {::_pbi::TcParser::FastBS1,
-     {98, 3, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassbasicreward_)}},
-    // bytes battlePassPremiumReward = 13;
-    {::_pbi::TcParser::FastBS1,
-     {106, 4, 0,
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepasspremiumreward_)}},
-    {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
@@ -5858,29 +5860,15 @@ QuestCompBin::_table_ = {
     // repeated .ServerProto.QuestInfoBin quests = 1;
     {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.quests_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bool firstLoginNotifyDone = 2;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.firstloginnotifydone_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.firstloginnotifydone_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // repeated uint32 dailyActiveIds = 3;
     {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailyactiveids_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 weeklyActiveIds = 4;
     {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.weeklyactiveids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // bool dailyShopRewardClaimed = 5;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailyshoprewardclaimed_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailyshoprewardclaimed_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // bool dailyMallRewardClaimed = 6;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailymallrewardclaimed_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
-    // uint32 battlePassId = 7;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // uint32 battlePassMode = 8;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassmode_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // uint32 battlePassLevel = 9;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepasslevel_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // uint32 battlePassExp = 10;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassexp_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // uint32 battlePassExpThisWeek = 11;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassexpthisweek_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // bytes battlePassBasicReward = 12;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassbasicreward_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
-    // bytes battlePassPremiumReward = 13;
-    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepasspremiumreward_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailymallrewardclaimed_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::QuestInfoBin>()},
@@ -5896,7 +5884,7 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.quests_.Clear();
     }
@@ -5906,23 +5894,10 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
       _impl_.weeklyactiveids_.Clear();
     }
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
-      _impl_.battlepassbasicreward_.ClearNonDefaultToEmpty();
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
-      _impl_.battlepasspremiumreward_.ClearNonDefaultToEmpty();
-    }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000000e0U)) {
-    ::memset(&_impl_.firstloginnotifydone_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.dailymallrewardclaimed_) -
-        reinterpret_cast<char*>(&_impl_.firstloginnotifydone_)) + sizeof(_impl_.dailymallrewardclaimed_));
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x00001f00U)) {
-    ::memset(&_impl_.battlepassid_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.battlepassexpthisweek_) -
-        reinterpret_cast<char*>(&_impl_.battlepassid_)) + sizeof(_impl_.battlepassexpthisweek_));
-  }
+  ::memset(&_impl_.firstloginnotifydone_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.dailymallrewardclaimed_) -
+      reinterpret_cast<char*>(&_impl_.firstloginnotifydone_)) + sizeof(_impl_.dailymallrewardclaimed_));
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -5960,7 +5935,7 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
   }
 
   // bool firstLoginNotifyDone = 2;
-  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
     if (this_._internal_firstloginnotifydone() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -5991,7 +5966,7 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
   }
 
   // bool dailyShopRewardClaimed = 5;
-  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
     if (this_._internal_dailyshoprewardclaimed() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -6000,72 +5975,11 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
   }
 
   // bool dailyMallRewardClaimed = 6;
-  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     if (this_._internal_dailymallrewardclaimed() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
           6, this_._internal_dailymallrewardclaimed(), target);
-    }
-  }
-
-  // uint32 battlePassId = 7;
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
-    if (this_._internal_battlepassid() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          7, this_._internal_battlepassid(), target);
-    }
-  }
-
-  // uint32 battlePassMode = 8;
-  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
-    if (this_._internal_battlepassmode() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          8, this_._internal_battlepassmode(), target);
-    }
-  }
-
-  // uint32 battlePassLevel = 9;
-  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
-    if (this_._internal_battlepasslevel() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          9, this_._internal_battlepasslevel(), target);
-    }
-  }
-
-  // uint32 battlePassExp = 10;
-  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
-    if (this_._internal_battlepassexp() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          10, this_._internal_battlepassexp(), target);
-    }
-  }
-
-  // uint32 battlePassExpThisWeek = 11;
-  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
-    if (this_._internal_battlepassexpthisweek() != 0) {
-      target = stream->EnsureSpace(target);
-      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-          11, this_._internal_battlepassexpthisweek(), target);
-    }
-  }
-
-  // bytes battlePassBasicReward = 12;
-  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
-    if (!this_._internal_battlepassbasicreward().empty()) {
-      const ::std::string& _s = this_._internal_battlepassbasicreward();
-      target = stream->WriteBytesMaybeAliased(12, _s, target);
-    }
-  }
-
-  // bytes battlePassPremiumReward = 13;
-  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
-    if (!this_._internal_battlepasspremiumreward().empty()) {
-      const ::std::string& _s = this_._internal_battlepasspremiumreward();
-      target = stream->WriteBytesMaybeAliased(13, _s, target);
     }
   }
 
@@ -6094,7 +6008,7 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     // repeated .ServerProto.QuestInfoBin quests = 1;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_quests_size();
@@ -6116,73 +6030,22 @@ PROTOBUF_NOINLINE void QuestCompBin::Clear() {
               this_._internal_weeklyactiveids(), 1,
               this_._impl_._weeklyactiveids_cached_byte_size_);
     }
-    // bytes battlePassBasicReward = 12;
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
-      if (!this_._internal_battlepassbasicreward().empty()) {
-        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
-                                        this_._internal_battlepassbasicreward());
-      }
-    }
-    // bytes battlePassPremiumReward = 13;
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
-      if (!this_._internal_battlepasspremiumreward().empty()) {
-        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
-                                        this_._internal_battlepasspremiumreward());
-      }
-    }
     // bool firstLoginNotifyDone = 2;
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (this_._internal_firstloginnotifydone() != 0) {
         total_size += 2;
       }
     }
     // bool dailyShopRewardClaimed = 5;
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       if (this_._internal_dailyshoprewardclaimed() != 0) {
         total_size += 2;
       }
     }
     // bool dailyMallRewardClaimed = 6;
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (this_._internal_dailymallrewardclaimed() != 0) {
         total_size += 2;
-      }
-    }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x00001f00U)) {
-    // uint32 battlePassId = 7;
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
-      if (this_._internal_battlepassid() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_battlepassid());
-      }
-    }
-    // uint32 battlePassMode = 8;
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
-      if (this_._internal_battlepassmode() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_battlepassmode());
-      }
-    }
-    // uint32 battlePassLevel = 9;
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
-      if (this_._internal_battlepasslevel() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_battlepasslevel());
-      }
-    }
-    // uint32 battlePassExp = 10;
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
-      if (this_._internal_battlepassexp() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_battlepassexp());
-      }
-    }
-    // uint32 battlePassExpThisWeek = 11;
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
-      if (this_._internal_battlepassexpthisweek() != 0) {
-        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-            this_._internal_battlepassexpthisweek());
       }
     }
   }
@@ -6205,7 +6068,7 @@ void QuestCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _this->_internal_mutable_quests()->InternalMergeFromWithArena(
           ::google::protobuf::MessageLite::internal_visibility(), arena,
@@ -6218,63 +6081,18 @@ void QuestCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       _this->_internal_mutable_weeklyactiveids()->MergeFrom(from._internal_weeklyactiveids());
     }
     if (CheckHasBit(cached_has_bits, 0x00000008U)) {
-      if (!from._internal_battlepassbasicreward().empty()) {
-        _this->_internal_set_battlepassbasicreward(from._internal_battlepassbasicreward());
-      } else {
-        if (_this->_impl_.battlepassbasicreward_.IsDefault()) {
-          _this->_internal_set_battlepassbasicreward("");
-        }
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
-      if (!from._internal_battlepasspremiumreward().empty()) {
-        _this->_internal_set_battlepasspremiumreward(from._internal_battlepasspremiumreward());
-      } else {
-        if (_this->_impl_.battlepasspremiumreward_.IsDefault()) {
-          _this->_internal_set_battlepasspremiumreward("");
-        }
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (from._internal_firstloginnotifydone() != 0) {
         _this->_impl_.firstloginnotifydone_ = from._impl_.firstloginnotifydone_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       if (from._internal_dailyshoprewardclaimed() != 0) {
         _this->_impl_.dailyshoprewardclaimed_ = from._impl_.dailyshoprewardclaimed_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (from._internal_dailymallrewardclaimed() != 0) {
         _this->_impl_.dailymallrewardclaimed_ = from._impl_.dailymallrewardclaimed_;
-      }
-    }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x00001f00U)) {
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
-      if (from._internal_battlepassid() != 0) {
-        _this->_impl_.battlepassid_ = from._impl_.battlepassid_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
-      if (from._internal_battlepassmode() != 0) {
-        _this->_impl_.battlepassmode_ = from._impl_.battlepassmode_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
-      if (from._internal_battlepasslevel() != 0) {
-        _this->_impl_.battlepasslevel_ = from._impl_.battlepasslevel_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
-      if (from._internal_battlepassexp() != 0) {
-        _this->_impl_.battlepassexp_ = from._impl_.battlepassexp_;
-      }
-    }
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
-      if (from._internal_battlepassexpthisweek() != 0) {
-        _this->_impl_.battlepassexpthisweek_ = from._impl_.battlepassexpthisweek_;
       }
     }
   }
@@ -6293,24 +6111,543 @@ void QuestCompBin::CopyFrom(const QuestCompBin& from) {
 
 void QuestCompBin::InternalSwap(QuestCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.quests_.InternalSwap(&other->_impl_.quests_);
   _impl_.dailyactiveids_.InternalSwap(&other->_impl_.dailyactiveids_);
   _impl_.weeklyactiveids_.InternalSwap(&other->_impl_.weeklyactiveids_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.battlepassbasicreward_, &other->_impl_.battlepassbasicreward_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.battlepasspremiumreward_, &other->_impl_.battlepasspremiumreward_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.battlepassexpthisweek_)
-      + sizeof(QuestCompBin::_impl_.battlepassexpthisweek_)
+      PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.dailymallrewardclaimed_)
+      + sizeof(QuestCompBin::_impl_.dailymallrewardclaimed_)
       - PROTOBUF_FIELD_OFFSET(QuestCompBin, _impl_.firstloginnotifydone_)>(
           reinterpret_cast<char*>(&_impl_.firstloginnotifydone_),
           reinterpret_cast<char*>(&other->_impl_.firstloginnotifydone_));
 }
 
 ::google::protobuf::Metadata QuestCompBin::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class BattlePassCompBin::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<BattlePassCompBin>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_._has_bits_);
+};
+
+BattlePassCompBin::BattlePassCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, BattlePassCompBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ServerProto.BattlePassCompBin)
+}
+PROTOBUF_NDEBUG_INLINE BattlePassCompBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::ServerProto::BattlePassCompBin& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        quests_{visibility, arena, from.quests_},
+        basicreward_(arena, from.basicreward_),
+        premiumreward_(arena, from.premiumreward_) {}
+
+BattlePassCompBin::BattlePassCompBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const BattlePassCompBin& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, BattlePassCompBin_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  BattlePassCompBin* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, battlepassid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, battlepassid_),
+           offsetof(Impl_, expweek_) -
+               offsetof(Impl_, battlepassid_) +
+               sizeof(Impl_::expweek_));
+
+  // @@protoc_insertion_point(copy_constructor:ServerProto.BattlePassCompBin)
+}
+PROTOBUF_NDEBUG_INLINE BattlePassCompBin::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        quests_{visibility, arena},
+        basicreward_(arena),
+        premiumreward_(arena) {}
+
+inline void BattlePassCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, battlepassid_),
+           0,
+           offsetof(Impl_, expweek_) -
+               offsetof(Impl_, battlepassid_) +
+               sizeof(Impl_::expweek_));
+}
+BattlePassCompBin::~BattlePassCompBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.BattlePassCompBin)
+  SharedDtor(*this);
+}
+inline void BattlePassCompBin::SharedDtor(MessageLite& self) {
+  BattlePassCompBin& this_ = static_cast<BattlePassCompBin&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.basicreward_.Destroy();
+  this_._impl_.premiumreward_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL BattlePassCompBin::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) BattlePassCompBin(arena);
+}
+constexpr auto BattlePassCompBin::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.quests_) +
+          decltype(BattlePassCompBin::_impl_.quests_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(BattlePassCompBin), alignof(BattlePassCompBin), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&BattlePassCompBin::PlacementNew_,
+                                 sizeof(BattlePassCompBin),
+                                 alignof(BattlePassCompBin));
+  }
+}
+constexpr auto BattlePassCompBin::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_BattlePassCompBin_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &BattlePassCompBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<BattlePassCompBin>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &BattlePassCompBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<BattlePassCompBin>(), &BattlePassCompBin::ByteSizeLong,
+              &BattlePassCompBin::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_._cached_size_),
+          false,
+      },
+      &BattlePassCompBin::kDescriptorMethods,
+      &descriptor_table_PlayerData_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull BattlePassCompBin_class_data_ =
+        BattlePassCompBin::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+BattlePassCompBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&BattlePassCompBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(BattlePassCompBin_class_data_.tc_table);
+  return BattlePassCompBin_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 8, 1, 0, 2>
+BattlePassCompBin::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_._has_bits_),
+    0, // no _extensions_
+    8, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967040,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    8,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    BattlePassCompBin_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ServerProto::BattlePassCompBin>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated .ServerProto.QuestInfoBin quests = 8;
+    {::_pbi::TcParser::FastMtR1,
+     {66, 0, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.quests_)}},
+    // uint32 battlePassId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(BattlePassCompBin, _impl_.battlepassid_), 3>(),
+     {8, 3, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.battlepassid_)}},
+    // uint32 mode = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(BattlePassCompBin, _impl_.mode_), 4>(),
+     {16, 4, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.mode_)}},
+    // uint32 level = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(BattlePassCompBin, _impl_.level_), 5>(),
+     {24, 5, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.level_)}},
+    // uint32 exp = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(BattlePassCompBin, _impl_.exp_), 6>(),
+     {32, 6, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.exp_)}},
+    // uint32 expWeek = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(BattlePassCompBin, _impl_.expweek_), 7>(),
+     {40, 7, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.expweek_)}},
+    // bytes basicReward = 6;
+    {::_pbi::TcParser::FastBS1,
+     {50, 1, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.basicreward_)}},
+    // bytes premiumReward = 7;
+    {::_pbi::TcParser::FastBS1,
+     {58, 2, 0,
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.premiumreward_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 battlePassId = 1;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.battlepassid_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 mode = 2;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.mode_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 level = 3;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.level_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 exp = 4;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.exp_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 expWeek = 5;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.expweek_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bytes basicReward = 6;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.basicreward_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    // bytes premiumReward = 7;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.premiumreward_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    // repeated .ServerProto.QuestInfoBin quests = 8;
+    {PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.quests_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::ServerProto::QuestInfoBin>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void BattlePassCompBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.BattlePassCompBin)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.quests_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.basicreward_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.premiumreward_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x000000f8U)) {
+    ::memset(&_impl_.battlepassid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.expweek_) -
+        reinterpret_cast<char*>(&_impl_.battlepassid_)) + sizeof(_impl_.expweek_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL BattlePassCompBin::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const BattlePassCompBin& this_ = static_cast<const BattlePassCompBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL BattlePassCompBin::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const BattlePassCompBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.BattlePassCompBin)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 battlePassId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_battlepassid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_battlepassid(), target);
+    }
+  }
+
+  // uint32 mode = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_mode() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_mode(), target);
+    }
+  }
+
+  // uint32 level = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (this_._internal_level() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_level(), target);
+    }
+  }
+
+  // uint32 exp = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (this_._internal_exp() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          4, this_._internal_exp(), target);
+    }
+  }
+
+  // uint32 expWeek = 5;
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (this_._internal_expweek() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          5, this_._internal_expweek(), target);
+    }
+  }
+
+  // bytes basicReward = 6;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_basicreward().empty()) {
+      const ::std::string& _s = this_._internal_basicreward();
+      target = stream->WriteBytesMaybeAliased(6, _s, target);
+    }
+  }
+
+  // bytes premiumReward = 7;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_premiumreward().empty()) {
+      const ::std::string& _s = this_._internal_premiumreward();
+      target = stream->WriteBytesMaybeAliased(7, _s, target);
+    }
+  }
+
+  // repeated .ServerProto.QuestInfoBin quests = 8;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_quests_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_quests().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              8, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.BattlePassCompBin)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t BattlePassCompBin::ByteSizeLong(const MessageLite& base) {
+  const BattlePassCompBin& this_ = static_cast<const BattlePassCompBin&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t BattlePassCompBin::ByteSizeLong() const {
+  const BattlePassCompBin& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.BattlePassCompBin)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    // repeated .ServerProto.QuestInfoBin quests = 8;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_quests_size();
+      for (const auto& msg : this_._internal_quests()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes basicReward = 6;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_basicreward().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_basicreward());
+      }
+    }
+    // bytes premiumReward = 7;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_premiumreward().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_premiumreward());
+      }
+    }
+    // uint32 battlePassId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_battlepassid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_battlepassid());
+      }
+    }
+    // uint32 mode = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_mode() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_mode());
+      }
+    }
+    // uint32 level = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (this_._internal_level() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_level());
+      }
+    }
+    // uint32 exp = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (this_._internal_exp() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_exp());
+      }
+    }
+    // uint32 expWeek = 5;
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      if (this_._internal_expweek() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_expweek());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void BattlePassCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<BattlePassCompBin*>(&to_msg);
+  auto& from = static_cast<const BattlePassCompBin&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.BattlePassCompBin)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_quests()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_quests());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_basicreward().empty()) {
+        _this->_internal_set_basicreward(from._internal_basicreward());
+      } else {
+        if (_this->_impl_.basicreward_.IsDefault()) {
+          _this->_internal_set_basicreward("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_premiumreward().empty()) {
+        _this->_internal_set_premiumreward(from._internal_premiumreward());
+      } else {
+        if (_this->_impl_.premiumreward_.IsDefault()) {
+          _this->_internal_set_premiumreward("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_battlepassid() != 0) {
+        _this->_impl_.battlepassid_ = from._impl_.battlepassid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_mode() != 0) {
+        _this->_impl_.mode_ = from._impl_.mode_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (from._internal_level() != 0) {
+        _this->_impl_.level_ = from._impl_.level_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (from._internal_exp() != 0) {
+        _this->_impl_.exp_ = from._impl_.exp_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      if (from._internal_expweek() != 0) {
+        _this->_impl_.expweek_ = from._impl_.expweek_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void BattlePassCompBin::CopyFrom(const BattlePassCompBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.BattlePassCompBin)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void BattlePassCompBin::InternalSwap(BattlePassCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.quests_.InternalSwap(&other->_impl_.quests_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.basicreward_, &other->_impl_.basicreward_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.premiumreward_, &other->_impl_.premiumreward_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.expweek_)
+      + sizeof(BattlePassCompBin::_impl_.expweek_)
+      - PROTOBUF_FIELD_OFFSET(BattlePassCompBin, _impl_.battlepassid_)>(
+          reinterpret_cast<char*>(&_impl_.battlepassid_),
+          reinterpret_cast<char*>(&other->_impl_.battlepassid_));
+}
+
+::google::protobuf::Metadata BattlePassCompBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -13626,6 +13963,9 @@ PlayerSaveData::PlayerSaveData(
   _impl_.gachacomp_ = (CheckHasBit(cached_has_bits, 0x00000040U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.gachacomp_)
                 : nullptr;
+  _impl_.battlepasscomp_ = (CheckHasBit(cached_has_bits, 0x00000080U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.battlepasscomp_)
+                : nullptr;
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.PlayerSaveData)
 }
@@ -13639,9 +13979,9 @@ inline void PlayerSaveData::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, playerdata_),
            0,
-           offsetof(Impl_, gachacomp_) -
+           offsetof(Impl_, battlepasscomp_) -
                offsetof(Impl_, playerdata_) +
-               sizeof(Impl_::gachacomp_));
+               sizeof(Impl_::battlepasscomp_));
 }
 PlayerSaveData::~PlayerSaveData() {
   // @@protoc_insertion_point(destructor:ServerProto.PlayerSaveData)
@@ -13661,6 +14001,7 @@ inline void PlayerSaveData::SharedDtor(MessageLite& self) {
   delete this_._impl_.inventorycomp_;
   delete this_._impl_.mailcomp_;
   delete this_._impl_.gachacomp_;
+  delete this_._impl_.battlepasscomp_;
   this_._impl_.~Impl_();
 }
 
@@ -13707,17 +14048,17 @@ PlayerSaveData::GetClassData() const {
   return PlayerSaveData_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 7, 7, 0, 2>
+const ::_pbi::TcParseTable<3, 8, 8, 0, 2>
 PlayerSaveData::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_._has_bits_),
     0, // no _extensions_
-    8, 56,  // max_field_number, fast_idx_mask
+    9, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967041,  // skipmap
+    4294966785,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    7,  // num_field_entries
-    7,  // num_aux_entries
+    8,  // num_field_entries
+    8,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     PlayerSaveData_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -13730,7 +14071,10 @@ PlayerSaveData::_table_ = {
     {::_pbi::TcParser::FastMtS1,
      {66, 6, 6,
       PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.gachacomp_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // .ServerProto.BattlePassCompBin battlePassComp = 9;
+    {::_pbi::TcParser::FastMtS1,
+     {74, 7, 7,
+      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.battlepasscomp_)}},
     // .ServerProto.PlayerBasicCompBin playerdata = 2;
     {::_pbi::TcParser::FastMtS1,
      {18, 0, 0,
@@ -13772,6 +14116,8 @@ PlayerSaveData::_table_ = {
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.mailcomp_), _Internal::kHasBitsOffset + 5, 5, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .ServerProto.GachaCompBin gachaComp = 8;
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.gachacomp_), _Internal::kHasBitsOffset + 6, 6, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.BattlePassCompBin battlePassComp = 9;
+    {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.battlepasscomp_), _Internal::kHasBitsOffset + 7, 7, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::PlayerBasicCompBin>()},
@@ -13781,6 +14127,7 @@ PlayerSaveData::_table_ = {
       {::_pbi::TcParser::GetTable<::ServerProto::InventoryCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::MailCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::BattlePassCompBin>()},
   }},
   {{
   }},
@@ -13793,7 +14140,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       ABSL_DCHECK(_impl_.playerdata_ != nullptr);
       _impl_.playerdata_->Clear();
@@ -13821,6 +14168,10 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
     if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       ABSL_DCHECK(_impl_.gachacomp_ != nullptr);
       _impl_.gachacomp_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      ABSL_DCHECK(_impl_.battlepasscomp_ != nullptr);
+      _impl_.battlepasscomp_->Clear();
     }
   }
   _impl_._has_bits_.Clear();
@@ -13895,6 +14246,13 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
         stream);
   }
 
+  // .ServerProto.BattlePassCompBin battlePassComp = 9;
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        9, *this_._impl_.battlepasscomp_, this_._impl_.battlepasscomp_->GetCachedSize(), target,
+        stream);
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -13920,7 +14278,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     // .ServerProto.PlayerBasicCompBin playerdata = 2;
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       total_size += 1 +
@@ -13956,6 +14314,11 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.gachacomp_);
     }
+    // .ServerProto.BattlePassCompBin battlePassComp = 9;
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.battlepasscomp_);
+    }
   }
   return this_.MaybeComputeUnknownFieldsSize(total_size,
                                              &this_._impl_._cached_size_);
@@ -13976,7 +14339,7 @@ void PlayerSaveData::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       ABSL_DCHECK(from._impl_.playerdata_ != nullptr);
       if (_this->_impl_.playerdata_ == nullptr) {
@@ -14033,6 +14396,14 @@ void PlayerSaveData::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.gachacomp_->MergeFrom(*from._impl_.gachacomp_);
       }
     }
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      ABSL_DCHECK(from._impl_.battlepasscomp_ != nullptr);
+      if (_this->_impl_.battlepasscomp_ == nullptr) {
+        _this->_impl_.battlepasscomp_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.battlepasscomp_);
+      } else {
+        _this->_impl_.battlepasscomp_->MergeFrom(*from._impl_.battlepasscomp_);
+      }
+    }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
@@ -14052,8 +14423,8 @@ void PlayerSaveData::InternalSwap(PlayerSaveData* PROTOBUF_RESTRICT PROTOBUF_NON
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.gachacomp_)
-      + sizeof(PlayerSaveData::_impl_.gachacomp_)
+      PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.battlepasscomp_)
+      + sizeof(PlayerSaveData::_impl_.battlepasscomp_)
       - PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.playerdata_)>(
           reinterpret_cast<char*>(&_impl_.playerdata_),
           reinterpret_cast<char*>(&other->_impl_.playerdata_));

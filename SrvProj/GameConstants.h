@@ -16,6 +16,7 @@ namespace GameConstants
     inline constexpr std::int32_t MaxEnergy = 240;
     inline constexpr std::int64_t EnergyRegenTime = 360;
     inline constexpr std::uint32_t BattlePassId = 7;
+    inline constexpr std::uint32_t BattlePassUnlockLevel = 3;
 
     inline constexpr std::int32_t GachaProbabilityBase = 10000;
     inline constexpr std::int32_t GachaDefaultATypeProb = 200;

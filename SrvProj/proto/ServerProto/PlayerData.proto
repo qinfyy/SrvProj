@@ -80,13 +80,17 @@ message QuestCompBin {
     repeated uint32 weeklyActiveIds = 4;
     bool dailyShopRewardClaimed = 5;
     bool dailyMallRewardClaimed = 6;
-    uint32 battlePassId = 7;
-    uint32 battlePassMode = 8;
-    uint32 battlePassLevel = 9;
-    uint32 battlePassExp = 10;
-    uint32 battlePassExpThisWeek = 11;
-    bytes battlePassBasicReward = 12;
-    bytes battlePassPremiumReward = 13;
+}
+
+message BattlePassCompBin {
+    uint32 battlePassId = 1;
+    uint32 mode = 2;
+    uint32 level = 3;
+    uint32 exp = 4;
+    uint32 expWeek = 5;
+    bytes basicReward = 6;
+    bytes premiumReward = 7;
+    repeated QuestInfoBin quests = 8;
 }
 
 message AchievementInfoBin {
@@ -220,6 +224,7 @@ message PlayerSaveData {
     InventoryCompBin inventoryComp = 6;
     MailCompBin mailComp = 7;
     GachaCompBin gachaComp = 8;
+    BattlePassCompBin battlePassComp = 9;
 }
 
 message GameDiscInfoBin {

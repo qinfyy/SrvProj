@@ -162,6 +162,7 @@
     <ClCompile Include="PaymentController.cpp" />
     <ClCompile Include="Game\ActivityMgr.cpp" />
     <ClCompile Include="Game\AchievementMgr.cpp" />
+    <ClCompile Include="Game\BattlePassMgr.cpp" />
     <ClCompile Include="Game\ChangeInfoUtil.cpp" />
     <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Command\BasicCommands.cpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Game\QuestMgr.cpp" />
     <ClCompile Include="Game\StarTowerMgr.cpp" />
     <ClCompile Include="Handlers\Activity.cpp" />
+    <ClCompile Include="Handlers\BattlePass.cpp" />
     <ClCompile Include="Handlers\Character.cpp" />
     <ClCompile Include="Handlers\Disc.cpp" />
     <ClCompile Include="Handlers\Gacha.cpp" />
@@ -511,11 +513,13 @@
     <ClInclude Include="Game\InventoryMgr.h" />
     <ClInclude Include="Game\MailMgr.h" />
     <ClInclude Include="Game\MallMgr.h" />
+    <ClInclude Include="Game\BattlePassMgr.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\ManagerBase.h" />
     <ClInclude Include="Game\QuestMgr.h" />
     <ClInclude Include="Game\StarTowerMgr.h" />
     <ClInclude Include="Handlers\Activity.h" />
+    <ClInclude Include="Handlers\BattlePass.h" />
     <ClInclude Include="Handlers\Character.h" />
     <ClInclude Include="Handlers\Disc.h" />
     <ClInclude Include="Handlers\Gacha.h" />

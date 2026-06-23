@@ -1,16 +1,19 @@
 #include "BattlePassMgr.h"
 
 #include "Bitset.h"
+#include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
 #include "Player.h"
-#include "../GameConstants.h"
 #include "../Config.h"
-#include "../Resources/BinClass/BattlePassRes.h"
-#include "../Resources/GameData.h"
-#include "../Resources/ResourceDerivedData.h"
+#include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../GameServices.h"
+#include "../GameTime.h"
 #include "../PaymentController.h"
+#include "../Resources/BinClass/BattlePassRes.h"
+#include "../Resources/BinClass/ItemsRes.h"
+#include "../Resources/GameData.h"
+#include "../Util.h"
 #include "../proto/NetMsgId.pb.h"
 #include "../proto/proto_cpp/notify.pb.h"
 
@@ -31,12 +34,6 @@
 
 namespace {
 constexpr int64_t kNoDeadline = std::numeric_limits<int64_t>::max();
-constexpr int64_t kSecondsPerDay = 86400;
-
-proto::QuestType GetQuestType(const BattlePassQuestRes& data)
-{
-    return data.Type == 1 ? proto::BattlePassDaily : proto::BattlePassWeekly;
-}
 
 uint32_t ResourceIdFromKey(const std::string& key)
 {
@@ -76,7 +73,7 @@ uint32_t QuestStatus(uint32_t status, uint32_t cur, uint32_t max)
         return 2;
     }
 
-    if (status == 1 || cur >= max)
+    if (status == 1 || (max > 0 && cur >= max))
     {
         return 1;
     }
@@ -84,96 +81,16 @@ uint32_t QuestStatus(uint32_t status, uint32_t cur, uint32_t max)
     return 0;
 }
 
-int64_t NowSeconds()
+bool IsQuestComplete(const ServerProto::QuestInfoBin& quest)
 {
-    return std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
+    const uint32_t cur = quest.progress_size() > 0 ? quest.progress(0).cur() : 0;
+    const uint32_t max = quest.progress_size() > 0 ? quest.progress(0).max() : 0;
+    return QuestStatus(quest.status(), cur, max) == 1;
 }
 
-int64_t NowMilliseconds()
+proto::QuestType GetQuestType(const BattlePassQuestRes& data)
 {
-    return std::chrono::duration_cast<std::chrono::milliseconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-}
-
-int64_t StartOfLocalDay(int64_t nowSeconds)
-{
-    std::time_t raw = static_cast<std::time_t>(nowSeconds);
-    std::tm local{};
-    localtime_s(&local, &raw);
-    local.tm_hour = 0;
-    local.tm_min = 0;
-    local.tm_sec = 0;
-    return static_cast<int64_t>(std::mktime(&local));
-}
-
-int64_t NextDailyReset(int64_t nowSeconds)
-{
-    return StartOfLocalDay(nowSeconds) + kSecondsPerDay;
-}
-
-int64_t NextWeeklyReset(int64_t nowSeconds)
-{
-    std::time_t raw = static_cast<std::time_t>(nowSeconds);
-    std::tm local{};
-    localtime_s(&local, &raw);
-    const int dayOfWeek = local.tm_wday == 0 ? 7 : local.tm_wday;
-    const int daysUntilNextMonday = 8 - dayOfWeek;
-    return StartOfLocalDay(nowSeconds) + (static_cast<int64_t>(daysUntilNextMonday) * kSecondsPerDay);
-}
-
-proto::Quest BuildQuestProto(const ServerProto::QuestInfoBin& bin)
-{
-    proto::Quest quest;
-    quest.set_id(bin.id());
-    quest.set_type(static_cast<proto::QuestType>(bin.type()));
-    if (bin.type() == static_cast<uint32_t>(proto::BattlePassDaily))
-    {
-        quest.set_expire(NextDailyReset(NowSeconds()));
-    }
-    else if (bin.type() == static_cast<uint32_t>(proto::BattlePassWeekly))
-    {
-        quest.set_expire(NextWeeklyReset(NowSeconds()));
-    }
-    else if (bin.expire() > 0)
-    {
-        quest.set_expire(bin.expire());
-    }
-
-    const uint32_t cur = bin.progress_size() > 0 ? bin.progress(0).cur() : 0;
-    const uint32_t max = bin.progress_size() > 0 ? bin.progress(0).max() : 0;
-    quest.set_status(QuestStatus(bin.status(), cur, max));
-
-    auto* progress = quest.add_progress();
-    progress->set_cur(cur);
-    progress->set_max(max);
-    return quest;
-}
-
-Bitset LoadBitset(const std::string& data)
-{
-    if (data.empty())
-    {
-        return Bitset();
-    }
-
-    std::string littleEndian;
-    littleEndian.resize(data.size());
-    for (size_t offset = 0; offset < data.size(); offset += 8)
-    {
-        const size_t blockSize = std::min<size_t>(8, data.size() - offset);
-        for (size_t i = 0; i < blockSize; ++i)
-        {
-            littleEndian[offset + i] = data[offset + blockSize - 1 - i];
-        }
-    }
-
-    return Bitset(littleEndian);
-}
-
-std::string StoreBitset(const Bitset& bitset)
-{
-    return bitset.ToByteArray();
+    return data.Type == 1 ? proto::BattlePassDaily : proto::BattlePassWeekly;
 }
 
 void AddReward(proto::ChangeInfo& change, Player* player, uint32_t tid, int64_t qty)
@@ -186,11 +103,77 @@ void AddReward(proto::ChangeInfo& change, Player* player, uint32_t tid, int64_t 
     player->Inventory().AddItem(tid, qty, &change);
 }
 
-bool IsQuestClaimable(const ServerProto::QuestInfoBin& quest)
+proto::Quest BuildQuestProto(const ServerProto::QuestInfoBin& quest)
 {
+    proto::Quest out;
+    out.set_id(quest.id());
+    out.set_type(static_cast<proto::QuestType>(quest.type()));
+
+    if (quest.type() == static_cast<uint32_t>(proto::BattlePassDaily))
+    {
+        out.set_expire(GameTime::NextDailyReset());
+    }
+    else if (quest.type() == static_cast<uint32_t>(proto::BattlePassWeekly))
+    {
+        out.set_expire(GameTime::NextWeeklyReset());
+    }
+    else if (quest.expire() > 0)
+    {
+        out.set_expire(quest.expire());
+    }
+
     const uint32_t cur = quest.progress_size() > 0 ? quest.progress(0).cur() : 0;
     const uint32_t max = quest.progress_size() > 0 ? quest.progress(0).max() : 0;
-    return QuestStatus(quest.status(), cur, max) == 1;
+    out.set_status(QuestStatus(quest.status(), cur, max));
+
+    auto* progress = out.add_progress();
+    progress->set_cur(cur);
+    progress->set_max(max);
+    return out;
+}
+
+bool EndsWith(std::string_view text, std::string_view suffix)
+{
+    return text.size() >= suffix.size() && text.substr(text.size() - suffix.size()) == suffix;
+}
+
+void AppendDisplayProp(const google::protobuf::Any& any, proto::ChangeInfo& displayChange)
+{
+    const std::string_view typeUrl = any.type_url();
+    if (EndsWith(typeUrl, ".Item") || EndsWith(typeUrl, ".Res"))
+    {
+        displayChange.add_props()->CopyFrom(any);
+        return;
+    }
+
+    if (EndsWith(typeUrl, ".HeadIcon"))
+    {
+        proto::HeadIcon headIcon;
+        if (!headIcon.ParseFromString(any.value()))
+        {
+            return;
+        }
+
+        proto::Item item;
+        item.set_tid(headIcon.tid());
+        item.set_qty(1);
+        ChangeInfoUtil::AddProp(displayChange, item);
+    }
+}
+
+void AddRewardWithDisplay(Player* player, uint32_t tid, int64_t qty, proto::ChangeInfo& stateChange, proto::ChangeInfo& displayChange)
+{
+    if (!player || tid == 0 || qty <= 0)
+    {
+        return;
+    }
+
+    const int before = stateChange.props_size();
+    player->Inventory().AddItem(tid, qty, &stateChange);
+    for (int i = before; i < stateChange.props_size(); ++i)
+    {
+        AppendDisplayProp(stateChange.props(i), displayChange);
+    }
 }
 
 }
@@ -220,7 +203,6 @@ void BattlePassMgr::OnLoad()
     const bool hadBattlePassComp = GetPlayer()->SaveData().has_battlepasscomp();
     auto* bin = MutableBin();
     const uint32_t activeBattlePassId = GetActiveBattlePassId();
-
     if (!hadBattlePassComp || bin->battlepassid() == 0 || bin->battlepassid() != activeBattlePassId)
     {
         InitializeDefault();
@@ -229,25 +211,46 @@ void BattlePassMgr::OnLoad()
 
     if (bin->basicreward().empty())
     {
-        bin->set_basicreward(StoreBitset(Bitset()));
+        bin->set_basicreward(Bitset().ToByteArray());
     }
     if (bin->premiumreward().empty())
     {
-        bin->set_premiumreward(StoreBitset(Bitset()));
+        bin->set_premiumreward(Bitset().ToByteArray());
+    }
+
+    for (auto& quest : *bin->mutable_quests())
+    {
+        if (quest.progress_size() == 0)
+        {
+            quest.add_progress();
+        }
+
+        const auto params = GetBattlePassQuestParams(static_cast<int>(quest.id()));
+        quest.set_condition(static_cast<uint32_t>(params.CompleteCond));
+        quest.set_param(params.CompleteCondParams.size() >= 2 ? static_cast<uint32_t>(std::max(params.CompleteCondParams[1], 0)) : 0);
+        quest.mutable_progress(0)->set_max(params.CompleteCondParams.empty() ? quest.progress(0).max() : static_cast<uint32_t>(std::max(params.CompleteCondParams[0], 0)));
     }
 
     for (uint32_t id : SortedResourceIds(GameData::BattlePassQuestDataTable))
     {
         const auto it = GameData::BattlePassQuestDataTable.find(std::to_string(id));
-        if (it != GameData::BattlePassQuestDataTable.end())
+        if (it == GameData::BattlePassQuestDataTable.end())
         {
-            UpsertQuest(it->second);
+            continue;
         }
+
+        UpsertQuest(it->second);
     }
+}
+
+void BattlePassMgr::OnLogin()
+{
 }
 
 void BattlePassMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 {
+    auto* state = out.mutable_state()->mutable_battlepass();
+    state->set_state(GetClientState());
 }
 
 void BattlePassMgr::InitializeDefault()
@@ -259,9 +262,8 @@ void BattlePassMgr::InitializeDefault()
     bin->set_level(0);
     bin->set_exp(0);
     bin->set_expweek(0);
-    bin->set_basicreward(StoreBitset(Bitset()));
-    bin->set_premiumreward(StoreBitset(Bitset()));
-    bin->set_pendingordermode(0);
+    bin->set_basicreward(Bitset().ToByteArray());
+    bin->set_premiumreward(Bitset().ToByteArray());
 
     for (uint32_t id : SortedResourceIds(GameData::BattlePassQuestDataTable))
     {
@@ -271,16 +273,23 @@ void BattlePassMgr::InitializeDefault()
             continue;
         }
 
-        auto* quest = UpsertQuest(it->second);
+        auto* quest = bin->add_quests();
+        quest->set_id(id);
+        quest->set_type(static_cast<uint32_t>(GetQuestType(it->second)));
         quest->set_status(0);
         quest->set_expire(0);
-        quest->mutable_progress(0)->set_cur(0);
+        const auto params = GetBattlePassQuestParams(static_cast<int>(id));
+        quest->set_condition(static_cast<uint32_t>(params.CompleteCond));
+        quest->set_param(params.CompleteCondParams.size() >= 2 ? static_cast<uint32_t>(std::max(params.CompleteCondParams[1], 0)) : 0);
+        auto* progress = quest->add_progress();
+        progress->set_cur(0);
+        progress->set_max(params.CompleteCondParams.empty() ? 0 : static_cast<uint32_t>(std::max(params.CompleteCondParams[0], 0)));
     }
 }
 
 uint32_t BattlePassMgr::GetActiveBattlePassId() const
 {
-    const int64_t now = NowSeconds();
+    const int64_t now = GameTime::ServerNowSeconds();
     for (const auto& [key, data] : GameData::BattlePassDataTable)
     {
         const int64_t start = data.StartTime > 0 ? data.StartTime : 0;
@@ -308,20 +317,14 @@ const BattlePassRes* BattlePassMgr::GetCurrentSeason() const
 
 const BattlePassRewardRes* BattlePassMgr::GetRewardData(uint32_t level) const
 {
-    const uint32_t rewardKey = (Bin().battlepassid() << 16) + level;
-    auto it = GameData::BattlePassRewardDataTable.find(std::to_string(rewardKey));
+    const std::string rewardKey = std::to_string(Bin().battlepassid()) + "|" + std::to_string(level);
+    auto it = GameData::BattlePassRewardDataTable.find(rewardKey);
     return it != GameData::BattlePassRewardDataTable.end() ? &it->second : nullptr;
 }
 
 int64_t BattlePassMgr::GetDeadline() const
 {
-    const auto* season = GetCurrentSeason();
-    if (!season || season->EndTime <= 0)
-    {
-        return kNoDeadline;
-    }
-
-    return season->EndTime;
+    return kNoDeadline;
 }
 
 bool BattlePassMgr::IsUnlocked() const
@@ -439,10 +442,17 @@ void BattlePassMgr::Trigger(uint32_t condition, uint32_t progress, uint32_t para
         {
             continue;
         }
+
         if (quest.param() != 0 && quest.param() != param1)
         {
             continue;
         }
+
+        if (quest.status() == 2)
+        {
+            continue;
+        }
+
         if (quest.progress_size() == 0)
         {
             quest.add_progress();
@@ -450,13 +460,10 @@ void BattlePassMgr::Trigger(uint32_t condition, uint32_t progress, uint32_t para
 
         auto* savedProgress = quest.mutable_progress(0);
         const uint32_t max = savedProgress->max();
-        if (savedProgress->cur() >= max)
-        {
-            continue;
-        }
-
         const uint32_t oldCur = savedProgress->cur();
-        const uint32_t nextCur = std::min<uint32_t>(oldCur + progress, max);
+        const uint32_t nextCur = max > 0
+            ? std::min<uint32_t>(oldCur + progress, max)
+            : oldCur + progress;
 
         if (nextCur == oldCur)
         {
@@ -464,6 +471,10 @@ void BattlePassMgr::Trigger(uint32_t condition, uint32_t progress, uint32_t para
         }
 
         savedProgress->set_cur(nextCur);
+        if (max > 0 && nextCur >= max)
+        {
+            quest.set_status(1);
+        }
 
         SyncQuest(quest);
     }
@@ -511,14 +522,13 @@ bool BattlePassMgr::ClaimQuestReward(uint32_t questId, uint32_t& level, uint32_t
         {
             continue;
         }
-        if (questId > 0)
+
+        if (questId == 0 && !IsQuestComplete(quest))
         {
-            if (quest.status() == 2)
-            {
-                continue;
-            }
+            continue;
         }
-        else if (!IsQuestClaimable(quest))
+
+        if (quest.status() == 2)
         {
             continue;
         }
@@ -576,7 +586,7 @@ bool BattlePassMgr::AddRewardItems(uint32_t level, bool premium, proto::ChangeIn
     if (premium)
     {
         AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid2, 0)), data->Qty2);
-        if (Bin().mode() >= 2 && data->Tid3 > 0)
+        if (Bin().mode() >= 2 && data->Tid3 > 0 && data->Qty3 > 0)
         {
             AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid3, 0)), data->Qty3);
         }
@@ -596,7 +606,7 @@ bool BattlePassMgr::ReceiveSingleReward(bool premium, uint32_t level, proto::Cha
         return false;
     }
 
-    auto rewards = premium ? LoadBitset(Bin().premiumreward()) : LoadBitset(Bin().basicreward());
+    auto rewards = premium ? Bitset(Bin().premiumreward()) : Bitset(Bin().basicreward());
     if (rewards.IsSet(level))
     {
         return false;
@@ -605,11 +615,11 @@ bool BattlePassMgr::ReceiveSingleReward(bool premium, uint32_t level, proto::Cha
     rewards.SetBit(level);
     if (premium)
     {
-        MutableBin()->set_premiumreward(StoreBitset(rewards));
+        MutableBin()->set_premiumreward(rewards.ToByteArray());
     }
     else
     {
-        MutableBin()->set_basicreward(StoreBitset(rewards));
+        MutableBin()->set_basicreward(rewards.ToByteArray());
     }
 
     return AddRewardItems(level, premium, change);
@@ -618,8 +628,9 @@ bool BattlePassMgr::ReceiveSingleReward(bool premium, uint32_t level, proto::Cha
 bool BattlePassMgr::ReceiveAllRewards(proto::ChangeInfo& change)
 {
     bool hasRewards = false;
-    auto basicRewards = LoadBitset(Bin().basicreward());
-    auto premiumRewards = LoadBitset(Bin().premiumreward());
+    auto basicRewards = Bitset(Bin().basicreward());
+    auto premiumRewards = Bitset(Bin().premiumreward());
+    const bool luxury = Bin().mode() >= 2;
 
     for (uint32_t level = 1; level <= Bin().level(); ++level)
     {
@@ -640,20 +651,14 @@ bool BattlePassMgr::ReceiveAllRewards(proto::ChangeInfo& change)
         if (claimBasic)
         {
             basicRewards.SetBit(level);
-            if (data->Tid1 > 0 && data->Qty1 > 0)
-            {
-                AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid1, 0)), data->Qty1);
-            }
+            AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid1, 0)), data->Qty1);
             hasRewards = true;
         }
 
         if (claimPremium)
         {
-            if (data->Tid2 > 0 && data->Qty2 > 0)
-            {
-                AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid2, 0)), data->Qty2);
-            }
-            if (Bin().mode() >= 2 && data->Tid3 > 0 && data->Qty3 > 0)
+            AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid2, 0)), data->Qty2);
+            if (luxury)
             {
                 AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(data->Tid3, 0)), data->Qty3);
             }
@@ -668,8 +673,8 @@ bool BattlePassMgr::ReceiveAllRewards(proto::ChangeInfo& change)
     }
 
     auto* bin = MutableBin();
-    bin->set_basicreward(StoreBitset(basicRewards));
-    bin->set_premiumreward(StoreBitset(premiumRewards));
+    bin->set_basicreward(basicRewards.ToByteArray());
+    bin->set_premiumreward(premiumRewards.ToByteArray());
     return true;
 }
 
@@ -683,15 +688,15 @@ bool BattlePassMgr::ClaimReward(const proto::BattlePassRewardReceiveReq& req, pr
     proto::ChangeInfo change;
     bool ok = false;
 
-    if (req.has_premium())
+    if (req.premium() > 0)
     {
         ok = ReceiveSingleReward(true, req.premium(), change);
     }
-    else if (req.has_basic())
+    else if (req.basic() > 0)
     {
         ok = ReceiveSingleReward(false, req.basic(), change);
     }
-    else if (req.has_all())
+    else if (req.has_all() || req.Mode_case() == proto::BattlePassRewardReceiveReq::kAll)
     {
         ok = ReceiveAllRewards(change);
     }
@@ -776,9 +781,7 @@ bool BattlePassMgr::CreateOrder(uint32_t mode, proto::OrderInfo& rsp)
         return false;
     }
 
-    MutableBin()->set_pendingordermode(mode);
-
-    const std::string orderId = "battlepass." + std::to_string(GetPlayer()->GetUid()) + "." + std::to_string(NowMilliseconds());
+    const std::string orderId = "battlepass." + std::to_string(GetPlayer()->GetUid()) + "." + std::to_string(GameTime::NowMilliseconds());
     std::string webToken;
     if (!GenerateToken(webToken, false))
     {
@@ -791,8 +794,13 @@ bool BattlePassMgr::CreateOrder(uint32_t mode, proto::OrderInfo& rsp)
     context.ProductKey = std::to_string(mode);
     context.GameOrderId = orderId;
     context.PlayerUid = GetPlayer()->GetUid();
-    context.CreatedAt = NowSeconds();
+    context.CreatedAt = GameTime::ServerNowSeconds();
     PaymentContextService::Instance().RegisterWebOrderContext(context);
+    PaymentContextService::BattlePassCollectContext collectContext;
+    collectContext.PlayerUid = GetPlayer()->GetUid();
+    collectContext.RequestedMode = mode;
+    collectContext.BattlePassId = Bin().battlepassid();
+    PaymentContextService::Instance().RegisterBattlePassCollectContext(collectContext);
 
     rsp.set_id(orderId);
     rsp.set_extradata(webToken);
@@ -815,62 +823,63 @@ bool BattlePassMgr::CollectOrder(proto::BattlePassOrderCollectResp& rsp)
     }
 
     auto* bin = MutableBin();
-    const uint32_t requestedMode = bin->pendingordermode();
-    if (requestedMode == 0)
+    PaymentContextService::BattlePassCollectContext context;
+    if (!PaymentContextService::Instance().ConsumeBattlePassCollectContext(GetPlayer()->GetUid(), context))
     {
         if (bin->mode() == 0)
         {
             return false;
         }
 
-        rsp.mutable_collectresp()->set_status(proto::CollectResp_StatusEnum_Done);
+        auto* collect = rsp.mutable_collectresp();
+        collect->set_status(proto::CollectResp_StatusEnum_Done);
         rsp.set_mode(bin->mode());
         rsp.set_level(bin->level());
         rsp.set_version(bin->battlepassid());
         return true;
     }
 
-    if (requestedMode <= bin->mode() || requestedMode > 2)
-    {
-        bin->set_pendingordermode(0);
-        return false;
-    }
-
+    const uint32_t requestedMode = context.RequestedMode;
     const uint32_t oldMode = bin->mode();
     const auto* season = GetCurrentSeason();
-    proto::ChangeInfo change;
+    proto::ChangeInfo stateChange;
+    proto::ChangeInfo displayChange;
 
-    bin->set_mode(requestedMode);
-    if (requestedMode == 2 && season && season->LuxuryBonusLevel > 0)
+    if (requestedMode > oldMode)
     {
-        bin->set_level(bin->level() + static_cast<uint32_t>(season->LuxuryBonusLevel));
-        bin->set_exp(0);
-    }
-
-    if (requestedMode == 2 && season)
-    {
-        if (oldMode == 0)
+        bin->set_mode(requestedMode);
+        if (requestedMode == 2 && season && season->LuxuryBonusLevel > 0)
         {
-            AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(season->LuxuryTid, 0)), season->LuxuryQty);
+            bin->set_level(bin->level() + static_cast<uint32_t>(std::max(season->LuxuryBonusLevel, 0)));
+            bin->set_exp(0);
         }
-        else if (oldMode == 1)
+
+        if (requestedMode == 2 && season)
         {
-            AddReward(change, GetPlayer(), static_cast<uint32_t>(std::max(season->ComplementaryTid, 0)), season->ComplementaryQty);
+            if (oldMode == 0)
+            {
+                AddRewardWithDisplay(GetPlayer(), static_cast<uint32_t>(std::max(season->LuxuryTid, 0)), season->LuxuryQty, stateChange, displayChange);
+            }
+            else if (oldMode == 1)
+            {
+                AddRewardWithDisplay(GetPlayer(), static_cast<uint32_t>(std::max(season->ComplementaryTid, 0)), season->ComplementaryQty, stateChange, displayChange);
+            }
         }
     }
-
-    bin->set_pendingordermode(0);
 
     auto* collect = rsp.mutable_collectresp();
     collect->set_status(proto::CollectResp_StatusEnum_Done);
-    collect->mutable_items()->CopyFrom(change);
+    if (displayChange.props_size() > 0)
+    {
+        collect->mutable_items()->CopyFrom(displayChange);
+    }
     rsp.set_mode(bin->mode());
     rsp.set_level(bin->level());
     rsp.set_version(bin->battlepassid());
 
-    if (change.props_size() > 0)
+    if (stateChange.props_size() > 0)
     {
-        GetPlayer()->Inventory().PushItemsChange(change);
+        GetPlayer()->Inventory().PushItemsChange(stateChange);
     }
     return true;
 }
@@ -884,7 +893,7 @@ bool BattlePassMgr::HasClaimableQuest() const
 
     for (const auto& quest : Bin().quests())
     {
-        if (IsQuestClaimable(quest))
+        if (IsQuestComplete(quest))
         {
             return true;
         }
@@ -900,8 +909,8 @@ bool BattlePassMgr::HasClaimableReward() const
         return false;
     }
 
-    const auto basicRewards = LoadBitset(Bin().basicreward());
-    const auto premiumRewards = LoadBitset(Bin().premiumreward());
+    const auto basicRewards = Bitset(Bin().basicreward());
+    const auto premiumRewards = Bitset(Bin().premiumreward());
     for (uint32_t level = 1; level <= Bin().level(); ++level)
     {
         if (!basicRewards.IsSet(level))
@@ -943,8 +952,8 @@ proto::BattlePassInfo BattlePassMgr::ToProto() const
         info.set_level(0);
         info.set_exp(0);
         info.set_expthisweek(0);
-        info.set_basicreward(StoreBitset(Bitset()));
-        info.set_premiumreward(StoreBitset(Bitset()));
+        info.set_basicreward(Bitset().ToByteArray());
+        info.set_premiumreward(Bitset().ToByteArray());
         return info;
     }
 
@@ -961,13 +970,14 @@ proto::BattlePassInfo BattlePassMgr::ToProto() const
     auto* weekly = info.mutable_weeklyquests();
     for (const auto& quest : Bin().quests())
     {
+        auto out = BuildQuestProto(quest);
         if (quest.type() == static_cast<uint32_t>(proto::BattlePassDaily))
         {
-            daily->add_list()->CopyFrom(BuildQuestProto(quest));
+            daily->add_list()->CopyFrom(out);
         }
         else if (quest.type() == static_cast<uint32_t>(proto::BattlePassWeekly))
         {
-            weekly->add_list()->CopyFrom(BuildQuestProto(quest));
+            weekly->add_list()->CopyFrom(out);
         }
     }
 

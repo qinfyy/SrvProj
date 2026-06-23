@@ -23,6 +23,7 @@ public:
 
     void OnCreate() override;
     void OnLoad() override;
+    void OnLogin() override;
     void EncodePlayerInfo(proto::PlayerInfo& out) const override;
 
     void ResetDailyQuests(bool resetWeekly);

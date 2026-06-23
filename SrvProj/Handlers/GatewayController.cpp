@@ -16,6 +16,7 @@
 #include "Item.h"
 #include "Character.h"
 #include "Disc.h"
+#include "BattlePass.h"
 #include "../GameTime.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
@@ -68,10 +69,15 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {quest_daily_active_reward_receive_req, quest_daily_active_reward_receive_req__Handler},
     {quest_weekly_reward_receive_req, quest_weekly_reward_receive_req__Handler},
     {quest_weekly_active_reward_receive_req, quest_weekly_active_reward_receive_req__Handler},
+    {battle_pass_info_req, battle_pass_info_req__Handler},
+    {battle_pass_reward_receive_req, battle_pass_reward_receive_req__Handler},
+    {battle_pass_level_buy_req, battle_pass_level_buy_req__Handler},
+    {battle_pass_order_req, battle_pass_order_req__Handler},
+    {battle_pass_order_collect_req, battle_pass_order_collect_req__Handler},
+    {battle_pass_quest_reward_receive_req, battle_pass_quest_reward_receive_req__Handler},
     {achievement_info_req, achievement_info_req__Handler},
     {achievement_reward_receive_req, achievement_reward_receive_req__Handler},
     {client_event_report_req, client_event_report_req__Handler},
-    {battle_pass_quest_reward_receive_req, battle_pass_quest_reward_receive_req__Handler},
     {mail_list_req, mail_list_req__Handler},
     {mail_read_req, mail_read_req__Handler},
     {mail_recv_req, mail_recv_req__Handler},
