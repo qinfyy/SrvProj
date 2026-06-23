@@ -21,7 +21,9 @@ class GachaMgr;
 class InventoryMgr;
 class MailMgr;
 class BattlePassMgr;
+class FormationMgr;
 class QuestMgr;
+class TowerMgr;
 
 class Player
 {
@@ -53,6 +55,12 @@ public:
 
     BattlePassMgr& BattlePasses();
     const BattlePassMgr& BattlePasses() const;
+
+    FormationMgr& Formations();
+    const FormationMgr& Formations() const;
+
+    TowerMgr& Towers();
+    const TowerMgr& Towers() const;
 
     AchievementMgr& Achievements();
     const AchievementMgr& Achievements() const;
@@ -130,5 +138,7 @@ private:
     std::unique_ptr<GachaMgr> mGachaMgr;
     std::unique_ptr<MailMgr> mMailMgr;
     std::unique_ptr<BattlePassMgr> mBattlePassMgr;
+    std::unique_ptr<FormationMgr> mFormationMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
+    std::unique_ptr<TowerMgr> mTowerMgr;
 };

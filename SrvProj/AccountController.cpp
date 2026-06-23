@@ -56,7 +56,7 @@ void ServerListHandler(const HttpRequest& req, HttpResponse& rsp) {
     try {
         ServerListMeta meta;
 
-        meta.set_version(128);
+        meta.set_version(129);
 
         ServerAgent* agent = meta.add_agent();
         agent->set_name(U8("星塔旅人"));

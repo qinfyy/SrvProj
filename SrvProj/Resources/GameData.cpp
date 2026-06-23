@@ -133,11 +133,15 @@ std::unordered_map<std::string, StarTowerGrowthNodeRes> GameData::StarTowerGrowt
 std::unordered_map<std::string, StarTowerFloorExpRes> GameData::StarTowerFloorExpDataTable;
 std::unordered_map<std::string, StarTowerTeamExpRes> GameData::StarTowerTeamExpDataTable;
 std::unordered_map<std::string, StarTowerEventRes> GameData::StarTowerEventDataTable;
+std::unordered_map<std::string, EventOptionsRes> GameData::EventOptionsDataTable;
 std::unordered_map<std::string, StarTowerBuildRankRes> GameData::StarTowerBuildRankDataTable;
+std::unordered_map<std::string, SubNoteSkillDropGroupRes> GameData::SubNoteSkillDropGroupDataTable;
 std::unordered_map<std::string, SubNoteSkillPromoteGroupRes> GameData::SubNoteSkillPromoteGroupDataTable;
 
 std::unordered_map<std::string, PotentialRes> GameData::PotentialDataTable;
 std::unordered_map<std::string, CharPotentialRes> GameData::CharPotentialDataTable;
+std::unordered_map<std::string, NPCAffinityGroupRes> GameData::NPCAffinityGroupDataTable;
+std::unordered_map<std::string, NPCAffinityPlotRes> GameData::NPCAffinityPlotDataTable;
 
 std::unordered_map<std::string, StarTowerBookFateCardBundleRes> GameData::StarTowerBookFateCardBundleDataTable;
 std::unordered_map<std::string, StarTowerBookFateCardQuestRes> GameData::StarTowerBookFateCardQuestDataTable;

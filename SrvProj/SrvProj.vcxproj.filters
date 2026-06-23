@@ -1038,6 +1038,21 @@
     <ClCompile Include="Game\StarTowerMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\FormationMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerCases.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerRooms.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerRuntime.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Resources\BinClass\StarTowerRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
@@ -1089,6 +1104,9 @@
     <ClCompile Include="Handlers\Quest.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
+    <ClCompile Include="Handlers\Tower.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -1107,6 +1125,9 @@
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\Quest.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Tower.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\BattlePass.h">
@@ -1977,6 +1998,21 @@
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="Game\Player.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FormationMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerCases.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerRooms.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerRuntime.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattlePassMgr.h">

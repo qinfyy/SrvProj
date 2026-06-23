@@ -17,6 +17,7 @@
 #include "Character.h"
 #include "Disc.h"
 #include "BattlePass.h"
+#include "Tower.h"
 #include "../GameTime.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
@@ -27,6 +28,7 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_data_req, player_data_req__Handler},
     {player_reg_req, player_reg_req__Handler},
     {player_ping_req, player_ping_req__Handler},
+    {player_formation_req, player_formation_req__Handler},
     {player_signature_edit_req, player_signature_edit_req__Handler},
     {player_learn_req, player_learn_req__Handler},
     {energy_info_req, energy_info_req__Handler},
@@ -63,6 +65,11 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {disc_all_limit_break_req, disc_all_limit_break_req__Handler},
     {activity_detail_req, activity_detail_req__Handler},
     {potential_preselection_list_req, potential_preselection_list_req__Handler},
+    {potential_preselection_import_req, potential_preselection_import_req__Handler},
+    {potential_preselection_name_set_req, potential_preselection_name_set_req__Handler},
+    {potential_preselection_preference_set_req, potential_preselection_preference_set_req__Handler},
+    {potential_preselection_update_req, potential_preselection_update_req__Handler},
+    {potential_preselection_delete_req, potential_preselection_delete_req__Handler},
     {daily_shop_reward_receive_req, daily_shop_reward_receive_req__Handler},
     {daily_mall_reward_receive_req, daily_mall_reward_receive_req__Handler},
     {quest_daily_reward_receive_req, quest_daily_reward_receive_req__Handler},
@@ -91,6 +98,28 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {gacha_newbie_save_req, gacha_newbie_save_req__Handler},
     {gacha_newbie_obtain_req, gacha_newbie_obtain_req__Handler},
     {gacha_newbie_info_req, gacha_newbie_info_req__Handler},
+    {star_tower_build_brief_list_get_req, star_tower_build_brief_list_get_req__Handler},
+    {star_tower_apply_req, star_tower_apply_req__Handler},
+    {star_tower_build_delete_req, star_tower_build_delete_req__Handler},
+    {star_tower_build_detail_get_req, star_tower_build_detail_get_req__Handler},
+    {star_tower_build_lock_unlock_req, star_tower_build_lock_unlock_req__Handler},
+    {star_tower_build_name_set_req, star_tower_build_name_set_req__Handler},
+    {star_tower_build_preference_set_req, star_tower_build_preference_set_req__Handler},
+    {star_tower_build_whether_save_req, star_tower_build_whether_save_req__Handler},
+    {star_tower_give_up_req, star_tower_give_up_req__Handler},
+    {star_tower_info_req, star_tower_info_req__Handler},
+    {star_tower_interact_req, star_tower_interact_req__Handler},
+    {star_tower_book_potential_brief_list_get_req, star_tower_book_potential_brief_list_get_req__Handler},
+    {star_tower_book_char_potential_get_req, star_tower_book_char_potential_get_req__Handler},
+    {star_tower_book_potential_reward_receive_req, star_tower_book_potential_reward_receive_req__Handler},
+    {star_tower_book_event_reward_receive_req, star_tower_book_event_reward_receive_req__Handler},
+    {tower_book_fate_card_detail_req, tower_book_fate_card_detail_req__Handler},
+    {tower_book_fate_card_reward_receive_req, tower_book_fate_card_reward_receive_req__Handler},
+    {npc_affinity_book_get_req, npc_affinity_book_get_req__Handler},
+    {npc_affinity_plot_reward_receive_req, npc_affinity_plot_reward_receive_req__Handler},
+    {tower_growth_detail_req, tower_growth_detail_req__Handler},
+    {tower_growth_group_node_unlock_req, tower_growth_group_node_unlock_req__Handler},
+    {tower_growth_node_unlock_req, tower_growth_node_unlock_req__Handler},
 };
 
 void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {

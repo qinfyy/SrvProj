@@ -2,6 +2,7 @@
 
 #include "../ResBase.h"
 #include "../ResourceDerivedData.h"
+#include <unordered_map>
 #include <vector>
 #include <memory>
 #include <string>
@@ -12,7 +13,7 @@ public:
     ~StarTowerRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -24,6 +25,9 @@ public:
     std::vector<int> FloorNum;
 
     // 非序列化字段
+    int MaxFloors = 0;
+
+    int GetMaxFloor(int stageNum) const;
 };
 
 class StarTowerStageRes : public ResBase {
@@ -32,16 +36,19 @@ public:
     ~StarTowerStageRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
     int Stage;
+    int GroupId;
     int Floor;
     int InteriorCurrencyQuantity;
     int RoomType;
+    int GuaranteedMapId;
+    int GuaranteedMonsterPlanId;
 
     // 非序列化字段
 };
@@ -113,15 +120,34 @@ public:
     ~StarTowerEventRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
 
     int Id;
+    int OptionsRulesId;
+    int EventType;
+    int GuaranteedMapId;
     std::vector<int> RelatedNPCs;
+    int EventResType;
 
     // 非序列化字段
+    std::vector<int> OptionIds;
+};
+
+class EventOptionsRes : public ResBase {
+public:
+    EventOptionsRes() = default;
+    ~EventOptionsRes() = default;
+
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    int Id;
+    std::string Desc;
+    bool IgnoreInterActive = false;
 };
 
 class StarTowerBuildRankRes : public ResBase {
@@ -148,7 +174,7 @@ public:
     ~SubNoteSkillPromoteGroupRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -157,6 +183,26 @@ public:
     std::string SubNoteSkills;
 
     // 非序列化字段
+    ItemParamMap Items;
+};
+
+class SubNoteSkillDropGroupRes : public ResBase {
+public:
+    SubNoteSkillDropGroupRes() = default;
+    ~SubNoteSkillDropGroupRes() = default;
+
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override;
+    bool LoadFromPb(std::string data) override;
+
+    int Id;
+    int GroupId;
+    int SubNoteSkillId;
+
+    static int GetRandomDrop(int groupId);
+
+private:
+    static std::unordered_map<int, std::vector<int>> Groups;
 };
 class PotentialRes : public ResBase {
 public:
@@ -175,8 +221,13 @@ public:
     int BranchType;
     int MaxLevel;
     std::vector<int> BuildScore;
+    std::string BriefDesc;
 
     // 非序列化字段
+    bool IsSpecial() const;
+    int GetMaxLevel() const;
+    int GetMaxLevel(int extraLevels) const;
+    int GetBuildScore(int level) const;
 };
 
 class CharPotentialRes : public ResBase {
@@ -198,6 +249,7 @@ public:
     std::vector<int> AssistNormalPotentialIds;
 
     // 非序列化字段
+    std::vector<int> GetPotentialList(bool main, bool special) const;
 };
 
 class StarTowerBookFateCardBundleRes : public ResBase {
@@ -212,9 +264,9 @@ public:
     // 序列化字段
 
     int Id;
-    //int BundleId;
 
     // 非序列化字段
+    std::vector<int> CardIds;
 };
 class StarTowerBookFateCardQuestRes : public ResBase {
 public:
@@ -238,7 +290,7 @@ public:
     ~StarTowerBookFateCardRes() = default;
 
     std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
+    void OnLoad() override;
     bool LoadFromPb(std::string data) override;
 
     // 序列化字段
@@ -265,6 +317,56 @@ public:
     bool IsVampire;
     bool IsVampireSpecial;
     bool Removable;
+
+    // 非序列化字段
+    int BundleId = 0;
+};
+
+class NPCAffinityGroupRes : public ResBase {
+public:
+    NPCAffinityGroupRes() = default;
+    ~NPCAffinityGroupRes() = default;
+
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override {};
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
+
+    int Id;
+    int Level;
+    int AffinityValue;
+    int AffinityGroupId;
+    std::string RelationshipName;
+    std::string Icon;
+    int AffinityLevelStage;
+    std::string Reward;
+
+
+    // 非序列化字段
+
+};
+
+class NPCAffinityPlotRes : public ResBase {
+public:
+    NPCAffinityPlotRes() = default;
+    ~NPCAffinityPlotRes() = default;
+
+    std::string GetId() const override { return std::to_string(Id); }
+    void OnLoad() override {};
+    bool LoadFromPb(std::string data) override;
+
+    // 序列化字段
+
+    int Id;
+    std::string Name;
+    std::string Desc;
+    std::string PlotSum;
+    std::string AvgId;
+    int NPCId;
+    int AffinityLevel;
+    int ItemId;
+    int ItemQty;
 
     // 非序列化字段
 };

@@ -512,11 +512,15 @@ void LoadResources() {
     LoadRes<StarTowerFloorExpRes>(arc.get(), GameData::StarTowerFloorExpDataTable);
     LoadRes<StarTowerTeamExpRes>(arc.get(), GameData::StarTowerTeamExpDataTable);
     LoadRes<StarTowerEventRes>(arc.get(), GameData::StarTowerEventDataTable);
+    LoadRes<EventOptionsRes>(arc.get(), GameData::EventOptionsDataTable);
     LoadRes<StarTowerBuildRankRes>(arc.get(), GameData::StarTowerBuildRankDataTable);
+    LoadRes<SubNoteSkillDropGroupRes>(arc.get(), GameData::SubNoteSkillDropGroupDataTable);
     LoadRes<SubNoteSkillPromoteGroupRes>(arc.get(), GameData::SubNoteSkillPromoteGroupDataTable);
 
     LoadRes<PotentialRes>(arc.get(), GameData::PotentialDataTable);
     LoadRes<CharPotentialRes>(arc.get(), GameData::CharPotentialDataTable);
+    LoadRes<NPCAffinityGroupRes>(arc.get(), GameData::NPCAffinityGroupDataTable);
+    LoadRes<NPCAffinityPlotRes>(arc.get(), GameData::NPCAffinityPlotDataTable);
 
     LoadRes<StarTowerBookFateCardBundleRes>(arc.get(), GameData::StarTowerBookFateCardBundleDataTable);
     LoadRes<StarTowerBookFateCardQuestRes>(arc.get(), GameData::StarTowerBookFateCardQuestDataTable);

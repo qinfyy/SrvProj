@@ -186,6 +186,191 @@ message GachaCompBin {
     repeated GachaHistoryBin histories = 4;
 }
 
+message FormationInfoBin {
+    uint32 number = 1;
+    repeated uint32 charIds = 2;
+    repeated uint32 discIds = 3;
+    uint64 preselectionId = 4;
+}
+
+message FormationCompBin {
+    repeated FormationInfoBin infos = 1;
+}
+
+message TowerPotentialLevelBin {
+    uint32 id = 1;
+    uint32 level = 2;
+}
+
+message TowerPresetCharBin {
+    uint32 charId = 1;
+    repeated TowerPotentialLevelBin potentials = 2;
+}
+
+message TowerPotentialPresetBin {
+    uint64 uid = 1;
+    string name = 2;
+    bool preference = 3;
+    int64 timestamp = 4;
+    repeated TowerPresetCharBin chars = 5;
+}
+
+message TowerBuildBin {
+    uint64 uid = 1;
+    string name = 2;
+    bool lock = 3;
+    bool preference = 4;
+    uint32 score = 5;
+    repeated uint32 charIds = 6;
+    repeated uint32 discIds = 7;
+    map<uint32, uint32> charPotentials = 8;
+    map<uint32, uint32> potentials = 9;
+    map<uint32, int32> subNoteSkills = 10;
+    repeated uint32 activeSecondaryIds = 11;
+}
+
+message TowerShopGoodsBin {
+    uint32 sid = 1;
+    uint32 type = 2;
+    uint32 idx = 3;
+    uint32 goodsId = 4;
+    int32 price = 5;
+    int32 discount = 6;
+    uint32 charPos = 7;
+    bool sold = 8;
+}
+
+message TowerBattleCaseBin {
+    uint32 subNoteDrops = 1;
+    uint32 expReward = 2;
+}
+
+message TowerDoorCaseBin {
+    uint32 floorNum = 1;
+    uint32 roomType = 2;
+}
+
+message TowerPotentialCaseBin {
+    uint32 teamLevel = 1;
+    uint32 charId = 2;
+    uint32 reroll = 3;
+    uint32 rerollPrice = 4;
+    bool strengthen = 5;
+    bool rare = 6;
+    repeated TowerPotentialLevelBin potentials = 7;
+}
+
+message TowerNpcEventCaseBin {
+    uint32 npcId = 1;
+    uint32 eventId = 2;
+    repeated uint32 options = 3;
+    bool completed = 4;
+}
+
+message TowerHawkerCaseBin {
+    repeated TowerShopGoodsBin goods = 1;
+    uint32 rerollTimes = 2;
+    uint32 rerollPrice = 3;
+}
+
+message TowerStrengthenMachineCaseBin {
+    bool free = 1;
+    int32 discount = 2;
+    uint32 times = 3;
+}
+
+message TowerRecoveryHPCaseBin {
+    uint32 effectId = 1;
+}
+
+message TowerNpcRecoveryHPCaseBin {
+    uint32 effectId = 1;
+}
+
+message TowerSyncHPCaseBin {
+    bool placeholder = 1;
+}
+
+message TowerCaseBin {
+    uint32 id = 1;
+    uint32 type = 2;
+    oneof data {
+        TowerBattleCaseBin battleCase = 3;
+        TowerDoorCaseBin doorCase = 4;
+        TowerPotentialCaseBin potentialCase = 5;
+        TowerNpcEventCaseBin npcEventCase = 6;
+        TowerHawkerCaseBin hawkerCase = 7;
+        TowerStrengthenMachineCaseBin strengthenMachineCase = 8;
+        TowerRecoveryHPCaseBin recoveryHPCase = 9;
+        TowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
+        TowerSyncHPCaseBin syncHPCase = 11;
+        TowerPotentialCaseBin selectSpecialPotentialCase = 12;
+    }
+}
+
+message TowerRoomBin {
+    uint32 stageId = 1;
+    uint32 roomType = 2;
+    uint32 mapId = 3;
+    uint32 mapTableId = 4;
+    string mapParam = 5;
+    uint32 paramId = 6;
+    uint32 lastCaseId = 7;
+    bool hasDoor = 8;
+    repeated TowerCaseBin cases = 9;
+}
+
+message TowerGameBin {
+    uint32 towerId = 1;
+    uint32 formationId = 2;
+    uint64 buildId = 3;
+    uint32 floorCount = 4;
+    uint32 stageNum = 5;
+    uint32 stageFloor = 6;
+    uint32 teamLevel = 7;
+    uint32 teamExp = 8;
+    uint32 nextLevelExp = 9;
+    int32 charHp = 10;
+    uint32 battleTime = 11;
+    repeated uint32 charIds = 12;
+    repeated uint32 discIds = 13;
+    uint32 pendingPotentialCases = 14;
+    uint32 pendingRarePotentialCases = 15;
+    bool completed = 16;
+    bool sweep = 17;
+    map<uint32, int32> items = 18;
+    map<uint32, int32> res = 19;
+    map<uint32, int32> potentials = 20;
+    map<uint32, int32> rarePotentialCount = 21;
+    repeated uint32 activeSecondaryIds = 22;
+    repeated uint32 fateCards = 23;
+    TowerRoomBin room = 24;
+    repeated uint64 totalDamages = 25;
+}
+
+message TowerCompBin {
+    repeated uint32 starTowerLog = 1;
+    repeated uint32 starTowerGrowth = 2;
+    uint32 towerTickets = 3;
+    repeated TowerPotentialPresetBin presets = 4;
+    repeated TowerBuildBin builds = 5;
+    TowerGameBin currentGame = 6;
+    TowerBuildBin lastBuild = 7;
+    repeated uint32 fateCards = 8;
+    repeated uint32 bookCharIds = 9;
+    repeated uint32 bookEventIds = 10;
+    repeated uint32 bookBundles = 11;
+    repeated uint32 bookPotentialReceivedIds = 12;
+    repeated uint32 bookEventReceivedIds = 13;
+    repeated uint32 fateCardRewardReceivedIds = 14;
+    repeated uint32 npcAffinityRewardReceivedPlotIds = 15;
+    repeated uint32 npcAffinityBookNpcIds = 16;
+    repeated uint32 npcAffinityBookPlots = 17;
+    repeated uint32 npcAffinityBookLevels = 18;
+    repeated uint32 npcAffinityBookValues = 19;
+    map<uint32, uint32> bookPotentialLevels = 20;
+}
+
 message PlayerBasicCompBin {
     // int32 uid = 1;
 
@@ -225,6 +410,8 @@ message PlayerSaveData {
     MailCompBin mailComp = 7;
     GachaCompBin gachaComp = 8;
     BattlePassCompBin battlePassComp = 9;
+    FormationCompBin formationComp = 10;
+    TowerCompBin towerComp = 11;
 }
 
 message GameDiscInfoBin {

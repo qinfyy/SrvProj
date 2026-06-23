@@ -7,10 +7,12 @@
 #include "ChangeInfoUtil.h"
 #include "CharacterMgr.h"
 #include "../Config.h"
+#include "FormationMgr.h"
 #include "GachaMgr.h"
 #include "InventoryMgr.h"
 #include "MailMgr.h"
 #include "QuestMgr.h"
+#include "TowerMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../GameTime.h"
@@ -167,7 +169,9 @@ void Player::InitManagers()
     mGachaMgr = std::make_unique<GachaMgr>(this);
     mMailMgr = std::make_unique<MailMgr>(this);
     mBattlePassMgr = std::make_unique<BattlePassMgr>(this);
+    mFormationMgr = std::make_unique<FormationMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
+    mTowerMgr = std::make_unique<TowerMgr>(this);
 }
 
 bool Player::Save()
@@ -237,7 +241,9 @@ void Player::OnCreate()
     mGachaMgr->OnCreate();
     mMailMgr->OnCreate();
     mBattlePassMgr->OnCreate();
+    mFormationMgr->OnCreate();
     mQuestMgr->OnCreate();
+    mTowerMgr->OnCreate();
 }
 
 bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
@@ -262,7 +268,9 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
     mGachaMgr->OnLoad();
     mMailMgr->OnLoad();
     mBattlePassMgr->OnLoad();
+    mFormationMgr->OnLoad();
     mQuestMgr->OnLoad();
+    mTowerMgr->OnLoad();
     return true;
 }
 
@@ -275,7 +283,9 @@ std::vector<uint8_t> Player::SaveToBlob() const
     mGachaMgr->BeforeSave();
     mMailMgr->BeforeSave();
     mBattlePassMgr->BeforeSave();
+    mFormationMgr->BeforeSave();
     mQuestMgr->BeforeSave();
+    mTowerMgr->BeforeSave();
 
     std::vector<uint8_t> out(mPlayerSaveData.ByteSizeLong());
     if (!out.empty())
@@ -295,7 +305,9 @@ proto::PlayerInfo Player::ToProto()
     mInventoryMgr->EncodePlayerInfo(info);
     mMailMgr->EncodePlayerInfo(info);
     mBattlePassMgr->EncodePlayerInfo(info);
+    mFormationMgr->EncodePlayerInfo(info);
     mQuestMgr->EncodePlayerInfo(info);
+    mTowerMgr->EncodePlayerInfo(info);
     EncodeMinimalSystems(info);
 
     return info;
@@ -316,7 +328,9 @@ void Player::OnLogin()
     mGachaMgr->OnLogin();
     mMailMgr->OnLogin();
     mBattlePassMgr->OnLogin();
+    mFormationMgr->OnLogin();
     mQuestMgr->OnLogin();
+    mTowerMgr->OnLogin();
     QueueBattlePassUnlockNotify(oldLevel);
 }
 
@@ -467,6 +481,26 @@ BattlePassMgr& Player::BattlePasses()
 const BattlePassMgr& Player::BattlePasses() const
 {
     return *mBattlePassMgr;
+}
+
+FormationMgr& Player::Formations()
+{
+    return *mFormationMgr;
+}
+
+const FormationMgr& Player::Formations() const
+{
+    return *mFormationMgr;
+}
+
+TowerMgr& Player::Towers()
+{
+    return *mTowerMgr;
+}
+
+const TowerMgr& Player::Towers() const
+{
+    return *mTowerMgr;
 }
 
 AchievementMgr& Player::Achievements()
@@ -943,6 +977,8 @@ void Player::ResetDailies(bool resetWeekly, bool resetMonthly)
         {
             Inventory().AddItem(GameConstants::WeeklyEntryItemId, 3 - entries);
         }
+
+        Towers().ResetWeeklyTickets();
     }
 
     if (resetMonthly)
@@ -1036,8 +1072,8 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     state->mutable_friendenergy();
     state->mutable_mallpackage();
     state->mutable_scoreboss();
-    state->mutable_startower();
-    state->mutable_startowerbook();
+    state->mutable_startower()->CopyFrom(Towers().BuildStateProto());
+    state->mutable_startowerbook()->CopyFrom(Towers().BuildBookStateProto());
     state->mutable_worldclassreward()->set_flag(std::string(8, '\0'));
     state->mutable_travelerduelquest()->set_type(proto::TravelerDuel);
     state->set_storyset(true);
@@ -1047,7 +1083,7 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     info.add_honorlist(111001);
 
     info.mutable_agent();
-    info.mutable_formation();
+    Formations().EncodePlayerInfo(info);
     info.mutable_phone()->set_newmessage(Characters().GetNewPhoneMessageCount());
     info.mutable_story();
 

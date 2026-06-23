@@ -159,11 +159,3 @@ std::string energy_info_req__Handler(GameSession* session, const std::string& re
     session->SavePlayer();
     return EncodeReply(session, energy_info_succeed_ack, &energy);
 }
-
-std::string potential_preselection_list_req__Handler(GameSession* session, const std::string& req) {
-    if (!session || !session->HasPlayer()) {
-        return EncodeReply(session, potential_preselection_list_failed_ack);
-    }
-
-    return EncodeReply(session, potential_preselection_list_succeed_ack);
-}

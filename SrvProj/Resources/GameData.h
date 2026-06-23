@@ -76,10 +76,14 @@ class StarTowerGrowthNodeRes;
 class StarTowerFloorExpRes;
 class StarTowerTeamExpRes;
 class StarTowerEventRes;
+class EventOptionsRes;
 class StarTowerBuildRankRes;
+class SubNoteSkillDropGroupRes;
 class SubNoteSkillPromoteGroupRes;
 class PotentialRes;
 class CharPotentialRes;
+class NPCAffinityGroupRes;
+class NPCAffinityPlotRes;
 class StarTowerBookFateCardBundleRes;
 class StarTowerBookFateCardQuestRes;
 class StarTowerBookFateCardRes;
@@ -227,11 +231,15 @@ public:
     static std::unordered_map<std::string, StarTowerFloorExpRes> StarTowerFloorExpDataTable;
     static std::unordered_map<std::string, StarTowerTeamExpRes> StarTowerTeamExpDataTable;
     static std::unordered_map<std::string, StarTowerEventRes> StarTowerEventDataTable;
+    static std::unordered_map<std::string, EventOptionsRes> EventOptionsDataTable;
     static std::unordered_map<std::string, StarTowerBuildRankRes> StarTowerBuildRankDataTable;
+    static std::unordered_map<std::string, SubNoteSkillDropGroupRes> SubNoteSkillDropGroupDataTable;
     static std::unordered_map<std::string, SubNoteSkillPromoteGroupRes> SubNoteSkillPromoteGroupDataTable;
 
     static std::unordered_map<std::string, PotentialRes> PotentialDataTable;
     static std::unordered_map<std::string, CharPotentialRes> CharPotentialDataTable;
+    static std::unordered_map<std::string, NPCAffinityGroupRes> NPCAffinityGroupDataTable;
+    static std::unordered_map<std::string, NPCAffinityPlotRes> NPCAffinityPlotDataTable;
 
     static std::unordered_map<std::string, StarTowerBookFateCardBundleRes> StarTowerBookFateCardBundleDataTable;
     static std::unordered_map<std::string, StarTowerBookFateCardQuestRes> StarTowerBookFateCardQuestDataTable;
