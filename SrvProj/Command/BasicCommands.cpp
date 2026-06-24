@@ -12,6 +12,7 @@
 #include "../Resources/BinClass/CharacterRes.h"
 #include "../Resources/BinClass/DiscRes.h"
 #include "../Resources/BinClass/ItemsRes.h"
+#include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/GameData.h"
 #include "../Util.h"
 
@@ -152,6 +153,24 @@ CommandResult BasicCommands::Level(const CommandArgs& args)
     if (level <= 0)
     {
         return {true, false, U8("等级参数无效")};
+    }
+
+    if (!GameData::WorldClassDataTable.empty())
+    {
+        int minLevel = std::numeric_limits<int>::max();
+        int maxLevel = std::numeric_limits<int>::min();
+
+        for (const auto& entry : GameData::WorldClassDataTable)
+        {
+            const int supportedLevel = entry.second.Id;
+            minLevel = std::min(minLevel, supportedLevel);
+            maxLevel = std::max(maxLevel, supportedLevel);
+        }
+
+        if (minLevel <= maxLevel)
+        {
+            level = std::clamp(level, minLevel, maxLevel);
+        }
     }
 
     if (!args.target->SetWorldLevel(static_cast<uint32_t>(level)))

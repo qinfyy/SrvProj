@@ -243,7 +243,7 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
     GetPlayer()->Trigger(5, 1, static_cast<uint32_t>(data.Id), 0);
     GetPlayer()->Trigger(20, static_cast<uint32_t>(Bin().charinfolist_size()), 0, 0);
     TriggerCharacterAchievements(*charInfo);
-    return charInfo;
+    return GetCharacterById(data.Id);
 }
 
 ServerProto::CharacterInfo* CharacterStor::GetCharacterById(int id)
@@ -320,7 +320,7 @@ ServerProto::GameDiscInfoBin* CharacterStor::AddDisc(const DiscRes& data)
     SortDiscs();
     GetPlayer()->Trigger(28, 1, static_cast<uint32_t>(data.Id), 0);
     GetPlayer()->Trigger(30, static_cast<uint32_t>(Bin().gamedisclist_size()), static_cast<uint32_t>(disc->level()), 0);
-    return disc;
+    return GetDiscById(data.Id);
 }
 
 ServerProto::GameDiscInfoBin* CharacterStor::GetDiscById(int id)
