@@ -347,6 +347,7 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
         return false;
     }
 
+    TowerRoom* const originalRoom = mCurrentGame->Room.get();
     TowerCaseBase* towerCase = mCurrentGame->Room->GetCaseById(req.id());
     if (!towerCase)
     {
@@ -356,6 +357,7 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
     }
 
     rsp.set_id(req.id());
+    const bool removeAfterInteract = towerCase->RemoveAfterInteract();
     towerCase->Interact(req, rsp);
 
     if (mCurrentGame && mCurrentGame->Completed)
@@ -368,12 +370,14 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
         return true;
     }
 
-    if (towerCase->RemoveAfterInteract())
+    if (removeAfterInteract && mCurrentGame && mCurrentGame->Room && mCurrentGame->Room.get() == originalRoom)
     {
-        auto& cases = mCurrentGame->Room->Cases();
-        cases.erase(std::remove_if(cases.begin(), cases.end(), [towerCase](const std::unique_ptr<TowerCaseBase>& entry) {
-            return entry.get() == towerCase;
-        }), cases.end());
+        std::vector<std::unique_ptr<TowerCaseBase>>& roomCases = mCurrentGame->Room->Cases();
+        roomCases.erase(
+            std::remove_if(roomCases.begin(), roomCases.end(), [&req](const std::unique_ptr<TowerCaseBase>& entry) {
+                return entry && entry->GetId() == req.id();
+            }),
+            roomCases.end());
     }
 
     SaveCurrentGame();

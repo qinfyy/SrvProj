@@ -6,6 +6,47 @@
 #include "../Resources/GameData.h"
 
 #include <algorithm>
+#include <random>
+
+namespace
+{
+std::vector<uint32_t> BuildEventOptions(const StarTowerEventRes& data)
+{
+    std::vector<uint32_t> options;
+    options.reserve((std::min)(static_cast<size_t>(4), data.OptionIds.size()));
+
+    std::vector<int> candidates = data.OptionIds;
+    std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
+
+    const size_t maxOptions = (std::min)(static_cast<size_t>(4), candidates.size());
+    for (size_t i = 0; i < maxOptions; ++i)
+    {
+        if (candidates[i] > 0)
+        {
+            options.push_back(static_cast<uint32_t>(candidates[i]));
+        }
+    }
+
+    if (data.Id >= 114 && data.Id <= 116)
+    {
+        const uint32_t answerId = static_cast<uint32_t>((data.Id * 100) + 3);
+        if (std::find(options.begin(), options.end(), answerId) == options.end())
+        {
+            if (options.empty())
+            {
+                options.push_back(answerId);
+            }
+            else
+            {
+                options.front() = answerId;
+            }
+        }
+    }
+
+    std::shuffle(options.begin(), options.end(), std::mt19937{ std::random_device{}() });
+    return options;
+}
+}
 
 TowerRoom::TowerRoom(TowerRuntime::Game* game, uint32_t stageId, TowerRoomType roomType)
     : mGame(game)
@@ -100,18 +141,37 @@ proto::StarTowerRoom TowerRoom::ToProto() const
 
 std::unique_ptr<TowerCaseBase> TowerRoom::CreateNpcEventCase() const
 {
+    std::vector<const StarTowerEventRes*> candidates;
+    candidates.reserve(GameData::StarTowerEventDataTable.size());
+
     for (const auto& [_, data] : GameData::StarTowerEventDataTable)
     {
-        if (!data.RelatedNPCs.empty())
+        if (!data.RelatedNPCs.empty() && !data.OptionIds.empty())
         {
-            auto instance = std::make_unique<TowerNpcEventCase>();
-            instance->NpcId = static_cast<uint32_t>(data.RelatedNPCs.front());
-            instance->EventId = static_cast<uint32_t>(data.Id);
-            return instance;
+            candidates.push_back(&data);
         }
     }
 
-    return nullptr;
+    if (candidates.empty())
+    {
+        return nullptr;
+    }
+
+    std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
+    const StarTowerEventRes& data = *candidates.front();
+
+    std::vector<int> npcs = data.RelatedNPCs;
+    std::shuffle(npcs.begin(), npcs.end(), std::mt19937{ std::random_device{}() });
+    if (npcs.empty() || npcs.front() <= 0)
+    {
+        return nullptr;
+    }
+
+    auto instance = std::make_unique<TowerNpcEventCase>();
+    instance->NpcId = static_cast<uint32_t>(npcs.front());
+    instance->EventId = static_cast<uint32_t>(data.Id);
+    instance->Options = BuildEventOptions(data);
+    return instance;
 }
 
 std::unique_ptr<TowerCaseBase> TowerRoom::CreateDoorCase() const

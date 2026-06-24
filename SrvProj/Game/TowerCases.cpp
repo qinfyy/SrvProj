@@ -1,4 +1,4 @@
-#include "TowerCases.h"
+﻿#include "TowerCases.h"
 
 #include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
@@ -375,28 +375,36 @@ void TowerBattleCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
 
 proto::StarTowerInteractResp TowerDoorCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(GetGame()->TowerId));
+    TowerRuntime::Game* game = GetGame();
+    if (!game)
+    {
+        return rsp;
+    }
+
+    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(game->TowerId));
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return rsp;
     }
 
-    if (GetGame()->IsOnFinalFloor(towerIt->second))
+    if (game->IsOnFinalFloor(towerIt->second))
     {
-        GetGame()->Settle(true, rsp);
+        game->Settle(true, rsp);
         return rsp;
     }
 
-    if (!GetGame()->EnterNextRoom() || !GetGame()->Room)
+    std::unique_ptr<TowerRoom> keepAlive = std::move(game->Room);
+    if (!game->EnterNextRoom() || !game->Room)
     {
+        game->Room = std::move(keepAlive);
         return rsp;
     }
 
     if (req.has_enterreq())
     {
-        GetGame()->Room->SetMapInfo(req.enterreq().mapid(), req.enterreq().maptableid(), req.enterreq().mapparam(), req.enterreq().paramid());
+        game->Room->SetMapInfo(req.enterreq().mapid(), req.enterreq().maptableid(), req.enterreq().mapparam(), req.enterreq().paramid());
     }
-    rsp.mutable_enterresp()->mutable_room()->CopyFrom(GetGame()->Room->ToProto());
+    rsp.mutable_enterresp()->mutable_room()->CopyFrom(game->Room->ToProto());
     return rsp;
 }
 
