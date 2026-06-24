@@ -5,6 +5,7 @@
 #include "../proto/proto_cpp/public.pb.h"
 
 #include <cstdint>
+#include <vector>
 
 class FormationMgr : public ManagerBase
 {
@@ -27,4 +28,5 @@ private:
     void NormalizeFormation(ServerProto::FormationInfoBin& info) const;
     bool HasCharacter(uint32_t charId) const;
     bool HasDisc(uint32_t discId) const;
+    static std::vector<uint32_t> CollectPositiveIds(const google::protobuf::RepeatedField<uint32_t>& ids);
 };

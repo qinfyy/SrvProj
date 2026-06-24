@@ -11,6 +11,22 @@ namespace {
 constexpr uint32_t kMaxFormations = 10;
 }
 
+std::vector<uint32_t> FormationMgr::CollectPositiveIds(const google::protobuf::RepeatedField<uint32_t>& ids)
+{
+    std::vector<uint32_t> out;
+    out.reserve(static_cast<size_t>(ids.size()));
+
+    for (uint32_t id : ids)
+    {
+        if (id > 0)
+        {
+            out.push_back(id);
+        }
+    }
+
+    return out;
+}
+
 void FormationMgr::OnCreate()
 {
     MutableBin()->clear_infos();
@@ -121,7 +137,7 @@ bool FormationMgr::UpdateFormation(const proto::FormationInfo& info)
         return false;
     }
 
-    for (uint32_t charId : info.charids())
+    for (uint32_t charId : CollectPositiveIds(info.charids()))
     {
         if (!HasCharacter(charId))
         {
@@ -129,7 +145,7 @@ bool FormationMgr::UpdateFormation(const proto::FormationInfo& info)
         }
     }
 
-    for (uint32_t discId : info.discids())
+    for (uint32_t discId : CollectPositiveIds(info.discids()))
     {
         if (!HasDisc(discId))
         {

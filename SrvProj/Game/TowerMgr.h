@@ -93,6 +93,8 @@ public:
     void ResetWeeklyTickets();
 
 private:
+    static std::vector<uint32_t> CollectValidCharacters(const Player& player, const google::protobuf::RepeatedField<uint32_t>& charIds);
+    static std::vector<uint32_t> CollectValidDiscs(const Player& player, const google::protobuf::RepeatedField<uint32_t>& discIds);
     void InitializeDefaults();
     void LoadCurrentGame();
     void SaveCurrentGame();

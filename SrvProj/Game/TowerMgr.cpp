@@ -1,5 +1,6 @@
 #include "TowerMgr.h"
 
+#include "CharacterMgr.h"
 #include "ChangeInfoUtil.h"
 #include "FormationMgr.h"
 #include "InventoryMgr.h"
@@ -15,6 +16,7 @@
 #include "../Util.h"
 
 #include <algorithm>
+#include <limits>
 #include <string>
 
 namespace {
@@ -24,6 +26,7 @@ constexpr uint32_t kWeeklyTicketNodeSmall = 10201;
 constexpr uint32_t kWeeklyTicketNodeLarge = 10502;
 constexpr uint32_t kMaxBuilds = 100;
 constexpr uint32_t kMaxPresets = 50;
+constexpr uint32_t kQuestCondTowerEnterFloor = 538;
 
 void AddRewardToChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
 {
@@ -34,6 +37,59 @@ void AddRewardToChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
 
     ChangeInfoUtil::AddItemOrRes(change, tid, qty);
 }
+}
+
+#ifdef min
+#undef min
+#endif
+#ifdef max
+#undef max
+#endif
+
+std::vector<uint32_t> TowerMgr::CollectValidCharacters(const Player& player, const google::protobuf::RepeatedField<uint32_t>& charIds)
+{
+    std::vector<uint32_t> out;
+    out.reserve(static_cast<size_t>(charIds.size()));
+
+    for (uint32_t charId : charIds)
+    {
+        if (charId == 0)
+        {
+            continue;
+        }
+
+        if (!player.Characters().HasCharacter(static_cast<int>(charId)))
+        {
+            continue;
+        }
+
+        out.push_back(charId);
+    }
+
+    return out;
+}
+
+std::vector<uint32_t> TowerMgr::CollectValidDiscs(const Player& player, const google::protobuf::RepeatedField<uint32_t>& discIds)
+{
+    std::vector<uint32_t> out;
+    out.reserve(static_cast<size_t>(discIds.size()));
+
+    for (uint32_t discId : discIds)
+    {
+        if (discId == 0)
+        {
+            continue;
+        }
+
+        if (!player.Characters().HasDisc(static_cast<int>(discId)))
+        {
+            continue;
+        }
+
+        out.push_back(discId);
+    }
+
+    return out;
 }
 
 TowerMgr::~TowerMgr() = default;
@@ -192,11 +248,15 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
         return false;
     }
 
-    if (formation->charids_size() != 3 || formation->discids_size() < 3)
+    const auto validCharIds = CollectValidCharacters(*GetPlayer(), formation->charids());
+    const auto validDiscIds = CollectValidDiscs(*GetPlayer(), formation->discids());
+    if (validCharIds.size() != 3 || validDiscIds.size() < 3)
     {
         return false;
     }
 
+    proto::ChangeInfo change;
+    uint32_t sweepTicketId = 0;
     if (req.sweep())
     {
         if (!HasGrowthNode(kSweepGrowthNodeId))
@@ -210,7 +270,15 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
             return false;
         }
 
-        if (!GetPlayer()->Inventory().HasItem(29, 1) && !GetPlayer()->Inventory().HasItem(30, 1))
+        if (GetPlayer()->Inventory().HasItem(29, 1))
+        {
+            sweepTicketId = 29;
+        }
+        else if (GetPlayer()->Inventory().HasItem(30, 1))
+        {
+            sweepTicketId = 30;
+        }
+        else
         {
             return false;
         }
@@ -226,13 +294,16 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     game->NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
         ? 100
         : static_cast<uint32_t>((std::max)(teamExpIt->second.NeedExp, 0));
-    game->CharHp = static_cast<int32_t>(req.charhp());
+    const uint32_t invalidHp = (std::numeric_limits<uint32_t>::max)();
+    game->CharHp = req.charhp() == invalidHp
+        ? -1
+        : static_cast<int32_t>(req.charhp());
     game->Sweep = req.sweep();
     game->FloorCount = 0;
     game->StageNum = 0;
     game->StageFloor = 0;
-    game->CharIds.assign(formation->charids().begin(), formation->charids().end());
-    game->DiscIds.assign(formation->discids().begin(), formation->discids().end());
+    game->CharIds = validCharIds;
+    game->DiscIds = validDiscIds;
     game->InitializeSubNotesFromDiscs();
     game->AddStartingItems();
 
@@ -242,13 +313,19 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     }
     game->Room->SetMapInfo(req.mapid(), req.maptableid(), req.mapparam(), req.paramid());
 
+    if (sweepTicketId != 0 && !GetPlayer()->Inventory().RemoveItem(sweepTicketId, 1, &change))
+    {
+        return false;
+    }
+
     mCurrentGame = std::move(game);
     SaveCurrentGame();
+    GetPlayer()->Trigger(kQuestCondTowerEnterFloor, 1, 0, 0);
 
     rsp.set_lastid(req.id());
     rsp.set_coinqty(static_cast<uint32_t>((std::max)(mCurrentGame->GetResCount(kTowerCoinItemId), 0)));
     rsp.mutable_info()->CopyFrom(mCurrentGame->ToProto());
-    rsp.mutable_change();
+    rsp.mutable_change()->CopyFrom(change);
     return true;
 }
 

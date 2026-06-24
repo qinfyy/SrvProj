@@ -20,6 +20,9 @@ namespace TowerRuntime
 namespace
 {
 constexpr uint32_t kTowerCoinItemId = 11;
+constexpr size_t kTowerCharSlotCount = 3;
+constexpr size_t kTowerDiscSlotCount = 6;
+constexpr uint32_t kInvalidTowerHp = (std::numeric_limits<uint32_t>::max)();
 
 double RandomDouble()
 {
@@ -411,20 +414,55 @@ proto::StarTowerInfo Game::ToProto() const
     proto::StarTowerInfo out;
     auto* meta = out.mutable_meta();
     meta->set_id(TowerId);
-    meta->set_charhp(CharHp < 0 ? 0u : static_cast<uint32_t>(CharHp));
+    meta->set_charhp(CharHp < 0 ? kInvalidTowerHp : static_cast<uint32_t>(CharHp));
     meta->set_teamlevel(TeamLevel);
     meta->set_teamexp(TeamExp);
     meta->set_totaltime(BattleTime);
     meta->set_buildid(BuildId);
-    for (uint32_t charId : CharIds)
+
+    for (size_t i = 0; i < kTowerCharSlotCount; ++i)
     {
         auto* ch = meta->add_chars();
-        ch->set_id(charId);
+        if (i >= CharIds.size() || !Manager)
+        {
+            continue;
+        }
+
+        const auto* character = Manager->GetPlayer()->Characters().GetCharacterById(static_cast<int>(CharIds[i]));
+        if (!character)
+        {
+            continue;
+        }
+
+        ch->set_id(static_cast<uint32_t>(character->charid()));
+        ch->set_level(character->level());
+        ch->set_affinitylevel(character->affinitylevel());
+        ch->set_advance(character->advance());
+        ch->set_talentnodes(character->talents());
+        for (uint32_t skillLv : character->skills())
+        {
+            ch->add_skilllvs(skillLv);
+        }
     }
-    for (uint32_t discId : DiscIds)
+
+    for (size_t i = 0; i < kTowerDiscSlotCount; ++i)
     {
         auto* disc = meta->add_discs();
-        disc->set_id(discId);
+        if (i >= DiscIds.size() || !Manager)
+        {
+            continue;
+        }
+
+        const auto* discInfo = Manager->GetPlayer()->Characters().GetDiscById(static_cast<int>(DiscIds[i]));
+        if (!discInfo)
+        {
+            continue;
+        }
+
+        disc->set_id(static_cast<uint32_t>(discInfo->discid()));
+        disc->set_level(static_cast<uint32_t>(discInfo->level()));
+        disc->set_phase(static_cast<uint32_t>((std::max)(discInfo->phase(), 0)));
+        disc->set_star(static_cast<uint32_t>((std::max)(discInfo->star(), 0)));
     }
     for (uint32_t secondaryId : ActiveSecondaryIds)
     {
