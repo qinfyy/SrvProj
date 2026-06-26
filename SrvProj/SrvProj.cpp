@@ -97,7 +97,7 @@ int main() {
 
     //GetServerList();
     //GetNoticeList();
-    AccountServer server("0.0.0.0", 21000);
+    AccountServer server(Config::Get().httpServerConfig.ip, Config::Get().httpServerConfig.port);
     if (!server.Start()) {
         return 1;
     }

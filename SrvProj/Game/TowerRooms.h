@@ -44,6 +44,7 @@ public:
 
     uint32_t GetNextCaseId();
     TowerCaseBase* AddCase(std::unique_ptr<TowerCaseBase> towerCase);
+    TowerCaseBase* AddLoadedCase(std::unique_ptr<TowerCaseBase> towerCase);
     TowerCaseBase* GetCaseById(uint32_t id) const;
     std::vector<std::unique_ptr<TowerCaseBase>>& Cases() { return mCases; }
     const std::vector<std::unique_ptr<TowerCaseBase>>& Cases() const { return mCases; }

@@ -227,6 +227,7 @@ message TowerBuildBin {
     map<uint32, uint32> potentials = 9;
     map<uint32, int32> subNoteSkills = 10;
     repeated uint32 activeSecondaryIds = 11;
+    uint32 towerId = 12;
 }
 
 message TowerShopGoodsBin {
@@ -346,6 +347,9 @@ message TowerGameBin {
     repeated uint32 fateCards = 23;
     TowerRoomBin room = 24;
     repeated uint64 totalDamages = 25;
+    uint32 shopRerollTimes = 26;
+    uint32 shopRerollPrice = 27;
+    bool freeStrengthenAvailable = 28;
 }
 
 message TowerCompBin {

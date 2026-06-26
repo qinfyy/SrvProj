@@ -989,6 +989,7 @@ inline constexpr TowerBuildBin::Impl_::Impl_(
         lock_{false},
         preference_{false},
         score_{0u},
+        towerid_{0u},
         charpotentials_{},
         potentials_{},
         subnoteskills_{} {}
@@ -1704,6 +1705,9 @@ inline constexpr TowerGameBin::Impl_::Impl_(
         pendingrarepotentialcases_{0u},
         completed_{false},
         sweep_{false},
+        freestrengthenavailable_{false},
+        shoprerolltimes_{0u},
+        shoprerollprice_{0u},
         items_{},
         res_{},
         potentials_{},
@@ -2296,7 +2300,7 @@ const ::uint32_t
         1,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_._has_bits_),
-        14, // hasbit index offset
+        15, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.uid_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.name_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.lock_),
@@ -2308,6 +2312,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.potentials_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.subnoteskills_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.activesecondaryids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.towerid_),
         4,
         3,
         5,
@@ -2315,10 +2320,11 @@ const ::uint32_t
         7,
         0,
         1,
-        8,
         9,
         10,
+        11,
         2,
+        8,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_._has_bits_),
         11, // hasbit index offset
@@ -2493,7 +2499,7 @@ const ::uint32_t
         1,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_._has_bits_),
-        28, // hasbit index offset
+        31, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.towerid_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.formationid_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.buildid_),
@@ -2519,6 +2525,9 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.fatecards_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.room_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.totaldamages_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.shoprerolltimes_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.shoprerollprice_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.freestrengthenavailable_),
         6,
         7,
         8,
@@ -2536,14 +2545,17 @@ const ::uint32_t
         18,
         19,
         20,
-        21,
-        22,
-        23,
         24,
+        25,
+        26,
+        27,
         2,
         3,
         5,
         4,
+        22,
+        23,
+        21,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
@@ -2744,30 +2756,30 @@ static const ::_pbi::MigrationSchema
         {426, sizeof(::ServerProto::TowerBuildBin_PotentialsEntry_DoNotUse)},
         {433, sizeof(::ServerProto::TowerBuildBin_SubNoteSkillsEntry_DoNotUse)},
         {440, sizeof(::ServerProto::TowerBuildBin)},
-        {465, sizeof(::ServerProto::TowerShopGoodsBin)},
-        {484, sizeof(::ServerProto::TowerBattleCaseBin)},
-        {491, sizeof(::ServerProto::TowerDoorCaseBin)},
-        {498, sizeof(::ServerProto::TowerPotentialCaseBin)},
-        {515, sizeof(::ServerProto::TowerNpcEventCaseBin)},
-        {526, sizeof(::ServerProto::TowerHawkerCaseBin)},
-        {535, sizeof(::ServerProto::TowerStrengthenMachineCaseBin)},
-        {544, sizeof(::ServerProto::TowerRecoveryHPCaseBin)},
-        {549, sizeof(::ServerProto::TowerNpcRecoveryHPCaseBin)},
-        {554, sizeof(::ServerProto::TowerSyncHPCaseBin)},
-        {559, sizeof(::ServerProto::TowerCaseBin)},
-        {588, sizeof(::ServerProto::TowerRoomBin)},
-        {609, sizeof(::ServerProto::TowerGameBin_ItemsEntry_DoNotUse)},
-        {616, sizeof(::ServerProto::TowerGameBin_ResEntry_DoNotUse)},
-        {623, sizeof(::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse)},
-        {630, sizeof(::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse)},
-        {637, sizeof(::ServerProto::TowerGameBin)},
-        {690, sizeof(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse)},
-        {697, sizeof(::ServerProto::TowerCompBin)},
-        {740, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
-        {747, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
-        {754, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {801, sizeof(::ServerProto::PlayerSaveData)},
-        {824, sizeof(::ServerProto::GameDiscInfoBin)},
+        {467, sizeof(::ServerProto::TowerShopGoodsBin)},
+        {486, sizeof(::ServerProto::TowerBattleCaseBin)},
+        {493, sizeof(::ServerProto::TowerDoorCaseBin)},
+        {500, sizeof(::ServerProto::TowerPotentialCaseBin)},
+        {517, sizeof(::ServerProto::TowerNpcEventCaseBin)},
+        {528, sizeof(::ServerProto::TowerHawkerCaseBin)},
+        {537, sizeof(::ServerProto::TowerStrengthenMachineCaseBin)},
+        {546, sizeof(::ServerProto::TowerRecoveryHPCaseBin)},
+        {551, sizeof(::ServerProto::TowerNpcRecoveryHPCaseBin)},
+        {556, sizeof(::ServerProto::TowerSyncHPCaseBin)},
+        {561, sizeof(::ServerProto::TowerCaseBin)},
+        {590, sizeof(::ServerProto::TowerRoomBin)},
+        {611, sizeof(::ServerProto::TowerGameBin_ItemsEntry_DoNotUse)},
+        {618, sizeof(::ServerProto::TowerGameBin_ResEntry_DoNotUse)},
+        {625, sizeof(::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse)},
+        {632, sizeof(::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse)},
+        {639, sizeof(::ServerProto::TowerGameBin)},
+        {698, sizeof(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse)},
+        {705, sizeof(::ServerProto::TowerCompBin)},
+        {748, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
+        {755, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
+        {762, sizeof(::ServerProto::PlayerBasicCompBin)},
+        {809, sizeof(::ServerProto::PlayerSaveData)},
+        {832, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
@@ -2957,7 +2969,7 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "TowerPotentialPresetBin\022\013\n\003uid\030\001 \001(\004\022\014\n\004"
     "name\030\002 \001(\t\022\022\n\npreference\030\003 \001(\010\022\021\n\ttimest"
     "amp\030\004 \001(\003\022.\n\005chars\030\005 \003(\0132\037.ServerProto.T"
-    "owerPresetCharBin\"\207\004\n\rTowerBuildBin\022\013\n\003u"
+    "owerPresetCharBin\"\230\004\n\rTowerBuildBin\022\013\n\003u"
     "id\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\014\n\004lock\030\003 \001(\010\022\022\n\n"
     "preference\030\004 \001(\010\022\r\n\005score\030\005 \001(\r\022\017\n\007charI"
     "ds\030\006 \003(\r\022\017\n\007discIds\030\007 \003(\r\022F\n\016charPotenti"
@@ -2966,137 +2978,139 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "ServerProto.TowerBuildBin.PotentialsEntr"
     "y\022D\n\rsubNoteSkills\030\n \003(\0132-.ServerProto.T"
     "owerBuildBin.SubNoteSkillsEntry\022\032\n\022activ"
-    "eSecondaryIds\030\013 \003(\r\0325\n\023CharPotentialsEnt"
-    "ry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0321\n\017Po"
-    "tentialsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001("
-    "\r:\0028\001\0324\n\022SubNoteSkillsEntry\022\013\n\003key\030\001 \001(\r"
-    "\022\r\n\005value\030\002 \001(\005:\0028\001\"\214\001\n\021TowerShopGoodsBi"
-    "n\022\013\n\003sid\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\022\013\n\003idx\030\003 \001("
-    "\r\022\017\n\007goodsId\030\004 \001(\r\022\r\n\005price\030\005 \001(\005\022\020\n\010dis"
-    "count\030\006 \001(\005\022\017\n\007charPos\030\007 \001(\r\022\014\n\004sold\030\010 \001"
-    "(\010\"=\n\022TowerBattleCaseBin\022\024\n\014subNoteDrops"
-    "\030\001 \001(\r\022\021\n\texpReward\030\002 \001(\r\"6\n\020TowerDoorCa"
-    "seBin\022\020\n\010floorNum\030\001 \001(\r\022\020\n\010roomType\030\002 \001("
-    "\r\"\272\001\n\025TowerPotentialCaseBin\022\021\n\tteamLevel"
-    "\030\001 \001(\r\022\016\n\006charId\030\002 \001(\r\022\016\n\006reroll\030\003 \001(\r\022\023"
-    "\n\013rerollPrice\030\004 \001(\r\022\022\n\nstrengthen\030\005 \001(\010\022"
-    "\014\n\004rare\030\006 \001(\010\0227\n\npotentials\030\007 \003(\0132#.Serv"
-    "erProto.TowerPotentialLevelBin\"Z\n\024TowerN"
-    "pcEventCaseBin\022\r\n\005npcId\030\001 \001(\r\022\017\n\007eventId"
-    "\030\002 \001(\r\022\017\n\007options\030\003 \003(\r\022\021\n\tcompleted\030\004 \001"
-    "(\010\"m\n\022TowerHawkerCaseBin\022-\n\005goods\030\001 \003(\0132"
-    "\036.ServerProto.TowerShopGoodsBin\022\023\n\013rerol"
-    "lTimes\030\002 \001(\r\022\023\n\013rerollPrice\030\003 \001(\r\"N\n\035Tow"
-    "erStrengthenMachineCaseBin\022\014\n\004free\030\001 \001(\010"
-    "\022\020\n\010discount\030\002 \001(\005\022\r\n\005times\030\003 \001(\r\"*\n\026Tow"
-    "erRecoveryHPCaseBin\022\020\n\010effectId\030\001 \001(\r\"-\n"
-    "\031TowerNpcRecoveryHPCaseBin\022\020\n\010effectId\030\001"
-    " \001(\r\")\n\022TowerSyncHPCaseBin\022\023\n\013placeholde"
-    "r\030\001 \001(\010\"\233\005\n\014TowerCaseBin\022\n\n\002id\030\001 \001(\r\022\014\n\004"
-    "type\030\002 \001(\r\0225\n\nbattleCase\030\003 \001(\0132\037.ServerP"
-    "roto.TowerBattleCaseBinH\000\0221\n\010doorCase\030\004 "
-    "\001(\0132\035.ServerProto.TowerDoorCaseBinH\000\022;\n\r"
-    "potentialCase\030\005 \001(\0132\".ServerProto.TowerP"
-    "otentialCaseBinH\000\0229\n\014npcEventCase\030\006 \001(\0132"
-    "!.ServerProto.TowerNpcEventCaseBinH\000\0225\n\n"
-    "hawkerCase\030\007 \001(\0132\037.ServerProto.TowerHawk"
-    "erCaseBinH\000\022K\n\025strengthenMachineCase\030\010 \001"
-    "(\0132*.ServerProto.TowerStrengthenMachineC"
-    "aseBinH\000\022=\n\016recoveryHPCase\030\t \001(\0132#.Serve"
-    "rProto.TowerRecoveryHPCaseBinH\000\022C\n\021npcRe"
-    "coveryHPCase\030\n \001(\0132&.ServerProto.TowerNp"
-    "cRecoveryHPCaseBinH\000\0225\n\nsyncHPCase\030\013 \001(\013"
-    "2\037.ServerProto.TowerSyncHPCaseBinH\000\022H\n\032s"
-    "electSpecialPotentialCase\030\014 \001(\0132\".Server"
-    "Proto.TowerPotentialCaseBinH\000B\006\n\004data\"\306\001"
-    "\n\014TowerRoomBin\022\017\n\007stageId\030\001 \001(\r\022\020\n\010roomT"
-    "ype\030\002 \001(\r\022\r\n\005mapId\030\003 \001(\r\022\022\n\nmapTableId\030\004"
-    " \001(\r\022\020\n\010mapParam\030\005 \001(\t\022\017\n\007paramId\030\006 \001(\r\022"
-    "\022\n\nlastCaseId\030\007 \001(\r\022\017\n\007hasDoor\030\010 \001(\010\022(\n\005"
-    "cases\030\t \003(\0132\031.ServerProto.TowerCaseBin\"\215"
-    "\007\n\014TowerGameBin\022\017\n\007towerId\030\001 \001(\r\022\023\n\013form"
-    "ationId\030\002 \001(\r\022\017\n\007buildId\030\003 \001(\004\022\022\n\nfloorC"
-    "ount\030\004 \001(\r\022\020\n\010stageNum\030\005 \001(\r\022\022\n\nstageFlo"
-    "or\030\006 \001(\r\022\021\n\tteamLevel\030\007 \001(\r\022\017\n\007teamExp\030\010"
-    " \001(\r\022\024\n\014nextLevelExp\030\t \001(\r\022\016\n\006charHp\030\n \001"
-    "(\005\022\022\n\nbattleTime\030\013 \001(\r\022\017\n\007charIds\030\014 \003(\r\022"
-    "\017\n\007discIds\030\r \003(\r\022\035\n\025pendingPotentialCase"
-    "s\030\016 \001(\r\022!\n\031pendingRarePotentialCases\030\017 \001"
-    "(\r\022\021\n\tcompleted\030\020 \001(\010\022\r\n\005sweep\030\021 \001(\010\0223\n\005"
-    "items\030\022 \003(\0132$.ServerProto.TowerGameBin.I"
-    "temsEntry\022/\n\003res\030\023 \003(\0132\".ServerProto.Tow"
-    "erGameBin.ResEntry\022=\n\npotentials\030\024 \003(\0132)"
-    ".ServerProto.TowerGameBin.PotentialsEntr"
-    "y\022M\n\022rarePotentialCount\030\025 \003(\01321.ServerPr"
-    "oto.TowerGameBin.RarePotentialCountEntry"
-    "\022\032\n\022activeSecondaryIds\030\026 \003(\r\022\021\n\tfateCard"
-    "s\030\027 \003(\r\022\'\n\004room\030\030 \001(\0132\031.ServerProto.Towe"
-    "rRoomBin\022\024\n\014totalDamages\030\031 \003(\004\032,\n\nItemsE"
-    "ntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\032*\n\010"
-    "ResEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001"
-    "\0321\n\017PotentialsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005valu"
-    "e\030\002 \001(\005:\0028\001\0329\n\027RarePotentialCountEntry\022\013"
-    "\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\"\375\005\n\014Tower"
-    "CompBin\022\024\n\014starTowerLog\030\001 \003(\r\022\027\n\017starTow"
-    "erGrowth\030\002 \003(\r\022\024\n\014towerTickets\030\003 \001(\r\0225\n\007"
-    "presets\030\004 \003(\0132$.ServerProto.TowerPotenti"
-    "alPresetBin\022*\n\006builds\030\005 \003(\0132\032.ServerProt"
-    "o.TowerBuildBin\022.\n\013currentGame\030\006 \001(\0132\031.S"
-    "erverProto.TowerGameBin\022-\n\tlastBuild\030\007 \001"
-    "(\0132\032.ServerProto.TowerBuildBin\022\021\n\tfateCa"
-    "rds\030\010 \003(\r\022\023\n\013bookCharIds\030\t \003(\r\022\024\n\014bookEv"
-    "entIds\030\n \003(\r\022\023\n\013bookBundles\030\013 \003(\r\022 \n\030boo"
-    "kPotentialReceivedIds\030\014 \003(\r\022\034\n\024bookEvent"
-    "ReceivedIds\030\r \003(\r\022!\n\031fateCardRewardRecei"
-    "vedIds\030\016 \003(\r\022(\n npcAffinityRewardReceive"
-    "dPlotIds\030\017 \003(\r\022\035\n\025npcAffinityBookNpcIds\030"
-    "\020 \003(\r\022\034\n\024npcAffinityBookPlots\030\021 \003(\r\022\035\n\025n"
-    "pcAffinityBookLevels\030\022 \003(\r\022\035\n\025npcAffinit"
-    "yBookValues\030\023 \003(\r\022O\n\023bookPotentialLevels"
-    "\030\024 \003(\01322.ServerProto.TowerCompBin.BookPo"
-    "tentialLevelsEntry\032:\n\030BookPotentialLevel"
-    "sEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\"\275"
-    "\005\n\022PlayerBasicCompBin\022\022\n\ncreateTime\030\002 \001("
-    "\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006ge"
-    "nder\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n\006skinId\030\007"
-    " \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013titleSuffix"
-    "\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021\n\t"
-    "showChars\030\014 \003(\005\022\016\n\006boards\030\r \003(\005\022\r\n\005level"
-    "\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n\020e"
-    "nergyLastUpdate\030\021 \001(\003\022\023\n\013signInIndex\030\022 \001"
-    "(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022\021\n\tlastLogin\030\024 "
-    "\001(\003\022Y\n\025monthlyCardExpireDays\030\025 \003(\0132:.Ser"
-    "verProto.PlayerBasicCompBin.MonthlyCardE"
-    "xpireDaysEntry\022a\n\031monthlyCardLastRewardD"
-    "ays\030\026 \003(\0132>.ServerProto.PlayerBasicCompB"
-    "in.MonthlyCardLastRewardDaysEntry\022\023\n\013per"
-    "missions\030\027 \003(\t\032<\n\032MonthlyCardExpireDaysE"
-    "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032@\n\036"
-    "MonthlyCardLastRewardDaysEntry\022\013\n\003key\030\001 "
-    "\001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\212\004\n\016PlayerSaveDat"
-    "a\0223\n\nplayerdata\030\002 \001(\0132\037.ServerProto.Play"
-    "erBasicCompBin\022/\n\010charComp\030\003 \001(\0132\035.Serve"
-    "rProto.CharacterCompBin\022,\n\tquestComp\030\004 \001"
-    "(\0132\031.ServerProto.QuestCompBin\0228\n\017achieve"
-    "mentComp\030\005 \001(\0132\037.ServerProto.Achievement"
-    "CompBin\0224\n\rinventoryComp\030\006 \001(\0132\035.ServerP"
-    "roto.InventoryCompBin\022*\n\010mailComp\030\007 \001(\0132"
-    "\030.ServerProto.MailCompBin\022,\n\tgachaComp\030\010"
-    " \001(\0132\031.ServerProto.GachaCompBin\0226\n\016battl"
-    "ePassComp\030\t \001(\0132\036.ServerProto.BattlePass"
-    "CompBin\0224\n\rformationComp\030\n \001(\0132\035.ServerP"
-    "roto.FormationCompBin\022,\n\ttowerComp\030\013 \001(\013"
-    "2\031.ServerProto.TowerCompBin\"\211\001\n\017GameDisc"
-    "InfoBin\022\016\n\006discId\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013"
-    "\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005"
-    "\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncreateTim"
-    "e\030\t \001(\003b\006proto3"
+    "eSecondaryIds\030\013 \003(\r\022\017\n\007towerId\030\014 \001(\r\0325\n\023"
+    "CharPotentialsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005valu"
+    "e\030\002 \001(\r:\0028\001\0321\n\017PotentialsEntry\022\013\n\003key\030\001 "
+    "\001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0324\n\022SubNoteSkillsE"
+    "ntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\"\214\001\n"
+    "\021TowerShopGoodsBin\022\013\n\003sid\030\001 \001(\r\022\014\n\004type\030"
+    "\002 \001(\r\022\013\n\003idx\030\003 \001(\r\022\017\n\007goodsId\030\004 \001(\r\022\r\n\005p"
+    "rice\030\005 \001(\005\022\020\n\010discount\030\006 \001(\005\022\017\n\007charPos\030"
+    "\007 \001(\r\022\014\n\004sold\030\010 \001(\010\"=\n\022TowerBattleCaseBi"
+    "n\022\024\n\014subNoteDrops\030\001 \001(\r\022\021\n\texpReward\030\002 \001"
+    "(\r\"6\n\020TowerDoorCaseBin\022\020\n\010floorNum\030\001 \001(\r"
+    "\022\020\n\010roomType\030\002 \001(\r\"\272\001\n\025TowerPotentialCas"
+    "eBin\022\021\n\tteamLevel\030\001 \001(\r\022\016\n\006charId\030\002 \001(\r\022"
+    "\016\n\006reroll\030\003 \001(\r\022\023\n\013rerollPrice\030\004 \001(\r\022\022\n\n"
+    "strengthen\030\005 \001(\010\022\014\n\004rare\030\006 \001(\010\0227\n\npotent"
+    "ials\030\007 \003(\0132#.ServerProto.TowerPotentialL"
+    "evelBin\"Z\n\024TowerNpcEventCaseBin\022\r\n\005npcId"
+    "\030\001 \001(\r\022\017\n\007eventId\030\002 \001(\r\022\017\n\007options\030\003 \003(\r"
+    "\022\021\n\tcompleted\030\004 \001(\010\"m\n\022TowerHawkerCaseBi"
+    "n\022-\n\005goods\030\001 \003(\0132\036.ServerProto.TowerShop"
+    "GoodsBin\022\023\n\013rerollTimes\030\002 \001(\r\022\023\n\013rerollP"
+    "rice\030\003 \001(\r\"N\n\035TowerStrengthenMachineCase"
+    "Bin\022\014\n\004free\030\001 \001(\010\022\020\n\010discount\030\002 \001(\005\022\r\n\005t"
+    "imes\030\003 \001(\r\"*\n\026TowerRecoveryHPCaseBin\022\020\n\010"
+    "effectId\030\001 \001(\r\"-\n\031TowerNpcRecoveryHPCase"
+    "Bin\022\020\n\010effectId\030\001 \001(\r\")\n\022TowerSyncHPCase"
+    "Bin\022\023\n\013placeholder\030\001 \001(\010\"\233\005\n\014TowerCaseBi"
+    "n\022\n\n\002id\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\0225\n\nbattleCas"
+    "e\030\003 \001(\0132\037.ServerProto.TowerBattleCaseBin"
+    "H\000\0221\n\010doorCase\030\004 \001(\0132\035.ServerProto.Tower"
+    "DoorCaseBinH\000\022;\n\rpotentialCase\030\005 \001(\0132\".S"
+    "erverProto.TowerPotentialCaseBinH\000\0229\n\014np"
+    "cEventCase\030\006 \001(\0132!.ServerProto.TowerNpcE"
+    "ventCaseBinH\000\0225\n\nhawkerCase\030\007 \001(\0132\037.Serv"
+    "erProto.TowerHawkerCaseBinH\000\022K\n\025strength"
+    "enMachineCase\030\010 \001(\0132*.ServerProto.TowerS"
+    "trengthenMachineCaseBinH\000\022=\n\016recoveryHPC"
+    "ase\030\t \001(\0132#.ServerProto.TowerRecoveryHPC"
+    "aseBinH\000\022C\n\021npcRecoveryHPCase\030\n \001(\0132&.Se"
+    "rverProto.TowerNpcRecoveryHPCaseBinH\000\0225\n"
+    "\nsyncHPCase\030\013 \001(\0132\037.ServerProto.TowerSyn"
+    "cHPCaseBinH\000\022H\n\032selectSpecialPotentialCa"
+    "se\030\014 \001(\0132\".ServerProto.TowerPotentialCas"
+    "eBinH\000B\006\n\004data\"\306\001\n\014TowerRoomBin\022\017\n\007stage"
+    "Id\030\001 \001(\r\022\020\n\010roomType\030\002 \001(\r\022\r\n\005mapId\030\003 \001("
+    "\r\022\022\n\nmapTableId\030\004 \001(\r\022\020\n\010mapParam\030\005 \001(\t\022"
+    "\017\n\007paramId\030\006 \001(\r\022\022\n\nlastCaseId\030\007 \001(\r\022\017\n\007"
+    "hasDoor\030\010 \001(\010\022(\n\005cases\030\t \003(\0132\031.ServerPro"
+    "to.TowerCaseBin\"\340\007\n\014TowerGameBin\022\017\n\007towe"
+    "rId\030\001 \001(\r\022\023\n\013formationId\030\002 \001(\r\022\017\n\007buildI"
+    "d\030\003 \001(\004\022\022\n\nfloorCount\030\004 \001(\r\022\020\n\010stageNum\030"
+    "\005 \001(\r\022\022\n\nstageFloor\030\006 \001(\r\022\021\n\tteamLevel\030\007"
+    " \001(\r\022\017\n\007teamExp\030\010 \001(\r\022\024\n\014nextLevelExp\030\t "
+    "\001(\r\022\016\n\006charHp\030\n \001(\005\022\022\n\nbattleTime\030\013 \001(\r\022"
+    "\017\n\007charIds\030\014 \003(\r\022\017\n\007discIds\030\r \003(\r\022\035\n\025pen"
+    "dingPotentialCases\030\016 \001(\r\022!\n\031pendingRareP"
+    "otentialCases\030\017 \001(\r\022\021\n\tcompleted\030\020 \001(\010\022\r"
+    "\n\005sweep\030\021 \001(\010\0223\n\005items\030\022 \003(\0132$.ServerPro"
+    "to.TowerGameBin.ItemsEntry\022/\n\003res\030\023 \003(\0132"
+    "\".ServerProto.TowerGameBin.ResEntry\022=\n\np"
+    "otentials\030\024 \003(\0132).ServerProto.TowerGameB"
+    "in.PotentialsEntry\022M\n\022rarePotentialCount"
+    "\030\025 \003(\01321.ServerProto.TowerGameBin.RarePo"
+    "tentialCountEntry\022\032\n\022activeSecondaryIds\030"
+    "\026 \003(\r\022\021\n\tfateCards\030\027 \003(\r\022\'\n\004room\030\030 \001(\0132\031"
+    ".ServerProto.TowerRoomBin\022\024\n\014totalDamage"
+    "s\030\031 \003(\004\022\027\n\017shopRerollTimes\030\032 \001(\r\022\027\n\017shop"
+    "RerollPrice\030\033 \001(\r\022\037\n\027freeStrengthenAvail"
+    "able\030\034 \001(\010\032,\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\r\n"
+    "\005value\030\002 \001(\005:\0028\001\032*\n\010ResEntry\022\013\n\003key\030\001 \001("
+    "\r\022\r\n\005value\030\002 \001(\005:\0028\001\0321\n\017PotentialsEntry\022"
+    "\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\0329\n\027RareP"
+    "otentialCountEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value"
+    "\030\002 \001(\005:\0028\001\"\375\005\n\014TowerCompBin\022\024\n\014starTower"
+    "Log\030\001 \003(\r\022\027\n\017starTowerGrowth\030\002 \003(\r\022\024\n\014to"
+    "werTickets\030\003 \001(\r\0225\n\007presets\030\004 \003(\0132$.Serv"
+    "erProto.TowerPotentialPresetBin\022*\n\006build"
+    "s\030\005 \003(\0132\032.ServerProto.TowerBuildBin\022.\n\013c"
+    "urrentGame\030\006 \001(\0132\031.ServerProto.TowerGame"
+    "Bin\022-\n\tlastBuild\030\007 \001(\0132\032.ServerProto.Tow"
+    "erBuildBin\022\021\n\tfateCards\030\010 \003(\r\022\023\n\013bookCha"
+    "rIds\030\t \003(\r\022\024\n\014bookEventIds\030\n \003(\r\022\023\n\013book"
+    "Bundles\030\013 \003(\r\022 \n\030bookPotentialReceivedId"
+    "s\030\014 \003(\r\022\034\n\024bookEventReceivedIds\030\r \003(\r\022!\n"
+    "\031fateCardRewardReceivedIds\030\016 \003(\r\022(\n npcA"
+    "ffinityRewardReceivedPlotIds\030\017 \003(\r\022\035\n\025np"
+    "cAffinityBookNpcIds\030\020 \003(\r\022\034\n\024npcAffinity"
+    "BookPlots\030\021 \003(\r\022\035\n\025npcAffinityBookLevels"
+    "\030\022 \003(\r\022\035\n\025npcAffinityBookValues\030\023 \003(\r\022O\n"
+    "\023bookPotentialLevels\030\024 \003(\01322.ServerProto"
+    ".TowerCompBin.BookPotentialLevelsEntry\032:"
+    "\n\030BookPotentialLevelsEntry\022\013\n\003key\030\001 \001(\r\022"
+    "\r\n\005value\030\002 \001(\r:\0028\001\"\275\005\n\022PlayerBasicCompBi"
+    "n\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\ts"
+    "ignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIc"
+    "on\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013titlePrefix\030"
+    "\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005music\030\n \001("
+    "\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006b"
+    "oards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022"
+    "\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUpdate\030\021 \001("
+    "\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastEpochDay\030\023"
+    " \001(\003\022\021\n\tlastLogin\030\024 \001(\003\022Y\n\025monthlyCardEx"
+    "pireDays\030\025 \003(\0132:.ServerProto.PlayerBasic"
+    "CompBin.MonthlyCardExpireDaysEntry\022a\n\031mo"
+    "nthlyCardLastRewardDays\030\026 \003(\0132>.ServerPr"
+    "oto.PlayerBasicCompBin.MonthlyCardLastRe"
+    "wardDaysEntry\022\023\n\013permissions\030\027 \003(\t\032<\n\032Mo"
+    "nthlyCardExpireDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
+    "\005value\030\002 \001(\r:\0028\001\032@\n\036MonthlyCardLastRewar"
+    "dDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002"
+    "8\001\"\212\004\n\016PlayerSaveData\0223\n\nplayerdata\030\002 \001("
+    "\0132\037.ServerProto.PlayerBasicCompBin\022/\n\010ch"
+    "arComp\030\003 \001(\0132\035.ServerProto.CharacterComp"
+    "Bin\022,\n\tquestComp\030\004 \001(\0132\031.ServerProto.Que"
+    "stCompBin\0228\n\017achievementComp\030\005 \001(\0132\037.Ser"
+    "verProto.AchievementCompBin\0224\n\rinventory"
+    "Comp\030\006 \001(\0132\035.ServerProto.InventoryCompBi"
+    "n\022*\n\010mailComp\030\007 \001(\0132\030.ServerProto.MailCo"
+    "mpBin\022,\n\tgachaComp\030\010 \001(\0132\031.ServerProto.G"
+    "achaCompBin\0226\n\016battlePassComp\030\t \001(\0132\036.Se"
+    "rverProto.BattlePassCompBin\0224\n\rformation"
+    "Comp\030\n \001(\0132\035.ServerProto.FormationCompBi"
+    "n\022,\n\ttowerComp\030\013 \001(\0132\031.ServerProto.Tower"
+    "CompBin\"\211\001\n\017GameDiscInfoBin\022\016\n\006discId\030\002 "
+    "\001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase"
+    "\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003av"
+    "g\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006proto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    10015,
+    10115,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
@@ -16051,9 +16065,9 @@ TowerBuildBin::TowerBuildBin(
                offsetof(Impl_, uid_),
            reinterpret_cast<const char*>(&from._impl_) +
                offsetof(Impl_, uid_),
-           offsetof(Impl_, score_) -
+           offsetof(Impl_, towerid_) -
                offsetof(Impl_, uid_) +
-               sizeof(Impl_::score_));
+               sizeof(Impl_::towerid_));
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.TowerBuildBin)
 }
@@ -16077,9 +16091,9 @@ inline void TowerBuildBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, uid_),
            0,
-           offsetof(Impl_, score_) -
+           offsetof(Impl_, towerid_) -
                offsetof(Impl_, uid_) +
-               sizeof(Impl_::score_));
+               sizeof(Impl_::towerid_));
 }
 TowerBuildBin::~TowerBuildBin() {
   // @@protoc_insertion_point(destructor:ServerProto.TowerBuildBin)
@@ -16171,16 +16185,16 @@ TowerBuildBin::GetClassData() const {
   return TowerBuildBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 11, 3, 46, 2>
+const ::_pbi::TcParseTable<4, 12, 3, 46, 2>
 TowerBuildBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_._has_bits_),
     0, // no _extensions_
-    11, 120,  // max_field_number, fast_idx_mask
+    12, 120,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294965248,  // skipmap
+    4294963200,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    11,  // num_field_entries
+    12,  // num_field_entries
     3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     TowerBuildBin_class_data_.base(),
@@ -16226,7 +16240,10 @@ TowerBuildBin::_table_ = {
     {::_pbi::TcParser::FastV32P1,
      {90, 2, 0,
       PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.activesecondaryids_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 towerId = 12;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin, _impl_.towerid_), 8>(),
+     {96, 8, 0,
+      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.towerid_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -16248,13 +16265,15 @@ TowerBuildBin::_table_ = {
     // repeated uint32 discIds = 7;
     {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.discids_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // map<uint32, uint32> charPotentials = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charpotentials_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charpotentials_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, uint32> potentials = 9;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.potentials_), _Internal::kHasBitsOffset + 9, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.potentials_), _Internal::kHasBitsOffset + 10, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> subNoteSkills = 10;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.subnoteskills_), _Internal::kHasBitsOffset + 10, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.subnoteskills_), _Internal::kHasBitsOffset + 11, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // repeated uint32 activeSecondaryIds = 11;
     {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // uint32 towerId = 12;
+    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.towerid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   {{
       {::_pbi::TcParser::GetMapAuxInfo(
@@ -16297,14 +16316,15 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
         reinterpret_cast<char*>(&_impl_.score_) -
         reinterpret_cast<char*>(&_impl_.uid_)) + sizeof(_impl_.score_));
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000f00U)) {
+    _impl_.towerid_ = 0u;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
       _impl_.charpotentials_.Clear();
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
       _impl_.potentials_.Clear();
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000800U)) {
       _impl_.subnoteskills_.Clear();
     }
   }
@@ -16400,7 +16420,7 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
   }
 
   // map<uint32, uint32> charPotentials = 8;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
     if (!this_._internal_charpotentials().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::uint32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::uint32_t,
@@ -16423,7 +16443,7 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
   }
 
   // map<uint32, uint32> potentials = 9;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
     if (!this_._internal_potentials().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::uint32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::uint32_t,
@@ -16446,7 +16466,7 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
   }
 
   // map<uint32, int32> subNoteSkills = 10;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000800U)) {
     if (!this_._internal_subnoteskills().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::int32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::int32_t,
@@ -16476,6 +16496,15 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
         target = stream->WriteUInt32Packed(
             11, this_._internal_activesecondaryids(), byte_size, target);
       }
+    }
+  }
+
+  // uint32 towerId = 12;
+  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (this_._internal_towerid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          12, this_._internal_towerid(), target);
     }
   }
 
@@ -16560,9 +16589,16 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
       }
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000f00U)) {
+    // uint32 towerId = 12;
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (this_._internal_towerid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_towerid());
+      }
+    }
     // map<uint32, uint32> charPotentials = 8;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
       total_size +=
           1 * ::google::protobuf::internal::FromIntSize(this_._internal_charpotentials_size());
       for (const auto& entry : this_._internal_charpotentials()) {
@@ -16572,7 +16608,7 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
       }
     }
     // map<uint32, uint32> potentials = 9;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
       total_size +=
           1 * ::google::protobuf::internal::FromIntSize(this_._internal_potentials_size());
       for (const auto& entry : this_._internal_potentials()) {
@@ -16582,7 +16618,7 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
       }
     }
     // map<uint32, int32> subNoteSkills = 10;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000800U)) {
       total_size +=
           1 * ::google::protobuf::internal::FromIntSize(this_._internal_subnoteskills_size());
       for (const auto& entry : this_._internal_subnoteskills()) {
@@ -16650,14 +16686,19 @@ void TowerBuildBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       }
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
-      _this->_impl_.charpotentials_.MergeFrom(from._impl_.charpotentials_);
+  if (BatchCheckHasBit(cached_has_bits, 0x00000f00U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (from._internal_towerid() != 0) {
+        _this->_impl_.towerid_ = from._impl_.towerid_;
+      }
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
-      _this->_impl_.potentials_.MergeFrom(from._impl_.potentials_);
+      _this->_impl_.charpotentials_.MergeFrom(from._impl_.charpotentials_);
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      _this->_impl_.potentials_.MergeFrom(from._impl_.potentials_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000800U)) {
       _this->_impl_.subnoteskills_.MergeFrom(from._impl_.subnoteskills_);
     }
   }
@@ -16685,8 +16726,8 @@ void TowerBuildBin::InternalSwap(TowerBuildBin* PROTOBUF_RESTRICT PROTOBUF_NONNU
   _impl_.activesecondaryids_.InternalSwap(&other->_impl_.activesecondaryids_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.score_)
-      + sizeof(TowerBuildBin::_impl_.score_)
+      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.towerid_)
+      + sizeof(TowerBuildBin::_impl_.towerid_)
       - PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
@@ -21850,9 +21891,9 @@ TowerGameBin::TowerGameBin(
                offsetof(Impl_, towerid_),
            reinterpret_cast<const char*>(&from._impl_) +
                offsetof(Impl_, towerid_),
-           offsetof(Impl_, sweep_) -
+           offsetof(Impl_, shoprerollprice_) -
                offsetof(Impl_, towerid_) +
-               sizeof(Impl_::sweep_));
+               sizeof(Impl_::shoprerollprice_));
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.TowerGameBin)
 }
@@ -21880,9 +21921,9 @@ inline void TowerGameBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, room_),
            0,
-           offsetof(Impl_, sweep_) -
+           offsetof(Impl_, shoprerollprice_) -
                offsetof(Impl_, room_) +
-               sizeof(Impl_::sweep_));
+               sizeof(Impl_::shoprerollprice_));
 }
 TowerGameBin::~TowerGameBin() {
   // @@protoc_insertion_point(destructor:ServerProto.TowerGameBin)
@@ -21986,16 +22027,16 @@ TowerGameBin::GetClassData() const {
   return TowerGameBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 25, 5, 0, 2>
+const ::_pbi::TcParseTable<5, 28, 5, 0, 2>
 TowerGameBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_._has_bits_),
     0, // no _extensions_
-    25, 248,  // max_field_number, fast_idx_mask
+    28, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4261412864,  // skipmap
+    4026531840,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    25,  // num_field_entries
+    28,  // num_field_entries
     5,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     TowerGameBin_class_data_.base(),
@@ -22094,9 +22135,18 @@ TowerGameBin::_table_ = {
     {::_pbi::TcParser::FastV64P2,
      {458, 4, 0,
       PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.totaldamages_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 shopRerollTimes = 26;
+    {::_pbi::TcParser::FastV32S2,
+     {464, 22, 0,
+      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerolltimes_)}},
+    // uint32 shopRerollPrice = 27;
+    {::_pbi::TcParser::FastV32S2,
+     {472, 23, 0,
+      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerollprice_)}},
+    // bool freeStrengthenAvailable = 28;
+    {::_pbi::TcParser::FastV8S2,
+     {480, 21, 0,
+      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.freestrengthenavailable_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -22138,13 +22188,13 @@ TowerGameBin::_table_ = {
     // bool sweep = 17;
     {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.sweep_), _Internal::kHasBitsOffset + 20, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // map<uint32, int32> items = 18;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.items_), _Internal::kHasBitsOffset + 21, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.items_), _Internal::kHasBitsOffset + 24, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> res = 19;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.res_), _Internal::kHasBitsOffset + 22, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.res_), _Internal::kHasBitsOffset + 25, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> potentials = 20;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.potentials_), _Internal::kHasBitsOffset + 23, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.potentials_), _Internal::kHasBitsOffset + 26, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> rarePotentialCount = 21;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.rarepotentialcount_), _Internal::kHasBitsOffset + 24, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.rarepotentialcount_), _Internal::kHasBitsOffset + 27, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // repeated uint32 activeSecondaryIds = 22;
     {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 fateCards = 23;
@@ -22153,6 +22203,12 @@ TowerGameBin::_table_ = {
     {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.room_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated uint64 totalDamages = 25;
     {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.totaldamages_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt64)},
+    // uint32 shopRerollTimes = 26;
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerolltimes_), _Internal::kHasBitsOffset + 22, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 shopRerollPrice = 27;
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerollprice_), _Internal::kHasBitsOffset + 23, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bool freeStrengthenAvailable = 28;
+    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.freestrengthenavailable_), _Internal::kHasBitsOffset + 21, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::TowerRoomBin>()},
@@ -22209,20 +22265,22 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
   }
   if (BatchCheckHasBit(cached_has_bits, 0x00ff0000U)) {
     ::memset(&_impl_.battletime_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.sweep_) -
-        reinterpret_cast<char*>(&_impl_.battletime_)) + sizeof(_impl_.sweep_));
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
+        reinterpret_cast<char*>(&_impl_.shoprerollprice_) -
+        reinterpret_cast<char*>(&_impl_.battletime_)) + sizeof(_impl_.shoprerollprice_));
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0f000000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
       _impl_.items_.Clear();
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00400000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x02000000U)) {
       _impl_.res_.Clear();
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00800000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x04000000U)) {
       _impl_.potentials_.Clear();
     }
-  }
-  if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
-    _impl_.rarepotentialcount_.Clear();
+    if (CheckHasBitForRepeated(cached_has_bits, 0x08000000U)) {
+      _impl_.rarepotentialcount_.Clear();
+    }
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -22405,7 +22463,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
   }
 
   // map<uint32, int32> items = 18;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
     if (!this_._internal_items().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::int32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::int32_t,
@@ -22428,7 +22486,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
   }
 
   // map<uint32, int32> res = 19;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00400000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x02000000U)) {
     if (!this_._internal_res().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::int32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::int32_t,
@@ -22451,7 +22509,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
   }
 
   // map<uint32, int32> potentials = 20;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00800000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x04000000U)) {
     if (!this_._internal_potentials().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::int32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::int32_t,
@@ -22474,7 +22532,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
   }
 
   // map<uint32, int32> rarePotentialCount = 21;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x08000000U)) {
     if (!this_._internal_rarepotentialcount().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::int32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::int32_t,
@@ -22533,6 +22591,33 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
         target = stream->WriteUInt64Packed(
             25, this_._internal_totaldamages(), byte_size, target);
       }
+    }
+  }
+
+  // uint32 shopRerollTimes = 26;
+  if (CheckHasBit(cached_has_bits, 0x00400000U)) {
+    if (this_._internal_shoprerolltimes() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          26, this_._internal_shoprerolltimes(), target);
+    }
+  }
+
+  // uint32 shopRerollPrice = 27;
+  if (CheckHasBit(cached_has_bits, 0x00800000U)) {
+    if (this_._internal_shoprerollprice() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          27, this_._internal_shoprerollprice(), target);
+    }
+  }
+
+  // bool freeStrengthenAvailable = 28;
+  if (CheckHasBit(cached_has_bits, 0x00200000U)) {
+    if (this_._internal_freestrengthenavailable() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          28, this_._internal_freestrengthenavailable(), target);
     }
   }
 
@@ -22709,8 +22794,30 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
         total_size += 3;
       }
     }
+    // bool freeStrengthenAvailable = 28;
+    if (CheckHasBit(cached_has_bits, 0x00200000U)) {
+      if (this_._internal_freestrengthenavailable() != 0) {
+        total_size += 3;
+      }
+    }
+    // uint32 shopRerollTimes = 26;
+    if (CheckHasBit(cached_has_bits, 0x00400000U)) {
+      if (this_._internal_shoprerolltimes() != 0) {
+        total_size += 2 + ::_pbi::WireFormatLite::UInt32Size(
+                                        this_._internal_shoprerolltimes());
+      }
+    }
+    // uint32 shopRerollPrice = 27;
+    if (CheckHasBit(cached_has_bits, 0x00800000U)) {
+      if (this_._internal_shoprerollprice() != 0) {
+        total_size += 2 + ::_pbi::WireFormatLite::UInt32Size(
+                                        this_._internal_shoprerollprice());
+      }
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0f000000U)) {
     // map<uint32, int32> items = 18;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_items_size());
       for (const auto& entry : this_._internal_items()) {
@@ -22720,7 +22827,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
       }
     }
     // map<uint32, int32> res = 19;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00400000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x02000000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_res_size());
       for (const auto& entry : this_._internal_res()) {
@@ -22730,7 +22837,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
       }
     }
     // map<uint32, int32> potentials = 20;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00800000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x04000000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_potentials_size());
       for (const auto& entry : this_._internal_potentials()) {
@@ -22739,10 +22846,8 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
                                        _pbi::WireFormatLite::TYPE_INT32>::ByteSizeLong(entry.first, entry.second);
       }
     }
-  }
-   {
     // map<uint32, int32> rarePotentialCount = 21;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x08000000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_rarepotentialcount_size());
       for (const auto& entry : this_._internal_rarepotentialcount()) {
@@ -22874,18 +22979,35 @@ void TowerGameBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.sweep_ = from._impl_.sweep_;
       }
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00200000U)) {
-      _this->_impl_.items_.MergeFrom(from._impl_.items_);
+    if (CheckHasBit(cached_has_bits, 0x00200000U)) {
+      if (from._internal_freestrengthenavailable() != 0) {
+        _this->_impl_.freestrengthenavailable_ = from._impl_.freestrengthenavailable_;
+      }
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00400000U)) {
-      _this->_impl_.res_.MergeFrom(from._impl_.res_);
+    if (CheckHasBit(cached_has_bits, 0x00400000U)) {
+      if (from._internal_shoprerolltimes() != 0) {
+        _this->_impl_.shoprerolltimes_ = from._impl_.shoprerolltimes_;
+      }
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00800000U)) {
-      _this->_impl_.potentials_.MergeFrom(from._impl_.potentials_);
+    if (CheckHasBit(cached_has_bits, 0x00800000U)) {
+      if (from._internal_shoprerollprice() != 0) {
+        _this->_impl_.shoprerollprice_ = from._impl_.shoprerollprice_;
+      }
     }
   }
-  if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
-    _this->_impl_.rarepotentialcount_.MergeFrom(from._impl_.rarepotentialcount_);
+  if (BatchCheckHasBit(cached_has_bits, 0x0f000000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x01000000U)) {
+      _this->_impl_.items_.MergeFrom(from._impl_.items_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x02000000U)) {
+      _this->_impl_.res_.MergeFrom(from._impl_.res_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x04000000U)) {
+      _this->_impl_.potentials_.MergeFrom(from._impl_.potentials_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x08000000U)) {
+      _this->_impl_.rarepotentialcount_.MergeFrom(from._impl_.rarepotentialcount_);
+    }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
@@ -22910,8 +23032,8 @@ void TowerGameBin::InternalSwap(TowerGameBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   _impl_.fatecards_.InternalSwap(&other->_impl_.fatecards_);
   _impl_.totaldamages_.InternalSwap(&other->_impl_.totaldamages_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.sweep_)
-      + sizeof(TowerGameBin::_impl_.sweep_)
+      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerollprice_)
+      + sizeof(TowerGameBin::_impl_.shoprerollprice_)
       - PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.room_)>(
           reinterpret_cast<char*>(&_impl_.room_),
           reinterpret_cast<char*>(&other->_impl_.room_));

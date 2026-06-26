@@ -2,9 +2,13 @@
 
 #include "CharacterMgr.h"
 #include "Player.h"
+#include "TowerCases.h"
 #include "TowerRooms.h"
 #include "TowerMgr.h"
+#include "AchievementMgr.h"
+#include "../GameConstants.h"
 #include "../Game/ChangeInfoUtil.h"
+#include "../Resources/BinClass/CharacterRes.h"
 #include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/BinClass/DiscRes.h"
 #include "../Resources/BinClass/StarTowerRes.h"
@@ -14,12 +18,16 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <random>
 
 namespace TowerRuntime
 {
 namespace
 {
-constexpr uint32_t kTowerCoinItemId = 11;
+constexpr int kItemSubTypeRes = 1;
+constexpr int kItemSubTypeSubNoteSkill = 19;
+constexpr int kItemSubTypePotential = 41;
+constexpr int kItemSubTypeSpecificPotential = 42;
 constexpr size_t kTowerCharSlotCount = 3;
 constexpr size_t kTowerDiscSlotCount = 6;
 constexpr uint32_t kInvalidTowerHp = (std::numeric_limits<uint32_t>::max)();
@@ -118,6 +126,7 @@ void Build::LoadFromBin(const ServerProto::TowerBuildBin& bin)
     Lock = bin.lock();
     Preference = bin.preference();
     Score = bin.score();
+    TowerId = bin.towerid();
 
     CharIds.assign(bin.charids().begin(), bin.charids().end());
     DiscIds.assign(bin.discids().begin(), bin.discids().end());
@@ -150,6 +159,7 @@ void Build::SaveToBin(ServerProto::TowerBuildBin& bin) const
     bin.set_lock(Lock);
     bin.set_preference(Preference);
     bin.set_score(Score);
+    bin.set_towerid(TowerId);
 
     for (uint32_t charId : CharIds)
     {
@@ -185,6 +195,7 @@ proto::StarTowerBuildBrief Build::ToBriefProto() const
     out.set_lock(Lock);
     out.set_preference(Preference);
     out.set_score(Score);
+    out.set_startowerid(TowerId);
 
     for (uint32_t discId : DiscIds)
     {
@@ -288,6 +299,7 @@ proto::StarTowerBuildInfo Build::ToProto() const
     copy.DiscIds = DiscIds;
     copy.Name = Name;
     copy.Uid = Uid;
+    copy.TowerId = TowerId;
     copy.Lock = Lock;
     copy.Preference = Preference;
 
@@ -522,6 +534,9 @@ void Game::SaveToBin(ServerProto::TowerGameBin& bin) const
     bin.set_battletime(BattleTime);
     bin.set_pendingpotentialcases(PendingPotentialCases);
     bin.set_pendingrarepotentialcases(PendingRarePotentialCases);
+    bin.set_shoprerolltimes(ShopRerollTimes);
+    bin.set_shoprerollprice(ShopRerollPrice);
+    bin.set_freestrengthenavailable(FreeStrengthenAvailable);
     bin.set_completed(Completed);
     bin.set_sweep(Sweep);
     for (uint32_t id : CharIds)
@@ -581,6 +596,9 @@ void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
     BattleTime = bin.battletime();
     PendingPotentialCases = bin.pendingpotentialcases();
     PendingRarePotentialCases = bin.pendingrarepotentialcases();
+    ShopRerollTimes = bin.shoprerolltimes();
+    ShopRerollPrice = bin.shoprerollprice();
+    FreeStrengthenAvailable = bin.freestrengthenavailable();
     Completed = bin.completed();
     Sweep = bin.sweep();
 
@@ -610,6 +628,34 @@ void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
     {
         RarePotentialCount.emplace_back(tid, count);
     }
+
+}
+
+void Game::InitModifierState()
+{
+    ShopRerollTimes = 0;
+    ShopRerollPrice = 0;
+    FreeStrengthenAvailable = false;
+
+    if (!Manager)
+    {
+        return;
+    }
+
+    if (Manager->HasGrowthNode(20902))
+    {
+        ++ShopRerollTimes;
+    }
+    if (Manager->HasGrowthNode(30601))
+    {
+        ++ShopRerollTimes;
+    }
+    if (ShopRerollTimes > 0)
+    {
+        ShopRerollPrice = 100;
+    }
+
+    FreeStrengthenAvailable = Manager->HasGrowthNode(10801);
 }
 
 int Game::GetItemCount(uint32_t id) const
@@ -711,9 +757,8 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
     }
 
     const int itemSubType = itemIt->second.Stype;
-    const int itemType = itemIt->second.Type;
 
-    if (itemSubType == 20 || itemSubType == 21)
+    if (itemSubType == kItemSubTypePotential || itemSubType == kItemSubTypeSpecificPotential)
     {
         const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(id));
         if (potentialIt == GameData::PotentialDataTable.end())
@@ -780,8 +825,17 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
         return true;
     }
 
-    if (itemType == ChangeInfoUtil::ItemType::Res)
+    if (itemSubType == kItemSubTypeRes)
     {
+        if (count < 0)
+        {
+            count = (std::max)(count, -GetResCount(id));
+        }
+        if (count == 0)
+        {
+            return false;
+        }
+
         bool found = false;
         for (auto& [tid, qty] : Res)
         {
@@ -803,7 +857,25 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
             info.set_qty(count);
             ChangeInfoUtil::AddProp(*change, info);
         }
+        if (count > 0 && Manager && Manager->GetPlayer())
+        {
+            Manager->GetPlayer()->Trigger(513, static_cast<uint32_t>(count), id, 0);
+        }
         return true;
+    }
+
+    if (itemSubType != kItemSubTypeSubNoteSkill)
+    {
+        return false;
+    }
+
+    if (count < 0)
+    {
+        count = (std::max)(count, -GetItemCount(id));
+    }
+    if (count == 0)
+    {
+        return false;
     }
 
     bool found = false;
@@ -828,7 +900,51 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
         info.set_qty(count);
         ChangeInfoUtil::AddProp(*change, info);
     }
+    if (count > 0 && Manager && Manager->GetPlayer())
+    {
+        Manager->GetPlayer()->Trigger(513, static_cast<uint32_t>(count), id, 0);
+    }
+    if (count > 0 && change)
+    {
+        bool newFound = false;
+        for (auto& [tid, qty] : NewInfos)
+        {
+            if (tid == id)
+            {
+                qty += count;
+                newFound = true;
+                break;
+            }
+        }
+        if (!newFound)
+        {
+            NewInfos.emplace_back(id, count);
+        }
+    }
     return true;
+}
+
+void Game::FlushNewInfos(proto::TowerChangeData* data)
+{
+    if (!data || NewInfos.empty())
+    {
+        return;
+    }
+
+    for (const auto& [tid, count] : NewInfos)
+    {
+        if (tid == 0 || count == 0)
+        {
+            continue;
+        }
+
+        auto* info = data->add_infos();
+        info->set_tid(tid);
+        info->set_qty(count);
+    }
+
+    RefreshSecondarySkills(data);
+    NewInfos.clear();
 }
 
 void Game::AddPotentialSelectors(uint32_t amount)
@@ -839,6 +955,238 @@ void Game::AddPotentialSelectors(uint32_t amount)
 void Game::AddRarePotentialSelectors(uint32_t amount)
 {
     PendingRarePotentialCases += amount;
+}
+
+std::unique_ptr<TowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bool rare)
+{
+    if (rare && charId != 0 && GetRarePotentialCount(charId) >= 2)
+    {
+        return nullptr;
+    }
+
+    if (charId == 0 && !CharIds.empty())
+    {
+        std::vector<uint32_t> candidates = CharIds;
+        if (rare)
+        {
+            candidates.erase(
+                std::remove_if(candidates.begin(), candidates.end(), [this](uint32_t id) {
+                    return GetRarePotentialCount(id) >= 2;
+                }),
+                candidates.end());
+        }
+        if (!candidates.empty())
+        {
+            const size_t charIndex = static_cast<size_t>(RandomInt(0, static_cast<int>(candidates.size() - 1)));
+            charId = candidates[charIndex];
+        }
+    }
+
+    if (charId == 0)
+    {
+        return nullptr;
+    }
+
+    const auto charIt = GameData::CharPotentialDataTable.find(std::to_string(charId));
+    if (charIt == GameData::CharPotentialDataTable.end())
+    {
+        return nullptr;
+    }
+
+    auto candidates = charIt->second.GetPotentialList(!CharIds.empty() && CharIds.front() == charId, rare);
+    std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
+
+    auto casePtr = std::make_unique<TowerPotentialCase>();
+    casePtr->TeamLevel = TeamLevel;
+    casePtr->CharId = charId;
+    casePtr->Rare = rare;
+    casePtr->RerollPrice = GetPotentialRerollPrice();
+    casePtr->Reroll = GetPotentialRerollCount();
+
+    for (int potentialId : candidates)
+    {
+        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+        if (potentialIt == GameData::PotentialDataTable.end())
+        {
+            continue;
+        }
+        if (GetPotentialLevel(static_cast<uint32_t>(potentialId)) >= potentialIt->second.GetMaxLevel(GetExtraPotentialMaxLevel()))
+        {
+            continue;
+        }
+
+        const uint32_t potentialTid = static_cast<uint32_t>(potentialId);
+        uint32_t level = 1;
+        if (GetItemCount(potentialTid) == 0)
+        {
+            if (RandomChance(GetBonusPotentialChance()))
+            {
+                level += GetBonusPotentialLevel();
+            }
+        }
+        else if (RandomChance(GetBonusStrengthenChance()))
+        {
+            ++level;
+        }
+
+        casePtr->Potentials.push_back({ potentialTid, level });
+        if (casePtr->Potentials.size() >= 3)
+        {
+            break;
+        }
+    }
+
+    if (casePtr->Potentials.empty())
+    {
+        return nullptr;
+    }
+    return std::unique_ptr<TowerCaseBase>(std::move(casePtr));
+}
+
+std::unique_ptr<TowerCaseBase> Game::CreateRarePotentialSelector()
+{
+    return CreatePotentialSelector(0, true);
+}
+
+std::unique_ptr<TowerCaseBase> Game::CreateStrengthenSelector()
+{
+    auto casePtr = std::make_unique<TowerPotentialCase>();
+    casePtr->TeamLevel = TeamLevel;
+    casePtr->Strengthen = true;
+    casePtr->RerollPrice = GetPotentialRerollPrice();
+    casePtr->Reroll = GetPotentialRerollCount();
+
+    std::vector<uint32_t> candidates;
+    candidates.reserve(Potentials.size());
+    for (const auto& [potentialId, level] : Potentials)
+    {
+        if (level <= 0)
+        {
+            continue;
+        }
+        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+        if (potentialIt == GameData::PotentialDataTable.end())
+        {
+            continue;
+        }
+        if (level >= potentialIt->second.GetMaxLevel(GetExtraPotentialMaxLevel()))
+        {
+            continue;
+        }
+        candidates.push_back(potentialId);
+    }
+    std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
+
+    for (uint32_t potentialId : candidates)
+    {
+        uint32_t level = 1;
+        if (RandomChance(GetBonusStrengthenChance()))
+        {
+            ++level;
+        }
+        casePtr->Potentials.push_back({ potentialId, level });
+        if (casePtr->Potentials.size() >= 3)
+        {
+            break;
+        }
+    }
+
+    if (casePtr->Potentials.empty())
+    {
+        return nullptr;
+    }
+    return std::unique_ptr<TowerCaseBase>(std::move(casePtr));
+}
+
+void Game::HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp)
+{
+    if (!Room)
+    {
+        return;
+    }
+
+    if (PendingRarePotentialCases > 0)
+    {
+        --PendingRarePotentialCases;
+        auto selector = CreateRarePotentialSelector();
+        if (selector)
+        {
+            auto* added = Room->AddCase(std::move(selector));
+            if (added)
+            {
+                rsp.add_cases()->CopyFrom(added->ToProto());
+            }
+            return;
+        }
+        ++PendingPotentialCases;
+    }
+
+    if (PendingPotentialCases > 0)
+    {
+        --PendingPotentialCases;
+        auto selector = CreatePotentialSelector();
+        if (selector)
+        {
+            auto* added = Room->AddCase(std::move(selector));
+            if (added)
+            {
+                rsp.add_cases()->CopyFrom(added->ToProto());
+            }
+            return;
+        }
+    }
+
+    if (Room->HasDoor())
+    {
+        return;
+    }
+
+    auto* door = Room->AddCase(Room->CreateDoorCase());
+    if (door)
+    {
+        rsp.add_cases()->CopyFrom(door->ToProto());
+    }
+
+    if (Room->GetType() == TowerRoomType::FinalBossRoom)
+    {
+        auto* hawker = Room->AddCase(std::make_unique<TowerHawkerCase>());
+        if (hawker)
+        {
+            rsp.add_cases()->CopyFrom(hawker->ToProto());
+        }
+        if (GetDifficulty() >= 2 && Manager && Manager->HasGrowthNode(10601))
+        {
+            auto* machine = Room->AddCase(std::make_unique<TowerStrengthenMachineCase>());
+            if (machine)
+            {
+                rsp.add_cases()->CopyFrom(machine->ToProto());
+            }
+        }
+    }
+    else if (Room->GetType() == TowerRoomType::BattleRoom)
+    {
+        TowerCaseBase* added = nullptr;
+        if (RandomChance(GetBattleNpcEventChance()))
+        {
+            added = Room->AddCase(Room->CreateNpcEventCase());
+        }
+        if (!added)
+        {
+            added = Room->AddCase(std::make_unique<TowerNpcRecoveryHPCase>());
+        }
+        if (added)
+        {
+            rsp.add_cases()->CopyFrom(added->ToProto());
+        }
+    }
+    else if (dynamic_cast<TowerBattleRoom*>(Room.get()) != nullptr)
+    {
+        auto* added = Room->AddCase(std::make_unique<TowerNpcRecoveryHPCase>());
+        if (added)
+        {
+            rsp.add_cases()->CopyFrom(added->ToProto());
+        }
+    }
 }
 
 uint32_t Game::GetDifficulty() const
@@ -859,15 +1207,315 @@ int Game::GetExtraPotentialMaxLevel() const
         return 0;
     }
 
-    if (GetDifficulty() >= 7 && Manager->HasGrowthNode(30301))
+    if (Manager->HasGrowthNode(30301))
     {
         return 3;
     }
-    if (GetDifficulty() >= 6 && Manager->HasGrowthNode(20601))
+    if (Manager->HasGrowthNode(20601))
     {
         return 1;
     }
     return 0;
+}
+
+uint32_t Game::GetPotentialRerollCount() const
+{
+    return Manager && Manager->HasGrowthNode(20901) ? 1u : 0u;
+}
+
+uint32_t Game::GetPotentialRerollPrice() const
+{
+    if (!Manager || !Manager->HasGrowthNode(20901))
+    {
+        return 0;
+    }
+
+    uint32_t discount = 0;
+    if (Manager->HasGrowthNode(30702))
+    {
+        discount = 60;
+    }
+    else if (Manager->HasGrowthNode(30401))
+    {
+        discount = 40;
+    }
+    else if (Manager->HasGrowthNode(30101))
+    {
+        discount = 30;
+    }
+    return 100u - discount;
+}
+
+double Game::GetBonusPotentialChance() const
+{
+    if (!Manager)
+    {
+        return 0.0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 7 && Manager->HasGrowthNode(30901))
+    {
+        return 0.3;
+    }
+    if (difficulty >= 7 && Manager->HasGrowthNode(30801))
+    {
+        return 0.2;
+    }
+    if (difficulty >= 6 && Manager->HasGrowthNode(30201))
+    {
+        return 0.1;
+    }
+    if (difficulty >= 5 && Manager->HasGrowthNode(20801))
+    {
+        return 0.05;
+    }
+    return 0.0;
+}
+
+uint32_t Game::GetBonusPotentialLevel() const
+{
+    return Manager && GetDifficulty() >= 7 && Manager->HasGrowthNode(30901) ? 2u : 1u;
+}
+
+double Game::GetBonusStrengthenChance() const
+{
+    if (!Manager)
+    {
+        return 0.0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 7 && Manager->HasGrowthNode(30802))
+    {
+        return 0.3;
+    }
+    if (difficulty >= 6 && Manager->HasGrowthNode(30502))
+    {
+        return 0.2;
+    }
+    if (difficulty >= 6 && Manager->HasGrowthNode(30202))
+    {
+        return 0.1;
+    }
+    return 0.0;
+}
+
+double Game::GetBattleSubNoteDropChance() const
+{
+    if (!Manager)
+    {
+        return 1.0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 4 && Manager->HasGrowthNode(20401))
+    {
+        return 1.6;
+    }
+    if (difficulty >= 3 && Manager->HasGrowthNode(20101))
+    {
+        return 1.45;
+    }
+    if (difficulty >= 2 && Manager->HasGrowthNode(10401))
+    {
+        return 1.3;
+    }
+    if (Manager->HasGrowthNode(10101))
+    {
+        return 1.15;
+    }
+    return 1.0;
+}
+
+double Game::GetBonusSubNoteChance() const
+{
+    if (!Manager)
+    {
+        return 0.0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 6 && Manager->HasGrowthNode(30501))
+    {
+        return 0.2;
+    }
+    if (difficulty >= 4 && Manager->HasGrowthNode(20501))
+    {
+        return 0.1;
+    }
+    if (difficulty >= 3 && Manager->HasGrowthNode(20201))
+    {
+        return 0.1;
+    }
+    return 0.0;
+}
+
+uint32_t Game::GetBonusSubNotes() const
+{
+    if (!Manager)
+    {
+        return 0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 6 && Manager->HasGrowthNode(30501))
+    {
+        return 2;
+    }
+    if (difficulty >= 4 && Manager->HasGrowthNode(20501))
+    {
+        return 2;
+    }
+    if (difficulty >= 3 && Manager->HasGrowthNode(20201))
+    {
+        return 1;
+    }
+    return 0;
+}
+
+uint32_t Game::GetBonusBossSubNotes() const
+{
+    if (!Manager)
+    {
+        return 0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 7 && Manager->HasGrowthNode(30701))
+    {
+        return 3;
+    }
+    if (difficulty >= 5 && Manager->HasGrowthNode(20701))
+    {
+        return 2;
+    }
+    if (difficulty >= 3 && Manager->HasGrowthNode(10701))
+    {
+        return 1;
+    }
+    return 0;
+}
+
+double Game::GetBonusCoinChance() const
+{
+    if (!Manager)
+    {
+        return 0.0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 3 && Manager->HasGrowthNode(10802))
+    {
+        return 0.5;
+    }
+    if (difficulty >= 2 && Manager->HasGrowthNode(10503))
+    {
+        return 0.3;
+    }
+    if (Manager->HasGrowthNode(10203))
+    {
+        return 0.1;
+    }
+    return 0.0;
+}
+
+uint32_t Game::GetBonusCoinCount() const
+{
+    if (!Manager)
+    {
+        return 0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 3 && Manager->HasGrowthNode(10802))
+    {
+        return 30;
+    }
+    if (difficulty >= 2 && Manager->HasGrowthNode(10503))
+    {
+        return 30;
+    }
+    if (Manager->HasGrowthNode(10203))
+    {
+        return 10;
+    }
+    return 0;
+}
+
+uint32_t Game::GetShopGoodsCount() const
+{
+    if (!Manager)
+    {
+        return 2;
+    }
+
+    if (Manager->HasGrowthNode(20702))
+    {
+        return 8;
+    }
+    if (Manager->HasGrowthNode(20402))
+    {
+        return 6;
+    }
+    if (Manager->HasGrowthNode(10402))
+    {
+        return 4;
+    }
+    return 2;
+}
+
+uint32_t Game::GetStrengthenDiscount() const
+{
+    if (!Manager)
+    {
+        return 0;
+    }
+
+    if (Manager->HasGrowthNode(30402))
+    {
+        return 60;
+    }
+    if (Manager->HasGrowthNode(30102))
+    {
+        return 30;
+    }
+    return 0;
+}
+
+double Game::GetBattleNpcEventChance() const
+{
+    if (!Manager)
+    {
+        return 0.0;
+    }
+
+    const uint32_t difficulty = GetDifficulty();
+    if (difficulty >= 4 && Manager->HasGrowthNode(20503))
+    {
+        return 0.3;
+    }
+    if (difficulty >= 3 && Manager->HasGrowthNode(10901))
+    {
+        return 0.2;
+    }
+    return 0.0;
+}
+
+bool Game::ConsumeShopReroll()
+{
+    if (ShopRerollTimes == 0)
+    {
+        return false;
+    }
+
+    --ShopRerollTimes;
+    return true;
+}
+
+void Game::ConsumeFreeStrengthen()
+{
+    FreeStrengthenAvailable = false;
 }
 
 int Game::GetRandomSubNoteId() const
@@ -896,6 +1544,7 @@ void Game::RefreshSecondarySkills(proto::TowerChangeData* data)
 
     if (data)
     {
+        uint32_t newSecondaryCount = 0;
         for (uint32_t id : nextSkills)
         {
             if (std::find(ActiveSecondaryIds.begin(), ActiveSecondaryIds.end(), id) == ActiveSecondaryIds.end())
@@ -903,6 +1552,7 @@ void Game::RefreshSecondarySkills(proto::TowerChangeData* data)
                 auto* info = data->add_secondaries();
                 info->set_secondaryid(id);
                 info->set_active(true);
+                ++newSecondaryCount;
             }
         }
 
@@ -914,6 +1564,11 @@ void Game::RefreshSecondarySkills(proto::TowerChangeData* data)
                 info->set_secondaryid(id);
                 info->set_active(false);
             }
+        }
+
+        if (newSecondaryCount > 0 && Manager && Manager->GetPlayer())
+        {
+            Manager->GetPlayer()->Trigger(536, newSecondaryCount, 0, 0);
         }
     }
 
@@ -965,15 +1620,15 @@ void Game::AddStartingItems()
 
     if (Manager->HasGrowthNode(10103))
     {
-        AddRuntimeItem(kTowerCoinItemId, 50, nullptr);
+        AddRuntimeItem(GameConstants::TowerCoinItemId, 50, nullptr);
     }
     if (Manager->HasGrowthNode(10403))
     {
-        AddRuntimeItem(kTowerCoinItemId, 100, nullptr);
+        AddRuntimeItem(GameConstants::TowerCoinItemId, 100, nullptr);
     }
     if (Manager->HasGrowthNode(10702))
     {
-        AddRuntimeItem(kTowerCoinItemId, 200, nullptr);
+        AddRuntimeItem(GameConstants::TowerCoinItemId, 200, nullptr);
     }
 
     int subNotes = 0;
@@ -1031,12 +1686,21 @@ bool Game::EnterNextRoom()
     {
         Room = std::make_unique<TowerHawkerRoom>(this, stageId, roomType);
     }
-    else
+    else if (roomType == TowerRoomType::BattleRoom || roomType == TowerRoomType::EliteBattleRoom ||
+        roomType == TowerRoomType::BossRoom || roomType == TowerRoomType::FinalBossRoom)
     {
         Room = std::make_unique<TowerBattleRoom>(this, stageId, roomType);
     }
+    else
+    {
+        Room = std::make_unique<TowerRoom>(this, stageId, roomType);
+    }
 
     Room->OnEnter();
+    if (Manager && Manager->GetPlayer())
+    {
+        Manager->GetPlayer()->Trigger(509, 1, static_cast<uint32_t>(roomType) + 1, 0);
+    }
     return true;
 }
 
@@ -1057,6 +1721,7 @@ Build Game::BuildSnapshot() const
 {
     Build build;
     build.Uid = BuildId;
+    build.TowerId = TowerId;
     build.CharIds = CharIds;
     build.DiscIds = DiscIds;
     build.ActiveSecondaryIds = ActiveSecondaryIds;
@@ -1129,6 +1794,55 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
             Manager->MutableBin()->add_startowerlog(TowerId);
         }
 
+        if (Manager->GetPlayer())
+        {
+            Manager->GetPlayer()->Trigger(508, 1, 0, 0);
+            Manager->GetPlayer()->Trigger(507, 1, TowerId, 0);
+
+            int elementType = 0;
+            bool sameElement = !CharIds.empty();
+            for (uint32_t charId : CharIds)
+            {
+                const auto charIt = GameData::CharacterDataTable.find(std::to_string(charId));
+                if (charIt == GameData::CharacterDataTable.end())
+                {
+                    sameElement = false;
+                    break;
+                }
+                if (elementType == 0)
+                {
+                    elementType = charIt->second.ElementType;
+                }
+                else if (elementType != charIt->second.ElementType)
+                {
+                    sameElement = false;
+                    break;
+                }
+            }
+            if (sameElement && elementType > 0)
+            {
+                Manager->GetPlayer()->Trigger(505, 1, static_cast<uint32_t>(elementType), 0);
+            }
+
+            const uint32_t diff = GetDifficulty();
+            uint32_t totalDiffClears = 0;
+            for (uint32_t i = 1; i <= 3; ++i)
+            {
+                const uint32_t towerId = (i * 100u) + 1u + diff;
+                if (std::find(Manager->Bin().startowerlog().begin(), Manager->Bin().startowerlog().end(), towerId) != Manager->Bin().startowerlog().end())
+                {
+                    ++totalDiffClears;
+                }
+            }
+            Manager->GetPlayer()->Trigger(506, totalDiffClears, diff, 0);
+
+            if (std::find(Manager->Bin().startowerlog().begin(), Manager->Bin().startowerlog().end(), 401u) != Manager->Bin().startowerlog().end() &&
+                Manager->Bin().startowerlog_size() >= 2)
+            {
+                Manager->GetPlayer()->Achievements().TriggerOne(498, 1, 0, 1);
+            }
+        }
+
         int tickets = 50 + RandomInt(static_cast<int>(GetDifficulty()) * 50, static_cast<int>(GetDifficulty()) * 100);
         if (Manager->HasGrowthNode(20403))
         {
@@ -1177,7 +1891,7 @@ uint32_t Game::GetNextStageId(const StarTowerRes& tower) const
     uint32_t stage = StageNum;
     uint32_t floor = StageFloor + 1;
 
-    if (floor > static_cast<uint32_t>((std::max)(tower.GetMaxFloor(static_cast<int>(stage)), 0)))
+    if (floor >= static_cast<uint32_t>((std::max)(tower.GetMaxFloor(static_cast<int>(stage)), 0)))
     {
         floor = 1;
         ++stage;

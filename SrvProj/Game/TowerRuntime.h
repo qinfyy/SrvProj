@@ -11,6 +11,7 @@
 
 class Player;
 class TowerRoom;
+class TowerCaseBase;
 class StarTowerRes;
 class TowerMgr;
 
@@ -53,6 +54,7 @@ public:
     bool Lock = false;
     bool Preference = false;
     uint32_t Score = 0;
+    uint32_t TowerId = 0;
     std::vector<uint32_t> CharIds;
     std::vector<uint32_t> DiscIds;
     std::vector<uint32_t> ActiveSecondaryIds;
@@ -105,11 +107,15 @@ public:
     std::vector<uint32_t> DiscIds;
     uint32_t PendingPotentialCases = 0;
     uint32_t PendingRarePotentialCases = 0;
+    uint32_t ShopRerollTimes = 0;
+    uint32_t ShopRerollPrice = 0;
+    bool FreeStrengthenAvailable = false;
     bool Completed = false;
     bool Sweep = false;
     std::vector<std::pair<uint32_t, int32_t>> Items;
     std::vector<std::pair<uint32_t, int32_t>> Res;
     std::vector<std::pair<uint32_t, int32_t>> Potentials;
+    std::vector<std::pair<uint32_t, int32_t>> NewInfos;
     std::vector<std::pair<uint32_t, int32_t>> RarePotentialCount;
     std::vector<uint32_t> ActiveSecondaryIds;
     std::vector<uint32_t> FateCards;
@@ -122,6 +128,7 @@ public:
     proto::StarTowerInfo ToProto() const;
     void SaveToBin(ServerProto::TowerGameBin& bin) const;
     void LoadFromBin(const ServerProto::TowerGameBin& bin);
+    void InitModifierState();
 
     int GetItemCount(uint32_t id) const;
     int GetResCount(uint32_t id) const;
@@ -132,12 +139,33 @@ public:
     void AddExp(uint32_t amount);
     int LevelUp();
     bool AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change = nullptr);
+    void FlushNewInfos(proto::TowerChangeData* data);
     void AddPotentialSelectors(uint32_t amount);
     void AddRarePotentialSelectors(uint32_t amount);
+    std::unique_ptr<TowerCaseBase> CreatePotentialSelector(uint32_t charId = 0, bool rare = false);
+    std::unique_ptr<TowerCaseBase> CreateRarePotentialSelector();
+    std::unique_ptr<TowerCaseBase> CreateStrengthenSelector();
+    void HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp);
     bool IsOnFinalFloor(const StarTowerRes& tower) const;
     uint32_t GetNextStageId(const StarTowerRes& tower) const;
     uint32_t GetDifficulty() const;
     int GetExtraPotentialMaxLevel() const;
+    uint32_t GetPotentialRerollCount() const;
+    uint32_t GetPotentialRerollPrice() const;
+    double GetBonusPotentialChance() const;
+    uint32_t GetBonusPotentialLevel() const;
+    double GetBonusStrengthenChance() const;
+    double GetBattleSubNoteDropChance() const;
+    double GetBonusSubNoteChance() const;
+    uint32_t GetBonusSubNotes() const;
+    uint32_t GetBonusBossSubNotes() const;
+    double GetBonusCoinChance() const;
+    uint32_t GetBonusCoinCount() const;
+    uint32_t GetShopGoodsCount() const;
+    uint32_t GetStrengthenDiscount() const;
+    double GetBattleNpcEventChance() const;
+    bool ConsumeShopReroll();
+    void ConsumeFreeStrengthen();
     int GetRandomSubNoteId() const;
     void RefreshSecondarySkills(proto::TowerChangeData* data = nullptr);
     void InitializeSubNotesFromDiscs();

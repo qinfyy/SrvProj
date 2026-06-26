@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "TowerCases.h"
 #include "TowerRooms.h"
+#include "../Config.h"
 #include "../GameConstants.h"
 #include "../GameTime.h"
 #include "../proto/NetMsgId.pb.h"
@@ -20,7 +21,6 @@
 #include <string>
 
 namespace {
-constexpr uint32_t kTowerCoinItemId = 11;
 constexpr uint32_t kSweepGrowthNodeId = 10301;
 constexpr uint32_t kWeeklyTicketNodeSmall = 10201;
 constexpr uint32_t kWeeklyTicketNodeLarge = 10502;
@@ -97,6 +97,26 @@ TowerMgr::~TowerMgr() = default;
 void TowerMgr::OnCreate()
 {
     MutableBin()->Clear();
+    if (Config::Get().unlockAllStarTower)
+    {
+        std::vector<uint32_t> towerIds;
+        towerIds.reserve(GameData::StarTowerDataTable.size());
+        for (const auto& [id, _] : GameData::StarTowerDataTable)
+        {
+            try
+            {
+                towerIds.push_back(static_cast<uint32_t>(std::stoul(id)));
+            }
+            catch (...)
+            {
+            }
+        }
+        std::sort(towerIds.begin(), towerIds.end());
+        for (uint32_t towerId : towerIds)
+        {
+            MutableBin()->add_startowerlog(towerId);
+        }
+    }
     InitializeDefaults();
 }
 
@@ -304,6 +324,7 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     game->StageFloor = 0;
     game->CharIds = validCharIds;
     game->DiscIds = validDiscIds;
+    game->InitModifierState();
     game->InitializeSubNotesFromDiscs();
     game->AddStartingItems();
 
@@ -323,7 +344,7 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     GetPlayer()->Trigger(kQuestCondTowerEnterFloor, 1, 0, 0);
 
     rsp.set_lastid(req.id());
-    rsp.set_coinqty(static_cast<uint32_t>((std::max)(mCurrentGame->GetResCount(kTowerCoinItemId), 0)));
+    rsp.set_coinqty(static_cast<uint32_t>((std::max)(mCurrentGame->GetResCount(GameConstants::TowerCoinItemId), 0)));
     rsp.mutable_info()->CopyFrom(mCurrentGame->ToProto());
     rsp.mutable_change()->CopyFrom(change);
     return true;
@@ -353,12 +374,22 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
     {
         rsp.set_id(req.id());
         rsp.mutable_nilresp();
+        if (mCurrentGame)
+        {
+            mCurrentGame->FlushNewInfos(rsp.mutable_data());
+        }
+        rsp.mutable_change();
         return true;
     }
 
     rsp.set_id(req.id());
     const bool removeAfterInteract = towerCase->RemoveAfterInteract();
     towerCase->Interact(req, rsp);
+    if (mCurrentGame)
+    {
+        mCurrentGame->FlushNewInfos(rsp.mutable_data());
+    }
+    rsp.mutable_change();
 
     if (mCurrentGame && mCurrentGame->Completed)
     {
@@ -493,6 +524,20 @@ bool TowerMgr::SaveLastBuild(bool removeBuild, const std::string& name, bool loc
         saved.Name = name;
         TowerRuntime::ClampNameLength(saved.Name);
         saved.Lock = lock;
+        int32_t rankRarity = 0;
+        int32_t rankMinGrade = -1;
+        for (const auto& [_, rank] : GameData::StarTowerBuildRankDataTable)
+        {
+            if (rank.MinGrade >= rankMinGrade && saved.Score >= static_cast<uint32_t>((std::max)(rank.MinGrade, 0)))
+            {
+                rankMinGrade = rank.MinGrade;
+                rankRarity = rank.Rarity;
+            }
+        }
+        if (rankRarity > 0)
+        {
+            GetPlayer()->Trigger(504, 1, static_cast<uint32_t>(rankRarity), 0);
+        }
         mBuilds.push_back(std::move(saved));
     }
 
@@ -706,6 +751,10 @@ bool TowerMgr::BuildGrowthDetail(proto::TowerGrowthDetailResp& rsp) const
     for (uint32_t detail : Bin().startowergrowth())
     {
         rsp.add_detail(detail);
+    }
+    while (rsp.detail_size() < 3)
+    {
+        rsp.add_detail(0);
     }
     return true;
 }
@@ -1063,8 +1112,8 @@ bool TowerMgr::ReceivePotentialBookReward(uint32_t potentialId, proto::StarTower
     }
 
     proto::ChangeInfo change;
-    AddRewardToChange(change, static_cast<uint32_t>(kTowerCoinItemId), 10);
-    GetPlayer()->Inventory().AddItem(kTowerCoinItemId, 10, rsp.mutable_change());
+    AddRewardToChange(change, static_cast<uint32_t>(GameConstants::TowerCoinItemId), 10);
+    GetPlayer()->Inventory().AddItem(GameConstants::TowerCoinItemId, 10, rsp.mutable_change());
     rsp.mutable_change()->MergeFrom(change);
 
     SetReceivedPotentialBookReward(potentialId);
@@ -1092,7 +1141,7 @@ bool TowerMgr::ReceiveEventBookReward(uint32_t eventId, proto::StarTowerBookEven
         return false;
     }
 
-    GetPlayer()->Inventory().AddItem(kTowerCoinItemId, 10, rsp.mutable_change());
+    GetPlayer()->Inventory().AddItem(GameConstants::TowerCoinItemId, 10, rsp.mutable_change());
     SetReceivedEventBookReward(eventId);
     for (uint32_t id : Bin().bookeventreceivedids())
     {
@@ -1134,7 +1183,7 @@ bool TowerMgr::ReceiveFateCardReward(uint32_t bundleId, uint32_t questId, proto:
         }
     }
 
-    GetPlayer()->Inventory().AddItem(kTowerCoinItemId, 10, &outChange);
+    GetPlayer()->Inventory().AddItem(GameConstants::TowerCoinItemId, 10, &outChange);
     SetReceivedFateCardReward(receivedKey);
     PushFateCardRewardNotify(receivedKey, questId > 0);
     return true;

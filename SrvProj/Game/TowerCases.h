@@ -38,6 +38,7 @@ public:
     uint32_t GetId() const { return mId; }
 
     void Register(TowerRoom* room, uint32_t id);
+    void RegisterLoaded(TowerRoom* room, uint32_t id);
     virtual void OnRegister() {}
     virtual TowerCaseType GetType() const = 0;
     virtual bool RemoveAfterInteract() const { return true; }
@@ -114,10 +115,13 @@ class TowerHawkerCase : public TowerCaseBase
 {
 public:
     std::vector<TowerRuntime::ShopGoods> Goods;
+    uint32_t RerollTimes = 0;
+    uint32_t RerollPrice = 0;
 
     TowerCaseType GetType() const override { return TowerCaseType::Hawker; }
     bool RemoveAfterInteract() const override { return false; }
     void OnRegister() override;
+    void InitGoods();
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
     void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
@@ -133,6 +137,7 @@ public:
 
     TowerCaseType GetType() const override { return TowerCaseType::StrengthenMachine; }
     bool RemoveAfterInteract() const override { return false; }
+    void OnRegister() override;
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
     void SaveToBin(ServerProto::TowerCaseBin& bin) const override;

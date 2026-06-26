@@ -1,6 +1,7 @@
 ﻿#include "TowerCases.h"
 
 #include "ChangeInfoUtil.h"
+#include "AchievementMgr.h"
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "TowerMgr.h"
@@ -12,12 +13,11 @@
 #include "../proto/proto_cpp/public.pb.h"
 
 #include <algorithm>
+#include <cstddef>
 #include <random>
 
 namespace
 {
-constexpr uint32_t kTowerCoinItemId = 11;
-
 double RandomDouble()
 {
     static thread_local std::mt19937 rng{ std::random_device{}() };
@@ -49,6 +49,13 @@ void TowerCaseBase::Register(TowerRoom* room, uint32_t id)
     mGame = room ? room->GetGame() : nullptr;
     mId = id;
     OnRegister();
+}
+
+void TowerCaseBase::RegisterLoaded(TowerRoom* room, uint32_t id)
+{
+    mRoom = room;
+    mGame = room ? room->GetGame() : nullptr;
+    mId = id;
 }
 
 std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* game, const ServerProto::TowerCaseBin& bin)
@@ -115,6 +122,8 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         auto instance = std::make_unique<TowerHawkerCase>();
         if (bin.has_hawkercase())
         {
+            instance->RerollTimes = bin.hawkercase().rerolltimes();
+            instance->RerollPrice = bin.hawkercase().rerollprice();
             for (const auto& goods : bin.hawkercase().goods())
             {
                 TowerRuntime::ShopGoods item;
@@ -207,7 +216,7 @@ void TowerBattleCase::OnRegister()
         switch (GetRoom()->GetType())
         {
         case TowerRoomType::BattleRoom:
-            SubNoteDrops = RandomChance(1.4) ? 1u : 0u;
+            SubNoteDrops = RandomChance(GetGame()->GetBattleSubNoteDropChance() + 0.4) ? 1u : 0u;
             ExpReward = static_cast<uint32_t>((std::max)(floorExp.NormalExp, 0));
             break;
         case TowerRoomType::EliteBattleRoom:
@@ -248,26 +257,48 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
                 GetGame()->AddRarePotentialSelectors(1);
                 --picks;
             }
+            else if (RandomChance(0.125))
+            {
+                GetGame()->AddRarePotentialSelectors(1);
+                --picks;
+            }
         }
         if (picks > 0)
         {
             GetGame()->AddPotentialSelectors(static_cast<uint32_t>(picks));
         }
         GetGame()->AddBattleTime(req.battleendreq().victory().time());
+        GetGame()->TotalDamages.assign(
+            req.battleendreq().victory().damages().begin(),
+            req.battleendreq().victory().damages().end());
 
         const auto stageIt = GameData::StarTowerStageDataTable.find(std::to_string(GetRoom()->GetStageId()));
         if (stageIt != GameData::StarTowerStageDataTable.end())
         {
-            const int coin = (std::max)(stageIt->second.InteriorCurrencyQuantity, 0);
+            int coin = (std::max)(stageIt->second.InteriorCurrencyQuantity, 0);
+            if (RandomChance(GetGame()->GetBonusCoinChance()))
+            {
+                coin += static_cast<int>(GetGame()->GetBonusCoinCount());
+            }
             if (coin > 0)
             {
-                GetGame()->AddRuntimeItem(kTowerCoinItemId, coin, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, coin, rsp.mutable_change());
             }
         }
 
-        if (SubNoteDrops > 0)
+        uint32_t subNoteDrops = SubNoteDrops;
+        if (GetRoom()->GetType() == TowerRoomType::BossRoom && GetGame()->GetBonusBossSubNotes() > 0 && RandomChance(0.5))
         {
-            for (uint32_t i = 0; i < SubNoteDrops; ++i)
+            subNoteDrops += GetGame()->GetBonusBossSubNotes();
+        }
+        if (RandomChance(GetGame()->GetBonusSubNoteChance()))
+        {
+            subNoteDrops += GetGame()->GetBonusSubNotes();
+        }
+
+        if (subNoteDrops > 0)
+        {
+            for (uint32_t i = 0; i < subNoteDrops; ++i)
             {
                 const int itemId = GetGame()->GetRandomSubNoteId();
                 if (itemId > 0)
@@ -278,73 +309,14 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
         }
 
         GetGame()->RefreshSecondarySkills(rsp.mutable_data());
-
-        if (GetGame()->PendingRarePotentialCases > 0 || GetGame()->PendingPotentialCases > 0)
-        {
-            auto casePtr = std::make_unique<TowerPotentialCase>();
-            casePtr->TeamLevel = GetGame()->TeamLevel;
-            casePtr->Rare = GetGame()->PendingRarePotentialCases > 0;
-            if (casePtr->Rare)
-            {
-                --GetGame()->PendingRarePotentialCases;
-            }
-            else
-            {
-                --GetGame()->PendingPotentialCases;
-            }
-
-            if (!GetGame()->CharIds.empty())
-            {
-                const size_t index = static_cast<size_t>(RandomInt(0, static_cast<int>(GetGame()->CharIds.size() - 1)));
-                casePtr->CharId = GetGame()->CharIds[index];
-            }
-            casePtr->RerollPrice = 100;
-            casePtr->Reroll = GetGame()->GetManager() && GetGame()->GetManager()->HasGrowthNode(20901) ? 1u : 0u;
-
-            const auto charIt = GameData::CharPotentialDataTable.find(std::to_string(casePtr->CharId));
-            if (charIt != GameData::CharPotentialDataTable.end())
-            {
-                auto candidates = charIt->second.GetPotentialList(!GetGame()->CharIds.empty() && GetGame()->CharIds.front() == casePtr->CharId, casePtr->Rare);
-                std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
-                for (int potentialId : candidates)
-                {
-                    const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
-                    if (potentialIt == GameData::PotentialDataTable.end())
-                    {
-                        continue;
-                    }
-                    if (GetGame()->GetPotentialLevel(static_cast<uint32_t>(potentialId)) >= potentialIt->second.GetMaxLevel(GetGame()->GetExtraPotentialMaxLevel()))
-                    {
-                        continue;
-                    }
-                    casePtr->Potentials.push_back({ static_cast<uint32_t>(potentialId), 1u });
-                    if (casePtr->Potentials.size() >= 3)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            if (!casePtr->Potentials.empty())
-            {
-                auto* added = GetRoom()->AddCase(std::move(casePtr));
-                if (added)
-                {
-                    rsp.add_cases()->CopyFrom(added->ToProto());
-                }
-            }
-        }
-        else if (!GetRoom()->HasDoor())
-        {
-            auto* added = GetRoom()->AddCase(GetRoom()->CreateDoorCase());
-            if (added)
-            {
-                rsp.add_cases()->CopyFrom(added->ToProto());
-            }
-        }
+        GetGame()->HandlePendingPotentialSelectors(rsp);
 
         battleEnd->mutable_victory()->set_lv(GetGame()->TeamLevel);
         battleEnd->mutable_victory()->set_battletime(GetGame()->BattleTime);
+        if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer() && req.battleendreq().victory().has_events())
+        {
+            GetGame()->GetManager()->GetPlayer()->Achievements().HandleClientEvents(req.battleendreq().victory().events());
+        }
     }
     else
     {
@@ -430,16 +402,44 @@ void TowerDoorCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
 
 proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
-    auto* select = rsp.mutable_selectresp();
     if (req.has_selectreq() && req.selectreq().has_reroll())
     {
-        if (Reroll == 0 || GetGame()->GetResCount(kTowerCoinItemId) < static_cast<int>(RerollPrice))
+        if (Reroll == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
+        {
+            return rsp;
+        }
+
+        std::unique_ptr<TowerCaseBase> rerollBase;
+        if (Strengthen)
+        {
+            rerollBase = GetGame()->CreateStrengthenSelector();
+        }
+        else
+        {
+            rerollBase = GetGame()->CreatePotentialSelector(CharId, Rare);
+        }
+
+        auto* rerollCase = dynamic_cast<TowerPotentialCase*>(rerollBase.get());
+        if (!rerollCase || rerollCase->Potentials.empty())
         {
             return rsp;
         }
 
         --Reroll;
-        GetGame()->AddRuntimeItem(kTowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
+        rerollCase->Reroll = Reroll;
+        rerollCase->RerollPrice = RerollPrice;
+        rerollCase->Strengthen = Strengthen;
+        rerollCase->Rare = Rare;
+        GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
+        auto* added = GetRoom()->AddCase(std::move(rerollBase));
+        if (added)
+        {
+            rsp.add_cases()->CopyFrom(added->ToProto());
+        }
+        if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+        {
+            GetGame()->GetManager()->GetPlayer()->Trigger(529, 1, 0, 0);
+        }
     }
     else if (req.has_selectreq())
     {
@@ -447,100 +447,22 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
         if (index >= 0 && index < static_cast<int>(Potentials.size()))
         {
             const auto selected = Potentials[static_cast<size_t>(index)];
-            GetGame()->AddRuntimeItem(selected.Id, static_cast<int>(selected.Level), rsp.mutable_change());
-            if (GetGame()->GetManager())
+            if (selected.Level > 1 && GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
             {
-                GetGame()->GetManager()->RecordPotentialCollection(selected.Id, selected.Level);
+                const uint32_t triggerId = GetGame()->GetPotentialLevel(selected.Id) > 0 ? 534u : 533u;
+                GetGame()->GetManager()->GetPlayer()->Trigger(triggerId, 1, 0, 0);
+            }
+            if (GetGame()->AddRuntimeItem(selected.Id, static_cast<int>(selected.Level), rsp.mutable_change()) && GetGame()->GetManager())
+            {
+                GetGame()->GetManager()->RecordPotentialCollection(selected.Id, GetGame()->GetPotentialLevel(selected.Id));
             }
         }
 
         GetGame()->RefreshSecondarySkills(rsp.mutable_data());
 
-        if (GetGame()->PendingRarePotentialCases > 0 || GetGame()->PendingPotentialCases > 0)
-        {
-            auto nextCase = std::make_unique<TowerPotentialCase>();
-            nextCase->TeamLevel = GetGame()->TeamLevel;
-            nextCase->Rare = GetGame()->PendingRarePotentialCases > 0;
-            if (nextCase->Rare)
-            {
-                --GetGame()->PendingRarePotentialCases;
-            }
-            else
-            {
-                --GetGame()->PendingPotentialCases;
-            }
-
-            if (!GetGame()->CharIds.empty())
-            {
-                const size_t charIndex = static_cast<size_t>(RandomInt(0, static_cast<int>(GetGame()->CharIds.size() - 1)));
-                nextCase->CharId = GetGame()->CharIds[charIndex];
-            }
-            nextCase->RerollPrice = 100;
-            nextCase->Reroll = GetGame()->GetManager() && GetGame()->GetManager()->HasGrowthNode(20901) ? 1u : 0u;
-
-            const auto charIt = GameData::CharPotentialDataTable.find(std::to_string(nextCase->CharId));
-            if (charIt != GameData::CharPotentialDataTable.end())
-            {
-                auto candidates = charIt->second.GetPotentialList(!GetGame()->CharIds.empty() && GetGame()->CharIds.front() == nextCase->CharId, nextCase->Rare);
-                std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
-                for (int potentialId : candidates)
-                {
-                    const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
-                    if (potentialIt == GameData::PotentialDataTable.end())
-                    {
-                        continue;
-                    }
-                    if (GetGame()->GetPotentialLevel(static_cast<uint32_t>(potentialId)) >= potentialIt->second.GetMaxLevel(GetGame()->GetExtraPotentialMaxLevel()))
-                    {
-                        continue;
-                    }
-                    nextCase->Potentials.push_back({ static_cast<uint32_t>(potentialId), 1u });
-                    if (nextCase->Potentials.size() >= 3)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            if (!nextCase->Potentials.empty())
-            {
-                auto* added = GetRoom()->AddCase(std::move(nextCase));
-                if (added)
-                {
-                    rsp.add_cases()->CopyFrom(added->ToProto());
-                }
-            }
-        }
-        else if (!GetRoom()->HasDoor())
-        {
-            auto* added = GetRoom()->AddCase(GetRoom()->CreateDoorCase());
-            if (added)
-            {
-                rsp.add_cases()->CopyFrom(added->ToProto());
-            }
-        }
+        GetGame()->HandlePendingPotentialSelectors(rsp);
     }
 
-    if (Rare)
-    {
-        auto* data = select->mutable_selectspecialpotentialcase();
-        data->set_teamlevel(TeamLevel);
-        for (const auto& potential : Potentials)
-        {
-            data->add_ids(potential.Id);
-        }
-    }
-    else
-    {
-        auto* data = select->mutable_selectpotentialcase();
-        data->set_teamlevel(TeamLevel);
-        for (const auto& potential : Potentials)
-        {
-            auto* info = data->add_infos();
-            info->set_tid(potential.Id);
-            info->set_level(static_cast<int32_t>(potential.Level));
-        }
-    }
     rsp.mutable_change();
     return rsp;
 }
@@ -613,26 +535,184 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         return rsp;
     }
 
-    Completed = true;
-    if (GetGame()->GetManager())
-    {
-        GetGame()->GetManager()->RecordEventCollection(EventId);
-    }
     auto* result = rsp.mutable_selectresp()->mutable_resp();
-    result->set_optionsresult(true);
+    bool completed = true;
 
     if (!Options.empty())
     {
         const uint32_t selectedIndex = req.has_selectreq() ? req.selectreq().index() : 0;
         const uint32_t optionId = selectedIndex < Options.size() ? Options[selectedIndex] : Options.front();
 
-        if (optionId >= 10101 && optionId <= 10809)
+        auto spendCoin = [this, &rsp](int amount) {
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) < amount)
+            {
+                return false;
+            }
+            return GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -amount, rsp.mutable_change());
+        };
+        auto addCoin = [this, &rsp](int amount) {
+            return GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, amount, rsp.mutable_change());
+        };
+        auto addSelector = [this, &rsp](uint32_t charId, bool rare) {
+            auto selector = GetGame()->CreatePotentialSelector(charId, rare);
+            if (!selector)
+            {
+                return false;
+            }
+            auto* added = GetRoom()->AddCase(std::move(selector));
+            if (added)
+            {
+                rsp.add_cases()->CopyFrom(added->ToProto());
+                return true;
+            }
+            return false;
+        };
+        auto supportCharId = [this]() -> uint32_t {
+            if (GetGame()->CharIds.size() <= 1)
+            {
+                return GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front();
+            }
+            const size_t index = static_cast<size_t>(RandomInt(1, static_cast<int>(GetGame()->CharIds.size() - 1)));
+            return GetGame()->CharIds[index];
+        };
+
+        switch (optionId)
         {
-            GetGame()->AddRuntimeItem(11, 30, rsp.mutable_change());
+        case 10101:
+            completed = spendCoin(100) && addSelector(0, false);
+            break;
+        case 10102:
+            completed = spendCoin(120) && addSelector(0, false);
+            break;
+        case 10103:
+        case 10204:
+        case 10303:
+        case 10403:
+        case 10503:
+        case 10603:
+        case 10809:
+        case 12802:
+            addCoin(30);
+            break;
+        case 10201:
+            completed = spendCoin(120) && addSelector(supportCharId(), false);
+            break;
+        case 10202:
+            completed = spendCoin(160) && addSelector(GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front(), false);
+            break;
+        case 10203:
+        case 10402:
+            completed = spendCoin(200) && addSelector(0, true);
+            break;
+        case 10302:
+        case 10401:
+            completed = false;
+            break;
+        case 10501:
+            addCoin(RandomChance(0.5) ? 200 : -100);
+            break;
+        case 10502:
+            addCoin(RandomChance(0.3) ? 650 : -200);
+            break;
+        case 10601:
+            if (RandomChance(0.5))
+            {
+                addSelector(0, true);
+            }
+            break;
+        case 10602:
+            addSelector(0, false);
+            break;
+        case 10701:
+        case 10702:
+        case 10703:
+        case 10704:
+        case 10705:
+        case 10706:
+        case 10707:
+            GetGame()->AddRuntimeItem((optionId % 100) + 90010, 5, rsp.mutable_change());
+            break;
+        case 10708:
+            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 5, rsp.mutable_change());
+            break;
+        case 10801:
+        case 10802:
+        case 10803:
+        case 10804:
+        case 10805:
+        case 10806:
+        case 10807:
+            completed = spendCoin(140) && GetGame()->AddRuntimeItem((optionId % 100) + 90010, 10, rsp.mutable_change());
+            break;
+        case 10808:
+            completed = spendCoin(90) && GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 10, rsp.mutable_change());
+            break;
+        case 11401:
+        case 11402:
+        case 11403:
+        case 11404:
+        case 11405:
+            if (optionId == 11403)
+            {
+                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 10, rsp.mutable_change());
+            }
+            else
+            {
+                result->set_optionsparamid(100140101);
+            }
+            break;
+        case 11501:
+        case 11502:
+        case 11503:
+        case 11504:
+        case 11505:
+            if (optionId == 11503)
+            {
+                addSelector(0, false);
+            }
+            else
+            {
+                result->set_optionsparamid(100140101);
+            }
+            break;
+        case 11601:
+        case 11602:
+        case 11603:
+        case 11604:
+        case 11605:
+            if (optionId == 11603)
+            {
+                addSelector(0, true);
+            }
+            else
+            {
+                result->set_optionsparamid(100140101);
+            }
+            break;
+        case 12601:
+        case 12701:
+            addSelector(supportCharId(), false);
+            break;
+        case 12702:
+            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 5, rsp.mutable_change());
+            break;
+        case 12801:
+            addSelector(supportCharId(), true);
+            break;
+        default:
+            break;
         }
 
         const uint32_t affinity = 10;
         (void)affinity;
+    }
+
+    Completed = completed;
+    result->set_optionsresult(completed);
+    if (completed && GetGame()->GetManager())
+    {
+        GetGame()->GetManager()->RecordEventCollection(EventId);
+        GetGame()->GetManager()->GetPlayer()->Trigger(511, 1, 0, 0);
     }
 
     if (GetGame())
@@ -678,30 +758,28 @@ void TowerNpcEventCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
 
 void TowerHawkerCase::OnRegister()
 {
-    if (!Goods.empty())
+    if (Goods.empty())
     {
-        return;
+        InitGoods();
     }
 
-    uint32_t total = 2;
-    if (GetGame()->GetManager())
+    if (GetGame())
     {
-        if (GetGame()->GetManager()->HasGrowthNode(20702))
-        {
-            total = 8;
-        }
-        else if (GetGame()->GetManager()->HasGrowthNode(20402))
-        {
-            total = 6;
-        }
-        else if (GetGame()->GetManager()->HasGrowthNode(10402))
-        {
-            total = 4;
-        }
+        RerollTimes = GetGame()->ShopRerollTimes;
+        RerollPrice = GetGame()->ShopRerollPrice;
     }
+}
 
-    const uint32_t potentialCount = (std::max)(total / 2, 2u);
+void TowerHawkerCase::InitGoods()
+{
+    Goods.clear();
+
+    const uint32_t total = GetGame() ? GetGame()->GetShopGoodsCount() : 2u;
+    const uint32_t minPotentials = (std::max)(total / 2, 2u);
+    const uint32_t maxPotentials = (std::max)(total - 1u, minPotentials);
+    const uint32_t potentialCount = static_cast<uint32_t>(RandomInt(static_cast<int>(minPotentials), static_cast<int>(maxPotentials)));
     const uint32_t subNoteCount = total > potentialCount ? total - potentialCount : 0;
+    const bool hasCoins = GetGame() && GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 500;
 
     for (uint32_t i = 0; i < potentialCount; ++i)
     {
@@ -724,9 +802,58 @@ void TowerHawkerCase::OnRegister()
         goods.Sid = static_cast<uint32_t>(Goods.size() + 1);
         goods.Type = 2;
         goods.GoodsId = static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0));
-        goods.Idx = 3;
-        goods.Price = 90;
+        if (hasCoins && RandomChance(0.25))
+        {
+            goods.Idx = 8;
+            goods.Price = 400;
+        }
+        else
+        {
+            goods.Idx = 3;
+            goods.Price = 90;
+        }
         Goods.push_back(goods);
+    }
+
+    auto applyDiscount = [this](double chance, uint32_t times, double percentage) {
+        if (!RandomChance(chance))
+        {
+            return;
+        }
+
+        std::vector<size_t> candidates;
+        candidates.reserve(Goods.size());
+        for (size_t i = 0; i < Goods.size(); ++i)
+        {
+            if (!Goods[i].HasDiscount())
+            {
+                candidates.push_back(i);
+            }
+        }
+
+        for (uint32_t i = 0; i < times && !candidates.empty(); ++i)
+        {
+            const size_t candidateIndex = static_cast<size_t>(RandomInt(0, static_cast<int>(candidates.size() - 1)));
+            Goods[candidates[candidateIndex]].ApplyDiscount(percentage);
+            candidates.erase(candidates.begin() + static_cast<std::ptrdiff_t>(candidateIndex));
+        }
+    };
+
+    if (GetGame() && GetGame()->GetManager())
+    {
+        const uint32_t difficulty = GetGame()->GetDifficulty();
+        if (difficulty >= 3 && GetGame()->GetManager()->HasGrowthNode(20202))
+        {
+            applyDiscount(1.0, 2, 0.8);
+        }
+        if (difficulty >= 4 && GetGame()->GetManager()->HasGrowthNode(20502))
+        {
+            applyDiscount(0.3, 1, 0.5);
+        }
+        if (difficulty >= 5 && GetGame()->GetManager()->HasGrowthNode(20802))
+        {
+            applyDiscount(1.0, 1, 0.5);
+        }
     }
 }
 
@@ -744,19 +871,20 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
                     continue;
                 }
 
-                if (GetGame()->GetResCount(kTowerCoinItemId) < goods.GetPrice())
+                if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) < goods.GetPrice())
                 {
                     break;
                 }
-
-                goods.Sold = true;
-                GetGame()->AddRuntimeItem(kTowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
                 if (goods.Type == 1)
                 {
-                    auto casePtr = std::make_unique<TowerPotentialCase>();
-                    casePtr->TeamLevel = GetGame()->TeamLevel;
-                    casePtr->CharId = goods.GetCharId(*GetGame());
-                    casePtr->Potentials.push_back({ goods.GoodsId, 1 });
+                    auto casePtr = GetGame()->CreatePotentialSelector(goods.GetCharId(*GetGame()), false);
+                    if (!casePtr)
+                    {
+                        break;
+                    }
+
+                    goods.Sold = true;
+                    GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
                     auto* added = GetRoom()->AddCase(std::move(casePtr));
                     if (added)
                     {
@@ -765,16 +893,52 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
                 }
                 else
                 {
-                    GetGame()->AddRuntimeItem(goods.GoodsId, goods.GetCount(), rsp.mutable_change());
+                    proto::ChangeInfo change;
+                    if (!GetGame()->AddRuntimeItem(goods.GoodsId, goods.GetCount(), &change))
+                    {
+                        break;
+                    }
+                    if (!GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), &change))
+                    {
+                        break;
+                    }
+                    goods.Sold = true;
+                    rsp.mutable_change()->MergeFrom(change);
+                }
+                if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+                {
+                    GetGame()->GetManager()->GetPlayer()->Trigger(514, 1, 0, 0);
+                    if (goods.HasDiscount())
+                    {
+                        GetGame()->GetManager()->GetPlayer()->Trigger(535, 1, 0, 0);
+                    }
                 }
                 break;
             }
         }
         else if (req.hawkerreq().has_reroll())
         {
-            Goods.clear();
-            OnRegister();
-            GetGame()->AddRuntimeItem(kTowerCoinItemId, -100, rsp.mutable_change());
+            RerollTimes = GetGame()->ShopRerollTimes;
+            RerollPrice = GetGame()->ShopRerollPrice;
+            if (RerollTimes == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
+            {
+                rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
+                return rsp;
+            }
+
+            if (!GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change()))
+            {
+                rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
+                return rsp;
+            }
+            GetGame()->ConsumeShopReroll();
+            RerollTimes = GetGame()->ShopRerollTimes;
+            RerollPrice = GetGame()->ShopRerollPrice;
+            if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+            {
+                GetGame()->GetManager()->GetPlayer()->Trigger(530, 1, 0, 0);
+            }
+            InitGoods();
         }
     }
 
@@ -787,6 +951,12 @@ proto::StarTowerRoomCase TowerHawkerCase::ToProto() const
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
     auto* data = out.mutable_hawkercase();
+    if (RerollTimes > 0)
+    {
+        data->set_canreroll(true);
+        data->set_rerolltimes(RerollTimes);
+        data->set_rerollprice(RerollPrice);
+    }
     for (const auto& goods : Goods)
     {
         auto* info = data->add_list();
@@ -818,6 +988,8 @@ void TowerHawkerCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     bin.set_id(GetId());
     bin.set_type(static_cast<uint32_t>(GetType()));
     auto* data = bin.mutable_hawkercase();
+    data->set_rerolltimes(RerollTimes);
+    data->set_rerollprice(RerollPrice);
     for (const auto& goods : Goods)
     {
         auto* info = data->add_goods();
@@ -832,45 +1004,52 @@ void TowerHawkerCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     }
 }
 
+void TowerStrengthenMachineCase::OnRegister()
+{
+    if (!GetGame() || !GetGame()->GetManager())
+    {
+        return;
+    }
+
+    Free = GetGame()->FreeStrengthenAvailable;
+    Discount = static_cast<int32_t>(GetGame()->GetStrengthenDiscount());
+}
+
 proto::StarTowerInteractResp TowerStrengthenMachineCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     const int price = GetPrice();
-    if (GetGame()->GetResCount(kTowerCoinItemId) < price)
+    if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) < price)
     {
         rsp.mutable_strengthenmachineresp()->set_buysucceed(false);
         return rsp;
     }
 
-    GetGame()->AddRuntimeItem(kTowerCoinItemId, -price, rsp.mutable_change());
-    ++Times;
-    Free = false;
-
-    auto casePtr = std::make_unique<TowerPotentialCase>();
-    casePtr->TeamLevel = GetGame()->TeamLevel;
-    casePtr->Strengthen = true;
-    for (const auto& [potentialId, level] : GetGame()->Potentials)
-    {
-        if (level <= 0)
-        {
-            continue;
-        }
-        casePtr->Potentials.push_back({ potentialId, 1u });
-        if (casePtr->Potentials.size() >= 3)
-        {
-            break;
-        }
-    }
-
-    if (casePtr->Potentials.empty())
+    auto casePtr = GetGame()->CreateStrengthenSelector();
+    if (!casePtr)
     {
         rsp.mutable_strengthenmachineresp()->set_buysucceed(false);
         return rsp;
+    }
+
+    GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -price, rsp.mutable_change());
+    if (Free)
+    {
+        Free = false;
+        GetGame()->ConsumeFreeStrengthen();
+    }
+    else
+    {
+        ++Times;
     }
 
     auto* added = GetRoom()->AddCase(std::move(casePtr));
     if (added)
     {
         rsp.add_cases()->CopyFrom(added->ToProto());
+    }
+    if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+    {
+        GetGame()->GetManager()->GetPlayer()->Trigger(522, 1, 0, 0);
     }
 
     rsp.mutable_strengthenmachineresp()->set_buysucceed(true);
@@ -913,6 +1092,14 @@ void TowerStrengthenMachineCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
 proto::StarTowerInteractResp TowerRecoveryHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     rsp.mutable_nilresp();
+    if (GetRoom())
+    {
+        auto* added = GetRoom()->AddCase(std::make_unique<TowerSyncHPCase>());
+        if (added)
+        {
+            rsp.add_cases()->CopyFrom(added->ToProto());
+        }
+    }
     return rsp;
 }
 
