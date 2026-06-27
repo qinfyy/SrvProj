@@ -18,6 +18,12 @@
 
 namespace
 {
+constexpr uint32_t kTowerEventWrongAnswerOptionsParamId = 100140101;
+constexpr uint32_t kTowerEventSubNoteSkillBaseId = 90010;
+constexpr int kTowerEventCoinSmallReward = 30;
+constexpr int kTowerEventSubNoteSmallReward = 5;
+constexpr int kTowerEventSubNoteLargeReward = 10;
+
 double RandomDouble()
 {
     static thread_local std::mt19937 rng{ std::random_device{}() };
@@ -541,164 +547,369 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
     if (!Options.empty())
     {
         const uint32_t selectedIndex = req.has_selectreq() ? req.selectreq().index() : 0;
-        const uint32_t optionId = selectedIndex < Options.size() ? Options[selectedIndex] : Options.front();
-
-        auto spendCoin = [this, &rsp](int amount) {
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) < amount)
-            {
-                return false;
-            }
-            return GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -amount, rsp.mutable_change());
-        };
-        auto addCoin = [this, &rsp](int amount) {
-            return GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, amount, rsp.mutable_change());
-        };
-        auto addSelector = [this, &rsp](uint32_t charId, bool rare) {
-            auto selector = GetGame()->CreatePotentialSelector(charId, rare);
-            if (!selector)
-            {
-                return false;
-            }
-            auto* added = GetRoom()->AddCase(std::move(selector));
-            if (added)
-            {
-                rsp.add_cases()->CopyFrom(added->ToProto());
-                return true;
-            }
-            return false;
-        };
-        auto supportCharId = [this]() -> uint32_t {
-            if (GetGame()->CharIds.size() <= 1)
-            {
-                return GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front();
-            }
-            const size_t index = static_cast<size_t>(RandomInt(1, static_cast<int>(GetGame()->CharIds.size() - 1)));
-            return GetGame()->CharIds[index];
-        };
+        const uint32_t optionId = selectedIndex < Options.size() ? Options[selectedIndex] : 0;
 
         switch (optionId)
         {
+        // 消耗100星塔币，生成普通潜能选择。
         case 10101:
-            completed = spendCoin(100) && addSelector(0, false);
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 100)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -100, rsp.mutable_change());
+                auto selector = GetGame()->CreatePotentialSelector(0, false);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 消耗120星塔币，生成普通潜能选择。
         case 10102:
-            completed = spendCoin(120) && addSelector(0, false);
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 120)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -120, rsp.mutable_change());
+                auto selector = GetGame()->CreatePotentialSelector(0, false);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 获得30星塔币。
         case 10103:
+        // 获得30星塔币。
         case 10204:
+        // 获得30星塔币。
         case 10303:
+        // 获得30星塔币。
         case 10403:
+        // 获得30星塔币。
         case 10503:
+        // 获得30星塔币。
         case 10603:
+        // 获得30星塔币。
         case 10809:
+        // 获得30星塔币。
         case 12802:
-            addCoin(30);
+            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, kTowerEventCoinSmallReward, rsp.mutable_change());
             break;
+        // 消耗120星塔币，为支援角色生成普通潜能选择。
         case 10201:
-            completed = spendCoin(120) && addSelector(supportCharId(), false);
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 120)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -120, rsp.mutable_change());
+                uint32_t supportCharId = 0;
+                if (GetGame()->CharIds.size() <= 1)
+                {
+                    supportCharId = GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front();
+                }
+                else
+                {
+                    const size_t index = static_cast<size_t>(RandomInt(1, static_cast<int>(GetGame()->CharIds.size() - 1)));
+                    supportCharId = GetGame()->CharIds[index];
+                }
+
+                auto selector = GetGame()->CreatePotentialSelector(supportCharId, false);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 消耗160星塔币，为队长生成普通潜能选择。
         case 10202:
-            completed = spendCoin(160) && addSelector(GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front(), false);
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 160)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -160, rsp.mutable_change());
+                auto selector = GetGame()->CreatePotentialSelector(GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front(), false);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 消耗200星塔币，生成稀有潜能选择。
         case 10203:
+        // 1消耗200星塔币，生成稀有潜能选择。
         case 10402:
-            completed = spendCoin(200) && addSelector(0, true);
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 200)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -200, rsp.mutable_change());
+                auto selector = GetGame()->CreatePotentialSelector(0, true);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 暂未实现消耗副音符兑换星塔币，固定判定未满足。
         case 10302:
+        // 暂未实现该事件条件，固定判定未满足。
         case 10401:
             completed = false;
             break;
+        // 50%获得200星塔币，否则失去100星塔币。
         case 10501:
-            addCoin(RandomChance(0.5) ? 200 : -100);
+            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, RandomChance(0.5) ? 200 : -100, rsp.mutable_change());
             break;
+        // 30%获得650星塔币，否则失去200星塔币。
         case 10502:
-            addCoin(RandomChance(0.3) ? 650 : -200);
+            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, RandomChance(0.3) ? 650 : -200, rsp.mutable_change());
             break;
+        // 50%生成稀有潜能选择。
         case 10601:
             if (RandomChance(0.5))
             {
-                addSelector(0, true);
+                auto selector = GetGame()->CreatePotentialSelector(0, true);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
             }
             break;
+        // 生成普通潜能选择。
         case 10602:
-            addSelector(0, false);
+        {
+            auto selector = GetGame()->CreatePotentialSelector(0, false);
+            if (selector)
+            {
+                auto* added = GetRoom()->AddCase(std::move(selector));
+                if (added)
+                {
+                    rsp.add_cases()->CopyFrom(added->ToProto());
+                }
+            }
             break;
+        }
+        // 获得固定副音符技能90011，数量5。
         case 10701:
+        // 获得固定副音符技能90012，数量5。
         case 10702:
+        // 获得固定副音符技能90013，数量5。
         case 10703:
+        // 获得固定副音符技能90014，数量5。
         case 10704:
+        // 获得固定副音符技能90015，数量5。
         case 10705:
+        // 获得固定副音符技能90016，数量5。
         case 10706:
+        // 获得固定副音符技能90017，数量5。
         case 10707:
-            GetGame()->AddRuntimeItem((optionId % 100) + 90010, 5, rsp.mutable_change());
+            GetGame()->AddRuntimeItem((optionId % 100) + kTowerEventSubNoteSkillBaseId, kTowerEventSubNoteSmallReward, rsp.mutable_change());
             break;
+        // 获得随机副音符技能，数量5。
         case 10708:
-            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 5, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteSmallReward, rsp.mutable_change());
             break;
+        // 消耗140星塔币，获得固定副音符技能90011，数量10。
         case 10801:
+        // 消耗140星塔币，获得固定副音符技能90012，数量10。
         case 10802:
+        // 消耗140星塔币，获得固定副音符技能90013，数量10。
         case 10803:
+        // 消耗140星塔币，获得固定副音符技能90014，数量10。
         case 10804:
+        // 消耗140星塔币，获得固定副音符技能90015，数量10。
         case 10805:
+        // 消耗140星塔币，获得固定副音符技能90016，数量10。
         case 10806:
+        // 消耗140星塔币，获得固定副音符技能90017，数量10。
         case 10807:
-            completed = spendCoin(140) && GetGame()->AddRuntimeItem((optionId % 100) + 90010, 10, rsp.mutable_change());
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 140)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -140, rsp.mutable_change());
+                GetGame()->AddRuntimeItem((optionId % 100) + kTowerEventSubNoteSkillBaseId, kTowerEventSubNoteLargeReward, rsp.mutable_change());
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 消耗90星塔币，获得随机副音符技能，数量10。
         case 10808:
-            completed = spendCoin(90) && GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 10, rsp.mutable_change());
+            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 90)
+            {
+                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -90, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteLargeReward, rsp.mutable_change());
+            }
+            else
+            {
+                completed = false;
+            }
             break;
+        // 答题错误，设置错误答案提示参数。
         case 11401:
+        // 答题错误，设置错误答案提示参数。
         case 11402:
+        // 答题正确，获得随机副音符技能，数量10。
         case 11403:
+        // 答题错误，设置错误答案提示参数。
         case 11404:
+        // 答题错误，设置错误答案提示参数。
         case 11405:
             if (optionId == 11403)
             {
-                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 10, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteLargeReward, rsp.mutable_change());
             }
             else
             {
-                result->set_optionsparamid(100140101);
+                result->set_optionsparamid(kTowerEventWrongAnswerOptionsParamId);
             }
             break;
+        // 答题错误，设置错误答案提示参数。
         case 11501:
+        // 答题错误，设置错误答案提示参数。
         case 11502:
+        // 答题正确，生成普通潜能选择。
         case 11503:
+        // 答题错误，设置错误答案提示参数。
         case 11504:
+        // 答题错误，设置错误答案提示参数。
         case 11505:
             if (optionId == 11503)
             {
-                addSelector(0, false);
+                auto selector = GetGame()->CreatePotentialSelector(0, false);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
             }
             else
             {
-                result->set_optionsparamid(100140101);
+                result->set_optionsparamid(kTowerEventWrongAnswerOptionsParamId);
             }
             break;
+        // 答题错误，设置错误答案提示参数。
         case 11601:
+        // 答题错误，设置错误答案提示参数。
         case 11602:
+        // 答题正确，生成稀有潜能选择。
         case 11603:
+        // 答题错误，设置错误答案提示参数。
         case 11604:
+        // 答题错误，设置错误答案提示参数。
         case 11605:
             if (optionId == 11603)
             {
-                addSelector(0, true);
+                auto selector = GetGame()->CreatePotentialSelector(0, true);
+                if (selector)
+                {
+                    auto* added = GetRoom()->AddCase(std::move(selector));
+                    if (added)
+                    {
+                        rsp.add_cases()->CopyFrom(added->ToProto());
+                    }
+                }
             }
             else
             {
-                result->set_optionsparamid(100140101);
+                result->set_optionsparamid(kTowerEventWrongAnswerOptionsParamId);
             }
             break;
+        // 为支援角色生成普通潜能选择。
         case 12601:
+        // 为支援角色生成普通潜能选择。
         case 12701:
-            addSelector(supportCharId(), false);
+        {
+            uint32_t supportCharId = 0;
+            if (GetGame()->CharIds.size() <= 1)
+            {
+                supportCharId = GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front();
+            }
+            else
+            {
+                const size_t index = static_cast<size_t>(RandomInt(1, static_cast<int>(GetGame()->CharIds.size() - 1)));
+                supportCharId = GetGame()->CharIds[index];
+            }
+
+            auto selector = GetGame()->CreatePotentialSelector(supportCharId, false);
+            if (selector)
+            {
+                auto* added = GetRoom()->AddCase(std::move(selector));
+                if (added)
+                {
+                    rsp.add_cases()->CopyFrom(added->ToProto());
+                }
+            }
             break;
+        }
+        // 获得随机副音符技能，数量5。
         case 12702:
-            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), 5, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteSmallReward, rsp.mutable_change());
             break;
+        // 为支援角色生成稀有潜能选择。
         case 12801:
-            addSelector(supportCharId(), true);
+        {
+            uint32_t supportCharId = 0;
+            if (GetGame()->CharIds.size() <= 1)
+            {
+                supportCharId = GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front();
+            }
+            else
+            {
+                const size_t index = static_cast<size_t>(RandomInt(1, static_cast<int>(GetGame()->CharIds.size() - 1)));
+                supportCharId = GetGame()->CharIds[index];
+            }
+
+            auto selector = GetGame()->CreatePotentialSelector(supportCharId, true);
+            if (selector)
+            {
+                auto* added = GetRoom()->AddCase(std::move(selector));
+                if (added)
+                {
+                    rsp.add_cases()->CopyFrom(added->ToProto());
+                }
+            }
             break;
+        }
         default:
             break;
         }
@@ -730,7 +941,6 @@ proto::StarTowerRoomCase TowerNpcEventCase::ToProto() const
     auto* data = out.mutable_selectoptionseventcase();
     data->set_evtid(EventId);
     data->set_npcid(NpcId);
-    data->set_done(Completed);
     for (uint32_t option : Options)
     {
         data->add_options(option);
@@ -859,6 +1069,8 @@ void TowerHawkerCase::InitGoods()
 
 proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
+    rsp.mutable_nilresp();
+
     if (req.has_hawkerreq())
     {
         if (req.hawkerreq().has_sid())
@@ -922,13 +1134,11 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
             RerollPrice = GetGame()->ShopRerollPrice;
             if (RerollTimes == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
             {
-                rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
                 return rsp;
             }
 
             if (!GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change()))
             {
-                rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
                 return rsp;
             }
             GetGame()->ConsumeShopReroll();
@@ -939,10 +1149,10 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
                 GetGame()->GetManager()->GetPlayer()->Trigger(530, 1, 0, 0);
             }
             InitGoods();
+            rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
         }
     }
 
-    rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
     return rsp;
 }
 

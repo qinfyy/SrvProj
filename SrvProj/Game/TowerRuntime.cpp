@@ -428,7 +428,6 @@ proto::StarTowerInfo Game::ToProto() const
     meta->set_id(TowerId);
     meta->set_charhp(CharHp < 0 ? kInvalidTowerHp : static_cast<uint32_t>(CharHp));
     meta->set_teamlevel(TeamLevel);
-    meta->set_teamexp(TeamExp);
     meta->set_totaltime(BattleTime);
     meta->set_buildid(BuildId);
 
@@ -590,8 +589,16 @@ void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
     StageNum = bin.stagenum();
     StageFloor = bin.stagefloor();
     TeamLevel = bin.teamlevel();
+    if (TeamLevel == 0)
+    {
+        TeamLevel = 1;
+    }
     TeamExp = bin.teamexp();
-    NextLevelExp = bin.nextlevelexp();
+    const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find(std::to_string(TeamLevel + 1));
+    NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
+        ? static_cast<uint32_t>(INT32_MAX)
+        : static_cast<uint32_t>((std::max)(teamExpIt->second.NeedExp, 0));
+    LevelUp();
     CharHp = bin.charhp();
     BattleTime = bin.battletime();
     PendingPotentialCases = bin.pendingpotentialcases();

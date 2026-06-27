@@ -97,26 +97,7 @@ TowerMgr::~TowerMgr() = default;
 void TowerMgr::OnCreate()
 {
     MutableBin()->Clear();
-    if (Config::Get().unlockAllStarTower)
-    {
-        std::vector<uint32_t> towerIds;
-        towerIds.reserve(GameData::StarTowerDataTable.size());
-        for (const auto& [id, _] : GameData::StarTowerDataTable)
-        {
-            try
-            {
-                towerIds.push_back(static_cast<uint32_t>(std::stoul(id)));
-            }
-            catch (...)
-            {
-            }
-        }
-        std::sort(towerIds.begin(), towerIds.end());
-        for (uint32_t towerId : towerIds)
-        {
-            MutableBin()->add_startowerlog(towerId);
-        }
-    }
+    MutableBin()->set_defaultunlockallstartower(Config::Get().unlockAllStarTower);
     InitializeDefaults();
 }
 
@@ -244,9 +225,32 @@ proto::StarTowerBookState TowerMgr::BuildBookStateProto() const
 
 void TowerMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 {
-    for (uint32_t towerId : Bin().startowerlog())
+    if (Bin().defaultunlockallstartower())
     {
-        out.add_rglpassedids(towerId);
+        std::vector<uint32_t> towerIds;
+        towerIds.reserve(GameData::StarTowerDataTable.size());
+        for (const auto& [id, _] : GameData::StarTowerDataTable)
+        {
+            try
+            {
+                towerIds.push_back(static_cast<uint32_t>(std::stoul(id)));
+            }
+            catch (...)
+            {
+            }
+        }
+        std::sort(towerIds.begin(), towerIds.end());
+        for (uint32_t towerId : towerIds)
+        {
+            out.add_rglpassedids(towerId);
+        }
+    }
+    else
+    {
+        for (uint32_t towerId : Bin().startowerlog())
+        {
+            out.add_rglpassedids(towerId);
+        }
     }
 
     out.set_towerticket(Bin().towertickets());
@@ -284,10 +288,13 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
             return false;
         }
 
-        const auto it = std::find(Bin().startowerlog().begin(), Bin().startowerlog().end(), req.id());
-        if (it == Bin().startowerlog().end())
+        if (!Bin().defaultunlockallstartower())
         {
-            return false;
+            const auto it = std::find(Bin().startowerlog().begin(), Bin().startowerlog().end(), req.id());
+            if (it == Bin().startowerlog().end())
+            {
+                return false;
+            }
         }
 
         if (GetPlayer()->Inventory().HasItem(29, 1))

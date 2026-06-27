@@ -1795,6 +1795,7 @@ inline constexpr TowerCompBin::Impl_::Impl_(
         currentgame_{nullptr},
         lastbuild_{nullptr},
         towertickets_{0u},
+        defaultunlockallstartower_{false},
         bookpotentiallevels_{} {}
 
 template <typename>
@@ -2565,7 +2566,7 @@ const ::uint32_t
         1,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_._has_bits_),
-        23, // hasbit index offset
+        24, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.startowerlog_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.startowergrowth_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.towertickets_),
@@ -2586,6 +2587,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinitybooklevels_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinitybookvalues_),
         PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookpotentiallevels_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.defaultunlockallstartower_),
         0,
         1,
         18,
@@ -2605,6 +2607,7 @@ const ::uint32_t
         13,
         14,
         15,
+        20,
         19,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse, _impl_._has_bits_),
@@ -2775,11 +2778,11 @@ static const ::_pbi::MigrationSchema
         {639, sizeof(::ServerProto::TowerGameBin)},
         {698, sizeof(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse)},
         {705, sizeof(::ServerProto::TowerCompBin)},
-        {748, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
-        {755, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
-        {762, sizeof(::ServerProto::PlayerBasicCompBin)},
-        {809, sizeof(::ServerProto::PlayerSaveData)},
-        {832, sizeof(::ServerProto::GameDiscInfoBin)},
+        {750, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
+        {757, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
+        {764, sizeof(::ServerProto::PlayerBasicCompBin)},
+        {811, sizeof(::ServerProto::PlayerSaveData)},
+        {834, sizeof(::ServerProto::GameDiscInfoBin)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_CharacterChat_default_instance_._instance,
@@ -3051,7 +3054,7 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "\r\022\r\n\005value\030\002 \001(\005:\0028\001\0321\n\017PotentialsEntry\022"
     "\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\0329\n\027RareP"
     "otentialCountEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value"
-    "\030\002 \001(\005:\0028\001\"\375\005\n\014TowerCompBin\022\024\n\014starTower"
+    "\030\002 \001(\005:\0028\001\"\240\006\n\014TowerCompBin\022\024\n\014starTower"
     "Log\030\001 \003(\r\022\027\n\017starTowerGrowth\030\002 \003(\r\022\024\n\014to"
     "werTickets\030\003 \001(\r\0225\n\007presets\030\004 \003(\0132$.Serv"
     "erProto.TowerPotentialPresetBin\022*\n\006build"
@@ -3068,49 +3071,50 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "BookPlots\030\021 \003(\r\022\035\n\025npcAffinityBookLevels"
     "\030\022 \003(\r\022\035\n\025npcAffinityBookValues\030\023 \003(\r\022O\n"
     "\023bookPotentialLevels\030\024 \003(\01322.ServerProto"
-    ".TowerCompBin.BookPotentialLevelsEntry\032:"
-    "\n\030BookPotentialLevelsEntry\022\013\n\003key\030\001 \001(\r\022"
-    "\r\n\005value\030\002 \001(\r:\0028\001\"\275\005\n\022PlayerBasicCompBi"
-    "n\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\ts"
-    "ignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIc"
-    "on\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013titlePrefix\030"
-    "\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005music\030\n \001("
-    "\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006b"
-    "oards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022"
-    "\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUpdate\030\021 \001("
-    "\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastEpochDay\030\023"
-    " \001(\003\022\021\n\tlastLogin\030\024 \001(\003\022Y\n\025monthlyCardEx"
-    "pireDays\030\025 \003(\0132:.ServerProto.PlayerBasic"
-    "CompBin.MonthlyCardExpireDaysEntry\022a\n\031mo"
-    "nthlyCardLastRewardDays\030\026 \003(\0132>.ServerPr"
-    "oto.PlayerBasicCompBin.MonthlyCardLastRe"
-    "wardDaysEntry\022\023\n\013permissions\030\027 \003(\t\032<\n\032Mo"
-    "nthlyCardExpireDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
-    "\005value\030\002 \001(\r:\0028\001\032@\n\036MonthlyCardLastRewar"
-    "dDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\002"
-    "8\001\"\212\004\n\016PlayerSaveData\0223\n\nplayerdata\030\002 \001("
-    "\0132\037.ServerProto.PlayerBasicCompBin\022/\n\010ch"
-    "arComp\030\003 \001(\0132\035.ServerProto.CharacterComp"
-    "Bin\022,\n\tquestComp\030\004 \001(\0132\031.ServerProto.Que"
-    "stCompBin\0228\n\017achievementComp\030\005 \001(\0132\037.Ser"
-    "verProto.AchievementCompBin\0224\n\rinventory"
-    "Comp\030\006 \001(\0132\035.ServerProto.InventoryCompBi"
-    "n\022*\n\010mailComp\030\007 \001(\0132\030.ServerProto.MailCo"
-    "mpBin\022,\n\tgachaComp\030\010 \001(\0132\031.ServerProto.G"
-    "achaCompBin\0226\n\016battlePassComp\030\t \001(\0132\036.Se"
-    "rverProto.BattlePassCompBin\0224\n\rformation"
-    "Comp\030\n \001(\0132\035.ServerProto.FormationCompBi"
-    "n\022,\n\ttowerComp\030\013 \001(\0132\031.ServerProto.Tower"
-    "CompBin\"\211\001\n\017GameDiscInfoBin\022\016\n\006discId\030\002 "
-    "\001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase"
-    "\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003av"
-    "g\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006proto3"
+    ".TowerCompBin.BookPotentialLevelsEntry\022!"
+    "\n\031defaultUnlockAllStarTower\030\025 \001(\010\032:\n\030Boo"
+    "kPotentialLevelsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005va"
+    "lue\030\002 \001(\r:\0028\001\"\275\005\n\022PlayerBasicCompBin\022\022\n\n"
+    "createTime\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignat"
+    "ure\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010headIcon\030\006 "
+    "\001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005"
+    "\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005"
+    "honor\030\013 \003(\005\022\021\n\tshowChars\030\014 \003(\005\022\016\n\006boards"
+    "\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006en"
+    "ergy\030\020 \001(\005\022\030\n\020energyLastUpdate\030\021 \001(\003\022\023\n\013"
+    "signInIndex\030\022 \001(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022"
+    "\021\n\tlastLogin\030\024 \001(\003\022Y\n\025monthlyCardExpireD"
+    "ays\030\025 \003(\0132:.ServerProto.PlayerBasicCompB"
+    "in.MonthlyCardExpireDaysEntry\022a\n\031monthly"
+    "CardLastRewardDays\030\026 \003(\0132>.ServerProto.P"
+    "layerBasicCompBin.MonthlyCardLastRewardD"
+    "aysEntry\022\023\n\013permissions\030\027 \003(\t\032<\n\032Monthly"
+    "CardExpireDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
+    "e\030\002 \001(\r:\0028\001\032@\n\036MonthlyCardLastRewardDays"
+    "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"\212\004"
+    "\n\016PlayerSaveData\0223\n\nplayerdata\030\002 \001(\0132\037.S"
+    "erverProto.PlayerBasicCompBin\022/\n\010charCom"
+    "p\030\003 \001(\0132\035.ServerProto.CharacterCompBin\022,"
+    "\n\tquestComp\030\004 \001(\0132\031.ServerProto.QuestCom"
+    "pBin\0228\n\017achievementComp\030\005 \001(\0132\037.ServerPr"
+    "oto.AchievementCompBin\0224\n\rinventoryComp\030"
+    "\006 \001(\0132\035.ServerProto.InventoryCompBin\022*\n\010"
+    "mailComp\030\007 \001(\0132\030.ServerProto.MailCompBin"
+    "\022,\n\tgachaComp\030\010 \001(\0132\031.ServerProto.GachaC"
+    "ompBin\0226\n\016battlePassComp\030\t \001(\0132\036.ServerP"
+    "roto.BattlePassCompBin\0224\n\rformationComp\030"
+    "\n \001(\0132\035.ServerProto.FormationCompBin\022,\n\t"
+    "towerComp\030\013 \001(\0132\031.ServerProto.TowerCompB"
+    "in\"\211\001\n\017GameDiscInfoBin\022\016\n\006discId\030\002 \001(\005\022\r"
+    "\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005phase\030\005 \001("
+    "\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n\003avg\030\010 \001"
+    "(\010\022\022\n\ncreateTime\030\t \001(\003b\006proto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    10115,
+    10150,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
@@ -23217,7 +23221,13 @@ TowerCompBin::TowerCompBin(
   _impl_.lastbuild_ = (CheckHasBit(cached_has_bits, 0x00020000U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.lastbuild_)
                 : nullptr;
-  _impl_.towertickets_ = from._impl_.towertickets_;
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, towertickets_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, towertickets_),
+           offsetof(Impl_, defaultunlockallstartower_) -
+               offsetof(Impl_, towertickets_) +
+               sizeof(Impl_::defaultunlockallstartower_));
 
   // @@protoc_insertion_point(copy_constructor:ServerProto.TowerCompBin)
 }
@@ -23262,9 +23272,9 @@ inline void TowerCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, currentgame_),
            0,
-           offsetof(Impl_, towertickets_) -
+           offsetof(Impl_, defaultunlockallstartower_) -
                offsetof(Impl_, currentgame_) +
-               sizeof(Impl_::towertickets_));
+               sizeof(Impl_::defaultunlockallstartower_));
 }
 TowerCompBin::~TowerCompBin() {
   // @@protoc_insertion_point(destructor:ServerProto.TowerCompBin)
@@ -23401,16 +23411,16 @@ TowerCompBin::GetClassData() const {
   return TowerCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 20, 5, 0, 2>
+const ::_pbi::TcParseTable<5, 21, 5, 0, 2>
 TowerCompBin::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_._has_bits_),
     0, // no _extensions_
-    20, 248,  // max_field_number, fast_idx_mask
+    21, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4293918720,  // skipmap
+    4292870144,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    20,  // num_field_entries
+    21,  // num_field_entries
     5,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     TowerCompBin_class_data_.base(),
@@ -23498,7 +23508,10 @@ TowerCompBin::_table_ = {
      {410, 15, 0,
       PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookvalues_)}},
     {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // bool defaultUnlockAllStarTower = 21;
+    {::_pbi::TcParser::FastV8S2,
+     {424, 19, 0,
+      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.defaultunlockallstartower_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -23551,7 +23564,9 @@ TowerCompBin::_table_ = {
     // repeated uint32 npcAffinityBookValues = 19;
     {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookvalues_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // map<uint32, uint32> bookPotentialLevels = 20;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentiallevels_), _Internal::kHasBitsOffset + 19, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentiallevels_), _Internal::kHasBitsOffset + 20, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // bool defaultUnlockAllStarTower = 21;
+    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.defaultunlockallstartower_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialPresetBin>()},
@@ -23634,9 +23649,11 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
       _impl_.lastbuild_->Clear();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000c0000U)) {
-    _impl_.towertickets_ = 0u;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x001c0000U)) {
+    ::memset(&_impl_.towertickets_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.defaultunlockallstartower_) -
+        reinterpret_cast<char*>(&_impl_.towertickets_)) + sizeof(_impl_.defaultunlockallstartower_));
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
       _impl_.bookpotentiallevels_.Clear();
     }
   }
@@ -23867,7 +23884,7 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
   }
 
   // map<uint32, uint32> bookPotentialLevels = 20;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
     if (!this_._internal_bookpotentiallevels().empty()) {
       using MapType = ::google::protobuf::Map<::uint32_t, ::uint32_t>;
       using WireHelper = _pbi::MapEntryFuncs<::uint32_t, ::uint32_t,
@@ -23886,6 +23903,15 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
               20, entry.first, entry.second, target, stream);
         }
       }
+    }
+  }
+
+  // bool defaultUnlockAllStarTower = 21;
+  if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+    if (this_._internal_defaultunlockallstartower() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          21, this_._internal_defaultunlockallstartower(), target);
     }
   }
 
@@ -24030,7 +24056,7 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
               this_._impl_._npcaffinitybookvalues_cached_byte_size_);
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     // .ServerProto.TowerGameBin currentGame = 6;
     if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       total_size += 1 +
@@ -24048,8 +24074,14 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
             this_._internal_towertickets());
       }
     }
+    // bool defaultUnlockAllStarTower = 21;
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+      if (this_._internal_defaultunlockallstartower() != 0) {
+        total_size += 3;
+      }
+    }
     // map<uint32, uint32> bookPotentialLevels = 20;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
       total_size +=
           2 * ::google::protobuf::internal::FromIntSize(this_._internal_bookpotentiallevels_size());
       for (const auto& entry : this_._internal_bookpotentiallevels()) {
@@ -24134,7 +24166,7 @@ void TowerCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       _this->_internal_mutable_npcaffinitybookvalues()->MergeFrom(from._internal_npcaffinitybookvalues());
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       ABSL_DCHECK(from._impl_.currentgame_ != nullptr);
       if (_this->_impl_.currentgame_ == nullptr) {
@@ -24156,7 +24188,12 @@ void TowerCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.towertickets_ = from._impl_.towertickets_;
       }
     }
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00080000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+      if (from._internal_defaultunlockallstartower() != 0) {
+        _this->_impl_.defaultunlockallstartower_ = from._impl_.defaultunlockallstartower_;
+      }
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00100000U)) {
       _this->_impl_.bookpotentiallevels_.MergeFrom(from._impl_.bookpotentiallevels_);
     }
   }
@@ -24194,8 +24231,8 @@ void TowerCompBin::InternalSwap(TowerCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   _impl_.npcaffinitybooklevels_.InternalSwap(&other->_impl_.npcaffinitybooklevels_);
   _impl_.npcaffinitybookvalues_.InternalSwap(&other->_impl_.npcaffinitybookvalues_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.towertickets_)
-      + sizeof(TowerCompBin::_impl_.towertickets_)
+      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.defaultunlockallstartower_)
+      + sizeof(TowerCompBin::_impl_.defaultunlockallstartower_)
       - PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.currentgame_)>(
           reinterpret_cast<char*>(&_impl_.currentgame_),
           reinterpret_cast<char*>(&other->_impl_.currentgame_));

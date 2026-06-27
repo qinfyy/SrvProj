@@ -12957,6 +12957,7 @@ class TowerCompBin final : public ::google::protobuf::Message
     kCurrentGameFieldNumber = 6,
     kLastBuildFieldNumber = 7,
     kTowerTicketsFieldNumber = 3,
+    kDefaultUnlockAllStarTowerFieldNumber = 21,
     kBookPotentialLevelsFieldNumber = 20,
   };
   // repeated uint32 starTowerLog = 1;
@@ -13285,6 +13286,16 @@ class TowerCompBin final : public ::google::protobuf::Message
   void _internal_set_towertickets(::uint32_t value);
 
   public:
+  // bool defaultUnlockAllStarTower = 21;
+  void clear_defaultunlockallstartower() ;
+  bool defaultunlockallstartower() const;
+  void set_defaultunlockallstartower(bool value);
+
+  private:
+  bool _internal_defaultunlockallstartower() const;
+  void _internal_set_defaultunlockallstartower(bool value);
+
+  public:
   // map<uint32, uint32> bookPotentialLevels = 20;
   int bookpotentiallevels_size() const;
   private:
@@ -13304,7 +13315,7 @@ class TowerCompBin final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<5, 20,
+  static const ::google::protobuf::internal::TcParseTable<5, 21,
                                    5, 0,
                                    2>
       _table_;
@@ -13359,6 +13370,7 @@ class TowerCompBin final : public ::google::protobuf::Message
     ::ServerProto::TowerGameBin* PROTOBUF_NULLABLE currentgame_;
     ::ServerProto::TowerBuildBin* PROTOBUF_NULLABLE lastbuild_;
     ::uint32_t towertickets_;
+    bool defaultunlockallstartower_;
     ::google::protobuf::internal::MapField<TowerCompBin_BookPotentialLevelsEntry_DoNotUse, ::uint32_t, ::uint32_t,
                       ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
                       ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
@@ -23110,7 +23122,7 @@ inline void TowerCompBin::clear_bookpotentiallevels() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.bookpotentiallevels_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[0],
-                  0x00080000U);
+                  0x00100000U);
 }
 inline const ::google::protobuf::Map<::uint32_t, ::uint32_t>& TowerCompBin::_internal_bookpotentiallevels() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -23126,9 +23138,34 @@ inline ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL TowerCo
 }
 inline ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL TowerCompBin::mutable_bookpotentiallevels()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00080000U);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00100000U);
   // @@protoc_insertion_point(field_mutable_map:ServerProto.TowerCompBin.bookPotentialLevels)
   return _internal_mutable_bookpotentiallevels();
+}
+
+// bool defaultUnlockAllStarTower = 21;
+inline void TowerCompBin::clear_defaultunlockallstartower() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.defaultunlockallstartower_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00080000U);
+}
+inline bool TowerCompBin::defaultunlockallstartower() const {
+  // @@protoc_insertion_point(field_get:ServerProto.TowerCompBin.defaultUnlockAllStarTower)
+  return _internal_defaultunlockallstartower();
+}
+inline void TowerCompBin::set_defaultunlockallstartower(bool value) {
+  _internal_set_defaultunlockallstartower(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00080000U);
+  // @@protoc_insertion_point(field_set:ServerProto.TowerCompBin.defaultUnlockAllStarTower)
+}
+inline bool TowerCompBin::_internal_defaultunlockallstartower() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.defaultunlockallstartower_;
+}
+inline void TowerCompBin::_internal_set_defaultunlockallstartower(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.defaultunlockallstartower_ = value;
 }
 
 // -------------------------------------------------------------------
