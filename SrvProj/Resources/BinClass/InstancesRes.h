@@ -1,19 +1,20 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class DailyInstanceRes : public ResBase {
+class DailyInstanceRes {
 public:
     DailyInstanceRes() = default;
     ~DailyInstanceRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -27,14 +28,15 @@ public:
     // 非序列化字段
 };
 
-class DailyInstanceRewardGroupRes : public ResBase {
+class DailyInstanceRewardGroupRes {
 public:
     DailyInstanceRewardGroupRes() = default;
     ~DailyInstanceRewardGroupRes() = default;
 
-    std::string GetId() const override { return std::to_string(GroupId); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return GroupId; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -45,14 +47,15 @@ public:
     // 非序列化字段
 };
 
-class RegionBossLevelRes : public ResBase {
+class RegionBossLevelRes {
 public:
     RegionBossLevelRes() = default;
     ~RegionBossLevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -66,14 +69,15 @@ public:
     // 非序列化字段
 };
 
-class SkillInstanceRes : public ResBase {
+class SkillInstanceRes {
 public:
     SkillInstanceRes() = default;
     ~SkillInstanceRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -87,14 +91,15 @@ public:
     // 非序列化字段
 };
 
-class CharGemInstanceRes : public ResBase {
+class CharGemInstanceRes {
 public:
     CharGemInstanceRes() = default;
     ~CharGemInstanceRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -108,14 +113,15 @@ public:
     // 非序列化字段
 };
 
-class WeekBossLevelRes : public ResBase {
+class WeekBossLevelRes {
 public:
     WeekBossLevelRes() = default;
     ~WeekBossLevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

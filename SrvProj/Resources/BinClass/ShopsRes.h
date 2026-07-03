@@ -1,19 +1,20 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class MallMonthlyCardRes : public ResBase {
+class MallMonthlyCardRes {
 public:
     MallMonthlyCardRes() = default;
     ~MallMonthlyCardRes() = default;
 
-    std::string GetId() const override { return Id; }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -28,14 +29,15 @@ public:
     ItemParamMap Products;
 };
 
-class MonthlyCardRes : public ResBase {
+class MonthlyCardRes {
 public:
     MonthlyCardRes() = default;
     ~MonthlyCardRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     int Id;
     int CardId;
@@ -47,14 +49,15 @@ public:
     ItemParamMap Rewards;
 };
 
-class MallPackageRes : public ResBase {
+class MallPackageRes {
 public:
     MallPackageRes() = default;
     ~MallPackageRes() = default;
 
-    std::string GetId() const override { return Id; }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -81,14 +84,15 @@ public:
     long long DeListTimeSeconds = 0;
 };
 
-class MallShopRes : public ResBase {
+class MallShopRes {
 public:
     MallShopRes() = default;
     ~MallShopRes() = default;
 
-    std::string GetId() const override { return Id; }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -114,14 +118,15 @@ public:
     long long DeListTimeSeconds = 0;
 };
 
-class MallGemRes : public ResBase {
+class MallGemRes {
 public:
     MallGemRes() = default;
     ~MallGemRes() = default;
 
-    std::string GetId() const override { return Id; }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -137,14 +142,15 @@ public:
     // 非序列化字段
 };
 
-class ResidentShopRes : public ResBase {
+class ResidentShopRes {
 public:
     ResidentShopRes() = default;
     ~ResidentShopRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -157,14 +163,15 @@ public:
     long long OpenTimeSeconds = 0;
 };
 
-class ResidentGoodsRes : public ResBase {
+class ResidentGoodsRes {
 public:
     ResidentGoodsRes() = default;
     ~ResidentGoodsRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

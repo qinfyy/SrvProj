@@ -1,7 +1,15 @@
 ﻿#include "ActivityRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool ActivityRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ActivityType", ActivityType);
+    return true;
+}
 
 bool ActivityRes::LoadFromPb(std::string data)
 {
@@ -13,6 +21,16 @@ bool ActivityRes::LoadFromPb(std::string data)
     Id = activity.id();
     ActivityType = activity.activitytype();
 
+    return true;
+}
+
+bool LoginRewardGroupControlRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "RewardId1", RewardId1);
+    ReadResourceJsonField(data, "Qty1", Qty1);
+    ReadResourceJsonField(data, "RewardId2", RewardId2);
+    ReadResourceJsonField(data, "Qty2", Qty2);
     return true;
 }
 
@@ -29,6 +47,18 @@ bool LoginRewardGroupControlRes::LoadFromPb(std::string data)
     RewardId2 = loginRewardGroup.rewardid2();
     Qty2 = loginRewardGroup.qty2();
 
+    return true;
+}
+
+bool TowerDefenseLevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Condition2", Condition2);
+    ReadResourceJsonField(data, "Condition3", Condition3);
+    ReadResourceJsonField(data, "Item1", Item1);
+    ReadResourceJsonField(data, "Qty1", Qty1);
+    ReadResourceJsonField(data, "Item2", Item2);
+    ReadResourceJsonField(data, "Qty2", Qty2);
     return true;
 }
 
@@ -50,6 +80,13 @@ bool TowerDefenseLevelRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool TrialControlRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "GroupIds", GroupIdSet);
+    return true;
+}
+
 bool TrialControlRes::LoadFromPb(std::string data)
 {
     TrialControl trialControl;
@@ -63,6 +100,18 @@ bool TrialControlRes::LoadFromPb(std::string data)
         GroupIdSet.insert(groupId);
     }
 
+    return true;
+}
+
+bool TrialGroupRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "RewardId1", RewardId1);
+    ReadResourceJsonField(data, "Qty1", Qty1);
+    ReadResourceJsonField(data, "RewardId2", RewardId2);
+    ReadResourceJsonField(data, "Qty2", Qty2);
+    ReadResourceJsonField(data, "RewardId3", RewardId3);
+    ReadResourceJsonField(data, "Qty3", Qty3);
     return true;
 }
 
@@ -84,6 +133,18 @@ bool TrialGroupRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool JointDrill2LevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "BattleTime", BattleTime);
+    ReadResourceJsonField(data, "TimeScore", TimeScore);
+    ReadResourceJsonField(data, "ScorePerSec", ScorePerSec);
+    ReadResourceJsonField(data, "LevelScore", LevelScore);
+    ReadResourceJsonField(data, "BaseHpScore", BaseHpScore);
+    ReadResourceJsonField(data, "RewardPreview", RewardPreview);
+    return true;
+}
+
 bool JointDrill2LevelRes::LoadFromPb(std::string data)
 {
     JointDrill_2_Level jointDrillLevel;
@@ -102,6 +163,15 @@ bool JointDrill2LevelRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool ActivityLevelsLevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ActivityId", ActivityId);
+    ReadResourceJsonField(data, "EnergyConsume", EnergyConsume);
+    ReadResourceJsonField(data, "CompleteRewardPreview", CompleteRewardPreview);
+    return true;
+}
+
 bool ActivityLevelsLevelRes::LoadFromPb(std::string data)
 {
     ActivityLevelsLevel activityLevelsLevel;
@@ -114,6 +184,19 @@ bool ActivityLevelsLevelRes::LoadFromPb(std::string data)
     EnergyConsume = activityLevelsLevel.energyconsume();
     CompleteRewardPreview = activityLevelsLevel.completerewardpreview();
 
+    return true;
+}
+
+bool ActivityTaskRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ActivityTaskGroupId", ActivityTaskGroupId);
+    ReadResourceJsonField(data, "CompleteCond", CompleteCond);
+    ReadResourceJsonField(data, "AimNumShow", AimNumShow);
+    ReadResourceJsonField(data, "Tid1", Tid1);
+    ReadResourceJsonField(data, "Qty1", Qty1);
+    ReadResourceJsonField(data, "Tid2", Tid2);
+    ReadResourceJsonField(data, "Qty2", Qty2);
     return true;
 }
 
@@ -133,6 +216,25 @@ bool ActivityTaskRes::LoadFromPb(std::string data)
     Tid2 = activityTask.tid2();
     Qty2 = activityTask.qty2();
 
+    return true;
+}
+
+bool ActivityTaskGroupRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ActivityId", ActivityId);
+    ReadResourceJsonField(data, "Reward1", Reward1);
+    ReadResourceJsonField(data, "RewardQty1", RewardQty1);
+    ReadResourceJsonField(data, "Reward2", Reward2);
+    ReadResourceJsonField(data, "RewardQty2", RewardQty2);
+    ReadResourceJsonField(data, "Reward3", Reward3);
+    ReadResourceJsonField(data, "RewardQty3", RewardQty3);
+    ReadResourceJsonField(data, "Reward4", Reward4);
+    ReadResourceJsonField(data, "RewardQty4", RewardQty4);
+    ReadResourceJsonField(data, "Reward5", Reward5);
+    ReadResourceJsonField(data, "RewardQty5", RewardQty5);
+    ReadResourceJsonField(data, "Reward6", Reward6);
+    ReadResourceJsonField(data, "RewardQty6", RewardQty6);
     return true;
 }
 
@@ -161,6 +263,15 @@ bool ActivityTaskGroupRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool ActivityShopRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "CurrencyItemId", CurrencyItemId);
+    ReadResourceJsonField(data, "ExchangeItemId", ExchangeItemId);
+    ReadResourceJsonField(data, "Rate", Rate);
+    return true;
+}
+
 bool ActivityShopRes::LoadFromPb(std::string data)
 {
     ActivityShop activityShop;
@@ -173,6 +284,13 @@ bool ActivityShopRes::LoadFromPb(std::string data)
     ExchangeItemId = activityShop.exchangeitemid();
     Rate = activityShop.rate();
 
+    return true;
+}
+
+bool ActivityShopControlRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ShopIds", ShopIds);
     return true;
 }
 
@@ -189,6 +307,17 @@ bool ActivityShopControlRes::LoadFromPb(std::string data)
         ShopIds.push_back(shopId);
     }
 
+    return true;
+}
+
+bool ActivityGoodsRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ShopId", ShopId);
+    ReadResourceJsonField(data, "ItemId", ItemId);
+    ReadResourceJsonField(data, "ItemQuantity", ItemQuantity);
+    ReadResourceJsonField(data, "MaximumLimit", MaximumLimit);
+    ReadResourceJsonField(data, "Price", Price);
     return true;
 }
 

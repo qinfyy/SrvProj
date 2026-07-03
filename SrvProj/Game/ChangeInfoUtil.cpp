@@ -1,4 +1,4 @@
-#include "ChangeInfoUtil.h"
+﻿#include "ChangeInfoUtil.h"
 
 #include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/GameData.h"
@@ -10,7 +10,7 @@ namespace ChangeInfoUtil
 {
 int GetItemType(uint32_t tid)
 {
-    const auto it = GameData::ItemDataTable.find(std::to_string(tid));
+    const auto it = GameData::ItemDataTable.find(tid);
     if (it == GameData::ItemDataTable.end())
     {
         return 0;
@@ -21,7 +21,7 @@ int GetItemType(uint32_t tid)
 
 int GetItemSubType(uint32_t tid)
 {
-    const auto it = GameData::ItemDataTable.find(std::to_string(tid));
+    const auto it = GameData::ItemDataTable.find(tid);
     if (it == GameData::ItemDataTable.end())
     {
         return 0;
@@ -32,7 +32,7 @@ int GetItemSubType(uint32_t tid)
 
 bool IsKnownItem(uint32_t tid)
 {
-    return GameData::ItemDataTable.find(std::to_string(tid)) != GameData::ItemDataTable.end();
+    return GameData::ItemDataTable.find(tid) != GameData::ItemDataTable.end();
 }
 
 bool IsResource(uint32_t tid)

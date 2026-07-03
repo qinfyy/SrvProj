@@ -1,20 +1,21 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <unordered_map>
 #include <vector>
 #include <memory>
 #include <string>
 
-class StarTowerRes : public ResBase {
+class StarTowerRes {
 public:
     StarTowerRes() = default;
     ~StarTowerRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -30,14 +31,15 @@ public:
     int GetMaxFloor(int stageNum) const;
 };
 
-class StarTowerStageRes : public ResBase {
+class StarTowerStageRes {
 public:
     StarTowerStageRes() = default;
     ~StarTowerStageRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -53,14 +55,15 @@ public:
     // 非序列化字段
 };
 
-class StarTowerGrowthNodeRes : public ResBase {
+class StarTowerGrowthNodeRes {
 public:
     StarTowerGrowthNodeRes() = default;
     ~StarTowerGrowthNodeRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -73,14 +76,15 @@ public:
     // 非序列化字段
 };
 
-class StarTowerFloorExpRes : public ResBase {
+class StarTowerFloorExpRes {
 public:
     StarTowerFloorExpRes() = default;
     ~StarTowerFloorExpRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -95,14 +99,15 @@ public:
     // 非序列化字段
 };
 
-class StarTowerTeamExpRes : public ResBase {
+class StarTowerTeamExpRes {
 public:
     StarTowerTeamExpRes() = default;
     ~StarTowerTeamExpRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -114,14 +119,15 @@ public:
     // 非序列化字段
 };
 
-class StarTowerEventRes : public ResBase {
+class StarTowerEventRes {
 public:
     StarTowerEventRes() = default;
     ~StarTowerEventRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -136,28 +142,30 @@ public:
     std::vector<int> OptionIds;
 };
 
-class EventOptionsRes : public ResBase {
+class EventOptionsRes {
 public:
     EventOptionsRes() = default;
     ~EventOptionsRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     int Id;
     std::string Desc;
     bool IgnoreInterActive = false;
 };
 
-class StarTowerBuildRankRes : public ResBase {
+class StarTowerBuildRankRes {
 public:
     StarTowerBuildRankRes() = default;
     ~StarTowerBuildRankRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -168,14 +176,15 @@ public:
     // 非序列化字段
 };
 
-class SubNoteSkillPromoteGroupRes : public ResBase {
+class SubNoteSkillPromoteGroupRes {
 public:
     SubNoteSkillPromoteGroupRes() = default;
     ~SubNoteSkillPromoteGroupRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -186,14 +195,15 @@ public:
     ItemParamMap Items;
 };
 
-class SubNoteSkillDropGroupRes : public ResBase {
+class SubNoteSkillDropGroupRes {
 public:
     SubNoteSkillDropGroupRes() = default;
     ~SubNoteSkillDropGroupRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     int Id;
     int GroupId;
@@ -204,14 +214,15 @@ public:
 private:
     static std::unordered_map<int, std::vector<int>> Groups;
 };
-class PotentialRes : public ResBase {
+class PotentialRes {
 public:
     PotentialRes() = default;
     ~PotentialRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -230,14 +241,15 @@ public:
     int GetBuildScore(int level) const;
 };
 
-class CharPotentialRes : public ResBase {
+class CharPotentialRes {
 public:
     CharPotentialRes() = default;
     ~CharPotentialRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -252,14 +264,15 @@ public:
     std::vector<int> GetPotentialList(bool main, bool special) const;
 };
 
-class StarTowerBookFateCardBundleRes : public ResBase {
+class StarTowerBookFateCardBundleRes {
 public:
     StarTowerBookFateCardBundleRes() = default;
     ~StarTowerBookFateCardBundleRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -268,14 +281,15 @@ public:
     // 非序列化字段
     std::vector<int> CardIds;
 };
-class StarTowerBookFateCardQuestRes : public ResBase {
+class StarTowerBookFateCardQuestRes {
 public:
     StarTowerBookFateCardQuestRes() = default;
     ~StarTowerBookFateCardQuestRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -284,14 +298,15 @@ public:
     // 非序列化字段
 };
 
-class StarTowerBookFateCardRes : public ResBase {
+class StarTowerBookFateCardRes {
 public:
     StarTowerBookFateCardRes() = default;
     ~StarTowerBookFateCardRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -301,14 +316,15 @@ public:
     // 非序列化字段
 };
 
-class FateCardRes : public ResBase {
+class FateCardRes {
 public:
     FateCardRes() = default;
     ~FateCardRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -322,14 +338,15 @@ public:
     int BundleId = 0;
 };
 
-class NPCAffinityGroupRes : public ResBase {
+class NPCAffinityGroupRes {
 public:
     NPCAffinityGroupRes() = default;
     ~NPCAffinityGroupRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -347,14 +364,15 @@ public:
 
 };
 
-class NPCAffinityPlotRes : public ResBase {
+class NPCAffinityPlotRes {
 public:
     NPCAffinityPlotRes() = default;
     ~NPCAffinityPlotRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -371,14 +389,15 @@ public:
     // 非序列化字段
 };
 
-class InfinityTowerLevelRes : public ResBase {
+class InfinityTowerLevelRes {
 public:
     InfinityTowerLevelRes() = default;
     ~InfinityTowerLevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -389,14 +408,15 @@ public:
     // 非序列化字段
 };
 
-class InfinityTowerDifficultyRes : public ResBase {
+class InfinityTowerDifficultyRes {
 public:
     InfinityTowerDifficultyRes() = default;
     ~InfinityTowerDifficultyRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
     int Id;

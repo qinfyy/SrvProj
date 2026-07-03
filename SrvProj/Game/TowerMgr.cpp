@@ -1,4 +1,4 @@
-#include "TowerMgr.h"
+﻿#include "TowerMgr.h"
 
 #include "CharacterMgr.h"
 #include "ChangeInfoUtil.h"
@@ -231,12 +231,9 @@ void TowerMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
         towerIds.reserve(GameData::StarTowerDataTable.size());
         for (const auto& [id, _] : GameData::StarTowerDataTable)
         {
-            try
+            if (id > 0)
             {
-                towerIds.push_back(static_cast<uint32_t>(std::stoul(id)));
-            }
-            catch (...)
-            {
+                towerIds.push_back(static_cast<uint32_t>(id));
             }
         }
         std::sort(towerIds.begin(), towerIds.end());
@@ -260,7 +257,7 @@ void TowerMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 
 bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyResp& rsp)
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(req.id()));
+    const auto towerIt = GameData::StarTowerDataTable.find(req.id());
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return false;
@@ -317,7 +314,7 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     game->FormationId = req.formationid();
     game->BuildId = TowerRuntime::GenerateUid();
     game->TeamLevel = 1;
-    const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find("2");
+    const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find(2);
     game->NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
         ? 100
         : static_cast<uint32_t>((std::max)(teamExpIt->second.NeedExp, 0));
@@ -768,7 +765,7 @@ bool TowerMgr::BuildGrowthDetail(proto::TowerGrowthDetailResp& rsp) const
 
 bool TowerMgr::UnlockGrowthNode(uint32_t nodeId, proto::ChangeInfo& change)
 {
-    const auto it = GameData::StarTowerGrowthNodeDataTable.find(std::to_string(nodeId));
+    const auto it = GameData::StarTowerGrowthNodeDataTable.find(nodeId);
     if (it == GameData::StarTowerGrowthNodeDataTable.end())
     {
         return false;
@@ -855,7 +852,7 @@ void TowerMgr::RecordPotentialCollection(uint32_t potentialId, uint32_t level)
         return;
     }
 
-    const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+    const auto potentialIt = GameData::PotentialDataTable.find(potentialId);
     if (potentialIt == GameData::PotentialDataTable.end())
     {
         return;
@@ -903,7 +900,7 @@ void TowerMgr::RecordFateCardCollection(uint32_t cardId)
         MutableBin()->add_fatecards(cardId);
     }
 
-    const auto fateIt = GameData::FateCardDataTable.find(std::to_string(cardId));
+    const auto fateIt = GameData::FateCardDataTable.find(cardId);
     if (fateIt != GameData::FateCardDataTable.end() && fateIt->second.BundleId > 0)
     {
         const uint32_t bundleId = static_cast<uint32_t>(fateIt->second.BundleId);
@@ -995,7 +992,7 @@ bool TowerMgr::BuildNpcAffinityBook(proto::NPCAffinityBookGetResp& rsp) const
         const auto plotIds = GetNpcAffinityPlotIds(npcId);
         for (uint32_t plotId : plotIds)
         {
-            const auto plotIt = GameData::NPCAffinityPlotDataTable.find(std::to_string(plotId));
+            const auto plotIt = GameData::NPCAffinityPlotDataTable.find(plotId);
             if (plotIt == GameData::NPCAffinityPlotDataTable.end())
             {
                 continue;
@@ -1018,7 +1015,7 @@ bool TowerMgr::ReceiveNpcAffinityPlotReward(uint32_t plotId, proto::NPCAffinityP
         return false;
     }
 
-    const auto plotIt = GameData::NPCAffinityPlotDataTable.find(std::to_string(plotId));
+    const auto plotIt = GameData::NPCAffinityPlotDataTable.find(plotId);
     if (plotIt == GameData::NPCAffinityPlotDataTable.end())
     {
         return false;
@@ -1064,7 +1061,7 @@ bool TowerMgr::BuildPotentialBriefList(proto::StarTowerBookPotentialBriefListRes
                 continue;
             }
 
-            const auto it = Bin().bookpotentiallevels().find(static_cast<uint32_t>(std::stoi(potentialId)));
+            const auto it = Bin().bookpotentiallevels().find(static_cast<uint32_t>(potentialId));
             if (it != Bin().bookpotentiallevels().end() && it->second > 0)
             {
                 ++count;
@@ -1078,7 +1075,7 @@ bool TowerMgr::BuildPotentialBriefList(proto::StarTowerBookPotentialBriefListRes
 
 bool TowerMgr::BuildCharPotential(uint32_t charId, proto::StarTowerBookPotentialGetResp& rsp) const
 {
-    const auto charIt = GameData::CharPotentialDataTable.find(std::to_string(charId));
+    const auto charIt = GameData::CharPotentialDataTable.find(charId);
     if (charIt == GameData::CharPotentialDataTable.end())
     {
         return false;
@@ -1111,7 +1108,7 @@ bool TowerMgr::ReceivePotentialBookReward(uint32_t potentialId, proto::StarTower
         return false;
     }
 
-    const auto it = GameData::PotentialDataTable.find(std::to_string(potentialId));
+    const auto it = GameData::PotentialDataTable.find(potentialId);
     const auto ownedIt = Bin().bookpotentiallevels().find(potentialId);
     if (it == GameData::PotentialDataTable.end() || ownedIt == Bin().bookpotentiallevels().end() || ownedIt->second == 0)
     {
@@ -1139,7 +1136,7 @@ bool TowerMgr::ReceiveEventBookReward(uint32_t eventId, proto::StarTowerBookEven
         return false;
     }
 
-    if (GameData::StarTowerEventDataTable.find(std::to_string(eventId)) == GameData::StarTowerEventDataTable.end())
+    if (GameData::StarTowerEventDataTable.find(eventId) == GameData::StarTowerEventDataTable.end())
     {
         return false;
     }
@@ -1173,7 +1170,7 @@ bool TowerMgr::ReceiveFateCardReward(uint32_t bundleId, uint32_t questId, proto:
 
     if (bundleId > 0)
     {
-        if (GameData::StarTowerBookFateCardBundleDataTable.find(std::to_string(bundleId)) == GameData::StarTowerBookFateCardBundleDataTable.end())
+        if (GameData::StarTowerBookFateCardBundleDataTable.find(bundleId) == GameData::StarTowerBookFateCardBundleDataTable.end())
         {
             return false;
         }
@@ -1184,7 +1181,7 @@ bool TowerMgr::ReceiveFateCardReward(uint32_t bundleId, uint32_t questId, proto:
     }
     if (questId > 0)
     {
-        if (GameData::StarTowerBookFateCardQuestDataTable.find(std::to_string(questId)) == GameData::StarTowerBookFateCardQuestDataTable.end())
+        if (GameData::StarTowerBookFateCardQuestDataTable.find(questId) == GameData::StarTowerBookFateCardQuestDataTable.end())
         {
             return false;
         }
@@ -1198,7 +1195,7 @@ bool TowerMgr::ReceiveFateCardReward(uint32_t bundleId, uint32_t questId, proto:
 
 bool TowerMgr::HasGrowthNode(uint32_t nodeId) const
 {
-    const auto it = GameData::StarTowerGrowthNodeDataTable.find(std::to_string(nodeId));
+    const auto it = GameData::StarTowerGrowthNodeDataTable.find(nodeId);
     if (it == GameData::StarTowerGrowthNodeDataTable.end())
     {
         return false;
@@ -1314,7 +1311,7 @@ bool TowerMgr::UpdatePresetCharacters(TowerRuntime::Preset& preset, const google
         std::vector<TowerRuntime::PotentialInfo> list;
         for (const auto& potential : ch.potentials())
         {
-            const auto it = GameData::PotentialDataTable.find(std::to_string(potential.id()));
+            const auto it = GameData::PotentialDataTable.find(potential.id());
             if (it == GameData::PotentialDataTable.end())
             {
                 continue;

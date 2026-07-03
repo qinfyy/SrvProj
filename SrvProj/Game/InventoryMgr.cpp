@@ -134,7 +134,7 @@ bool InventoryMgr::AddItem(uint32_t tid, int64_t qty, proto::ChangeInfo* change)
 
     if (type == ChangeInfoUtil::ItemType::Item)
     {
-        const auto itemIt = GameData::ItemDataTable.find(std::to_string(tid));
+        const auto itemIt = GameData::ItemDataTable.find(tid);
         if (itemIt != GameData::ItemDataTable.end() &&
             itemIt->second.Stype == ChangeInfoUtil::ItemSubType::RandomPackage &&
             !itemIt->second.UseArgs.empty())
@@ -146,7 +146,7 @@ bool InventoryMgr::AddItem(uint32_t tid, int64_t qty, proto::ChangeInfo* change)
                 const int total = pkgCount * static_cast<int>(qty);
                 for (int i = 0; i < total; ++i)
                 {
-                    const auto dropIt = GameData::DropPkgDataTable.find(std::to_string(pkgId));
+                    const auto dropIt = GameData::DropPkgDataTable.find(pkgId);
                     if (dropIt != GameData::DropPkgDataTable.end())
                     {
                         changed = AddItem(static_cast<uint32_t>(dropIt->second.ItemId), 1, change) || changed;
@@ -173,7 +173,7 @@ bool InventoryMgr::AddItem(uint32_t tid, int64_t qty, proto::ChangeInfo* change)
         {
             if (GetPlayer()->Characters().HasCharacter(static_cast<int>(tid)))
             {
-                const auto charIt = GameData::CharacterDataTable.find(std::to_string(tid));
+                const auto charIt = GameData::CharacterDataTable.find(tid);
                 if (charIt != GameData::CharacterDataTable.end())
                 {
                     changed = AddItem(static_cast<uint32_t>(charIt->second.FragmentsId), charIt->second.TransformQty, change) || changed;
@@ -203,7 +203,7 @@ bool InventoryMgr::AddItem(uint32_t tid, int64_t qty, proto::ChangeInfo* change)
         {
             if (GetPlayer()->Characters().HasDisc(static_cast<int>(tid)))
             {
-                const auto discIt = GameData::DiscDataTable.find(std::to_string(tid));
+                const auto discIt = GameData::DiscDataTable.find(tid);
                 if (discIt != GameData::DiscDataTable.end())
                 {
                     changed = AddItem(static_cast<uint32_t>(discIt->second.TransformItemId), 1, change) || changed;
@@ -587,7 +587,7 @@ bool InventoryMgr::UseItem(uint32_t id, uint32_t count, uint32_t selectId, proto
     }
 
     const uint32_t safeCount = (std::max)(count, 1u);
-    const auto itemIt = GameData::ItemDataTable.find(std::to_string(id));
+    const auto itemIt = GameData::ItemDataTable.find(id);
     if (itemIt == GameData::ItemDataTable.end() || itemIt->second.UseArgs.empty())
     {
         return false;
@@ -635,7 +635,7 @@ bool InventoryMgr::Produce(uint32_t id, uint32_t count, proto::ChangeInfo& chang
         return false;
     }
 
-    const auto dataIt = GameData::ProductionDataTable.find(std::to_string(id));
+    const auto dataIt = GameData::ProductionDataTable.find(id);
     if (dataIt == GameData::ProductionDataTable.end())
     {
         return false;

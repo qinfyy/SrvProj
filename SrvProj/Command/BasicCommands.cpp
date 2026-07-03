@@ -212,7 +212,7 @@ CommandResult BasicCommands::Give(const CommandArgs& args)
         }
 
         const uint32_t tid = static_cast<uint32_t>(itemId);
-        if (!GameData::ItemDataTable.empty() && GameData::ItemDataTable.find(std::to_string(tid)) == GameData::ItemDataTable.end())
+        if (!GameData::ItemDataTable.empty() && GameData::ItemDataTable.find(tid) == GameData::ItemDataTable.end())
         {
             continue;
         }

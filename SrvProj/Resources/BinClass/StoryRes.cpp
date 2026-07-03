@@ -1,7 +1,16 @@
 ﻿#include "StoryRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool StoryRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Chapter", Chapter);
+    ReadResourceJsonField(data, "RewardDisplay", RewardDisplay);
+    return true;
+}
 
 bool StoryRes::LoadFromPb(std::string data)
 {
@@ -14,6 +23,15 @@ bool StoryRes::LoadFromPb(std::string data)
     Chapter = s.chapter();
     RewardDisplay = s.rewarddisplay();
 
+    return true;
+}
+
+bool StorySetSectionRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ChapterId", ChapterId);
+    ReadResourceJsonField(data, "RewardItem1Tid", RewardItem1Tid);
+    ReadResourceJsonField(data, "RewardItem1Qty", RewardItem1Qty);
     return true;
 }
 
@@ -33,6 +51,12 @@ bool StorySetSectionRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool StoryEvidenceRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    return true;
+}
+
 bool StoryEvidenceRes::LoadFromPb(std::string data)
 {
     StoryEvidence se;
@@ -42,6 +66,13 @@ bool StoryEvidenceRes::LoadFromPb(std::string data)
 
     Id = se.id();
 
+    return true;
+}
+
+bool MainScreenCGRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "IsShown", IsShown);
     return true;
 }
 

@@ -1,20 +1,21 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 #include <unordered_set>
 
-class ScoreBossControlRes : public ResBase {
+class ScoreBossControlRes {
 public:
     ScoreBossControlRes() = default;
     ~ScoreBossControlRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -26,14 +27,15 @@ public:
     // 非序列化字段
 };
 
-class ScoreBossRewardRes : public ResBase {
+class ScoreBossRewardRes {
 public:
     ScoreBossRewardRes() = default;
     ~ScoreBossRewardRes() = default;
 
-    std::string GetId() const override { return std::to_string(StarNeed); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return StarNeed; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

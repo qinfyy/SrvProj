@@ -1,4 +1,4 @@
-#include "BattlePassMgr.h"
+﻿#include "BattlePassMgr.h"
 
 #include "Bitset.h"
 #include "ChangeInfoUtil.h"
@@ -23,6 +23,7 @@
 #include <ctime>
 #include <limits>
 #include <string>
+#include <utility>
 #include <vector>
 
 #ifdef min
@@ -35,18 +36,6 @@
 namespace {
 constexpr int64_t kNoDeadline = std::numeric_limits<int64_t>::max();
 
-uint32_t ResourceIdFromKey(const std::string& key)
-{
-    try
-    {
-        return static_cast<uint32_t>(std::stoul(key));
-    }
-    catch (...)
-    {
-        return 0;
-    }
-}
-
 template<typename TableT>
 std::vector<uint32_t> SortedResourceIds(const TableT& table)
 {
@@ -55,10 +44,9 @@ std::vector<uint32_t> SortedResourceIds(const TableT& table)
 
     for (const auto& [key, data] : table)
     {
-        const uint32_t id = ResourceIdFromKey(key);
-        if (id != 0)
+        if (key > 0)
         {
-            ids.push_back(id);
+            ids.push_back(static_cast<uint32_t>(key));
         }
     }
 
@@ -233,7 +221,7 @@ void BattlePassMgr::OnLoad()
 
     for (uint32_t id : SortedResourceIds(GameData::BattlePassQuestDataTable))
     {
-        const auto it = GameData::BattlePassQuestDataTable.find(std::to_string(id));
+        const auto it = GameData::BattlePassQuestDataTable.find(id);
         if (it == GameData::BattlePassQuestDataTable.end())
         {
             continue;
@@ -267,7 +255,7 @@ void BattlePassMgr::InitializeDefault()
 
     for (uint32_t id : SortedResourceIds(GameData::BattlePassQuestDataTable))
     {
-        const auto it = GameData::BattlePassQuestDataTable.find(std::to_string(id));
+        const auto it = GameData::BattlePassQuestDataTable.find(id);
         if (it == GameData::BattlePassQuestDataTable.end())
         {
             continue;
@@ -305,20 +293,19 @@ uint32_t BattlePassMgr::GetActiveBattlePassId() const
 
 const BattlePassRes* BattlePassMgr::GetCurrentSeason() const
 {
-    auto it = GameData::BattlePassDataTable.find(std::to_string(Bin().battlepassid()));
+    auto it = GameData::BattlePassDataTable.find(Bin().battlepassid());
     if (it != GameData::BattlePassDataTable.end())
     {
         return &it->second;
     }
 
-    it = GameData::BattlePassDataTable.find(std::to_string(GameConstants::BattlePassId));
+    it = GameData::BattlePassDataTable.find(GameConstants::BattlePassId);
     return it != GameData::BattlePassDataTable.end() ? &it->second : nullptr;
 }
 
 const BattlePassRewardRes* BattlePassMgr::GetRewardData(uint32_t level) const
 {
-    const std::string rewardKey = std::to_string(Bin().battlepassid()) + "|" + std::to_string(level);
-    auto it = GameData::BattlePassRewardDataTable.find(rewardKey);
+    auto it = GameData::BattlePassRewardDataTable.find(std::pair<int, int>{static_cast<int>(Bin().battlepassid()), static_cast<int>(level)});
     return it != GameData::BattlePassRewardDataTable.end() ? &it->second : nullptr;
 }
 
@@ -404,7 +391,7 @@ void BattlePassMgr::ResetDailyQuests(bool resetWeekly)
 
     for (uint32_t id : SortedResourceIds(GameData::BattlePassQuestDataTable))
     {
-        const auto it = GameData::BattlePassQuestDataTable.find(std::to_string(id));
+        const auto it = GameData::BattlePassQuestDataTable.find(id);
         if (it == GameData::BattlePassQuestDataTable.end())
         {
             continue;
@@ -483,7 +470,7 @@ void BattlePassMgr::Trigger(uint32_t condition, uint32_t progress, uint32_t para
 uint32_t BattlePassMgr::GetMaxExpForNextLevel() const
 {
     const uint32_t nextLevel = Bin().level() + 1;
-    const auto it = GameData::BattlePassLevelDataTable.find(std::to_string(nextLevel));
+    const auto it = GameData::BattlePassLevelDataTable.find(nextLevel);
     return it == GameData::BattlePassLevelDataTable.end()
         ? 0
         : static_cast<uint32_t>(std::max(it->second.Exp, 0));
@@ -550,7 +537,7 @@ bool BattlePassMgr::ClaimQuestReward(uint32_t questId, uint32_t& level, uint32_t
             continue;
         }
 
-        const auto it = GameData::BattlePassQuestDataTable.find(std::to_string(quest->id()));
+        const auto it = GameData::BattlePassQuestDataTable.find(quest->id());
         if (it == GameData::BattlePassQuestDataTable.end())
         {
             continue;
@@ -733,7 +720,7 @@ bool BattlePassMgr::BuyLevels(uint32_t levels, proto::BattlePassLevelBuyResp& rs
     for (uint32_t i = 1; i <= levels; ++i)
     {
         const uint32_t targetLevel = currentLevel + i;
-        const auto it = GameData::BattlePassLevelDataTable.find(std::to_string(targetLevel));
+        const auto it = GameData::BattlePassLevelDataTable.find(targetLevel);
         if (it == GameData::BattlePassLevelDataTable.end())
         {
             break;

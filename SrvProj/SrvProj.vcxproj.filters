@@ -2081,9 +2081,6 @@
     <ClInclude Include="Resources\ResourceLoader.h">
       <Filter>头文件\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\ResBase.h">
-      <Filter>头文件\Resources</Filter>
-    </ClInclude>
     <ClInclude Include="Resources\BinClass\CharacterRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
     </ClInclude>
@@ -2158,6 +2155,9 @@
     </ClInclude>
     <ClInclude Include="Handlers\PlayerHandler.h">
       <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResourceJsonUtil.h">
+      <Filter>头文件\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

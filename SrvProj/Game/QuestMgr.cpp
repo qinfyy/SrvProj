@@ -178,7 +178,7 @@ std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> han
     Bitset bitset;
     for (uint32_t id : handbookIds)
     {
-        const auto it = GameData::HandbookDataTable.find(std::to_string(id));
+        const auto it = GameData::HandbookDataTable.find(id);
         if (it == GameData::HandbookDataTable.end())
         {
             LOG_WARNING("Handbook resource missing: id={}", id);
@@ -202,25 +202,11 @@ proto::HandbookInfo BuildHandbookInfo(uint32_t type, const std::string& data)
     return info;
 }
 
-uint32_t ResourceIdFromKey(const std::string& key)
-{
-    try
-    {
-        return static_cast<uint32_t>(std::stoul(key));
-    }
-    catch (...)
-    {
-        return 0;
-    }
-}
-
 QuestParams GetQuestParams(proto::QuestType type, uint32_t id, uint32_t fallbackMax)
 {
-    const auto key = std::to_string(id);
-
     if (type == proto::Daily)
     {
-        if (auto it = GameData::DailyQuestDataTable.find(key); it != GameData::DailyQuestDataTable.end())
+        if (auto it = GameData::DailyQuestDataTable.find(static_cast<int>(id)); it != GameData::DailyQuestDataTable.end())
         {
             auto params = ParseParams(it->second.CompleteCondParams);
             return {
@@ -232,7 +218,7 @@ QuestParams GetQuestParams(proto::QuestType type, uint32_t id, uint32_t fallback
     }
     else if (type == proto::Weekly)
     {
-        if (auto it = GameData::WeeklyQuestDataTable.find(key); it != GameData::WeeklyQuestDataTable.end())
+        if (auto it = GameData::WeeklyQuestDataTable.find(static_cast<int>(id)); it != GameData::WeeklyQuestDataTable.end())
         {
             auto params = ParseParams(it->second.CompleteCondParams);
             return {
@@ -247,14 +233,12 @@ QuestParams GetQuestParams(proto::QuestType type, uint32_t id, uint32_t fallback
 
 bool HasQuestResource(uint32_t id, proto::QuestType type)
 {
-    const auto key = std::to_string(id);
-
     switch (type)
     {
     case proto::Daily:
-        return GameData::DailyQuestDataTable.find(key) != GameData::DailyQuestDataTable.end();
+        return GameData::DailyQuestDataTable.find(static_cast<int>(id)) != GameData::DailyQuestDataTable.end();
     case proto::Weekly:
-        return GameData::WeeklyQuestDataTable.find(key) != GameData::WeeklyQuestDataTable.end();
+        return GameData::WeeklyQuestDataTable.find(static_cast<int>(id)) != GameData::WeeklyQuestDataTable.end();
     default:
         return true;
     }
@@ -298,10 +282,9 @@ std::vector<uint32_t> SortedResourceIds(const TableT& table)
 
     for (const auto& [key, data] : table)
     {
-        const uint32_t id = ResourceIdFromKey(key);
-        if (id != 0)
+        if (key != 0)
         {
-            ids.push_back(id);
+            ids.push_back(static_cast<uint32_t>(key));
         }
     }
 
@@ -646,7 +629,7 @@ bool QuestMgr::ClaimDailyQuestReward(uint32_t questId, proto::ChangeInfo& out)
             continue;
         }
 
-        if (auto it = GameData::DailyQuestDataTable.find(std::to_string(quest->id())); it != GameData::DailyQuestDataTable.end())
+        if (auto it = GameData::DailyQuestDataTable.find(quest->id()); it != GameData::DailyQuestDataTable.end())
         {
             GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty, &out);
         }
@@ -699,7 +682,7 @@ bool QuestMgr::ClaimWeeklyQuestReward(uint32_t questId, proto::ChangeInfo& out)
             continue;
         }
 
-        if (auto it = GameData::WeeklyQuestDataTable.find(std::to_string(quest->id())); it != GameData::WeeklyQuestDataTable.end())
+        if (auto it = GameData::WeeklyQuestDataTable.find(quest->id()); it != GameData::WeeklyQuestDataTable.end())
         {
             GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.ItemTid), it->second.ItemQty, &out);
         }
@@ -726,7 +709,7 @@ bool QuestMgr::ClaimDailyActiveRewards(std::vector<uint32_t>& activeIds, proto::
         {
             continue;
         }
-        if (auto it = GameData::DailyQuestDataTable.find(std::to_string(quest.id())); it != GameData::DailyQuestDataTable.end())
+        if (auto it = GameData::DailyQuestDataTable.find(quest.id()); it != GameData::DailyQuestDataTable.end())
         {
             activity += static_cast<uint32_t>(std::max(it->second.Active, 0));
         }
@@ -759,7 +742,7 @@ bool QuestMgr::ClaimWeeklyActiveRewards(std::vector<uint32_t>& activeIds, proto:
         {
             continue;
         }
-        if (auto it = GameData::WeeklyQuestDataTable.find(std::to_string(quest.id())); it != GameData::WeeklyQuestDataTable.end())
+        if (auto it = GameData::WeeklyQuestDataTable.find(quest.id()); it != GameData::WeeklyQuestDataTable.end())
         {
             activity += static_cast<uint32_t>(std::max(it->second.Active, 0));
         }

@@ -1,19 +1,20 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class StoryRes : public ResBase {
+class StoryRes {
 public:
     StoryRes() = default;
     ~StoryRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -24,14 +25,15 @@ public:
     // 非序列化字段
 };
 
-class StorySetSectionRes : public ResBase {
+class StorySetSectionRes {
 public:
     StorySetSectionRes() = default;
     ~StorySetSectionRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -43,14 +45,15 @@ public:
     // 非序列化字段
 };
 
-class StoryEvidenceRes : public ResBase {
+class StoryEvidenceRes {
 public:
     StoryEvidenceRes() = default;
     ~StoryEvidenceRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -59,14 +62,15 @@ public:
     // 非序列化字段
 };
 
-class MainScreenCGRes : public ResBase {
+class MainScreenCGRes {
 public:
     MainScreenCGRes() = default;
     ~MainScreenCGRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

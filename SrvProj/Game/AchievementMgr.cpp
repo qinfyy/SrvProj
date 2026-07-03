@@ -131,7 +131,7 @@ uint32_t AchievementStatus(const ServerProto::AchievementInfoBin& achievement)
 
 uint32_t AchievementMax(uint32_t id)
 {
-    if (auto it = GameData::AchievementDataTable.find(std::to_string(id)); it != GameData::AchievementDataTable.end())
+    if (auto it = GameData::AchievementDataTable.find(id); it != GameData::AchievementDataTable.end())
     {
         return static_cast<uint32_t>(std::max(it->second.AimNumShow, 0));
     }
@@ -453,7 +453,7 @@ void AchievementMgr::TriggerOne(uint32_t id, uint32_t progressValue, uint32_t pa
         return;
     }
 
-    auto it = GameData::AchievementDataTable.find(std::to_string(id));
+    auto it = GameData::AchievementDataTable.find(id);
     if (it == GameData::AchievementDataTable.end())
     {
         LOG_WARNING("Achievement resource missing: id={}", id);
@@ -489,7 +489,7 @@ void AchievementMgr::HandleClientEvents(const proto::Events& events)
             continue;
         }
 
-        auto it = GameData::AchievementDataTable.find(std::to_string(achievementId));
+        auto it = GameData::AchievementDataTable.find(achievementId);
         if (it == GameData::AchievementDataTable.end() || it->second.CompleteCond != 200)
         {
             continue;
@@ -514,7 +514,7 @@ bool AchievementMgr::ClaimRewards(const google::protobuf::RepeatedField<uint32_t
             continue;
         }
 
-        if (auto it = GameData::AchievementDataTable.find(std::to_string(id)); it != GameData::AchievementDataTable.end())
+        if (auto it = GameData::AchievementDataTable.find(id); it != GameData::AchievementDataTable.end())
         {
             GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(it->second.Tid1), it->second.Qty1, &out);
         }

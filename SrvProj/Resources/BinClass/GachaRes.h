@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <unordered_map>
 #include <unordered_set>
@@ -8,14 +8,15 @@
 #include <memory>
 #include <string>
 
-class GachaATypeProbRes : public ResBase {
+class GachaATypeProbRes {
 public:
     GachaATypeProbRes() = default;
     ~GachaATypeProbRes() = default;
 
-    std::string GetId() const override { return std::to_string(Group) + "|" + std::to_string(Times); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return std::pair<int, int>{Group, Times}; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
     static int GetProb(int group, int times, int defaultProb);
     static int GetMaxProb();
 
@@ -28,14 +29,15 @@ public:
     // 非序列化字段
 };
 
-class GachaPkgRes : public ResBase {
+class GachaPkgRes {
 public:
     GachaPkgRes() = default;
     ~GachaPkgRes() = default;
 
-    std::string GetId() const override { return std::to_string(PkgId) + ":" + std::to_string(GoodsId); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return std::pair<int, int>{PkgId, GoodsId}; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     static void ClearPackages();
     static const WeightedList<int>* GetPackageById(int packageId);
@@ -51,7 +53,7 @@ public:
     static std::unordered_map<int, WeightedList<int>> Packages;
 };
 
-class GachaRes : public ResBase {
+class GachaRes {
 public:
     enum class GachaPackageType {
         A,
@@ -69,9 +71,10 @@ public:
     GachaRes() = default;
     ~GachaRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
     bool CanGuarantee() const { return GuaranteeTimes > 0; }
     bool IsActiveAt(long long now) const { return Valid && now >= StartTimeSeconds && now <= EndTimeSeconds; }
     bool ContainsAllowedCoinItem(int itemId) const { return AllowedCoinItems.find(itemId) != AllowedCoinItems.end(); }
@@ -115,14 +118,15 @@ private:
     void MarkInvalid(const std::string& message);
 };
 
-class GachaNewbieRes : public ResBase {
+class GachaNewbieRes {
 public:
     GachaNewbieRes() = default;
     ~GachaNewbieRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -133,14 +137,15 @@ public:
     // 非序列化字段
 };
 
-class GachaStorageRes : public ResBase {
+class GachaStorageRes {
 public:
     GachaStorageRes() = default;
     ~GachaStorageRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -162,14 +167,15 @@ public:
     // 非序列化字段
 };
 
-class GachaTypeRes : public ResBase {
+class GachaTypeRes {
 public:
     GachaTypeRes() = default;
     ~GachaTypeRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

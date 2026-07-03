@@ -1,13 +1,18 @@
 ﻿#include "ResourceLoader.h"
 #include "GameData.h"
 
+#include <algorithm>
+#include <cctype>
 #include <sstream>
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <memory>
+#include <type_traits>
+#include <utility>
 #include <nlohmann/json.hpp>
 #include <Archive.h>
-#include "ResBase.h"
+#include "../Config.h"
 #include "../Logger.h"
 
 #include "BinClass\AchievementsRes.h"
@@ -183,7 +188,7 @@ void ParseBytesFile(std::istream& inputStream, BytesFileHeader& outHeader, std::
                 }
             }
         }
-        catch (const std::exception& e)
+        catch (const std::exception&)
         {
             std::throw_with_nested(std::runtime_error("ParseBytesFile: 第 " + std::to_string(i) + " 条记录解析失败"));
         }
@@ -204,11 +209,54 @@ std::string GetBytesFileNameName(const std::string& typeName) {
     return fileName;
 }
 
-template<typename T, typename Container>
-void LoadRes(Archive* arc, Container& container) {
-    static_assert(std::is_base_of_v<ResBase, T>, "T 必须继承自 ResBase");
+std::string GetJsonFileName(const std::string& typeName) {
+    if (typeName == "LoginRewardGroupControlRes") {
+        return "LoginRewardGroup.json";
+    }
+    if (typeName == "JointDrill2LevelRes") {
+        return "JointDrill_2_Level.json";
+    }
 
-    auto resName = GetTypeName<T>();
+    return typeName.substr(0, typeName.length() - 3) + ".json";
+}
+
+struct ResourceLoadSource {
+    bool useBytes = false;
+    Archive* arc = nullptr;
+    std::filesystem::path jsonBinPath;
+};
+
+std::filesystem::path ResolveJsonBinPath(const std::string& inputPath) {
+    std::filesystem::path path(inputPath);
+    auto binPath = path / "bin";
+    if (std::filesystem::is_directory(binPath)) {
+        return binPath;
+    }
+
+    return path;
+}
+
+std::string NormalizeResourceType(std::string value) {
+    std::transform(value.begin(), value.end(), value.begin(), [](unsigned char ch) {
+        return static_cast<char>(std::tolower(ch));
+    });
+    return value;
+}
+
+template<typename T, typename Container>
+void CheckResourceInterface() {
+    static_assert(std::is_same_v<decltype(std::declval<T&>().LoadFromPb(std::declval<std::string>())), bool>,
+        "资源类必须实现 bool LoadFromPb(std::string data)");
+    static_assert(std::is_same_v<decltype(std::declval<T&>().LoadFromJson(std::declval<const nlohmann::json&>())), bool>,
+        "资源类必须实现 bool LoadFromJson(const nlohmann::json& data)");
+    static_assert(std::is_same_v<decltype(std::declval<const T&>().GetKey()), typename Container::key_type>,
+        "资源类 GetKey 返回类型必须和资源表 key 类型一致");
+}
+
+template<typename T, typename Container>
+void LoadBytesRes(Archive* arc, Container& container, const std::string& resName) {
+    CheckResourceInterface<T, Container>();
+
     BytesFileHeader header;
     std::vector<GeneralItem> items;
     auto bytesFileName = GetBytesFileNameName(resName);
@@ -228,7 +276,7 @@ void LoadRes(Archive* arc, Container& container) {
                 throw std::runtime_error("从 protobuf 数据加载资源失败");
             }
             res.OnLoad();
-            container.emplace(res.GetId(), std::move(res));
+            container.emplace(res.GetKey(), std::move(res));
         }
         catch (const std::exception& e) {
             //std::throw_with_nested(std::runtime_error("LoadRes: 解析 " + resName + "中 key = " + item.key + " 的记录失败"));
@@ -237,176 +285,246 @@ void LoadRes(Archive* arc, Container& container) {
     }
 }
 
-void LoadResources() {
-    auto inputFilePath = "./data.arcx";
-    auto arc = Archive::Open(inputFilePath);
+template<typename T, typename Container>
+void LoadJsonRes(const std::filesystem::path& jsonBinPath, Container& container, const std::string& resName) {
+    CheckResourceInterface<T, Container>();
 
-    //LoadRes<CharacterRes>(arc.get(), GameData::CharacterDataTable);
-    //LoadRes<CharacterAdvanceRes>(arc.get(), GameData::CharacterAdvanceDataTable);
-    //LoadRes<CharacterSkillUpgradeRes>(arc.get(), GameData::CharacterSkillUpgradeDataTable);
-    //LoadRes<CharacterUpgradeRes>(arc.get(), GameData::CharacterUpgradeDataTable);
-    //LoadRes<CharItemExpRes>(arc.get(), GameData::CharItemExpDataTable);
-    //LoadRes<CharacterSkinRes>(arc.get(), GameData::CharacterSkinDataTable);
-    //LoadRes<TalentGroupRes>(arc.get(), GameData::TalentGroupDataTable);
-    //LoadRes<TalentRes>(arc.get(), GameData::TalentDataTable);
+    const auto jsonFileName = GetJsonFileName(resName);
+    const auto jsonFilePath = jsonBinPath / jsonFileName;
+    std::ifstream in(jsonFilePath);
+    if (!in.is_open()) {
+        throw std::runtime_error("无法读取 JSON 资源文件: " + jsonFilePath.string());
+    }
+
+    nlohmann::json root;
+    in >> root;
+
+    auto loadOne = [&](const std::string& key, const nlohmann::json& item) {
+        try {
+            T res;
+            if (!item.is_object()) {
+                throw std::runtime_error("JSON 记录不是对象");
+            }
+            if (!res.LoadFromJson(item)) {
+                throw std::runtime_error("从 JSON 数据加载资源失败");
+            }
+            res.OnLoad();
+            container.emplace(res.GetKey(), std::move(res));
+        }
+        catch (const std::exception& e) {
+            LOG_ERROR("LoadJsonRes: 解析 " + resName + "中 key = " + key + " 的记录失败, FILE: " + jsonFilePath.string() + ", ERROR: " + std::string(e.what()));
+        }
+    };
+
+    if (root.is_object()) {
+        for (auto it = root.begin(); it != root.end(); ++it) {
+            loadOne(it.key(), it.value());
+        }
+    }
+    else if (root.is_array()) {
+        for (size_t i = 0; i < root.size(); ++i) {
+            loadOne(std::to_string(i + 1), root[i]);
+        }
+    }
+    else {
+        throw std::runtime_error("JSON 资源文件根节点必须是对象或数组: " + jsonFilePath.string());
+    }
+}
+
+template<typename T, typename Container>
+void LoadRes(ResourceLoadSource* source, Container& container) {
+    auto resName = GetTypeName<T>();
+    if (source->useBytes) {
+        LoadJsonRes<T>(source->jsonBinPath, container, resName);
+    }
+    else {
+        LoadBytesRes<T>(source->arc, container, resName);
+    }
+}
+
+void LoadResources() {
+    ResourceLoadSource source;
+    std::unique_ptr<Archive> arc;
+    const auto resourceType = NormalizeResourceType(Config::Get().resourceConfig.type);
+
+    if (resourceType == "arcx") {
+        source.useBytes = true;
+        arc = Archive::Open(Config::Get().resourceConfig.path);
+        source.arc = arc.get();
+    }
+    else if (resourceType == "json") {
+        source.jsonBinPath = ResolveJsonBinPath(Config::Get().resourceConfig.path);
+    }
+    else {
+        throw std::runtime_error("资源加载类型无效，仅支持 arcx 或 json: " + Config::Get().resourceConfig.type);
+    }
+
+    //LoadRes<CharacterRes>(&source, GameData::CharacterDataTable);
+    //LoadRes<CharacterAdvanceRes>(&source, GameData::CharacterAdvanceDataTable);
+    //LoadRes<CharacterSkillUpgradeRes>(&source, GameData::CharacterSkillUpgradeDataTable);
+    //LoadRes<CharacterUpgradeRes>(&source, GameData::CharacterUpgradeDataTable);
+    //LoadRes<CharItemExpRes>(&source, GameData::CharItemExpDataTable);
+    //LoadRes<CharacterSkinRes>(&source, GameData::CharacterSkinDataTable);
+    //LoadRes<TalentGroupRes>(&source, GameData::TalentGroupDataTable);
+    //LoadRes<TalentRes>(&source, GameData::TalentDataTable);
 
     //// Characters: Emblems
-    //LoadRes<CharGemRes>(arc.get(), GameData::CharGemDataTable);
-    //LoadRes<CharGemSlotControlRes>(arc.get(), GameData::CharGemSlotControlDataTable);
-    //LoadRes<CharGemAttrValueRes>(arc.get(), GameData::CharGemAttrValueDataTable);
+    //LoadRes<CharGemRes>(&source, GameData::CharGemDataTable);
+    //LoadRes<CharGemSlotControlRes>(&source, GameData::CharGemSlotControlDataTable);
+    //LoadRes<CharGemAttrValueRes>(&source, GameData::CharGemAttrValueDataTable);
 
     //// Characters: Affinity
-    //LoadRes<AffinityLevelRes>(arc.get(), GameData::AffinityLevelDataTable);
-    //LoadRes<AffinityGiftRes>(arc.get(), GameData::AffinityGiftDataTable);
-    //LoadRes<PlotRes>(arc.get(), GameData::PlotDataTable);
+    //LoadRes<AffinityLevelRes>(&source, GameData::AffinityLevelDataTable);
+    //LoadRes<AffinityGiftRes>(&source, GameData::AffinityGiftDataTable);
+    //LoadRes<PlotRes>(&source, GameData::PlotDataTable);
 
     //// Characters: Phone
-    //LoadRes<ChatRes>(arc.get(), GameData::ChatDataTable);
+    //LoadRes<ChatRes>(&source, GameData::ChatDataTable);
 
     //// Characters: Dating
-    //LoadRes<DatingLandmarkRes>(arc.get(), GameData::DatingLandmarkDataTable);
-    //LoadRes<DatingLandmarkEventRes>(arc.get(), GameData::DatingLandmarkEventDataTable);
-    //LoadRes<DatingCharacterEventRes>(arc.get(), GameData::DatingCharacterEventDataTable);
+    //LoadRes<DatingLandmarkRes>(&source, GameData::DatingLandmarkDataTable);
+    //LoadRes<DatingLandmarkEventRes>(&source, GameData::DatingLandmarkEventDataTable);
+    //LoadRes<DatingCharacterEventRes>(&source, GameData::DatingCharacterEventDataTable);
 
     //// ===== Discs =====
-    //LoadRes<DiscRes>(arc.get(), GameData::DiscDataTable);
-    //LoadRes<DiscStrengthenRes>(arc.get(), GameData::DiscStrengthenDataTable);
-    //LoadRes<DiscItemExpRes>(arc.get(), GameData::DiscItemExpDataTable);
-    //LoadRes<DiscPromoteRes>(arc.get(), GameData::DiscPromoteDataTable);
-    //LoadRes<DiscPromoteLimitRes>(arc.get(), GameData::DiscPromoteLimitDataTable);
+    //LoadRes<DiscRes>(&source, GameData::DiscDataTable);
+    //LoadRes<DiscStrengthenRes>(&source, GameData::DiscStrengthenDataTable);
+    //LoadRes<DiscItemExpRes>(&source, GameData::DiscItemExpDataTable);
+    //LoadRes<DiscPromoteRes>(&source, GameData::DiscPromoteDataTable);
+    //LoadRes<DiscPromoteLimitRes>(&source, GameData::DiscPromoteLimitDataTable);
 
     //// Discs: Melody items
-    //LoadRes<SecondarySkillRes>(arc.get(), GameData::SecondarySkillDataTable);
+    //LoadRes<SecondarySkillRes>(&source, GameData::SecondarySkillDataTable);
 
     //// ===== Items =====
-    //LoadRes<ItemRes>(arc.get(), GameData::ItemDataTable);
-    //LoadRes<ProductionRes>(arc.get(), GameData::ProductionDataTable);
-    //LoadRes<PlayerHeadRes>(arc.get(), GameData::PlayerHeadDataTable);
-    //LoadRes<TitleRes>(arc.get(), GameData::TitleDataTable);
-    //LoadRes<HonorRes>(arc.get(), GameData::HonorDataTable);
-    //LoadRes<DropPkgRes>(arc.get(), GameData::DropPkgDataTable);
+    //LoadRes<ItemRes>(&source, GameData::ItemDataTable);
+    //LoadRes<ProductionRes>(&source, GameData::ProductionDataTable);
+    //LoadRes<PlayerHeadRes>(&source, GameData::PlayerHeadDataTable);
+    //LoadRes<TitleRes>(&source, GameData::TitleDataTable);
+    //LoadRes<HonorRes>(&source, GameData::HonorDataTable);
+    //LoadRes<DropPkgRes>(&source, GameData::DropPkgDataTable);
 
     //// ===== Shops =====
-    //LoadRes<MallMonthlyCardRes>(arc.get(), GameData::MallMonthlyCardDataTable);
-    //LoadRes<MallPackageRes>(arc.get(), GameData::MallPackageDataTable);
-    //LoadRes<MallShopRes>(arc.get(), GameData::MallShopDataTable);
-    //LoadRes<MallGemRes>(arc.get(), GameData::MallGemDataTable);
+    //LoadRes<MallMonthlyCardRes>(&source, GameData::MallMonthlyCardDataTable);
+    //LoadRes<MallPackageRes>(&source, GameData::MallPackageDataTable);
+    //LoadRes<MallShopRes>(&source, GameData::MallShopDataTable);
+    //LoadRes<MallGemRes>(&source, GameData::MallGemDataTable);
 
-    //LoadRes<ResidentShopRes>(arc.get(), GameData::ResidentShopDataTable);
-    //LoadRes<ResidentGoodsRes>(arc.get(), GameData::ResidentGoodsDataTable);
+    //LoadRes<ResidentShopRes>(&source, GameData::ResidentShopDataTable);
+    //LoadRes<ResidentGoodsRes>(&source, GameData::ResidentGoodsDataTable);
 
 
     //// ===== Battle Pass =====
-    //LoadRes<BattlePassRes>(arc.get(), GameData::BattlePassDataTable);
-    //LoadRes<BattlePassLevelRes>(arc.get(), GameData::BattlePassLevelDataTable);
-    //LoadRes<BattlePassQuestRes>(arc.get(), GameData::BattlePassQuestDataTable);
-    //LoadRes<BattlePassRewardRes>(arc.get(), GameData::BattlePassRewardDataTable);
+    //LoadRes<BattlePassRes>(&source, GameData::BattlePassDataTable);
+    //LoadRes<BattlePassLevelRes>(&source, GameData::BattlePassLevelDataTable);
+    //LoadRes<BattlePassQuestRes>(&source, GameData::BattlePassQuestDataTable);
+    //LoadRes<BattlePassRewardRes>(&source, GameData::BattlePassRewardDataTable);
 
     //// ===== Commissions =====
-    //LoadRes<AgentRes>(arc.get(), GameData::AgentDataTable);
+    //LoadRes<AgentRes>(&source, GameData::AgentDataTable);
 
     //// ===== Dictionary =====
-    //LoadRes<DictionaryTabRes>(arc.get(), GameData::DictionaryTabDataTable);
-    //LoadRes<DictionaryEntryRes>(arc.get(), GameData::DictionaryEntryDataTable);
+    //LoadRes<DictionaryTabRes>(&source, GameData::DictionaryTabDataTable);
+    //LoadRes<DictionaryEntryRes>(&source, GameData::DictionaryEntryDataTable);
 
     //// ===== Gacha =====
-    //LoadRes<GachaATypeProbRes>(arc.get(), GameData::GachaATypeProbDataTable);
-    //LoadRes<GachaRes>(arc.get(), GameData::GachaDataTable);
-    //LoadRes<GachaNewbieRes>(arc.get(), GameData::GachaNewbieDataTable);
-    //LoadRes<GachaStorageRes>(arc.get(), GameData::GachaStorageDataTable);
-    //LoadRes<GachaTypeRes>(arc.get(), GameData::GachaTypeDataTable);
+    //LoadRes<GachaATypeProbRes>(&source, GameData::GachaATypeProbDataTable);
+    //LoadRes<GachaRes>(&source, GameData::GachaDataTable);
+    //LoadRes<GachaNewbieRes>(&source, GameData::GachaNewbieDataTable);
+    //LoadRes<GachaStorageRes>(&source, GameData::GachaStorageDataTable);
+    //LoadRes<GachaTypeRes>(&source, GameData::GachaTypeDataTable);
 
     //// ===== Story =====
-    //LoadRes<StoryRes>(arc.get(), GameData::StoryDataTable);
-    //LoadRes<StorySetSectionRes>(arc.get(), GameData::StorySetSectionDataTable);
-    //LoadRes<StoryEvidenceRes>(arc.get(), GameData::StoryEvidenceDataTable);
+    //LoadRes<StoryRes>(&source, GameData::StoryDataTable);
+    //LoadRes<StorySetSectionRes>(&source, GameData::StorySetSectionDataTable);
+    //LoadRes<StoryEvidenceRes>(&source, GameData::StoryEvidenceDataTable);
 
-    //LoadRes<MainScreenCGRes>(arc.get(), GameData::MainScreenCGDataTable);
+    //LoadRes<MainScreenCGRes>(&source, GameData::MainScreenCGDataTable);
 
     //// ===== Daily/Weekly Quests =====
-    //LoadRes<DailyQuestRes>(arc.get(), GameData::DailyQuestDataTable);
-    //LoadRes<DailyQuestActiveRes>(arc.get(), GameData::DailyQuestActiveDataTable);
-    //LoadRes<WeeklyQuestRes>(arc.get(), GameData::WeeklyQuestDataTable);
-    //LoadRes<WeeklyQuestActiveRes>(arc.get(), GameData::WeeklyQuestActiveDataTable);
+    //LoadRes<DailyQuestRes>(&source, GameData::DailyQuestDataTable);
+    //LoadRes<DailyQuestActiveRes>(&source, GameData::DailyQuestActiveDataTable);
+    //LoadRes<WeeklyQuestRes>(&source, GameData::WeeklyQuestDataTable);
+    //LoadRes<WeeklyQuestActiveRes>(&source, GameData::WeeklyQuestActiveDataTable);
 
     //// ===== Achievements =====
-    //LoadRes<AchievementRes>(arc.get(), GameData::AchievementDataTable);
+    //LoadRes<AchievementRes>(&source, GameData::AchievementDataTable);
 
     //// ===== Tutorials =====
-    //LoadRes<TutorialLevelRes>(arc.get(), GameData::TutorialLevelDataTable);
+    //LoadRes<TutorialLevelRes>(&source, GameData::TutorialLevelDataTable);
 
     //// ===== Instances =====
-    //LoadRes<DailyInstanceRes>(arc.get(), GameData::DailyInstanceDataTable);
-    //LoadRes<DailyInstanceRewardGroupRes>(arc.get(), GameData::DailyInstanceRewardGroupDataTable);
-    //LoadRes<RegionBossLevelRes>(arc.get(), GameData::RegionBossLevelDataTable);
-    //LoadRes<SkillInstanceRes>(arc.get(), GameData::SkillInstanceDataTable);
-    //LoadRes<CharGemInstanceRes>(arc.get(), GameData::CharGemInstanceDataTable);
-    //LoadRes<WeekBossLevelRes>(arc.get(), GameData::WeekBossLevelDataTable);
+    //LoadRes<DailyInstanceRes>(&source, GameData::DailyInstanceDataTable);
+    //LoadRes<DailyInstanceRewardGroupRes>(&source, GameData::DailyInstanceRewardGroupDataTable);
+    //LoadRes<RegionBossLevelRes>(&source, GameData::RegionBossLevelDataTable);
+    //LoadRes<SkillInstanceRes>(&source, GameData::SkillInstanceDataTable);
+    //LoadRes<CharGemInstanceRes>(&source, GameData::CharGemInstanceDataTable);
+    //LoadRes<WeekBossLevelRes>(&source, GameData::WeekBossLevelDataTable);
 
     //// ===== Star Tower =====
-    //LoadRes<StarTowerRes>(arc.get(), GameData::StarTowerDataTable);
-    //LoadRes<StarTowerStageRes>(arc.get(), GameData::StarTowerStageDataTable);
-    //LoadRes<StarTowerGrowthNodeRes>(arc.get(), GameData::StarTowerGrowthNodeDataTable);
-    //LoadRes<StarTowerFloorExpRes>(arc.get(), GameData::StarTowerFloorExpDataTable);
-    //LoadRes<StarTowerTeamExpRes>(arc.get(), GameData::StarTowerTeamExpDataTable);
-    //LoadRes<StarTowerEventRes>(arc.get(), GameData::StarTowerEventDataTable);
-    //LoadRes<StarTowerBuildRankRes>(arc.get(), GameData::StarTowerBuildRankDataTable);
-    //LoadRes<SubNoteSkillPromoteGroupRes>(arc.get(), GameData::SubNoteSkillPromoteGroupDataTable);
+    //LoadRes<StarTowerRes>(&source, GameData::StarTowerDataTable);
+    //LoadRes<StarTowerStageRes>(&source, GameData::StarTowerStageDataTable);
+    //LoadRes<StarTowerGrowthNodeRes>(&source, GameData::StarTowerGrowthNodeDataTable);
+    //LoadRes<StarTowerFloorExpRes>(&source, GameData::StarTowerFloorExpDataTable);
+    //LoadRes<StarTowerTeamExpRes>(&source, GameData::StarTowerTeamExpDataTable);
+    //LoadRes<StarTowerEventRes>(&source, GameData::StarTowerEventDataTable);
+    //LoadRes<StarTowerBuildRankRes>(&source, GameData::StarTowerBuildRankDataTable);
+    //LoadRes<SubNoteSkillPromoteGroupRes>(&source, GameData::SubNoteSkillPromoteGroupDataTable);
 
-    //LoadRes<PotentialRes>(arc.get(), GameData::PotentialDataTable);
-    //LoadRes<CharPotentialRes>(arc.get(), GameData::CharPotentialDataTable);
+    //LoadRes<PotentialRes>(&source, GameData::PotentialDataTable);
+    //LoadRes<CharPotentialRes>(&source, GameData::CharPotentialDataTable);
 
-    //LoadRes<StarTowerBookFateCardBundleRes>(arc.get(), GameData::StarTowerBookFateCardBundleDataTable);
-    //LoadRes<StarTowerBookFateCardQuestRes>(arc.get(), GameData::StarTowerBookFateCardQuestDataTable);
-    //LoadRes<StarTowerBookFateCardRes>(arc.get(), GameData::StarTowerBookFateCardDataTable);
-    //LoadRes<FateCardRes>(arc.get(), GameData::FateCardDataTable);
+    //LoadRes<StarTowerBookFateCardBundleRes>(&source, GameData::StarTowerBookFateCardBundleDataTable);
+    //LoadRes<StarTowerBookFateCardQuestRes>(&source, GameData::StarTowerBookFateCardQuestDataTable);
+    //LoadRes<StarTowerBookFateCardRes>(&source, GameData::StarTowerBookFateCardDataTable);
+    //LoadRes<FateCardRes>(&source, GameData::FateCardDataTable);
 
     //// ===== Infinity Tower =====
-    //LoadRes<InfinityTowerLevelRes>(arc.get(), GameData::InfinityTowerLevelDataTable);
-    //LoadRes<InfinityTowerDifficultyRes>(arc.get(), GameData::InfinityTowerDifficultyDataTable);
+    //LoadRes<InfinityTowerLevelRes>(&source, GameData::InfinityTowerLevelDataTable);
+    //LoadRes<InfinityTowerDifficultyRes>(&source, GameData::InfinityTowerDifficultyDataTable);
 
     //// ===== Vampire Survivor =====
-    //LoadRes<VampireSurvivorRes>(arc.get(), GameData::VampireSurvivorDataTable);
-    //LoadRes<VampireTalentRes>(arc.get(), GameData::VampireTalentDataTable);
+    //LoadRes<VampireSurvivorRes>(&source, GameData::VampireSurvivorDataTable);
+    //LoadRes<VampireTalentRes>(&source, GameData::VampireTalentDataTable);
 
     //// ===== Score Boss =====
-    //LoadRes<ScoreBossControlRes>(arc.get(), GameData::ScoreBossControlDataTable);
-    //LoadRes<ScoreBossRewardRes>(arc.get(), GameData::ScoreBossRewardDataTable);
+    //LoadRes<ScoreBossControlRes>(&source, GameData::ScoreBossControlDataTable);
+    //LoadRes<ScoreBossRewardRes>(&source, GameData::ScoreBossRewardDataTable);
 
 
     //// ===== Misc =====
-    //LoadRes<WorldClassRes>(arc.get(), GameData::WorldClassDataTable);
-    //LoadRes<GuideGroupRes>(arc.get(), GameData::GuideGroupDataTable);
-    //LoadRes<HandbookRes>(arc.get(), GameData::HandbookDataTable);
-    //LoadRes<SignInRes>(arc.get(), GameData::SignInDataTable);
+    //LoadRes<WorldClassRes>(&source, GameData::WorldClassDataTable);
+    //LoadRes<GuideGroupRes>(&source, GameData::GuideGroupDataTable);
+    //LoadRes<HandbookRes>(&source, GameData::HandbookDataTable);
+    //LoadRes<SignInRes>(&source, GameData::SignInDataTable);
 
     //// ===== Activity =====
-    //LoadRes<ActivityRes>(arc.get(), GameData::ActivityDataTable);
+    //LoadRes<ActivityRes>(&source, GameData::ActivityDataTable);
 
     //// Activity: Login Reward
-    //LoadRes<LoginRewardGroupControlRes>(arc.get(), GameData::LoginRewardGroupControlDataTable);
+    //LoadRes<LoginRewardGroupControlRes>(&source, GameData::LoginRewardGroupControlDataTable);
 
     //// Activity: Tower Defense
-    //LoadRes<TowerDefenseLevelRes>(arc.get(), GameData::TowerDefenseLevelDataTable);
+    //LoadRes<TowerDefenseLevelRes>(&source, GameData::TowerDefenseLevelDataTable);
 
     //// Activity: Trials
-    //LoadRes<TrialControlRes>(arc.get(), GameData::TrialControlDataTable);
-    //LoadRes<TrialGroupRes>(arc.get(), GameData::TrialGroupDataTable);
+    //LoadRes<TrialControlRes>(&source, GameData::TrialControlDataTable);
+    //LoadRes<TrialGroupRes>(&source, GameData::TrialGroupDataTable);
 
     //// Activity: Joint Drill
-    //LoadRes<JointDrill2LevelRes>(arc.get(), GameData::JointDrill2LevelDataTable);
+    //LoadRes<JointDrill2LevelRes>(&source, GameData::JointDrill2LevelDataTable);
 
     //// Activity: Levels
-    //LoadRes<ActivityLevelsLevelRes>(arc.get(), GameData::ActivityLevelsLevelDataTable);
+    //LoadRes<ActivityLevelsLevelRes>(&source, GameData::ActivityLevelsLevelDataTable);
 
     //// Activity: Task
-    //LoadRes<ActivityTaskRes>(arc.get(), GameData::ActivityTaskDataTable);
-    //LoadRes<ActivityTaskGroupRes>(arc.get(), GameData::ActivityTaskGroupDataTable);
+    //LoadRes<ActivityTaskRes>(&source, GameData::ActivityTaskDataTable);
+    //LoadRes<ActivityTaskGroupRes>(&source, GameData::ActivityTaskGroupDataTable);
 
     //// Activity: Shop
-    //LoadRes<ActivityShopRes>(arc.get(), GameData::ActivityShopDataTable);
-    //LoadRes<ActivityShopControlRes>(arc.get(), GameData::ActivityShopControlDataTable);
-    //LoadRes<ActivityGoodsRes>(arc.get(), GameData::ActivityGoodsDataTable);
+    //LoadRes<ActivityShopRes>(&source, GameData::ActivityShopDataTable);
+    //LoadRes<ActivityShopControlRes>(&source, GameData::ActivityShopControlDataTable);
+    //LoadRes<ActivityGoodsRes>(&source, GameData::ActivityGoodsDataTable);
 
 
 
@@ -415,204 +533,204 @@ void LoadResources() {
     // HIGH
 
     // ===== Gacha =====
-    LoadRes<GachaATypeProbRes>(arc.get(), GameData::GachaATypeProbDataTable);
-    LoadRes<GachaStorageRes>(arc.get(), GameData::GachaStorageDataTable);
+    LoadRes<GachaATypeProbRes>(&source, GameData::GachaATypeProbDataTable);
+    LoadRes<GachaStorageRes>(&source, GameData::GachaStorageDataTable);
 
     // NORMAL
 
     // Characters
-    LoadRes<CharacterRes>(arc.get(), GameData::CharacterDataTable);
-    LoadRes<CharacterSkillUpgradeRes>(arc.get(), GameData::CharacterSkillUpgradeDataTable);
-    LoadRes<CharacterUpgradeRes>(arc.get(), GameData::CharacterUpgradeDataTable);
-    LoadRes<CharItemExpRes>(arc.get(), GameData::CharItemExpDataTable);
-    LoadRes<CharacterSkinRes>(arc.get(), GameData::CharacterSkinDataTable);
-    LoadRes<TalentGroupRes>(arc.get(), GameData::TalentGroupDataTable);
+    LoadRes<CharacterRes>(&source, GameData::CharacterDataTable);
+    LoadRes<CharacterSkillUpgradeRes>(&source, GameData::CharacterSkillUpgradeDataTable);
+    LoadRes<CharacterUpgradeRes>(&source, GameData::CharacterUpgradeDataTable);
+    LoadRes<CharItemExpRes>(&source, GameData::CharItemExpDataTable);
+    LoadRes<CharacterSkinRes>(&source, GameData::CharacterSkinDataTable);
+    LoadRes<TalentGroupRes>(&source, GameData::TalentGroupDataTable);
 
     // Characters: Emblems
-    LoadRes<CharGemRes>(arc.get(), GameData::CharGemDataTable);
-    LoadRes<CharGemSlotControlRes>(arc.get(), GameData::CharGemSlotControlDataTable);
+    LoadRes<CharGemRes>(&source, GameData::CharGemDataTable);
+    LoadRes<CharGemSlotControlRes>(&source, GameData::CharGemSlotControlDataTable);
 
     // Characters: Affinity
-    LoadRes<AffinityLevelRes>(arc.get(), GameData::AffinityLevelDataTable);
-    LoadRes<AffinityGiftRes>(arc.get(), GameData::AffinityGiftDataTable);
-    LoadRes<PlotRes>(arc.get(), GameData::PlotDataTable);
+    LoadRes<AffinityLevelRes>(&source, GameData::AffinityLevelDataTable);
+    LoadRes<AffinityGiftRes>(&source, GameData::AffinityGiftDataTable);
+    LoadRes<PlotRes>(&source, GameData::PlotDataTable);
 
     // Characters: Dating
-    LoadRes<DatingLandmarkRes>(arc.get(), GameData::DatingLandmarkDataTable);
+    LoadRes<DatingLandmarkRes>(&source, GameData::DatingLandmarkDataTable);
 
     // ===== Discs =====
-    LoadRes<DiscRes>(arc.get(), GameData::DiscDataTable);
-    LoadRes<DiscStrengthenRes>(arc.get(), GameData::DiscStrengthenDataTable);
-    LoadRes<DiscItemExpRes>(arc.get(), GameData::DiscItemExpDataTable);
-    LoadRes<DiscPromoteLimitRes>(arc.get(), GameData::DiscPromoteLimitDataTable);
+    LoadRes<DiscRes>(&source, GameData::DiscDataTable);
+    LoadRes<DiscStrengthenRes>(&source, GameData::DiscStrengthenDataTable);
+    LoadRes<DiscItemExpRes>(&source, GameData::DiscItemExpDataTable);
+    LoadRes<DiscPromoteLimitRes>(&source, GameData::DiscPromoteLimitDataTable);
 
     // Discs: Melody items
-    LoadRes<SecondarySkillRes>(arc.get(), GameData::SecondarySkillDataTable);
+    LoadRes<SecondarySkillRes>(&source, GameData::SecondarySkillDataTable);
 
     // ===== Items =====
-    LoadRes<ItemRes>(arc.get(), GameData::ItemDataTable);
-    LoadRes<ProductionRes>(arc.get(), GameData::ProductionDataTable);
-    LoadRes<PlayerHeadRes>(arc.get(), GameData::PlayerHeadDataTable);
-    LoadRes<DropPkgRes>(arc.get(), GameData::DropPkgDataTable);
+    LoadRes<ItemRes>(&source, GameData::ItemDataTable);
+    LoadRes<ProductionRes>(&source, GameData::ProductionDataTable);
+    LoadRes<PlayerHeadRes>(&source, GameData::PlayerHeadDataTable);
+    LoadRes<DropPkgRes>(&source, GameData::DropPkgDataTable);
 
     // ===== Shops =====
-    LoadRes<MallMonthlyCardRes>(arc.get(), GameData::MallMonthlyCardDataTable);
-    LoadRes<MonthlyCardRes>(arc.get(), GameData::MonthlyCardDataTable);
-    LoadRes<MallPackageRes>(arc.get(), GameData::MallPackageDataTable);
-    LoadRes<MallShopRes>(arc.get(), GameData::MallShopDataTable);
-    LoadRes<MallGemRes>(arc.get(), GameData::MallGemDataTable);
+    LoadRes<MallMonthlyCardRes>(&source, GameData::MallMonthlyCardDataTable);
+    LoadRes<MonthlyCardRes>(&source, GameData::MonthlyCardDataTable);
+    LoadRes<MallPackageRes>(&source, GameData::MallPackageDataTable);
+    LoadRes<MallShopRes>(&source, GameData::MallShopDataTable);
+    LoadRes<MallGemRes>(&source, GameData::MallGemDataTable);
 
-    LoadRes<ResidentShopRes>(arc.get(), GameData::ResidentShopDataTable);
-    LoadRes<ResidentGoodsRes>(arc.get(), GameData::ResidentGoodsDataTable);
+    LoadRes<ResidentShopRes>(&source, GameData::ResidentShopDataTable);
+    LoadRes<ResidentGoodsRes>(&source, GameData::ResidentGoodsDataTable);
 
     // ===== Battle Pass =====
-    LoadRes<BattlePassRes>(arc.get(), GameData::BattlePassDataTable);
-    LoadRes<BattlePassLevelRes>(arc.get(), GameData::BattlePassLevelDataTable);
-    LoadRes<BattlePassQuestRes>(arc.get(), GameData::BattlePassQuestDataTable);
-    LoadRes<BattlePassRewardRes>(arc.get(), GameData::BattlePassRewardDataTable);
+    LoadRes<BattlePassRes>(&source, GameData::BattlePassDataTable);
+    LoadRes<BattlePassLevelRes>(&source, GameData::BattlePassLevelDataTable);
+    LoadRes<BattlePassQuestRes>(&source, GameData::BattlePassQuestDataTable);
+    LoadRes<BattlePassRewardRes>(&source, GameData::BattlePassRewardDataTable);
 
     // ===== Commissions =====
-    LoadRes<AgentRes>(arc.get(), GameData::AgentDataTable);
+    LoadRes<AgentRes>(&source, GameData::AgentDataTable);
 
     // ===== Dictionary =====
-    LoadRes<DictionaryTabRes>(arc.get(), GameData::DictionaryTabDataTable);
+    LoadRes<DictionaryTabRes>(&source, GameData::DictionaryTabDataTable);
 
     // ===== Gacha =====
-    LoadRes<GachaNewbieRes>(arc.get(), GameData::GachaNewbieDataTable);
-    LoadRes<GachaTypeRes>(arc.get(), GameData::GachaTypeDataTable);
+    LoadRes<GachaNewbieRes>(&source, GameData::GachaNewbieDataTable);
+    LoadRes<GachaTypeRes>(&source, GameData::GachaTypeDataTable);
 
     // ===== Story =====
-    LoadRes<StoryRes>(arc.get(), GameData::StoryDataTable);
-    LoadRes<StorySetSectionRes>(arc.get(), GameData::StorySetSectionDataTable);
-    LoadRes<StoryEvidenceRes>(arc.get(), GameData::StoryEvidenceDataTable);
+    LoadRes<StoryRes>(&source, GameData::StoryDataTable);
+    LoadRes<StorySetSectionRes>(&source, GameData::StorySetSectionDataTable);
+    LoadRes<StoryEvidenceRes>(&source, GameData::StoryEvidenceDataTable);
 
     // ===== Daily/Weekly Quests =====
-    LoadRes<DailyQuestRes>(arc.get(), GameData::DailyQuestDataTable);
-    LoadRes<DailyQuestActiveRes>(arc.get(), GameData::DailyQuestActiveDataTable);
-    LoadRes<WeeklyQuestRes>(arc.get(), GameData::WeeklyQuestDataTable);
-    LoadRes<WeeklyQuestActiveRes>(arc.get(), GameData::WeeklyQuestActiveDataTable);
+    LoadRes<DailyQuestRes>(&source, GameData::DailyQuestDataTable);
+    LoadRes<DailyQuestActiveRes>(&source, GameData::DailyQuestActiveDataTable);
+    LoadRes<WeeklyQuestRes>(&source, GameData::WeeklyQuestDataTable);
+    LoadRes<WeeklyQuestActiveRes>(&source, GameData::WeeklyQuestActiveDataTable);
 
     // ===== Achievements =====
-    LoadRes<AchievementRes>(arc.get(), GameData::AchievementDataTable);
+    LoadRes<AchievementRes>(&source, GameData::AchievementDataTable);
 
     // ===== Tutorials =====
-    LoadRes<TutorialLevelRes>(arc.get(), GameData::TutorialLevelDataTable);
+    LoadRes<TutorialLevelRes>(&source, GameData::TutorialLevelDataTable);
 
     // ===== Instances =====
-    LoadRes<DailyInstanceRes>(arc.get(), GameData::DailyInstanceDataTable);
-    LoadRes<DailyInstanceRewardGroupRes>(arc.get(), GameData::DailyInstanceRewardGroupDataTable);
-    LoadRes<RegionBossLevelRes>(arc.get(), GameData::RegionBossLevelDataTable);
-    LoadRes<SkillInstanceRes>(arc.get(), GameData::SkillInstanceDataTable);
-    LoadRes<CharGemInstanceRes>(arc.get(), GameData::CharGemInstanceDataTable);
+    LoadRes<DailyInstanceRes>(&source, GameData::DailyInstanceDataTable);
+    LoadRes<DailyInstanceRewardGroupRes>(&source, GameData::DailyInstanceRewardGroupDataTable);
+    LoadRes<RegionBossLevelRes>(&source, GameData::RegionBossLevelDataTable);
+    LoadRes<SkillInstanceRes>(&source, GameData::SkillInstanceDataTable);
+    LoadRes<CharGemInstanceRes>(&source, GameData::CharGemInstanceDataTable);
 
     // ===== Star Tower =====
-    LoadRes<StarTowerRes>(arc.get(), GameData::StarTowerDataTable);
-    LoadRes<StarTowerStageRes>(arc.get(), GameData::StarTowerStageDataTable);
-    LoadRes<StarTowerGrowthNodeRes>(arc.get(), GameData::StarTowerGrowthNodeDataTable);
-    LoadRes<StarTowerFloorExpRes>(arc.get(), GameData::StarTowerFloorExpDataTable);
-    LoadRes<StarTowerTeamExpRes>(arc.get(), GameData::StarTowerTeamExpDataTable);
-    LoadRes<StarTowerEventRes>(arc.get(), GameData::StarTowerEventDataTable);
-    LoadRes<EventOptionsRes>(arc.get(), GameData::EventOptionsDataTable);
-    LoadRes<StarTowerBuildRankRes>(arc.get(), GameData::StarTowerBuildRankDataTable);
-    LoadRes<SubNoteSkillDropGroupRes>(arc.get(), GameData::SubNoteSkillDropGroupDataTable);
-    LoadRes<SubNoteSkillPromoteGroupRes>(arc.get(), GameData::SubNoteSkillPromoteGroupDataTable);
+    LoadRes<StarTowerRes>(&source, GameData::StarTowerDataTable);
+    LoadRes<StarTowerStageRes>(&source, GameData::StarTowerStageDataTable);
+    LoadRes<StarTowerGrowthNodeRes>(&source, GameData::StarTowerGrowthNodeDataTable);
+    LoadRes<StarTowerFloorExpRes>(&source, GameData::StarTowerFloorExpDataTable);
+    LoadRes<StarTowerTeamExpRes>(&source, GameData::StarTowerTeamExpDataTable);
+    LoadRes<StarTowerEventRes>(&source, GameData::StarTowerEventDataTable);
+    LoadRes<EventOptionsRes>(&source, GameData::EventOptionsDataTable);
+    LoadRes<StarTowerBuildRankRes>(&source, GameData::StarTowerBuildRankDataTable);
+    LoadRes<SubNoteSkillDropGroupRes>(&source, GameData::SubNoteSkillDropGroupDataTable);
+    LoadRes<SubNoteSkillPromoteGroupRes>(&source, GameData::SubNoteSkillPromoteGroupDataTable);
 
-    LoadRes<PotentialRes>(arc.get(), GameData::PotentialDataTable);
-    LoadRes<CharPotentialRes>(arc.get(), GameData::CharPotentialDataTable);
-    LoadRes<NPCAffinityGroupRes>(arc.get(), GameData::NPCAffinityGroupDataTable);
-    LoadRes<NPCAffinityPlotRes>(arc.get(), GameData::NPCAffinityPlotDataTable);
+    LoadRes<PotentialRes>(&source, GameData::PotentialDataTable);
+    LoadRes<CharPotentialRes>(&source, GameData::CharPotentialDataTable);
+    LoadRes<NPCAffinityGroupRes>(&source, GameData::NPCAffinityGroupDataTable);
+    LoadRes<NPCAffinityPlotRes>(&source, GameData::NPCAffinityPlotDataTable);
 
-    LoadRes<StarTowerBookFateCardBundleRes>(arc.get(), GameData::StarTowerBookFateCardBundleDataTable);
-    LoadRes<StarTowerBookFateCardQuestRes>(arc.get(), GameData::StarTowerBookFateCardQuestDataTable);
-    LoadRes<FateCardRes>(arc.get(), GameData::FateCardDataTable);
+    LoadRes<StarTowerBookFateCardBundleRes>(&source, GameData::StarTowerBookFateCardBundleDataTable);
+    LoadRes<StarTowerBookFateCardQuestRes>(&source, GameData::StarTowerBookFateCardQuestDataTable);
+    LoadRes<FateCardRes>(&source, GameData::FateCardDataTable);
 
     // ===== Infinity Tower =====
-    LoadRes<InfinityTowerLevelRes>(arc.get(), GameData::InfinityTowerLevelDataTable);
-    LoadRes<InfinityTowerDifficultyRes>(arc.get(), GameData::InfinityTowerDifficultyDataTable);
+    LoadRes<InfinityTowerLevelRes>(&source, GameData::InfinityTowerLevelDataTable);
+    LoadRes<InfinityTowerDifficultyRes>(&source, GameData::InfinityTowerDifficultyDataTable);
 
     // ===== Vampire Survivor =====
-    LoadRes<VampireSurvivorRes>(arc.get(), GameData::VampireSurvivorDataTable);
-    LoadRes<VampireTalentRes>(arc.get(), GameData::VampireTalentDataTable);
+    LoadRes<VampireSurvivorRes>(&source, GameData::VampireSurvivorDataTable);
+    LoadRes<VampireTalentRes>(&source, GameData::VampireTalentDataTable);
 
     // ===== Score Boss =====
-    LoadRes<ScoreBossControlRes>(arc.get(), GameData::ScoreBossControlDataTable);
-    LoadRes<ScoreBossRewardRes>(arc.get(), GameData::ScoreBossRewardDataTable);
+    LoadRes<ScoreBossControlRes>(&source, GameData::ScoreBossControlDataTable);
+    LoadRes<ScoreBossRewardRes>(&source, GameData::ScoreBossRewardDataTable);
 
     // ===== Misc =====
-    LoadRes<WorldClassRes>(arc.get(), GameData::WorldClassDataTable);
-    LoadRes<GuideGroupRes>(arc.get(), GameData::GuideGroupDataTable);
-    LoadRes<HandbookRes>(arc.get(), GameData::HandbookDataTable);
-    LoadRes<SignInRes>(arc.get(), GameData::SignInDataTable);
+    LoadRes<WorldClassRes>(&source, GameData::WorldClassDataTable);
+    LoadRes<GuideGroupRes>(&source, GameData::GuideGroupDataTable);
+    LoadRes<HandbookRes>(&source, GameData::HandbookDataTable);
+    LoadRes<SignInRes>(&source, GameData::SignInDataTable);
 
     // ===== Activity =====
-    LoadRes<ActivityRes>(arc.get(), GameData::ActivityDataTable);
+    LoadRes<ActivityRes>(&source, GameData::ActivityDataTable);
 
     // Activity: Login Reward
-    LoadRes<LoginRewardGroupControlRes>(arc.get(), GameData::LoginRewardGroupControlDataTable);
+    LoadRes<LoginRewardGroupControlRes>(&source, GameData::LoginRewardGroupControlDataTable);
 
     // Activity: Tower Defense
-    LoadRes<TowerDefenseLevelRes>(arc.get(), GameData::TowerDefenseLevelDataTable);
+    LoadRes<TowerDefenseLevelRes>(&source, GameData::TowerDefenseLevelDataTable);
 
     // Activity: Trials
-    LoadRes<TrialControlRes>(arc.get(), GameData::TrialControlDataTable);
-    LoadRes<TrialGroupRes>(arc.get(), GameData::TrialGroupDataTable);
+    LoadRes<TrialControlRes>(&source, GameData::TrialControlDataTable);
+    LoadRes<TrialGroupRes>(&source, GameData::TrialGroupDataTable);
 
     // Activity: Joint Drill
-    LoadRes<JointDrill2LevelRes>(arc.get(), GameData::JointDrill2LevelDataTable);
+    LoadRes<JointDrill2LevelRes>(&source, GameData::JointDrill2LevelDataTable);
 
     // Activity: Levels
-    LoadRes<ActivityLevelsLevelRes>(arc.get(), GameData::ActivityLevelsLevelDataTable);
+    LoadRes<ActivityLevelsLevelRes>(&source, GameData::ActivityLevelsLevelDataTable);
 
     // Activity: Task
-    LoadRes<ActivityTaskRes>(arc.get(), GameData::ActivityTaskDataTable);
-    LoadRes<ActivityTaskGroupRes>(arc.get(), GameData::ActivityTaskGroupDataTable);
+    LoadRes<ActivityTaskRes>(&source, GameData::ActivityTaskDataTable);
+    LoadRes<ActivityTaskGroupRes>(&source, GameData::ActivityTaskGroupDataTable);
 
     // Activity: Shop
-    LoadRes<ActivityShopRes>(arc.get(), GameData::ActivityShopDataTable);
-    LoadRes<ActivityShopControlRes>(arc.get(), GameData::ActivityShopControlDataTable);
+    LoadRes<ActivityShopRes>(&source, GameData::ActivityShopDataTable);
+    LoadRes<ActivityShopControlRes>(&source, GameData::ActivityShopControlDataTable);
 
     // LOW
 
     // Characters
-    LoadRes<CharacterAdvanceRes>(arc.get(), GameData::CharacterAdvanceDataTable);
-    LoadRes<TalentRes>(arc.get(), GameData::TalentDataTable);
+    LoadRes<CharacterAdvanceRes>(&source, GameData::CharacterAdvanceDataTable);
+    LoadRes<TalentRes>(&source, GameData::TalentDataTable);
 
     // Characters: Emblems
-    LoadRes<CharGemAttrValueRes>(arc.get(), GameData::CharGemAttrValueDataTable);
+    LoadRes<CharGemAttrValueRes>(&source, GameData::CharGemAttrValueDataTable);
 
     // Characters: Phone
-    LoadRes<ChatRes>(arc.get(), GameData::ChatDataTable);
+    LoadRes<ChatRes>(&source, GameData::ChatDataTable);
 
     // Characters: Dating
-    LoadRes<DatingLandmarkEventRes>(arc.get(), GameData::DatingLandmarkEventDataTable);
-    LoadRes<DatingCharacterEventRes>(arc.get(), GameData::DatingCharacterEventDataTable);
+    LoadRes<DatingLandmarkEventRes>(&source, GameData::DatingLandmarkEventDataTable);
+    LoadRes<DatingCharacterEventRes>(&source, GameData::DatingCharacterEventDataTable);
 
     // ===== Discs =====
-    LoadRes<DiscPromoteRes>(arc.get(), GameData::DiscPromoteDataTable);
+    LoadRes<DiscPromoteRes>(&source, GameData::DiscPromoteDataTable);
 
     // ===== Items =====
-    LoadRes<TitleRes>(arc.get(), GameData::TitleDataTable);
-    LoadRes<HonorRes>(arc.get(), GameData::HonorDataTable);
+    LoadRes<TitleRes>(&source, GameData::TitleDataTable);
+    LoadRes<HonorRes>(&source, GameData::HonorDataTable);
 
     // ===== Dictionary =====
-    LoadRes<DictionaryEntryRes>(arc.get(), GameData::DictionaryEntryDataTable);
+    LoadRes<DictionaryEntryRes>(&source, GameData::DictionaryEntryDataTable);
 
     // ===== Story =====
-    LoadRes<MainScreenCGRes>(arc.get(), GameData::MainScreenCGDataTable);
+    LoadRes<MainScreenCGRes>(&source, GameData::MainScreenCGDataTable);
 
     // ===== Instances =====
-    LoadRes<WeekBossLevelRes>(arc.get(), GameData::WeekBossLevelDataTable);
+    LoadRes<WeekBossLevelRes>(&source, GameData::WeekBossLevelDataTable);
 
     // ===== Star Tower =====
-    LoadRes<StarTowerBookFateCardRes>(arc.get(), GameData::StarTowerBookFateCardDataTable);
+    LoadRes<StarTowerBookFateCardRes>(&source, GameData::StarTowerBookFateCardDataTable);
 
     // Activity: Shop
-    LoadRes<ActivityGoodsRes>(arc.get(), GameData::ActivityGoodsDataTable);
+    LoadRes<ActivityGoodsRes>(&source, GameData::ActivityGoodsDataTable);
 
     // LOWEST
 
     // ===== Gacha =====
     GachaPkgRes::ClearPackages();
-    LoadRes<GachaPkgRes>(arc.get(), GameData::GachaPkgDataTable);
-    LoadRes<GachaRes>(arc.get(), GameData::GachaDataTable);
+    LoadRes<GachaPkgRes>(&source, GameData::GachaPkgDataTable);
+    LoadRes<GachaRes>(&source, GameData::GachaDataTable);
 }

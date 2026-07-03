@@ -1,20 +1,21 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 #include <unordered_set>
 
-class ActivityRes : public ResBase {
+class ActivityRes {
 public:
     ActivityRes() = default;
     ~ActivityRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -24,14 +25,15 @@ public:
     // 非序列化字段
 };
 
-class LoginRewardGroupControlRes : public ResBase {
+class LoginRewardGroupControlRes {
 public:
     LoginRewardGroupControlRes() = default;
     ~LoginRewardGroupControlRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -44,14 +46,15 @@ public:
     // 非序列化字段
 };
 
-class TowerDefenseLevelRes : public ResBase {
+class TowerDefenseLevelRes {
 public:
     TowerDefenseLevelRes() = default;
     ~TowerDefenseLevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -66,14 +69,15 @@ public:
     // 非序列化字段
 };
 
-class TrialControlRes : public ResBase {
+class TrialControlRes {
 public:
     TrialControlRes() = default;
     ~TrialControlRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -83,14 +87,15 @@ public:
     // 非序列化字段
 };
 
-class TrialGroupRes : public ResBase {
+class TrialGroupRes {
 public:
     TrialGroupRes() = default;
     ~TrialGroupRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -105,14 +110,15 @@ public:
     // 非序列化字段
 };
 
-class JointDrill2LevelRes : public ResBase {
+class JointDrill2LevelRes {
 public:
     JointDrill2LevelRes() = default;
     ~JointDrill2LevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -127,14 +133,15 @@ public:
     // 非序列化字段
 };
 
-class ActivityLevelsLevelRes : public ResBase {
+class ActivityLevelsLevelRes {
 public:
     ActivityLevelsLevelRes() = default;
     ~ActivityLevelsLevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -146,14 +153,15 @@ public:
     // 非序列化字段
 };
 
-class ActivityTaskRes : public ResBase {
+class ActivityTaskRes {
 public:
     ActivityTaskRes() = default;
     ~ActivityTaskRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -169,14 +177,15 @@ public:
     // 非序列化字段
 };
 
-class ActivityTaskGroupRes : public ResBase {
+class ActivityTaskGroupRes {
 public:
     ActivityTaskGroupRes() = default;
     ~ActivityTaskGroupRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -198,14 +207,15 @@ public:
     // 非序列化字段
 };
 
-class ActivityShopRes : public ResBase {
+class ActivityShopRes {
 public:
     ActivityShopRes() = default;
     ~ActivityShopRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -217,14 +227,15 @@ public:
     // 非序列化字段
 };
 
-class ActivityShopControlRes : public ResBase {
+class ActivityShopControlRes {
 public:
     ActivityShopControlRes() = default;
     ~ActivityShopControlRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -234,14 +245,15 @@ public:
     // 非序列化字段
 };
 
-class ActivityGoodsRes : public ResBase {
+class ActivityGoodsRes {
 public:
     ActivityGoodsRes() = default;
     ~ActivityGoodsRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

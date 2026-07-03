@@ -1,18 +1,19 @@
 ﻿#pragma once
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class BattlePassRes : public ResBase {
+class BattlePassRes {
 public:
     BattlePassRes() = default;
     ~BattlePassRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -32,14 +33,15 @@ public:
     int64_t EndTime = 0;
 };
 
-class BattlePassLevelRes : public ResBase {
+class BattlePassLevelRes {
 public:
     BattlePassLevelRes() = default;
     ~BattlePassLevelRes() = default;
 
-    std::string GetId() const override { return std::to_string(ID); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return ID; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -51,14 +53,15 @@ public:
     // 非序列化字段
 };
 
-class BattlePassQuestRes : public ResBase {
+class BattlePassQuestRes {
 public:
     BattlePassQuestRes() = default;
     ~BattlePassQuestRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
     int Id;
@@ -68,14 +71,15 @@ public:
     // 非序列化字段
 };
 
-class BattlePassRewardRes : public ResBase {
+class BattlePassRewardRes {
 public:
     BattlePassRewardRes() = default;
     ~BattlePassRewardRes() = default;
 
-    std::string GetId() const override { return std::to_string(ID) + "|" + std::to_string(Level); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return std::pair<int, int>{ID, Level}; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

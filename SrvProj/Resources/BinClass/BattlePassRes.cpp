@@ -1,9 +1,25 @@
 #include "BattlePassRes.h"
+#include "../ResourceJsonUtil.h"
 
 #include "../../GameTime.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool BattlePassRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "StartTimeText", StartTimeText);
+    ReadResourceJsonField(data, "EndTimeText", EndTimeText);
+    ReadResourceJsonField(data, "LuxuryProductId", LuxuryProductId);
+    ReadResourceJsonField(data, "PremiumProductId", PremiumProductId);
+    ReadResourceJsonField(data, "LuxuryBonusLevel", LuxuryBonusLevel);
+    ReadResourceJsonField(data, "LuxuryTid", LuxuryTid);
+    ReadResourceJsonField(data, "LuxuryQty", LuxuryQty);
+    ReadResourceJsonField(data, "ComplementaryTid", ComplementaryTid);
+    ReadResourceJsonField(data, "ComplementaryQty", ComplementaryQty);
+    return true;
+}
 
 bool BattlePassRes::LoadFromPb(std::string data)
 {
@@ -31,6 +47,15 @@ void BattlePassRes::OnLoad()
     EndTime = GameTime::DateToSecondsInConfiguredTimeZone(EndTimeText);
 }
 
+bool BattlePassLevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "ID", ID);
+    ReadResourceJsonField(data, "Exp", Exp);
+    ReadResourceJsonField(data, "Tid", Tid);
+    ReadResourceJsonField(data, "Qty", Qty);
+    return true;
+}
+
 bool BattlePassLevelRes::LoadFromPb(std::string data)
 {
     BattlePassLevel bpl;
@@ -46,6 +71,14 @@ bool BattlePassLevelRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool BattlePassQuestRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Type", Type);
+    ReadResourceJsonField(data, "Exp", Exp);
+    return true;
+}
+
 bool BattlePassQuestRes::LoadFromPb(std::string data)
 {
     BattlePassQuest bpq;
@@ -56,6 +89,19 @@ bool BattlePassQuestRes::LoadFromPb(std::string data)
     Id = bpq.id();
     Type = bpq.type();
     Exp = bpq.exp();
+    return true;
+}
+
+bool BattlePassRewardRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "ID", ID);
+    ReadResourceJsonField(data, "Level", Level);
+    ReadResourceJsonField(data, "Tid1", Tid1);
+    ReadResourceJsonField(data, "Qty1", Qty1);
+    ReadResourceJsonField(data, "Tid2", Tid2);
+    ReadResourceJsonField(data, "Qty2", Qty2);
+    ReadResourceJsonField(data, "Tid3", Tid3);
+    ReadResourceJsonField(data, "Qty3", Qty3);
     return true;
 }
 

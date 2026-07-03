@@ -1,4 +1,5 @@
 ﻿#include "AchievementsRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 #include <algorithm>
@@ -319,6 +320,18 @@ void ApplyAchievementParamOverride(AchievementRes& achievement)
     achievement.Param2 = it->Param2;
     achievement.ParamCond2 = it->ParamCond2;
 }
+}
+
+bool AchievementRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Type", Type);
+    ReadResourceJsonField(data, "CompleteCond", CompleteCond);
+    ReadResourceJsonField(data, "AimNumShow", AimNumShow);
+    ReadResourceJsonField(data, "Prerequisites", Prerequisites);
+    ReadResourceJsonField(data, "Tid1", Tid1);
+    ReadResourceJsonField(data, "Qty1", Qty1);
+    return true;
 }
 
 bool AchievementRes::LoadFromPb(std::string data)

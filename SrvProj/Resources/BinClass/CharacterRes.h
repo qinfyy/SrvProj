@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <string>
 #include <unordered_map>
@@ -12,18 +12,18 @@ class DatingLandmarkEventRes;
 class HonorRes;
 class TalentRes;
 
-class CharacterRes : public ResBase {
+class CharacterRes {
 public:
+    auto GetKey() const { return Id; }
     CharacterRes() = default;
-    ~CharacterRes() override = default;
+    ~CharacterRes() = default;
     CharacterRes(const CharacterRes&) = delete;
     CharacterRes& operator=(const CharacterRes&) = delete;
     CharacterRes(CharacterRes&&) noexcept = default;
     CharacterRes& operator=(CharacterRes&&) noexcept = default;
-
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -106,11 +106,12 @@ public:
     std::vector<ChatRes*> Chats;
 };
 
-class CharacterDesRes : public ResBase {
+class CharacterDesRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -138,11 +139,12 @@ public:
     // 非序列化字段
 };
 
-class CharacterAdvanceRes : public ResBase {
+class CharacterAdvanceRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -164,11 +166,12 @@ public:
     ItemParamMap Materials;
 };
 
-class CharacterSkillUpgradeRes : public ResBase {
+class CharacterSkillUpgradeRes {
 public:
-    std::string GetId() const override { return std::to_string(UpgradeId > 0 ? UpgradeId : Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return UpgradeId > 0 ? UpgradeId : Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -191,11 +194,12 @@ public:
     ItemParamMap Materials;
 };
 
-class CharacterUpgradeRes : public ResBase {
+class CharacterUpgradeRes {
 public:
-    std::string GetId() const override { return std::to_string(Level); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Level; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -205,11 +209,12 @@ public:
     // 非序列化字段
 };
 
-class CharItemExpRes : public ResBase {
+class CharItemExpRes {
 public:
-    std::string GetId() const override { return std::to_string(ItemId); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return ItemId; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -218,11 +223,12 @@ public:
 
     // 非序列化字段
 };
-class CharacterSkinRes : public ResBase {
+class CharacterSkinRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -235,11 +241,12 @@ public:
     bool Released = false;
 };
 
-class TalentGroupRes : public ResBase {
+class TalentGroupRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -253,11 +260,12 @@ public:
     std::vector<TalentRes*> Talents;
 };
 
-class TalentRes : public ResBase {
+class TalentRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -270,11 +278,12 @@ public:
     // 非序列化字段
 };
 
-class CharGemRes : public ResBase {
+class CharGemRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -287,11 +296,12 @@ public:
     // 非序列化字段
 };
 
-class CharGemSlotControlRes : public ResBase {
+class CharGemSlotControlRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -314,11 +324,12 @@ public:
     std::vector<int> AttrGroupId;
 };
 
-class CharGemAttrValueRes : public ResBase {
+class CharGemAttrValueRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -332,11 +343,12 @@ public:
     // 非序列化字段
 };
 
-class AffinityLevelRes : public ResBase {
+class AffinityLevelRes {
 public:
-    std::string GetId() const override { return std::to_string(AffinityLevel); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return AffinityLevel; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -348,11 +360,12 @@ public:
     static int MaxLevel;
 };
 
-class AffinityGiftRes : public ResBase {
+class AffinityGiftRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -363,11 +376,12 @@ public:
     // 非序列化字段
 };
 
-class PlotRes : public ResBase {
+class PlotRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -381,11 +395,12 @@ public:
     ItemParamMap RewardItems;
 };
 
-class ChatRes : public ResBase {
+class ChatRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -401,11 +416,12 @@ public:
     // 非序列化字段
 };
 
-class DatingLandmarkRes : public ResBase {
+class DatingLandmarkRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -418,12 +434,13 @@ public:
     std::unordered_map<std::string, std::vector<DatingLandmarkEventRes*>> LandmarkEvents;
 };
 
-class DatingLandmarkEventRes : public ResBase {
+class DatingLandmarkEventRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
+    auto GetKey() const { return Id; }
     int GetLandmarkId() const;
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -438,11 +455,12 @@ public:
     int Type = 0;
 };
 
-class DatingCharacterEventRes : public ResBase {
+class DatingCharacterEventRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -451,12 +469,13 @@ public:
     // 非序列化字段
 };
 
-class DatingBranchRes : public ResBase {
+class DatingBranchRes {
 public:
-    std::string GetId() const override { return std::to_string(Id); }
+    auto GetKey() const { return Id; }
     int GetLandmarkId() const;
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

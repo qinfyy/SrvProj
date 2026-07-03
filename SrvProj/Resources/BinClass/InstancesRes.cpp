@@ -1,7 +1,19 @@
 ﻿#include "InstancesRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool DailyInstanceRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "AwardDropId", AwardDropId);
+    ReadResourceJsonField(data, "PreLevelId", PreLevelId);
+    ReadResourceJsonField(data, "PreLevelStar", PreLevelStar);
+    ReadResourceJsonField(data, "OneStarEnergyConsume", OneStarEnergyConsume);
+    ReadResourceJsonField(data, "NeedWorldClass", NeedWorldClass);
+    return true;
+}
 
 bool DailyInstanceRes::LoadFromPb(std::string data)
 {
@@ -20,6 +32,14 @@ bool DailyInstanceRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool DailyInstanceRewardGroupRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "GroupId", GroupId);
+    ReadResourceJsonField(data, "DailyRewardType", DailyRewardType);
+    ReadResourceJsonField(data, "BaseAwardPreview", BaseAwardPreview);
+    return true;
+}
+
 bool DailyInstanceRewardGroupRes::LoadFromPb(std::string data)
 {
     DailyInstanceRewardGroup dailyInstanceRewardGroup;
@@ -31,6 +51,17 @@ bool DailyInstanceRewardGroupRes::LoadFromPb(std::string data)
     DailyRewardType = dailyInstanceRewardGroup.dailyrewardtype();
     BaseAwardPreview = dailyInstanceRewardGroup.baseawardpreview();
 
+    return true;
+}
+
+bool RegionBossLevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "PreLevelId", PreLevelId);
+    ReadResourceJsonField(data, "PreLevelStar", PreLevelStar);
+    ReadResourceJsonField(data, "NeedWorldClass", NeedWorldClass);
+    ReadResourceJsonField(data, "EnergyConsume", EnergyConsume);
+    ReadResourceJsonField(data, "BaseAwardPreview", BaseAwardPreview);
     return true;
 }
 
@@ -51,6 +82,17 @@ bool RegionBossLevelRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool SkillInstanceRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "PreLevelId", PreLevelId);
+    ReadResourceJsonField(data, "PreLevelStar", PreLevelStar);
+    ReadResourceJsonField(data, "NeedWorldClass", NeedWorldClass);
+    ReadResourceJsonField(data, "EnergyConsume", EnergyConsume);
+    ReadResourceJsonField(data, "BaseAwardPreview", BaseAwardPreview);
+    return true;
+}
+
 bool SkillInstanceRes::LoadFromPb(std::string data)
 {
     SkillInstance skillInstance;
@@ -68,6 +110,17 @@ bool SkillInstanceRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool CharGemInstanceRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "PreLevelId", PreLevelId);
+    ReadResourceJsonField(data, "PreLevelStar", PreLevelStar);
+    ReadResourceJsonField(data, "NeedWorldClass", NeedWorldClass);
+    ReadResourceJsonField(data, "EnergyConsume", EnergyConsume);
+    ReadResourceJsonField(data, "BaseAwardPreview", BaseAwardPreview);
+    return true;
+}
+
 bool CharGemInstanceRes::LoadFromPb(std::string data)
 {
     CharGemInstance charGemInstance;
@@ -82,6 +135,16 @@ bool CharGemInstanceRes::LoadFromPb(std::string data)
     EnergyConsume = charGemInstance.energyconsume();
     BaseAwardPreview = charGemInstance.baseawardpreview();
 
+    return true;
+}
+
+bool WeekBossLevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Difficulty", Difficulty);
+    ReadResourceJsonField(data, "PreLevelId", PreLevelId);
+    ReadResourceJsonField(data, "NeedWorldClass", NeedWorldClass);
+    ReadResourceJsonField(data, "BaseAwardPreview", BaseAwardPreview);
     return true;
 }
 

@@ -1,7 +1,14 @@
 ﻿#include "DictionaryRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool DictionaryTabRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    return true;
+}
 
 bool DictionaryTabRes::LoadFromPb(std::string data)
 {
@@ -12,6 +19,14 @@ bool DictionaryTabRes::LoadFromPb(std::string data)
 
     Id = dictionaryTab.id();
 
+    return true;
+}
+
+bool DictionaryEntryRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Tab", Tab);
+    ReadResourceJsonField(data, "Index", Index);
     return true;
 }
 

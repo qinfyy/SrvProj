@@ -1,7 +1,21 @@
 ﻿#include "QuestRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool DailyQuestRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Apear", Apear);
+    ReadResourceJsonField(data, "Active", Active);
+    ReadResourceJsonField(data, "ItemTid", ItemTid);
+    ReadResourceJsonField(data, "ItemQty", ItemQty);
+    ReadResourceJsonField(data, "CompleteCond", CompleteCond);
+    ReadResourceJsonField(data, "CompleteCondClient", CompleteCondClient);
+    ReadResourceJsonField(data, "CompleteCondParams", CompleteCondParams);
+    return true;
+}
 
 bool DailyQuestRes::LoadFromPb(std::string data)
 {
@@ -23,6 +37,17 @@ bool DailyQuestRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool DailyQuestActiveRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Active", Active);
+    ReadResourceJsonField(data, "ItemTid1", ItemTid1);
+    ReadResourceJsonField(data, "Number1", Number1);
+    ReadResourceJsonField(data, "ItemTid2", ItemTid2);
+    ReadResourceJsonField(data, "Number2", Number2);
+    return true;
+}
+
 bool DailyQuestActiveRes::LoadFromPb(std::string data)
 {
     DailyQuestActive dqa;
@@ -37,6 +62,19 @@ bool DailyQuestActiveRes::LoadFromPb(std::string data)
     ItemTid2 = dqa.itemtid2();
     Number2 = dqa.number2();
 
+    return true;
+}
+
+bool WeeklyQuestRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Apear", Apear);
+    ReadResourceJsonField(data, "Active", Active);
+    ReadResourceJsonField(data, "ItemTid", ItemTid);
+    ReadResourceJsonField(data, "ItemQty", ItemQty);
+    ReadResourceJsonField(data, "CompleteCond", CompleteCond);
+    ReadResourceJsonField(data, "CompleteCondClient", CompleteCondClient);
+    ReadResourceJsonField(data, "CompleteCondParams", CompleteCondParams);
     return true;
 }
 
@@ -55,6 +93,17 @@ bool WeeklyQuestRes::LoadFromPb(std::string data)
     CompleteCondClient = wq.completecondclient();
     CompleteCondParams = wq.completecondparams();
 
+    return true;
+}
+
+bool WeeklyQuestActiveRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Active", Active);
+    ReadResourceJsonField(data, "ItemTid1", ItemTid1);
+    ReadResourceJsonField(data, "Number1", Number1);
+    ReadResourceJsonField(data, "ItemTid2", ItemTid2);
+    ReadResourceJsonField(data, "Number2", Number2);
     return true;
 }
 

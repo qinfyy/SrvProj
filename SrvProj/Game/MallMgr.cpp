@@ -1,4 +1,4 @@
-#include "MallMgr.h"
+﻿#include "MallMgr.h"
 
 #include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
@@ -330,7 +330,7 @@ bool MallMgr::ConsumePendingCollect(GameSession* session, proto::ChangeInfo& out
             notify.set_endtime(player->GetMonthlyCardEndTime(order.Id));
             notify.mutable_change()->CopyFrom(dailyChange);
 
-            const auto rewardIt = GameData::MonthlyCardDataTable.find(std::to_string(it->second.MonthlyCardId));
+            const auto rewardIt = GameData::MonthlyCardDataTable.find(it->second.MonthlyCardId);
             if (rewardIt != GameData::MonthlyCardDataTable.end())
             {
                 for (const auto& [tid, qty] : rewardIt->second.Rewards.Items)

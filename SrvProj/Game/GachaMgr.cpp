@@ -1,4 +1,4 @@
-#include "GachaMgr.h"
+﻿#include "GachaMgr.h"
 
 #include "ChangeInfoUtil.h"
 #include "CharacterMgr.h"
@@ -75,7 +75,7 @@ void AddMapItem(std::map<uint32_t, int64_t>& items, uint32_t tid, int64_t qty)
 
 int GetItemType(uint32_t itemId)
 {
-    const auto it = GameData::ItemDataTable.find(std::to_string(itemId));
+    const auto it = GameData::ItemDataTable.find(itemId);
     if (it == GameData::ItemDataTable.end())
     {
         return 0;
@@ -86,7 +86,7 @@ int GetItemType(uint32_t itemId)
 
 bool IsResolvableItem(uint32_t itemId)
 {
-    const auto itemIt = GameData::ItemDataTable.find(std::to_string(itemId));
+    const auto itemIt = GameData::ItemDataTable.find(itemId);
     if (itemIt == GameData::ItemDataTable.end())
     {
         return false;
@@ -94,12 +94,12 @@ bool IsResolvableItem(uint32_t itemId)
 
     if (itemIt->second.Type == kItemTypeCharacter)
     {
-        return GameData::CharacterDataTable.find(std::to_string(itemId)) != GameData::CharacterDataTable.end();
+        return GameData::CharacterDataTable.find(itemId) != GameData::CharacterDataTable.end();
     }
 
     if (itemIt->second.Type == kItemTypeDisc)
     {
-        return GameData::DiscDataTable.find(std::to_string(itemId)) != GameData::DiscDataTable.end();
+        return GameData::DiscDataTable.find(itemId) != GameData::DiscDataTable.end();
     }
 
     return true;
@@ -301,7 +301,7 @@ bool GachaMgr::ApplyCostPlan(const GachaStorageRes& storage, const CostPlan& pla
 
 bool GachaMgr::PullOnce(const GachaRes& data, PityDraft& pity, uint32_t& itemId) const
 {
-    const auto storageIt = GameData::GachaStorageDataTable.find(std::to_string(data.StorageId));
+    const auto storageIt = GameData::GachaStorageDataTable.find(data.StorageId);
     if (storageIt == GameData::GachaStorageDataTable.end())
     {
         return false;
@@ -451,7 +451,7 @@ bool GachaMgr::BuildRewardPlan(const std::vector<uint32_t>& cards, const std::ma
                 if (disc)
                 {
                     entry.Begin = 1 + static_cast<uint32_t>((std::max)(disc->star(), 0));
-                    const auto discIt = GameData::DiscDataTable.find(std::to_string(itemId));
+                    const auto discIt = GameData::DiscDataTable.find(itemId);
                     if (discIt != GameData::DiscDataTable.end())
                     {
                         entry.Begin += static_cast<uint32_t>(std::max<int64_t>(GetPlayer()->Inventory().GetItemCount(static_cast<uint32_t>(discIt->second.TransformItemId)), 0));
@@ -471,7 +471,7 @@ bool GachaMgr::BuildRewardPlan(const std::vector<uint32_t>& cards, const std::ma
 
             if (duplicateCount > 0)
             {
-                const auto charIt = GameData::CharacterDataTable.find(std::to_string(itemId));
+                const auto charIt = GameData::CharacterDataTable.find(itemId);
                 if (charIt == GameData::CharacterDataTable.end())
                 {
                     return false;
@@ -497,7 +497,7 @@ bool GachaMgr::BuildRewardPlan(const std::vector<uint32_t>& cards, const std::ma
             const uint32_t transformCount = (std::min)(duplicateCount, maxTransformCount);
             const uint32_t extraCount = duplicateCount > transformCount ? duplicateCount - transformCount : 0;
 
-            const auto discIt = GameData::DiscDataTable.find(std::to_string(itemId));
+            const auto discIt = GameData::DiscDataTable.find(itemId);
             if (discIt == GameData::DiscDataTable.end())
             {
                 return false;
@@ -608,7 +608,7 @@ bool GachaMgr::ApplyRewardPlan(const RewardPlan& plan, proto::ChangeInfo& change
 
 bool GachaMgr::Spin(uint32_t bannerId, uint32_t amount, proto::GachaSpinResp& out)
 {
-    const auto dataIt = GameData::GachaDataTable.find(std::to_string(bannerId));
+    const auto dataIt = GameData::GachaDataTable.find(bannerId);
     if (dataIt == GameData::GachaDataTable.end())
     {
         return false;
@@ -621,7 +621,7 @@ bool GachaMgr::Spin(uint32_t bannerId, uint32_t amount, proto::GachaSpinResp& ou
         return false;
     }
 
-    const auto storageIt = GameData::GachaStorageDataTable.find(std::to_string(data.StorageId));
+    const auto storageIt = GameData::GachaStorageDataTable.find(data.StorageId);
     if (storageIt == GameData::GachaStorageDataTable.end())
     {
         return false;
@@ -722,7 +722,7 @@ proto::GachaInfo GachaMgr::BuildInfoProto(const GachaRes& data, const ServerProt
     }
 
     bool showFirstTen = false;
-    const auto storageIt = GameData::GachaStorageDataTable.find(std::to_string(data.StorageId));
+    const auto storageIt = GameData::GachaStorageDataTable.find(data.StorageId);
     if (storageIt != GameData::GachaStorageDataTable.end())
     {
         showFirstTen = !ItemParamMap::FromJsonString(storageIt->second.GiveItems).Empty() && !banner.usedfirstten();
@@ -751,7 +751,7 @@ proto::GachaInformationResp GachaMgr::BuildInformation()
 
 bool GachaMgr::BuildHistories(uint32_t storageId, proto::GachaHistories& out) const
 {
-    if (GameData::GachaStorageDataTable.find(std::to_string(storageId)) == GameData::GachaStorageDataTable.end())
+    if (GameData::GachaStorageDataTable.find(storageId) == GameData::GachaStorageDataTable.end())
     {
         return false;
     }
@@ -797,7 +797,7 @@ bool GachaMgr::ReceiveGuarantee(uint32_t bannerId, proto::ChangeInfo& out)
         return false;
     }
 
-    const auto dataIt = GameData::GachaDataTable.find(std::to_string(bannerId));
+    const auto dataIt = GameData::GachaDataTable.find(bannerId);
     if (dataIt == GameData::GachaDataTable.end())
     {
         return false;
@@ -977,13 +977,13 @@ proto::GachaNewbieInfoResp GachaMgr::BuildNewbieInfo()
 
 bool GachaMgr::SpinNewbie(uint32_t newbieId, proto::GachaNewbieSpinResp& out)
 {
-    const auto newbieIt = GameData::GachaNewbieDataTable.find(std::to_string(newbieId));
+    const auto newbieIt = GameData::GachaNewbieDataTable.find(newbieId);
     if (newbieIt == GameData::GachaNewbieDataTable.end())
     {
         return false;
     }
 
-    const auto bannerIt = GameData::GachaDataTable.find(std::to_string(newbieId));
+    const auto bannerIt = GameData::GachaDataTable.find(newbieId);
     if (bannerIt == GameData::GachaDataTable.end() || !bannerIt->second.Valid)
     {
         return false;
@@ -1013,7 +1013,7 @@ bool GachaMgr::SpinNewbie(uint32_t newbieId, proto::GachaNewbieSpinResp& out)
 
 bool GachaMgr::SaveNewbie(uint32_t newbieId, std::optional<uint32_t> index)
 {
-    const auto newbieIt = GameData::GachaNewbieDataTable.find(std::to_string(newbieId));
+    const auto newbieIt = GameData::GachaNewbieDataTable.find(newbieId);
     if (newbieIt == GameData::GachaNewbieDataTable.end())
     {
         return false;
@@ -1085,7 +1085,7 @@ bool GachaMgr::CopyNewbieCards(const ServerProto::NewbieGachaStateBin& state, ui
 
 bool GachaMgr::ObtainNewbie(uint32_t newbieId, uint32_t index, proto::ChangeInfo& out)
 {
-    const auto newbieIt = GameData::GachaNewbieDataTable.find(std::to_string(newbieId));
+    const auto newbieIt = GameData::GachaNewbieDataTable.find(newbieId);
     if (newbieIt == GameData::GachaNewbieDataTable.end())
     {
         return false;

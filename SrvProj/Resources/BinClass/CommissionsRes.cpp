@@ -1,7 +1,30 @@
 ﻿#include "CommissionsRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool AgentRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Level", Level);
+    ReadResourceJsonField(data, "MemberLimit", MemberLimit);
+    ReadResourceJsonField(data, "Tags", Tags);
+    ReadResourceJsonField(data, "ExtraTags", ExtraTags);
+    ReadResourceJsonField(data, "Time1", Time1);
+    ReadResourceJsonField(data, "RewardPreview1", RewardPreview1);
+    ReadResourceJsonField(data, "BonusPreview1", BonusPreview1);
+    ReadResourceJsonField(data, "Time2", Time2);
+    ReadResourceJsonField(data, "RewardPreview2", RewardPreview2);
+    ReadResourceJsonField(data, "BonusPreview2", BonusPreview2);
+    ReadResourceJsonField(data, "Time3", Time3);
+    ReadResourceJsonField(data, "RewardPreview3", RewardPreview3);
+    ReadResourceJsonField(data, "BonusPreview3", BonusPreview3);
+    ReadResourceJsonField(data, "Time4", Time4);
+    ReadResourceJsonField(data, "RewardPreview4", RewardPreview4);
+    ReadResourceJsonField(data, "BonusPreview4", BonusPreview4);
+    return true;
+}
 
 bool AgentRes::LoadFromPb(std::string data)
 {

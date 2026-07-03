@@ -1,4 +1,4 @@
-#include "TowerRooms.h"
+﻿#include "TowerRooms.h"
 
 #include "TowerCases.h"
 #include "TowerMgr.h"
@@ -182,7 +182,7 @@ std::unique_ptr<TowerCaseBase> TowerRoom::CreateNpcEventCase() const
 
     for (uint32_t eventId : GameConstants::TowerEventIds)
     {
-        const auto it = GameData::StarTowerEventDataTable.find(std::to_string(eventId));
+        const auto it = GameData::StarTowerEventDataTable.find(eventId);
         if (it == GameData::StarTowerEventDataTable.end())
         {
             continue;
@@ -222,11 +222,11 @@ std::unique_ptr<TowerCaseBase> TowerRoom::CreateDoorCase() const
     instance->FloorNum = mGame ? mGame->FloorCount + 1 : 0;
     if (mGame)
     {
-        const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(mGame->TowerId));
+        const auto towerIt = GameData::StarTowerDataTable.find(mGame->TowerId);
         if (towerIt != GameData::StarTowerDataTable.end())
         {
             const uint32_t nextStageId = mGame->GetNextStageId(towerIt->second);
-            const auto stageIt = GameData::StarTowerStageDataTable.find(std::to_string(nextStageId));
+            const auto stageIt = GameData::StarTowerStageDataTable.find(nextStageId);
             if (stageIt != GameData::StarTowerStageDataTable.end())
             {
                 instance->RoomType = static_cast<uint32_t>((std::max)(stageIt->second.RoomType, 0));

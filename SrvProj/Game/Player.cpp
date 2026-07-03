@@ -37,7 +37,7 @@ std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> han
     Bitset bitset;
     for (uint32_t id : handbookIds)
     {
-        const auto it = GameData::HandbookDataTable.find(std::to_string(id));
+        const auto it = GameData::HandbookDataTable.find(id);
         if (it == GameData::HandbookDataTable.end())
         {
             continue;
@@ -577,7 +577,7 @@ bool Player::SetWorldLevel(uint32_t level)
         return false;
     }
 
-    if (!GameData::WorldClassDataTable.empty() && GameData::WorldClassDataTable.find(std::to_string(level)) == GameData::WorldClassDataTable.end())
+    if (!GameData::WorldClassDataTable.empty() && GameData::WorldClassDataTable.find(level) == GameData::WorldClassDataTable.end())
     {
         return false;
     }
@@ -867,7 +867,7 @@ bool Player::CreateMonthlyCardRewardChange(const std::string& cardId, proto::Cha
     }
 
     const int monthlyCardId = cardIt->second.MonthlyCardId;
-    const auto rewardIt = GameData::MonthlyCardDataTable.find(std::to_string(monthlyCardId));
+    const auto rewardIt = GameData::MonthlyCardDataTable.find(monthlyCardId);
     if (rewardIt == GameData::MonthlyCardDataTable.end() || rewardIt->second.Rewards.Empty())
     {
         return false;
@@ -903,7 +903,7 @@ bool Player::GrantMonthlyCardReward(const std::string& cardId, bool notifyOnly)
     notify.set_endtime(GetMonthlyCardEndTime(cardId));
     notify.mutable_change()->CopyFrom(change);
 
-    const auto rewardIt = GameData::MonthlyCardDataTable.find(std::to_string(cardIt->second.MonthlyCardId));
+    const auto rewardIt = GameData::MonthlyCardDataTable.find(cardIt->second.MonthlyCardId);
     if (rewardIt != GameData::MonthlyCardDataTable.end())
     {
         for (const auto& [tid, qty] : rewardIt->second.Rewards.Items)

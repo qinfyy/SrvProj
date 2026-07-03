@@ -1,9 +1,29 @@
 ﻿#include "DiscRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../GameData.h"
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
 #include "../../proto/table_cpp/client_table.pb.h"
+
+
+
+bool DiscRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Visible", Visible);
+    ReadResourceJsonField(data, "Available", Available);
+    ReadResourceJsonField(data, "EET", EET);
+    ReadResourceJsonField(data, "StrengthenGroupId", StrengthenGroupId);
+    ReadResourceJsonField(data, "PromoteGroupId", PromoteGroupId);
+    ReadResourceJsonField(data, "TransformItemId", TransformItemId);
+    ReadResourceJsonField(data, "MaxStarTransformItem", MaxStarTransformItem);
+    ReadResourceJsonField(data, "ReadReward", ReadReward);
+    ReadResourceJsonField(data, "SecondarySkillGroupId1", SecondarySkillGroupId1);
+    ReadResourceJsonField(data, "SecondarySkillGroupId2", SecondarySkillGroupId2);
+    ReadResourceJsonField(data, "SubNoteSkillGroupId", SubNoteSkillGroupId);
+    return true;
+}
 
 bool DiscRes::LoadFromPb(std::string data) {
     nova::client::Disc disc;
@@ -34,6 +54,13 @@ bool DiscRes::LoadFromPb(std::string data) {
     return true;
 }
 
+bool DiscStrengthenRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Exp", Exp);
+    return true;
+}
+
 bool DiscStrengthenRes::LoadFromPb(std::string data) {
     nova::client::DiscStrengthen disc;
     if (!disc.ParseFromString(data)) {
@@ -46,6 +73,13 @@ bool DiscStrengthenRes::LoadFromPb(std::string data) {
     return true;
 }
 
+bool DiscItemExpRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "ItemId", ItemId);
+    ReadResourceJsonField(data, "Exp", Exp);
+    return true;
+}
+
 bool DiscItemExpRes::LoadFromPb(std::string data) {
     nova::client::DiscItemExp disc;
     if (!disc.ParseFromString(data)) {
@@ -55,6 +89,19 @@ bool DiscItemExpRes::LoadFromPb(std::string data) {
     ItemId = disc.itemid();
     Exp = disc.exp();
 
+    return true;
+}
+
+bool DiscPromoteRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ItemId1", ItemId1);
+    ReadResourceJsonField(data, "Num1", Num1);
+    ReadResourceJsonField(data, "ItemId2", ItemId2);
+    ReadResourceJsonField(data, "Num2", Num2);
+    ReadResourceJsonField(data, "ItemId3", ItemId3);
+    ReadResourceJsonField(data, "Num3", Num3);
+    ReadResourceJsonField(data, "ExpenseGold", ExpenseGold);
     return true;
 }
 
@@ -76,6 +123,16 @@ bool DiscPromoteRes::LoadFromPb(std::string data) {
     return true;
 }
 
+bool DiscPromoteLimitRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Rarity", Rarity);
+    ReadResourceJsonField(data, "Phase", Phase);
+    ReadResourceJsonField(data, "MaxLevel", MaxLevel);
+    ReadResourceJsonField(data, "WorldClassLimit", WorldClassLimit);
+    return true;
+}
+
 bool DiscPromoteLimitRes::LoadFromPb(std::string data) {
     nova::client::DiscPromoteLimit dpl;
     if (!dpl.ParseFromString(data)) {
@@ -89,6 +146,16 @@ bool DiscPromoteLimitRes::LoadFromPb(std::string data) {
     WorldClassLimit = dpl.worldclasslimit();
     return true;
 
+}
+
+bool SecondarySkillRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "GroupId", GroupId);
+    ReadResourceJsonField(data, "Level", Level);
+    ReadResourceJsonField(data, "Score", Score);
+    ReadResourceJsonField(data, "NeedSubNoteSkills", NeedSubNoteSkills);
+    return true;
 }
 
 bool SecondarySkillRes::LoadFromPb(std::string data) {
@@ -162,7 +229,7 @@ std::vector<int> SecondarySkillRes::CalculateSecondarySkills(const std::vector<u
     const size_t count = (std::min)(discIds.size(), static_cast<size_t>(3));
     for (size_t i = 0; i < count; ++i)
     {
-        const auto it = GameData::DiscDataTable.find(std::to_string(discIds[i]));
+        const auto it = GameData::DiscDataTable.find(discIds[i]);
         if (it == GameData::DiscDataTable.end())
         {
             continue;
@@ -183,4 +250,3 @@ std::vector<int> SecondarySkillRes::CalculateSecondarySkills(const std::vector<u
 
     return result;
 }
-

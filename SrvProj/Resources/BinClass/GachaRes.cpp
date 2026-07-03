@@ -1,4 +1,5 @@
 ﻿#include "GachaRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../GameData.h"
 #include "../../GameConstants.h"
 #include "../../Logger.h"
@@ -21,8 +22,7 @@ std::unordered_map<int, WeightedList<int>> GachaPkgRes::Packages;
 
 int GachaATypeProbRes::GetProb(int group, int times, int defaultProb)
 {
-    const std::string key = std::to_string(group) + "|" + std::to_string(times);
-    const auto it = GameData::GachaATypeProbDataTable.find(key);
+    const auto it = GameData::GachaATypeProbDataTable.find(std::pair<int, int>{group, times});
     if (it == GameData::GachaATypeProbDataTable.end())
     {
         return defaultProb;
@@ -40,6 +40,14 @@ int GachaATypeProbRes::GetMaxProb()
     }
 
     return maxProb;
+}
+
+bool GachaATypeProbRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Group", Group);
+    ReadResourceJsonField(data, "Times", Times);
+    ReadResourceJsonField(data, "Prob", Prob);
+    return true;
 }
 
 bool GachaATypeProbRes::LoadFromPb(std::string data)
@@ -75,6 +83,14 @@ const WeightedList<int>* GachaPkgRes::GetPackageById(int packageId)
 void GachaPkgRes::OnLoad()
 {
     Packages[PkgId].Add(Weight, GoodsId);
+}
+
+bool GachaPkgRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "PkgId", PkgId);
+    ReadResourceJsonField(data, "GoodsId", GoodsId);
+    ReadResourceJsonField(data, "Weight", Weight);
+    return true;
 }
 
 bool GachaPkgRes::LoadFromPb(std::string data)
@@ -130,7 +146,7 @@ int GachaRes::GetDisplayAUpGuaranteeTimes() const
         return ATypeGuaranteeTimes;
     }
 
-    const auto it = GameData::GachaStorageDataTable.find(std::to_string(StorageId));
+    const auto it = GameData::GachaStorageDataTable.find(StorageId);
     if (it == GameData::GachaStorageDataTable.end())
     {
         return 0;
@@ -149,7 +165,7 @@ void GachaRes::OnLoad()
     PackageC.Clear();
     AllowedCoinItems.clear();
 
-    const auto typeIt = GameData::GachaTypeDataTable.find(std::to_string(GachaType));
+    const auto typeIt = GameData::GachaTypeDataTable.find(GachaType);
     if (typeIt == GameData::GachaTypeDataTable.end())
     {
         MarkInvalid("invalid GachaType " + std::to_string(GachaType));
@@ -170,7 +186,7 @@ void GachaRes::OnLoad()
         EndTimeSeconds = DateToSeconds(EndTime);
     }
 
-    const auto storageIt = GameData::GachaStorageDataTable.find(std::to_string(StorageId));
+    const auto storageIt = GameData::GachaStorageDataTable.find(StorageId);
     if (storageIt == GameData::GachaStorageDataTable.end())
     {
         MarkInvalid("invalid StorageId " + std::to_string(StorageId));
@@ -178,7 +194,7 @@ void GachaRes::OnLoad()
     }
 
     const auto& storage = storageIt->second;
-    const bool isNewbieBanner = GameData::GachaNewbieDataTable.find(std::to_string(Id)) != GameData::GachaNewbieDataTable.end();
+    const bool isNewbieBanner = GameData::GachaNewbieDataTable.find(Id) != GameData::GachaNewbieDataTable.end();
     if (!isNewbieBanner && !ContainsAllowedCoinItem(storage.CostId))
     {
         MarkInvalid("CostId not allowed by GachaType: " + std::to_string(storage.CostId));
@@ -218,6 +234,29 @@ void GachaRes::OnLoad()
     }
 }
 
+bool GachaRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "StorageId", StorageId);
+    ReadResourceJsonField(data, "GachaType", GachaType);
+    ReadResourceJsonField(data, "GuaranteeTimes", GuaranteeTimes);
+    ReadResourceJsonField(data, "GuaranteeTid", GuaranteeTid);
+    ReadResourceJsonField(data, "GuaranteeQty", GuaranteeQty);
+    ReadResourceJsonField(data, "ATypeGuaranteeTimes", ATypeGuaranteeTimes);
+    ReadResourceJsonField(data, "SpecificTid", SpecificTid);
+    ReadResourceJsonField(data, "SpecificQty", SpecificQty);
+    ReadResourceJsonField(data, "FirstTenShow", FirstTenShow);
+    ReadResourceJsonField(data, "StartTime", StartTime);
+    ReadResourceJsonField(data, "EndTime", EndTime);
+    ReadResourceJsonField(data, "ATypePkg", ATypePkg);
+    ReadResourceJsonField(data, "BTypePkg", BTypePkg);
+    ReadResourceJsonField(data, "CTypePkg", CTypePkg);
+    ReadResourceJsonField(data, "ATypeUpPkg", ATypeUpPkg);
+    ReadResourceJsonField(data, "BTypeUpPkg", BTypeUpPkg);
+    ReadResourceJsonField(data, "BGuaranteePkg", BGuaranteePkg);
+    return true;
+}
+
 bool GachaRes::LoadFromPb(std::string data)
 {
     Gacha gacha;
@@ -247,6 +286,14 @@ bool GachaRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool GachaNewbieRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "SpinCount", SpinCount);
+    ReadResourceJsonField(data, "SaveCount", SaveCount);
+    return true;
+}
+
 bool GachaNewbieRes::LoadFromPb(std::string data)
 {
     GachaNewbie gachaNewbie;
@@ -258,6 +305,25 @@ bool GachaNewbieRes::LoadFromPb(std::string data)
     SpinCount = gachaNewbie.spincount();
     SaveCount = gachaNewbie.savecount();
 
+    return true;
+}
+
+bool GachaStorageRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "DefaultId", DefaultId);
+    ReadResourceJsonField(data, "DefaultQty", DefaultQty);
+    ReadResourceJsonField(data, "CostId", CostId);
+    ReadResourceJsonField(data, "CostQty", CostQty);
+    ReadResourceJsonField(data, "ATypeGroup", ATypeGroup);
+    ReadResourceJsonField(data, "AUpGuaranteeTimes", AUpGuaranteeTimes);
+    ReadResourceJsonField(data, "ATypeUpProb", ATypeUpProb);
+    ReadResourceJsonField(data, "ATypeUpShowProb", ATypeUpShowProb);
+    ReadResourceJsonField(data, "BTypeProb", BTypeProb);
+    ReadResourceJsonField(data, "BTypeUpProb", BTypeUpProb);
+    ReadResourceJsonField(data, "BTypeUpShowProb", BTypeUpShowProb);
+    ReadResourceJsonField(data, "BTypeGuaranteeProb", BTypeGuaranteeProb);
+    ReadResourceJsonField(data, "GiveItems", GiveItems);
     return true;
 }
 
@@ -286,6 +352,13 @@ bool GachaStorageRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool GachaTypeRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "CoinItem", CoinItem);
+    return true;
+}
+
 bool GachaTypeRes::LoadFromPb(std::string data)
 {
     GachaType gachaType;
@@ -301,4 +374,3 @@ bool GachaTypeRes::LoadFromPb(std::string data)
 
     return true;
 }
-

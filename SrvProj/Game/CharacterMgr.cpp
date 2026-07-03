@@ -76,7 +76,7 @@ int GetCharacterMaxExp(const ServerProto::CharacterInfo& character)
         return 0;
     }
 
-    const auto it = GameData::CharacterUpgradeDataTable.find(std::to_string(character.level() + 1));
+    const auto it = GameData::CharacterUpgradeDataTable.find(character.level() + 1);
     return it == GameData::CharacterUpgradeDataTable.end() ? 0 : std::max(it->second.Exp, 0);
 }
 
@@ -88,7 +88,7 @@ int GetDiscMaxExp(const DiscRes& data, const ServerProto::GameDiscInfoBin& disc)
     }
 
     const int dataId = data.StrengthenGroupId * 1000 + disc.level() + 1;
-    const auto it = GameData::DiscStrengthenDataTable.find(std::to_string(dataId));
+    const auto it = GameData::DiscStrengthenDataTable.find(dataId);
     return it == GameData::DiscStrengthenDataTable.end() ? 0 : std::max(it->second.Exp, 0);
 }
 
@@ -102,7 +102,7 @@ int GetCharacterMaxGainableExp(const ServerProto::CharacterInfo& character)
     int max = 0;
     for (uint32_t level = character.level() + 1; level <= static_cast<uint32_t>(GetCharacterMaxLevel(character.advance())); ++level)
     {
-        const auto it = GameData::CharacterUpgradeDataTable.find(std::to_string(level));
+        const auto it = GameData::CharacterUpgradeDataTable.find(level);
         if (it != GameData::CharacterUpgradeDataTable.end())
         {
             max += std::max(it->second.Exp, 0);
@@ -123,7 +123,7 @@ int GetDiscMaxGainableExp(const DiscRes& data, const ServerProto::GameDiscInfoBi
     for (int level = disc.level() + 1; level <= GetDiscMaxLevel(disc.phase()); ++level)
     {
         const int dataId = data.StrengthenGroupId * 1000 + level;
-        const auto it = GameData::DiscStrengthenDataTable.find(std::to_string(dataId));
+        const auto it = GameData::DiscStrengthenDataTable.find(dataId);
         if (it != GameData::DiscStrengthenDataTable.end())
         {
             max += std::max(it->second.Exp, 0);
@@ -168,7 +168,7 @@ void CharacterStor::OnLoad()
     for (int index = bin->charinfolist_size() - 1; index >= 0; --index)
     {
         auto* character = bin->mutable_charinfolist(index);
-        if (GameData::CharacterDataTable.find(std::to_string(character->charid())) == GameData::CharacterDataTable.end())
+        if (GameData::CharacterDataTable.find(character->charid()) == GameData::CharacterDataTable.end())
         {
             bin->mutable_charinfolist()->DeleteSubrange(index, 1);
             continue;
@@ -180,7 +180,7 @@ void CharacterStor::OnLoad()
     for (int index = bin->gamedisclist_size() - 1; index >= 0; --index)
     {
         auto* disc = bin->mutable_gamedisclist(index);
-        if (GameData::DiscDataTable.find(std::to_string(disc->discid())) == GameData::DiscDataTable.end())
+        if (GameData::DiscDataTable.find(disc->discid()) == GameData::DiscDataTable.end())
         {
             bin->mutable_gamedisclist()->DeleteSubrange(index, 1);
             continue;
@@ -205,7 +205,7 @@ const ServerProto::CharacterCompBin& CharacterStor::Bin() const
 
 ServerProto::CharacterInfo* CharacterStor::AddCharacterFromId(int charId)
 {
-    auto it = GameData::CharacterDataTable.find(std::to_string(charId));
+    auto it = GameData::CharacterDataTable.find(charId);
     if (it == GameData::CharacterDataTable.end())
     {
         return nullptr;
@@ -291,7 +291,7 @@ bool CharacterStor::HasCharacter(int id) const
 
 ServerProto::GameDiscInfoBin* CharacterStor::AddDiscFromId(int discId)
 {
-    auto it = GameData::DiscDataTable.find(std::to_string(discId));
+    auto it = GameData::DiscDataTable.find(discId);
     if (it == GameData::DiscDataTable.end())
     {
         return nullptr;
@@ -500,7 +500,7 @@ void CharacterStor::TriggerCharacterAchievements(const ServerProto::CharacterInf
     int sameElementCount = 0;
     int element = 0;
 
-    if (auto it = GameData::CharacterDataTable.find(std::to_string(character.charid())); it != GameData::CharacterDataTable.end())
+    if (auto it = GameData::CharacterDataTable.find(character.charid()); it != GameData::CharacterDataTable.end())
     {
         element = it->second.ElementType;
     }
@@ -515,7 +515,7 @@ void CharacterStor::TriggerCharacterAchievements(const ServerProto::CharacterInf
         ++anyCount;
         if (element > 0)
         {
-            if (auto it = GameData::CharacterDataTable.find(std::to_string(owned.charid())); it != GameData::CharacterDataTable.end() && it->second.ElementType == element)
+            if (auto it = GameData::CharacterDataTable.find(owned.charid()); it != GameData::CharacterDataTable.end() && it->second.ElementType == element)
             {
                 ++sameElementCount;
             }
@@ -540,7 +540,7 @@ bool CharacterStor::UpgradeCharacter(uint32_t charId, const ItemParamMap& items,
     int exp = 0;
     for (const auto& [itemId, count] : items.Items)
     {
-        const auto itemIt = GameData::CharItemExpDataTable.find(std::to_string(itemId));
+        const auto itemIt = GameData::CharItemExpDataTable.find(itemId);
         if (itemIt == GameData::CharItemExpDataTable.end() || count <= 0)
         {
             return false;
@@ -602,14 +602,14 @@ bool CharacterStor::AdvanceCharacter(uint32_t charId, proto::ChangeInfo& change)
         return false;
     }
 
-    const auto charIt = GameData::CharacterDataTable.find(std::to_string(charId));
+    const auto charIt = GameData::CharacterDataTable.find(charId);
     if (charIt == GameData::CharacterDataTable.end())
     {
         return false;
     }
 
     const int advanceId = charIt->second.AdvanceGroup * 100 + static_cast<int>(character->advance()) + 1;
-    const auto advanceIt = GameData::CharacterAdvanceDataTable.find(std::to_string(advanceId));
+    const auto advanceIt = GameData::CharacterAdvanceDataTable.find(advanceId);
     if (advanceIt == GameData::CharacterAdvanceDataTable.end())
     {
         return false;
@@ -640,7 +640,7 @@ bool CharacterStor::UpgradeCharacterSkill(uint32_t charId, uint32_t index, proto
         return false;
     }
 
-    const auto charIt = GameData::CharacterDataTable.find(std::to_string(charId));
+    const auto charIt = GameData::CharacterDataTable.find(charId);
     const int skillIndex = static_cast<int>(index) - 1;
     if (charIt == GameData::CharacterDataTable.end() || skillIndex < 0 || skillIndex >= static_cast<int>(charIt->second.SkillsUpgradeGroup.size()))
     {
@@ -653,7 +653,7 @@ bool CharacterStor::UpgradeCharacterSkill(uint32_t charId, uint32_t index, proto
     }
 
     const int upgradeId = charIt->second.SkillsUpgradeGroup[skillIndex] * 100 + static_cast<int>(character->skills(skillIndex));
-    const auto upgradeIt = GameData::CharacterSkillUpgradeDataTable.find(std::to_string(upgradeId));
+    const auto upgradeIt = GameData::CharacterSkillUpgradeDataTable.find(upgradeId);
     if (upgradeIt == GameData::CharacterSkillUpgradeDataTable.end())
     {
         return false;
@@ -709,7 +709,7 @@ bool CharacterStor::SendAffinityGift(uint32_t charId, const ItemParamMap& items,
     int count = 0;
     for (const auto& [itemId, qty] : items.Items)
     {
-        const auto giftIt = GameData::AffinityGiftDataTable.find(std::to_string(itemId));
+        const auto giftIt = GameData::AffinityGiftDataTable.find(itemId);
         if (giftIt == GameData::AffinityGiftDataTable.end() || qty <= 0)
         {
             return false;
@@ -731,14 +731,14 @@ bool CharacterStor::SendAffinityGift(uint32_t charId, const ItemParamMap& items,
     }
 
     int maxExp = 0;
-    auto nextIt = GameData::AffinityLevelDataTable.find(std::to_string(character->affinitylevel() + 1));
+    auto nextIt = GameData::AffinityLevelDataTable.find(character->affinitylevel() + 1);
     maxExp = nextIt == GameData::AffinityLevelDataTable.end() ? 0 : std::max(nextIt->second.NeedExp, 0);
     character->set_affinityexp(character->affinityexp() + exp);
     while (character->affinityexp() >= static_cast<uint32_t>(maxExp) && maxExp > 0)
     {
         character->set_affinitylevel(character->affinitylevel() + 1);
         character->set_affinityexp(character->affinityexp() - maxExp);
-        nextIt = GameData::AffinityLevelDataTable.find(std::to_string(character->affinitylevel() + 1));
+        nextIt = GameData::AffinityLevelDataTable.find(character->affinitylevel() + 1);
         maxExp = nextIt == GameData::AffinityLevelDataTable.end() ? 0 : std::max(nextIt->second.NeedExp, 0);
     }
     if (maxExp <= 0)
@@ -879,7 +879,7 @@ bool CharacterStor::OverlockGem(uint32_t charId, uint32_t slotId, uint32_t gemIn
 bool CharacterStor::StrengthenDisc(uint32_t discId, const ItemParamMap& items, proto::DiscStrengthenResp& out)
 {
     auto* disc = GetDiscById(static_cast<int>(discId));
-    const auto dataIt = GameData::DiscDataTable.find(std::to_string(discId));
+    const auto dataIt = GameData::DiscDataTable.find(discId);
     if (!disc || dataIt == GameData::DiscDataTable.end() || items.Empty())
     {
         return false;
@@ -888,7 +888,7 @@ bool CharacterStor::StrengthenDisc(uint32_t discId, const ItemParamMap& items, p
     int exp = 0;
     for (const auto& [itemId, count] : items.Items)
     {
-        const auto itemIt = GameData::DiscItemExpDataTable.find(std::to_string(itemId));
+        const auto itemIt = GameData::DiscItemExpDataTable.find(itemId);
         if (itemIt == GameData::DiscItemExpDataTable.end() || count <= 0)
         {
             return false;
@@ -944,14 +944,14 @@ bool CharacterStor::StrengthenDisc(uint32_t discId, const ItemParamMap& items, p
 bool CharacterStor::PromoteDisc(uint32_t discId, proto::DiscPromoteResp& out)
 {
     auto* disc = GetDiscById(static_cast<int>(discId));
-    const auto dataIt = GameData::DiscDataTable.find(std::to_string(discId));
+    const auto dataIt = GameData::DiscDataTable.find(discId);
     if (!disc || dataIt == GameData::DiscDataTable.end())
     {
         return false;
     }
 
     const int phaseId = dataIt->second.PromoteGroupId * 1000 + disc->phase() + 1;
-    const auto promoteIt = GameData::DiscPromoteDataTable.find(std::to_string(phaseId));
+    const auto promoteIt = GameData::DiscPromoteDataTable.find(phaseId);
     if (promoteIt == GameData::DiscPromoteDataTable.end())
     {
         return false;
@@ -973,7 +973,7 @@ bool CharacterStor::PromoteDisc(uint32_t discId, proto::DiscPromoteResp& out)
 bool CharacterStor::LimitBreakDisc(uint32_t discId, uint32_t qty, proto::DiscLimitBreakResp& out)
 {
     auto* disc = GetDiscById(static_cast<int>(discId));
-    const auto dataIt = GameData::DiscDataTable.find(std::to_string(discId));
+    const auto dataIt = GameData::DiscDataTable.find(discId);
     if (!disc || dataIt == GameData::DiscDataTable.end() || qty == 0 || disc->star() >= 5)
     {
         return false;
@@ -1006,7 +1006,7 @@ bool CharacterStor::LimitBreakAllDiscs(proto::DiscAllLimitBreakResp& out)
             continue;
         }
 
-        const auto dataIt = GameData::DiscDataTable.find(std::to_string(disc->discid()));
+        const auto dataIt = GameData::DiscDataTable.find(disc->discid());
         if (dataIt == GameData::DiscDataTable.end())
         {
             continue;
@@ -1038,7 +1038,7 @@ bool CharacterStor::LimitBreakAllDiscs(proto::DiscAllLimitBreakResp& out)
 bool CharacterStor::ReceiveDiscReadReward(uint32_t discId, uint32_t readType, proto::ChangeInfo& change)
 {
     auto* disc = GetDiscById(static_cast<int>(discId));
-    const auto dataIt = GameData::DiscDataTable.find(std::to_string(discId));
+    const auto dataIt = GameData::DiscDataTable.find(discId);
     if (!disc || dataIt == GameData::DiscDataTable.end())
     {
         return false;
@@ -1104,7 +1104,7 @@ int CharacterStor::GetNewPhoneMessageCount() const
 
 void CharacterStor::NormalizeCharacter(ServerProto::CharacterInfo& character) const
 {
-    auto it = GameData::CharacterDataTable.find(std::to_string(character.charid()));
+    auto it = GameData::CharacterDataTable.find(character.charid());
     if (it == GameData::CharacterDataTable.end())
     {
         return;
@@ -1236,7 +1236,7 @@ void CharacterStor::EnsureGemSlots(ServerProto::CharacterInfo& character) const
 
 void CharacterStor::EnsureInitialChats(ServerProto::CharacterInfo& character) const
 {
-    auto it = GameData::CharacterDataTable.find(std::to_string(character.charid()));
+    auto it = GameData::CharacterDataTable.find(character.charid());
     if (it == GameData::CharacterDataTable.end())
     {
         return;

@@ -1,19 +1,20 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class ItemRes : public ResBase {
+class ItemRes {
 public:
     ItemRes() = default;
     ~ItemRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -30,14 +31,15 @@ public:
     // 非序列化字段
 };
 
-class ProductionRes : public ResBase {
+class ProductionRes {
 public:
     ProductionRes() = default;
     ~ProductionRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -51,14 +53,15 @@ public:
     // 非序列化字段
 };
 
-class PlayerHeadRes : public ResBase {
+class PlayerHeadRes {
 public:
     PlayerHeadRes() = default;
     ~PlayerHeadRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -70,14 +73,15 @@ public:
     // 非序列化字段
 };
 
-class TitleRes : public ResBase {
+class TitleRes {
 public:
     TitleRes() = default;
     ~TitleRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -88,14 +92,15 @@ public:
     // 非序列化字段
 };
 
-class HonorRes : public ResBase {
+class HonorRes {
 public:
     HonorRes() = default;
     ~HonorRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -106,14 +111,15 @@ public:
     // 非序列化字段
 };
 
-class DropPkgRes : public ResBase {
+class DropPkgRes {
 public:
     DropPkgRes() = default;
     ~DropPkgRes() = default;
 
-    std::string GetId() const override { return std::to_string(PkgId); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return PkgId; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

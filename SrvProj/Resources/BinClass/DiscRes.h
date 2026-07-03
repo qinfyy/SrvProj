@@ -1,19 +1,20 @@
 ﻿#pragma once
 
-#include "../ResBase.h"
+#include <nlohmann/json_fwd.hpp>
 #include "../ResourceDerivedData.h"
 #include <vector>
 #include <memory>
 #include <string>
 
-class DiscRes : public ResBase {
+class DiscRes {
 public:
     DiscRes() = default;
     ~DiscRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -33,14 +34,15 @@ public:
     // 非序列化字段
 };
 
-class DiscStrengthenRes : public ResBase {
+class DiscStrengthenRes {
 public:
     DiscStrengthenRes() = default;
     ~DiscStrengthenRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    bool LoadFromPb(std::string data) override;
-    void OnLoad() override {};
+    auto GetKey() const { return Id; }
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
+    void OnLoad() {};
 
     // 序列化字段
 
@@ -51,14 +53,15 @@ public:
 
 };
 
-class DiscItemExpRes : public ResBase {
+class DiscItemExpRes {
 public:
     DiscItemExpRes() = default;
     ~DiscItemExpRes() = default;
 
-    std::string GetId() const override { return std::to_string(ItemId); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return ItemId; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -68,14 +71,15 @@ public:
     // 非序列化字段
 };
 
-class DiscPromoteRes : public ResBase {
+class DiscPromoteRes {
 public:
     DiscPromoteRes() = default;
     ~DiscPromoteRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -92,14 +96,15 @@ public:
 
 };
 
-class DiscPromoteLimitRes : public ResBase {
+class DiscPromoteLimitRes {
 public:
     DiscPromoteLimitRes() = default;
     ~DiscPromoteLimitRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override {};
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad() {};
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 
@@ -112,14 +117,15 @@ public:
     // 非序列化字段
 };
 
-class SecondarySkillRes : public ResBase {
+class SecondarySkillRes {
 public:
     SecondarySkillRes() = default;
     ~SecondarySkillRes() = default;
 
-    std::string GetId() const override { return std::to_string(Id); }
-    void OnLoad() override;
-    bool LoadFromPb(std::string data) override;
+    auto GetKey() const { return Id; }
+    void OnLoad();
+    bool LoadFromPb(std::string data);
+    bool LoadFromJson(const nlohmann::json& data);
 
     // 序列化字段
 

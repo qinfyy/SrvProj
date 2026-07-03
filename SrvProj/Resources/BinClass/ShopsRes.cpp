@@ -1,7 +1,19 @@
 ﻿#include "ShopsRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool MallMonthlyCardRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "MonthlyCardId", MonthlyCardId);
+    ReadResourceJsonField(data, "Price", Price);
+    ReadResourceJsonField(data, "BaseItemId", BaseItemId);
+    ReadResourceJsonField(data, "BaseItemQty", BaseItemQty);
+    ReadResourceJsonField(data, "MaxDays", MaxDays);
+    return true;
+}
 
 bool MallMonthlyCardRes::LoadFromPb(std::string data)
 {
@@ -25,6 +37,17 @@ void MallMonthlyCardRes::OnLoad()
 {
 }
 
+bool MonthlyCardRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "CardId", CardId);
+    ReadResourceJsonField(data, "RewardId1", RewardId1);
+    ReadResourceJsonField(data, "RewardNum1", RewardNum1);
+    ReadResourceJsonField(data, "RewardId2", RewardId2);
+    ReadResourceJsonField(data, "RewardNum2", RewardNum2);
+    return true;
+}
+
 bool MonthlyCardRes::LoadFromPb(std::string data)
 {
     MonthlyCard monthlyCard;
@@ -45,6 +68,25 @@ void MonthlyCardRes::OnLoad()
 {
     Rewards.Add(RewardId1, RewardNum1);
     Rewards.Add(RewardId2, RewardNum2);
+}
+
+bool MallPackageRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Stock", Stock);
+    ReadResourceJsonField(data, "CurrencyType", CurrencyType);
+    ReadResourceJsonField(data, "CurrencyItemId", CurrencyItemId);
+    ReadResourceJsonField(data, "CurrencyItemQty", CurrencyItemQty);
+    ReadResourceJsonField(data, "Tag", Tag);
+    ReadResourceJsonField(data, "RefreshType", RefreshType);
+    ReadResourceJsonField(data, "Items", Items);
+    ReadResourceJsonField(data, "ListCondType", ListCondType);
+    ReadResourceJsonField(data, "ListCondParams", ListCondParams);
+    ReadResourceJsonField(data, "OrderCondType", OrderCondType);
+    ReadResourceJsonField(data, "OrderCondParams", OrderCondParams);
+    ReadResourceJsonField(data, "ListTime", ListTime);
+    ReadResourceJsonField(data, "DeListTime", DeListTime);
+    return true;
 }
 
 bool MallPackageRes::LoadFromPb(std::string data)
@@ -80,6 +122,24 @@ void MallPackageRes::OnLoad()
     DeListTimeSeconds = DateToSeconds(DeListTime);
 }
 
+bool MallShopRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Stock", Stock);
+    ReadResourceJsonField(data, "ExchangeItemId", ExchangeItemId);
+    ReadResourceJsonField(data, "ExchangeItemQty", ExchangeItemQty);
+    ReadResourceJsonField(data, "ItemId", ItemId);
+    ReadResourceJsonField(data, "ItemQty", ItemQty);
+    ReadResourceJsonField(data, "RefreshType", RefreshType);
+    ReadResourceJsonField(data, "ListCondType", ListCondType);
+    ReadResourceJsonField(data, "ListCondParams", ListCondParams);
+    ReadResourceJsonField(data, "OrderCondType", OrderCondType);
+    ReadResourceJsonField(data, "OrderCondParams", OrderCondParams);
+    ReadResourceJsonField(data, "ListTime", ListTime);
+    ReadResourceJsonField(data, "DeListTime", DeListTime);
+    return true;
+}
+
 bool MallShopRes::LoadFromPb(std::string data)
 {
     MallShop ms;
@@ -113,6 +173,19 @@ void MallShopRes::OnLoad()
     DeListTimeSeconds = DateToSeconds(DeListTime);
 }
 
+bool MallGemRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "BaseItemId", BaseItemId);
+    ReadResourceJsonField(data, "BaseItemQty", BaseItemQty);
+    ReadResourceJsonField(data, "ExperiencedBonusItemId", ExperiencedBonusItemId);
+    ReadResourceJsonField(data, "ExperiencedBonusItemQty", ExperiencedBonusItemQty);
+    ReadResourceJsonField(data, "MaidenBonusItemID", MaidenBonusItemID);
+    ReadResourceJsonField(data, "MaidenBonusItemQty", MaidenBonusItemQty);
+    ReadResourceJsonField(data, "Price", Price);
+    return true;
+}
+
 bool MallGemRes::LoadFromPb(std::string data)
 {
     MallGem mg;
@@ -136,6 +209,15 @@ void MallGemRes::OnLoad()
 {
 }
 
+bool ResidentShopRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "RefreshTimeType", RefreshTimeType);
+    ReadResourceJsonField(data, "RefreshInterval", RefreshInterval);
+    ReadResourceJsonField(data, "OpenTime", OpenTime);
+    return true;
+}
+
 bool ResidentShopRes::LoadFromPb(std::string data)
 {
     ResidentShop rs;
@@ -152,6 +234,20 @@ bool ResidentShopRes::LoadFromPb(std::string data)
 void ResidentShopRes::OnLoad()
 {
     OpenTimeSeconds = DateToSeconds(OpenTime);
+}
+
+bool ResidentGoodsRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ShopId", ShopId);
+    ReadResourceJsonField(data, "MaximumLimit", MaximumLimit);
+    ReadResourceJsonField(data, "ItemId", ItemId);
+    ReadResourceJsonField(data, "ItemQuantity", ItemQuantity);
+    ReadResourceJsonField(data, "CurrencyItemId", CurrencyItemId);
+    ReadResourceJsonField(data, "Price", Price);
+    ReadResourceJsonField(data, "AppearCondType", AppearCondType);
+    ReadResourceJsonField(data, "AppearCondParams", AppearCondParams);
+    return true;
 }
 
 bool ResidentGoodsRes::LoadFromPb(std::string data)

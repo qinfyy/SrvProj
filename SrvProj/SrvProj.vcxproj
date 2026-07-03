@@ -842,8 +842,8 @@
     <ClInclude Include="Resources\BinClass\TutorialsRes.h" />
     <ClInclude Include="Resources\BinClass\VampireSurvivorRes.h" />
     <ClInclude Include="Resources\GameData.h" />
-    <ClInclude Include="Resources\ResBase.h" />
     <ClInclude Include="Resources\ResourceDerivedData.h" />
+    <ClInclude Include="Resources\ResourceJsonUtil.h" />
     <ClInclude Include="Resources\ResourceLoader.h" />
     <ClInclude Include="ResultCode.h" />
     <ClInclude Include="ThreadPool.h" />

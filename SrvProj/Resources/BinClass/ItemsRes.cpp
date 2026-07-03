@@ -1,7 +1,22 @@
 ﻿#include "ItemsRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 using namespace nova::client;
+
+bool ItemRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Title", Title);
+    ReadResourceJsonField(data, "Type", Type);
+    ReadResourceJsonField(data, "Stype", Stype);
+    ReadResourceJsonField(data, "Rarity", Rarity);
+    ReadResourceJsonField(data, "Stack", Stack);
+    ReadResourceJsonField(data, "UseMode", UseMode);
+    ReadResourceJsonField(data, "UseAction", UseAction);
+    ReadResourceJsonField(data, "UseArgs", UseArgs);
+    return true;
+}
 
 bool ItemRes::LoadFromPb(std::string data)
 {
@@ -23,6 +38,17 @@ bool ItemRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool ProductionRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "UnlockWorldLevel", UnlockWorldLevel);
+    ReadResourceJsonField(data, "ProductionId", ProductionId);
+    ReadResourceJsonField(data, "ProductionPerBatch", ProductionPerBatch);
+    ReadResourceJsonField(data, "RawMaterialId1", RawMaterialId1);
+    ReadResourceJsonField(data, "RawMaterialCount1", RawMaterialCount1);
+    return true;
+}
+
 bool ProductionRes::LoadFromPb(std::string data)
 {
     Production p;
@@ -41,6 +67,15 @@ bool ProductionRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool PlayerHeadRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "HeadType", HeadType);
+    ReadResourceJsonField(data, "UnlockChar", UnlockChar);
+    ReadResourceJsonField(data, "UnlockSkin", UnlockSkin);
+    return true;
+}
+
 bool PlayerHeadRes::LoadFromPb(std::string data)
 {
     PlayerHead ph;
@@ -56,6 +91,14 @@ bool PlayerHeadRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool TitleRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "ItemId", ItemId);
+    ReadResourceJsonField(data, "TitleType", TitleType);
+    return true;
+}
+
 bool TitleRes::LoadFromPb(std::string data)
 {
     Title t;
@@ -67,6 +110,14 @@ bool TitleRes::LoadFromPb(std::string data)
     ItemId = t.itemid();
     TitleType = t.titletype();
 
+    return true;
+}
+
+bool HonorRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Type", Type);
+    ReadResourceJsonField(data, "Params", Params);
     return true;
 }
 
@@ -85,6 +136,13 @@ bool HonorRes::LoadFromPb(std::string data)
     }
 
 
+    return true;
+}
+
+bool DropPkgRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "PkgId", PkgId);
+    ReadResourceJsonField(data, "ItemId", ItemId);
     return true;
 }
 

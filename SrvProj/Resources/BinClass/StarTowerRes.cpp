@@ -1,4 +1,5 @@
 ﻿#include "StarTowerRes.h"
+#include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
 #include "../GameData.h"
@@ -30,6 +31,16 @@ int StarTowerRes::GetMaxFloor(int stageNum) const
     return FloorNum[static_cast<size_t>(index)];
 }
 
+bool StarTowerGrowthNodeRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "NodeId", NodeId);
+    ReadResourceJsonField(data, "Group", Group);
+    ReadResourceJsonField(data, "ItemId1", ItemId1);
+    ReadResourceJsonField(data, "ItemQty1", ItemQty1);
+    return true;
+}
+
 bool StarTowerGrowthNodeRes::LoadFromPb(std::string data)
 {
     StarTowerGrowthNode s;
@@ -43,6 +54,16 @@ bool StarTowerGrowthNodeRes::LoadFromPb(std::string data)
     ItemId1 = s.itemid1();
     ItemQty1 = s.itemqty1();
 
+    return true;
+}
+
+bool StarTowerRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "GroupId", GroupId);
+    ReadResourceJsonField(data, "Difficulty", Difficulty);
+    ReadResourceJsonField(data, "SubNoteSkillDropGroupId", SubNoteSkillDropGroupId);
+    ReadResourceJsonField(data, "FloorNum", FloorNum);
     return true;
 }
 
@@ -63,6 +84,19 @@ bool StarTowerRes::LoadFromPb(std::string data)
         FloorNum.push_back(fn);
     }
 
+    return true;
+}
+
+bool StarTowerStageRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Stage", Stage);
+    ReadResourceJsonField(data, "GroupId", GroupId);
+    ReadResourceJsonField(data, "Floor", Floor);
+    ReadResourceJsonField(data, "InteriorCurrencyQuantity", InteriorCurrencyQuantity);
+    ReadResourceJsonField(data, "RoomType", RoomType);
+    ReadResourceJsonField(data, "GuaranteedMapId", GuaranteedMapId);
+    ReadResourceJsonField(data, "GuaranteedMonsterPlanId", GuaranteedMonsterPlanId);
     return true;
 }
 
@@ -89,6 +123,18 @@ void StarTowerStageRes::OnLoad()
 {
 }
 
+bool StarTowerFloorExpRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "StarTowerId", StarTowerId);
+    ReadResourceJsonField(data, "Stage", Stage);
+    ReadResourceJsonField(data, "NormalExp", NormalExp);
+    ReadResourceJsonField(data, "EliteExp", EliteExp);
+    ReadResourceJsonField(data, "BossExp", BossExp);
+    ReadResourceJsonField(data, "FinalBossExp", FinalBossExp);
+    return true;
+}
+
 bool StarTowerFloorExpRes::LoadFromPb(std::string data)
 {
     StarTowerFloorExp stfe;
@@ -107,6 +153,15 @@ bool StarTowerFloorExpRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool StarTowerTeamExpRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "GroupId", GroupId);
+    ReadResourceJsonField(data, "Level", Level);
+    ReadResourceJsonField(data, "NeedExp", NeedExp);
+    return true;
+}
+
 bool StarTowerTeamExpRes::LoadFromPb(std::string data)
 {
     StarTowerTeamExp stte;
@@ -119,6 +174,17 @@ bool StarTowerTeamExpRes::LoadFromPb(std::string data)
     Level = stte.level();
     NeedExp = stte.needexp();
 
+    return true;
+}
+
+bool StarTowerEventRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "OptionsRulesId", OptionsRulesId);
+    ReadResourceJsonField(data, "EventType", EventType);
+    ReadResourceJsonField(data, "GuaranteedMapId", GuaranteedMapId);
+    ReadResourceJsonField(data, "RelatedNPCs", RelatedNPCs);
+    ReadResourceJsonField(data, "EventResType", EventResType);
     return true;
 }
 
@@ -148,6 +214,14 @@ void StarTowerEventRes::OnLoad()
     OptionIds.clear();
 }
 
+bool EventOptionsRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Desc", Desc);
+    ReadResourceJsonField(data, "IgnoreInterActive", IgnoreInterActive);
+    return true;
+}
+
 bool EventOptionsRes::LoadFromPb(std::string data)
 {
     EventOptions value;
@@ -164,13 +238,21 @@ bool EventOptionsRes::LoadFromPb(std::string data)
 void EventOptionsRes::OnLoad()
 {
     const int eventId = Id / 100;
-    const auto eventIt = GameData::StarTowerEventDataTable.find(std::to_string(eventId));
+    const auto eventIt = GameData::StarTowerEventDataTable.find(eventId);
     if (eventIt == GameData::StarTowerEventDataTable.end())
     {
         return;
     }
 
     eventIt->second.OptionIds.push_back(Id);
+}
+
+bool StarTowerBuildRankRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "MinGrade", MinGrade);
+    ReadResourceJsonField(data, "Rarity", Rarity);
+    return true;
 }
 
 bool StarTowerBuildRankRes::LoadFromPb(std::string data)
@@ -183,6 +265,13 @@ bool StarTowerBuildRankRes::LoadFromPb(std::string data)
     MinGrade = stbr.mingrade();
     Rarity = stbr.rarity();
 
+    return true;
+}
+
+bool SubNoteSkillPromoteGroupRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "SubNoteSkills", SubNoteSkills);
     return true;
 }
 
@@ -202,6 +291,14 @@ bool SubNoteSkillPromoteGroupRes::LoadFromPb(std::string data)
 void SubNoteSkillPromoteGroupRes::OnLoad()
 {
     Items = ItemParamMap::FromJsonString(SubNoteSkills);
+}
+
+bool SubNoteSkillDropGroupRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "GroupId", GroupId);
+    ReadResourceJsonField(data, "SubNoteSkillId", SubNoteSkillId);
+    return true;
 }
 
 bool SubNoteSkillDropGroupRes::LoadFromPb(std::string data)
@@ -233,6 +330,18 @@ int SubNoteSkillDropGroupRes::GetRandomDrop(int groupId)
     static thread_local std::mt19937 rng{ std::random_device{}() };
     std::uniform_int_distribution<size_t> dist(0, it->second.size() - 1);
     return it->second[dist(rng)];
+}
+
+bool PotentialRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "CharId", CharId);
+    ReadResourceJsonField(data, "Build", Build);
+    ReadResourceJsonField(data, "BranchType", BranchType);
+    ReadResourceJsonField(data, "MaxLevel", MaxLevel);
+    ReadResourceJsonField(data, "BuildScore", BuildScore);
+    ReadResourceJsonField(data, "BriefDesc", BriefDesc);
+    return true;
 }
 
 bool PotentialRes::LoadFromPb(std::string data)
@@ -297,6 +406,17 @@ int PotentialRes::GetBuildScore(int level) const
     return BuildScore[static_cast<size_t>(index)];
 }
 
+bool CharPotentialRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "MasterSpecificPotentialIds", MasterSpecificPotentialIds);
+    ReadResourceJsonField(data, "AssistSpecificPotentialIds", AssistSpecificPotentialIds);
+    ReadResourceJsonField(data, "CommonPotentialIds", CommonPotentialIds);
+    ReadResourceJsonField(data, "MasterNormalPotentialIds", MasterNormalPotentialIds);
+    ReadResourceJsonField(data, "AssistNormalPotentialIds", AssistNormalPotentialIds);
+    return true;
+}
+
 bool CharPotentialRes::LoadFromPb(std::string data)
 {
     CharPotential cp;
@@ -358,6 +478,12 @@ std::vector<int> CharPotentialRes::GetPotentialList(bool main, bool special) con
     return out;
 }
 
+bool StarTowerBookFateCardBundleRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    return true;
+}
+
 bool StarTowerBookFateCardBundleRes::LoadFromPb(std::string data)
 {
     StarTowerBookFateCardBundle stbfcb;
@@ -371,6 +497,12 @@ bool StarTowerBookFateCardBundleRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool StarTowerBookFateCardQuestRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    return true;
+}
+
 bool StarTowerBookFateCardQuestRes::LoadFromPb(std::string data)
 {
     StarTowerBookFateCardQuest stbfcq;
@@ -380,6 +512,13 @@ bool StarTowerBookFateCardQuestRes::LoadFromPb(std::string data)
 
     Id = stbfcq.id();
 
+    return true;
+}
+
+bool StarTowerBookFateCardRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "BundleId", BundleId);
     return true;
 }
 
@@ -398,7 +537,7 @@ bool StarTowerBookFateCardRes::LoadFromPb(std::string data)
 
 void StarTowerBookFateCardRes::OnLoad()
 {
-    const auto fateCardIt = GameData::FateCardDataTable.find(std::to_string(Id));
+    const auto fateCardIt = GameData::FateCardDataTable.find(Id);
     if (fateCardIt == GameData::FateCardDataTable.end())
     {
         return;
@@ -406,7 +545,7 @@ void StarTowerBookFateCardRes::OnLoad()
 
     fateCardIt->second.BundleId = BundleId;
 
-    const auto bundleIt = GameData::StarTowerBookFateCardBundleDataTable.find(std::to_string(BundleId));
+    const auto bundleIt = GameData::StarTowerBookFateCardBundleDataTable.find(BundleId);
     if (bundleIt == GameData::StarTowerBookFateCardBundleDataTable.end())
     {
         return;
@@ -417,6 +556,16 @@ void StarTowerBookFateCardRes::OnLoad()
     {
         cardIds.push_back(Id);
     }
+}
+
+bool FateCardRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "IsTower", IsTower);
+    ReadResourceJsonField(data, "IsVampire", IsVampire);
+    ReadResourceJsonField(data, "IsVampireSpecial", IsVampireSpecial);
+    ReadResourceJsonField(data, "Removable", Removable);
+    return true;
 }
 
 bool FateCardRes::LoadFromPb(std::string data)
@@ -435,6 +584,19 @@ bool FateCardRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool NPCAffinityGroupRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Level", Level);
+    ReadResourceJsonField(data, "AffinityValue", AffinityValue);
+    ReadResourceJsonField(data, "AffinityGroupId", AffinityGroupId);
+    ReadResourceJsonField(data, "RelationshipName", RelationshipName);
+    ReadResourceJsonField(data, "Icon", Icon);
+    ReadResourceJsonField(data, "AffinityLevelStage", AffinityLevelStage);
+    ReadResourceJsonField(data, "Reward", Reward);
+    return true;
+}
+
 bool NPCAffinityGroupRes::LoadFromPb(std::string data)
 {
     NPCAffinityGroup value;
@@ -450,6 +612,20 @@ bool NPCAffinityGroupRes::LoadFromPb(std::string data)
     Icon = value.icon();
     AffinityLevelStage = value.affinitylevelstage();
     Reward = value.reward();
+    return true;
+}
+
+bool NPCAffinityPlotRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "Name", Name);
+    ReadResourceJsonField(data, "Desc", Desc);
+    ReadResourceJsonField(data, "PlotSum", PlotSum);
+    ReadResourceJsonField(data, "AvgId", AvgId);
+    ReadResourceJsonField(data, "NPCId", NPCId);
+    ReadResourceJsonField(data, "AffinityLevel", AffinityLevel);
+    ReadResourceJsonField(data, "ItemId", ItemId);
+    ReadResourceJsonField(data, "ItemQty", ItemQty);
     return true;
 }
 
@@ -472,6 +648,14 @@ bool NPCAffinityPlotRes::LoadFromPb(std::string data)
     return true;
 }
 
+bool InfinityTowerLevelRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "DifficultyId", DifficultyId);
+    ReadResourceJsonField(data, "BaseAwardPreview", BaseAwardPreview);
+    return true;
+}
+
 bool InfinityTowerLevelRes::LoadFromPb(std::string data)
 {
     InfinityTowerLevel itl;
@@ -483,6 +667,13 @@ bool InfinityTowerLevelRes::LoadFromPb(std::string data)
     DifficultyId = itl.difficultyid();
     BaseAwardPreview = itl.baseawardpreview();
 
+    return true;
+}
+
+bool InfinityTowerDifficultyRes::LoadFromJson(const nlohmann::json& data)
+{
+    ReadResourceJsonField(data, "Id", Id);
+    ReadResourceJsonField(data, "TowerId", TowerId);
     return true;
 }
 
@@ -498,4 +689,3 @@ bool InfinityTowerDifficultyRes::LoadFromPb(std::string data)
 
     return true;
 }
-

@@ -1,4 +1,4 @@
-#include "TowerRuntime.h"
+﻿#include "TowerRuntime.h"
 
 #include "CharacterMgr.h"
 #include "Player.h"
@@ -257,7 +257,7 @@ proto::StarTowerBuildInfo Build::ToProto() const
 
     for (const auto& [potentialId, level] : Potentials)
     {
-        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+        const auto potentialIt = GameData::PotentialDataTable.find(potentialId);
         if (potentialIt == GameData::PotentialDataTable.end())
         {
             continue;
@@ -288,7 +288,7 @@ proto::StarTowerBuildInfo Build::ToProto() const
 
     for (uint32_t secondaryId : ActiveSecondaryIds)
     {
-        const auto secondaryIt = GameData::SecondarySkillDataTable.find(std::to_string(secondaryId));
+        const auto secondaryIt = GameData::SecondarySkillDataTable.find(secondaryId);
         if (secondaryIt != GameData::SecondarySkillDataTable.end())
         {
             copy.Score += static_cast<uint32_t>((std::max)(secondaryIt->second.Score, 0));
@@ -594,7 +594,7 @@ void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
         TeamLevel = 1;
     }
     TeamExp = bin.teamexp();
-    const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find(std::to_string(TeamLevel + 1));
+    const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find(TeamLevel + 1);
     NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
         ? static_cast<uint32_t>(INT32_MAX)
         : static_cast<uint32_t>((std::max)(teamExpIt->second.NeedExp, 0));
@@ -737,7 +737,7 @@ int Game::LevelUp()
         ++picks;
         TeamExp -= NextLevelExp;
 
-        const auto it = GameData::StarTowerTeamExpDataTable.find(std::to_string(TeamLevel + 1));
+        const auto it = GameData::StarTowerTeamExpDataTable.find(TeamLevel + 1);
         if (it != GameData::StarTowerTeamExpDataTable.end())
         {
             NextLevelExp = static_cast<uint32_t>((std::max)(it->second.NeedExp, 0));
@@ -757,7 +757,7 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
         return false;
     }
 
-    const auto itemIt = GameData::ItemDataTable.find(std::to_string(id));
+    const auto itemIt = GameData::ItemDataTable.find(id);
     if (itemIt == GameData::ItemDataTable.end())
     {
         return false;
@@ -767,7 +767,7 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
 
     if (itemSubType == kItemSubTypePotential || itemSubType == kItemSubTypeSpecificPotential)
     {
-        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(id));
+        const auto potentialIt = GameData::PotentialDataTable.find(id);
         if (potentialIt == GameData::PotentialDataTable.end())
         {
             return false;
@@ -994,7 +994,7 @@ std::unique_ptr<TowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bo
         return nullptr;
     }
 
-    const auto charIt = GameData::CharPotentialDataTable.find(std::to_string(charId));
+    const auto charIt = GameData::CharPotentialDataTable.find(charId);
     if (charIt == GameData::CharPotentialDataTable.end())
     {
         return nullptr;
@@ -1012,7 +1012,7 @@ std::unique_ptr<TowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bo
 
     for (int potentialId : candidates)
     {
-        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+        const auto potentialIt = GameData::PotentialDataTable.find(potentialId);
         if (potentialIt == GameData::PotentialDataTable.end())
         {
             continue;
@@ -1071,7 +1071,7 @@ std::unique_ptr<TowerCaseBase> Game::CreateStrengthenSelector()
         {
             continue;
         }
-        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+        const auto potentialIt = GameData::PotentialDataTable.find(potentialId);
         if (potentialIt == GameData::PotentialDataTable.end())
         {
             continue;
@@ -1198,7 +1198,7 @@ void Game::HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp)
 
 uint32_t Game::GetDifficulty() const
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(TowerId));
+    const auto towerIt = GameData::StarTowerDataTable.find(TowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return 0;
@@ -1527,7 +1527,7 @@ void Game::ConsumeFreeStrengthen()
 
 int Game::GetRandomSubNoteId() const
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(TowerId));
+    const auto towerIt = GameData::StarTowerDataTable.find(TowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return 0;
@@ -1593,14 +1593,14 @@ void Game::InitializeSubNotesFromDiscs()
             continue;
         }
 
-        const auto discResIt = GameData::DiscDataTable.find(std::to_string(disc->discid()));
+        const auto discResIt = GameData::DiscDataTable.find(disc->discid());
         if (discResIt == GameData::DiscDataTable.end())
         {
             continue;
         }
 
         const int groupId = discResIt->second.SubNoteSkillGroupId * 100 + disc->phase();
-        const auto promoteIt = GameData::SubNoteSkillPromoteGroupDataTable.find(std::to_string(groupId));
+        const auto promoteIt = GameData::SubNoteSkillPromoteGroupDataTable.find(groupId);
         if (promoteIt == GameData::SubNoteSkillPromoteGroupDataTable.end())
         {
             continue;
@@ -1658,7 +1658,7 @@ void Game::AddStartingItems()
 
 bool Game::EnterNextRoom()
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(TowerId));
+    const auto towerIt = GameData::StarTowerDataTable.find(TowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return false;
@@ -1678,7 +1678,7 @@ bool Game::EnterNextRoom()
     }
 
     const uint32_t stageId = (TowerId * 10000u) + (StageNum * 100u) + StageFloor;
-    const auto stageIt = GameData::StarTowerStageDataTable.find(std::to_string(stageId));
+    const auto stageIt = GameData::StarTowerStageDataTable.find(stageId);
     if (stageIt == GameData::StarTowerStageDataTable.end())
     {
         return false;
@@ -1740,7 +1740,7 @@ Build Game::BuildSnapshot() const
     {
         build.Potentials.emplace_back(potentialId, static_cast<uint32_t>((std::max)(level, 0)));
 
-        const auto potentialIt = GameData::PotentialDataTable.find(std::to_string(potentialId));
+        const auto potentialIt = GameData::PotentialDataTable.find(potentialId);
         if (potentialIt == GameData::PotentialDataTable.end())
         {
             continue;
@@ -1771,7 +1771,7 @@ Build Game::BuildSnapshot() const
 
     for (uint32_t secondaryId : ActiveSecondaryIds)
     {
-        const auto secondaryIt = GameData::SecondarySkillDataTable.find(std::to_string(secondaryId));
+        const auto secondaryIt = GameData::SecondarySkillDataTable.find(secondaryId);
         if (secondaryIt != GameData::SecondarySkillDataTable.end())
         {
             build.Score += static_cast<uint32_t>((std::max)(secondaryIt->second.Score, 0));
@@ -1810,7 +1810,7 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
             bool sameElement = !CharIds.empty();
             for (uint32_t charId : CharIds)
             {
-                const auto charIt = GameData::CharacterDataTable.find(std::to_string(charId));
+                const auto charIt = GameData::CharacterDataTable.find(charId);
                 if (charIt == GameData::CharacterDataTable.end())
                 {
                     sameElement = false;

@@ -204,7 +204,7 @@ void TowerBattleCase::OnRegister()
         return;
     }
 
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(GetGame()->TowerId));
+    const auto towerIt = GameData::StarTowerDataTable.find(GetGame()->TowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         SubNoteDrops = 1;
@@ -278,7 +278,7 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
             req.battleendreq().victory().damages().begin(),
             req.battleendreq().victory().damages().end());
 
-        const auto stageIt = GameData::StarTowerStageDataTable.find(std::to_string(GetRoom()->GetStageId()));
+        const auto stageIt = GameData::StarTowerStageDataTable.find(GetRoom()->GetStageId());
         if (stageIt != GameData::StarTowerStageDataTable.end())
         {
             int coin = (std::max)(stageIt->second.InteriorCurrencyQuantity, 0);
@@ -359,7 +359,7 @@ proto::StarTowerInteractResp TowerDoorCase::Interact(const proto::StarTowerInter
         return rsp;
     }
 
-    const auto towerIt = GameData::StarTowerDataTable.find(std::to_string(game->TowerId));
+    const auto towerIt = GameData::StarTowerDataTable.find(game->TowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return rsp;

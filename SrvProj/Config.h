@@ -25,6 +25,14 @@ public:
         NLOHMANN_DEFINE_TYPE_INTRUSIVE(HttpServerConfig, ip, publicIp, port)
     };
 
+    class ResourceConfig {
+    public:
+        std::string type = "arcx";
+        std::string path = ".\\data.arcx";
+
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(ResourceConfig, type, path)
+    };
+
     class ServerTime {
     public:
         bool spoofTime = false;
@@ -34,13 +42,14 @@ public:
     };
 
     HttpServerConfig httpServerConfig;
+    ResourceConfig resourceConfig;
     std::string DatabasePath = ".\\save.db";
     std::string TimeZone = "UTC";
     ServerTime serverTime;
     std::vector<std::string> playerDefaultPermissions = { "*" };
     bool unlockAllStarTower = true;
 
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions, unlockAllStarTower)
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, resourceConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions, unlockAllStarTower)
 
     bool LoadFromFile(const std::string& filename = ".\\Config.json");
     bool SaveToFile(const std::string& filename = ".\\Config.json");
