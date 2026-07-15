@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="AccountController.cpp" />
     <ClCompile Include="AccountServer.cpp" />
+    <ClCompile Include="IOCPAwaiter.cpp" />
     <ClCompile Include="AeadTool.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="DbMgr.cpp" />
@@ -501,6 +502,7 @@
     <ClInclude Include="AccountController.h" />
     <ClInclude Include="AccountServer.h" />
     <ClInclude Include="AeadTool.h" />
+    <ClInclude Include="IOCPAwaiter.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DbMgr.h" />
     <ClInclude Include="GameConstants.h" />
@@ -846,7 +848,6 @@
     <ClInclude Include="Resources\ResourceJsonUtil.h" />
     <ClInclude Include="Resources\ResourceLoader.h" />
     <ClInclude Include="ResultCode.h" />
-    <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,19 +1,32 @@
-﻿#pragma once
+#pragma once
+
 #include <winsock2.h>
 #include <ws2tcpip.h>
-#include <string>
-#include <thread>
-#include <vector>
-#include <memory>
+
+#ifdef min
+#undef min
+#endif
+#ifdef max
+#undef max
+#endif
+
 #include <atomic>
-#include <functional>
-#include <mutex>
 #include <chrono>
+#include <condition_variable>
+#include <cstddef>
+#include <functional>
+#include <memory>
+#include <mutex>
+#include <string>
+#include <unordered_map>
+#include <vector>
+
 #include "Logger.h"
-#include "ThreadPool.h"
+#include "IOCPAwaiter.h"
 
 class HttpRequest;
 class HttpResponse;
+class DetachedTask;
 
 using RouteHandler = std::function<void(const HttpRequest&, HttpResponse&)>;
 
@@ -50,32 +63,48 @@ public:
     void RegisterRoute(const std::string& method, const std::string& pattern, RouteHandler handler);
 
     void SetupRoutes();
-private:
-    void ListenThread();
 
-    void ClientLoop(SOCKET clientSocket, sockaddr_in clientAddr);
+private:
+    struct Connection;
+
+    bool StartAccept();
+    DetachedTask AcceptLoop(SOCKET listenSocket, SOCKET clientSocket);
+    DetachedTask ConnectionLoop(std::shared_ptr<Connection> connection);
+
+    bool AddConnection(const std::shared_ptr<Connection>& connection);
+    void RemoveConnection(SOCKET socket);
+    void FinishAccept();
+    void WaitForConnectionsToClose();
+
+    bool StartIdleTimer();
+    void StopIdleTimer();
+    void SweepIdleConnections();
+    static VOID CALLBACK IdleTimerCallback(PVOID context, BOOLEAN timerOrWaitFired);
 
     bool ParseHttpRequest(const std::string& buffer, size_t& consumed, HttpRequest& request);
-
-    void SendResponse(SOCKET sock, const HttpResponse& resp);
-
-    bool ShouldCloseConnection(int requestCount, bool connectionClose, const std::chrono::steady_clock::time_point& lastActivity) const;
-
+    bool ShouldCloseConnection(int requestCount, bool connectionClose) const;
     bool DispatchRoute(const HttpRequest& req, HttpResponse& resp);
 
     static bool MatchWildcard(const std::string& pattern, const std::string& str);
 
     std::string mBindIp;
     uint16_t mPort;
-    SOCKET mListenSocket;
+    std::atomic<SOCKET> mListenSocket;
     std::atomic<bool> mRunning;
     std::atomic<bool> mEnableHttpLogging;
     std::atomic<bool> mEnableRegisteredLogging;
     std::atomic<bool> mEnableRequestLogging;
     LogLevel mLogLevel;
 
-    std::thread mListenThread;
-    ThreadPool mThreadPool;
+    std::unique_ptr<IOCPAwaiter> mIocpAwaiter;
+    LPFN_ACCEPTEX mAcceptEx = nullptr;
+    LPFN_GETACCEPTEXSOCKADDRS mGetAcceptExSockaddrs = nullptr;
+    HANDLE mIdleTimer = nullptr;
+
+    std::unordered_map<SOCKET, std::shared_ptr<Connection>> mConnections;
+    std::mutex mConnectionsMutex;
+    std::condition_variable mConnectionsCondition;
+    std::atomic<size_t> mPendingAccepts = 0;
 
     std::vector<RouteEntry> mRoutes;
     std::mutex mRoutesMutex;
