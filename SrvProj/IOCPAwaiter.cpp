@@ -258,6 +258,26 @@ IOCPAwaiter::BlockingAwaiter IOCPAwaiter::RunBlocking(std::function<void()> task
     return BlockingAwaiter(*this, std::move(task));
 }
 
+bool IOCPAwaiter::PostContinuation(std::coroutine_handle<> continuation)
+{
+    if (!continuation || mShutdown.load() || mCompletionPort == nullptr)
+    {
+        return false;
+    }
+
+    auto* operation = new ExternalOperation();
+    operation->continuation = continuation;
+    mOutstandingOperations.fetch_add(1);
+    if (PostQueuedCompletionStatus(mCompletionPort, 0, ExternalCompletionKey, &operation->overlapped))
+    {
+        return true;
+    }
+
+    delete operation;
+    FinishOperation();
+    return false;
+}
+
 void IOCPAwaiter::StopAcceptingWork()
 {
     mAcceptingWork = false;
@@ -375,6 +395,16 @@ void IOCPAwaiter::CompletionWorker()
             {
                 return;
             }
+            continue;
+        }
+
+        if (completionKey == ExternalCompletionKey)
+        {
+            ExternalOperation* operation = CONTAINING_RECORD(overlapped, ExternalOperation, overlapped);
+            std::coroutine_handle<> continuation = operation->continuation;
+            delete operation;
+            FinishOperation();
+            continuation.resume();
             continue;
         }
 

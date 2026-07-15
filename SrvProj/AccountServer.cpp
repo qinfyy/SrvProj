@@ -14,6 +14,7 @@
 
 #include <algorithm>
 #include <array>
+#include <charconv>
 #include <coroutine>
 #include <cstring>
 #include <exception>
@@ -24,26 +25,26 @@
 
 namespace
 {
-constexpr size_t ReceiveChunkSize = 4096;
-constexpr DWORD AcceptAddressLength = sizeof(sockaddr_in) + 16;
-constexpr DWORD AcceptBufferLength = AcceptAddressLength * 2;
+    constexpr size_t ReceiveChunkSize = 4096;
+    constexpr DWORD AcceptAddressLength = sizeof(sockaddr_in) + 16;
+    constexpr DWORD AcceptBufferLength = AcceptAddressLength * 2;
 
-std::string GetClientAddr(const sockaddr* address)
-{
-    if (address == nullptr || address->sa_family != AF_INET)
+    std::string GetClientAddr(const sockaddr* address)
     {
-        return "unknown";
-    }
+        if (address == nullptr || address->sa_family != AF_INET)
+        {
+            return "unknown";
+        }
 
-    const auto* ipv4 = reinterpret_cast<const sockaddr_in*>(address);
-    char ip[INET_ADDRSTRLEN]{};
-    if (inet_ntop(AF_INET, &ipv4->sin_addr, ip, sizeof(ip)) == nullptr)
-    {
-        return "unknown";
-    }
+        const auto* ipv4 = reinterpret_cast<const sockaddr_in*>(address);
+        char ip[INET_ADDRSTRLEN]{};
+        if (inet_ntop(AF_INET, &ipv4->sin_addr, ip, sizeof(ip)) == nullptr)
+        {
+            return "unknown";
+        }
 
-    return std::string(ip) + ":" + std::to_string(ntohs(ipv4->sin_port));
-}
+        return std::string(ip) + ":" + std::to_string(ntohs(ipv4->sin_port));
+    }
 }
 
 class DetachedTask
@@ -67,8 +68,7 @@ public:
         }
 
         void return_void() noexcept
-        {
-        }
+        {}
 
         void unhandled_exception() noexcept
         {
@@ -88,13 +88,26 @@ public:
     };
 };
 
+RouteHandler MakeBlockingRoute(SynchronousRouteHandler handler)
+{
+    return [handler = std::move(handler)](RouteContext& context, const HttpRequest& request,
+        HttpResponseWriter& writer) -> AsyncTask<void>
+        {
+            HttpResponse response;
+            co_await context.Runtime().RunBlocking([&request, &response, handler]
+                {
+                    handler(request, response);
+                });
+            co_await writer.WriteResponse(response);
+        };
+}
+
 struct AccountServer::Connection
 {
     Connection(SOCKET socket, std::string clientAddr)
         : mSocket(socket), mId(socket), mClientAddr(std::move(clientAddr)),
         mLastActivityMilliseconds(std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now().time_since_epoch()).count())
-    {
-    }
+    {}
 
     void MarkActive()
     {
@@ -151,6 +164,175 @@ struct AccountServer::Connection
     int mRequestCount = 0;
 };
 
+class AccountServer::ConnectionResponseWriter final : public HttpResponseWriter
+{
+public:
+    ConnectionResponseWriter(AccountServer& server, std::shared_ptr<Connection> connection,
+        const std::string& version, bool keepAlive)
+        : mServer(server), mConnection(std::move(connection)), mVersion(version), mKeepAlive(keepAlive)
+    {}
+
+    AsyncTask<bool> WriteHeaders(const HttpResponse& response, HttpResponseBodyMode bodyMode) override
+    {
+        if (mStarted || mFailed)
+        {
+            co_return false;
+        }
+
+        if (bodyMode == HttpResponseBodyMode::Chunked && mVersion == "HTTP/1.0")
+        {
+            bodyMode = HttpResponseBodyMode::Close;
+        }
+
+        mStarted = true;
+        mBodyMode = bodyMode;
+        mCloseAfterResponse = !mKeepAlive || bodyMode == HttpResponseBodyMode::Close;
+        mStatusCode = response.statusCode;
+
+        HttpResponse outgoing = response;
+        outgoing.version = mVersion;
+        outgoing.RemoveHeader("Connection");
+        outgoing.headers["Connection"] = mCloseAfterResponse ? "close" : "keep-alive";
+        if (bodyMode == HttpResponseBodyMode::Chunked)
+        {
+            outgoing.RemoveHeader("Content-Length");
+            outgoing.RemoveHeader("Transfer-Encoding");
+        }
+        else if (bodyMode == HttpResponseBodyMode::Close)
+        {
+            outgoing.RemoveHeader("Content-Length");
+            outgoing.RemoveHeader("Transfer-Encoding");
+        }
+        else
+        {
+            outgoing.RemoveHeader("Transfer-Encoding");
+        }
+
+        const std::string headerData = outgoing.ToHeadersString(bodyMode, mCloseAfterResponse);
+        const bool sent = co_await mServer.SendAll(mConnection, headerData.data(), headerData.size());
+        if (!sent)
+        {
+            Abort();
+        }
+        co_return sent;
+    }
+
+    AsyncTask<bool> WriteData(const char* data, size_t length) override
+    {
+        if (!mStarted || mFinished || mFailed)
+        {
+            co_return false;
+        }
+
+        if (length == 0)
+        {
+            co_return true;
+        }
+
+        if (mBodyMode != HttpResponseBodyMode::Chunked)
+        {
+            const bool sent = co_await mServer.SendAll(mConnection, data, length);
+            if (!sent)
+            {
+                Abort();
+            }
+            co_return sent;
+        }
+
+        std::array<char, 32> lengthBuffer{};
+        const std::to_chars_result lengthResult = std::to_chars(lengthBuffer.data(),
+            lengthBuffer.data() + lengthBuffer.size(), length, 16);
+        if (lengthResult.ec != std::errc())
+        {
+            Abort();
+            co_return false;
+        }
+
+        std::string chunk;
+        chunk.reserve(static_cast<size_t>(lengthResult.ptr - lengthBuffer.data()) + length + 4);
+        chunk.append(lengthBuffer.data(), lengthResult.ptr);
+        chunk.append("\r\n");
+        chunk.append(data, length);
+        chunk.append("\r\n");
+
+        const bool sent = co_await mServer.SendAll(mConnection, chunk.data(), chunk.size());
+        if (!sent)
+        {
+            Abort();
+        }
+        co_return sent;
+    }
+
+    AsyncTask<bool> Finish() override
+    {
+        if (mFinished)
+        {
+            co_return !mFailed;
+        }
+
+        if (!mStarted || mFailed)
+        {
+            co_return false;
+        }
+
+        if (mBodyMode == HttpResponseBodyMode::Chunked)
+        {
+            const char endChunk[] = "0\r\n\r\n";
+            if (!(co_await mServer.SendAll(mConnection, endChunk, sizeof(endChunk) - 1)))
+            {
+                Abort();
+                co_return false;
+            }
+        }
+
+        mFinished = true;
+        co_return true;
+    }
+
+    void Abort() noexcept override
+    {
+        mFailed = true;
+        mConnection->RequestClose();
+    }
+
+    bool UsesHttp11() const noexcept override
+    {
+        return mVersion != "HTTP/1.0";
+    }
+
+    bool HasStarted() const noexcept override
+    {
+        return mStarted;
+    }
+
+    bool IsFinished() const noexcept override
+    {
+        return mFinished;
+    }
+
+    int StatusCode() const noexcept override
+    {
+        return mStatusCode;
+    }
+
+    bool ShouldClose() const noexcept
+    {
+        return mCloseAfterResponse || mFailed;
+    }
+
+private:
+    AccountServer& mServer;
+    std::shared_ptr<Connection> mConnection;
+    std::string mVersion;
+    bool mKeepAlive = false;
+    bool mStarted = false;
+    bool mFinished = false;
+    bool mFailed = false;
+    bool mCloseAfterResponse = false;
+    int mStatusCode = 0;
+    HttpResponseBodyMode mBodyMode = HttpResponseBodyMode::ContentLength;
+};
+
 AccountServer::AccountServer(const std::string& bindIp, uint16_t port)
     : mBindIp(bindIp), mPort(port), mListenSocket(INVALID_SOCKET),
     mRunning(false), mEnableHttpLogging(false),
@@ -177,10 +359,12 @@ void AccountServer::RegisterRoute(const std::string& method, const std::string& 
 
 void AccountServer::SetupRoutes()
 {
-    RegisterRoute("GET", "/", [](const HttpRequest&, HttpResponse& rsp)
+    RegisterRoute("GET", "/", [](RouteContext&, const HttpRequest&, HttpResponseWriter& writer) -> AsyncTask<void>
         {
-            rsp.statusCode = 200;
-            rsp.body = "Hello World";
+            HttpResponse response;
+            response.statusCode = 200;
+            response.body = "Hello World";
+            co_await writer.WriteResponse(response);
         });
 
     RegisterRoute("GET", "/meta/serverlist.html", ServerListHandler);
@@ -193,10 +377,10 @@ void AccountServer::SetupRoutes()
     RegisterRoute("POST", "/common/version", VersionHandler);
     RegisterRoute("POST", "/common/config", CommonConfigHandler);
     RegisterRoute("POST", "/agent-zone-1/", AgentHandler);
-    RegisterRoute("POST", "/order/products", OrderProductsHandler);
-    RegisterRoute("POST", "/order/create", OrderCreateHandler);
-    RegisterRoute("POST", "/order/notify", OrderNotifyHandler);
-    RegisterRoute("GET", "/mock-pay", MockPayPageHandler);
+    RegisterRoute("POST", "/order/products", MakeBlockingRoute(OrderProductsHandler));
+    RegisterRoute("POST", "/order/create", MakeBlockingRoute(OrderCreateHandler));
+    RegisterRoute("POST", "/order/notify", MakeBlockingRoute(OrderNotifyHandler));
+    RegisterRoute("GET", "/mock-pay", MakeBlockingRoute(MockPayPageHandler));
 
     if (mEnableRegisteredLogging && mLogLevel <= LogLevel::Info)
     {
@@ -204,7 +388,8 @@ void AccountServer::SetupRoutes()
     }
 }
 
-bool AccountServer::DispatchRoute(const HttpRequest& req, HttpResponse& resp)
+AsyncTask<void> AccountServer::DispatchRoute(RouteContext& context, const HttpRequest& req,
+    HttpResponseWriter& writer)
 {
     const std::string pathWithoutQuery = req.GetPathWithoutQuery();
     const std::string method = req.method;
@@ -224,21 +409,24 @@ bool AccountServer::DispatchRoute(const HttpRequest& req, HttpResponse& resp)
 
     if (handler)
     {
-        handler(req, resp);
+        co_await handler(context, req, writer);
     }
     else
     {
-        resp.statusCode = 404;
-        resp.headers["Content-Type"] = "application/json";
-        resp.body = R"({"code":404,"error":"Not Found"})";
+        HttpResponse response;
+        response.statusCode = 404;
+        response.statusText.clear();
+        response.headers["Content-Type"] = "application/json";
+        response.body = R"({"code":404,"error":"Not Found"})";
+        co_await writer.WriteResponse(response);
     }
 
     if (mEnableRequestLogging && mLogLevel <= LogLevel::Info)
     {
-        LOG_INFO("Client request: {} {} - {}", method, pathWithoutQuery, resp.statusCode);
+        LOG_INFO("Client request: {} {} - {}", method, pathWithoutQuery, writer.StatusCode());
     }
 
-    return static_cast<bool>(handler);
+    co_return;
 }
 
 bool AccountServer::Start()
@@ -269,11 +457,14 @@ bool AccountServer::Start()
     try
     {
         mIocpAwaiter = std::make_unique<IOCPAwaiter>(workerCount, workerCount);
+        mHttpClient = std::make_unique<HttpClient>(*mIocpAwaiter);
     }
     catch (const std::exception& e)
     {
         mRunning = false;
         LOG_ERROR("Failed to create AccountServer IOCP runtime: {}", e.what());
+        mHttpClient.reset();
+        mIocpAwaiter.reset();
         WSACleanup();
         return false;
     }
@@ -283,6 +474,7 @@ bool AccountServer::Start()
     {
         LOG_ERROR("WSASocket() failed, error: {}", WSAGetLastError());
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -295,6 +487,7 @@ bool AccountServer::Start()
         LOG_ERROR("Invalid bind address: {}", mBindIp);
         closesocket(listenSocket);
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -306,6 +499,7 @@ bool AccountServer::Start()
         LOG_ERROR("bind() failed, error: {}", WSAGetLastError());
         closesocket(listenSocket);
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -316,6 +510,7 @@ bool AccountServer::Start()
         LOG_ERROR("listen() failed, error: {}", WSAGetLastError());
         closesocket(listenSocket);
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -326,6 +521,7 @@ bool AccountServer::Start()
         LOG_ERROR("Failed to associate listening socket with IOCP, error: {}", GetLastError());
         closesocket(listenSocket);
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -339,6 +535,7 @@ bool AccountServer::Start()
         LOG_ERROR("Failed to load AcceptEx, error: {}", WSAGetLastError());
         closesocket(listenSocket);
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -352,6 +549,7 @@ bool AccountServer::Start()
         LOG_ERROR("Failed to load GetAcceptExSockaddrs, error: {}", WSAGetLastError());
         closesocket(listenSocket);
         mRunning = false;
+        mHttpClient.reset();
         mIocpAwaiter.reset();
         WSACleanup();
         return false;
@@ -517,6 +715,7 @@ DetachedTask AccountServer::ConnectionLoop(std::shared_ptr<Connection> connectio
     std::array<char, ReceiveChunkSize> receiveBuffer{};
     std::string requestBuffer;
     requestBuffer.reserve(RECV_BUFFER_SIZE);
+    RouteContext routeContext(*mIocpAwaiter, *mHttpClient);
 
     try
     {
@@ -558,14 +757,12 @@ DetachedTask AccountServer::ConnectionLoop(std::shared_ptr<Connection> connectio
                     connectionClose = connectionHeader != request.headers.end() && connectionHeader->second == "close";
                 }
 
-                HttpResponse response;
-                response.version = request.version;
+                const bool keepAlive = !ShouldCloseConnection(connection->mRequestCount, connectionClose);
+                ConnectionResponseWriter writer(*this, connection, request.version, keepAlive);
+                bool writeServerError = false;
                 try
                 {
-                    co_await mIocpAwaiter->RunBlocking([this, &request, &response]
-                        {
-                            DispatchRoute(request, response);
-                        });
+                    co_await DispatchRoute(routeContext, request, writer);
                 }
                 catch (const std::exception& e)
                 {
@@ -575,9 +772,25 @@ DetachedTask AccountServer::ConnectionLoop(std::shared_ptr<Connection> connectio
                     }
 
                     LOG_ERROR("Route handler failed for {}: {}", connection->mClientAddr, e.what());
+                    if (writer.HasStarted())
+                    {
+                        writer.Abort();
+                    }
+                    else
+                    {
+                        writeServerError = true;
+                    }
+                }
+
+                if (writeServerError)
+                {
+                    HttpResponse response;
+                    response.version = request.version;
                     response.statusCode = 500;
+                    response.statusText.clear();
                     response.headers["Content-Type"] = "application/json";
                     response.body = R"({"code":500,"error":"Internal Server Error"})";
+                    co_await writer.WriteResponse(response);
                 }
 
                 if (!mRunning.load() || connection->mCloseRequested.load())
@@ -585,32 +798,27 @@ DetachedTask AccountServer::ConnectionLoop(std::shared_ptr<Connection> connectio
                     break;
                 }
 
-                const bool keepAlive = !ShouldCloseConnection(connection->mRequestCount, connectionClose);
-                response.headers["Connection"] = keepAlive ? "keep-alive" : "close";
-                const std::string responseData = response.ToString();
-
-                size_t sent = 0;
-                while (sent < responseData.size())
+                if (!writer.HasStarted())
                 {
-                    const size_t remaining = responseData.size() - sent;
-                    const ULONG sendLength = static_cast<ULONG>(std::min<size_t>(
-                        remaining, static_cast<size_t>(std::numeric_limits<ULONG>::max())));
-                    const IOCPAwaiter::IoResult sendResult = co_await mIocpAwaiter->Send(
-                        connection->Socket(), responseData.data() + sent, sendLength);
-                    if (!sendResult || sendResult.bytes == 0)
-                    {
-                        if (mRunning.load() && !connection->mCloseRequested.load() && mLogLevel <= LogLevel::Error)
-                        {
-                            LOG_ERROR("WSASend failed for {}, error: {}", connection->mClientAddr, sendResult.error);
-                        }
-                        connection->RequestClose();
-                        break;
-                    }
-
-                    sent += sendResult.bytes;
+                    HttpResponse response;
+                    response.version = request.version;
+                    response.statusCode = 500;
+                    response.statusText.clear();
+                    response.headers["Content-Type"] = "application/json";
+                    response.body = R"({"code":500,"error":"Route did not produce a response"})";
+                    co_await writer.WriteResponse(response);
                 }
 
-                if (!keepAlive || connection->mCloseRequested.load())
+                if (writer.HasStarted() && !writer.IsFinished())
+                {
+                    if (!(co_await writer.Finish()))
+                    {
+                        writer.Abort();
+                        break;
+                    }
+                }
+
+                if (!keepAlive || writer.ShouldClose() || connection->mCloseRequested.load())
                 {
                     connection->RequestClose();
                     break;
@@ -660,6 +868,32 @@ DetachedTask AccountServer::ConnectionLoop(std::shared_ptr<Connection> connectio
         LOG_DEBUG("Closed connection {}", connection->mClientAddr);
     }
     co_return;
+}
+
+AsyncTask<bool> AccountServer::SendAll(const std::shared_ptr<Connection>& connection, const char* data, size_t length)
+{
+    size_t sent = 0;
+    while (sent < length)
+    {
+        const size_t remaining = length - sent;
+        const ULONG sendLength = static_cast<ULONG>(std::min<size_t>(
+            remaining, static_cast<size_t>(std::numeric_limits<ULONG>::max())));
+        const IOCPAwaiter::IoResult sendResult = co_await mIocpAwaiter->Send(
+            connection->Socket(), data + sent, sendLength);
+        if (!sendResult || sendResult.bytes == 0)
+        {
+            if (mRunning.load() && !connection->mCloseRequested.load() && mLogLevel <= LogLevel::Error)
+            {
+                LOG_ERROR("WSASend failed for {}, error: {}", connection->mClientAddr, sendResult.error);
+            }
+            co_return false;
+        }
+
+        sent += sendResult.bytes;
+        connection->MarkActive();
+    }
+
+    co_return true;
 }
 
 bool AccountServer::StartIdleTimer()
@@ -739,11 +973,6 @@ void AccountServer::Stop()
 
     StopIdleTimer();
 
-    if (mIocpAwaiter != nullptr)
-    {
-        mIocpAwaiter->StopAcceptingWork();
-    }
-
     const SOCKET listenSocket = mListenSocket.exchange(INVALID_SOCKET);
     if (listenSocket != INVALID_SOCKET)
     {
@@ -766,10 +995,22 @@ void AccountServer::Stop()
         connection->RequestClose();
     }
 
+    if (mHttpClient != nullptr)
+    {
+        mHttpClient->CancelAll();
+    }
+
     WaitForConnectionsToClose();
+
+    if (mHttpClient != nullptr)
+    {
+        mHttpClient->WaitForIdle();
+        mHttpClient.reset();
+    }
 
     if (mIocpAwaiter != nullptr)
     {
+        mIocpAwaiter->StopAcceptingWork();
         mIocpAwaiter->WaitForIdle();
         mIocpAwaiter->Shutdown();
         mIocpAwaiter.reset();

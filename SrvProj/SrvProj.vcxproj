@@ -154,6 +154,7 @@
     <ClCompile Include="AccountController.cpp" />
     <ClCompile Include="AccountServer.cpp" />
     <ClCompile Include="IOCPAwaiter.cpp" />
+    <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="AeadTool.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="DbMgr.cpp" />
@@ -502,7 +503,9 @@
     <ClInclude Include="AccountController.h" />
     <ClInclude Include="AccountServer.h" />
     <ClInclude Include="AeadTool.h" />
+    <ClInclude Include="AsyncTask.h" />
     <ClInclude Include="IOCPAwaiter.h" />
+    <ClInclude Include="HttpClient.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DbMgr.h" />
     <ClInclude Include="GameConstants.h" />

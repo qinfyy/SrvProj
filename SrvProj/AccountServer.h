@@ -23,12 +23,40 @@
 
 #include "Logger.h"
 #include "IOCPAwaiter.h"
+#include "HttpClient.h"
 
 class HttpRequest;
 class HttpResponse;
 class DetachedTask;
+class HttpClient;
 
-using RouteHandler = std::function<void(const HttpRequest&, HttpResponse&)>;
+class RouteContext
+{
+public:
+    RouteContext(IOCPAwaiter& iocpAwaiter, HttpClient& httpClient)
+        : mIocpAwaiter(iocpAwaiter), mHttpClient(httpClient)
+    {
+    }
+
+    IOCPAwaiter& Runtime() const
+    {
+        return mIocpAwaiter;
+    }
+
+    HttpClient& Http() const
+    {
+        return mHttpClient;
+    }
+
+private:
+    IOCPAwaiter& mIocpAwaiter;
+    HttpClient& mHttpClient;
+};
+
+using RouteHandler = std::function<AsyncTask<void>(RouteContext&, const HttpRequest&, HttpResponseWriter&)>;
+using SynchronousRouteHandler = std::function<void(const HttpRequest&, HttpResponse&)>;
+
+RouteHandler MakeBlockingRoute(SynchronousRouteHandler handler);
 
 class RouteEntry {
 public:
@@ -66,6 +94,7 @@ public:
 
 private:
     struct Connection;
+    class ConnectionResponseWriter;
 
     bool StartAccept();
     DetachedTask AcceptLoop(SOCKET listenSocket, SOCKET clientSocket);
@@ -83,7 +112,8 @@ private:
 
     bool ParseHttpRequest(const std::string& buffer, size_t& consumed, HttpRequest& request);
     bool ShouldCloseConnection(int requestCount, bool connectionClose) const;
-    bool DispatchRoute(const HttpRequest& req, HttpResponse& resp);
+    AsyncTask<void> DispatchRoute(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+    AsyncTask<bool> SendAll(const std::shared_ptr<Connection>& connection, const char* data, size_t length);
 
     static bool MatchWildcard(const std::string& pattern, const std::string& str);
 
@@ -97,6 +127,7 @@ private:
     LogLevel mLogLevel;
 
     std::unique_ptr<IOCPAwaiter> mIocpAwaiter;
+    std::unique_ptr<HttpClient> mHttpClient;
     LPFN_ACCEPTEX mAcceptEx = nullptr;
     LPFN_GETACCEPTEXSOCKADDRS mGetAcceptExSockaddrs = nullptr;
     HANDLE mIdleTimer = nullptr;

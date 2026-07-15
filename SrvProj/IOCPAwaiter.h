@@ -34,7 +34,14 @@ private:
         std::exception_ptr exception;
     };
 
+    struct ExternalOperation
+    {
+        OVERLAPPED overlapped{};
+        std::coroutine_handle<> continuation{};
+    };
+
     static constexpr ULONG_PTR ShutdownCompletionKey = 1;
+    static constexpr ULONG_PTR ExternalCompletionKey = 2;
 
 public:
     struct IoResult
@@ -127,6 +134,7 @@ public:
         char* addressBuffer, DWORD addressBufferLength);
     BlockingAwaiter RunBlocking(std::function<void()> task);
 
+    bool PostContinuation(std::coroutine_handle<> continuation);
     void StopAcceptingWork();
     void WaitForIdle();
     void Shutdown();

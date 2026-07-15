@@ -93,6 +93,9 @@
     <ClCompile Include="IOCPAwaiter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="HttpClient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -1143,6 +1146,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="IOCPAwaiter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncTask.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Util.h">

@@ -1,6 +1,9 @@
 ﻿#pragma once
-#include "../HttpMessage.h"
+#include "../AsyncTask.h"
+#include "../HttpClient.h"
 
-void AgentHandler(const HttpRequest& req, HttpResponse& rsp);
+class RouteContext;
+
+AsyncTask<void> AgentHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
 
 std::string DummyHandler(short reqId);
