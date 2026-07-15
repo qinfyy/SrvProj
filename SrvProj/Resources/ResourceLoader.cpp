@@ -335,10 +335,10 @@ template<typename T, typename Container>
 void LoadRes(ResourceLoadSource* source, Container& container) {
     auto resName = GetTypeName<T>();
     if (source->useBytes) {
-        LoadJsonRes<T>(source->jsonBinPath, container, resName);
+        LoadBytesRes<T>(source->arc, container, resName);
     }
     else {
-        LoadBytesRes<T>(source->arc, container, resName);
+        LoadJsonRes<T>(source->jsonBinPath, container, resName);
     }
 }
 
