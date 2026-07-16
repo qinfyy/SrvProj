@@ -4,6 +4,8 @@
 #include <utility>
 #include <vector>
 
+#include "AsyncTask.h"
+
 enum class HttpResponseBodyMode
 {
     ContentLength,
@@ -39,6 +41,23 @@ public:
     std::string GetHeader(const std::string& name) const;
     std::string ToHeadersString(HttpResponseBodyMode bodyMode, bool closeConnection) const;
     std::string ToString() const;
+};
+
+class HttpResponseWriter
+{
+public:
+    virtual ~HttpResponseWriter() = default;
+
+    virtual AsyncTask<bool> WriteHeaders(const HttpResponse& response, HttpResponseBodyMode bodyMode) = 0;
+    virtual AsyncTask<bool> WriteData(const char* data, size_t length) = 0;
+    virtual AsyncTask<bool> Finish() = 0;
+    virtual void Abort() noexcept = 0;
+    virtual bool UsesHttp11() const noexcept = 0;
+    virtual bool HasStarted() const noexcept = 0;
+    virtual bool IsFinished() const noexcept = 0;
+    virtual int StatusCode() const noexcept = 0;
+
+    AsyncTask<bool> WriteResponse(const HttpResponse& response);
 };
 
 std::string URLDecodeA(const std::string& encodedUrl);

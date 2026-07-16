@@ -388,8 +388,7 @@ void AccountServer::SetupRoutes()
     }
 }
 
-AsyncTask<void> AccountServer::DispatchRoute(RouteContext& context, const HttpRequest& req,
-    HttpResponseWriter& writer)
+AsyncTask<void> AccountServer::DispatchRoute(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer)
 {
     const std::string pathWithoutQuery = req.GetPathWithoutQuery();
     const std::string method = req.method;
@@ -529,8 +528,7 @@ bool AccountServer::Start()
 
     DWORD bytes = 0;
     GUID acceptExGuid = WSAID_ACCEPTEX;
-    if (WSAIoctl(listenSocket, SIO_GET_EXTENSION_FUNCTION_POINTER, &acceptExGuid, sizeof(acceptExGuid),
-        &mAcceptEx, sizeof(mAcceptEx), &bytes, nullptr, nullptr) == SOCKET_ERROR)
+    if (WSAIoctl(listenSocket, SIO_GET_EXTENSION_FUNCTION_POINTER, &acceptExGuid, sizeof(acceptExGuid), &mAcceptEx, sizeof(mAcceptEx), &bytes, nullptr, nullptr) == SOCKET_ERROR)
     {
         LOG_ERROR("Failed to load AcceptEx, error: {}", WSAGetLastError());
         closesocket(listenSocket);
@@ -621,8 +619,7 @@ DetachedTask AccountServer::AcceptLoop(SOCKET listenSocket, SOCKET clientSocket)
 
     try
     {
-        const IOCPAwaiter::IoResult result = co_await mIocpAwaiter->Accept(
-            mAcceptEx, listenSocket, clientSocket, addressBuffer.data(), static_cast<DWORD>(addressBuffer.size()));
+        const IOCPAwaiter::IoResult result = co_await mIocpAwaiter->Accept(mAcceptEx, listenSocket, clientSocket, addressBuffer.data(), static_cast<DWORD>(addressBuffer.size()));
 
         if (result && mRunning.load())
         {

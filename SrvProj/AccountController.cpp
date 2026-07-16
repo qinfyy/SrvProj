@@ -19,7 +19,7 @@
 AsyncTask<std::optional<ServerListMeta>> GetServerList(RouteContext& context)
 {
     const HttpClient::Response upstream = co_await context.Http().Get(
-        L"nova-static.stargazer-games.com", L"/meta/serverlist.html",
+        "https://nova-static.stargazer-games.com/meta/serverlist.html",
         { { "User-Agent", "UnityPlayer/2022.3.62f2 (UnityWebRequest/1.0, libcurl/8.10.1-DEV)" } });
     if (!upstream.Succeeded() || upstream.response.statusCode != 200 || upstream.response.body.size() <= 16)
     {
@@ -452,5 +452,5 @@ AsyncTask<void> VersionHandler(RouteContext& context, const HttpRequest& request
 
 AsyncTask<void> NoticeListHandler(RouteContext& context, const HttpRequest& request, HttpResponseWriter& writer)
 {
-    co_await context.Http().ProxyGet(request, writer);
+    co_await context.Http().Proxy(request, writer, "https://nova-static.stargazer-games.com/");
 }

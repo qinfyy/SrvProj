@@ -26,36 +26,6 @@
 
 class IOCPAwaiter;
 
-class HttpResponseWriter
-{
-public:
-    virtual ~HttpResponseWriter() = default;
-
-    virtual AsyncTask<bool> WriteHeaders(const HttpResponse& response, HttpResponseBodyMode bodyMode) = 0;
-    virtual AsyncTask<bool> WriteData(const char* data, size_t length) = 0;
-    virtual AsyncTask<bool> Finish() = 0;
-    virtual void Abort() noexcept = 0;
-    virtual bool UsesHttp11() const noexcept = 0;
-    virtual bool HasStarted() const noexcept = 0;
-    virtual bool IsFinished() const noexcept = 0;
-    virtual int StatusCode() const noexcept = 0;
-
-    AsyncTask<bool> WriteResponse(const HttpResponse& response)
-    {
-        if (!(co_await WriteHeaders(response, HttpResponseBodyMode::ContentLength)))
-        {
-            co_return false;
-        }
-
-        if (!response.body.empty() && !(co_await WriteData(response.body.data(), response.body.size())))
-        {
-            co_return false;
-        }
-
-        co_return co_await Finish();
-    }
-};
-
 class HttpClient
 {
 public:
@@ -71,15 +41,26 @@ public:
         }
     };
 
+    struct RequestOptions
+    {
+        std::string method = "GET";
+        std::string url;
+        std::vector<std::pair<std::string, std::string>> headers;
+        std::string body;
+    };
+
     explicit HttpClient(IOCPAwaiter& iocpAwaiter);
     ~HttpClient();
 
     HttpClient(const HttpClient&) = delete;
     HttpClient& operator=(const HttpClient&) = delete;
 
-    AsyncTask<Response> Get(const std::wstring& host, const std::wstring& path,
-        const std::vector<std::pair<std::string, std::string>>& requestHeaders = {});
-    AsyncTask<bool> ProxyGet(const HttpRequest& request, HttpResponseWriter& writer);
+    AsyncTask<Response> Request(const RequestOptions& options);
+    AsyncTask<Response> Get(const std::string& url, const std::vector<std::pair<std::string, std::string>>& requestHeaders = {});
+    AsyncTask<Response> Post(const std::string& url, const std::string& body, const std::vector<std::pair<std::string, std::string>>& requestHeaders = {});
+    AsyncTask<Response> Put(const std::string& url, const std::string& body, const std::vector<std::pair<std::string, std::string>>& requestHeaders = {});
+    AsyncTask<Response> Delete(const std::string& url, const std::vector<std::pair<std::string, std::string>>& requestHeaders = {});
+    AsyncTask<bool> Proxy(const HttpRequest& request, HttpResponseWriter& writer, const std::string& baseUrl);
 
     void CancelAll();
     void WaitForIdle();
@@ -105,13 +86,20 @@ private:
         }
     };
 
+    struct Target
+    {
+        std::wstring host;
+        std::wstring path;
+        INTERNET_PORT port = 0;
+        bool secure = false;
+    };
+
     struct RequestState;
 
     class OperationAwaiter
     {
     public:
-        OperationAwaiter(std::shared_ptr<RequestState> state, PendingOperation operation,
-            char* buffer = nullptr, DWORD bufferLength = 0);
+        OperationAwaiter(std::shared_ptr<RequestState> state, PendingOperation operation, char* buffer = nullptr, DWORD bufferLength = 0);
 
         bool await_ready() const noexcept;
         bool await_suspend(std::coroutine_handle<> continuation);
@@ -124,14 +112,14 @@ private:
         DWORD mBufferLength;
     };
 
-    AsyncTask<std::shared_ptr<RequestState>> OpenGet(const std::wstring& host, const std::wstring& path,
-        const std::vector<std::pair<std::string, std::string>>& requestHeaders, OperationResult& result);
+    static bool ParseUrl(const std::string& url, Target& out);
+    static bool JoinProxyTarget(const std::string& baseUrl, const HttpRequest& request, Target& out, std::string& method);
+    AsyncTask<std::shared_ptr<RequestState>> OpenRequest(const Target& target, const std::wstring& method, const std::vector<std::pair<std::string, std::string>>& requestHeaders, std::string body, OperationResult& result);
     AsyncTask<bool> WriteGatewayError(HttpResponseWriter& writer, int statusCode);
     void CloseRequest(const std::shared_ptr<RequestState>& state);
     void RemoveRequest(uint64_t id);
     bool StartOperation(RequestState& state, PendingOperation operation, char* buffer, DWORD bufferLength);
-    static void CALLBACK StatusCallback(HINTERNET handle, DWORD_PTR context, DWORD status,
-        LPVOID statusInformation, DWORD statusInformationLength);
+    static void CALLBACK StatusCallback(HINTERNET handle, DWORD_PTR context, DWORD status, LPVOID statusInformation, DWORD statusInformationLength);
 
     IOCPAwaiter& mIocpAwaiter;
     HINTERNET mSession = nullptr;

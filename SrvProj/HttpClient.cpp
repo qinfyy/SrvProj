@@ -11,7 +11,6 @@
 #endif
 
 #include <algorithm>
-#include <array>
 #include <charconv>
 #include <cctype>
 #include <limits>
@@ -38,6 +37,16 @@ std::string ToLowerAscii(const std::string& value)
     return result;
 }
 
+std::string ToUpperAscii(std::string value)
+{
+    std::transform(value.begin(), value.end(), value.begin(),
+        [](unsigned char character)
+        {
+            return static_cast<char>(std::toupper(character));
+        });
+    return value;
+}
+
 void AddConnectionTokens(const std::string& value, std::unordered_set<std::string>& names)
 {
     size_t begin = 0;
@@ -45,10 +54,10 @@ void AddConnectionTokens(const std::string& value, std::unordered_set<std::strin
     {
         const size_t comma = value.find(',', begin);
         const size_t end = comma == std::string::npos ? value.size() : comma;
-        const size_t tokenBegin = value.find_first_not_of(" 	", begin);
+        const size_t tokenBegin = value.find_first_not_of(" \t", begin);
         if (tokenBegin != std::string::npos && tokenBegin < end)
         {
-            const size_t tokenEnd = value.find_last_not_of(" 	", end - 1);
+            const size_t tokenEnd = value.find_last_not_of(" \t", end - 1);
             names.emplace(ToLowerAscii(value.substr(tokenBegin, tokenEnd - tokenBegin + 1)));
         }
         begin = end + 1;
@@ -235,6 +244,109 @@ std::optional<uint64_t> PopulateResponseHeaders(HINTERNET request, HttpResponse&
 
     return contentLength;
 }
+
+bool HasHeaderName(const std::vector<std::pair<std::string, std::string>>& headers, const std::string& name)
+{
+    const std::string lowerName = ToLowerAscii(name);
+    for (const auto& [headerName, value] : headers)
+    {
+        if (ToLowerAscii(headerName) == lowerName)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+}
+
+bool HttpClient::ParseUrl(const std::string& url, Target& out)
+{
+    const std::wstring wideUrl = Utf8ToUtf16(url);
+    if (wideUrl.empty())
+    {
+        return false;
+    }
+
+    URL_COMPONENTS components{};
+    components.dwStructSize = sizeof(components);
+    components.dwSchemeLength = static_cast<DWORD>(-1);
+    components.dwHostNameLength = static_cast<DWORD>(-1);
+    components.dwUrlPathLength = static_cast<DWORD>(-1);
+    components.dwExtraInfoLength = static_cast<DWORD>(-1);
+
+    if (!WinHttpCrackUrl(wideUrl.c_str(), static_cast<DWORD>(wideUrl.size()), 0, &components))
+    {
+        return false;
+    }
+
+    if (components.nScheme == INTERNET_SCHEME_HTTPS)
+    {
+        out.secure = true;
+    }
+    else if (components.nScheme == INTERNET_SCHEME_HTTP)
+    {
+        out.secure = false;
+    }
+    else
+    {
+        return false;
+    }
+
+    if (components.lpszHostName == nullptr || components.dwHostNameLength == 0)
+    {
+        return false;
+    }
+
+    out.host.assign(components.lpszHostName, components.dwHostNameLength);
+    out.port = components.nPort;
+
+    out.path.clear();
+    if (components.lpszUrlPath != nullptr && components.dwUrlPathLength > 0)
+    {
+        out.path.assign(components.lpszUrlPath, components.dwUrlPathLength);
+    }
+    if (components.lpszExtraInfo != nullptr && components.dwExtraInfoLength > 0)
+    {
+        out.path.append(components.lpszExtraInfo, components.dwExtraInfoLength);
+    }
+    if (out.path.empty())
+    {
+        out.path = L"/";
+    }
+
+    return true;
+}
+
+bool HttpClient::JoinProxyTarget(const std::string& baseUrl, const HttpRequest& request, Target& out,
+    std::string& method)
+{
+    if (!ParseUrl(baseUrl, out))
+    {
+        return false;
+    }
+
+    std::wstring basePath = out.path;
+    if (basePath == L"/")
+    {
+        basePath.clear();
+    }
+    else
+    {
+        while (!basePath.empty() && basePath.back() == L'/')
+        {
+            basePath.pop_back();
+        }
+    }
+
+    std::wstring requestPath = Utf8ToUtf16(request.path);
+    if (requestPath.empty() || requestPath.front() != L'/')
+    {
+        requestPath = L"/" + requestPath;
+    }
+
+    out.path = basePath + requestPath;
+    method = request.method.empty() ? "GET" : ToUpperAscii(request.method);
+    return true;
 }
 
 struct HttpClient::RequestState
@@ -420,6 +532,7 @@ struct HttpClient::RequestState
     PendingOperation pending = PendingOperation::None;
     std::coroutine_handle<> continuation{};
     OperationResult result{};
+    std::string requestBody;
     bool closed = false;
     bool callbackRegistered = false;
     bool callbackRegistrationInProgress = false;
@@ -467,8 +580,7 @@ HttpClient::OperationResult HttpClient::OperationAwaiter::await_resume() const n
 HttpClient::HttpClient(IOCPAwaiter& iocpAwaiter)
     : mIocpAwaiter(iocpAwaiter)
 {
-    mSession = WinHttpOpen(L"SrvProj/1.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME,
-        WINHTTP_NO_PROXY_BYPASS, WINHTTP_FLAG_ASYNC);
+    mSession = WinHttpOpen(L"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, WINHTTP_FLAG_ASYNC);
     if (mSession == nullptr)
     {
         throw std::runtime_error("WinHttpOpen failed");
@@ -489,10 +601,20 @@ HttpClient::~HttpClient()
     }
 }
 
-AsyncTask<std::shared_ptr<HttpClient::RequestState>> HttpClient::OpenGet(const std::wstring& host,
-    const std::wstring& path, const std::vector<std::pair<std::string, std::string>>& requestHeaders,
-    OperationResult& result)
+AsyncTask<std::shared_ptr<HttpClient::RequestState>> HttpClient::OpenRequest(const Target& target, const std::wstring& method, const std::vector<std::pair<std::string, std::string>>& requestHeaders, std::string body, OperationResult& result)
 {
+    if (target.host.empty() || method.empty())
+    {
+        result = { ERROR_INVALID_PARAMETER, 0 };
+        co_return nullptr;
+    }
+
+    if (body.size() > static_cast<size_t>((std::numeric_limits<DWORD>::max)()))
+    {
+        result = { ERROR_FILE_TOO_LARGE, 0 };
+        co_return nullptr;
+    }
+
     std::shared_ptr<RequestState> state;
     {
         std::lock_guard<std::mutex> lock(mRequestsMutex);
@@ -503,10 +625,11 @@ AsyncTask<std::shared_ptr<HttpClient::RequestState>> HttpClient::OpenGet(const s
         }
 
         state = std::make_shared<RequestState>(*this, mNextRequestId++);
+        state->requestBody = std::move(body);
         mRequests.emplace(state->id, state);
     }
 
-    HINTERNET connection = WinHttpConnect(mSession, host.c_str(), INTERNET_DEFAULT_HTTPS_PORT, 0);
+    HINTERNET connection = WinHttpConnect(mSession, target.host.c_str(), target.port, 0);
     if (connection == nullptr)
     {
         result = { GetLastError(), 0 };
@@ -522,8 +645,9 @@ AsyncTask<std::shared_ptr<HttpClient::RequestState>> HttpClient::OpenGet(const s
         co_return nullptr;
     }
 
-    HINTERNET request = WinHttpOpenRequest(connection, L"GET", path.c_str(), nullptr, WINHTTP_NO_REFERER,
-        WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
+    const DWORD flags = target.secure ? WINHTTP_FLAG_SECURE : 0;
+    HINTERNET request = WinHttpOpenRequest(connection, method.c_str(), target.path.c_str(), nullptr,
+        WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, flags);
     if (request == nullptr)
     {
         result = { GetLastError(), 0 };
@@ -577,6 +701,17 @@ AsyncTask<std::shared_ptr<HttpClient::RequestState>> HttpClient::OpenGet(const s
         }
     }
 
+    if (!state->requestBody.empty() && !HasHeaderName(requestHeaders, "Content-Length"))
+    {
+        const std::wstring contentLengthHeader = L"Content-Length: " + std::to_wstring(state->requestBody.size());
+        if (!WinHttpAddRequestHeaders(request, contentLengthHeader.c_str(), static_cast<DWORD>(contentLengthHeader.size()), WINHTTP_ADDREQ_FLAG_ADD))
+        {
+            result = { GetLastError(), 0 };
+            CloseRequest(state);
+            co_return nullptr;
+        }
+    }
+
     result = co_await OperationAwaiter(state, PendingOperation::Send);
     if (!result.Succeeded())
     {
@@ -594,12 +729,20 @@ AsyncTask<std::shared_ptr<HttpClient::RequestState>> HttpClient::OpenGet(const s
     co_return state;
 }
 
-AsyncTask<HttpClient::Response> HttpClient::Get(const std::wstring& host, const std::wstring& path,
-    const std::vector<std::pair<std::string, std::string>>& requestHeaders)
+AsyncTask<HttpClient::Response> HttpClient::Request(const RequestOptions& options)
 {
     Response response;
+    Target target;
+    if (!ParseUrl(options.url, target))
+    {
+        response.error = ERROR_WINHTTP_INVALID_URL;
+        co_return response;
+    }
+
+    const std::string method = ToUpperAscii(options.method.empty() ? "GET" : options.method);
     OperationResult result;
-    const std::shared_ptr<RequestState> state = co_await OpenGet(host, path, requestHeaders, result);
+    const std::shared_ptr<RequestState> state = co_await OpenRequest(target, Utf8ToUtf16(method),
+        options.headers, options.body, result);
     if (state == nullptr)
     {
         response.error = result.error;
@@ -608,7 +751,7 @@ AsyncTask<HttpClient::Response> HttpClient::Get(const std::wstring& host, const 
     }
 
     PopulateResponseHeaders(state->RequestHandle(), response.response);
-    std::array<char, StreamBufferSize> buffer{};
+    std::string buffer(StreamBufferSize, '\0');
     while (true)
     {
         result = co_await OperationAwaiter(state, PendingOperation::QueryData);
@@ -646,6 +789,48 @@ AsyncTask<HttpClient::Response> HttpClient::Get(const std::wstring& host, const 
     co_return response;
 }
 
+AsyncTask<HttpClient::Response> HttpClient::Get(const std::string& url,
+    const std::vector<std::pair<std::string, std::string>>& requestHeaders)
+{
+    RequestOptions options;
+    options.method = "GET";
+    options.url = url;
+    options.headers = requestHeaders;
+    co_return co_await Request(options);
+}
+
+AsyncTask<HttpClient::Response> HttpClient::Post(const std::string& url, const std::string& body,
+    const std::vector<std::pair<std::string, std::string>>& requestHeaders)
+{
+    RequestOptions options;
+    options.method = "POST";
+    options.url = url;
+    options.headers = requestHeaders;
+    options.body = body;
+    co_return co_await Request(options);
+}
+
+AsyncTask<HttpClient::Response> HttpClient::Put(const std::string& url, const std::string& body,
+    const std::vector<std::pair<std::string, std::string>>& requestHeaders)
+{
+    RequestOptions options;
+    options.method = "PUT";
+    options.url = url;
+    options.headers = requestHeaders;
+    options.body = body;
+    co_return co_await Request(options);
+}
+
+AsyncTask<HttpClient::Response> HttpClient::Delete(const std::string& url,
+    const std::vector<std::pair<std::string, std::string>>& requestHeaders)
+{
+    RequestOptions options;
+    options.method = "DELETE";
+    options.url = url;
+    options.headers = requestHeaders;
+    co_return co_await Request(options);
+}
+
 AsyncTask<bool> HttpClient::WriteGatewayError(HttpResponseWriter& writer, int statusCode)
 {
     HttpResponse response;
@@ -656,27 +841,18 @@ AsyncTask<bool> HttpClient::WriteGatewayError(HttpResponseWriter& writer, int st
     co_return co_await writer.WriteResponse(response);
 }
 
-AsyncTask<bool> HttpClient::ProxyGet(const HttpRequest& request, HttpResponseWriter& writer)
-{
-    if (request.method != "GET")
+AsyncTask<bool> HttpClient::Proxy(const HttpRequest& request, HttpResponseWriter& writer, const std::string& baseUrl) {
+    Target target;
+    std::string method;
+    if (!JoinProxyTarget(baseUrl, request, target, method))
     {
-        HttpResponse response;
-        response.statusCode = 405;
-        response.statusText.clear();
-        response.headers["Content-Type"] = "text/plain";
-        response.body = "Method Not Allowed";
-        co_return co_await writer.WriteResponse(response);
-    }
-
-    std::wstring path = Utf8ToUtf16(request.path);
-    if (path.empty() || path.front() != L'/')
-    {
-        path = L"/";
+        co_await WriteGatewayError(writer, 502);
+        co_return false;
     }
 
     OperationResult result;
-    const std::shared_ptr<RequestState> state = co_await OpenGet(
-        L"nova-static.stargazer-games.com", path, BuildForwardHeaders(request), result);
+    const std::shared_ptr<RequestState> state = co_await OpenRequest(target, Utf8ToUtf16(method),
+        BuildForwardHeaders(request), request.body, result);
     if (state == nullptr)
     {
         co_await WriteGatewayError(writer, result.error == ERROR_WINHTTP_TIMEOUT ? 504 : 502);
@@ -706,7 +882,7 @@ AsyncTask<bool> HttpClient::ProxyGet(const HttpRequest& request, HttpResponseWri
         co_return false;
     }
 
-    std::array<char, StreamBufferSize> buffer{};
+    std::string buffer(StreamBufferSize, '\0');
     uint64_t transferred = 0;
     while (true)
     {
@@ -823,8 +999,17 @@ bool HttpClient::StartOperation(RequestState& state, PendingOperation operation,
     switch (operation)
     {
     case PendingOperation::Send:
-        return WinHttpSendRequest(request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0,
-            reinterpret_cast<DWORD_PTR>(&state)) == TRUE;
+    {
+        LPVOID optional = WINHTTP_NO_REQUEST_DATA;
+        DWORD optionalLength = 0;
+        if (!state.requestBody.empty())
+        {
+            optional = const_cast<char*>(state.requestBody.data());
+            optionalLength = static_cast<DWORD>(state.requestBody.size());
+        }
+        return WinHttpSendRequest(request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, optional, optionalLength,
+            optionalLength, reinterpret_cast<DWORD_PTR>(&state)) == TRUE;
+    }
     case PendingOperation::Receive:
         return WinHttpReceiveResponse(request, nullptr) == TRUE;
     case PendingOperation::QueryData:

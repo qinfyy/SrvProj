@@ -240,6 +240,21 @@ std::string HttpResponse::ToString() const {
     return ToHeadersString(HttpResponseBodyMode::ContentLength, closeConnection) + body;
 }
 
+AsyncTask<bool> HttpResponseWriter::WriteResponse(const HttpResponse& response)
+{
+    if (!(co_await WriteHeaders(response, HttpResponseBodyMode::ContentLength)))
+    {
+        co_return false;
+    }
+
+    if (!response.body.empty() && !(co_await WriteData(response.body.data(), response.body.size())))
+    {
+        co_return false;
+    }
+
+    co_return co_await Finish();
+}
+
 std::string HttpRequest::GetPathWithoutQuery() const {
     size_t queryPos = path.find('?');
     if (queryPos != std::string::npos) {
