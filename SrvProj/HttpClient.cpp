@@ -545,12 +545,12 @@ HttpClient::OperationAwaiter::OperationAwaiter(std::shared_ptr<RequestState> sta
 {
 }
 
-bool HttpClient::OperationAwaiter::await_ready() const noexcept
+bool HttpClient::OperationAwaiter::IsCompleted() const noexcept
 {
     return false;
 }
 
-bool HttpClient::OperationAwaiter::await_suspend(std::coroutine_handle<> continuation)
+bool HttpClient::OperationAwaiter::OnCompleted(std::coroutine_handle<> continuation)
 {
     if (!mState->Begin(mOperation, continuation))
     {
@@ -572,7 +572,7 @@ bool HttpClient::OperationAwaiter::await_suspend(std::coroutine_handle<> continu
     return false;
 }
 
-HttpClient::OperationResult HttpClient::OperationAwaiter::await_resume() const noexcept
+HttpClient::OperationResult HttpClient::OperationAwaiter::GetResult() const noexcept
 {
     return mState->Consume();
 }

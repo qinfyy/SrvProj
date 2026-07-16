@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../AsyncTask.h"
+// HttpClient 先带入 winsock2，再间接提供 AsyncTask
 #include "../HttpClient.h"
 
 class RouteContext;

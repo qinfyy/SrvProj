@@ -47,47 +47,6 @@ namespace
     }
 }
 
-class DetachedTask
-{
-public:
-    struct promise_type
-    {
-        DetachedTask get_return_object() noexcept
-        {
-            return {};
-        }
-
-        std::suspend_never initial_suspend() noexcept
-        {
-            return {};
-        }
-
-        std::suspend_never final_suspend() noexcept
-        {
-            return {};
-        }
-
-        void return_void() noexcept
-        {}
-
-        void unhandled_exception() noexcept
-        {
-            try
-            {
-                throw;
-            }
-            catch (const std::exception& e)
-            {
-                LOG_ERROR("Unhandled AccountServer coroutine exception: {}", e.what());
-            }
-            catch (...)
-            {
-                LOG_ERROR("Unhandled AccountServer coroutine exception");
-            }
-        }
-    };
-};
-
 RouteHandler MakeBlockingRoute(SynchronousRouteHandler handler)
 {
     return [handler = std::move(handler)](RouteContext& context, const HttpRequest& request,
@@ -451,7 +410,7 @@ bool AccountServer::Start()
     }
 
     const size_t hardwareThreads = std::thread::hardware_concurrency();
-    const size_t workerCount = std::max<size_t>(2, hardwareThreads);
+    const size_t workerCount = std::max<size_t>(hardwareThreads, hardwareThreads * 4);
 
     try
     {

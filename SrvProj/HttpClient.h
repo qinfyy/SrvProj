@@ -96,14 +96,14 @@ private:
 
     struct RequestState;
 
-    class OperationAwaiter
+    class OperationAwaiter : public Awaiter<OperationAwaiter, OperationResult>
     {
     public:
         OperationAwaiter(std::shared_ptr<RequestState> state, PendingOperation operation, char* buffer = nullptr, DWORD bufferLength = 0);
 
-        bool await_ready() const noexcept;
-        bool await_suspend(std::coroutine_handle<> continuation);
-        OperationResult await_resume() const noexcept;
+        bool IsCompleted() const noexcept;
+        bool OnCompleted(std::coroutine_handle<> continuation);
+        OperationResult GetResult() const noexcept;
 
     private:
         std::shared_ptr<RequestState> mState;

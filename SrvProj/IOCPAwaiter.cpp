@@ -59,12 +59,12 @@ IOCPAwaiter::ReceiveAwaiter::ReceiveAwaiter(IOCPAwaiter& awaiter, SOCKET socket,
     mBuffer.len = length;
 }
 
-bool IOCPAwaiter::ReceiveAwaiter::await_ready() const noexcept
+bool IOCPAwaiter::ReceiveAwaiter::IsCompleted() const noexcept
 {
     return false;
 }
 
-bool IOCPAwaiter::ReceiveAwaiter::await_suspend(std::coroutine_handle<> continuation)
+bool IOCPAwaiter::ReceiveAwaiter::OnCompleted(std::coroutine_handle<> continuation)
 {
     Operation* operation = &mOperation;
     if (!mAwaiter.BeginOperation(*operation, continuation))
@@ -91,7 +91,7 @@ bool IOCPAwaiter::ReceiveAwaiter::await_suspend(std::coroutine_handle<> continua
     return false;
 }
 
-IOCPAwaiter::IoResult IOCPAwaiter::ReceiveAwaiter::await_resume() const noexcept
+IOCPAwaiter::IoResult IOCPAwaiter::ReceiveAwaiter::GetResult() const noexcept
 {
     return { mOperation.bytes, mOperation.error };
 }
@@ -103,12 +103,12 @@ IOCPAwaiter::SendAwaiter::SendAwaiter(IOCPAwaiter& awaiter, SOCKET socket, const
     mBuffer.len = length;
 }
 
-bool IOCPAwaiter::SendAwaiter::await_ready() const noexcept
+bool IOCPAwaiter::SendAwaiter::IsCompleted() const noexcept
 {
     return false;
 }
 
-bool IOCPAwaiter::SendAwaiter::await_suspend(std::coroutine_handle<> continuation)
+bool IOCPAwaiter::SendAwaiter::OnCompleted(std::coroutine_handle<> continuation)
 {
     Operation* operation = &mOperation;
     if (!mAwaiter.BeginOperation(*operation, continuation))
@@ -134,7 +134,7 @@ bool IOCPAwaiter::SendAwaiter::await_suspend(std::coroutine_handle<> continuatio
     return false;
 }
 
-IOCPAwaiter::IoResult IOCPAwaiter::SendAwaiter::await_resume() const noexcept
+IOCPAwaiter::IoResult IOCPAwaiter::SendAwaiter::GetResult() const noexcept
 {
     return { mOperation.bytes, mOperation.error };
 }
@@ -146,12 +146,12 @@ IOCPAwaiter::AcceptAwaiter::AcceptAwaiter(IOCPAwaiter& awaiter, LPFN_ACCEPTEX ac
 {
 }
 
-bool IOCPAwaiter::AcceptAwaiter::await_ready() const noexcept
+bool IOCPAwaiter::AcceptAwaiter::IsCompleted() const noexcept
 {
     return false;
 }
 
-bool IOCPAwaiter::AcceptAwaiter::await_suspend(std::coroutine_handle<> continuation)
+bool IOCPAwaiter::AcceptAwaiter::OnCompleted(std::coroutine_handle<> continuation)
 {
     Operation* operation = &mOperation;
     if (!mAwaiter.BeginOperation(*operation, continuation))
@@ -178,7 +178,7 @@ bool IOCPAwaiter::AcceptAwaiter::await_suspend(std::coroutine_handle<> continuat
     return false;
 }
 
-IOCPAwaiter::IoResult IOCPAwaiter::AcceptAwaiter::await_resume() const noexcept
+IOCPAwaiter::IoResult IOCPAwaiter::AcceptAwaiter::GetResult() const noexcept
 {
     return { mOperation.bytes, mOperation.error };
 }
@@ -188,12 +188,12 @@ IOCPAwaiter::BlockingAwaiter::BlockingAwaiter(IOCPAwaiter& awaiter, std::functio
 {
 }
 
-bool IOCPAwaiter::BlockingAwaiter::await_ready() const noexcept
+bool IOCPAwaiter::BlockingAwaiter::IsCompleted() const noexcept
 {
     return false;
 }
 
-bool IOCPAwaiter::BlockingAwaiter::await_suspend(std::coroutine_handle<> continuation)
+bool IOCPAwaiter::BlockingAwaiter::OnCompleted(std::coroutine_handle<> continuation)
 {
     Operation* operation = &mOperation;
     if (!mAwaiter.BeginOperation(*operation, continuation))
@@ -229,7 +229,7 @@ bool IOCPAwaiter::BlockingAwaiter::await_suspend(std::coroutine_handle<> continu
     return true;
 }
 
-void IOCPAwaiter::BlockingAwaiter::await_resume()
+void IOCPAwaiter::BlockingAwaiter::GetResult()
 {
     if (mOperation.exception)
     {

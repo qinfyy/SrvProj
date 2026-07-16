@@ -2,10 +2,9 @@
 #include <iterator>
 #include <algorithm>
 #include <optional>
-#include "AsyncTask.h"
 #include "HttpClient.h"
-#include "proto/dump.pb.h"
 #include "HttpMessage.h"
+#include "proto/dump.pb.h"
 
 class RouteContext;
 

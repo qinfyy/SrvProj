@@ -22,6 +22,8 @@
 #include <thread>
 #include <vector>
 
+#include "AsyncTask.h"
+
 class IOCPAwaiter
 {
 private:
@@ -61,14 +63,14 @@ public:
     bool AssociateSocket(SOCKET socket);
     size_t CompletionThreadCount() const;
 
-    class ReceiveAwaiter
+    class ReceiveAwaiter : public Awaiter<ReceiveAwaiter, IoResult>
     {
     public:
         ReceiveAwaiter(IOCPAwaiter& awaiter, SOCKET socket, char* buffer, ULONG length);
 
-        bool await_ready() const noexcept;
-        bool await_suspend(std::coroutine_handle<> continuation);
-        IoResult await_resume() const noexcept;
+        bool IsCompleted() const noexcept;
+        bool OnCompleted(std::coroutine_handle<> continuation);
+        IoResult GetResult() const noexcept;
 
     private:
         IOCPAwaiter& mAwaiter;
@@ -77,14 +79,14 @@ public:
         Operation mOperation;
     };
 
-    class SendAwaiter
+    class SendAwaiter : public Awaiter<SendAwaiter, IoResult>
     {
     public:
         SendAwaiter(IOCPAwaiter& awaiter, SOCKET socket, const char* buffer, ULONG length);
 
-        bool await_ready() const noexcept;
-        bool await_suspend(std::coroutine_handle<> continuation);
-        IoResult await_resume() const noexcept;
+        bool IsCompleted() const noexcept;
+        bool OnCompleted(std::coroutine_handle<> continuation);
+        IoResult GetResult() const noexcept;
 
     private:
         IOCPAwaiter& mAwaiter;
@@ -93,15 +95,15 @@ public:
         Operation mOperation;
     };
 
-    class AcceptAwaiter
+    class AcceptAwaiter : public Awaiter<AcceptAwaiter, IoResult>
     {
     public:
         AcceptAwaiter(IOCPAwaiter& awaiter, LPFN_ACCEPTEX acceptEx, SOCKET listenSocket, SOCKET clientSocket,
             char* addressBuffer, DWORD addressBufferLength);
 
-        bool await_ready() const noexcept;
-        bool await_suspend(std::coroutine_handle<> continuation);
-        IoResult await_resume() const noexcept;
+        bool IsCompleted() const noexcept;
+        bool OnCompleted(std::coroutine_handle<> continuation);
+        IoResult GetResult() const noexcept;
 
     private:
         IOCPAwaiter& mAwaiter;
@@ -113,14 +115,14 @@ public:
         Operation mOperation;
     };
 
-    class BlockingAwaiter
+    class BlockingAwaiter : public Awaiter<BlockingAwaiter, void>
     {
     public:
         BlockingAwaiter(IOCPAwaiter& awaiter, std::function<void()> task);
 
-        bool await_ready() const noexcept;
-        bool await_suspend(std::coroutine_handle<> continuation);
-        void await_resume();
+        bool IsCompleted() const noexcept;
+        bool OnCompleted(std::coroutine_handle<> continuation);
+        void GetResult();
 
     private:
         IOCPAwaiter& mAwaiter;

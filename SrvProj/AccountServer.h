@@ -20,14 +20,12 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-
-#include "Logger.h"
 #include "IOCPAwaiter.h"
 #include "HttpClient.h"
+#include "Logger.h"
 
 class HttpRequest;
 class HttpResponse;
-class DetachedTask;
 class HttpClient;
 
 class RouteContext
