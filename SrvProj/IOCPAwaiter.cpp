@@ -91,7 +91,7 @@ bool IOCPAwaiter::ReceiveAwaiter::OnCompleted(std::coroutine_handle<> continuati
     return false;
 }
 
-IOCPAwaiter::IoResult IOCPAwaiter::ReceiveAwaiter::GetResult() const noexcept
+IOCPAwaiter::IoResult IOCPAwaiter::ReceiveAwaiter::GetResult()
 {
     return { mOperation.bytes, mOperation.error };
 }
@@ -134,7 +134,7 @@ bool IOCPAwaiter::SendAwaiter::OnCompleted(std::coroutine_handle<> continuation)
     return false;
 }
 
-IOCPAwaiter::IoResult IOCPAwaiter::SendAwaiter::GetResult() const noexcept
+IOCPAwaiter::IoResult IOCPAwaiter::SendAwaiter::GetResult()
 {
     return { mOperation.bytes, mOperation.error };
 }
@@ -178,7 +178,7 @@ bool IOCPAwaiter::AcceptAwaiter::OnCompleted(std::coroutine_handle<> continuatio
     return false;
 }
 
-IOCPAwaiter::IoResult IOCPAwaiter::AcceptAwaiter::GetResult() const noexcept
+IOCPAwaiter::IoResult IOCPAwaiter::AcceptAwaiter::GetResult()
 {
     return { mOperation.bytes, mOperation.error };
 }

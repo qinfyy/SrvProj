@@ -63,14 +63,14 @@ public:
     bool AssociateSocket(SOCKET socket);
     size_t CompletionThreadCount() const;
 
-    class ReceiveAwaiter : public Awaiter<ReceiveAwaiter, IoResult>
+    class ReceiveAwaiter : public Awaiter<IoResult>
     {
     public:
         ReceiveAwaiter(IOCPAwaiter& awaiter, SOCKET socket, char* buffer, ULONG length);
 
-        bool IsCompleted() const noexcept;
-        bool OnCompleted(std::coroutine_handle<> continuation);
-        IoResult GetResult() const noexcept;
+        bool IsCompleted() const noexcept override;
+        bool OnCompleted(std::coroutine_handle<> continuation) override;
+        IoResult GetResult() override;
 
     private:
         IOCPAwaiter& mAwaiter;
@@ -79,14 +79,14 @@ public:
         Operation mOperation;
     };
 
-    class SendAwaiter : public Awaiter<SendAwaiter, IoResult>
+    class SendAwaiter : public Awaiter<IoResult>
     {
     public:
         SendAwaiter(IOCPAwaiter& awaiter, SOCKET socket, const char* buffer, ULONG length);
 
-        bool IsCompleted() const noexcept;
-        bool OnCompleted(std::coroutine_handle<> continuation);
-        IoResult GetResult() const noexcept;
+        bool IsCompleted() const noexcept override;
+        bool OnCompleted(std::coroutine_handle<> continuation) override;
+        IoResult GetResult() override;
 
     private:
         IOCPAwaiter& mAwaiter;
@@ -95,15 +95,15 @@ public:
         Operation mOperation;
     };
 
-    class AcceptAwaiter : public Awaiter<AcceptAwaiter, IoResult>
+    class AcceptAwaiter : public Awaiter<IoResult>
     {
     public:
         AcceptAwaiter(IOCPAwaiter& awaiter, LPFN_ACCEPTEX acceptEx, SOCKET listenSocket, SOCKET clientSocket,
             char* addressBuffer, DWORD addressBufferLength);
 
-        bool IsCompleted() const noexcept;
-        bool OnCompleted(std::coroutine_handle<> continuation);
-        IoResult GetResult() const noexcept;
+        bool IsCompleted() const noexcept override;
+        bool OnCompleted(std::coroutine_handle<> continuation) override;
+        IoResult GetResult() override;
 
     private:
         IOCPAwaiter& mAwaiter;
@@ -115,14 +115,14 @@ public:
         Operation mOperation;
     };
 
-    class BlockingAwaiter : public Awaiter<BlockingAwaiter, void>
+    class BlockingAwaiter : public Awaiter<void>
     {
     public:
         BlockingAwaiter(IOCPAwaiter& awaiter, std::function<void()> task);
 
-        bool IsCompleted() const noexcept;
-        bool OnCompleted(std::coroutine_handle<> continuation);
-        void GetResult();
+        bool IsCompleted() const noexcept override;
+        bool OnCompleted(std::coroutine_handle<> continuation) override;
+        void GetResult() override;
 
     private:
         IOCPAwaiter& mAwaiter;

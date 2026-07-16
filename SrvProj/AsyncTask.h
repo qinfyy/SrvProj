@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <atomic>
 #include <coroutine>
@@ -12,70 +12,37 @@
 
 #include "Logger.h"
 
-template <typename Derived, typename TResult = void>
+template <typename TResult = void>
 class Awaiter
 {
 public:
+    virtual ~Awaiter() = default;
+
     bool await_ready() const noexcept
     {
-        return static_cast<const Derived*>(this)->IsCompleted();
+        return IsCompleted();
     }
 
-    decltype(auto) await_suspend(std::coroutine_handle<> continuation)
+    bool await_suspend(std::coroutine_handle<> continuation)
     {
-        return static_cast<Derived*>(this)->OnCompleted(continuation);
+        return OnCompleted(continuation);
     }
 
     TResult await_resume()
     {
-        return static_cast<Derived*>(this)->GetResult();
+        return GetResult();
     }
+
+    virtual bool IsCompleted() const noexcept = 0;
+    virtual bool OnCompleted(std::coroutine_handle<> continuation) = 0;
+    virtual TResult GetResult() = 0;
 
 protected:
     Awaiter() = default;
-    ~Awaiter() = default;
     Awaiter(const Awaiter&) = delete;
     Awaiter& operator=(const Awaiter&) = delete;
     Awaiter(Awaiter&&) = default;
     Awaiter& operator=(Awaiter&&) = default;
-};
-
-template <typename TResult = void>
-class IAwaiter
-{
-public:
-    virtual ~IAwaiter() = default;
-    virtual bool IsCompleted() const noexcept = 0;
-    virtual bool OnCompleted(std::coroutine_handle<> continuation) = 0;
-    virtual TResult GetResult() = 0;
-};
-
-template <typename TResult>
-class ErasedAwaiter : public Awaiter<ErasedAwaiter<TResult>, TResult>
-{
-public:
-    explicit ErasedAwaiter(IAwaiter<TResult>& inner) noexcept
-        : mInner(inner)
-    {
-    }
-
-    bool IsCompleted() const noexcept
-    {
-        return mInner.IsCompleted();
-    }
-
-    bool OnCompleted(std::coroutine_handle<> continuation)
-    {
-        return mInner.OnCompleted(continuation);
-    }
-
-    TResult GetResult()
-    {
-        return mInner.GetResult();
-    }
-
-private:
-    IAwaiter<TResult>& mInner;
 };
 
 template <typename T>
@@ -121,7 +88,7 @@ public:
         }
     }
 
-    struct TaskAwaiter : public ::Awaiter<TaskAwaiter, T>
+    struct TaskAwaiter
     {
         Handle handle{};
 
@@ -130,18 +97,18 @@ public:
         {
         }
 
-        bool IsCompleted() const noexcept
+        bool await_ready() const noexcept
         {
             return !handle || handle.done();
         }
 
-        std::coroutine_handle<> OnCompleted(std::coroutine_handle<> continuation) noexcept
+        std::coroutine_handle<> await_suspend(std::coroutine_handle<> continuation) noexcept
         {
             handle.promise().continuation = continuation;
             return handle;
         }
 
-        T GetResult()
+        T await_resume()
         {
             promise_type& promise = handle.promise();
             if (promise.exception)
@@ -254,7 +221,7 @@ public:
         }
     }
 
-    struct TaskAwaiter : public ::Awaiter<TaskAwaiter, void>
+    struct TaskAwaiter
     {
         Handle handle{};
 
@@ -263,18 +230,18 @@ public:
         {
         }
 
-        bool IsCompleted() const noexcept
+        bool await_ready() const noexcept
         {
             return !handle || handle.done();
         }
 
-        std::coroutine_handle<> OnCompleted(std::coroutine_handle<> continuation) noexcept
+        std::coroutine_handle<> await_suspend(std::coroutine_handle<> continuation) noexcept
         {
             handle.promise().continuation = continuation;
             return handle;
         }
 
-        void GetResult()
+        void await_resume()
         {
             if (handle.promise().exception)
             {
@@ -394,7 +361,7 @@ class TaskCompletionSource
     };
 
 public:
-    class TcsAwaiter : public Awaiter<TcsAwaiter, T>
+    class TcsAwaiter : public Awaiter<T>
     {
     public:
         explicit TcsAwaiter(std::shared_ptr<State> state) noexcept
@@ -402,13 +369,13 @@ public:
         {
         }
 
-        bool IsCompleted() const noexcept
+        bool IsCompleted() const noexcept override
         {
             std::lock_guard<std::mutex> lock(mState->mutex);
             return mState->completed;
         }
 
-        bool OnCompleted(std::coroutine_handle<> continuation)
+        bool OnCompleted(std::coroutine_handle<> continuation) override
         {
             std::lock_guard<std::mutex> lock(mState->mutex);
             if (mState->completed)
@@ -419,7 +386,7 @@ public:
             return true;
         }
 
-        T GetResult()
+        T GetResult() override
         {
             if (mState->exception)
             {
@@ -519,7 +486,7 @@ class TaskCompletionSource<void>
     };
 
 public:
-    class TcsAwaiter : public Awaiter<TcsAwaiter, void>
+    class TcsAwaiter : public Awaiter<void>
     {
     public:
         explicit TcsAwaiter(std::shared_ptr<State> state) noexcept
@@ -527,13 +494,13 @@ public:
         {
         }
 
-        bool IsCompleted() const noexcept
+        bool IsCompleted() const noexcept override
         {
             std::lock_guard<std::mutex> lock(mState->mutex);
             return mState->completed;
         }
 
-        bool OnCompleted(std::coroutine_handle<> continuation)
+        bool OnCompleted(std::coroutine_handle<> continuation) override
         {
             std::lock_guard<std::mutex> lock(mState->mutex);
             if (mState->completed)
@@ -544,7 +511,7 @@ public:
             return true;
         }
 
-        void GetResult()
+        void GetResult() override
         {
             if (mState->exception)
             {

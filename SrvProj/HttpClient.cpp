@@ -572,7 +572,7 @@ bool HttpClient::OperationAwaiter::OnCompleted(std::coroutine_handle<> continuat
     return false;
 }
 
-HttpClient::OperationResult HttpClient::OperationAwaiter::GetResult() const noexcept
+HttpClient::OperationResult HttpClient::OperationAwaiter::GetResult()
 {
     return mState->Consume();
 }
