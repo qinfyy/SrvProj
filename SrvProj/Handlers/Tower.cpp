@@ -317,6 +317,7 @@ std::string star_tower_build_whether_save_req__Handler(GameSession* session, con
     proto::StarTowerBuildWhetherSaveResp rsp;
     if (!session->GetPlayer()->Towers().SaveLastBuild(reqPb.delete_(), reqPb.buildname(), reqPb.lock(), rsp))
     {
+        session->SavePlayer();
         return EncodeReply(session, star_tower_build_whether_save_failed_ack);
     }
 

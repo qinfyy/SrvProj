@@ -17,6 +17,8 @@ namespace GameConstants
 
     inline constexpr std::int32_t MaxEnergy = 240;
     inline constexpr std::int64_t EnergyRegenTime = 360;
+    inline constexpr std::uint32_t MaxBuilds = 100;
+    inline constexpr std::uint32_t MaxPresets = 50;
     inline constexpr std::uint32_t BattlePassId = 7;
     inline constexpr std::uint32_t BattlePassUnlockLevel = 3;
 

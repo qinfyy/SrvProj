@@ -17,15 +17,12 @@
 #include "../Util.h"
 
 #include <algorithm>
-#include <limits>
 #include <string>
 
 namespace {
 constexpr uint32_t kSweepGrowthNodeId = 10301;
 constexpr uint32_t kWeeklyTicketNodeSmall = 10201;
 constexpr uint32_t kWeeklyTicketNodeLarge = 10502;
-constexpr uint32_t kMaxBuilds = 100;
-constexpr uint32_t kMaxPresets = 50;
 constexpr uint32_t kQuestCondTowerEnterFloor = 538;
 
 void AddRewardToChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
@@ -318,10 +315,8 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     game->NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
         ? 100
         : static_cast<uint32_t>((std::max)(teamExpIt->second.NeedExp, 0));
-    const uint32_t invalidHp = (std::numeric_limits<uint32_t>::max)();
-    game->CharHp = req.charhp() == invalidHp
-        ? -1
-        : static_cast<int32_t>(req.charhp());
+    // Nebula 创建星塔局时固定从未知血量开始，后续由 SyncHP / NpcRecoveryHP 交互同步。
+    game->CharHp = -1;
     game->Sweep = req.sweep();
     game->FloorCount = 0;
     game->StageNum = 0;
@@ -330,13 +325,13 @@ bool TowerMgr::Apply(const proto::StarTowerApplyReq& req, proto::StarTowerApplyR
     game->DiscIds = validDiscIds;
     game->InitModifierState();
     game->InitializeSubNotesFromDiscs();
-    game->AddStartingItems();
 
     if (!game->EnterNextRoom() || !game->Room)
     {
         return false;
     }
     game->Room->SetMapInfo(req.mapid(), req.maptableid(), req.mapparam(), req.paramid());
+    game->AddStartingItems();
 
     if (sweepTicketId != 0 && !GetPlayer()->Inventory().RemoveItem(sweepTicketId, 1, &change))
     {
@@ -388,6 +383,7 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
 
     rsp.set_id(req.id());
     const bool removeAfterInteract = towerCase->RemoveAfterInteract();
+    const TowerCaseType caseType = towerCase->GetType();
     towerCase->Interact(req, rsp);
     if (mCurrentGame)
     {
@@ -397,7 +393,7 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
 
     if (mCurrentGame && mCurrentGame->Completed)
     {
-        auto build = std::make_unique<TowerRuntime::Build>(mCurrentGame->BuildSnapshot());
+        auto build = std::make_unique<TowerRuntime::Build>(mCurrentGame->GetBuild());
         mLastBuild = std::move(build);
         MutableBin()->mutable_lastbuild()->Clear();
         mLastBuild->SaveToBin(*MutableBin()->mutable_lastbuild());
@@ -405,14 +401,21 @@ bool TowerMgr::HandleInteract(const proto::StarTowerInteractReq& req, proto::Sta
         return true;
     }
 
+    // 过门失败时房间回滚且无 enter/settle：保留门 case，避免删门卡死（Nebula 此处抛异常不会走到 remove）。
     if (removeAfterInteract && mCurrentGame && mCurrentGame->Room && mCurrentGame->Room.get() == originalRoom)
     {
-        std::vector<std::unique_ptr<TowerCaseBase>>& roomCases = mCurrentGame->Room->Cases();
-        roomCases.erase(
-            std::remove_if(roomCases.begin(), roomCases.end(), [&req](const std::unique_ptr<TowerCaseBase>& entry) {
-                return entry && entry->GetId() == req.id();
-            }),
-            roomCases.end());
+        const bool doorInteractFailed = caseType == TowerCaseType::Door &&
+            !rsp.has_enterresp() &&
+            !rsp.has_settle();
+        if (!doorInteractFailed)
+        {
+            std::vector<std::unique_ptr<TowerCaseBase>>& roomCases = mCurrentGame->Room->Cases();
+            roomCases.erase(
+                std::remove_if(roomCases.begin(), roomCases.end(), [&req](const std::unique_ptr<TowerCaseBase>& entry) {
+                    return entry && entry->GetId() == req.id();
+                }),
+                roomCases.end());
+        }
     }
 
     SaveCurrentGame();
@@ -426,18 +429,13 @@ bool TowerMgr::GiveUp(proto::StarTowerGiveUpResp& rsp)
         return false;
     }
 
-    mLastBuild = std::make_unique<TowerRuntime::Build>(mCurrentGame->BuildSnapshot());
+    mLastBuild = std::make_unique<TowerRuntime::Build>(mCurrentGame->GetBuild());
     MutableBin()->mutable_lastbuild()->Clear();
     mLastBuild->SaveToBin(*MutableBin()->mutable_lastbuild());
 
     rsp.mutable_build()->CopyFrom(mLastBuild->ToProto());
     rsp.set_potentialcnt(mCurrentGame->GetTotalPotentialCount());
     rsp.set_floor(mCurrentGame->FloorCount);
-    rsp.set_totaltime(mCurrentGame->BattleTime);
-    for (uint64_t damage : mCurrentGame->TotalDamages)
-    {
-        rsp.add_totaldamages(damage);
-    }
     rsp.mutable_change();
 
     ClearCurrentGame();
@@ -501,15 +499,21 @@ bool TowerMgr::DeleteBuilds(const google::protobuf::RepeatedField<uint64_t>& bui
 
 bool TowerMgr::SaveLastBuild(bool removeBuild, const std::string& name, bool lock, proto::StarTowerBuildWhetherSaveResp& rsp)
 {
+    (void)name;
+    (void)lock;
+
     if (!mLastBuild)
     {
         return false;
     }
 
+    std::unique_ptr<TowerRuntime::Build> lastBuild = std::move(mLastBuild);
+    MutableBin()->clear_lastbuild();
+
     proto::ChangeInfo change;
     if (removeBuild)
     {
-        uint32_t tickets = static_cast<uint32_t>(mLastBuild->Score / 100);
+        uint32_t tickets = static_cast<uint32_t>(lastBuild->Score / 100);
         tickets = (std::min)(tickets, GetMaxEarnableWeeklyTowerTickets());
         if (tickets > 0)
         {
@@ -519,15 +523,12 @@ bool TowerMgr::SaveLastBuild(bool removeBuild, const std::string& name, bool loc
     }
     else
     {
-        if (mBuilds.size() >= kMaxBuilds)
+        if (mBuilds.size() >= GameConstants::MaxBuilds)
         {
             return false;
         }
 
-        auto saved = *mLastBuild;
-        saved.Name = name;
-        TowerRuntime::ClampNameLength(saved.Name);
-        saved.Lock = lock;
+        auto saved = *lastBuild;
         int32_t rankRarity = 0;
         int32_t rankMinGrade = -1;
         for (const auto& [_, rank] : GameData::StarTowerBuildRankDataTable)
@@ -545,8 +546,6 @@ bool TowerMgr::SaveLastBuild(bool removeBuild, const std::string& name, bool loc
         mBuilds.push_back(std::move(saved));
     }
 
-    mLastBuild.reset();
-    MutableBin()->clear_lastbuild();
     MutableBin()->clear_builds();
     for (const auto& build : mBuilds)
     {
@@ -631,7 +630,7 @@ bool TowerMgr::BuildPresetList(proto::PotentialPreselectionList& rsp) const
 
 bool TowerMgr::ImportPreset(const std::string& name, bool preference, const google::protobuf::RepeatedPtrField<proto::StarTowerBookCharPotential>& chars, proto::PotentialPreselection& rsp)
 {
-    if (mPresets.size() >= kMaxPresets)
+    if (mPresets.size() >= GameConstants::MaxPresets)
     {
         return false;
     }
@@ -642,7 +641,7 @@ bool TowerMgr::ImportPreset(const std::string& name, bool preference, const goog
     TowerRuntime::ClampNameLength(preset.Name);
     preset.Preference = preference;
     preset.Timestamp = GameTime::NowSeconds();
-    if (!UpdatePresetCharacters(preset, chars, false))
+    if (!UpdatePresetCharacters(preset, chars))
     {
         return false;
     }
@@ -666,7 +665,7 @@ bool TowerMgr::UpdatePreset(uint64_t presetId, const google::protobuf::RepeatedP
         return false;
     }
 
-    if (!UpdatePresetCharacters(*preset, chars, true))
+    if (!UpdatePresetCharacters(*preset, chars))
     {
         return false;
     }
@@ -703,21 +702,26 @@ bool TowerMgr::SetPresetPreference(const google::protobuf::RepeatedField<uint64_
 {
     for (uint64_t id : checkInIds)
     {
-        auto* preset = FindPreset(id);
-        if (!preset)
+        if (!FindPreset(id))
         {
             return false;
         }
-        preset->Preference = true;
     }
     for (uint64_t id : checkOutIds)
     {
-        auto* preset = FindPreset(id);
-        if (!preset)
+        if (!FindPreset(id))
         {
             return false;
         }
-        preset->Preference = false;
+    }
+
+    for (uint64_t id : checkInIds)
+    {
+        FindPreset(id)->Preference = true;
+    }
+    for (uint64_t id : checkOutIds)
+    {
+        FindPreset(id)->Preference = false;
     }
 
     MutableBin()->clear_presets();
@@ -732,13 +736,17 @@ bool TowerMgr::DeletePresets(const google::protobuf::RepeatedField<uint64_t>& id
 {
     for (uint64_t id : ids)
     {
-        auto it = std::remove_if(mPresets.begin(), mPresets.end(), [id](const TowerRuntime::Preset& preset) {
-            return preset.Uid == id;
-        });
-        if (it == mPresets.end())
+        if (!FindPreset(id))
         {
             return false;
         }
+    }
+
+    for (uint64_t id : ids)
+    {
+        auto it = std::remove_if(mPresets.begin(), mPresets.end(), [id](const TowerRuntime::Preset& preset) {
+            return preset.Uid == id;
+        });
         mPresets.erase(it, mPresets.end());
     }
 
@@ -1303,7 +1311,7 @@ const TowerRuntime::Preset* TowerMgr::FindPreset(uint64_t presetId) const
     return nullptr;
 }
 
-bool TowerMgr::UpdatePresetCharacters(TowerRuntime::Preset& preset, const google::protobuf::RepeatedPtrField<proto::StarTowerBookCharPotential>& chars, bool touchTimestamp)
+bool TowerMgr::UpdatePresetCharacters(TowerRuntime::Preset& preset, const google::protobuf::RepeatedPtrField<proto::StarTowerBookCharPotential>& chars)
 {
     preset.CharPotentials.clear();
     for (const auto& ch : chars)
@@ -1317,20 +1325,42 @@ bool TowerMgr::UpdatePresetCharacters(TowerRuntime::Preset& preset, const google
                 continue;
             }
 
-            uint32_t level = static_cast<uint32_t>((std::max)(static_cast<int>(potential.level()), 0));
-            uint32_t maxLevel = static_cast<uint32_t>((std::max)(static_cast<int>(it->second.MaxLevel), 0));
-            if (level > maxLevel)
+            TowerRuntime::PotentialInfo* existingPotential = nullptr;
+            for (auto& entry : list)
             {
-                level = maxLevel;
+                if (entry.Id == potential.id())
+                {
+                    existingPotential = &entry;
+                    break;
+                }
             }
-            list.push_back({ potential.id(), level });
+            if (!existingPotential)
+            {
+                list.push_back({ potential.id(), potential.level() });
+            }
+            else
+            {
+                existingPotential->Level = potential.level();
+            }
         }
-        preset.CharPotentials.emplace_back(ch.charid(), std::move(list));
-    }
 
-    if (touchTimestamp)
-    {
-        preset.Timestamp = GameTime::NowSeconds();
+        std::vector<TowerRuntime::PotentialInfo>* existingCharPotentials = nullptr;
+        for (auto& entry : preset.CharPotentials)
+        {
+            if (entry.first == ch.charid())
+            {
+                existingCharPotentials = &entry.second;
+                break;
+            }
+        }
+        if (!existingCharPotentials)
+        {
+            preset.CharPotentials.emplace_back(ch.charid(), std::move(list));
+        }
+        else
+        {
+            *existingCharPotentials = std::move(list);
+        }
     }
 
     return true;

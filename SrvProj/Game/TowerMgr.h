@@ -82,6 +82,8 @@ public:
     void RecordEventCollection(uint32_t eventId);
     void RecordFateCardCollection(uint32_t cardId);
     uint32_t AddNpcAffinity(uint32_t npcId, uint32_t increase, proto::NPCAffinityChange* outChange = nullptr);
+    uint32_t GetNpcAffinityValue(uint32_t npcId) const;
+    void PushNpcAffinityNotify(uint32_t npcId, uint32_t affinity, uint32_t increase) const;
 
     bool HasGrowthNode(uint32_t nodeId) const;
     bool IsValidPresetForCharacters(uint64_t presetId, const google::protobuf::RepeatedField<uint32_t>& charIds) const;
@@ -105,13 +107,12 @@ private:
     TowerRuntime::Preset* FindPreset(uint64_t presetId);
     const TowerRuntime::Preset* FindPreset(uint64_t presetId) const;
 
-    bool UpdatePresetCharacters(TowerRuntime::Preset& preset, const google::protobuf::RepeatedPtrField<proto::StarTowerBookCharPotential>& chars, bool touchTimestamp);
+    bool UpdatePresetCharacters(TowerRuntime::Preset& preset, const google::protobuf::RepeatedPtrField<proto::StarTowerBookCharPotential>& chars);
     uint32_t GetWeeklyTowerTicketLimit() const;
     uint32_t GetMaxEarnableWeeklyTowerTickets() const;
     void AddWeeklyTowerTickets(uint32_t count);
     void RebuildBookState();
     std::vector<uint32_t> GetNpcAffinityPlotIds(uint32_t npcId) const;
-    uint32_t GetNpcAffinityValue(uint32_t npcId) const;
     uint32_t GetNpcAffinityLevel(uint32_t npcId) const;
     bool HasReceivedNpcPlot(uint32_t plotId) const;
     void SetReceivedNpcPlot(uint32_t plotId);
@@ -123,7 +124,6 @@ private:
     void SetReceivedFateCardReward(uint32_t id);
     void PushBookPotentialNotify(uint32_t id) const;
     void PushBookEventNotify(uint32_t id) const;
-    void PushNpcAffinityNotify(uint32_t npcId, uint32_t affinity, uint32_t increase) const;
     void PushFateCardCollectNotify(uint32_t cardId) const;
     void PushFateCardRewardNotify(uint32_t id, bool questReward) const;
     void RebuildNpcAffinityBookState();

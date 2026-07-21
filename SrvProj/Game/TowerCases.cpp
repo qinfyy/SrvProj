@@ -23,6 +23,8 @@ constexpr uint32_t kTowerEventSubNoteSkillBaseId = 90010;
 constexpr int kTowerEventCoinSmallReward = 30;
 constexpr int kTowerEventSubNoteSmallReward = 5;
 constexpr int kTowerEventSubNoteLargeReward = 10;
+constexpr uint32_t kTowerNpcEventAffinityIncrease = 100;
+constexpr int kTowerSubNoteSkillItemSubType = 19;
 
 double RandomDouble()
 {
@@ -251,14 +253,20 @@ void TowerBattleCase::OnRegister()
 
 proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
-    auto* battleEnd = rsp.mutable_battleendresp();
     if (req.has_battleendreq() && req.battleendreq().has_victory())
     {
+        auto* battleEnd = rsp.mutable_battleendresp();
         GetGame()->AddExp(ExpReward);
         int picks = GetGame()->LevelUp();
         if (picks > 0)
         {
-            if (GetGame()->FloorCount == 1 || GetRoom()->GetType() == TowerRoomType::BossRoom || GetRoom()->GetType() == TowerRoomType::FinalBossRoom)
+            // 与 Nebula 一致：首层 / Boss / 最终 Boss 优先稀有，否则 1/8 概率稀有。
+            if (GetGame()->FloorCount == 1)
+            {
+                GetGame()->AddRarePotentialSelectors(1);
+                --picks;
+            }
+            else if (GetRoom()->GetType() == TowerRoomType::BossRoom || GetRoom()->GetType() == TowerRoomType::FinalBossRoom)
             {
                 GetGame()->AddRarePotentialSelectors(1);
                 --picks;
@@ -302,6 +310,9 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
             subNoteDrops += GetGame()->GetBonusSubNotes();
         }
 
+        // 与 Nebula 一致：先挂 pending 潜能/门，再发副音符（都写入 change，顺序对齐）。
+        GetGame()->HandlePendingPotentialSelectors(rsp);
+
         if (subNoteDrops > 0)
         {
             for (uint32_t i = 0; i < subNoteDrops; ++i)
@@ -315,7 +326,6 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
         }
 
         GetGame()->RefreshSecondarySkills(rsp.mutable_data());
-        GetGame()->HandlePendingPotentialSelectors(rsp);
 
         battleEnd->mutable_victory()->set_lv(GetGame()->TeamLevel);
         battleEnd->mutable_victory()->set_battletime(GetGame()->BattleTime);
@@ -326,7 +336,7 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
     }
     else
     {
-        battleEnd->mutable_defeat()->set_lv(GetGame()->TeamLevel);
+        // Nebula 失败时只返回结算结构，不额外填充 BattleEndResp。
         GetGame()->Settle(false, rsp);
     }
     rsp.mutable_change();
@@ -449,23 +459,27 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
     }
     else if (req.has_selectreq())
     {
+        // 与 Nebula 一致：非法 index 直接返回，不推进 pending/door。
         const int index = static_cast<int>(req.selectreq().index());
-        if (index >= 0 && index < static_cast<int>(Potentials.size()))
+        if (index < 0 || index >= static_cast<int>(Potentials.size()))
         {
-            const auto selected = Potentials[static_cast<size_t>(index)];
-            if (selected.Level > 1 && GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
-            {
-                const uint32_t triggerId = GetGame()->GetPotentialLevel(selected.Id) > 0 ? 534u : 533u;
-                GetGame()->GetManager()->GetPlayer()->Trigger(triggerId, 1, 0, 0);
-            }
-            if (GetGame()->AddRuntimeItem(selected.Id, static_cast<int>(selected.Level), rsp.mutable_change()) && GetGame()->GetManager())
-            {
-                GetGame()->GetManager()->RecordPotentialCollection(selected.Id, GetGame()->GetPotentialLevel(selected.Id));
-            }
+            rsp.mutable_change();
+            return rsp;
+        }
+
+        const auto selected = Potentials[static_cast<size_t>(index)];
+        if (selected.Level > 1 && GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+        {
+            const uint32_t triggerId = GetGame()->GetPotentialLevel(selected.Id) > 0 ? 534u : 533u;
+            GetGame()->GetManager()->GetPlayer()->Trigger(triggerId, 1, 0, 0);
+        }
+        // 与 Nebula 一致：无论 add 是否因满级等失败，都继续 handlePending，避免卡死。
+        if (GetGame()->AddRuntimeItem(selected.Id, static_cast<int>(selected.Level), rsp.mutable_change()) && GetGame()->GetManager())
+        {
+            GetGame()->GetManager()->RecordPotentialCollection(selected.Id, GetGame()->GetPotentialLevel(selected.Id));
         }
 
         GetGame()->RefreshSecondarySkills(rsp.mutable_data());
-
         GetGame()->HandlePendingPotentialSelectors(rsp);
     }
 
@@ -914,22 +928,21 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             break;
         }
 
-        const uint32_t affinity = 10;
-        (void)affinity;
     }
 
     Completed = completed;
     result->set_optionsresult(completed);
     if (completed && GetGame()->GetManager())
     {
-        GetGame()->GetManager()->RecordEventCollection(EventId);
-        GetGame()->GetManager()->GetPlayer()->Trigger(511, 1, 0, 0);
-    }
-
-    if (GetGame())
-    {
-        const uint32_t currentAffinity = 10;
-        (void)currentAffinity;
+        auto* manager = GetGame()->GetManager();
+        manager->RecordEventCollection(EventId);
+        manager->GetPlayer()->Trigger(511, 1, 0, 0);
+        if (NpcId > 0)
+        {
+            auto* affinityChange = result->add_affinitychange();
+            const uint32_t affinity = manager->AddNpcAffinity(NpcId, kTowerNpcEventAffinityIncrease, affinityChange);
+            manager->PushNpcAffinityNotify(NpcId, affinity, kTowerNpcEventAffinityIncrease);
+        }
     }
     return rsp;
 }
@@ -947,7 +960,10 @@ proto::StarTowerRoomCase TowerNpcEventCase::ToProto() const
     }
     auto* info = data->add_infos();
     info->set_npcid(NpcId);
-    info->set_affinity(0);
+    if (GetGame() && GetGame()->GetManager())
+    {
+        info->set_affinity(GetGame()->GetManager()->GetNpcAffinityValue(NpcId));
+    }
     return out;
 }
 
@@ -1069,88 +1085,100 @@ void TowerHawkerCase::InitGoods()
 
 proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
+    // 与 Nebula 一致：默认置 NilResp；reroll/购买成功时 oneof 会被 SelectResp 或后续字段覆盖。
+    // 注意：购买潜能时只往 Cases 加 selector，oneof 仍可能是 NilResp（官方/Nebula 同）。
     rsp.mutable_nilresp();
 
-    if (req.has_hawkerreq())
+    if (!req.has_hawkerreq() || !GetGame())
     {
-        if (req.hawkerreq().has_sid())
-        {
-            const uint32_t sid = req.hawkerreq().sid();
-            for (auto& goods : Goods)
-            {
-                if (goods.Sid != sid || goods.Sold)
-                {
-                    continue;
-                }
+        return rsp;
+    }
 
-                if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) < goods.GetPrice())
+    if (req.hawkerreq().has_sid())
+    {
+        const uint32_t sid = req.hawkerreq().sid();
+        for (auto& goods : Goods)
+        {
+            if (goods.Sid != sid)
+            {
+                continue;
+            }
+
+            // 先验证商品可交付，避免无候选潜能或无效副音符仍扣费并售罄。
+            if (goods.Sold || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < goods.GetPrice())
+            {
+                break;
+            }
+
+            if (goods.Type == 1)
+            {
+                auto casePtr = GetGame()->CreatePotentialSelector(goods.GetCharId(*GetGame()), false);
+                if (!casePtr)
                 {
                     break;
                 }
-                if (goods.Type == 1)
-                {
-                    auto casePtr = GetGame()->CreatePotentialSelector(goods.GetCharId(*GetGame()), false);
-                    if (!casePtr)
-                    {
-                        break;
-                    }
 
-                    goods.Sold = true;
-                    GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
-                    auto* added = GetRoom()->AddCase(std::move(casePtr));
-                    if (added)
-                    {
-                        rsp.add_cases()->CopyFrom(added->ToProto());
-                    }
-                }
-                else
+                auto* added = GetRoom()->AddCase(std::move(casePtr));
+                if (!added)
                 {
-                    proto::ChangeInfo change;
-                    if (!GetGame()->AddRuntimeItem(goods.GoodsId, goods.GetCount(), &change))
-                    {
-                        break;
-                    }
-                    if (!GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), &change))
-                    {
-                        break;
-                    }
-                    goods.Sold = true;
-                    rsp.mutable_change()->MergeFrom(change);
+                    break;
                 }
-                if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+
+                goods.Sold = true;
+                rsp.add_cases()->CopyFrom(added->ToProto());
+            }
+            else if (goods.Type == 2)
+            {
+                const auto itemIt = GameData::ItemDataTable.find(goods.GoodsId);
+                if (itemIt == GameData::ItemDataTable.end() || itemIt->second.Stype != kTowerSubNoteSkillItemSubType || goods.GetCount() <= 0)
                 {
-                    GetGame()->GetManager()->GetPlayer()->Trigger(514, 1, 0, 0);
-                    if (goods.HasDiscount())
-                    {
-                        GetGame()->GetManager()->GetPlayer()->Trigger(535, 1, 0, 0);
-                    }
+                    break;
                 }
+
+                if (!GetGame()->AddRuntimeItem(goods.GoodsId, goods.GetCount(), rsp.mutable_change()))
+                {
+                    break;
+                }
+
+                goods.Sold = true;
+            }
+            else
+            {
                 break;
             }
-        }
-        else if (req.hawkerreq().has_reroll())
-        {
-            RerollTimes = GetGame()->ShopRerollTimes;
-            RerollPrice = GetGame()->ShopRerollPrice;
-            if (RerollTimes == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
-            {
-                return rsp;
-            }
 
-            if (!GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change()))
-            {
-                return rsp;
-            }
-            GetGame()->ConsumeShopReroll();
-            RerollTimes = GetGame()->ShopRerollTimes;
-            RerollPrice = GetGame()->ShopRerollPrice;
+            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
             if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
             {
-                GetGame()->GetManager()->GetPlayer()->Trigger(530, 1, 0, 0);
+                GetGame()->GetManager()->GetPlayer()->Trigger(514, 1, 0, 0);
+                if (goods.HasDiscount())
+                {
+                    GetGame()->GetManager()->GetPlayer()->Trigger(535, 1, 0, 0);
+                }
             }
-            InitGoods();
-            rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
+            break;
         }
+    }
+    else if (req.hawkerreq().has_reroll())
+    {
+        // 与 Nebula 一致：先检查次数与币，再刷货，再扣币与消耗 reroll。
+        RerollTimes = GetGame()->ShopRerollTimes;
+        RerollPrice = GetGame()->ShopRerollPrice;
+        if (RerollTimes == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
+        {
+            return rsp;
+        }
+
+        InitGoods();
+        GetGame()->ConsumeShopReroll();
+        RerollTimes = GetGame()->ShopRerollTimes;
+        RerollPrice = GetGame()->ShopRerollPrice;
+        GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
+        if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
+        {
+            GetGame()->GetManager()->GetPlayer()->Trigger(530, 1, 0, 0);
+        }
+        rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
     }
 
     return rsp;

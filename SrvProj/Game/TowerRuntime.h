@@ -173,9 +173,11 @@ public:
     bool EnterNextRoom();
     void Settle(bool victory, proto::StarTowerInteractResp& rsp);
     uint32_t GetTotalPotentialCount() const;
+    Build& GetBuild();
     Build BuildSnapshot() const;
 
 private:
     TowerMgr* Manager = nullptr;
+    std::unique_ptr<Build> mCachedBuild;
 };
 }

@@ -1,6 +1,7 @@
 ﻿#include "TowerRuntime.h"
 
 #include "CharacterMgr.h"
+#include "InventoryMgr.h"
 #include "Player.h"
 #include "TowerCases.h"
 #include "TowerRooms.h"
@@ -16,8 +17,10 @@
 #include "../Util.h"
 
 #include <algorithm>
+#include <chrono>
 #include <cmath>
 #include <limits>
+#include <mutex>
 #include <random>
 
 namespace TowerRuntime
@@ -195,7 +198,6 @@ proto::StarTowerBuildBrief Build::ToBriefProto() const
     out.set_lock(Lock);
     out.set_preference(Preference);
     out.set_score(Score);
-    out.set_startowerid(TowerId);
 
     for (uint32_t discId : DiscIds)
     {
@@ -355,7 +357,6 @@ proto::PotentialPreselection Preset::ToProto() const
     out.set_id(Uid);
     out.set_name(Name);
     out.set_preference(Preference);
-    out.set_timestamp(Timestamp);
 
     for (const auto& [charId, potentials] : CharPotentials)
     {
@@ -374,27 +375,26 @@ proto::PotentialPreselection Preset::ToProto() const
 
 uint64_t GenerateUid()
 {
-    std::string token;
-    if (!GenerateToken(token, true))
+    constexpr int64_t kEpoch = 1735689600;
+    static std::mutex mutex;
+    static int32_t cachedTimestamp = 0;
+    static int32_t sequence = 0;
+
+    std::lock_guard<std::mutex> lock(mutex);
+    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
+        std::chrono::system_clock::now().time_since_epoch()).count();
+    const int32_t timestamp = static_cast<int32_t>(now - kEpoch);
+    if (cachedTimestamp != timestamp)
     {
-        return 0;
+        sequence = 0;
+        cachedTimestamp = timestamp;
+    }
+    else
+    {
+        sequence = ((sequence + 129) % 256) - 128;
     }
 
-    uint64_t value = 0;
-    for (size_t i = 0; i < token.size() && i < 16; ++i)
-    {
-        value <<= 4;
-        const char c = token[i];
-        if (c >= '0' && c <= '9')
-        {
-            value |= static_cast<uint64_t>(c - '0');
-        }
-        else if (c >= 'a' && c <= 'f')
-        {
-            value |= static_cast<uint64_t>(10 + c - 'a');
-        }
-    }
-    return value;
+    return static_cast<uint64_t>((static_cast<int64_t>(cachedTimestamp) << 4) + sequence);
 }
 
 uint32_t BuildScoreFromPotentialLevel(uint32_t level, const std::vector<int>& buildScores)
@@ -414,11 +414,13 @@ uint32_t BuildScoreFromPotentialLevel(uint32_t level, const std::vector<int>& bu
 
 uint32_t ClampNameLength(std::string& name)
 {
-    if (name.size() > 32)
+    std::wstring value = Utf8ToUtf16(name);
+    if (value.size() > 32)
     {
-        name.resize(31);
+        value.resize(31);
+        name = Utf16ToUtf8(value);
     }
-    return static_cast<uint32_t>(name.size());
+    return static_cast<uint32_t>(value.size());
 }
 
 proto::StarTowerInfo Game::ToProto() const
@@ -594,11 +596,12 @@ void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
         TeamLevel = 1;
     }
     TeamExp = bin.teamexp();
+    // 与 Nebula 一致：读档只还原等级/经验并计算下一级阈值，不在 load 时 levelUp。
+    // 否则重登或局中存档恢复会把 TeamExp 直接消化成多级，结算显示满级。
     const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find(TeamLevel + 1);
     NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
         ? static_cast<uint32_t>(INT32_MAX)
         : static_cast<uint32_t>((std::max)(teamExpIt->second.NeedExp, 0));
-    LevelUp();
     CharHp = bin.charhp();
     BattleTime = bin.battletime();
     PendingPotentialCases = bin.pendingpotentialcases();
@@ -864,7 +867,7 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
             info.set_qty(count);
             ChangeInfoUtil::AddProp(*change, info);
         }
-        if (count > 0 && Manager && Manager->GetPlayer())
+        if (count > 0 && change && Manager && Manager->GetPlayer())
         {
             Manager->GetPlayer()->Trigger(513, static_cast<uint32_t>(count), id, 0);
         }
@@ -907,7 +910,7 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
         info.set_qty(count);
         ChangeInfoUtil::AddProp(*change, info);
     }
-    if (count > 0 && Manager && Manager->GetPlayer())
+    if (count > 0 && change && Manager && Manager->GetPlayer())
     {
         Manager->GetPlayer()->Trigger(513, static_cast<uint32_t>(count), id, 0);
     }
@@ -1664,6 +1667,11 @@ bool Game::EnterNextRoom()
         return false;
     }
 
+    // 先缓存进度，stage 表缺失时回滚，避免 FloorCount 空推进导致层数/过门错乱。
+    const uint32_t oldFloorCount = FloorCount;
+    const uint32_t oldStageNum = StageNum;
+    const uint32_t oldStageFloor = StageFloor;
+
     ++FloorCount;
 
     const uint32_t nextStageFloor = StageFloor + 1;
@@ -1681,6 +1689,9 @@ bool Game::EnterNextRoom()
     const auto stageIt = GameData::StarTowerStageDataTable.find(stageId);
     if (stageIt == GameData::StarTowerStageDataTable.end())
     {
+        FloorCount = oldFloorCount;
+        StageNum = oldStageNum;
+        StageFloor = oldStageFloor;
         return false;
     }
 
@@ -1703,11 +1714,11 @@ bool Game::EnterNextRoom()
         Room = std::make_unique<TowerRoom>(this, stageId, roomType);
     }
 
-    Room->OnEnter();
     if (Manager && Manager->GetPlayer())
     {
         Manager->GetPlayer()->Trigger(509, 1, static_cast<uint32_t>(roomType) + 1, 0);
     }
+    Room->OnEnter();
     return true;
 }
 
@@ -1727,7 +1738,6 @@ uint32_t Game::GetTotalPotentialCount() const
 Build Game::BuildSnapshot() const
 {
     Build build;
-    build.Uid = BuildId;
     build.TowerId = TowerId;
     build.CharIds = CharIds;
     build.DiscIds = DiscIds;
@@ -1781,13 +1791,25 @@ Build Game::BuildSnapshot() const
     return build;
 }
 
+Build& Game::GetBuild()
+{
+    if (!mCachedBuild)
+    {
+        // Nebula 的局内 BuildId 与结算记录 Build.Id 分别生成；结算和存档复用同一份记录。
+        mCachedBuild = std::make_unique<Build>(BuildSnapshot());
+        mCachedBuild->Uid = GenerateUid();
+    }
+
+    return *mCachedBuild;
+}
+
 void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
 {
     Completed = true;
 
     auto* settle = rsp.mutable_settle();
     settle->set_totaltime(BattleTime);
-    settle->mutable_build()->CopyFrom(BuildSnapshot().ToProto());
+    settle->mutable_build()->CopyFrom(GetBuild().ToProto());
     settle->mutable_change();
     for (uint64_t damage : TotalDamages)
     {
@@ -1884,6 +1906,24 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
             const uint32_t current = Manager->GetTowerTickets();
             const uint32_t remain = current >= weeklyLimit ? 0 : (weeklyLimit - current);
             Manager->MutableBin()->set_towertickets(current + (std::min)(ticketQty, remain));
+        }
+
+        // Nebula settle 额外发研究材料 51（星塔任务未接时的补偿），并写入 settle.change。
+        if (Manager->GetPlayer())
+        {
+            const int researchMin = static_cast<int>(GetDifficulty()) - 1;
+            const int researchMax = static_cast<int>(GetDifficulty()) * 2;
+            const int researchRange = researchMax > researchMin
+                ? RandomInt(researchMin, researchMax)
+                : researchMin;
+            const int research = 50 + (researchRange * 10);
+            if (research > 0)
+            {
+                auto* reward = settle->add_towerrewards();
+                reward->set_tid(51);
+                reward->set_qty(static_cast<uint32_t>(research));
+                Manager->GetPlayer()->Inventory().AddItem(51, static_cast<uint32_t>(research), settle->mutable_change());
+            }
         }
     }
 }
