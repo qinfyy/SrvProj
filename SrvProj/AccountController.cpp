@@ -62,7 +62,7 @@ AsyncTask<void> ServerListHandler(RouteContext& context, const HttpRequest& requ
             try {
                 ServerListMeta meta;
 
-                meta.set_version(129);
+                meta.set_version(134);
 
                 ServerAgent* agent = meta.add_agent();
                 agent->set_name(U8("星塔旅人"));
@@ -75,7 +75,7 @@ AsyncTask<void> ServerListHandler(RouteContext& context, const HttpRequest& requ
                 Rule* rule1 = meta.add_rules();
                 rule1->set_platform(Platform_Ios);
                 rule1->set_channel("Official");
-                rule1->set_version("1.9.0");
+                rule1->set_version("1.13.0");
                 rule1->set_op(OP_Lt);
                 rule1->set_action(Action_Download);
                 rule1->set_url("https://apps.apple.com/tw/app/%E6%98%9F%E5%A1%94%E6%97%85%E4%BA%BA/id6738902933");
@@ -84,7 +84,7 @@ AsyncTask<void> ServerListHandler(RouteContext& context, const HttpRequest& requ
                 Rule* rule2 = meta.add_rules();
                 rule2->set_platform(Platform_Android);
                 rule2->set_channel("Official");
-                rule2->set_version("1.9.0");
+                rule2->set_version("1.13.0");
                 rule2->set_op(OP_Lt);
                 rule2->set_action(Action_Download);
                 rule2->set_url("https://play.google.com/store/apps/details?id=com.Stargazer.StellaSora");
@@ -93,7 +93,7 @@ AsyncTask<void> ServerListHandler(RouteContext& context, const HttpRequest& requ
                 Rule* rule3 = meta.add_rules();
                 rule3->set_platform(Platform_PC);
                 rule3->set_channel("Official");
-                rule3->set_version("1.9.0");
+                rule3->set_version("1.13.0");
                 rule3->set_op(OP_Lt);
                 rule3->set_action(Action_Download);
                 rule3->set_url(U8("text://請在PC啟動器內點選更新按鈕完成版本更新"));

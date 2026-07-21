@@ -108,16 +108,16 @@ bool GameServices::ForceSaveAllPlayerData()
         if (session->SavePlayer())
         {
             ++successCount;
-            LOG_DEBUG("强制保存在线玩家成功, uid: {}", uid);
+            LOG_DEBUG("保存在线玩家成功, uid: {}", uid);
         }
         else
         {
             ++failedCount;
-            LOG_ERROR("强制保存在线玩家失败, uid: {}", uid);
+            LOG_ERROR("保存在线玩家失败, uid: {}", uid);
         }
     }
 
-    LOG_INFO("强制保存在线玩家完成, 总数: {}, 成功: {}, 失败: {}", totalCount, successCount, failedCount);
+    LOG_INFO("保存在线玩家完成, 总数: {}, 成功: {}, 失败: {}", totalCount, successCount, failedCount);
     return failedCount == 0;
 }
 
