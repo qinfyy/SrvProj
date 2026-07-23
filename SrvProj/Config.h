@@ -48,8 +48,9 @@ public:
     ServerTime serverTime;
     std::vector<std::string> playerDefaultPermissions = { "*" };
     bool unlockAllStarTower = true;
+    bool unlockInstances = true;
 
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, resourceConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions, unlockAllStarTower)
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, resourceConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions, unlockAllStarTower, unlockInstances)
 
     bool LoadFromFile(const std::string& filename = ".\\Config.json");
     bool SaveToFile(const std::string& filename = ".\\Config.json");

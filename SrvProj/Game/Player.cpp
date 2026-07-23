@@ -16,12 +16,16 @@
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../GameTime.h"
+#include "../Resources/BinClass/DictionaryRes.h"
+#include "../Resources/BinClass/InstancesRes.h"
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/BinClass/ShopsRes.h"
+#include "../Resources/BinClass/VampireSurvivorRes.h"
 #include "../Resources/GameData.h"
 #include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/notify.pb.h"
 #include "../proto/proto_cpp/notify_gm.pb.h"
+#include "../proto/proto_cpp/public.pb.h"
 
 #include <algorithm>
 #include <chrono>
@@ -29,7 +33,15 @@
 #include <initializer_list>
 #include <unordered_set>
 #include <utility>
+#include <vector>
 #include "../DbMgr.h"
+
+#ifdef min
+#undef min
+#endif
+#ifdef max
+#undef max
+#endif
 
 namespace {
 std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> handbookIds)
@@ -42,11 +54,11 @@ std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> han
         {
             continue;
         }
-        if (static_cast<uint32_t>(std::max(it->second.Type, 0)) != type)
+        if (static_cast<uint32_t>((std::max)(it->second.Type, 0)) != type)
         {
             continue;
         }
-        bitset.SetBit(static_cast<uint32_t>(std::max(it->second.Index, 0)));
+        bitset.SetBit(static_cast<uint32_t>((std::max)(it->second.Index, 0)));
     }
 
     return bitset.ToByteArray();
@@ -54,17 +66,33 @@ std::string BuildHandbookFlag(uint32_t type, std::initializer_list<uint32_t> han
 
 void AddCompletedNewbies(proto::AccInfo* acc)
 {
-    static constexpr uint32_t newbieGroups[] = {
-        25, 49, 50, 8, 9, 232, 24, 26, 16, 17, 23, 18, 106, 229, 303, 27,
-        47, 48, 51, 304, 302, 32, 52, 201, 46, 41, 45, 44, 42, 43, 301, 29,
-        202, 4, 12, 13, 28, 102, 21, 22, 20, 104, 105, 101, 2, 6, 15, 14,
-        11, 10, 3, 7, 5, 1
-    };
-
-    for (uint32_t groupId : newbieGroups)
+    std::vector<uint32_t> groupIds;
+    groupIds.reserve(GameData::GuideGroupDataTable.size() + 1);
+    for (const auto& [id, _] : GameData::GuideGroupDataTable)
     {
+        if (id > 0)
+        {
+            groupIds.push_back(static_cast<uint32_t>(id));
+        }
+    }
+    std::sort(groupIds.begin(), groupIds.end());
+
+    std::unordered_set<uint32_t> seen;
+    for (uint32_t groupId : groupIds)
+    {
+        if (!seen.insert(groupId).second)
+        {
+            continue;
+        }
         auto* newbie = acc->add_newbies();
         newbie->set_groupid(groupId);
+        newbie->set_stepid(-1);
+    }
+
+    if (seen.insert(GameConstants::IntroGuideId).second)
+    {
+        auto* newbie = acc->add_newbies();
+        newbie->set_groupid(GameConstants::IntroGuideId);
         newbie->set_stepid(-1);
     }
 }
@@ -218,6 +246,11 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     data->add_showchars(0);
     data->add_showchars(0);
     data->add_showchars(0);
+
+    data->clear_honor();
+    data->add_honor(0);
+    data->add_honor(0);
+    data->add_honor(0);
 
     Characters().AddCharacterFromId(103);
     Characters().AddCharacterFromId(112);
@@ -1025,7 +1058,7 @@ void Player::EncodeBasicInfo(proto::PlayerInfo& info)
     acc->set_createtime(data.createtime());
     AddCompletedNewbies(acc);
 
-    const int showCount = std::max(3, data.showchars_size());
+    const int showCount = (std::max)(3, data.showchars_size());
     for (int i = 0; i < showCount; ++i)
     {
         const uint32_t charId = i < data.showchars_size()
@@ -1048,6 +1081,18 @@ void Player::EncodeBasicInfo(proto::PlayerInfo& info)
         else
         {
             show->set_charid(charId);
+        }
+    }
+
+    // 展示荣誉槽固定 3 个，客户端会按槽位读取 Honors（field 124）。
+    // 写死 3 次 add_honors，避免 max 宏/空 repeated 导致 0 条 Honors。
+    for (int i = 0; i < 3; ++i)
+    {
+        auto* honor = info.add_honors();
+        const int honorId = i < data.honor_size() ? data.honor(i) : 0;
+        if (honorId != 0)
+        {
+            honor->set_id(static_cast<uint32_t>(honorId));
         }
     }
 
@@ -1076,20 +1121,169 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     state->mutable_startowerbook()->CopyFrom(Towers().BuildBookStateProto());
     state->mutable_worldclassreward()->set_flag(std::string(8, '\0'));
     state->mutable_travelerduelquest()->set_type(proto::TravelerDuel);
+    state->mutable_tracehunt();
     state->set_storyset(true);
 
-    info.add_titles()->set_titleid(1);
-    info.add_titles()->set_titleid(2);
-    info.add_honorlist(111001);
-
+    // titles/honorlist/formation 已由 InventoryMgr/FormationMgr 编码，这里不要重复添加。
     info.mutable_agent();
-    Formations().EncodePlayerInfo(info);
     info.mutable_phone()->set_newmessage(Characters().GetNewPhoneMessageCount());
     info.mutable_story();
 
+    // TraceHunt 占位：只保证字段存在，完整玩法未实现。
+    info.mutable_huntpermit()->set_tid(GameConstants::TraceHuntPermitItemId);
+    info.mutable_tracerequest()->set_tid(GameConstants::TraceHuntRequestItemId);
+
+    // 字典：所有 entry 默认 status=2（完成），客户端打开即可见全部内容。
+    std::vector<int> dictionaryTabIds;
+    dictionaryTabIds.reserve(GameData::DictionaryTabDataTable.size());
+    for (const auto& [id, _] : GameData::DictionaryTabDataTable)
+    {
+        if (id > 0)
+        {
+            dictionaryTabIds.push_back(id);
+        }
+    }
+    std::sort(dictionaryTabIds.begin(), dictionaryTabIds.end());
+    for (int tabId : dictionaryTabIds)
+    {
+        auto* tab = info.add_dictionaries();
+        tab->set_tabid(static_cast<uint32_t>(tabId));
+
+        std::vector<const DictionaryEntryRes*> entries;
+        for (const auto& [_, entry] : GameData::DictionaryEntryDataTable)
+        {
+            if (entry.Tab == tabId)
+            {
+                entries.push_back(&entry);
+            }
+        }
+        std::sort(entries.begin(), entries.end(), [](const DictionaryEntryRes* a, const DictionaryEntryRes* b) {
+            return a->Index < b->Index;
+        });
+        for (const DictionaryEntryRes* entry : entries)
+        {
+            auto* entryProto = tab->add_entries();
+            entryProto->set_index(static_cast<uint32_t>((std::max)(entry->Index, 0)));
+            entryProto->set_status(2);
+        }
+    }
+
+    // 副本/VS 进度：解锁后给最小可进游戏的星级壳，避免首次登录时全部为 0。
+    const bool unlockAll = Config::Get().unlockInstances;
+    const uint32_t minStars = unlockAll ? 1u : 0u;
+
+    std::vector<int> dailyIds;
+    dailyIds.reserve(GameData::DailyInstanceDataTable.size());
+    for (const auto& [id, _] : GameData::DailyInstanceDataTable)
+    {
+        if (id > 0)
+        {
+            dailyIds.push_back(id);
+        }
+    }
+    std::sort(dailyIds.begin(), dailyIds.end());
+    for (int id : dailyIds)
+    {
+        auto* p = info.add_dailyinstances();
+        p->set_id(static_cast<uint32_t>(id));
+        p->set_star(minStars);
+    }
+
+    std::vector<int> regionBossIds;
+    regionBossIds.reserve(GameData::RegionBossLevelDataTable.size());
+    for (const auto& [id, _] : GameData::RegionBossLevelDataTable)
+    {
+        if (id > 0)
+        {
+            regionBossIds.push_back(id);
+        }
+    }
+    std::sort(regionBossIds.begin(), regionBossIds.end());
+    for (int id : regionBossIds)
+    {
+        auto* p = info.add_regionbosslevels();
+        p->set_id(static_cast<uint32_t>(id));
+        p->set_star(minStars);
+    }
+
+    std::vector<int> skillIds;
+    skillIds.reserve(GameData::SkillInstanceDataTable.size());
+    for (const auto& [id, _] : GameData::SkillInstanceDataTable)
+    {
+        if (id > 0)
+        {
+            skillIds.push_back(id);
+        }
+    }
+    std::sort(skillIds.begin(), skillIds.end());
+    for (int id : skillIds)
+    {
+        auto* p = info.add_skillinstances();
+        p->set_id(static_cast<uint32_t>(id));
+        p->set_star(minStars);
+    }
+
+    std::vector<int> charGemIds;
+    charGemIds.reserve(GameData::CharGemInstanceDataTable.size());
+    for (const auto& [id, _] : GameData::CharGemInstanceDataTable)
+    {
+        if (id > 0)
+        {
+            charGemIds.push_back(id);
+        }
+    }
+    std::sort(charGemIds.begin(), charGemIds.end());
+    for (int id : charGemIds)
+    {
+        auto* p = info.add_chargeminstances();
+        p->set_id(static_cast<uint32_t>(id));
+        p->set_star(minStars);
+    }
+
+    std::vector<int> weekBossIds;
+    weekBossIds.reserve(GameData::WeekBossLevelDataTable.size());
+    for (const auto& [id, _] : GameData::WeekBossLevelDataTable)
+    {
+        if (id > 0)
+        {
+            weekBossIds.push_back(id);
+        }
+    }
+    std::sort(weekBossIds.begin(), weekBossIds.end());
+    for (int id : weekBossIds)
+    {
+        auto* p = info.add_weekbosslevels();
+        p->set_id(static_cast<uint32_t>(id));
+        p->set_first(false);
+    }
+
+    auto* vsProto = info.mutable_vampiresurvivorrecord();
+    vsProto->mutable_season();
+    if (unlockAll)
+    {
+        std::vector<int> vsIds;
+        vsIds.reserve(GameData::VampireSurvivorDataTable.size());
+        for (const auto& [id, _] : GameData::VampireSurvivorDataTable)
+        {
+            if (id > 0)
+            {
+                vsIds.push_back(id);
+            }
+        }
+        std::sort(vsIds.begin(), vsIds.end());
+        for (int id : vsIds)
+        {
+            auto* level = vsProto->add_records();
+            level->set_id(static_cast<uint32_t>(id));
+            level->set_score(0);
+            level->set_passed(true);
+        }
+    }
+
+    // Handbook：只对表内存在的 id 置位；去掉非法 410601。
     auto* handbookChars = info.add_handbook();
     handbookChars->set_type(1);
-    handbookChars->set_data(BuildHandbookFlag(1, {410301, 410302, 410601}));
+    handbookChars->set_data(BuildHandbookFlag(1, {410301, 410302}));
 
     auto* handbookDiscs = info.add_handbook();
     handbookDiscs->set_type(2);

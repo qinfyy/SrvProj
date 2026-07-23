@@ -1,4 +1,4 @@
-#include "FormationMgr.h"
+﻿#include "FormationMgr.h"
 
 #include "CharacterMgr.h"
 #include "Player.h"
@@ -6,6 +6,9 @@
 #include "../GameConstants.h"
 
 #include <algorithm>
+#include <unordered_set>
+#include <utility>
+#include <vector>
 
 namespace {
 constexpr uint32_t kMaxFormations = 10;
@@ -51,9 +54,27 @@ const ServerProto::FormationCompBin& FormationMgr::Bin() const
 void FormationMgr::InitializeDefaults()
 {
     auto* bin = MutableBin();
+
+    // 先收集唯一 number 的编队，再写回，避免重复 Number 与 DeleteSubrange 依赖。
+    std::vector<ServerProto::FormationInfoBin> uniqueInfos;
+    uniqueInfos.reserve(static_cast<size_t>(bin->infos_size()));
+    std::unordered_set<uint32_t> seenNumbers;
     for (int i = 0; i < bin->infos_size(); ++i)
     {
-        NormalizeFormation(*bin->mutable_infos(i));
+        ServerProto::FormationInfoBin info = bin->infos(i);
+        NormalizeFormation(info);
+        const uint32_t number = info.number();
+        if (number == 0 || !seenNumbers.insert(number).second)
+        {
+            continue;
+        }
+        uniqueInfos.push_back(std::move(info));
+    }
+
+    bin->clear_infos();
+    for (auto& info : uniqueInfos)
+    {
+        bin->add_infos()->Swap(&info);
     }
 
     if (bin->infos_size() > 0)
@@ -224,10 +245,17 @@ const ServerProto::FormationInfoBin* FormationMgr::GetFormationById(uint32_t id)
 void FormationMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 {
     auto* formation = out.mutable_formation();
+    std::unordered_set<uint32_t> seenNumbers;
     for (const auto& saved : Bin().infos())
     {
+        const uint32_t number = saved.number() == 0 ? 1 : saved.number();
+        if (!seenNumbers.insert(number).second)
+        {
+            continue;
+        }
+
         auto* info = formation->add_info();
-        info->set_number(saved.number());
+        info->set_number(number);
         info->set_preselectionid(saved.preselectionid());
         for (uint32_t charId : saved.charids())
         {

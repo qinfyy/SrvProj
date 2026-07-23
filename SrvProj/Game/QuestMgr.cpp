@@ -498,7 +498,8 @@ void QuestMgr::PushFirstLoginNotifications()
     player->PushNextPackage(signin_reward_change_notify, BuildSigninRewardUpdate());
     player->Achievements().PushFirstLoginNotificationsAfterSignin();
 
-    player->PushNextPackage(handbook_change_notify, BuildHandbookInfo(1, BuildHandbookFlag(1, {410301, 410302, 410601})));
+    // 与 EncodeMinimalSystems 保持一致，只对表内存在的 handbook id 置位。
+    player->PushNextPackage(handbook_change_notify, BuildHandbookInfo(1, BuildHandbookFlag(1, {410301, 410302})));
     player->PushNextPackage(handbook_change_notify, BuildHandbookInfo(2, BuildHandbookFlag(2, {})));
 }
 

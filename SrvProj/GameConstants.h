@@ -41,4 +41,7 @@ namespace GameConstants
     inline constexpr std::int32_t MonthlyCardDurationDays = 30;
     inline constexpr std::uint32_t DefaultHonorId = 111001;
     inline constexpr std::uint32_t AffinityHonorUnlockLevel = 10;
+    inline constexpr std::uint32_t IntroGuideId = 1;
+    inline constexpr std::uint32_t TraceHuntRequestItemId = 38;
+    inline constexpr std::uint32_t TraceHuntPermitItemId = 39;
 }
