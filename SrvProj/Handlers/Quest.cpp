@@ -4,7 +4,7 @@
 #include "../Game/Player.h"
 #include "../Game/QuestMgr.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/achievement_reward_receive.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 #include "../proto/proto_cpp/quest_daily_active_reward_recevie.pb.h"

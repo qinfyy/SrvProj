@@ -4,7 +4,7 @@
 #include "../Game/InventoryMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/char_affinity_gift_send.pb.h"
 #include "../proto/proto_cpp/char_gem_equip_gem.pb.h"
 #include "../proto/proto_cpp/char_gem_refresh.pb.h"

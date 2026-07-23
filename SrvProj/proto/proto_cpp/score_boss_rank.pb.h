@@ -458,6 +458,7 @@ class ScoreBossRankTeam final : public ::google::protobuf::Message
     kBuildScoreFieldNumber = 1,
     kLevelScoreFieldNumber = 3,
     kLevelIdFieldNumber = 4,
+    kSkillScoreFieldNumber = 9,
   };
   // repeated .proto.ScoreBossRankChar Chars = 2;
   int chars_size() const;
@@ -591,11 +592,21 @@ class ScoreBossRankTeam final : public ::google::protobuf::Message
   void _internal_set_levelid(::uint32_t value);
 
   public:
+  // uint32 SkillScore = 9;
+  void clear_skillscore() ;
+  ::uint32_t skillscore() const;
+  void set_skillscore(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_skillscore() const;
+  void _internal_set_skillscore(::uint32_t value);
+
+  public:
   // @@protoc_insertion_point(class_scope:proto.ScoreBossRankTeam)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<4, 9,
+  static const ::google::protobuf::internal::TcParseTable<4, 10,
                                    3, 0,
                                    7>
       _table_;
@@ -628,6 +639,7 @@ class ScoreBossRankTeam final : public ::google::protobuf::Message
     ::uint32_t buildscore_;
     ::uint32_t levelscore_;
     ::uint32_t levelid_;
+    ::uint32_t skillscore_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2248,6 +2260,31 @@ inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
 ScoreBossRankTeam::_internal_mutable_activesecondaryids() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.activesecondaryids_;
+}
+
+// uint32 SkillScore = 9;
+inline void ScoreBossRankTeam::clear_skillscore() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.skillscore_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000200U);
+}
+inline ::uint32_t ScoreBossRankTeam::skillscore() const {
+  // @@protoc_insertion_point(field_get:proto.ScoreBossRankTeam.SkillScore)
+  return _internal_skillscore();
+}
+inline void ScoreBossRankTeam::set_skillscore(::uint32_t value) {
+  _internal_set_skillscore(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
+  // @@protoc_insertion_point(field_set:proto.ScoreBossRankTeam.SkillScore)
+}
+inline ::uint32_t ScoreBossRankTeam::_internal_skillscore() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.skillscore_;
+}
+inline void ScoreBossRankTeam::_internal_set_skillscore(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.skillscore_ = value;
 }
 
 // bytes NextPackage = 2047;

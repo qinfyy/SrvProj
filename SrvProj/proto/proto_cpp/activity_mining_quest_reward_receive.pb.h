@@ -220,6 +220,7 @@ class ActivityMiningQuestRewardReceiveReq final : public ::google::protobuf::Mes
     kNextPackageFieldNumber = 2047,
     kActivityIdFieldNumber = 1,
     kQuestIdFieldNumber = 2,
+    kGroupIdFieldNumber = 3,
   };
   // bytes NextPackage = 2047;
   void clear_nextpackage() ;
@@ -256,11 +257,21 @@ class ActivityMiningQuestRewardReceiveReq final : public ::google::protobuf::Mes
   void _internal_set_questid(::uint32_t value);
 
   public:
+  // uint32 GroupId = 3;
+  void clear_groupid() ;
+  ::uint32_t groupid() const;
+  void set_groupid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_groupid() const;
+  void _internal_set_groupid(::uint32_t value);
+
+  public:
   // @@protoc_insertion_point(class_scope:proto.ActivityMiningQuestRewardReceiveReq)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 3,
+  static const ::google::protobuf::internal::TcParseTable<3, 4,
                                    0, 0,
                                    7>
       _table_;
@@ -285,6 +296,7 @@ class ActivityMiningQuestRewardReceiveReq final : public ::google::protobuf::Mes
     ::google::protobuf::internal::ArenaStringPtr nextpackage_;
     ::uint32_t activityid_;
     ::uint32_t questid_;
+    ::uint32_t groupid_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -588,6 +600,31 @@ inline ::uint32_t ActivityMiningQuestRewardReceiveReq::_internal_questid() const
 inline void ActivityMiningQuestRewardReceiveReq::_internal_set_questid(::uint32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.questid_ = value;
+}
+
+// uint32 GroupId = 3;
+inline void ActivityMiningQuestRewardReceiveReq::clear_groupid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.groupid_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::uint32_t ActivityMiningQuestRewardReceiveReq::groupid() const {
+  // @@protoc_insertion_point(field_get:proto.ActivityMiningQuestRewardReceiveReq.GroupId)
+  return _internal_groupid();
+}
+inline void ActivityMiningQuestRewardReceiveReq::set_groupid(::uint32_t value) {
+  _internal_set_groupid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:proto.ActivityMiningQuestRewardReceiveReq.GroupId)
+}
+inline ::uint32_t ActivityMiningQuestRewardReceiveReq::_internal_groupid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.groupid_;
+}
+inline void ActivityMiningQuestRewardReceiveReq::_internal_set_groupid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.groupid_ = value;
 }
 
 // bytes NextPackage = 2047;

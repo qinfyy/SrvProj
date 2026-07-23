@@ -10,7 +10,7 @@
 #include "../GameSession.h"
 #include "../Logger.h"
 #include "../Util.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/ike.pb.h"
 #include "../proto/proto_cpp/player_login.pb.h"
 #include "../proto/proto_cpp/player_ping.pb.h"

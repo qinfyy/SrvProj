@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package proto;
+
+message SoldierPartnerTraceReq {
+    uint32 PartnerType = 1;
+    bool Trace = 2;
+    bytes NextPackage = 2047;
+}

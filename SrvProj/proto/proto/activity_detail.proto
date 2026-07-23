@@ -28,6 +28,11 @@ message ActivityMsg {
         ActivityPenguinCard PenguinCard = 18;
         ActivityThrowGift ThrowGift = 19;
         ActivityGDS GDS = 20;
+        ActivityDouble Double = 21;
+        ActivityHistoryStoryChapter HistoryStoryChapter = 22;
+        ActivityShare Share = 23;
+        ActivityIceCream IceCream = 24;
+        ActivitySoldier Soldier = 25;
     }
 }
 

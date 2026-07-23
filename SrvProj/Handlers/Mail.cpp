@@ -3,7 +3,7 @@
 #include "../Game/MailMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/mail_pin.pb.h"
 #include "../proto/proto_cpp/mail_recv.pb.h"
 #include "../proto/proto_cpp/mail_remove.pb.h"

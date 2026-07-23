@@ -30,6 +30,7 @@ inline constexpr SkillInstanceSweepRewards::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         awarditems_{},
+        doubleitems_{},
         nextpackage_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
@@ -143,13 +144,15 @@ const ::uint32_t
         1,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSweepRewards, _impl_._has_bits_),
-        6, // hasbit index offset
+        7, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSweepRewards, _impl_.awarditems_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSweepRewards, _impl_.exp_),
+        PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSweepRewards, _impl_.doubleitems_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSweepRewards, _impl_.nextpackage_),
         0,
-        2,
+        3,
         1,
+        2,
 };
 
 static const ::_pbi::MigrationSchema
@@ -172,9 +175,10 @@ const char descriptor_table_protodef_skill_5finstance_5fsweep_2eproto[] ABSL_ATT
     "killInstanceSweepResp\022!\n\006Change\030\001 \001(\0132\021."
     "proto.ChangeInfo\0221\n\007Rewards\030\002 \003(\0132 .prot"
     "o.SkillInstanceSweepRewards\022\024\n\013NextPacka"
-    "ge\030\377\017 \001(\014\"b\n\031SkillInstanceSweepRewards\022\""
-    "\n\nAwardItems\030\001 \003(\0132\016.proto.ItemTpl\022\013\n\003Ex"
-    "p\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
+    "ge\030\377\017 \001(\014\"\207\001\n\031SkillInstanceSweepRewards\022"
+    "\"\n\nAwardItems\030\001 \003(\0132\016.proto.ItemTpl\022\013\n\003E"
+    "xp\030\002 \001(\r\022#\n\013DoubleItems\030\003 \003(\0132\016.proto.It"
+    "emTpl\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_skill_5finstance_5fsweep_2eproto_deps[1] = {
@@ -184,7 +188,7 @@ static ::absl::once_flag descriptor_table_skill_5finstance_5fsweep_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_skill_5finstance_5fsweep_2eproto = {
     false,
     false,
-    397,
+    435,
     descriptor_table_protodef_skill_5finstance_5fsweep_2eproto,
     "skill_instance_sweep.proto",
     &descriptor_table_skill_5finstance_5fsweep_2eproto_once,
@@ -984,6 +988,12 @@ void SkillInstanceSweepRewards::clear_awarditems() {
   ClearHasBitForRepeated(_impl_._has_bits_[0],
                   0x00000001U);
 }
+void SkillInstanceSweepRewards::clear_doubleitems() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.doubleitems_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
 SkillInstanceSweepRewards::SkillInstanceSweepRewards(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, SkillInstanceSweepRewards_class_data_.base()) {
@@ -1000,6 +1010,7 @@ PROTOBUF_NDEBUG_INLINE SkillInstanceSweepRewards::Impl_::Impl_(
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         awarditems_{visibility, arena, from.awarditems_},
+        doubleitems_{visibility, arena, from.doubleitems_},
         nextpackage_(arena, from.nextpackage_) {}
 
 SkillInstanceSweepRewards::SkillInstanceSweepRewards(
@@ -1024,6 +1035,7 @@ PROTOBUF_NDEBUG_INLINE SkillInstanceSweepRewards::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         awarditems_{visibility, arena},
+        doubleitems_{visibility, arena},
         nextpackage_(arena) {}
 
 inline void SkillInstanceSweepRewards::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
@@ -1054,6 +1066,10 @@ constexpr auto SkillInstanceSweepRewards::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
       PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.awarditems_) +
           decltype(SkillInstanceSweepRewards::_impl_.awarditems_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.doubleitems_) +
+          decltype(SkillInstanceSweepRewards::_impl_.doubleitems_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
@@ -1100,17 +1116,17 @@ SkillInstanceSweepRewards::GetClassData() const {
   return SkillInstanceSweepRewards_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 1, 0, 7>
+const ::_pbi::TcParseTable<3, 4, 2, 0, 7>
 SkillInstanceSweepRewards::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_._has_bits_),
     0, // no _extensions_
-    2047, 24,  // max_field_number, fast_idx_mask
+    2047, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    1,  // num_aux_entries
+    4,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     SkillInstanceSweepRewards_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1125,26 +1141,36 @@ SkillInstanceSweepRewards::_table_ = {
      {10, 0, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.awarditems_)}},
     // uint32 Exp = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SkillInstanceSweepRewards, _impl_.exp_), 2>(),
-     {16, 2, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SkillInstanceSweepRewards, _impl_.exp_), 3>(),
+     {16, 3, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.exp_)}},
+    // repeated .proto.ItemTpl DoubleItems = 3;
+    {::_pbi::TcParser::FastMtR1,
+     {26, 1, 1,
+      PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.doubleitems_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
     // bytes NextPackage = 2047;
     {::_pbi::TcParser::FastBS2,
-     {32762, 1, 0,
+     {32762, 2, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.nextpackage_)}},
   }}, {{
     2047, 0, 1,
-    65534, 2,
+    65534, 3,
     65535, 65535
   }}, {{
     // repeated .proto.ItemTpl AwardItems = 1;
     {PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.awarditems_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // uint32 Exp = 2;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.exp_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.exp_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .proto.ItemTpl DoubleItems = 3;
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.doubleitems_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bytes NextPackage = 2047;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSweepRewards, _impl_.nextpackage_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   {{
+      {::_pbi::TcParser::GetTable<::proto::ItemTpl>()},
       {::_pbi::TcParser::GetTable<::proto::ItemTpl>()},
   }},
   {{
@@ -1158,11 +1184,14 @@ PROTOBUF_NOINLINE void SkillInstanceSweepRewards::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.awarditems_.Clear();
     }
-    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.doubleitems_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
       _impl_.nextpackage_.ClearNonDefaultToEmpty();
     }
   }
@@ -1204,7 +1233,7 @@ PROTOBUF_NOINLINE void SkillInstanceSweepRewards::Clear() {
   }
 
   // uint32 Exp = 2;
-  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
     if (this_._internal_exp() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -1212,8 +1241,21 @@ PROTOBUF_NOINLINE void SkillInstanceSweepRewards::Clear() {
     }
   }
 
+  // repeated .proto.ItemTpl DoubleItems = 3;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_doubleitems_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_doubleitems().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              3, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
   // bytes NextPackage = 2047;
-  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
     if (!this_._internal_nextpackage().empty()) {
       const ::std::string& _s = this_._internal_nextpackage();
       target = stream->WriteBytesMaybeAliased(2047, _s, target);
@@ -1245,7 +1287,7 @@ PROTOBUF_NOINLINE void SkillInstanceSweepRewards::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
     // repeated .proto.ItemTpl AwardItems = 1;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_awarditems_size();
@@ -1253,15 +1295,22 @@ PROTOBUF_NOINLINE void SkillInstanceSweepRewards::Clear() {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
+    // repeated .proto.ItemTpl DoubleItems = 3;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size += 1UL * this_._internal_doubleitems_size();
+      for (const auto& msg : this_._internal_doubleitems()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
     // bytes NextPackage = 2047;
-    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
       if (!this_._internal_nextpackage().empty()) {
         total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                         this_._internal_nextpackage());
       }
     }
     // uint32 Exp = 2;
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (this_._internal_exp() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_exp());
@@ -1287,13 +1336,18 @@ void SkillInstanceSweepRewards::MergeImpl(::google::protobuf::MessageLite& to_ms
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _this->_internal_mutable_awarditems()->InternalMergeFromWithArena(
           ::google::protobuf::MessageLite::internal_visibility(), arena,
           from._internal_awarditems());
     }
-    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_internal_mutable_doubleitems()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_doubleitems());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
       if (!from._internal_nextpackage().empty()) {
         _this->_internal_set_nextpackage(from._internal_nextpackage());
       } else {
@@ -1302,7 +1356,7 @@ void SkillInstanceSweepRewards::MergeImpl(::google::protobuf::MessageLite& to_ms
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (from._internal_exp() != 0) {
         _this->_impl_.exp_ = from._impl_.exp_;
       }
@@ -1328,6 +1382,7 @@ void SkillInstanceSweepRewards::InternalSwap(SkillInstanceSweepRewards* PROTOBUF
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.awarditems_.InternalSwap(&other->_impl_.awarditems_);
+  _impl_.doubleitems_.InternalSwap(&other->_impl_.doubleitems_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
   swap(_impl_.exp_, other->_impl_.exp_);
 }

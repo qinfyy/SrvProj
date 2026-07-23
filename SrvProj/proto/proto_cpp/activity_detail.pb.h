@@ -151,6 +151,11 @@ class ActivityMsg final : public ::google::protobuf::Message
     kPenguinCard = 18,
     kThrowGift = 19,
     kGDS = 20,
+    kDouble = 21,
+    kHistoryStoryChapter = 22,
+    kShare = 23,
+    kIceCream = 24,
+    kSoldier = 25,
     DATA_NOT_SET = 0,
   };
   static constexpr int kIndexInFileMessages = 0;
@@ -261,6 +266,11 @@ class ActivityMsg final : public ::google::protobuf::Message
     kPenguinCardFieldNumber = 18,
     kThrowGiftFieldNumber = 19,
     kGDSFieldNumber = 20,
+    kDoubleFieldNumber = 21,
+    kHistoryStoryChapterFieldNumber = 22,
+    kShareFieldNumber = 23,
+    kIceCreamFieldNumber = 24,
+    kSoldierFieldNumber = 25,
   };
   // bytes NextPackage = 2047;
   void clear_nextpackage() ;
@@ -648,6 +658,101 @@ class ActivityMsg final : public ::google::protobuf::Message
   ::proto::ActivityGDS* PROTOBUF_NONNULL _internal_mutable_gds();
 
   public:
+  // .proto.ActivityDouble Double = 21;
+  bool has_double_() const;
+  private:
+  bool _internal_has_double_() const;
+
+  public:
+  void clear_double_() ;
+  const ::proto::ActivityDouble& double_() const;
+  [[nodiscard]] ::proto::ActivityDouble* PROTOBUF_NULLABLE release_double_();
+  ::proto::ActivityDouble* PROTOBUF_NONNULL mutable_double_();
+  void set_allocated_double_(::proto::ActivityDouble* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_double_(::proto::ActivityDouble* PROTOBUF_NULLABLE value);
+  ::proto::ActivityDouble* PROTOBUF_NULLABLE unsafe_arena_release_double_();
+
+  private:
+  const ::proto::ActivityDouble& _internal_double_() const;
+  ::proto::ActivityDouble* PROTOBUF_NONNULL _internal_mutable_double_();
+
+  public:
+  // .proto.ActivityHistoryStoryChapter HistoryStoryChapter = 22;
+  bool has_historystorychapter() const;
+  private:
+  bool _internal_has_historystorychapter() const;
+
+  public:
+  void clear_historystorychapter() ;
+  const ::proto::ActivityHistoryStoryChapter& historystorychapter() const;
+  [[nodiscard]] ::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE release_historystorychapter();
+  ::proto::ActivityHistoryStoryChapter* PROTOBUF_NONNULL mutable_historystorychapter();
+  void set_allocated_historystorychapter(::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_historystorychapter(::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE value);
+  ::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE unsafe_arena_release_historystorychapter();
+
+  private:
+  const ::proto::ActivityHistoryStoryChapter& _internal_historystorychapter() const;
+  ::proto::ActivityHistoryStoryChapter* PROTOBUF_NONNULL _internal_mutable_historystorychapter();
+
+  public:
+  // .proto.ActivityShare Share = 23;
+  bool has_share() const;
+  private:
+  bool _internal_has_share() const;
+
+  public:
+  void clear_share() ;
+  const ::proto::ActivityShare& share() const;
+  [[nodiscard]] ::proto::ActivityShare* PROTOBUF_NULLABLE release_share();
+  ::proto::ActivityShare* PROTOBUF_NONNULL mutable_share();
+  void set_allocated_share(::proto::ActivityShare* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_share(::proto::ActivityShare* PROTOBUF_NULLABLE value);
+  ::proto::ActivityShare* PROTOBUF_NULLABLE unsafe_arena_release_share();
+
+  private:
+  const ::proto::ActivityShare& _internal_share() const;
+  ::proto::ActivityShare* PROTOBUF_NONNULL _internal_mutable_share();
+
+  public:
+  // .proto.ActivityIceCream IceCream = 24;
+  bool has_icecream() const;
+  private:
+  bool _internal_has_icecream() const;
+
+  public:
+  void clear_icecream() ;
+  const ::proto::ActivityIceCream& icecream() const;
+  [[nodiscard]] ::proto::ActivityIceCream* PROTOBUF_NULLABLE release_icecream();
+  ::proto::ActivityIceCream* PROTOBUF_NONNULL mutable_icecream();
+  void set_allocated_icecream(::proto::ActivityIceCream* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_icecream(::proto::ActivityIceCream* PROTOBUF_NULLABLE value);
+  ::proto::ActivityIceCream* PROTOBUF_NULLABLE unsafe_arena_release_icecream();
+
+  private:
+  const ::proto::ActivityIceCream& _internal_icecream() const;
+  ::proto::ActivityIceCream* PROTOBUF_NONNULL _internal_mutable_icecream();
+
+  public:
+  // .proto.ActivitySoldier Soldier = 25;
+  bool has_soldier() const;
+  private:
+  bool _internal_has_soldier() const;
+
+  public:
+  void clear_soldier() ;
+  const ::proto::ActivitySoldier& soldier() const;
+  [[nodiscard]] ::proto::ActivitySoldier* PROTOBUF_NULLABLE release_soldier();
+  ::proto::ActivitySoldier* PROTOBUF_NONNULL mutable_soldier();
+  void set_allocated_soldier(::proto::ActivitySoldier* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_soldier(::proto::ActivitySoldier* PROTOBUF_NULLABLE value);
+  ::proto::ActivitySoldier* PROTOBUF_NULLABLE unsafe_arena_release_soldier();
+
+  private:
+  const ::proto::ActivitySoldier& _internal_soldier() const;
+  ::proto::ActivitySoldier* PROTOBUF_NONNULL _internal_mutable_soldier();
+
+  public:
   void clear_Data();
   DataCase Data_case() const;
   // @@protoc_insertion_point(class_scope:proto.ActivityMsg)
@@ -672,11 +777,16 @@ class ActivityMsg final : public ::google::protobuf::Message
   void set_has_penguincard();
   void set_has_throwgift();
   void set_has_gds();
+  void set_has_double_();
+  void set_has_historystorychapter();
+  void set_has_share();
+  void set_has_icecream();
+  void set_has_soldier();
   inline bool has_Data() const;
   inline void clear_has_Data();
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 21,
-                                   19, 0,
+  static const ::google::protobuf::internal::TcParseTable<2, 26,
+                                   24, 0,
                                    7>
       _table_;
 
@@ -721,6 +831,11 @@ class ActivityMsg final : public ::google::protobuf::Message
       ::google::protobuf::Message* PROTOBUF_NULLABLE penguincard_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE throwgift_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE gds_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE double__;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE historystorychapter_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE share_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE icecream_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE soldier_;
     } Data_;
     ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -2397,6 +2512,361 @@ inline ::proto::ActivityGDS* PROTOBUF_NONNULL ActivityMsg::mutable_gds()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::proto::ActivityGDS* _msg = _internal_mutable_gds();
   // @@protoc_insertion_point(field_mutable:proto.ActivityMsg.GDS)
+  return _msg;
+}
+
+// .proto.ActivityDouble Double = 21;
+inline bool ActivityMsg::has_double_() const {
+  return Data_case() == kDouble;
+}
+inline bool ActivityMsg::_internal_has_double_() const {
+  return Data_case() == kDouble;
+}
+inline void ActivityMsg::set_has_double_() {
+  _impl_._oneof_case_[0] = kDouble;
+}
+inline ::proto::ActivityDouble* PROTOBUF_NULLABLE ActivityMsg::release_double_() {
+  // @@protoc_insertion_point(field_release:proto.ActivityMsg.Double)
+  if (Data_case() == kDouble) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityDouble*>(_impl_.Data_.double__);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.Data_.double__ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::proto::ActivityDouble& ActivityMsg::_internal_double_() const {
+  return Data_case() == kDouble ? static_cast<const ::proto::ActivityDouble&>(*reinterpret_cast<::proto::ActivityDouble*>(_impl_.Data_.double__))
+                     : reinterpret_cast<const ::proto::ActivityDouble&>(::proto::_ActivityDouble_default_instance_);
+}
+inline const ::proto::ActivityDouble& ActivityMsg::double_() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.ActivityMsg.Double)
+  return _internal_double_();
+}
+inline ::proto::ActivityDouble* PROTOBUF_NULLABLE ActivityMsg::unsafe_arena_release_double_() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto.ActivityMsg.Double)
+  if (Data_case() == kDouble) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityDouble*>(_impl_.Data_.double__);
+    _impl_.Data_.double__ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ActivityMsg::unsafe_arena_set_allocated_double_(
+    ::proto::ActivityDouble* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_Data();
+  if (value) {
+    set_has_double_();
+    _impl_.Data_.double__ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.ActivityMsg.Double)
+}
+inline ::proto::ActivityDouble* PROTOBUF_NONNULL ActivityMsg::_internal_mutable_double_() {
+  if (Data_case() != kDouble) {
+    clear_Data();
+    set_has_double_();
+    _impl_.Data_.double__ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::proto::ActivityDouble>(GetArena()));
+  }
+  return reinterpret_cast<::proto::ActivityDouble*>(_impl_.Data_.double__);
+}
+inline ::proto::ActivityDouble* PROTOBUF_NONNULL ActivityMsg::mutable_double_()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::proto::ActivityDouble* _msg = _internal_mutable_double_();
+  // @@protoc_insertion_point(field_mutable:proto.ActivityMsg.Double)
+  return _msg;
+}
+
+// .proto.ActivityHistoryStoryChapter HistoryStoryChapter = 22;
+inline bool ActivityMsg::has_historystorychapter() const {
+  return Data_case() == kHistoryStoryChapter;
+}
+inline bool ActivityMsg::_internal_has_historystorychapter() const {
+  return Data_case() == kHistoryStoryChapter;
+}
+inline void ActivityMsg::set_has_historystorychapter() {
+  _impl_._oneof_case_[0] = kHistoryStoryChapter;
+}
+inline ::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE ActivityMsg::release_historystorychapter() {
+  // @@protoc_insertion_point(field_release:proto.ActivityMsg.HistoryStoryChapter)
+  if (Data_case() == kHistoryStoryChapter) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityHistoryStoryChapter*>(_impl_.Data_.historystorychapter_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.Data_.historystorychapter_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::proto::ActivityHistoryStoryChapter& ActivityMsg::_internal_historystorychapter() const {
+  return Data_case() == kHistoryStoryChapter ? static_cast<const ::proto::ActivityHistoryStoryChapter&>(*reinterpret_cast<::proto::ActivityHistoryStoryChapter*>(_impl_.Data_.historystorychapter_))
+                     : reinterpret_cast<const ::proto::ActivityHistoryStoryChapter&>(::proto::_ActivityHistoryStoryChapter_default_instance_);
+}
+inline const ::proto::ActivityHistoryStoryChapter& ActivityMsg::historystorychapter() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.ActivityMsg.HistoryStoryChapter)
+  return _internal_historystorychapter();
+}
+inline ::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE ActivityMsg::unsafe_arena_release_historystorychapter() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto.ActivityMsg.HistoryStoryChapter)
+  if (Data_case() == kHistoryStoryChapter) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityHistoryStoryChapter*>(_impl_.Data_.historystorychapter_);
+    _impl_.Data_.historystorychapter_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ActivityMsg::unsafe_arena_set_allocated_historystorychapter(
+    ::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_Data();
+  if (value) {
+    set_has_historystorychapter();
+    _impl_.Data_.historystorychapter_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.ActivityMsg.HistoryStoryChapter)
+}
+inline ::proto::ActivityHistoryStoryChapter* PROTOBUF_NONNULL ActivityMsg::_internal_mutable_historystorychapter() {
+  if (Data_case() != kHistoryStoryChapter) {
+    clear_Data();
+    set_has_historystorychapter();
+    _impl_.Data_.historystorychapter_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::proto::ActivityHistoryStoryChapter>(GetArena()));
+  }
+  return reinterpret_cast<::proto::ActivityHistoryStoryChapter*>(_impl_.Data_.historystorychapter_);
+}
+inline ::proto::ActivityHistoryStoryChapter* PROTOBUF_NONNULL ActivityMsg::mutable_historystorychapter()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::proto::ActivityHistoryStoryChapter* _msg = _internal_mutable_historystorychapter();
+  // @@protoc_insertion_point(field_mutable:proto.ActivityMsg.HistoryStoryChapter)
+  return _msg;
+}
+
+// .proto.ActivityShare Share = 23;
+inline bool ActivityMsg::has_share() const {
+  return Data_case() == kShare;
+}
+inline bool ActivityMsg::_internal_has_share() const {
+  return Data_case() == kShare;
+}
+inline void ActivityMsg::set_has_share() {
+  _impl_._oneof_case_[0] = kShare;
+}
+inline ::proto::ActivityShare* PROTOBUF_NULLABLE ActivityMsg::release_share() {
+  // @@protoc_insertion_point(field_release:proto.ActivityMsg.Share)
+  if (Data_case() == kShare) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityShare*>(_impl_.Data_.share_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.Data_.share_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::proto::ActivityShare& ActivityMsg::_internal_share() const {
+  return Data_case() == kShare ? static_cast<const ::proto::ActivityShare&>(*reinterpret_cast<::proto::ActivityShare*>(_impl_.Data_.share_))
+                     : reinterpret_cast<const ::proto::ActivityShare&>(::proto::_ActivityShare_default_instance_);
+}
+inline const ::proto::ActivityShare& ActivityMsg::share() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.ActivityMsg.Share)
+  return _internal_share();
+}
+inline ::proto::ActivityShare* PROTOBUF_NULLABLE ActivityMsg::unsafe_arena_release_share() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto.ActivityMsg.Share)
+  if (Data_case() == kShare) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityShare*>(_impl_.Data_.share_);
+    _impl_.Data_.share_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ActivityMsg::unsafe_arena_set_allocated_share(
+    ::proto::ActivityShare* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_Data();
+  if (value) {
+    set_has_share();
+    _impl_.Data_.share_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.ActivityMsg.Share)
+}
+inline ::proto::ActivityShare* PROTOBUF_NONNULL ActivityMsg::_internal_mutable_share() {
+  if (Data_case() != kShare) {
+    clear_Data();
+    set_has_share();
+    _impl_.Data_.share_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::proto::ActivityShare>(GetArena()));
+  }
+  return reinterpret_cast<::proto::ActivityShare*>(_impl_.Data_.share_);
+}
+inline ::proto::ActivityShare* PROTOBUF_NONNULL ActivityMsg::mutable_share()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::proto::ActivityShare* _msg = _internal_mutable_share();
+  // @@protoc_insertion_point(field_mutable:proto.ActivityMsg.Share)
+  return _msg;
+}
+
+// .proto.ActivityIceCream IceCream = 24;
+inline bool ActivityMsg::has_icecream() const {
+  return Data_case() == kIceCream;
+}
+inline bool ActivityMsg::_internal_has_icecream() const {
+  return Data_case() == kIceCream;
+}
+inline void ActivityMsg::set_has_icecream() {
+  _impl_._oneof_case_[0] = kIceCream;
+}
+inline ::proto::ActivityIceCream* PROTOBUF_NULLABLE ActivityMsg::release_icecream() {
+  // @@protoc_insertion_point(field_release:proto.ActivityMsg.IceCream)
+  if (Data_case() == kIceCream) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityIceCream*>(_impl_.Data_.icecream_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.Data_.icecream_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::proto::ActivityIceCream& ActivityMsg::_internal_icecream() const {
+  return Data_case() == kIceCream ? static_cast<const ::proto::ActivityIceCream&>(*reinterpret_cast<::proto::ActivityIceCream*>(_impl_.Data_.icecream_))
+                     : reinterpret_cast<const ::proto::ActivityIceCream&>(::proto::_ActivityIceCream_default_instance_);
+}
+inline const ::proto::ActivityIceCream& ActivityMsg::icecream() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.ActivityMsg.IceCream)
+  return _internal_icecream();
+}
+inline ::proto::ActivityIceCream* PROTOBUF_NULLABLE ActivityMsg::unsafe_arena_release_icecream() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto.ActivityMsg.IceCream)
+  if (Data_case() == kIceCream) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivityIceCream*>(_impl_.Data_.icecream_);
+    _impl_.Data_.icecream_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ActivityMsg::unsafe_arena_set_allocated_icecream(
+    ::proto::ActivityIceCream* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_Data();
+  if (value) {
+    set_has_icecream();
+    _impl_.Data_.icecream_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.ActivityMsg.IceCream)
+}
+inline ::proto::ActivityIceCream* PROTOBUF_NONNULL ActivityMsg::_internal_mutable_icecream() {
+  if (Data_case() != kIceCream) {
+    clear_Data();
+    set_has_icecream();
+    _impl_.Data_.icecream_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::proto::ActivityIceCream>(GetArena()));
+  }
+  return reinterpret_cast<::proto::ActivityIceCream*>(_impl_.Data_.icecream_);
+}
+inline ::proto::ActivityIceCream* PROTOBUF_NONNULL ActivityMsg::mutable_icecream()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::proto::ActivityIceCream* _msg = _internal_mutable_icecream();
+  // @@protoc_insertion_point(field_mutable:proto.ActivityMsg.IceCream)
+  return _msg;
+}
+
+// .proto.ActivitySoldier Soldier = 25;
+inline bool ActivityMsg::has_soldier() const {
+  return Data_case() == kSoldier;
+}
+inline bool ActivityMsg::_internal_has_soldier() const {
+  return Data_case() == kSoldier;
+}
+inline void ActivityMsg::set_has_soldier() {
+  _impl_._oneof_case_[0] = kSoldier;
+}
+inline ::proto::ActivitySoldier* PROTOBUF_NULLABLE ActivityMsg::release_soldier() {
+  // @@protoc_insertion_point(field_release:proto.ActivityMsg.Soldier)
+  if (Data_case() == kSoldier) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivitySoldier*>(_impl_.Data_.soldier_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.Data_.soldier_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::proto::ActivitySoldier& ActivityMsg::_internal_soldier() const {
+  return Data_case() == kSoldier ? static_cast<const ::proto::ActivitySoldier&>(*reinterpret_cast<::proto::ActivitySoldier*>(_impl_.Data_.soldier_))
+                     : reinterpret_cast<const ::proto::ActivitySoldier&>(::proto::_ActivitySoldier_default_instance_);
+}
+inline const ::proto::ActivitySoldier& ActivityMsg::soldier() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.ActivityMsg.Soldier)
+  return _internal_soldier();
+}
+inline ::proto::ActivitySoldier* PROTOBUF_NULLABLE ActivityMsg::unsafe_arena_release_soldier() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto.ActivityMsg.Soldier)
+  if (Data_case() == kSoldier) {
+    clear_has_Data();
+    auto* temp = reinterpret_cast<::proto::ActivitySoldier*>(_impl_.Data_.soldier_);
+    _impl_.Data_.soldier_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ActivityMsg::unsafe_arena_set_allocated_soldier(
+    ::proto::ActivitySoldier* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_Data();
+  if (value) {
+    set_has_soldier();
+    _impl_.Data_.soldier_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.ActivityMsg.Soldier)
+}
+inline ::proto::ActivitySoldier* PROTOBUF_NONNULL ActivityMsg::_internal_mutable_soldier() {
+  if (Data_case() != kSoldier) {
+    clear_Data();
+    set_has_soldier();
+    _impl_.Data_.soldier_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::proto::ActivitySoldier>(GetArena()));
+  }
+  return reinterpret_cast<::proto::ActivitySoldier*>(_impl_.Data_.soldier_);
+}
+inline ::proto::ActivitySoldier* PROTOBUF_NONNULL ActivityMsg::mutable_soldier()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::proto::ActivitySoldier* _msg = _internal_mutable_soldier();
+  // @@protoc_insertion_point(field_mutable:proto.ActivityMsg.Soldier)
   return _msg;
 }
 

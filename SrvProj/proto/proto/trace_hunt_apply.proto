@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TraceHuntApplyReq {
+    uint64 OwnerUID = 1;
+    uint32 BossID = 2;
+    uint64 BuildID = 3;
+    int64 BossCreateTime = 4;
+    bytes NextPackage = 2047;
+}

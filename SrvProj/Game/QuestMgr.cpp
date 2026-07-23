@@ -9,7 +9,7 @@
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/BinClass/QuestRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/notify.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 

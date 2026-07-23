@@ -249,12 +249,15 @@ inline constexpr PlayerInfo::Impl_::Impl_(
         _weeklyactiveids_cached_byte_size_{0},
         assists_{},
         activityhonors_{},
+        personalitymodels_{},
         honorlist_{},
         _honorlist_cached_byte_size_{0},
         honors_{},
         nextpackage_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        huntpermit_{nullptr},
+        tracerequest_{nullptr},
         lastread_{nullptr},
         tourguidequestgroup_{0u},
         dailymallrewardstatus_{false},
@@ -293,7 +296,7 @@ const ::uint32_t
         protodesc_cold) = {
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_._has_bits_),
-        52, // hasbit index offset
+        55, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.acc_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.res_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.items_),
@@ -334,6 +337,9 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.assists_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.dailymallrewardstatus_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.activityhonors_),
+        PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.huntpermit_),
+        PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.tracerequest_),
+        PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.personalitymodels_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.nicknameresettime_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.musicinfo_),
         PROTOBUF_FIELD_OFFSET(::proto::PlayerInfo, _impl_.honorlist_),
@@ -374,24 +380,27 @@ const ::uint32_t
         24,
         25,
         30,
-        42,
+        45,
         31,
         32,
         33,
         34,
         35,
         36,
-        43,
-        37,
-        45,
         46,
+        37,
+        42,
+        43,
         38,
-        39,
-        44,
         48,
-        47,
-        41,
+        49,
+        39,
         40,
+        47,
+        51,
+        50,
+        44,
+        41,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::PhoneInfo, _impl_._has_bits_),
         6, // hasbit index offset
@@ -453,12 +462,12 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, sizeof(::proto::PlayerInfo)},
-        {101, sizeof(::proto::PhoneInfo)},
-        {110, sizeof(::proto::DictionaryEntry)},
-        {119, sizeof(::proto::DictionaryTab)},
-        {128, sizeof(::proto::EnergyInfo)},
-        {137, sizeof(::proto::WorldClassInfo)},
-        {148, sizeof(::proto::AssistInfo)},
+        {107, sizeof(::proto::PhoneInfo)},
+        {116, sizeof(::proto::DictionaryEntry)},
+        {125, sizeof(::proto::DictionaryTab)},
+        {134, sizeof(::proto::EnergyInfo)},
+        {143, sizeof(::proto::WorldClassInfo)},
+        {154, sizeof(::proto::AssistInfo)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_PlayerInfo_default_instance_._instance,
@@ -472,7 +481,7 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
 const char descriptor_table_protodef_player_5fdata_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\021player_data.proto\022\005proto\032\014public.proto"
-    "\"\331\014\n\nPlayerInfo\022\033\n\003Acc\030\001 \001(\0132\016.proto.Acc"
+    "\"\363\r\n\nPlayerInfo\022\033\n\003Acc\030\001 \001(\0132\016.proto.Acc"
     "Info\022\027\n\003Res\030\002 \003(\0132\n.proto.Res\022\032\n\005Items\030\003"
     " \003(\0132\013.proto.Item\022\032\n\005Chars\030\004 \003(\0132\013.proto"
     ".Char\022(\n\tFormation\030\005 \001(\0132\025.proto.TowerFo"
@@ -507,24 +516,28 @@ const char descriptor_table_protodef_player_5fdata_2eproto[] ABSL_ATTRIBUTE_SECT
     "ds\030& \003(\r\022\"\n\007Assists\030\' \003(\0132\021.proto.Assist"
     "Info\022\035\n\025DailyMallRewardStatus\030( \001(\010\022,\n\016A"
     "ctivityHonors\030) \003(\0132\024.proto.ActivityHono"
-    "r\022\031\n\021NicknameResetTime\030y \001(\003\022\021\n\tMusicInf"
-    "o\030z \001(\003\022\021\n\tHonorList\030{ \003(\r\022 \n\006Honors\030| \003"
-    "(\0132\020.proto.HonorInfo\022\035\n\025DailyShopRewardS"
-    "tatus\030} \001(\010\022\023\n\013TowerTicket\030~ \001(\r\022\020\n\010Serv"
-    "erTs\030\177 \001(\003\022\"\n\010LastRead\030\200\001 \001(\0132\017.proto.La"
-    "stRead\022\024\n\013NextPackage\030\377\017 \001(\014\"N\n\tPhoneInf"
-    "o\022\022\n\nNewMessage\030\001 \001(\r\022\027\n\017ProgressMessage"
-    "\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"F\n\017Dictiona"
-    "ryEntry\022\r\n\005Index\030\001 \001(\r\022\016\n\006Status\030\002 \001(\r\022\024"
-    "\n\013NextPackage\030\377\017 \001(\014\"]\n\rDictionaryTab\022\r\n"
-    "\005TabId\030\001 \001(\r\022\'\n\007Entries\030\002 \003(\0132\026.proto.Di"
-    "ctionaryEntry\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\nE"
-    "nergyInfo\022\035\n\006Energy\030\001 \001(\0132\r.proto.Energy"
-    "\022\r\n\005Count\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"S\n"
-    "\016WorldClassInfo\022\013\n\003Cur\030\001 \001(\r\022\017\n\007LastExp\030"
-    "\002 \001(\005\022\r\n\005Stage\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001"
-    "(\014\"D\n\nAssistInfo\022\021\n\tAttribute\030\001 \001(\r\022\r\n\005G"
-    "roup\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
+    "r\022,\n\nHuntPermit\030v \001(\0132\030.proto.TraceHuntI"
+    "temInfo\022.\n\014TraceRequest\030w \001(\0132\030.proto.Tr"
+    "aceHuntItemInfo\022:\n\021PersonalityModels\030x \003"
+    "(\0132\037.proto.ActivityPersonalityModel\022\031\n\021N"
+    "icknameResetTime\030y \001(\003\022\021\n\tMusicInfo\030z \001("
+    "\003\022\021\n\tHonorList\030{ \003(\r\022 \n\006Honors\030| \003(\0132\020.p"
+    "roto.HonorInfo\022\035\n\025DailyShopRewardStatus\030"
+    "} \001(\010\022\023\n\013TowerTicket\030~ \001(\r\022\020\n\010ServerTs\030\177"
+    " \001(\003\022\"\n\010LastRead\030\200\001 \001(\0132\017.proto.LastRead"
+    "\022\024\n\013NextPackage\030\377\017 \001(\014\"N\n\tPhoneInfo\022\022\n\nN"
+    "ewMessage\030\001 \001(\r\022\027\n\017ProgressMessage\030\002 \001(\r"
+    "\022\024\n\013NextPackage\030\377\017 \001(\014\"F\n\017DictionaryEntr"
+    "y\022\r\n\005Index\030\001 \001(\r\022\016\n\006Status\030\002 \001(\r\022\024\n\013Next"
+    "Package\030\377\017 \001(\014\"]\n\rDictionaryTab\022\r\n\005TabId"
+    "\030\001 \001(\r\022\'\n\007Entries\030\002 \003(\0132\026.proto.Dictiona"
+    "ryEntry\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\nEnergyI"
+    "nfo\022\035\n\006Energy\030\001 \001(\0132\r.proto.Energy\022\r\n\005Co"
+    "unt\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"S\n\016World"
+    "ClassInfo\022\013\n\003Cur\030\001 \001(\r\022\017\n\007LastExp\030\002 \001(\005\022"
+    "\r\n\005Stage\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"D\n\n"
+    "AssistInfo\022\021\n\tAttribute\030\001 \001(\r\022\r\n\005Group\030\002"
+    " \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_player_5fdata_2eproto_deps[1] = {
@@ -534,7 +547,7 @@ static ::absl::once_flag descriptor_table_player_5fdata_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_player_5fdata_2eproto = {
     false,
     false,
-    2160,
+    2314,
     descriptor_table_protodef_player_5fdata_2eproto,
     "player_data.proto",
     &descriptor_table_player_5fdata_2eproto_once,
@@ -696,17 +709,35 @@ void PlayerInfo::clear_activityhonors() {
   ClearHasBitForRepeated(_impl_._has_bits_[1],
                   0x00000020U);
 }
+void PlayerInfo::clear_huntpermit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.huntpermit_ != nullptr) _impl_.huntpermit_->Clear();
+  ClearHasBit(_impl_._has_bits_[1],
+                  0x00000400U);
+}
+void PlayerInfo::clear_tracerequest() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.tracerequest_ != nullptr) _impl_.tracerequest_->Clear();
+  ClearHasBit(_impl_._has_bits_[1],
+                  0x00000800U);
+}
+void PlayerInfo::clear_personalitymodels() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.personalitymodels_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[1],
+                  0x00000040U);
+}
 void PlayerInfo::clear_honors() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.honors_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[1],
-                  0x00000080U);
+                  0x00000100U);
 }
 void PlayerInfo::clear_lastread() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.lastread_ != nullptr) _impl_.lastread_->Clear();
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00000200U);
+                  0x00001000U);
 }
 PlayerInfo::PlayerInfo(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -752,6 +783,7 @@ PROTOBUF_NDEBUG_INLINE PlayerInfo::Impl_::Impl_(
         _weeklyactiveids_cached_byte_size_{0},
         assists_{visibility, arena, from.assists_},
         activityhonors_{visibility, arena, from.activityhonors_},
+        personalitymodels_{visibility, arena, from.personalitymodels_},
         honorlist_{visibility, arena, from.honorlist_},
         _honorlist_cached_byte_size_{0},
         honors_{visibility, arena, from.honors_},
@@ -809,7 +841,13 @@ PlayerInfo::PlayerInfo(
                offsetof(Impl_, sendgiftcnt_) +
                sizeof(Impl_::equipmentdoublecount_));
   cached_has_bits = _impl_._has_bits_[1];
-  _impl_.lastread_ = (CheckHasBit(cached_has_bits, 0x00000200U))
+  _impl_.huntpermit_ = (CheckHasBit(cached_has_bits, 0x00000400U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.huntpermit_)
+                : nullptr;
+  _impl_.tracerequest_ = (CheckHasBit(cached_has_bits, 0x00000800U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.tracerequest_)
+                : nullptr;
+  _impl_.lastread_ = (CheckHasBit(cached_has_bits, 0x00001000U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.lastread_)
                 : nullptr;
   ::memcpy(reinterpret_cast<char*>(&_impl_) +
@@ -855,6 +893,7 @@ PROTOBUF_NDEBUG_INLINE PlayerInfo::Impl_::Impl_(
         _weeklyactiveids_cached_byte_size_{0},
         assists_{visibility, arena},
         activityhonors_{visibility, arena},
+        personalitymodels_{visibility, arena},
         honorlist_{visibility, arena},
         _honorlist_cached_byte_size_{0},
         honors_{visibility, arena},
@@ -869,10 +908,10 @@ inline void PlayerInfo::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                offsetof(Impl_, acc_) +
                sizeof(Impl_::equipmentdoublecount_));
   ::memset(reinterpret_cast<char*>(&_impl_) +
-               offsetof(Impl_, lastread_),
+               offsetof(Impl_, huntpermit_),
            0,
            offsetof(Impl_, towerticket_) -
-               offsetof(Impl_, lastread_) +
+               offsetof(Impl_, huntpermit_) +
                sizeof(Impl_::towerticket_));
 }
 PlayerInfo::~PlayerInfo() {
@@ -898,6 +937,8 @@ inline void PlayerInfo::SharedDtor(MessageLite& self) {
   delete this_._impl_.story_;
   delete this_._impl_.vampiresurvivorrecord_;
   this_._impl_.nextpackage_.Destroy();
+  delete this_._impl_.huntpermit_;
+  delete this_._impl_.tracerequest_;
   delete this_._impl_.lastread_;
   this_._impl_.~Impl_();
 }
@@ -1001,6 +1042,10 @@ constexpr auto PlayerInfo::InternalNewImpl_() {
           decltype(PlayerInfo::_impl_.activityhonors_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.personalitymodels_) +
+          decltype(PlayerInfo::_impl_.personalitymodels_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.honorlist_) +
           decltype(PlayerInfo::_impl_.honorlist_)::
               InternalGetArenaOffset(
@@ -1053,7 +1098,7 @@ PlayerInfo::GetClassData() const {
   return PlayerInfo_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 49, 30, 0, 22>
+const ::_pbi::TcParseTable<5, 52, 33, 0, 22>
 PlayerInfo::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_._has_bits_),
@@ -1062,8 +1107,8 @@ PlayerInfo::_table_ = {
     offsetof(decltype(_table_), field_lookup_table),
     32,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    49,  // num_field_entries
-    30,  // num_aux_entries
+    52,  // num_field_entries
+    33,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     PlayerInfo_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1201,9 +1246,9 @@ PlayerInfo::_table_ = {
     65535, 40,
     65535, 40,
     65535, 40,
-    255, 40,
+    31, 40,
     2047, 0, 1,
-    65534, 48,
+    65534, 51,
     65535, 65535
   }}, {{
     // .proto.AccInfo Acc = 1;
@@ -1269,7 +1314,7 @@ PlayerInfo::_table_ = {
     // repeated uint32 DailyActiveIds = 32;
     {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.dailyactiveids_), _Internal::kHasBitsOffset + 30, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // uint32 TourGuideQuestGroup = 33;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.tourguidequestgroup_), _Internal::kHasBitsOffset + 42, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.tourguidequestgroup_), _Internal::kHasBitsOffset + 45, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // repeated .proto.SkillInstance SkillInstances = 34;
     {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.skillinstances_), _Internal::kHasBitsOffset + 31, 22, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .proto.WeekBossLevel WeekBossLevels = 35;
@@ -1283,27 +1328,33 @@ PlayerInfo::_table_ = {
     // repeated .proto.AssistInfo Assists = 39;
     {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.assists_), _Internal::kHasBitsOffset + 36, 26, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bool DailyMallRewardStatus = 40;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.dailymallrewardstatus_), _Internal::kHasBitsOffset + 43, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.dailymallrewardstatus_), _Internal::kHasBitsOffset + 46, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // repeated .proto.ActivityHonor ActivityHonors = 41;
     {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.activityhonors_), _Internal::kHasBitsOffset + 37, 27, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.TraceHuntItemInfo HuntPermit = 118;
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.huntpermit_), _Internal::kHasBitsOffset + 42, 28, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.TraceHuntItemInfo TraceRequest = 119;
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.tracerequest_), _Internal::kHasBitsOffset + 43, 29, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .proto.ActivityPersonalityModel PersonalityModels = 120;
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.personalitymodels_), _Internal::kHasBitsOffset + 38, 30, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // int64 NicknameResetTime = 121;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.nicknameresettime_), _Internal::kHasBitsOffset + 45, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.nicknameresettime_), _Internal::kHasBitsOffset + 48, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // int64 MusicInfo = 122;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.musicinfo_), _Internal::kHasBitsOffset + 46, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.musicinfo_), _Internal::kHasBitsOffset + 49, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // repeated uint32 HonorList = 123;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.honorlist_), _Internal::kHasBitsOffset + 38, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.honorlist_), _Internal::kHasBitsOffset + 39, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated .proto.HonorInfo Honors = 124;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.honors_), _Internal::kHasBitsOffset + 39, 28, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.honors_), _Internal::kHasBitsOffset + 40, 31, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bool DailyShopRewardStatus = 125;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.dailyshoprewardstatus_), _Internal::kHasBitsOffset + 44, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.dailyshoprewardstatus_), _Internal::kHasBitsOffset + 47, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // uint32 TowerTicket = 126;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.towerticket_), _Internal::kHasBitsOffset + 48, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.towerticket_), _Internal::kHasBitsOffset + 51, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int64 ServerTs = 127;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.serverts_), _Internal::kHasBitsOffset + 47, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.serverts_), _Internal::kHasBitsOffset + 50, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // .proto.LastRead LastRead = 128;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.lastread_), _Internal::kHasBitsOffset + 41, 29, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.lastread_), _Internal::kHasBitsOffset + 44, 32, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // bytes NextPackage = 2047;
-    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.nextpackage_), _Internal::kHasBitsOffset + 40, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.nextpackage_), _Internal::kHasBitsOffset + 41, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::proto::AccInfo>()},
@@ -1334,6 +1385,9 @@ PlayerInfo::_table_ = {
       {::_pbi::TcParser::GetTable<::proto::TutorialLevel>()},
       {::_pbi::TcParser::GetTable<::proto::AssistInfo>()},
       {::_pbi::TcParser::GetTable<::proto::ActivityHonor>()},
+      {::_pbi::TcParser::GetTable<::proto::TraceHuntItemInfo>()},
+      {::_pbi::TcParser::GetTable<::proto::TraceHuntItemInfo>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityPersonalityModel>()},
       {::_pbi::TcParser::GetTable<::proto::HonorInfo>()},
       {::_pbi::TcParser::GetTable<::proto::LastRead>()},
   }},
@@ -1476,27 +1530,42 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
       _impl_.activityhonors_.Clear();
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
-      _impl_.honorlist_.Clear();
+      _impl_.personalitymodels_.Clear();
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
-      _impl_.honors_.Clear();
+      _impl_.honorlist_.Clear();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
-      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  if (BatchCheckHasBit(cached_has_bits, 0x00001f00U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
+      _impl_.honors_.Clear();
     }
     if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+      ABSL_DCHECK(_impl_.huntpermit_ != nullptr);
+      _impl_.huntpermit_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+      ABSL_DCHECK(_impl_.tracerequest_ != nullptr);
+      _impl_.tracerequest_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       ABSL_DCHECK(_impl_.lastread_ != nullptr);
       _impl_.lastread_->Clear();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x0000fc00U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000e000U)) {
     ::memset(&_impl_.tourguidequestgroup_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.serverts_) -
-        reinterpret_cast<char*>(&_impl_.tourguidequestgroup_)) + sizeof(_impl_.serverts_));
+        reinterpret_cast<char*>(&_impl_.dailyshoprewardstatus_) -
+        reinterpret_cast<char*>(&_impl_.tourguidequestgroup_)) + sizeof(_impl_.dailyshoprewardstatus_));
   }
-  _impl_.towerticket_ = 0u;
+  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
+    ::memset(&_impl_.nicknameresettime_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.towerticket_) -
+        reinterpret_cast<char*>(&_impl_.nicknameresettime_)) + sizeof(_impl_.towerticket_));
+  }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -1836,7 +1905,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
 
   cached_has_bits = this_._impl_._has_bits_[1];
   // uint32 TourGuideQuestGroup = 33;
-  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+  if (CheckHasBit(cached_has_bits, 0x00002000U)) {
     if (this_._internal_tourguidequestgroup() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -1923,7 +1992,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // bool DailyMallRewardStatus = 40;
-  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
     if (this_._internal_dailymallrewardstatus() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -1944,8 +2013,35 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
     }
   }
 
+  // .proto.TraceHuntItemInfo HuntPermit = 118;
+  if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        118, *this_._impl_.huntpermit_, this_._impl_.huntpermit_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .proto.TraceHuntItemInfo TraceRequest = 119;
+  if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        119, *this_._impl_.tracerequest_, this_._impl_.tracerequest_->GetCachedSize(), target,
+        stream);
+  }
+
+  // repeated .proto.ActivityPersonalityModel PersonalityModels = 120;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_personalitymodels_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_personalitymodels().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              120, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
   // int64 NicknameResetTime = 121;
-  if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
     if (this_._internal_nicknameresettime() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -1954,7 +2050,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // int64 MusicInfo = 122;
-  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00020000U)) {
     if (this_._internal_musicinfo() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -1963,7 +2059,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // repeated uint32 HonorList = 123;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
     {
       int byte_size = this_._impl_._honorlist_cached_byte_size_.Get();
       if (byte_size > 0) {
@@ -1974,7 +2070,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // repeated .proto.HonorInfo Honors = 124;
-  if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_honors_size());
          i < n; i++) {
@@ -1987,7 +2083,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // bool DailyShopRewardStatus = 125;
-  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
     if (this_._internal_dailyshoprewardstatus() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -1996,7 +2092,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // uint32 TowerTicket = 126;
-  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00080000U)) {
     if (this_._internal_towerticket() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -2005,7 +2101,7 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // int64 ServerTs = 127;
-  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00040000U)) {
     if (this_._internal_serverts() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -2014,14 +2110,14 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
   }
 
   // .proto.LastRead LastRead = 128;
-  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+  if (CheckHasBit(cached_has_bits, 0x00001000U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         128, *this_._impl_.lastread_, this_._impl_.lastread_->GetCachedSize(), target,
         stream);
   }
 
   // bytes NextPackage = 2047;
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
     if (!this_._internal_nextpackage().empty()) {
       const ::std::string& _s = this_._internal_nextpackage();
       target = stream->WriteBytesMaybeAliased(2047, _s, target);
@@ -2309,78 +2405,95 @@ PROTOBUF_NOINLINE void PlayerInfo::Clear() {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
-    // repeated uint32 HonorList = 123;
+    // repeated .proto.ActivityPersonalityModel PersonalityModels = 120;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
+      total_size += 2UL * this_._internal_personalitymodels_size();
+      for (const auto& msg : this_._internal_personalitymodels()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // repeated uint32 HonorList = 123;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
       total_size +=
           ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
               this_._internal_honorlist(), 2,
               this_._impl_._honorlist_cached_byte_size_);
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     // repeated .proto.HonorInfo Honors = 124;
-    if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
       total_size += 2UL * this_._internal_honors_size();
       for (const auto& msg : this_._internal_honors()) {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
     // bytes NextPackage = 2047;
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (!this_._internal_nextpackage().empty()) {
         total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                         this_._internal_nextpackage());
       }
     }
+    // .proto.TraceHuntItemInfo HuntPermit = 118;
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.huntpermit_);
+    }
+    // .proto.TraceHuntItemInfo TraceRequest = 119;
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.tracerequest_);
+    }
     // .proto.LastRead LastRead = 128;
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.lastread_);
     }
     // uint32 TourGuideQuestGroup = 33;
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
       if (this_._internal_tourguidequestgroup() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::UInt32Size(
                                         this_._internal_tourguidequestgroup());
       }
     }
     // bool DailyMallRewardStatus = 40;
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
       if (this_._internal_dailymallrewardstatus() != 0) {
         total_size += 3;
       }
     }
     // bool DailyShopRewardStatus = 125;
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (this_._internal_dailyshoprewardstatus() != 0) {
         total_size += 3;
       }
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
     // int64 NicknameResetTime = 121;
-    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (this_._internal_nicknameresettime() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_nicknameresettime());
       }
     }
     // int64 MusicInfo = 122;
-    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (this_._internal_musicinfo() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_musicinfo());
       }
     }
     // int64 ServerTs = 127;
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
       if (this_._internal_serverts() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_serverts());
       }
     }
-  }
-   {
     // uint32 TowerTicket = 126;
-    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
       if (this_._internal_towerticket() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::UInt32Size(
                                         this_._internal_towerticket());
@@ -2631,16 +2744,21 @@ void PlayerInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
           from._internal_activityhonors());
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000040U)) {
-      _this->_internal_mutable_honorlist()->MergeFrom(from._internal_honorlist());
+      _this->_internal_mutable_personalitymodels()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_personalitymodels());
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000080U)) {
+      _this->_internal_mutable_honorlist()->MergeFrom(from._internal_honorlist());
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000100U)) {
       _this->_internal_mutable_honors()->InternalMergeFromWithArena(
           ::google::protobuf::MessageLite::internal_visibility(), arena,
           from._internal_honors());
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x0000ff00U)) {
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (!from._internal_nextpackage().empty()) {
         _this->_internal_set_nextpackage(from._internal_nextpackage());
       } else {
@@ -2649,7 +2767,23 @@ void PlayerInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+      ABSL_DCHECK(from._impl_.huntpermit_ != nullptr);
+      if (_this->_impl_.huntpermit_ == nullptr) {
+        _this->_impl_.huntpermit_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.huntpermit_);
+      } else {
+        _this->_impl_.huntpermit_->MergeFrom(*from._impl_.huntpermit_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+      ABSL_DCHECK(from._impl_.tracerequest_ != nullptr);
+      if (_this->_impl_.tracerequest_ == nullptr) {
+        _this->_impl_.tracerequest_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.tracerequest_);
+      } else {
+        _this->_impl_.tracerequest_->MergeFrom(*from._impl_.tracerequest_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
       ABSL_DCHECK(from._impl_.lastread_ != nullptr);
       if (_this->_impl_.lastread_ == nullptr) {
         _this->_impl_.lastread_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.lastread_);
@@ -2657,40 +2791,42 @@ void PlayerInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.lastread_->MergeFrom(*from._impl_.lastread_);
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000400U)) {
+    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
       if (from._internal_tourguidequestgroup() != 0) {
         _this->_impl_.tourguidequestgroup_ = from._impl_.tourguidequestgroup_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000800U)) {
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
       if (from._internal_dailymallrewardstatus() != 0) {
         _this->_impl_.dailymallrewardstatus_ = from._impl_.dailymallrewardstatus_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00001000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (from._internal_dailyshoprewardstatus() != 0) {
         _this->_impl_.dailyshoprewardstatus_ = from._impl_.dailyshoprewardstatus_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00002000U)) {
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (from._internal_nicknameresettime() != 0) {
         _this->_impl_.nicknameresettime_ = from._impl_.nicknameresettime_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (from._internal_musicinfo() != 0) {
         _this->_impl_.musicinfo_ = from._impl_.musicinfo_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
       if (from._internal_serverts() != 0) {
         _this->_impl_.serverts_ = from._impl_.serverts_;
       }
     }
-  }
-  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
-    if (from._internal_towerticket() != 0) {
-      _this->_impl_.towerticket_ = from._impl_.towerticket_;
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+      if (from._internal_towerticket() != 0) {
+        _this->_impl_.towerticket_ = from._impl_.towerticket_;
+      }
     }
   }
   _this->_impl_._has_bits_.Or(from._impl_._has_bits_);
@@ -2743,15 +2879,16 @@ void PlayerInfo::InternalSwap(PlayerInfo* PROTOBUF_RESTRICT PROTOBUF_NONNULL oth
   _impl_.weeklyactiveids_.InternalSwap(&other->_impl_.weeklyactiveids_);
   _impl_.assists_.InternalSwap(&other->_impl_.assists_);
   _impl_.activityhonors_.InternalSwap(&other->_impl_.activityhonors_);
+  _impl_.personalitymodels_.InternalSwap(&other->_impl_.personalitymodels_);
   _impl_.honorlist_.InternalSwap(&other->_impl_.honorlist_);
   _impl_.honors_.InternalSwap(&other->_impl_.honors_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.towerticket_)
       + sizeof(PlayerInfo::_impl_.towerticket_)
-      - PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.lastread_)>(
-          reinterpret_cast<char*>(&_impl_.lastread_),
-          reinterpret_cast<char*>(&other->_impl_.lastread_));
+      - PROTOBUF_FIELD_OFFSET(PlayerInfo, _impl_.huntpermit_)>(
+          reinterpret_cast<char*>(&_impl_.huntpermit_),
+          reinterpret_cast<char*>(&other->_impl_.huntpermit_));
 }
 
 ::google::protobuf::Metadata PlayerInfo::GetMetadata() const {

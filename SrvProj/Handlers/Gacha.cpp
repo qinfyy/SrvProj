@@ -4,7 +4,7 @@
 #include "../Game/GachaMgr.h"
 #include "../Game/InventoryMgr.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/gacha_histories.pb.h"
 #include "../proto/proto_cpp/gacha_information.pb.h"
 #include "../proto/proto_cpp/gacha_newbie_info.pb.h"

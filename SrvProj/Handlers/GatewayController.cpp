@@ -1,12 +1,13 @@
 ﻿#include "GatewayController.h"
 #include "../AccountServer.h"
 #include <sstream>
+#include <string_view>
 #include <openssl/rand.h>
 #include "../GameSession.h"
 #include "../AeadTool.h"
 #include "../GameServices.h"
 #include "../logger.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "Login.h"
 #include "Activity.h"
 #include "Quest.h"
@@ -291,27 +292,27 @@ AsyncTask<void> AgentHandler(RouteContext& context, const HttpRequest& request, 
 
 std::string DummyHandler(short reqId)
 {
-    const auto* enumDesc = NetMsgId_descriptor();
-    if (!enumDesc) {
+    std::string reqName;
+    for (const auto& [name, id] : kNetMsgIdMap) {
+        if (id == reqId) {
+            reqName = name;
+            break;
+        }
+    }
+    if (reqName.empty()) {
         return "";
     }
 
-    const auto* reqValue = enumDesc->FindValueByNumber(reqId);
-    if (!reqValue) {
-        return "";
-    }
-
-    std::string_view reqName = reqValue->name();
     constexpr std::string_view suffix = "req";
-    if (!reqName.ends_with(suffix)) {
+    if (!std::string_view(reqName).ends_with(suffix)) {
         return "";
     }
 
-    std::string failedAckName = std::string(reqName.substr(0, reqName.size() - suffix.size())) + "failed_ack";
-    const auto* failedAckValue = enumDesc->FindValueByName(failedAckName);
-    if (!failedAckValue) {
+    std::string failedAckName = reqName.substr(0, reqName.size() - suffix.size()) + "failed_ack";
+    const auto failedAckIt = kNetMsgIdMap.find(failedAckName);
+    if (failedAckIt == kNetMsgIdMap.end()) {
         return "";
     }
 
-    return GameSession::EncodeMessage(static_cast<short>(failedAckValue->number()), "");
+    return GameSession::EncodeMessage(static_cast<short>(failedAckIt->second), "");
 }

@@ -72,25 +72,22 @@ Write-Host "    $Protoc"
 Write-Host ""
 
 # 清理根目录上一次生成的 C++ 文件
-<# Remove-Item `
+Remove-Item `
     (Join-Path $ScriptDir "dump.pb.h"),
     (Join-Path $ScriptDir "dump.pb.cc"),
-    (Join-Path $ScriptDir "NetMsgId.pb.h"),
-    (Join-Path $ScriptDir "NetMsgId.pb.cc") `
     -Force `
     -ErrorAction SilentlyContinue
 
-# 编译根目录下的 dump.proto 和 NetMsgId.proto
+# 编译根目录下的 dump.proto
 Start-Process `
     -FilePath $Protoc `
     -ArgumentList @(
         "--cpp_out=$ScriptDir",
-        "dump.proto",
-        "NetMsgId.proto"
+        "dump.proto"
     ) `
     -WorkingDirectory $ScriptDir `
     -NoNewWindow `
-    -Wait #>
+    -Wait
 
 function Compile-Protobuf-Directory {
     param(
@@ -127,6 +124,14 @@ function Compile-Protobuf-Directory {
             $_.FullName.Substring($SourceDir.Length + 1)
         }
 
+ 
+	# 收集所有 .proto 文件（不排除 google 目录下的文件）
+<# 	$ProtoFiles = Get-ChildItem -Recurse -Filter "*.proto" |
+        ForEach-Object {
+            $_.FullName.Substring($SourceDir.Length + 1)
+        } #>
+		
+		
     # 构建 protoc 参数
     $Args = @(
         "--proto_path=.",
@@ -147,10 +152,10 @@ function Compile-Protobuf-Directory {
 }
 
 # 编译 proto 文件夹
-#Compile-Protobuf-Directory "proto" "proto_cpp"
+Compile-Protobuf-Directory "proto" "proto_cpp"
 
 # 编译 table 文件夹
-#Compile-Protobuf-Directory "table" "table_cpp"
+Compile-Protobuf-Directory "table" "table_cpp"
 
 # 编译 ServerProto 文件夹
 Compile-Protobuf-Directory "ServerProto" "ServerProto_cpp"

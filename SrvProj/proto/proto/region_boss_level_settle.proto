@@ -19,5 +19,6 @@ message RegionBossLevelSettleResp {
     repeated ItemTpl ThreeStarItems = 6;
     uint32 Exp = 7;
     repeated ItemTpl SurpriseItems = 8;
+    repeated ItemTpl DoubleItems = 9;
     bytes NextPackage = 2047;
 }

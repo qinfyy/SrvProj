@@ -33,7 +33,8 @@ inline constexpr ActivityMiningQuestRewardReceiveReq::Impl_::Impl_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         activityid_{0u},
-        questid_{0u} {}
+        questid_{0u},
+        groupid_{0u} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR ActivityMiningQuestRewardReceiveReq::ActivityMiningQuestRewardReceiveReq(::_pbi::ConstantInitialized)
@@ -93,12 +94,14 @@ const ::uint32_t
         protodesc_cold) = {
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMiningQuestRewardReceiveReq, _impl_._has_bits_),
-        6, // hasbit index offset
+        7, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMiningQuestRewardReceiveReq, _impl_.activityid_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMiningQuestRewardReceiveReq, _impl_.questid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityMiningQuestRewardReceiveReq, _impl_.groupid_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMiningQuestRewardReceiveReq, _impl_.nextpackage_),
         1,
         2,
+        3,
         0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMiningQuestRewardReceiveResp, _impl_._has_bits_),
@@ -114,7 +117,7 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, sizeof(::proto::ActivityMiningQuestRewardReceiveReq)},
-        {9, sizeof(::proto::ActivityMiningQuestRewardReceiveResp)},
+        {11, sizeof(::proto::ActivityMiningQuestRewardReceiveResp)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_ActivityMiningQuestRewardReceiveReq_default_instance_._instance,
@@ -123,13 +126,14 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
 const char descriptor_table_protodef_activity_5fmining_5fquest_5freward_5freceive_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n*activity_mining_quest_reward_receive.p"
-    "roto\022\005proto\032\014public.proto\"`\n#ActivityMin"
+    "roto\022\005proto\032\014public.proto\"q\n#ActivityMin"
     "ingQuestRewardReceiveReq\022\022\n\nActivityId\030\001"
-    " \001(\r\022\017\n\007QuestId\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"\211\001\n$ActivityMiningQuestRewardReceive"
-    "Resp\022$\n\014QuestRewards\030\001 \003(\0132\016.proto.ItemT"
-    "pl\022%\n\nChangeInfo\030\002 \001(\0132\021.proto.ChangeInf"
-    "o\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
+    " \001(\r\022\017\n\007QuestId\030\002 \001(\r\022\017\n\007GroupId\030\003 \001(\r\022\024"
+    "\n\013NextPackage\030\377\017 \001(\014\"\211\001\n$ActivityMiningQ"
+    "uestRewardReceiveResp\022$\n\014QuestRewards\030\001 "
+    "\003(\0132\016.proto.ItemTpl\022%\n\nChangeInfo\030\002 \001(\0132"
+    "\021.proto.ChangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014"
+    "b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_activity_5fmining_5fquest_5freward_5freceive_2eproto_deps[1] = {
@@ -139,7 +143,7 @@ static ::absl::once_flag descriptor_table_activity_5fmining_5fquest_5freward_5fr
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_activity_5fmining_5fquest_5freward_5freceive_2eproto = {
     false,
     false,
-    311,
+    328,
     descriptor_table_protodef_activity_5fmining_5fquest_5freward_5freceive_2eproto,
     "activity_mining_quest_reward_receive.proto",
     &descriptor_table_activity_5fmining_5fquest_5freward_5freceive_2eproto_once,
@@ -197,9 +201,9 @@ ActivityMiningQuestRewardReceiveReq::ActivityMiningQuestRewardReceiveReq(
                offsetof(Impl_, activityid_),
            reinterpret_cast<const char*>(&from._impl_) +
                offsetof(Impl_, activityid_),
-           offsetof(Impl_, questid_) -
+           offsetof(Impl_, groupid_) -
                offsetof(Impl_, activityid_) +
-               sizeof(Impl_::questid_));
+               sizeof(Impl_::groupid_));
 
   // @@protoc_insertion_point(copy_constructor:proto.ActivityMiningQuestRewardReceiveReq)
 }
@@ -214,9 +218,9 @@ inline void ActivityMiningQuestRewardReceiveReq::SharedCtor(::_pb::Arena* PROTOB
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, activityid_),
            0,
-           offsetof(Impl_, questid_) -
+           offsetof(Impl_, groupid_) -
                offsetof(Impl_, activityid_) +
-               sizeof(Impl_::questid_));
+               sizeof(Impl_::groupid_));
 }
 ActivityMiningQuestRewardReceiveReq::~ActivityMiningQuestRewardReceiveReq() {
   // @@protoc_insertion_point(destructor:proto.ActivityMiningQuestRewardReceiveReq)
@@ -276,16 +280,16 @@ ActivityMiningQuestRewardReceiveReq::GetClassData() const {
   return ActivityMiningQuestRewardReceiveReq_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 7>
+const ::_pbi::TcParseTable<3, 4, 0, 0, 7>
 ActivityMiningQuestRewardReceiveReq::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_._has_bits_),
     0, // no _extensions_
-    2047, 24,  // max_field_number, fast_idx_mask
+    2047, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    4,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     ActivityMiningQuestRewardReceiveReq_class_data_.base(),
@@ -304,19 +308,28 @@ ActivityMiningQuestRewardReceiveReq::_table_ = {
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityMiningQuestRewardReceiveReq, _impl_.questid_), 2>(),
      {16, 2, 0,
       PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.questid_)}},
+    // uint32 GroupId = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityMiningQuestRewardReceiveReq, _impl_.groupid_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.groupid_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
     // bytes NextPackage = 2047;
     {::_pbi::TcParser::FastBS2,
      {32762, 0, 0,
       PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.nextpackage_)}},
   }}, {{
     2047, 0, 1,
-    65534, 2,
+    65534, 3,
     65535, 65535
   }}, {{
     // uint32 ActivityId = 1;
     {PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.activityid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 QuestId = 2;
     {PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.questid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 GroupId = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.groupid_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bytes NextPackage = 2047;
     {PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
@@ -335,10 +348,10 @@ PROTOBUF_NOINLINE void ActivityMiningQuestRewardReceiveReq::Clear() {
   if (CheckHasBit(cached_has_bits, 0x00000001U)) {
     _impl_.nextpackage_.ClearNonDefaultToEmpty();
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00000006U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000eU)) {
     ::memset(&_impl_.activityid_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.questid_) -
-        reinterpret_cast<char*>(&_impl_.activityid_)) + sizeof(_impl_.questid_));
+        reinterpret_cast<char*>(&_impl_.groupid_) -
+        reinterpret_cast<char*>(&_impl_.activityid_)) + sizeof(_impl_.groupid_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -381,6 +394,15 @@ PROTOBUF_NOINLINE void ActivityMiningQuestRewardReceiveReq::Clear() {
     }
   }
 
+  // uint32 GroupId = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_groupid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_groupid(), target);
+    }
+  }
+
   // bytes NextPackage = 2047;
   if (CheckHasBit(cached_has_bits, 0x00000001U)) {
     if (!this_._internal_nextpackage().empty()) {
@@ -414,7 +436,7 @@ PROTOBUF_NOINLINE void ActivityMiningQuestRewardReceiveReq::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
     // bytes NextPackage = 2047;
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (!this_._internal_nextpackage().empty()) {
@@ -436,6 +458,13 @@ PROTOBUF_NOINLINE void ActivityMiningQuestRewardReceiveReq::Clear() {
             this_._internal_questid());
       }
     }
+    // uint32 GroupId = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_groupid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_groupid());
+      }
+    }
   }
   return this_.MaybeComputeUnknownFieldsSize(total_size,
                                              &this_._impl_._cached_size_);
@@ -455,7 +484,7 @@ void ActivityMiningQuestRewardReceiveReq::MergeImpl(::google::protobuf::MessageL
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (!from._internal_nextpackage().empty()) {
         _this->_internal_set_nextpackage(from._internal_nextpackage());
@@ -473,6 +502,11 @@ void ActivityMiningQuestRewardReceiveReq::MergeImpl(::google::protobuf::MessageL
     if (CheckHasBit(cached_has_bits, 0x00000004U)) {
       if (from._internal_questid() != 0) {
         _this->_impl_.questid_ = from._impl_.questid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_groupid() != 0) {
+        _this->_impl_.groupid_ = from._impl_.groupid_;
       }
     }
   }
@@ -497,8 +531,8 @@ void ActivityMiningQuestRewardReceiveReq::InternalSwap(ActivityMiningQuestReward
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.questid_)
-      + sizeof(ActivityMiningQuestRewardReceiveReq::_impl_.questid_)
+      PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.groupid_)
+      + sizeof(ActivityMiningQuestRewardReceiveReq::_impl_.groupid_)
       - PROTOBUF_FIELD_OFFSET(ActivityMiningQuestRewardReceiveReq, _impl_.activityid_)>(
           reinterpret_cast<char*>(&_impl_.activityid_),
           reinterpret_cast<char*>(&other->_impl_.activityid_));

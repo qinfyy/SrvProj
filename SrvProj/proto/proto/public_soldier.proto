@@ -1,0 +1,446 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+enum SoldierCardType {
+    Undefined = 0;
+    Starter = 1;
+    Strategy = 2;
+}
+
+enum SoldierPartnerAction {
+    Sync = 0;
+    Add = 1;
+    Remove = 2;
+}
+
+enum SoldierEffectStatus {
+    InActive = 0;
+    Active = 1;
+}
+
+message SoldierInfo {
+    SoldierMeta Meta = 1;
+    SoldierNode Node = 2;
+    SoldierBag Bag = 3;
+    repeated SoldierEffectInfo ActivatedEffects = 4;
+    bytes NextPackage = 2047;
+}
+
+message SoldierMeta {
+    uint32 Id = 1;
+    uint32 Hp = 2;
+    uint32 DataLen = 3;
+    string ClientData = 4;
+    uint32 DataVersion = 5;
+    uint32 WinningStreak = 6;
+    uint32 LosingStreak = 7;
+    uint32 ShopLevel = 8;
+    uint32 ShopExp = 9;
+    repeated uint32 TracePartnerTypes = 10;
+    bytes NextPackage = 2047;
+}
+
+message SoldierNode {
+    SoldierNodeData Data = 1;
+    repeated SoldierCase Cases = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierNodeData {
+    uint32 StageId = 1;
+    uint32 NodeId = 2;
+    uint32 Type = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierBag {
+    SoldierDeploy Deploy = 1;
+    repeated SoldierRes Res = 2;
+    repeated SoldierChess Chess = 3;
+    repeated SoldierCard Cards = 4;
+    repeated SoldierPartner Partners = 5;
+    bytes NextPackage = 2047;
+}
+
+message SoldierRes {
+    uint32 Tid = 1;
+    int32 Qty = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierDeploy {
+    repeated SoldierChess Master = 1;
+    repeated SoldierChess Assist = 2;
+    repeated SoldierChess Waiting = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierCase {
+    uint32 Id = 1;
+    bytes NextPackage = 2047;
+    oneof Data {
+        SelectCardData SelectCard = 2;
+        ShopCaseData ShopCase = 3;
+        FightCaseData FightCase = 4;
+        SoldierBattleCaseData BattleCase = 5;
+        EventSettlementOfDisputeCaseData EventSettlementOfDispute = 6;
+        EventSettlementOfDisputeBattleCaseData EventSettlementOfDisputeBattle = 7;
+        DeploySyncCaseData DeploySyncCase = 14;
+        ClientEventCaseData ClientEventCase = 15;
+    }
+}
+
+message SoldierChess {
+    uint32 Id = 1;
+    int32 Qty = 2;
+    uint32 Star = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierTransform {
+    repeated SoldierChess Consume = 1;
+    repeated SoldierChess Obtain = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierCard {
+    uint32 Id = 1;
+    SoldierCardType Type = 2;
+    repeated SoldierIdx BuffIdx = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierPartner {
+    uint32 Id = 1;
+    SoldierPartnerAction Action = 2;
+    repeated SoldierIdx BuffIdx = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierIdx {
+    uint32 Buff = 1;
+    repeated uint32 Effects = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierSyncData {
+    uint32 Hp = 1;
+    uint32 Level = 2;
+    uint32 Exp = 3;
+    uint32 WinningStreak = 4;
+    uint32 LosingStreak = 5;
+    bytes NextPackage = 2047;
+}
+
+message SoldierGoods {
+    uint32 Id = 1;
+    uint32 Star = 2;
+    uint32 Price = 3;
+    bytes NextPackage = 2047;
+}
+
+message ShopCaseData {
+    uint32 Level = 1;
+    uint32 Exp = 2;
+    repeated SoldierGoods Goods = 3;
+    repeated uint32 RarityUp = 4;
+    bool Lock = 5;
+    uint32 Free = 6;
+    uint32 ReRollPrice = 7;
+    bool DisableRefresh = 8;
+    bool DisablePurchase = 9;
+    uint32 PurchaseExpPrice = 10;
+    bytes NextPackage = 2047;
+}
+
+message SelectCardData {
+    SoldierCardType Type = 1;
+    repeated uint32 Ids = 2;
+    uint32 ReRoll = 3;
+    bytes NextPackage = 2047;
+}
+
+message FightCaseData {
+    bytes NextPackage = 2047;
+}
+
+message SoldierBattleCaseData {
+    uint32 FloorId = 1;
+    bytes NextPackage = 2047;
+}
+
+message EventSettlementOfDisputeCaseData {
+    repeated uint32 Ids = 1;
+    uint32 DicePoint = 2;
+    bool TwoDice = 3;
+    bytes NextPackage = 2047;
+}
+
+message EventSettlementOfDisputeBattleCaseData {
+    uint32 BattleId = 1;
+    uint32 FloorId = 2;
+    bytes NextPackage = 2047;
+}
+
+message ClientEventCaseData {
+    bytes NextPackage = 2047;
+}
+
+message DeploySyncCaseData {
+    bytes NextPackage = 2047;
+}
+
+message InteractShopReq {
+    bytes NextPackage = 2047;
+    oneof Action {
+        uint32 Purchase = 1;
+        SoldierChess Sell = 2;
+        bool Refresh = 3;
+        bool Upgrade = 4;
+        bool Lock = 5;
+    }
+}
+
+message InteractShopResp {
+    bytes NextPackage = 2047;
+    oneof Result {
+        SoldierChess Goods = 1;
+        ShopCaseData ShopData = 2;
+        UpgradeResult Upgrade = 3;
+        SoldierRes Res = 4;
+        bool Succeed = 5;
+    }
+    message UpgradeResult {
+        uint32 Level = 1;
+        uint32 Exp = 2;
+        repeated uint32 RarityUp = 3;
+    }
+
+}
+
+message InteractFightReq {
+    SoldierDeploy Deploy = 1;
+    bytes NextPackage = 2047;
+}
+
+message InteractSoldierBattleReq {
+    uint32 DataLen = 1;
+    string ClientData = 2;
+    uint32 DataVersion = 3;
+    uint32 ChessSkillAddGold = 4;
+    bytes NextPackage = 2047;
+    oneof Result {
+        VictoryData Victory = 13;
+        bool Defeat = 14;
+    }
+    message VictoryData {
+        uint32 Time = 1;
+    }
+
+}
+
+message InteractSoldierBattleResp {
+    uint32 BaseReward = 1;
+    uint32 WinningStreak = 2;
+    uint32 LosingStreak = 3;
+    uint32 Interest = 4;
+    bytes NextPackage = 2047;
+}
+
+message InteractEventSettlementOfDisputeReq {
+    bytes NextPackage = 2047;
+    oneof Action {
+        bool ThrowDice = 1;
+        uint32 Index = 2;
+    }
+}
+
+message InteractEventSettlementOfDisputeResp {
+    bytes NextPackage = 2047;
+    oneof Resp {
+        ThrowResult Result = 1;
+        ChooseReward Reward = 2;
+    }
+    message ThrowResult {
+        uint32 Point = 1;
+        repeated uint32 TwoDicePoint = 2;
+    }
+
+    message ChooseReward {
+        uint32 Coin = 1;
+        repeated SoldierChess Chess = 2;
+        uint32 BaseReward = 3;
+        uint32 Interest = 4;
+    }
+
+}
+
+message InteractEventSettlementOfDisputeBattleReq {
+    uint32 DataLen = 1;
+    string ClientData = 2;
+    uint32 DataVersion = 3;
+    uint32 ChessSkillAddGold = 4;
+    bytes NextPackage = 2047;
+    oneof Result {
+        VictoryData Victory = 13;
+        bool Defeat = 14;
+    }
+    message VictoryData {
+        uint32 Time = 1;
+    }
+
+}
+
+message InteractEventSettlementOfDisputeBattleResp {
+    uint32 Coin = 1;
+    repeated SoldierChess Chess = 2;
+    uint32 BaseReward = 3;
+    uint32 Interest = 4;
+    bytes NextPackage = 2047;
+}
+
+message InteractSoldierSelectReq {
+    bytes NextPackage = 2047;
+    oneof Select {
+        uint32 Index = 1;
+        bool ReRoll = 2;
+    }
+}
+
+message InteractSoldierSelectResp {
+    bytes NextPackage = 2047;
+    oneof Result {
+        Success Resp = 1;
+        SelectCardData SelectCard = 2;
+    }
+    message Success {
+        uint32 Typ = 1;
+        uint32 Id = 2;
+    }
+
+}
+
+message InteractClientEventReq {
+    uint32 DataLen = 1;
+    string ClientData = 2;
+    uint32 DataVersion = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierSettleDataResp {
+    uint32 TotalScore = 1;
+    uint32 RewardScore = 2;
+    uint32 Result = 3;
+    bytes NextPackage = 2047;
+}
+
+message InteractDeploySyncReq {
+    SoldierDeploy Deploy = 1;
+    repeated SoldierChess DeployEx = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierEffect {
+    uint32 Id = 1;
+    uint32 Tid = 2;
+    bytes NextPackage = 2047;
+    oneof Data {
+        SoldierEffectLeftmostWaitingChessChange LeftmostChange = 6;
+        SoldierShopRandomChessBecomeAnotherHigherCost BecomeAnother = 7;
+        SoldierEffectPartnerAdditional PartnerAdditional = 8;
+        SoldierEffectPartnerActivateAdditional PartnerActivateAdditional = 9;
+        SoldierNodeTypeModify NodeTypeModify = 10;
+        SoldierClientEffect ClientEffect = 11;
+        SoldierShopRefreshState RefreshState = 12;
+        SoldierShopPurchaseState PurchaseState = 13;
+        SoldierShopFreeState FreeState = 14;
+        SoldierShopRarity Rarity = 15;
+        SoldierShopPurchaseExpDiscount PurchaseExpDiscount = 16;
+        SoldierEffectAddChess ShowChess = 17;
+    }
+}
+
+message SoldierEffectInfo {
+    bytes NextPackage = 2047;
+    oneof Data {
+        SoldierEffectPartnerAdditional PartnerAdditional = 1;
+        SoldierEffectPartnerActivateAdditional PartnerActivateAdditional = 2;
+        SoldierNodeTypeModify NodeTypeModify = 10;
+        SoldierClientEffect ClientEffect = 11;
+    }
+}
+
+message SoldierEffectLeftmostWaitingChessChange {
+    uint32 SId = 1;
+    SoldierChess Chess = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierShopRandomChessBecomeAnotherHigherCost {
+    uint32 GoodsIdx = 1;
+    SoldierGoods Goods = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierEffectPartnerAdditional {
+    SoldierEffectStatus Status = 1;
+    uint32 PartnerType = 2;
+    uint32 Additional = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierEffectPartnerActivateAdditional {
+    SoldierEffectStatus Status = 1;
+    uint32 Additional = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierNodeTypeModify {
+    uint32 FromNodeType = 2;
+    uint32 ToNodeType = 3;
+    uint32 EventPoolId = 4;
+    bytes NextPackage = 2047;
+}
+
+message SoldierClientEffect {
+    SoldierEffectStatus Status = 1;
+    uint32 Eid = 2;
+    int32 UseCount = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierShopRefreshState {
+    bool DisableRefresh = 1;
+    bytes NextPackage = 2047;
+}
+
+message SoldierShopPurchaseState {
+    bool DisablePurchase = 1;
+    bytes NextPackage = 2047;
+}
+
+message SoldierShopFreeState {
+    SoldierEffectStatus Status = 1;
+    uint32 Free = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierShopRarity {
+    SoldierEffectStatus Status = 1;
+    uint32 Rarity = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierShopPurchaseExpDiscount {
+    SoldierEffectStatus Status = 1;
+    uint32 Discount = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierEffectAddChess {
+    repeated SoldierChess Chess = 1;
+    bytes NextPackage = 2047;
+}

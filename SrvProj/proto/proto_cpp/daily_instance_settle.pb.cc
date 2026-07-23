@@ -31,6 +31,7 @@ inline constexpr DailyInstanceSettleResp::Impl_::Impl_(
       : _cached_size_{0},
         select_{},
         first_{},
+        doubleitems_{},
         nextpackage_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
@@ -104,17 +105,19 @@ const ::uint32_t
         0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_._has_bits_),
-        8, // hasbit index offset
+        9, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_.select_),
         PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_.first_),
         PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_.exp_),
+        PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_.doubleitems_),
         PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_.change_),
         PROTOBUF_FIELD_OFFSET(::proto::DailyInstanceSettleResp, _impl_.nextpackage_),
         0,
         1,
+        5,
+        2,
         4,
         3,
-        2,
 };
 
 static const ::_pbi::MigrationSchema
@@ -131,11 +134,12 @@ const char descriptor_table_protodef_daily_5finstance_5fsettle_2eproto[] ABSL_AT
     "\n\033daily_instance_settle.proto\022\005proto\032\014pu"
     "blic.proto\"[\n\026DailyInstanceSettleReq\022\014\n\004"
     "Star\030\001 \001(\r\022\035\n\006Events\030\017 \001(\0132\r.proto.Event"
-    "s\022\024\n\013NextPackage\030\377\017 \001(\014\"\230\001\n\027DailyInstanc"
+    "s\022\024\n\013NextPackage\030\377\017 \001(\014\"\272\001\n\027DailyInstanc"
     "eSettleResp\022\033\n\006Select\030\001 \003(\0132\013.proto.Item"
     "\022\032\n\005First\030\002 \003(\0132\013.proto.Item\022\013\n\003Exp\030\003 \001("
-    "\r\022!\n\006Change\030\017 \001(\0132\021.proto.ChangeInfo\022\024\n\013"
-    "NextPackage\030\377\017 \001(\014b\006proto3"
+    "\r\022 \n\013DoubleItems\030\004 \003(\0132\013.proto.Item\022!\n\006C"
+    "hange\030\017 \001(\0132\021.proto.ChangeInfo\022\024\n\013NextPa"
+    "ckage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_daily_5finstance_5fsettle_2eproto_deps[1] = {
@@ -145,7 +149,7 @@ static ::absl::once_flag descriptor_table_daily_5finstance_5fsettle_2eproto_once
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_daily_5finstance_5fsettle_2eproto = {
     false,
     false,
-    306,
+    340,
     descriptor_table_protodef_daily_5finstance_5fsettle_2eproto,
     "daily_instance_settle.proto",
     &descriptor_table_daily_5finstance_5fsettle_2eproto_once,
@@ -541,11 +545,17 @@ void DailyInstanceSettleResp::clear_first() {
   ClearHasBitForRepeated(_impl_._has_bits_[0],
                   0x00000002U);
 }
+void DailyInstanceSettleResp::clear_doubleitems() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.doubleitems_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000004U);
+}
 void DailyInstanceSettleResp::clear_change() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.change_ != nullptr) _impl_.change_->Clear();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000008U);
+                  0x00000010U);
 }
 DailyInstanceSettleResp::DailyInstanceSettleResp(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -564,6 +574,7 @@ PROTOBUF_NDEBUG_INLINE DailyInstanceSettleResp::Impl_::Impl_(
         _cached_size_{0},
         select_{visibility, arena, from.select_},
         first_{visibility, arena, from.first_},
+        doubleitems_{visibility, arena, from.doubleitems_},
         nextpackage_(arena, from.nextpackage_) {}
 
 DailyInstanceSettleResp::DailyInstanceSettleResp(
@@ -580,7 +591,7 @@ DailyInstanceSettleResp::DailyInstanceSettleResp(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.change_ = (CheckHasBit(cached_has_bits, 0x00000008U))
+  _impl_.change_ = (CheckHasBit(cached_has_bits, 0x00000010U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.change_)
                 : nullptr;
   _impl_.exp_ = from._impl_.exp_;
@@ -593,6 +604,7 @@ PROTOBUF_NDEBUG_INLINE DailyInstanceSettleResp::Impl_::Impl_(
       : _cached_size_{0},
         select_{visibility, arena},
         first_{visibility, arena},
+        doubleitems_{visibility, arena},
         nextpackage_(arena) {}
 
 inline void DailyInstanceSettleResp::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
@@ -633,6 +645,10 @@ constexpr auto DailyInstanceSettleResp::InternalNewImpl_() {
                   ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.first_) +
           decltype(DailyInstanceSettleResp::_impl_.first_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.doubleitems_) +
+          decltype(DailyInstanceSettleResp::_impl_.doubleitems_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
@@ -679,17 +695,17 @@ DailyInstanceSettleResp::GetClassData() const {
   return DailyInstanceSettleResp_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 3, 0, 7>
+const ::_pbi::TcParseTable<3, 6, 4, 0, 7>
 DailyInstanceSettleResp::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_._has_bits_),
     0, // no _extensions_
     2047, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294950904,  // skipmap
+    4294950896,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
-    3,  // num_aux_entries
+    6,  // num_field_entries
+    4,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     DailyInstanceSettleResp_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -708,19 +724,22 @@ DailyInstanceSettleResp::_table_ = {
      {18, 1, 1,
       PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.first_)}},
     // uint32 Exp = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(DailyInstanceSettleResp, _impl_.exp_), 4>(),
-     {24, 4, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(DailyInstanceSettleResp, _impl_.exp_), 5>(),
+     {24, 5, 0,
       PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.exp_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .proto.Item DoubleItems = 4;
+    {::_pbi::TcParser::FastMtR1,
+     {34, 2, 2,
+      PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.doubleitems_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     // .proto.ChangeInfo Change = 15;
     {::_pbi::TcParser::FastMtS1,
-     {122, 3, 2,
+     {122, 4, 3,
       PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.change_)}},
   }}, {{
     2047, 0, 1,
-    65534, 4,
+    65534, 5,
     65535, 65535
   }}, {{
     // repeated .proto.Item Select = 1;
@@ -728,13 +747,16 @@ DailyInstanceSettleResp::_table_ = {
     // repeated .proto.Item First = 2;
     {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.first_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // uint32 Exp = 3;
-    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.exp_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.exp_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .proto.Item DoubleItems = 4;
+    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.doubleitems_), _Internal::kHasBitsOffset + 2, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // .proto.ChangeInfo Change = 15;
-    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.change_), _Internal::kHasBitsOffset + 3, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.change_), _Internal::kHasBitsOffset + 4, 3, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // bytes NextPackage = 2047;
-    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.nextpackage_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.nextpackage_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   {{
+      {::_pbi::TcParser::GetTable<::proto::Item>()},
       {::_pbi::TcParser::GetTable<::proto::Item>()},
       {::_pbi::TcParser::GetTable<::proto::Item>()},
       {::_pbi::TcParser::GetTable<::proto::ChangeInfo>()},
@@ -750,17 +772,20 @@ PROTOBUF_NOINLINE void DailyInstanceSettleResp::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.select_.Clear();
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
       _impl_.first_.Clear();
     }
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
-      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _impl_.doubleitems_.Clear();
     }
     if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       ABSL_DCHECK(_impl_.change_ != nullptr);
       _impl_.change_->Clear();
     }
@@ -816,7 +841,7 @@ PROTOBUF_NOINLINE void DailyInstanceSettleResp::Clear() {
   }
 
   // uint32 Exp = 3;
-  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     if (this_._internal_exp() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -824,15 +849,28 @@ PROTOBUF_NOINLINE void DailyInstanceSettleResp::Clear() {
     }
   }
 
+  // repeated .proto.Item DoubleItems = 4;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_doubleitems_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_doubleitems().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              4, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
   // .proto.ChangeInfo Change = 15;
-  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         15, *this_._impl_.change_, this_._impl_.change_->GetCachedSize(), target,
         stream);
   }
 
   // bytes NextPackage = 2047;
-  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
     if (!this_._internal_nextpackage().empty()) {
       const ::std::string& _s = this_._internal_nextpackage();
       target = stream->WriteBytesMaybeAliased(2047, _s, target);
@@ -864,7 +902,7 @@ PROTOBUF_NOINLINE void DailyInstanceSettleResp::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     // repeated .proto.Item Select = 1;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_select_size();
@@ -879,20 +917,27 @@ PROTOBUF_NOINLINE void DailyInstanceSettleResp::Clear() {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
+    // repeated .proto.Item DoubleItems = 4;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      total_size += 1UL * this_._internal_doubleitems_size();
+      for (const auto& msg : this_._internal_doubleitems()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
     // bytes NextPackage = 2047;
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (!this_._internal_nextpackage().empty()) {
         total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                         this_._internal_nextpackage());
       }
     }
     // .proto.ChangeInfo Change = 15;
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.change_);
     }
     // uint32 Exp = 3;
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (this_._internal_exp() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_exp());
@@ -918,7 +963,7 @@ void DailyInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _this->_internal_mutable_select()->InternalMergeFromWithArena(
           ::google::protobuf::MessageLite::internal_visibility(), arena,
@@ -929,7 +974,12 @@ void DailyInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
           ::google::protobuf::MessageLite::internal_visibility(), arena,
           from._internal_first());
     }
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _this->_internal_mutable_doubleitems()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_doubleitems());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (!from._internal_nextpackage().empty()) {
         _this->_internal_set_nextpackage(from._internal_nextpackage());
       } else {
@@ -938,7 +988,7 @@ void DailyInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       ABSL_DCHECK(from._impl_.change_ != nullptr);
       if (_this->_impl_.change_ == nullptr) {
         _this->_impl_.change_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.change_);
@@ -946,7 +996,7 @@ void DailyInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.change_->MergeFrom(*from._impl_.change_);
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (from._internal_exp() != 0) {
         _this->_impl_.exp_ = from._impl_.exp_;
       }
@@ -973,6 +1023,7 @@ void DailyInstanceSettleResp::InternalSwap(DailyInstanceSettleResp* PROTOBUF_RES
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.select_.InternalSwap(&other->_impl_.select_);
   _impl_.first_.InternalSwap(&other->_impl_.first_);
+  _impl_.doubleitems_.InternalSwap(&other->_impl_.doubleitems_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(DailyInstanceSettleResp, _impl_.exp_)

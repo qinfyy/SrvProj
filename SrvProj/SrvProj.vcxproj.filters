@@ -22,9 +22,6 @@
     <Filter Include="proto">
       <UniqueIdentifier>{b9381c15-f3eb-4dab-b58d-48039a25196e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="proto\proto_cpp">
-      <UniqueIdentifier>{0448d93b-564d-4a52-9f91-0ec88d348ca4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Game">
       <UniqueIdentifier>{a5523e62-0b80-43cc-9a59-34c0b5ca6e05}</UniqueIdentifier>
     </Filter>
@@ -69,6 +66,9 @@
     </Filter>
     <Filter Include="proto\table_cpp">
       <UniqueIdentifier>{626651cb-b21d-4fac-85d1-f94ba8c0ac2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\proto_cpp">
+      <UniqueIdentifier>{077635d9-cd95-47ae-82bc-55fd54ce3fe2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -117,11 +117,170 @@
     <ClCompile Include="PaymentController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="proto\dump.pb.cc">
-      <Filter>proto</Filter>
+    <ClCompile Include="Game\Player.cpp">
+      <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="proto\NetMsgId.pb.cc">
-      <Filter>proto</Filter>
+    <ClCompile Include="Game\BattlePassMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Activity.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\BattlePass.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Character.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Disc.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Gacha.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Item.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Mall.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\PlayerHandler.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Mail.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ActivityMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AchievementMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ChangeInfoUtil.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ManagerBase.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CharacterMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GachaMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MallMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\BasicCommands.cpp">
+      <Filter>源文件\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\CommandMgr.cpp">
+      <Filter>源文件\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc">
+      <Filter>proto\ServerProto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\GameData.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\ResourceLoader.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\CharacterRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\table_cpp\client_table.pb.cc">
+      <Filter>proto\table_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\DiscRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\ItemsRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\QuestRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\StoryRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StarTowerMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FormationMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerCases.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerRooms.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\TowerRuntime.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\StarTowerRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\BattlePassRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\CommissionsRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\ShopsRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\MiscRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\InventoryMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MailMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\QuestMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\TutorialsRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\AchievementRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\ActivityRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\DictionaryRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\GachaRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\InstancesRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\ScoreBossRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources\BinClass\VampireSurvivorRes.cpp">
+      <Filter>源文件\Resources\BinClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Quest.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Tower.cpp">
+      <Filter>源文件\Handlers</Filter>
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\achievement_info.pb.cc">
       <Filter>proto\proto_cpp</Filter>
@@ -144,7 +303,19 @@
     <ClCompile Include="proto\proto_cpp\activity_detail.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_double_quest_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
     <ClCompile Include="proto\proto_cpp\activity_gds_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_history_story_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_history_story_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_ice_cream_level_settle.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\activity_levels_apply.pb.cc">
@@ -186,7 +357,13 @@
     <ClCompile Include="proto\proto_cpp\activity_periodic_reward_receive.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_share_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
     <ClCompile Include="proto\proto_cpp\activity_shop_purchase.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\activity_soldier_quest_reward_receive.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\activity_story_apply.pb.cc">
@@ -720,6 +897,9 @@
     <ClCompile Include="proto\proto_cpp\public_mining.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
+    <ClCompile Include="proto\proto_cpp\public_soldier.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
     <ClCompile Include="proto\proto_cpp\public_star_tower.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
@@ -790,6 +970,24 @@
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\skill_instance_sweep.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\soldier_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\soldier_give_up.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\soldier_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\soldier_interact.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\soldier_partner_trace.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\soldier_step_out.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\star_tower_apply.pb.cc">
@@ -879,6 +1077,24 @@
     <ClCompile Include="proto\proto_cpp\tower_growth_node_unlock.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
+    <ClCompile Include="proto\proto_cpp\trace_hunt_apply.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\trace_hunt_boss_reward_receive.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\trace_hunt_info.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\trace_hunt_recommend.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\trace_hunt_settle.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto_cpp\trace_hunt_trace.pb.cc">
+      <Filter>proto\proto_cpp</Filter>
+    </ClCompile>
     <ClCompile Include="proto\proto_cpp\traveler_duel_info.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
@@ -948,170 +1164,8 @@
     <ClCompile Include="proto\proto_cpp\week_boss_settle.pb.cc">
       <Filter>proto\proto_cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Player.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\BattlePassMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Activity.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\BattlePass.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Character.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Disc.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Gacha.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Item.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Mall.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\PlayerHandler.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Mail.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\ActivityMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\AchievementMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\ChangeInfoUtil.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\ManagerBase.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CharacterMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\GachaMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\MallMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Command\BasicCommands.cpp">
-      <Filter>源文件\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="Command\CommandMgr.cpp">
-      <Filter>源文件\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="proto\ServerProto_cpp\PlayerData.pb.cc">
-      <Filter>proto\ServerProto_cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Config.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTime.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\GameData.cpp">
-      <Filter>源文件\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\ResourceLoader.cpp">
-      <Filter>源文件\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\CharacterRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="proto\table_cpp\client_table.pb.cc">
-      <Filter>proto\table_cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\DiscRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\ItemsRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\QuestRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\StoryRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\StarTowerMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\FormationMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\TowerCases.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\TowerMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\TowerRooms.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\TowerRuntime.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\StarTowerRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\BattlePassRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\CommissionsRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\ShopsRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\MiscRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\InventoryMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\MailMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\QuestMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\TutorialsRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\AchievementRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\ActivityRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\DictionaryRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\GachaRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\InstancesRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\ScoreBossRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources\BinClass\VampireSurvivorRes.cpp">
-      <Filter>源文件\Resources\BinClass</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Quest.cpp">
-      <Filter>源文件\Handlers</Filter>
-    </ClCompile>
-    <ClCompile Include="Handlers\Tower.cpp">
-      <Filter>源文件\Handlers</Filter>
+    <ClCompile Include="proto\dump.pb.cc">
+      <Filter>proto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1138,9 +1192,6 @@
     </ClInclude>
     <ClInclude Include="Handlers\BattlePass.h">
       <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="proto\dump.pb.h">
-      <Filter>proto</Filter>
     </ClInclude>
     <ClInclude Include="AccountServer.h">
       <Filter>头文件</Filter>
@@ -1175,14 +1226,173 @@
     <ClInclude Include="GameSession.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="proto\NetMsgId.pb.h">
-      <Filter>proto</Filter>
-    </ClInclude>
     <ClInclude Include="GameServices.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="PaymentController.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FormationMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerCases.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerRooms.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\TowerRuntime.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattlePassMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Activity.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Character.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Disc.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Gacha.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Item.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Mall.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ActivityMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AchievementMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Bitset.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ChangeInfoUtil.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ManagerBase.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GachaMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MallMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\BasicCommands.h">
+      <Filter>头文件\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\CommandMgr.h">
+      <Filter>头文件\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h">
+      <Filter>proto\ServerProto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\GameData.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResourceLoader.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\CharacterRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\table_cpp\client_table.pb.h">
+      <Filter>proto\table_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\InventoryMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MailMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\QuestMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\DiscRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ItemsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\QuestRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\StoryRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StarTowerMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\StarTowerRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ShopsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\BattlePassRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\CommissionsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\MiscRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\AchievementsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\TutorialsRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\DictionaryRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\GachaRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\InstancesRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ScoreBossRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\VampireSurvivorRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\BinClass\ActivityRes.h">
+      <Filter>头文件\Resources\BinClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResourceDerivedData.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\PlayerHandler.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\ResourceJsonUtil.h">
+      <Filter>头文件\Resources</Filter>
     </ClInclude>
     <ClInclude Include="proto\proto_cpp\achievement_info.pb.h">
       <Filter>proto\proto_cpp</Filter>
@@ -1205,7 +1415,19 @@
     <ClInclude Include="proto\proto_cpp\activity_detail.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_double_quest_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
     <ClInclude Include="proto\proto_cpp\activity_gds_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_history_story_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_history_story_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_ice_cream_level_settle.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="proto\proto_cpp\activity_levels_apply.pb.h">
@@ -1247,7 +1469,13 @@
     <ClInclude Include="proto\proto_cpp\activity_periodic_reward_receive.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_share_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
     <ClInclude Include="proto\proto_cpp\activity_shop_purchase.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\activity_soldier_quest_reward_receive.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="proto\proto_cpp\activity_story_apply.pb.h">
@@ -1781,6 +2009,9 @@
     <ClInclude Include="proto\proto_cpp\public_mining.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="proto\proto_cpp\public_soldier.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
     <ClInclude Include="proto\proto_cpp\public_star_tower.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
@@ -1851,6 +2082,24 @@
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="proto\proto_cpp\skill_instance_sweep.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\soldier_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\soldier_give_up.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\soldier_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\soldier_interact.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\soldier_partner_trace.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\soldier_step_out.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
     <ClInclude Include="proto\proto_cpp\star_tower_apply.pb.h">
@@ -1940,6 +2189,24 @@
     <ClInclude Include="proto\proto_cpp\tower_growth_node_unlock.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="proto\proto_cpp\trace_hunt_apply.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\trace_hunt_boss_reward_receive.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\trace_hunt_info.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\trace_hunt_recommend.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\trace_hunt_settle.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\trace_hunt_trace.pb.h">
+      <Filter>proto\proto_cpp</Filter>
+    </ClInclude>
     <ClInclude Include="proto\proto_cpp\traveler_duel_info.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
@@ -2009,170 +2276,23 @@
     <ClInclude Include="proto\proto_cpp\week_boss_settle.pb.h">
       <Filter>proto\proto_cpp</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Player.h">
-      <Filter>头文件\Game</Filter>
+    <ClInclude Include="proto\dump.pb.h">
+      <Filter>proto</Filter>
     </ClInclude>
-    <ClInclude Include="Game\FormationMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\TowerCases.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\TowerMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\TowerRooms.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\TowerRuntime.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\BattlePassMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Activity.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Character.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Disc.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Gacha.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Item.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\Mall.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\ActivityMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\AchievementMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Bitset.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\ChangeInfoUtil.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\ManagerBase.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CharacterMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GachaMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\MallMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\BasicCommands.h">
-      <Filter>头文件\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="Command\CommandMgr.h">
-      <Filter>头文件\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="proto\ServerProto_cpp\PlayerData.pb.h">
-      <Filter>proto\ServerProto_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\GameData.h">
-      <Filter>头文件\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\ResourceLoader.h">
-      <Filter>头文件\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\CharacterRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="proto\table_cpp\client_table.pb.h">
-      <Filter>proto\table_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\InventoryMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\MailMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\QuestMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\DiscRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\ItemsRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\QuestRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\StoryRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\StarTowerMgr.h">
-      <Filter>头文件\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\StarTowerRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\ShopsRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\BattlePassRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\CommissionsRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\MiscRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\AchievementsRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\TutorialsRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\DictionaryRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\GachaRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\InstancesRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\ScoreBossRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\VampireSurvivorRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\BinClass\ActivityRes.h">
-      <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\ResourceDerivedData.h">
-      <Filter>头文件\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Handlers\PlayerHandler.h">
-      <Filter>头文件\Handlers</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources\ResourceJsonUtil.h">
-      <Filter>头文件\Resources</Filter>
+    <ClInclude Include="proto\NetMsgId.h">
+      <Filter>proto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="proto\proto\google\protobuf\any.proto">
+      <Filter>proto\proto\google\protobuf</Filter>
+    </None>
+    <None Include="proto\ServerProto\PlayerData.proto">
+      <Filter>proto\ServerProto</Filter>
+    </None>
+    <None Include="proto\table\client_table.proto">
+      <Filter>proto\table</Filter>
+    </None>
     <None Include="proto\proto\achievement_info.proto">
       <Filter>proto\proto</Filter>
     </None>
@@ -2194,7 +2314,19 @@
     <None Include="proto\proto\activity_detail.proto">
       <Filter>proto\proto</Filter>
     </None>
+    <None Include="proto\proto\activity_double_quest_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
     <None Include="proto\proto\activity_gds_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_history_story_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_history_story_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_ice_cream_level_settle.proto">
       <Filter>proto\proto</Filter>
     </None>
     <None Include="proto\proto\activity_levels_apply.proto">
@@ -2236,7 +2368,13 @@
     <None Include="proto\proto\activity_periodic_reward_receive.proto">
       <Filter>proto\proto</Filter>
     </None>
+    <None Include="proto\proto\activity_share_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
     <None Include="proto\proto\activity_shop_purchase.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\activity_soldier_quest_reward_receive.proto">
       <Filter>proto\proto</Filter>
     </None>
     <None Include="proto\proto\activity_story_apply.proto">
@@ -2770,6 +2908,9 @@
     <None Include="proto\proto\public_mining.proto">
       <Filter>proto\proto</Filter>
     </None>
+    <None Include="proto\proto\public_soldier.proto">
+      <Filter>proto\proto</Filter>
+    </None>
     <None Include="proto\proto\public_star_tower.proto">
       <Filter>proto\proto</Filter>
     </None>
@@ -2840,6 +2981,24 @@
       <Filter>proto\proto</Filter>
     </None>
     <None Include="proto\proto\skill_instance_sweep.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\soldier_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\soldier_give_up.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\soldier_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\soldier_interact.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\soldier_partner_trace.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\soldier_step_out.proto">
       <Filter>proto\proto</Filter>
     </None>
     <None Include="proto\proto\star_tower_apply.proto">
@@ -2929,6 +3088,24 @@
     <None Include="proto\proto\tower_growth_node_unlock.proto">
       <Filter>proto\proto</Filter>
     </None>
+    <None Include="proto\proto\trace_hunt_apply.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\trace_hunt_boss_reward_receive.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\trace_hunt_info.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\trace_hunt_recommend.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\trace_hunt_settle.proto">
+      <Filter>proto\proto</Filter>
+    </None>
+    <None Include="proto\proto\trace_hunt_trace.proto">
+      <Filter>proto\proto</Filter>
+    </None>
     <None Include="proto\proto\traveler_duel_info.proto">
       <Filter>proto\proto</Filter>
     </None>
@@ -2998,34 +3175,22 @@
     <None Include="proto\proto\week_boss_settle.proto">
       <Filter>proto\proto</Filter>
     </None>
-    <None Include="proto\proto\google\protobuf\any.proto">
-      <Filter>proto\proto\google\protobuf</Filter>
-    </None>
     <None Include="proto\dump.proto">
       <Filter>proto</Filter>
     </None>
     <None Include="proto\NetMsgId.lua">
       <Filter>proto</Filter>
     </None>
-    <None Include="proto\NetMsgId.proto">
-      <Filter>proto</Filter>
-    </None>
-    <None Include="proto\NetMsgIdToProto.py">
+    <None Include="proto\NetMsgIdLuaToCpp.py">
       <Filter>proto</Filter>
     </None>
     <None Include="proto\proto.pb">
       <Filter>proto</Filter>
     </None>
-    <None Include="proto\编译Proto.ps1">
+    <None Include="proto\table.pb">
       <Filter>proto</Filter>
     </None>
-    <None Include="proto\ServerProto\PlayerData.proto">
-      <Filter>proto\ServerProto</Filter>
-    </None>
-    <None Include="proto\table\client_table.proto">
-      <Filter>proto\table</Filter>
-    </None>
-    <None Include="proto\table.pb">
+    <None Include="proto\编译Proto.ps1">
       <Filter>proto</Filter>
     </None>
   </ItemGroup>

@@ -12,7 +12,7 @@
 #include "../Util.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/notify.pb.h"
 
 #include <algorithm>

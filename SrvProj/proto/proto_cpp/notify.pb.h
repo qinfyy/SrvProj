@@ -32,6 +32,7 @@
 #include "public.pb.h"
 #include "public_mining.pb.h"
 #include "public_star_tower.pb.h"
+#include "public_soldier.pb.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -56,6 +57,10 @@ extern "C" {
 extern const ::google::protobuf::internal::DescriptorTable descriptor_table_notify_2eproto;
 }  // extern "C"
 namespace proto {
+class ActivityDoubleRewardTimesNotify;
+struct ActivityDoubleRewardTimesNotifyDefaultTypeInternal;
+extern ActivityDoubleRewardTimesNotifyDefaultTypeInternal _ActivityDoubleRewardTimesNotify_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull ActivityDoubleRewardTimesNotify_class_data_;
 class ActivityMiningEnterLayerNotify;
 struct ActivityMiningEnterLayerNotifyDefaultTypeInternal;
 extern ActivityMiningEnterLayerNotifyDefaultTypeInternal _ActivityMiningEnterLayerNotify_default_instance_;
@@ -2185,6 +2190,225 @@ class MilkoutCharacterUnlockNotify final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull MilkoutCharacterUnlockNotify_class_data_;
+// -------------------------------------------------------------------
+
+class ActivityDoubleRewardTimesNotify final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:proto.ActivityDoubleRewardTimesNotify) */ {
+ public:
+  inline ActivityDoubleRewardTimesNotify() : ActivityDoubleRewardTimesNotify(nullptr) {}
+  ~ActivityDoubleRewardTimesNotify() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ActivityDoubleRewardTimesNotify* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ActivityDoubleRewardTimesNotify));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ActivityDoubleRewardTimesNotify(::google::protobuf::internal::ConstantInitialized);
+
+  inline ActivityDoubleRewardTimesNotify(const ActivityDoubleRewardTimesNotify& from) : ActivityDoubleRewardTimesNotify(nullptr, from) {}
+  inline ActivityDoubleRewardTimesNotify(ActivityDoubleRewardTimesNotify&& from) noexcept
+      : ActivityDoubleRewardTimesNotify(nullptr, ::std::move(from)) {}
+  inline ActivityDoubleRewardTimesNotify& operator=(const ActivityDoubleRewardTimesNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ActivityDoubleRewardTimesNotify& operator=(ActivityDoubleRewardTimesNotify&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ActivityDoubleRewardTimesNotify& default_instance() {
+    return *reinterpret_cast<const ActivityDoubleRewardTimesNotify*>(
+        &_ActivityDoubleRewardTimesNotify_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 17;
+  friend void swap(ActivityDoubleRewardTimesNotify& a, ActivityDoubleRewardTimesNotify& b) { a.Swap(&b); }
+  inline void Swap(ActivityDoubleRewardTimesNotify* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ActivityDoubleRewardTimesNotify* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ActivityDoubleRewardTimesNotify* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ActivityDoubleRewardTimesNotify>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ActivityDoubleRewardTimesNotify& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ActivityDoubleRewardTimesNotify& from) { ActivityDoubleRewardTimesNotify::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ActivityDoubleRewardTimesNotify* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "proto.ActivityDoubleRewardTimesNotify"; }
+
+  explicit ActivityDoubleRewardTimesNotify(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  ActivityDoubleRewardTimesNotify(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const ActivityDoubleRewardTimesNotify& from);
+  ActivityDoubleRewardTimesNotify(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, ActivityDoubleRewardTimesNotify&& from) noexcept
+      : ActivityDoubleRewardTimesNotify(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kNextPackageFieldNumber = 2047,
+    kActivityIdFieldNumber = 1,
+    kUseTimesFieldNumber = 2,
+  };
+  // bytes NextPackage = 2047;
+  void clear_nextpackage() ;
+  const ::std::string& nextpackage() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_nextpackage(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_nextpackage();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_nextpackage();
+  void set_allocated_nextpackage(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_nextpackage() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_nextpackage(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_nextpackage();
+
+  public:
+  // uint32 ActivityId = 1;
+  void clear_activityid() ;
+  ::uint32_t activityid() const;
+  void set_activityid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_activityid() const;
+  void _internal_set_activityid(::uint32_t value);
+
+  public:
+  // uint32 UseTimes = 2;
+  void clear_usetimes() ;
+  ::uint32_t usetimes() const;
+  void set_usetimes(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_usetimes() const;
+  void _internal_set_usetimes(::uint32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:proto.ActivityDoubleRewardTimesNotify)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 3,
+                                   0, 0,
+                                   7>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const ActivityDoubleRewardTimesNotify& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr nextpackage_;
+    ::uint32_t activityid_;
+    ::uint32_t usetimes_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_notify_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull ActivityDoubleRewardTimesNotify_class_data_;
 // -------------------------------------------------------------------
 
 class Skin_Transform final : public ::google::protobuf::Message
@@ -6894,6 +7118,125 @@ inline void MilkoutCharacterUnlockNotify::set_allocated_nextpackage(::std::strin
     _impl_.nextpackage_.Set("", GetArena());
   }
   // @@protoc_insertion_point(field_set_allocated:proto.MilkoutCharacterUnlockNotify.NextPackage)
+}
+
+// -------------------------------------------------------------------
+
+// ActivityDoubleRewardTimesNotify
+
+// uint32 ActivityId = 1;
+inline void ActivityDoubleRewardTimesNotify::clear_activityid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.activityid_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t ActivityDoubleRewardTimesNotify::activityid() const {
+  // @@protoc_insertion_point(field_get:proto.ActivityDoubleRewardTimesNotify.ActivityId)
+  return _internal_activityid();
+}
+inline void ActivityDoubleRewardTimesNotify::set_activityid(::uint32_t value) {
+  _internal_set_activityid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:proto.ActivityDoubleRewardTimesNotify.ActivityId)
+}
+inline ::uint32_t ActivityDoubleRewardTimesNotify::_internal_activityid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.activityid_;
+}
+inline void ActivityDoubleRewardTimesNotify::_internal_set_activityid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.activityid_ = value;
+}
+
+// uint32 UseTimes = 2;
+inline void ActivityDoubleRewardTimesNotify::clear_usetimes() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.usetimes_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::uint32_t ActivityDoubleRewardTimesNotify::usetimes() const {
+  // @@protoc_insertion_point(field_get:proto.ActivityDoubleRewardTimesNotify.UseTimes)
+  return _internal_usetimes();
+}
+inline void ActivityDoubleRewardTimesNotify::set_usetimes(::uint32_t value) {
+  _internal_set_usetimes(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:proto.ActivityDoubleRewardTimesNotify.UseTimes)
+}
+inline ::uint32_t ActivityDoubleRewardTimesNotify::_internal_usetimes() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.usetimes_;
+}
+inline void ActivityDoubleRewardTimesNotify::_internal_set_usetimes(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.usetimes_ = value;
+}
+
+// bytes NextPackage = 2047;
+inline void ActivityDoubleRewardTimesNotify::clear_nextpackage() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.nextpackage_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline const ::std::string& ActivityDoubleRewardTimesNotify::nextpackage() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.ActivityDoubleRewardTimesNotify.NextPackage)
+  return _internal_nextpackage();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void ActivityDoubleRewardTimesNotify::set_nextpackage(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  _impl_.nextpackage_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:proto.ActivityDoubleRewardTimesNotify.NextPackage)
+}
+inline ::std::string* PROTOBUF_NONNULL ActivityDoubleRewardTimesNotify::mutable_nextpackage()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::std::string* _s = _internal_mutable_nextpackage();
+  // @@protoc_insertion_point(field_mutable:proto.ActivityDoubleRewardTimesNotify.NextPackage)
+  return _s;
+}
+inline const ::std::string& ActivityDoubleRewardTimesNotify::_internal_nextpackage() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.nextpackage_.Get();
+}
+inline void ActivityDoubleRewardTimesNotify::_internal_set_nextpackage(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.nextpackage_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL ActivityDoubleRewardTimesNotify::_internal_mutable_nextpackage() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.nextpackage_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE ActivityDoubleRewardTimesNotify::release_nextpackage() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:proto.ActivityDoubleRewardTimesNotify.NextPackage)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000001U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  auto* released = _impl_.nextpackage_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.nextpackage_.Set("", GetArena());
+  }
+  return released;
+}
+inline void ActivityDoubleRewardTimesNotify::set_allocated_nextpackage(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  _impl_.nextpackage_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.nextpackage_.IsDefault()) {
+    _impl_.nextpackage_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto.ActivityDoubleRewardTimesNotify.NextPackage)
 }
 
 #ifdef __GNUC__

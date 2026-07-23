@@ -3,7 +3,7 @@
 #include "../Command/CommandMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/player_signature_edit.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 

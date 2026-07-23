@@ -4,6 +4,7 @@ package proto;
 
 import "public.proto";
 import "public_star_tower.proto";
+import "public_soldier.proto";
 
 message GmWorldClass {
     uint32 FinalClass = 1;
@@ -144,5 +145,15 @@ message AssistAddBuildNotify {
     ChangeInfo Change = 1;
     repeated ItemTpl BuildRewards = 2;
     StarTowerBuildInfo BuildInfo = 3;
+    bytes NextPackage = 2047;
+}
+
+message SoldierEffectNtf {
+    repeated SoldierEffect Effects = 1;
+    bytes NextPackage = 2047;
+}
+
+message GmClearAllActivityIceCreamLevelsNotify {
+    repeated ActivityIceCreamLevel levels = 1;
     bytes NextPackage = 2047;
 }

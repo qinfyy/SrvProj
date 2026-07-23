@@ -6,7 +6,7 @@
 #include "../Logger.h"
 #include "../Resources/BinClass/AchievementsRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 
 #include <algorithm>
 #include <cstdint>

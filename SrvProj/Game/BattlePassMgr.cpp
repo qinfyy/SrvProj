@@ -14,7 +14,7 @@
 #include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/GameData.h"
 #include "../Util.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/notify.pb.h"
 
 #include <algorithm>

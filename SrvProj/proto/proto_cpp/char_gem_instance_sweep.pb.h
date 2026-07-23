@@ -222,6 +222,7 @@ class CharGemInstanceSweepReward final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kAwardItemsFieldNumber = 1,
+    kDoubleItemsFieldNumber = 3,
     kNextPackageFieldNumber = 2047,
     kExpFieldNumber = 2,
   };
@@ -242,6 +243,23 @@ class CharGemInstanceSweepReward final : public ::google::protobuf::Message
   const ::proto::ItemTpl& awarditems(int index) const;
   ::proto::ItemTpl* PROTOBUF_NONNULL add_awarditems();
   const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& awarditems() const;
+  // repeated .proto.ItemTpl DoubleItems = 3;
+  int doubleitems_size() const;
+  private:
+  int _internal_doubleitems_size() const;
+
+  public:
+  void clear_doubleitems() ;
+  ::proto::ItemTpl* PROTOBUF_NONNULL mutable_doubleitems(int index);
+  ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL mutable_doubleitems();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& _internal_doubleitems() const;
+  ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL _internal_mutable_doubleitems();
+  public:
+  const ::proto::ItemTpl& doubleitems(int index) const;
+  ::proto::ItemTpl* PROTOBUF_NONNULL add_doubleitems();
+  const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& doubleitems() const;
   // bytes NextPackage = 2047;
   void clear_nextpackage() ;
   const ::std::string& nextpackage() const;
@@ -271,8 +289,8 @@ class CharGemInstanceSweepReward final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 3,
-                                   1, 0,
+  static const ::google::protobuf::internal::TcParseTable<3, 4,
+                                   2, 0,
                                    7>
       _table_;
 
@@ -294,6 +312,7 @@ class CharGemInstanceSweepReward final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::proto::ItemTpl > awarditems_;
+    ::google::protobuf::RepeatedPtrField< ::proto::ItemTpl > doubleitems_;
     ::google::protobuf::internal::ArenaStringPtr nextpackage_;
     ::uint32_t exp_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1054,7 +1073,7 @@ inline void CharGemInstanceSweepReward::clear_exp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.exp_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000004U);
+                  0x00000008U);
 }
 inline ::uint32_t CharGemInstanceSweepReward::exp() const {
   // @@protoc_insertion_point(field_get:proto.CharGemInstanceSweepReward.Exp)
@@ -1062,7 +1081,7 @@ inline ::uint32_t CharGemInstanceSweepReward::exp() const {
 }
 inline void CharGemInstanceSweepReward::set_exp(::uint32_t value) {
   _internal_set_exp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   // @@protoc_insertion_point(field_set:proto.CharGemInstanceSweepReward.Exp)
 }
 inline ::uint32_t CharGemInstanceSweepReward::_internal_exp() const {
@@ -1074,12 +1093,62 @@ inline void CharGemInstanceSweepReward::_internal_set_exp(::uint32_t value) {
   _impl_.exp_ = value;
 }
 
+// repeated .proto.ItemTpl DoubleItems = 3;
+inline int CharGemInstanceSweepReward::_internal_doubleitems_size() const {
+  return _internal_doubleitems().size();
+}
+inline int CharGemInstanceSweepReward::doubleitems_size() const {
+  return _internal_doubleitems_size();
+}
+inline ::proto::ItemTpl* PROTOBUF_NONNULL CharGemInstanceSweepReward::mutable_doubleitems(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:proto.CharGemInstanceSweepReward.DoubleItems)
+  return _internal_mutable_doubleitems()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL CharGemInstanceSweepReward::mutable_doubleitems()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:proto.CharGemInstanceSweepReward.DoubleItems)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_doubleitems();
+}
+inline const ::proto::ItemTpl& CharGemInstanceSweepReward::doubleitems(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.CharGemInstanceSweepReward.DoubleItems)
+  return _internal_doubleitems().Get(index);
+}
+inline ::proto::ItemTpl* PROTOBUF_NONNULL CharGemInstanceSweepReward::add_doubleitems()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::proto::ItemTpl* _add =
+      _internal_mutable_doubleitems()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:proto.CharGemInstanceSweepReward.DoubleItems)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& CharGemInstanceSweepReward::doubleitems() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:proto.CharGemInstanceSweepReward.DoubleItems)
+  return _internal_doubleitems();
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>&
+CharGemInstanceSweepReward::_internal_doubleitems() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.doubleitems_;
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL
+CharGemInstanceSweepReward::_internal_mutable_doubleitems() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.doubleitems_;
+}
+
 // bytes NextPackage = 2047;
 inline void CharGemInstanceSweepReward::clear_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.nextpackage_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000002U);
+                  0x00000004U);
 }
 inline const ::std::string& CharGemInstanceSweepReward::nextpackage() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -1089,13 +1158,13 @@ inline const ::std::string& CharGemInstanceSweepReward::nextpackage() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void CharGemInstanceSweepReward::set_nextpackage(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
   _impl_.nextpackage_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:proto.CharGemInstanceSweepReward.NextPackage)
 }
 inline ::std::string* PROTOBUF_NONNULL CharGemInstanceSweepReward::mutable_nextpackage()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
   ::std::string* _s = _internal_mutable_nextpackage();
   // @@protoc_insertion_point(field_mutable:proto.CharGemInstanceSweepReward.NextPackage)
   return _s;
@@ -1115,10 +1184,10 @@ inline ::std::string* PROTOBUF_NONNULL CharGemInstanceSweepReward::_internal_mut
 inline ::std::string* PROTOBUF_NULLABLE CharGemInstanceSweepReward::release_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.CharGemInstanceSweepReward.NextPackage)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
   auto* released = _impl_.nextpackage_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.nextpackage_.Set("", GetArena());
@@ -1128,9 +1197,9 @@ inline ::std::string* PROTOBUF_NULLABLE CharGemInstanceSweepReward::release_next
 inline void CharGemInstanceSweepReward::set_allocated_nextpackage(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
   }
   _impl_.nextpackage_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.nextpackage_.IsDefault()) {

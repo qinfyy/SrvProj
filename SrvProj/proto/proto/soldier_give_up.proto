@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_soldier.proto";
+
+message SoldierGiveUpResp {
+    uint32 TotalScore = 1;
+    uint32 RewardScore = 2;
+    bytes NextPackage = 2047;
+}

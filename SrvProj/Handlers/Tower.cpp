@@ -4,7 +4,7 @@
 #include "../Game/Player.h"
 #include "../Game/TowerMgr.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/player_formation.pb.h"
 #include "../proto/proto_cpp/potential_preselection_delete.pb.h"
 #include "../proto/proto_cpp/potential_preselection_import.pb.h"

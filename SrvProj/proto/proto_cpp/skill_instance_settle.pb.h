@@ -221,6 +221,7 @@ class SkillInstanceSettleResp final : public ::google::protobuf::Message
     kFirstItemsFieldNumber = 5,
     kThreeStarItemsFieldNumber = 6,
     kSurpriseItemsFieldNumber = 8,
+    kDoubleItemsFieldNumber = 9,
     kNextPackageFieldNumber = 2047,
     kChangeFieldNumber = 3,
     kFirstFieldNumber = 1,
@@ -295,6 +296,23 @@ class SkillInstanceSettleResp final : public ::google::protobuf::Message
   const ::proto::ItemTpl& surpriseitems(int index) const;
   ::proto::ItemTpl* PROTOBUF_NONNULL add_surpriseitems();
   const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& surpriseitems() const;
+  // repeated .proto.ItemTpl DoubleItems = 9;
+  int doubleitems_size() const;
+  private:
+  int _internal_doubleitems_size() const;
+
+  public:
+  void clear_doubleitems() ;
+  ::proto::ItemTpl* PROTOBUF_NONNULL mutable_doubleitems(int index);
+  ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL mutable_doubleitems();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& _internal_doubleitems() const;
+  ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL _internal_mutable_doubleitems();
+  public:
+  const ::proto::ItemTpl& doubleitems(int index) const;
+  ::proto::ItemTpl* PROTOBUF_NONNULL add_doubleitems();
+  const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& doubleitems() const;
   // bytes NextPackage = 2047;
   void clear_nextpackage() ;
   const ::std::string& nextpackage() const;
@@ -359,8 +377,8 @@ class SkillInstanceSettleResp final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<4, 9,
-                                   5, 0,
+  static const ::google::protobuf::internal::TcParseTable<4, 10,
+                                   6, 0,
                                    7>
       _table_;
 
@@ -385,6 +403,7 @@ class SkillInstanceSettleResp final : public ::google::protobuf::Message
     ::google::protobuf::RepeatedPtrField< ::proto::ItemTpl > firstitems_;
     ::google::protobuf::RepeatedPtrField< ::proto::ItemTpl > threestaritems_;
     ::google::protobuf::RepeatedPtrField< ::proto::ItemTpl > surpriseitems_;
+    ::google::protobuf::RepeatedPtrField< ::proto::ItemTpl > doubleitems_;
     ::google::protobuf::internal::ArenaStringPtr nextpackage_;
     ::proto::ChangeInfo* PROTOBUF_NULLABLE change_;
     bool first_;
@@ -830,7 +849,7 @@ inline void SkillInstanceSettleResp::clear_first() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.first_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000040U);
+                  0x00000080U);
 }
 inline bool SkillInstanceSettleResp::first() const {
   // @@protoc_insertion_point(field_get:proto.SkillInstanceSettleResp.First)
@@ -838,7 +857,7 @@ inline bool SkillInstanceSettleResp::first() const {
 }
 inline void SkillInstanceSettleResp::set_first(bool value) {
   _internal_set_first(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
   // @@protoc_insertion_point(field_set:proto.SkillInstanceSettleResp.First)
 }
 inline bool SkillInstanceSettleResp::_internal_first() const {
@@ -855,7 +874,7 @@ inline void SkillInstanceSettleResp::clear_threestar() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.threestar_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000080U);
+                  0x00000100U);
 }
 inline bool SkillInstanceSettleResp::threestar() const {
   // @@protoc_insertion_point(field_get:proto.SkillInstanceSettleResp.ThreeStar)
@@ -863,7 +882,7 @@ inline bool SkillInstanceSettleResp::threestar() const {
 }
 inline void SkillInstanceSettleResp::set_threestar(bool value) {
   _internal_set_threestar(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
   // @@protoc_insertion_point(field_set:proto.SkillInstanceSettleResp.ThreeStar)
 }
 inline bool SkillInstanceSettleResp::_internal_threestar() const {
@@ -877,7 +896,7 @@ inline void SkillInstanceSettleResp::_internal_set_threestar(bool value) {
 
 // .proto.ChangeInfo Change = 3;
 inline bool SkillInstanceSettleResp::has_change() const {
-  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000020U);
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000040U);
   PROTOBUF_ASSUME(!value || _impl_.change_ != nullptr);
   return value;
 }
@@ -898,16 +917,16 @@ inline void SkillInstanceSettleResp::unsafe_arena_set_allocated_change(
   }
   _impl_.change_ = reinterpret_cast<::proto::ChangeInfo*>(value);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000040U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.SkillInstanceSettleResp.Change)
 }
 inline ::proto::ChangeInfo* PROTOBUF_NULLABLE SkillInstanceSettleResp::release_change() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
   ::proto::ChangeInfo* released = _impl_.change_;
   _impl_.change_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -927,7 +946,7 @@ inline ::proto::ChangeInfo* PROTOBUF_NULLABLE SkillInstanceSettleResp::unsafe_ar
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.SkillInstanceSettleResp.Change)
 
-  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
   ::proto::ChangeInfo* temp = _impl_.change_;
   _impl_.change_ = nullptr;
   return temp;
@@ -942,7 +961,7 @@ inline ::proto::ChangeInfo* PROTOBUF_NONNULL SkillInstanceSettleResp::_internal_
 }
 inline ::proto::ChangeInfo* PROTOBUF_NONNULL SkillInstanceSettleResp::mutable_change()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
   ::proto::ChangeInfo* _msg = _internal_mutable_change();
   // @@protoc_insertion_point(field_mutable:proto.SkillInstanceSettleResp.Change)
   return _msg;
@@ -959,9 +978,9 @@ inline void SkillInstanceSettleResp::set_allocated_change(::proto::ChangeInfo* P
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000040U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
   }
 
   _impl_.change_ = reinterpret_cast<::proto::ChangeInfo*>(value);
@@ -1123,7 +1142,7 @@ inline void SkillInstanceSettleResp::clear_exp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.exp_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000100U);
+                  0x00000200U);
 }
 inline ::uint32_t SkillInstanceSettleResp::exp() const {
   // @@protoc_insertion_point(field_get:proto.SkillInstanceSettleResp.Exp)
@@ -1131,7 +1150,7 @@ inline ::uint32_t SkillInstanceSettleResp::exp() const {
 }
 inline void SkillInstanceSettleResp::set_exp(::uint32_t value) {
   _internal_set_exp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000200U);
   // @@protoc_insertion_point(field_set:proto.SkillInstanceSettleResp.Exp)
 }
 inline ::uint32_t SkillInstanceSettleResp::_internal_exp() const {
@@ -1193,12 +1212,62 @@ SkillInstanceSettleResp::_internal_mutable_surpriseitems() {
   return &_impl_.surpriseitems_;
 }
 
+// repeated .proto.ItemTpl DoubleItems = 9;
+inline int SkillInstanceSettleResp::_internal_doubleitems_size() const {
+  return _internal_doubleitems().size();
+}
+inline int SkillInstanceSettleResp::doubleitems_size() const {
+  return _internal_doubleitems_size();
+}
+inline ::proto::ItemTpl* PROTOBUF_NONNULL SkillInstanceSettleResp::mutable_doubleitems(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:proto.SkillInstanceSettleResp.DoubleItems)
+  return _internal_mutable_doubleitems()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL SkillInstanceSettleResp::mutable_doubleitems()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_mutable_list:proto.SkillInstanceSettleResp.DoubleItems)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_doubleitems();
+}
+inline const ::proto::ItemTpl& SkillInstanceSettleResp::doubleitems(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.SkillInstanceSettleResp.DoubleItems)
+  return _internal_doubleitems().Get(index);
+}
+inline ::proto::ItemTpl* PROTOBUF_NONNULL SkillInstanceSettleResp::add_doubleitems()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::proto::ItemTpl* _add =
+      _internal_mutable_doubleitems()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_add:proto.SkillInstanceSettleResp.DoubleItems)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>& SkillInstanceSettleResp::doubleitems() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:proto.SkillInstanceSettleResp.DoubleItems)
+  return _internal_doubleitems();
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>&
+SkillInstanceSettleResp::_internal_doubleitems() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.doubleitems_;
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::ItemTpl>* PROTOBUF_NONNULL
+SkillInstanceSettleResp::_internal_mutable_doubleitems() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.doubleitems_;
+}
+
 // bytes NextPackage = 2047;
 inline void SkillInstanceSettleResp::clear_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.nextpackage_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000010U);
+                  0x00000020U);
 }
 inline const ::std::string& SkillInstanceSettleResp::nextpackage() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -1208,13 +1277,13 @@ inline const ::std::string& SkillInstanceSettleResp::nextpackage() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void SkillInstanceSettleResp::set_nextpackage(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   _impl_.nextpackage_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:proto.SkillInstanceSettleResp.NextPackage)
 }
 inline ::std::string* PROTOBUF_NONNULL SkillInstanceSettleResp::mutable_nextpackage()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   ::std::string* _s = _internal_mutable_nextpackage();
   // @@protoc_insertion_point(field_mutable:proto.SkillInstanceSettleResp.NextPackage)
   return _s;
@@ -1234,10 +1303,10 @@ inline ::std::string* PROTOBUF_NONNULL SkillInstanceSettleResp::_internal_mutabl
 inline ::std::string* PROTOBUF_NULLABLE SkillInstanceSettleResp::release_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.SkillInstanceSettleResp.NextPackage)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000010U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000020U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   auto* released = _impl_.nextpackage_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.nextpackage_.Set("", GetArena());
@@ -1247,9 +1316,9 @@ inline ::std::string* PROTOBUF_NULLABLE SkillInstanceSettleResp::release_nextpac
 inline void SkillInstanceSettleResp::set_allocated_nextpackage(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
   }
   _impl_.nextpackage_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.nextpackage_.IsDefault()) {

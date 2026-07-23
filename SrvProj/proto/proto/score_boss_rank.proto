@@ -29,6 +29,7 @@ message ScoreBossRankTeam {
     repeated BuildPotential Potentials = 6;
     repeated ItemTpl Notes = 7;
     repeated uint32 ActiveSecondaryIds = 8;
+    uint32 SkillScore = 9;
     bytes NextPackage = 2047;
 }
 

@@ -3,7 +3,7 @@
 #include "../Game/InventoryMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/item_product.pb.h"
 #include "../proto/proto_cpp/item_quick_growth.pb.h"
 #include "../proto/proto_cpp/item_use.pb.h"

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_soldier.proto";
+
+message SoldierApplyReq {
+    uint32 SeasonId = 1;
+    uint32 GradeChallengeId = 2;
+    bytes NextPackage = 2047;
+}
+
+message SoldierApplyResp {
+    SoldierInfo Info = 1;
+    repeated SoldierChess Chess = 2;
+    uint32 CoinQty = 3;
+    bytes NextPackage = 2047;
+}

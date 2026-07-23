@@ -219,6 +219,7 @@ class DailyInstanceSettleResp final : public ::google::protobuf::Message
   enum : int {
     kSelectFieldNumber = 1,
     kFirstFieldNumber = 2,
+    kDoubleItemsFieldNumber = 4,
     kNextPackageFieldNumber = 2047,
     kChangeFieldNumber = 15,
     kExpFieldNumber = 3,
@@ -257,6 +258,23 @@ class DailyInstanceSettleResp final : public ::google::protobuf::Message
   const ::proto::Item& first(int index) const;
   ::proto::Item* PROTOBUF_NONNULL add_first();
   const ::google::protobuf::RepeatedPtrField<::proto::Item>& first() const;
+  // repeated .proto.Item DoubleItems = 4;
+  int doubleitems_size() const;
+  private:
+  int _internal_doubleitems_size() const;
+
+  public:
+  void clear_doubleitems() ;
+  ::proto::Item* PROTOBUF_NONNULL mutable_doubleitems(int index);
+  ::google::protobuf::RepeatedPtrField<::proto::Item>* PROTOBUF_NONNULL mutable_doubleitems();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::proto::Item>& _internal_doubleitems() const;
+  ::google::protobuf::RepeatedPtrField<::proto::Item>* PROTOBUF_NONNULL _internal_mutable_doubleitems();
+  public:
+  const ::proto::Item& doubleitems(int index) const;
+  ::proto::Item* PROTOBUF_NONNULL add_doubleitems();
+  const ::google::protobuf::RepeatedPtrField<::proto::Item>& doubleitems() const;
   // bytes NextPackage = 2047;
   void clear_nextpackage() ;
   const ::std::string& nextpackage() const;
@@ -301,8 +319,8 @@ class DailyInstanceSettleResp final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<3, 5,
-                                   3, 0,
+  static const ::google::protobuf::internal::TcParseTable<3, 6,
+                                   4, 0,
                                    7>
       _table_;
 
@@ -325,6 +343,7 @@ class DailyInstanceSettleResp final : public ::google::protobuf::Message
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::proto::Item > select_;
     ::google::protobuf::RepeatedPtrField< ::proto::Item > first_;
+    ::google::protobuf::RepeatedPtrField< ::proto::Item > doubleitems_;
     ::google::protobuf::internal::ArenaStringPtr nextpackage_;
     ::proto::ChangeInfo* PROTOBUF_NULLABLE change_;
     ::uint32_t exp_;
@@ -868,7 +887,7 @@ inline void DailyInstanceSettleResp::clear_exp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.exp_ = 0u;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000010U);
+                  0x00000020U);
 }
 inline ::uint32_t DailyInstanceSettleResp::exp() const {
   // @@protoc_insertion_point(field_get:proto.DailyInstanceSettleResp.Exp)
@@ -876,7 +895,7 @@ inline ::uint32_t DailyInstanceSettleResp::exp() const {
 }
 inline void DailyInstanceSettleResp::set_exp(::uint32_t value) {
   _internal_set_exp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   // @@protoc_insertion_point(field_set:proto.DailyInstanceSettleResp.Exp)
 }
 inline ::uint32_t DailyInstanceSettleResp::_internal_exp() const {
@@ -888,9 +907,59 @@ inline void DailyInstanceSettleResp::_internal_set_exp(::uint32_t value) {
   _impl_.exp_ = value;
 }
 
+// repeated .proto.Item DoubleItems = 4;
+inline int DailyInstanceSettleResp::_internal_doubleitems_size() const {
+  return _internal_doubleitems().size();
+}
+inline int DailyInstanceSettleResp::doubleitems_size() const {
+  return _internal_doubleitems_size();
+}
+inline ::proto::Item* PROTOBUF_NONNULL DailyInstanceSettleResp::mutable_doubleitems(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:proto.DailyInstanceSettleResp.DoubleItems)
+  return _internal_mutable_doubleitems()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::Item>* PROTOBUF_NONNULL DailyInstanceSettleResp::mutable_doubleitems()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_mutable_list:proto.DailyInstanceSettleResp.DoubleItems)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_doubleitems();
+}
+inline const ::proto::Item& DailyInstanceSettleResp::doubleitems(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.DailyInstanceSettleResp.DoubleItems)
+  return _internal_doubleitems().Get(index);
+}
+inline ::proto::Item* PROTOBUF_NONNULL DailyInstanceSettleResp::add_doubleitems()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::proto::Item* _add =
+      _internal_mutable_doubleitems()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_add:proto.DailyInstanceSettleResp.DoubleItems)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::Item>& DailyInstanceSettleResp::doubleitems() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:proto.DailyInstanceSettleResp.DoubleItems)
+  return _internal_doubleitems();
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::Item>&
+DailyInstanceSettleResp::_internal_doubleitems() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.doubleitems_;
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::Item>* PROTOBUF_NONNULL
+DailyInstanceSettleResp::_internal_mutable_doubleitems() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.doubleitems_;
+}
+
 // .proto.ChangeInfo Change = 15;
 inline bool DailyInstanceSettleResp::has_change() const {
-  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000008U);
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000010U);
   PROTOBUF_ASSUME(!value || _impl_.change_ != nullptr);
   return value;
 }
@@ -911,16 +980,16 @@ inline void DailyInstanceSettleResp::unsafe_arena_set_allocated_change(
   }
   _impl_.change_ = reinterpret_cast<::proto::ChangeInfo*>(value);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.DailyInstanceSettleResp.Change)
 }
 inline ::proto::ChangeInfo* PROTOBUF_NULLABLE DailyInstanceSettleResp::release_change() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   ::proto::ChangeInfo* released = _impl_.change_;
   _impl_.change_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -940,7 +1009,7 @@ inline ::proto::ChangeInfo* PROTOBUF_NULLABLE DailyInstanceSettleResp::unsafe_ar
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.DailyInstanceSettleResp.Change)
 
-  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   ::proto::ChangeInfo* temp = _impl_.change_;
   _impl_.change_ = nullptr;
   return temp;
@@ -955,7 +1024,7 @@ inline ::proto::ChangeInfo* PROTOBUF_NONNULL DailyInstanceSettleResp::_internal_
 }
 inline ::proto::ChangeInfo* PROTOBUF_NONNULL DailyInstanceSettleResp::mutable_change()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   ::proto::ChangeInfo* _msg = _internal_mutable_change();
   // @@protoc_insertion_point(field_mutable:proto.DailyInstanceSettleResp.Change)
   return _msg;
@@ -972,9 +1041,9 @@ inline void DailyInstanceSettleResp::set_allocated_change(::proto::ChangeInfo* P
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   }
 
   _impl_.change_ = reinterpret_cast<::proto::ChangeInfo*>(value);
@@ -986,7 +1055,7 @@ inline void DailyInstanceSettleResp::clear_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.nextpackage_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000004U);
+                  0x00000008U);
 }
 inline const ::std::string& DailyInstanceSettleResp::nextpackage() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -996,13 +1065,13 @@ inline const ::std::string& DailyInstanceSettleResp::nextpackage() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void DailyInstanceSettleResp::set_nextpackage(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   _impl_.nextpackage_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:proto.DailyInstanceSettleResp.NextPackage)
 }
 inline ::std::string* PROTOBUF_NONNULL DailyInstanceSettleResp::mutable_nextpackage()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   ::std::string* _s = _internal_mutable_nextpackage();
   // @@protoc_insertion_point(field_mutable:proto.DailyInstanceSettleResp.NextPackage)
   return _s;
@@ -1022,10 +1091,10 @@ inline ::std::string* PROTOBUF_NONNULL DailyInstanceSettleResp::_internal_mutabl
 inline ::std::string* PROTOBUF_NULLABLE DailyInstanceSettleResp::release_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.DailyInstanceSettleResp.NextPackage)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
   auto* released = _impl_.nextpackage_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.nextpackage_.Set("", GetArena());
@@ -1035,9 +1104,9 @@ inline ::std::string* PROTOBUF_NULLABLE DailyInstanceSettleResp::release_nextpac
 inline void DailyInstanceSettleResp::set_allocated_nextpackage(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
   }
   _impl_.nextpackage_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.nextpackage_.IsDefault()) {

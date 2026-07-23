@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "../GameConstants.h"
 #include "../GameTime.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/mail_recv.pb.h"
 
 #include <algorithm>

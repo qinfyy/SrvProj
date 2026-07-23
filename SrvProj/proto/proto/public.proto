@@ -288,6 +288,7 @@ message StateInfo {
     ScoreBossState ScoreBoss = 20;
     repeated ActivityState Activities = 21;
     bool StorySet = 22;
+    TraceHuntState TraceHunt = 23;
     bytes NextPackage = 2047;
 }
 
@@ -700,6 +701,13 @@ message ActivityPenguinCard {
     bytes NextPackage = 2047;
 }
 
+message ActivityDouble {
+    uint32 ActivityId = 1;
+    uint32 DailyUseTimes = 2;
+    repeated ActivityQuest Quests = 3;
+    bytes NextPackage = 2047;
+}
+
 message AffinityInfo {
     uint32 CharId = 1;
     uint32 AffinityLevel = 2;
@@ -1075,5 +1083,100 @@ message ActivityGDS {
 message ActivityHonor {
     uint32 Id = 1;
     uint32 Lv = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityPersonalityModel {
+    uint32 ChapterId = 1;
+    uint32 A = 2;
+    uint32 B = 3;
+    uint32 C = 4;
+    bytes NextPackage = 2047;
+}
+
+message ActivityHistoryStory {
+    uint32 Id = 1;
+    repeated ActivityStoryChoice Major = 2;
+    repeated ActivityStoryChoice Personality = 3;
+    bool Receive = 4;
+    bytes NextPackage = 2047;
+}
+
+message ActivityHistoryStoryChapter {
+    uint32 ChapterId = 1;
+    uint64 BuildId = 2;
+    repeated uint32 Evidences = 3;
+    repeated ActivityHistoryStory Stories = 4;
+    bytes NextPackage = 2047;
+}
+
+message ActivityShare {
+    bytes State = 1;
+    bytes NextPackage = 2047;
+}
+
+message TraceHuntBossCollection {
+    uint32 Id = 1;
+    uint32 HuntCount = 2;
+    uint32 AssistHuntCount = 3;
+    bytes NextPackage = 2047;
+}
+
+message TraceHuntLogEntry {
+    uint32 Tid = 1;
+    repeated string args = 2;
+    bytes NextPackage = 2047;
+}
+
+message TraceHuntItemInfo {
+    uint32 Tid = 1;
+    uint32 EnergyOverflow = 2;
+    uint32 ConvertedCount = 3;
+    uint32 GrantedCount = 4;
+    uint32 DailyCount = 5;
+    bytes NextPackage = 2047;
+}
+
+message TraceHuntItem {
+    uint32 Tid = 1;
+    int32 PointQty = 2;
+    int32 ConvertQty = 3;
+    int32 GrantQty = 4;
+    uint32 DailyCount = 5;
+    bytes NextPackage = 2047;
+}
+
+message TraceHuntState {
+    bool BossRewardCanReceive = 1;
+    bytes NextPackage = 2047;
+}
+
+message ActivityIceCreamLevel {
+    uint32 LevelId = 1;
+    uint32 Score = 2;
+    bool FirstComplete = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityIceCream {
+    uint32 ActivityId = 1;
+    repeated ActivityIceCreamLevel Levels = 2;
+    repeated ActivityQuest Quests = 3;
+    bytes NextPackage = 2047;
+}
+
+message ActivityIceCreamLevelSettleSucceed {
+    ChangeInfo Change = 1;
+    bool Passed = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivitySoldier {
+    uint32 CurGradeChallengeId = 1;
+    uint32 Score = 2;
+    uint32 GradeChallengeId = 3;
+    uint32 Stage = 4;
+    uint32 NodeIndex = 5;
+    repeated ActivityQuest Quests = 6;
     bytes NextPackage = 2047;
 }

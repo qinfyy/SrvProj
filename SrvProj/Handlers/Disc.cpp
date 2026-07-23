@@ -4,7 +4,7 @@
 #include "../Game/InventoryMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/disc_all_limit_break.pb.h"
 #include "../proto/proto_cpp/disc_limit_break.pb.h"
 #include "../proto/proto_cpp/disc_promote.pb.h"

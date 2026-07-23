@@ -7,7 +7,7 @@
 #include "../GameSession.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/mall_gem_list.pb.h"
 #include "../proto/proto_cpp/mall_gem_order.pb.h"
 #include "../proto/proto_cpp/mall_monthlycard_list.pb.h"

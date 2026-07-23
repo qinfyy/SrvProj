@@ -91,6 +91,34 @@ message table_ActivityAvgLevel {
     repeated ActivityAvgLevel list = 1;
 }
 
+message ActivityDouble {
+    int32 Id = 1;
+    repeated int32 InstanceType = 2;
+    int32 DailyTimes = 3;
+    int32 RewardType = 4;
+    string UIAssets = 5;
+    string CtrlName = 6;
+    string DesText = 7;
+}
+
+message table_ActivityDouble {
+    repeated ActivityDouble list = 1;
+}
+
+message ActivityDoubleQuest {
+    int32 Id = 1;
+    int32 ActivityId = 2;
+    string Desc = 3;
+    int32 QuestType = 4;
+    string QuestParams = 5;
+    int32 ItemId = 6;
+    int32 ItemQty = 7;
+}
+
+message table_ActivityDoubleQuest {
+    repeated ActivityDoubleQuest list = 1;
+}
+
 message ActivityGoods {
     int32 Id = 1;
     string Name = 2;
@@ -120,27 +148,59 @@ message ActivityGroup {
     string StartTime = 4;
     string EndTime = 5;
     string EnterEndTime = 6;
-    string EnterRes = 7;
-    int32 PanelId = 8;
-    repeated int32 Prologue = 9;
-    int32 PreLimit = 10;
-    string LimitParam = 11;
-    int32 StartCondType = 12;
-    repeated int32 StartCondParams = 13;
-    string CG = 14;
-    string Enter = 15;
-    string MultipleEnter = 16;
-    string UIAssetsPrefab = 17;
-    string CtrlName = 18;
-    repeated int32 RewardsShow = 19;
-    string DesText = 20;
-    string BannerRes = 21;
-    string TabBgRes = 22;
-    int32 TransitionId = 23;
+    string StoryShowTime = 7;
+    string EnterRes = 8;
+    int32 PanelId = 9;
+    repeated int32 Prologue = 10;
+    int32 PreLimit = 11;
+    string LimitParam = 12;
+    int32 StartCondType = 13;
+    repeated int32 StartCondParams = 14;
+    string CG = 15;
+    string Enter = 16;
+    string MultipleEnter = 17;
+    string UIAssetsPrefab = 18;
+    string CtrlName = 19;
+    repeated int32 RewardsShow = 20;
+    string DesText = 21;
+    string BannerRes = 22;
+    string TabBgRes = 23;
+    int32 TransitionId = 24;
 }
 
 message table_ActivityGroup {
     repeated ActivityGroup list = 1;
+}
+
+message ActivityIceCreamLevel {
+    int32 Id = 1;
+    int32 ActivityId = 2;
+    int32 Duration = 3;
+    string IslandName = 4;
+    string Name = 5;
+    string Des = 6;
+    int32 PreLevelId = 7;
+    int32 LevelType = 8;
+    int32 CustomerCount = 9;
+    int32 PatienceValue = 10;
+    int32 Health = 11;
+    int32 Fever = 12;
+    int32 IceCreamBallLimit = 13;
+    int32 BuffPoolId = 14;
+    int32 CharPoolId = 15;
+    int32 PassScore = 16;
+    string PassScoreDes = 17;
+    int32 OrderNum = 18;
+    string OrderNumDes = 19;
+    int32 FirstCompleteReward1Tid = 20;
+    int32 FirstCompleteReward1Qty = 21;
+    int32 FirstCompleteReward2Tid = 22;
+    int32 FirstCompleteReward2Qty = 23;
+    int32 DictionaryId = 24;
+}
+
+message table_ActivityIceCreamLevel {
+    repeated ActivityIceCreamLevel list = 1;
 }
 
 message ActivityLevelsFloor {
@@ -219,10 +279,11 @@ message ActivityPenguinCardQuest {
     int32 FinishType = 3;
     string FinishParams = 4;
     string Desc = 5;
-    int32 Item1 = 6;
-    int32 Qty1 = 7;
-    int32 Item2 = 8;
-    int32 Qty2 = 9;
+    int32 AimNumShow = 6;
+    int32 Item1 = 7;
+    int32 Qty1 = 8;
+    int32 Item2 = 9;
+    int32 Qty2 = 10;
 }
 
 message table_ActivityPenguinCardQuest {
@@ -303,7 +364,7 @@ message table_ActivityStory {
 
 message ActivityStoryChapter {
     int32 Id = 1;
-    int32 ActivityId = 2;
+    int32 ChapterId = 2;
     int32 PersonalityId = 3;
     int32 ActivityGroupType = 4;
     string IconRes = 5;
@@ -1410,6 +1471,15 @@ message CharacterSkinTheme {
 
 message table_CharacterSkinTheme {
     repeated CharacterSkinTheme list = 1;
+}
+
+message CharacterSpine {
+    int32 Id = 1;
+    string ResPath = 2;
+}
+
+message table_CharacterSpine {
+    repeated CharacterSpine list = 1;
 }
 
 message CharacterTag {
@@ -2613,6 +2683,32 @@ message table_FloorBuff {
     repeated FloorBuff list = 1;
 }
 
+message FollowSocialMediaControl {
+    int32 Id = 1;
+    int32 UseType = 2;
+    string UIAssets = 3;
+    string CtrlName = 4;
+    repeated int32 LinkList = 5;
+}
+
+message table_FollowSocialMediaControl {
+    repeated FollowSocialMediaControl list = 1;
+}
+
+message FollowSocialMediaLinkConfig {
+    int32 Id = 1;
+    string Icon = 2;
+    string Name = 3;
+    string URL = 4;
+    string DeepLink = 5;
+    int32 RewardId = 6;
+    int32 RewardCount = 7;
+}
+
+message table_FollowSocialMediaLinkConfig {
+    repeated FollowSocialMediaLinkConfig list = 1;
+}
+
 message Force {
     int32 Id = 1;
     string Title = 2;
@@ -2873,6 +2969,7 @@ message GoldenSpyControl {
     string UIAssets = 3;
     string CtrlName = 4;
     repeated int32 LevelGroupList = 5;
+    int32 LevelPanelId = 6;
 }
 
 message table_GoldenSpyControl {
@@ -2936,12 +3033,13 @@ message GoldenSpyLevel {
     int32 Score = 9;
     string WinCondDesc = 10;
     int32 BuffCardPoolId = 11;
-    string LevelDesc = 12;
-    string Skill = 13;
-    int32 Item1Id = 14;
-    int32 Item1Count = 15;
-    int32 Item2Id = 16;
-    int32 Item2Count = 17;
+    int32 BuffRefeshCount = 12;
+    string LevelDesc = 13;
+    string Skill = 14;
+    int32 Item1Id = 15;
+    int32 Item1Count = 16;
+    int32 Item2Id = 17;
+    int32 Item2Count = 18;
 }
 
 message table_GoldenSpyLevel {
@@ -3074,6 +3172,7 @@ message HitDamage {
     int32 SkillSlotType = 24;
     int32 PerkId = 25;
     int32 HitImmunityTime = 26;
+    bool SingleDamage = 27;
 }
 
 message table_HitDamage {
@@ -3135,6 +3234,78 @@ message HtmlConfig {
 
 message table_HtmlConfig {
     repeated HtmlConfig list = 1;
+}
+
+message IceCreamBuff {
+    int32 Id = 1;
+    string Name = 2;
+    int32 BuffType = 3;
+    repeated int32 Param = 4;
+    string Desc = 5;
+    string Icon = 6;
+}
+
+message table_IceCreamBuff {
+    repeated IceCreamBuff list = 1;
+}
+
+message IceCreamBuffPool {
+    int32 Id = 1;
+    int32 PoolId = 2;
+    int32 BuffId = 3;
+    int32 Weight = 4;
+}
+
+message table_IceCreamBuffPool {
+    repeated IceCreamBuffPool list = 1;
+}
+
+message IceCreamChar {
+    int32 Id = 1;
+    string Name = 2;
+    string Voice_Happy = 3;
+    string Voice_Sad = 4;
+    string Voice_Angry = 5;
+    int32 CharType = 6;
+}
+
+message table_IceCreamChar {
+    repeated IceCreamChar list = 1;
+}
+
+message IceCreamCharPool {
+    int32 Id = 1;
+    int32 PoolId = 2;
+    int32 CharId = 3;
+    int32 Weight = 4;
+}
+
+message table_IceCreamCharPool {
+    repeated IceCreamCharPool list = 1;
+}
+
+message IceCreamCreate {
+    int32 Id = 1;
+    string Name = 2;
+    string Path = 3;
+    int32 OptionType = 4;
+    int32 LocalParm = 5;
+    bool isStack = 6;
+    int32 StackMax = 7;
+}
+
+message table_IceCreamCreate {
+    repeated IceCreamCreate list = 1;
+}
+
+message IceCreamFever {
+    int32 Combo = 1;
+    float Magnification = 2;
+    string Icon = 3;
+}
+
+message table_IceCreamFever {
+    repeated IceCreamFever list = 1;
 }
 
 message InfinityTower {
@@ -3889,6 +4060,8 @@ message MallRecommendGroup {
     int32 Sort = 2;
     repeated string PackageList = 3;
     string Name = 4;
+    string StartTime = 5;
+    string EndTime = 6;
 }
 
 message table_MallRecommendGroup {
@@ -3953,11 +4126,15 @@ message MiningControl {
     int32 UseType = 2;
     string UIAssets = 3;
     string CtrlName = 4;
-    int32 DigConsumeItemId = 5;
-    int32 ConfigMaxLayer = 6;
-    int32 ShopId = 7;
-    string BgPrefab = 8;
-    string GridListPrefab = 9;
+    int32 GamePanelId = 5;
+    int32 QuestPanelId = 6;
+    string Desc = 7;
+    string RewardsShow = 8;
+    int32 DigConsumeItemId = 9;
+    int32 ConfigMaxLayer = 10;
+    int32 ShopId = 11;
+    string BgPrefab = 12;
+    string GridListPrefab = 13;
 }
 
 message table_MiningControl {
@@ -3994,17 +4171,28 @@ message table_MiningDemoRewardConfig {
 
 message MiningQuest {
     int32 Id = 1;
-    int32 ActivityId = 2;
-    string QuestDes = 3;
-    int32 CompleteCond = 4;
-    string CompleteCondParams = 5;
-    int32 JumpTo = 6;
-    int32 RewardId = 7;
-    int32 RewardQty = 8;
+    int32 GroupId = 2;
+    int32 ActivityId = 3;
+    string QuestDes = 4;
+    int32 CompleteCond = 5;
+    string CompleteCondParams = 6;
+    int32 JumpTo = 7;
+    int32 RewardId = 8;
+    int32 RewardQty = 9;
 }
 
 message table_MiningQuest {
     repeated MiningQuest list = 1;
+}
+
+message MiningQuestGroup {
+    int32 Id = 1;
+    int32 ActivityId = 2;
+    string GroupName = 3;
+}
+
+message table_MiningQuestGroup {
+    repeated MiningQuestGroup list = 1;
 }
 
 message MiningStory {
@@ -4057,43 +4245,44 @@ message Monster {
     int32 Id = 1;
     string Name = 2;
     int32 EpicLv = 3;
-    int32 MonsterPosition = 4;
-    int32 BloodType = 5;
-    string Force = 6;
-    int32 FCId = 7;
-    int32 FAId = 8;
-    int32 MovType = 9;
-    int32 RunSpd = 10;
-    int32 TransSpdScale = 11;
-    int32 WalkSpd = 12;
-    int32 MovAcc = 13;
-    int32 VisionRng = 14;
-    int32 VisionDeg = 15;
-    int32 HearRng = 16;
-    int32 RefRng = 17;
-    int32 ActRng = 18;
-    int32 DisActRng = 19;
-    int32 SearchRng = 20;
-    int32 RotSpd = 21;
-    int32 RotSpdInSkill = 22;
-    int32 Templete = 23;
-    repeated int32 BuffIds = 24;
-    int32 SubType = 25;
-    int32 Faction = 26;
-    repeated int32 TrapTagIds = 27;
-    int32 SupCharge = 28;
-    bool IsShowRng = 29;
-    int32 Weight = 30;
-    int32 ToughnessBrokenTime = 31;
-    bool IsToughnessRecorver = 32;
-    string Tag1 = 33;
-    string Tag2 = 34;
-    string Tag3 = 35;
-    string Tag4 = 36;
-    string Tag5 = 37;
-    int32 AttackHintType = 38;
-    int32 BlockPriority = 39;
-    int32 MonsterTeamId = 40;
+    int32 SubBossType = 4;
+    int32 MonsterPosition = 5;
+    int32 BloodType = 6;
+    string Force = 7;
+    int32 FCId = 8;
+    int32 FAId = 9;
+    int32 MovType = 10;
+    int32 RunSpd = 11;
+    int32 TransSpdScale = 12;
+    int32 WalkSpd = 13;
+    int32 MovAcc = 14;
+    int32 VisionRng = 15;
+    int32 VisionDeg = 16;
+    int32 HearRng = 17;
+    int32 RefRng = 18;
+    int32 ActRng = 19;
+    int32 DisActRng = 20;
+    int32 SearchRng = 21;
+    int32 RotSpd = 22;
+    int32 RotSpdInSkill = 23;
+    int32 Templete = 24;
+    repeated int32 BuffIds = 25;
+    int32 SubType = 26;
+    int32 Faction = 27;
+    repeated int32 TrapTagIds = 28;
+    int32 SupCharge = 29;
+    bool IsShowRng = 30;
+    int32 Weight = 31;
+    int32 ToughnessBrokenTime = 32;
+    bool IsToughnessRecorver = 33;
+    string Tag1 = 34;
+    string Tag2 = 35;
+    string Tag3 = 36;
+    string Tag4 = 37;
+    string Tag5 = 38;
+    int32 AttackHintType = 39;
+    int32 BlockPriority = 40;
+    int32 MonsterTeamId = 41;
 }
 
 message table_Monster {
@@ -4155,10 +4344,22 @@ message table_MonsterAI {
     repeated MonsterAI list = 1;
 }
 
+message MonsterAttackAjust {
+    int64 Id = 1;
+    int32 GroupId = 2;
+    int32 Lv = 3;
+    float SwitchRate = 4;
+}
+
+message table_MonsterAttackAjust {
+    repeated MonsterAttackAjust list = 1;
+}
+
 message MonsterAttributeContact {
     int32 Id = 1;
     int32 GroupId = 2;
     int32 MaxLevel = 3;
+    int32 AtkTemplateId = 4;
 }
 
 message table_MonsterAttributeContact {
@@ -4526,7 +4727,9 @@ message PenguinBaseCard {
     int32 SuitCount1 = 4;
     int32 Suit2 = 5;
     int32 SuitCount2 = 6;
-    string Icon = 7;
+    int32 Suit3 = 7;
+    int32 SuitCount3 = 8;
+    string Icon = 9;
 }
 
 message table_PenguinBaseCard {
@@ -4651,14 +4854,15 @@ message PenguinCardFloor {
     int32 InitialScore = 3;
     int32 InitialSlot = 4;
     int32 InitialRound = 5;
-    int32 InitialBuyLimit = 6;
-    int32 WeightGroup = 7;
-    int32 PoolId = 8;
-    int32 QuestTurn = 9;
-    int32 QuestGroup = 10;
-    int32 FixedTurn = 11;
-    string Floortips = 12;
-    bool ShowWin = 13;
+    int32 InitialCheckRound = 6;
+    int32 InitialBuyLimit = 7;
+    int32 WeightGroup = 8;
+    int32 PoolId = 9;
+    int32 QuestTurn = 10;
+    int32 QuestGroup = 11;
+    int32 FixedTurn = 12;
+    string Floortips = 13;
+    bool ShowWin = 14;
 }
 
 message table_PenguinCardFloor {
@@ -5311,6 +5515,7 @@ message ScoreBossFloor {
     string BGM = 5;
     string LeaveTriggerEvent = 6;
     string IntroCutscene = 7;
+    string LevelScript = 8;
 }
 
 message table_ScoreBossFloor {
@@ -5625,6 +5830,462 @@ message SkillInstanceType {
 
 message table_SkillInstanceType {
     repeated SkillInstanceType list = 1;
+}
+
+message SoldierBuff {
+    int32 Id = 1;
+    int32 Cond1 = 2;
+    repeated int32 CondParams1 = 3;
+    int32 Cond2 = 4;
+    repeated int32 CondParams2 = 5;
+    int32 Cond3 = 6;
+    repeated int32 CondParams3 = 7;
+    int32 Effect1 = 8;
+    repeated string EffectParams1 = 9;
+    int32 Effect2 = 10;
+    repeated string EffectParams2 = 11;
+    int32 Effect3 = 12;
+    repeated string EffectParams3 = 13;
+}
+
+message table_SoldierBuff {
+    repeated SoldierBuff list = 1;
+}
+
+message SoldierCardEffect {
+    int32 Id = 1;
+    repeated int32 BuffIds = 2;
+}
+
+message table_SoldierCardEffect {
+    repeated SoldierCardEffect list = 1;
+}
+
+message SoldierCharacter {
+    int32 Id = 1;
+    string Name = 2;
+    int32 GroupId = 3;
+    int32 Rarity = 4;
+    int32 Cost = 5;
+    int32 MaxStar = 6;
+    int32 Faction = 7;
+    int32 CharacterType = 8;
+    int32 Skin = 9;
+    int32 AIID = 10;
+    int32 Energy = 11;
+    int32 InitialEnergy = 12;
+    float Recovery = 13;
+    bool SkillEndStartRecover = 14;
+    int32 Templete = 15;
+    int32 AssistSkillOnStageType = 16;
+    int32 AssistSkillAngle = 17;
+    int32 AssistSkillRadius = 18;
+    int32 AssistSkillOnStageOrientation = 19;
+    repeated int32 Potential1 = 20;
+    repeated int32 Potential2 = 21;
+    repeated int32 Potential3 = 22;
+    repeated int32 Potential4 = 23;
+    bool StopNormalAttack = 24;
+    int32 SearchRadius = 25;
+    int32 NormalAttackRadius = 26;
+    int32 SkillRadius = 27;
+    int32 Normal = 28;
+    int32 Skill = 29;
+    int32 Support = 30;
+    int32 Type = 31;
+    repeated int32 PartnerType = 32;
+    int32 ATKSPD_P = 33;
+    int32 MovType = 34;
+    int32 WalkSpd = 35;
+    int32 RunSpd = 36;
+    int32 SpRunSpd = 37;
+    int32 TransSpd = 38;
+    int32 WalkToRunDuration = 39;
+    int32 MovAcc = 40;
+    int32 RotSpd = 41;
+    int32 RotAcc = 42;
+    int32 Weight = 43;
+    int32 BlockPriority = 44;
+    bool AimAtTarget = 45;
+    bool HideBlood = 46;
+    bool BoardChess = 47;
+}
+
+message table_SoldierCharacter {
+    repeated SoldierCharacter list = 1;
+}
+
+message SoldierChessAI {
+    int32 Id = 1;
+    string ComboGroupPath = 2;
+    string ActionAIPath = 3;
+    string ParallelAIPath = 4;
+    int32 SpawnSkill1 = 5;
+    int32 SpawnSkill2 = 6;
+    int32 SpawnSkill3 = 7;
+    int32 DeathSkill1 = 8;
+    int32 DeathSkill2 = 9;
+    int32 DeathSkill3 = 10;
+}
+
+message table_SoldierChessAI {
+    repeated SoldierChessAI list = 1;
+}
+
+message SoldierChessType {
+    int32 Id = 1;
+    int32 ChessType = 2;
+    string Name = 3;
+    string Icon = 4;
+    repeated int32 PositionType = 5;
+}
+
+message table_SoldierChessType {
+    repeated SoldierChessType list = 1;
+}
+
+message SoldierClientBuff {
+    int32 Id = 1;
+    int32 Cond1 = 2;
+    repeated string CondParams1 = 3;
+    int32 Cond2 = 4;
+    repeated string CondParams2 = 5;
+    int32 Cond3 = 6;
+    repeated string CondParams3 = 7;
+    int32 TargetType = 8;
+    repeated int32 TargetParam = 9;
+    int32 Effect1 = 10;
+    repeated string EffectParams1 = 11;
+    int32 Effect2 = 12;
+    repeated string EffectParams2 = 13;
+    int32 Effect3 = 14;
+    repeated string EffectParams3 = 15;
+}
+
+message table_SoldierClientBuff {
+    repeated SoldierClientBuff list = 1;
+}
+
+message SoldierControl {
+    int32 Id = 1;
+    string UIAssets = 2;
+    string CtrlName = 3;
+    string RewardsShow = 4;
+    string DesText = 5;
+    int32 DictionaryId = 6;
+}
+
+message table_SoldierControl {
+    repeated SoldierControl list = 1;
+}
+
+message SoldierEventBattlePool {
+    int32 Id = 1;
+    int32 PoolId = 2;
+    int32 LevelName = 3;
+    string Title = 4;
+    string Name = 5;
+    int32 AddDifficult = 6;
+    int32 weight = 7;
+    int32 FloorGroup = 8;
+    int32 coin = 9;
+    int32 CharacterCount = 10;
+    int32 StrategyCardCount = 11;
+}
+
+message table_SoldierEventBattlePool {
+    repeated SoldierEventBattlePool list = 1;
+}
+
+message SoldierEventPlan {
+    int32 Id = 1;
+    int32 EventGroupId = 2;
+    int32 EventType = 3;
+}
+
+message table_SoldierEventPlan {
+    repeated SoldierEventPlan list = 1;
+}
+
+message SoldierFloor {
+    int32 Id = 1;
+    int32 Default = 2;
+    int32 BattleTime = 3;
+    repeated int32 BothAddBuff = 4;
+    string SceneName = 5;
+    string ConfigPrefabName = 6;
+    string MapPreview = 7;
+    string MonsterPreview = 8;
+    string LevelScript = 9;
+    string BGM = 10;
+    string IntroCutscene = 11;
+}
+
+message table_SoldierFloor {
+    repeated SoldierFloor list = 1;
+}
+
+message SoldierGradeChallenge {
+    int32 Id = 1;
+    int32 KeyGradeId = 2;
+    int32 GradeLevel = 3;
+    string Name = 4;
+    string Icon = 5;
+    int32 OppoLevelShow = 6;
+    int32 DiffcultyTemplateLv = 7;
+    int32 AffixCount = 8;
+    int32 AffixGroupId = 9;
+    int32 NodeGroupId = 10;
+    int32 Score = 11;
+    int32 UnlockGradeLevel = 12;
+}
+
+message table_SoldierGradeChallenge {
+    repeated SoldierGradeChallenge list = 1;
+}
+
+message SoldierKeyGrade {
+    int32 Id = 1;
+    string Name = 2;
+    string Icon = 3;
+    int32 Reward1 = 4;
+    int32 RewardQty1 = 5;
+    int32 Reward2 = 6;
+    int32 RewardQty2 = 7;
+}
+
+message table_SoldierKeyGrade {
+    repeated SoldierKeyGrade list = 1;
+}
+
+message SoldierLabelMark {
+    int32 Id = 1;
+    string Icon = 2;
+}
+
+message table_SoldierLabelMark {
+    repeated SoldierLabelMark list = 1;
+}
+
+message SoldierNodePlan {
+    int32 Id = 1;
+    int32 NodeGroupId = 2;
+    int32 Stage = 3;
+    int32 Index = 4;
+    int32 NodeType = 5;
+    int32 EventGroupId = 6;
+    string NodeIcon = 7;
+    int32 DifficultyLevelAdd = 8;
+    int32 Coin = 9;
+    int32 Experience = 10;
+    int32 AddHp = 11;
+    int32 LoseHp = 12;
+}
+
+message table_SoldierNodePlan {
+    repeated SoldierNodePlan list = 1;
+}
+
+message SoldierPartner {
+    int32 Id = 1;
+    int32 PartnerType = 2;
+    string Name = 3;
+    int32 PartnerLevelQuality = 4;
+    string Desc = 5;
+    int32 Level = 6;
+    int32 Num = 7;
+    int32 SoldierPartnerNumType = 8;
+    repeated int32 ServerEffect = 9;
+    repeated int32 ClientEffect = 10;
+}
+
+message table_SoldierPartner {
+    repeated SoldierPartner list = 1;
+}
+
+message SoldierPartnerGroup {
+    int32 Id = 1;
+    int32 PartnerType = 2;
+    string Name = 3;
+    string Icon = 4;
+    string Desc = 5;
+    repeated int32 ChessCharacterIds = 6;
+    string Path = 7;
+}
+
+message table_SoldierPartnerGroup {
+    repeated SoldierPartnerGroup list = 1;
+}
+
+message SoldierPositionEffect {
+    int32 Id = 1;
+    int32 PositionType = 2;
+    int32 Index = 3;
+    string Icon = 4;
+    string Name = 5;
+    int32 KeyEffectId = 6;
+    string KeyEffectDes = 7;
+    int32 OppoEffectId = 8;
+}
+
+message table_SoldierPositionEffect {
+    repeated SoldierPositionEffect list = 1;
+}
+
+message SoldierPotential {
+    int32 Id = 1;
+    string Name = 2;
+    string Des = 3;
+    string Icon = 4;
+    int32 CharacterID = 5;
+}
+
+message table_SoldierPotential {
+    repeated SoldierPotential list = 1;
+}
+
+message SoldierQuest {
+    int32 Id = 1;
+    int32 Group = 2;
+    string Desc = 3;
+    int32 CompleteCond = 4;
+    string CompleteCondParams = 5;
+    int32 Reward1 = 6;
+    int32 RewardQty1 = 7;
+    int32 Reward2 = 8;
+    int32 RewardQty2 = 9;
+}
+
+message table_SoldierQuest {
+    repeated SoldierQuest list = 1;
+}
+
+message SoldierQuestGroup {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 OpenDay = 3;
+    string Des = 4;
+}
+
+message table_SoldierQuestGroup {
+    repeated SoldierQuestGroup list = 1;
+}
+
+message SoldierRecommendBuilds {
+    int32 Id = 1;
+    string Title = 2;
+    int32 CharacterId = 3;
+    repeated int32 Front1 = 4;
+    repeated int32 Front2 = 5;
+    repeated int32 Front3 = 6;
+    string Back = 7;
+    string Desc = 8;
+    int32 StarterCard = 9;
+    repeated int32 StrategyCard = 10;
+    string PartnerAdd = 11;
+}
+
+message table_SoldierRecommendBuilds {
+    repeated SoldierRecommendBuilds list = 1;
+}
+
+message SoldierSeason {
+    int32 Id = 1;
+    int32 StarterGroupId = 2;
+    int32 StrategyGroupId = 3;
+    int32 ShopPoolGroupId = 4;
+    int32 ChessGroupId = 5;
+    string StartTime = 6;
+    string EndTime = 7;
+}
+
+message table_SoldierSeason {
+    repeated SoldierSeason list = 1;
+}
+
+message SoldierShopLevel {
+    int32 Level = 1;
+    int32 Exp = 2;
+    int32 Count = 3;
+    int32 Rarity1 = 4;
+    int32 Rarity2 = 5;
+    int32 Rarity3 = 6;
+    int32 Rarity4 = 7;
+    int32 Rarity5 = 8;
+}
+
+message table_SoldierShopLevel {
+    repeated SoldierShopLevel list = 1;
+}
+
+message SoldierShopPool {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 ChessCharacterId = 3;
+    int32 Rarity = 4;
+    string Name = 5;
+    int32 Weight = 6;
+    int32 Cost = 7;
+}
+
+message table_SoldierShopPool {
+    repeated SoldierShopPool list = 1;
+}
+
+message SoldierSkin {
+    int32 Id = 1;
+    string Name = 2;
+    int32 characterId = 3;
+    string Icon = 4;
+    string Model = 5;
+    int32 RunAnimationSpd = 6;
+    int32 WalkAnimationSpd = 7;
+    int32 BarHeight = 8;
+    int32 ModelScale = 9;
+    int32 ColliderScale = 10;
+    bool ForbiddenBehitRot = 11;
+}
+
+message table_SoldierSkin {
+    repeated SoldierSkin list = 1;
+}
+
+message SoldierStarterCard {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Rarity = 3;
+    string Icon = 4;
+    string Name = 5;
+    int32 CardEffectId = 6;
+    string Des = 7;
+    string Desc = 8;
+    int32 GradeLevelCond = 9;
+    int32 UnlockCond = 10;
+    repeated int32 UnlockCondParams = 11;
+    repeated int32 CharacterShow = 12;
+}
+
+message table_SoldierStarterCard {
+    repeated SoldierStarterCard list = 1;
+}
+
+message SoldierStrategyCard {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Rarity = 3;
+    string Icon = 4;
+    string Name = 5;
+    int32 CardEffectId = 6;
+    string Des = 7;
+    string Desc = 8;
+    int32 GradeLevelCond = 9;
+    int32 UnlockCond = 10;
+    repeated int32 UnlockCondParams = 11;
+    repeated int32 CharacterShow = 12;
+}
+
+message table_SoldierStrategyCard {
+    repeated SoldierStrategyCard list = 1;
 }
 
 message StarTower {
@@ -6167,17 +6828,19 @@ message Story {
     string ConditionId = 9;
     bool IsBranch = 10;
     bool IsBattle = 11;
-    int32 Reward = 12;
-    string RewardDisplay = 13;
-    repeated string ParentStoryId = 14;
-    bool HasEvidence = 15;
-    string AvgLuaName = 16;
-    repeated int32 FloorId = 17;
-    int32 PreviewMonsterGroupId = 18;
-    string Recommend = 19;
-    string Aim = 20;
-    bool IsLast = 21;
-    string AvgMotion = 22;
+    int32 EnterMethod = 12;
+    int32 Reward = 13;
+    string RewardDisplay = 14;
+    repeated string ParentStoryId = 15;
+    bool HasEvidence = 16;
+    string AvgLuaName = 17;
+    repeated int32 FloorId = 18;
+    int32 PreviewMonsterGroupId = 19;
+    string Recommend = 20;
+    string Aim = 21;
+    bool IsLast = 22;
+    string AvgMotion = 23;
+    int32 MemoryType = 24;
 }
 
 message table_Story {
@@ -6735,6 +7398,7 @@ message TowerDefenseFloor {
     string BGM = 15;
     string LeaveTriggerEvent = 16;
     string IntroCutscene = 17;
+    int32 TDLevelGamePlayType = 18;
 }
 
 message table_TowerDefenseFloor {
@@ -6761,9 +7425,13 @@ message TowerDefenseItem {
     string Des = 3;
     int32 Amount = 4;
     int32 Cd = 5;
-    string Script = 6;
-    string CardIcon = 7;
-    string Head = 8;
+    string ChargeScript = 6;
+    int32 ChargeParam1 = 7;
+    int32 ChargeParam2 = 8;
+    int32 ChargeParam3 = 9;
+    string Script = 10;
+    string CardIcon = 11;
+    string Head = 12;
 }
 
 message table_TowerDefenseItem {
@@ -6885,6 +7553,113 @@ message TowerDefenseTeamExp {
 
 message table_TowerDefenseTeamExp {
     repeated TowerDefenseTeamExp list = 1;
+}
+
+message TraceHuntBoss {
+    int32 Id = 1;
+    int32 MonsterId = 2;
+    bool IsSpecial = 3;
+    int32 FloorId = 4;
+    int32 ScoreGetSwitchGroup = 5;
+    string ClueIcon = 6;
+    string TargetIcon = 7;
+    string ProfileIcon = 8;
+    string HeadIcon = 9;
+    string Image = 10;
+}
+
+message table_TraceHuntBoss {
+    repeated TraceHuntBoss list = 1;
+}
+
+message TraceHuntControl {
+    int32 Id = 1;
+    string StartTime = 2;
+    string EndTime = 3;
+    repeated int32 BossList = 4;
+    int32 SelfHuntCost1Tid = 5;
+    int32 SelfHuntCost1Qty = 6;
+    int32 OtherHuntCost1Tid = 7;
+    int32 OtherHuntCost1Qty = 8;
+    int32 TraceCost1Tid = 9;
+    int32 TraceCost1Qty = 10;
+    repeated int32 StarDropCount = 11;
+}
+
+message table_TraceHuntControl {
+    repeated TraceHuntControl list = 1;
+}
+
+message TraceHuntFloor {
+    int32 Id = 1;
+    string SceneName = 2;
+    string ConfigPrefabName = 3;
+    int32 Theme = 4;
+    string BGM = 5;
+    string LeaveTriggerEvent = 6;
+    string IntroCutscene = 7;
+}
+
+message table_TraceHuntFloor {
+    repeated TraceHuntFloor list = 1;
+}
+
+message TraceHuntLevel {
+    int32 Level = 1;
+    int32 Exp = 2;
+    int32 WorldClass = 3;
+    int32 MaxStar = 4;
+    int32 TokenRate = 5;
+    int32 DisplayMaxStar = 6;
+    int32 DisplayTokenRate = 7;
+    int32 DisplayLuckyRate = 8;
+    int32 DisplayAddRate = 9;
+    int32 DisplayFreeRate = 10;
+}
+
+message table_TraceHuntLevel {
+    repeated TraceHuntLevel list = 1;
+}
+
+message TraceHuntLogEntryTemplate {
+    int32 Id = 1;
+    string Desc = 2;
+    int32 Type = 3;
+    int32 Template = 4;
+}
+
+message table_TraceHuntLogEntryTemplate {
+    repeated TraceHuntLogEntryTemplate list = 1;
+}
+
+message TraceHuntScoreSwitch {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Lv = 3;
+    float SwitchRate = 4;
+}
+
+message table_TraceHuntScoreSwitch {
+    repeated TraceHuntScoreSwitch list = 1;
+}
+
+message TraceHuntSelfHuntExtraCost {
+    int32 Times = 1;
+    int32 ExtraCost1Tid = 2;
+    int32 ExtraCost1Qty = 3;
+}
+
+message table_TraceHuntSelfHuntExtraCost {
+    repeated TraceHuntSelfHuntExtraCost list = 1;
+}
+
+message TraceHuntStar {
+    int32 Star = 1;
+    int32 ScoreNeed = 2;
+}
+
+message table_TraceHuntStar {
+    repeated TraceHuntStar list = 1;
 }
 
 message Trap {

@@ -3,7 +3,7 @@
 #include "../Game/BattlePassMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/battle_pass_level_buy.pb.h"
 #include "../proto/proto_cpp/battle_pass_order.pb.h"
 #include "../proto/proto_cpp/battle_pass_order_collect.pb.h"

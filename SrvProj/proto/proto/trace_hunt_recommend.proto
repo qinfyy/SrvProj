@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TraceHuntRecommendation {
+    uint64 OwnerUID = 1;
+    uint32 BossID = 2;
+    int64 BossCreateTime = 3;
+    bool IsFriend = 4;
+    bool IsStar = 5;
+    Friend Info = 6;
+    bytes NextPackage = 2047;
+}
+
+message TraceHuntRecommendResp {
+    repeated TraceHuntRecommendation Recommendations = 1;
+    bytes NextPackage = 2047;
+}
