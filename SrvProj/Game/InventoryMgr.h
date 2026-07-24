@@ -43,6 +43,10 @@ public:
     bool AddHeadIcon(uint32_t id);
     bool AddTitle(uint32_t id);
     bool AddHonor(uint32_t id);
+    bool HasSkin(uint32_t id) const;
+    bool HasHeadIcon(uint32_t id) const;
+    bool HasTitle(uint32_t id) const;
+    bool HasHonor(uint32_t id) const;
 
     bool BuyItem(uint32_t currencyId, int64_t currencyCount, const ItemParamMap& products, uint32_t buyCount, proto::ChangeInfo& change);
     bool ConvertStellaniteLuminaToDust(uint32_t qty, proto::ChangeInfo& change);

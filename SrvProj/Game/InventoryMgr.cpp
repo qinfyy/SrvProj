@@ -563,6 +563,26 @@ bool InventoryMgr::AddHonor(uint32_t id)
     return true;
 }
 
+bool InventoryMgr::HasSkin(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().skins(), id);
+}
+
+bool InventoryMgr::HasHeadIcon(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().headicons(), id);
+}
+
+bool InventoryMgr::HasTitle(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().titles(), id);
+}
+
+bool InventoryMgr::HasHonor(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().honors(), id);
+}
+
 bool InventoryMgr::BuyItem(uint32_t currencyId, int64_t currencyCount, const ItemParamMap& products, uint32_t buyCount, proto::ChangeInfo& change)
 {
     if (buyCount == 0)

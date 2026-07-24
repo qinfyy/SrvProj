@@ -10,6 +10,7 @@
 #include "../proto/NetMsgId.h"
 #include "Login.h"
 #include "Activity.h"
+#include "Agent.h"
 #include "Quest.h"
 #include "Story.h"
 #include "PlayerHandler.h"
@@ -34,6 +35,23 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_formation_req, player_formation_req__Handler},
     {player_signature_edit_req, player_signature_edit_req__Handler},
     {player_learn_req, player_learn_req__Handler},
+    {player_board_set_req, player_board_set_req__Handler},
+    {player_chars_show_req, player_chars_show_req__Handler},
+    {player_gender_edit_req, player_gender_edit_req__Handler},
+    {player_head_icon_info_req, player_head_icon_info_req__Handler},
+    {player_head_icon_set_req, player_head_icon_set_req__Handler},
+    {player_honor_edit_req, player_honor_edit_req__Handler},
+    {player_music_set_req, player_music_set_req__Handler},
+    {player_name_edit_req, player_name_edit_req__Handler},
+    {player_skin_show_req, player_skin_show_req__Handler},
+    {player_title_edit_req, player_title_edit_req__Handler},
+    {player_world_class_reward_receive_req, player_world_class_reward_receive_req__Handler},
+    {phone_contacts_info_req, phone_contacts_info_req__Handler},
+    {phone_contacts_report_req, phone_contacts_report_req__Handler},
+    {phone_contacts_top_req, phone_contacts_top_req__Handler},
+    {agent_apply_req, agent_apply_req__Handler},
+    {agent_give_up_req, agent_give_up_req__Handler},
+    {agent_reward_receive_req, agent_reward_receive_req__Handler},
     {energy_info_req, energy_info_req__Handler},
     {mall_gem_list_req, mall_gem_list_req__Handler},
     {mall_gem_order_req, mall_gem_order_req__Handler},

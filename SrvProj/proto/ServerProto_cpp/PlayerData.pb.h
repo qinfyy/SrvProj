@@ -65,6 +65,14 @@ class AchievementInfoBin;
 struct AchievementInfoBinDefaultTypeInternal;
 extern AchievementInfoBinDefaultTypeInternal _AchievementInfoBin_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull AchievementInfoBin_class_data_;
+class AgentBin;
+struct AgentBinDefaultTypeInternal;
+extern AgentBinDefaultTypeInternal _AgentBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull AgentBin_class_data_;
+class AgentCompBin;
+struct AgentCompBinDefaultTypeInternal;
+extern AgentCompBinDefaultTypeInternal _AgentCompBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull AgentCompBin_class_data_;
 class BattlePassCompBin;
 struct BattlePassCompBinDefaultTypeInternal;
 extern BattlePassCompBinDefaultTypeInternal _BattlePassCompBin_default_instance_;
@@ -3620,7 +3628,7 @@ class GameDiscInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GameDiscInfoBin*>(
         &_GameDiscInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 71;
+  static constexpr int kIndexInFileMessages = 73;
   friend void swap(GameDiscInfoBin& a, GameDiscInfoBin& b) { a.Swap(&b); }
   inline void Swap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -5692,6 +5700,241 @@ class CharacterChat final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull CharacterChat_class_data_;
+// -------------------------------------------------------------------
+
+class AgentBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.AgentBin) */ {
+ public:
+  inline AgentBin() : AgentBin(nullptr) {}
+  ~AgentBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(AgentBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(AgentBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR AgentBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline AgentBin(const AgentBin& from) : AgentBin(nullptr, from) {}
+  inline AgentBin(AgentBin&& from) noexcept
+      : AgentBin(nullptr, ::std::move(from)) {}
+  inline AgentBin& operator=(const AgentBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AgentBin& operator=(AgentBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AgentBin& default_instance() {
+    return *reinterpret_cast<const AgentBin*>(
+        &_AgentBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 70;
+  friend void swap(AgentBin& a, AgentBin& b) { a.Swap(&b); }
+  inline void Swap(AgentBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AgentBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AgentBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<AgentBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const AgentBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const AgentBin& from) { AgentBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(AgentBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.AgentBin"; }
+
+  explicit AgentBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  AgentBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const AgentBin& from);
+  AgentBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, AgentBin&& from) noexcept
+      : AgentBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kCharIdsFieldNumber = 3,
+    kIdFieldNumber = 1,
+    kProcessTimeFieldNumber = 2,
+    kStartTimeFieldNumber = 4,
+  };
+  // repeated uint32 charIds = 3;
+  int charids_size() const;
+  private:
+  int _internal_charids_size() const;
+
+  public:
+  void clear_charids() ;
+  ::uint32_t charids(int index) const;
+  void set_charids(int index, ::uint32_t value);
+  void add_charids(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& charids() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_charids();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_charids() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_charids();
+
+  public:
+  // uint32 id = 1;
+  void clear_id() ;
+  ::uint32_t id() const;
+  void set_id(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_id() const;
+  void _internal_set_id(::uint32_t value);
+
+  public:
+  // uint32 processTime = 2;
+  void clear_processtime() ;
+  ::uint32_t processtime() const;
+  void set_processtime(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_processtime() const;
+  void _internal_set_processtime(::uint32_t value);
+
+  public:
+  // int64 startTime = 4;
+  void clear_starttime() ;
+  ::int64_t starttime() const;
+  void set_starttime(::int64_t value);
+
+  private:
+  ::int64_t _internal_starttime() const;
+  void _internal_set_starttime(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.AgentBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 4,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const AgentBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> charids_;
+    ::google::protobuf::internal::CachedSize _charids_cached_byte_size_;
+    ::uint32_t id_;
+    ::uint32_t processtime_;
+    ::int64_t starttime_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull AgentBin_class_data_;
 // -------------------------------------------------------------------
 
 class TowerPresetCharBin final : public ::google::protobuf::Message
@@ -9298,6 +9541,203 @@ class CharacterContact_ChatsEntry_DoNotUse final
 extern const ::google::protobuf::internal::ClassDataFull CharacterContact_ChatsEntry_DoNotUse_class_data_;
 // -------------------------------------------------------------------
 
+class AgentCompBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.AgentCompBin) */ {
+ public:
+  inline AgentCompBin() : AgentCompBin(nullptr) {}
+  ~AgentCompBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(AgentCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(AgentCompBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR AgentCompBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline AgentCompBin(const AgentCompBin& from) : AgentCompBin(nullptr, from) {}
+  inline AgentCompBin(AgentCompBin&& from) noexcept
+      : AgentCompBin(nullptr, ::std::move(from)) {}
+  inline AgentCompBin& operator=(const AgentCompBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AgentCompBin& operator=(AgentCompBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AgentCompBin& default_instance() {
+    return *reinterpret_cast<const AgentCompBin*>(
+        &_AgentCompBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 71;
+  friend void swap(AgentCompBin& a, AgentCompBin& b) { a.Swap(&b); }
+  inline void Swap(AgentCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AgentCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AgentCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<AgentCompBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const AgentCompBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const AgentCompBin& from) { AgentCompBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(AgentCompBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.AgentCompBin"; }
+
+  explicit AgentCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  AgentCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const AgentCompBin& from);
+  AgentCompBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, AgentCompBin&& from) noexcept
+      : AgentCompBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kAgentsFieldNumber = 1,
+  };
+  // repeated .ServerProto.AgentBin agents = 1;
+  int agents_size() const;
+  private:
+  int _internal_agents_size() const;
+
+  public:
+  void clear_agents() ;
+  ::ServerProto::AgentBin* PROTOBUF_NONNULL mutable_agents(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>* PROTOBUF_NONNULL mutable_agents();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>& _internal_agents() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>* PROTOBUF_NONNULL _internal_mutable_agents();
+  public:
+  const ::ServerProto::AgentBin& agents(int index) const;
+  ::ServerProto::AgentBin* PROTOBUF_NONNULL add_agents();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>& agents() const;
+  // @@protoc_insertion_point(class_scope:ServerProto.AgentCompBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 1,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const AgentCompBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::AgentBin > agents_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull AgentCompBin_class_data_;
+// -------------------------------------------------------------------
+
 class AchievementInfoBin final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.AchievementInfoBin) */ {
  public:
@@ -10421,6 +10861,7 @@ class QuestCompBin final : public ::google::protobuf::Message
     kQuestsFieldNumber = 1,
     kDailyActiveIdsFieldNumber = 3,
     kWeeklyActiveIdsFieldNumber = 4,
+    kWorldClassRewardsFieldNumber = 7,
     kFirstLoginNotifyDoneFieldNumber = 2,
     kDailyShopRewardClaimedFieldNumber = 5,
     kDailyMallRewardClaimedFieldNumber = 6,
@@ -10478,6 +10919,21 @@ class QuestCompBin final : public ::google::protobuf::Message
   ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_weeklyactiveids();
 
   public:
+  // bytes worldClassRewards = 7;
+  void clear_worldclassrewards() ;
+  const ::std::string& worldclassrewards() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_worldclassrewards(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_worldclassrewards();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_worldclassrewards();
+  void set_allocated_worldclassrewards(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_worldclassrewards() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_worldclassrewards(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_worldclassrewards();
+
+  public:
   // bool firstLoginNotifyDone = 2;
   void clear_firstloginnotifydone() ;
   bool firstloginnotifydone() const;
@@ -10512,7 +10968,7 @@ class QuestCompBin final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<3, 6,
+  static const ::google::protobuf::internal::TcParseTable<3, 7,
                                    1, 0,
                                    2>
       _table_;
@@ -10539,6 +10995,7 @@ class QuestCompBin final : public ::google::protobuf::Message
     ::google::protobuf::internal::CachedSize _dailyactiveids_cached_byte_size_;
     ::google::protobuf::RepeatedField<::uint32_t> weeklyactiveids_;
     ::google::protobuf::internal::CachedSize _weeklyactiveids_cached_byte_size_;
+    ::google::protobuf::internal::ArenaStringPtr worldclassrewards_;
     bool firstloginnotifydone_;
     bool dailyshoprewardclaimed_;
     bool dailymallrewardclaimed_;
@@ -14215,7 +14672,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerSaveData*>(
         &_PlayerSaveData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 70;
+  static constexpr int kIndexInFileMessages = 72;
   friend void swap(PlayerSaveData& a, PlayerSaveData& b) { a.Swap(&b); }
   inline void Swap(PlayerSaveData* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -14313,6 +14770,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     kFormationCompFieldNumber = 10,
     kTowerCompFieldNumber = 11,
     kStoryCompFieldNumber = 12,
+    kAgentCompFieldNumber = 13,
   };
   // .ServerProto.PlayerBasicCompBin playerdata = 2;
   bool has_playerdata() const;
@@ -14479,12 +14937,27 @@ class PlayerSaveData final : public ::google::protobuf::Message
   ::ServerProto::StoryCompBin* PROTOBUF_NONNULL _internal_mutable_storycomp();
 
   public:
+  // .ServerProto.AgentCompBin agentComp = 13;
+  bool has_agentcomp() const;
+  void clear_agentcomp() ;
+  const ::ServerProto::AgentCompBin& agentcomp() const;
+  [[nodiscard]] ::ServerProto::AgentCompBin* PROTOBUF_NULLABLE release_agentcomp();
+  ::ServerProto::AgentCompBin* PROTOBUF_NONNULL mutable_agentcomp();
+  void set_allocated_agentcomp(::ServerProto::AgentCompBin* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_agentcomp(::ServerProto::AgentCompBin* PROTOBUF_NULLABLE value);
+  ::ServerProto::AgentCompBin* PROTOBUF_NULLABLE unsafe_arena_release_agentcomp();
+
+  private:
+  const ::ServerProto::AgentCompBin& _internal_agentcomp() const;
+  ::ServerProto::AgentCompBin* PROTOBUF_NONNULL _internal_mutable_agentcomp();
+
+  public:
   // @@protoc_insertion_point(class_scope:ServerProto.PlayerSaveData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<4, 11,
-                                   11, 0,
+  static const ::google::protobuf::internal::TcParseTable<4, 12,
+                                   12, 0,
                                    2>
       _table_;
 
@@ -14516,6 +14989,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     ::ServerProto::FormationCompBin* PROTOBUF_NULLABLE formationcomp_;
     ::ServerProto::TowerCompBin* PROTOBUF_NULLABLE towercomp_;
     ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE storycomp_;
+    ::ServerProto::AgentCompBin* PROTOBUF_NULLABLE agentcomp_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -16286,7 +16760,7 @@ inline void QuestCompBin::clear_firstloginnotifydone() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.firstloginnotifydone_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000008U);
+                  0x00000010U);
 }
 inline bool QuestCompBin::firstloginnotifydone() const {
   // @@protoc_insertion_point(field_get:ServerProto.QuestCompBin.firstLoginNotifyDone)
@@ -16294,7 +16768,7 @@ inline bool QuestCompBin::firstloginnotifydone() const {
 }
 inline void QuestCompBin::set_firstloginnotifydone(bool value) {
   _internal_set_firstloginnotifydone(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   // @@protoc_insertion_point(field_set:ServerProto.QuestCompBin.firstLoginNotifyDone)
 }
 inline bool QuestCompBin::_internal_firstloginnotifydone() const {
@@ -16411,7 +16885,7 @@ inline void QuestCompBin::clear_dailyshoprewardclaimed() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.dailyshoprewardclaimed_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000010U);
+                  0x00000020U);
 }
 inline bool QuestCompBin::dailyshoprewardclaimed() const {
   // @@protoc_insertion_point(field_get:ServerProto.QuestCompBin.dailyShopRewardClaimed)
@@ -16419,7 +16893,7 @@ inline bool QuestCompBin::dailyshoprewardclaimed() const {
 }
 inline void QuestCompBin::set_dailyshoprewardclaimed(bool value) {
   _internal_set_dailyshoprewardclaimed(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
   // @@protoc_insertion_point(field_set:ServerProto.QuestCompBin.dailyShopRewardClaimed)
 }
 inline bool QuestCompBin::_internal_dailyshoprewardclaimed() const {
@@ -16436,7 +16910,7 @@ inline void QuestCompBin::clear_dailymallrewardclaimed() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.dailymallrewardclaimed_ = false;
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000020U);
+                  0x00000040U);
 }
 inline bool QuestCompBin::dailymallrewardclaimed() const {
   // @@protoc_insertion_point(field_get:ServerProto.QuestCompBin.dailyMallRewardClaimed)
@@ -16444,7 +16918,7 @@ inline bool QuestCompBin::dailymallrewardclaimed() const {
 }
 inline void QuestCompBin::set_dailymallrewardclaimed(bool value) {
   _internal_set_dailymallrewardclaimed(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
   // @@protoc_insertion_point(field_set:ServerProto.QuestCompBin.dailyMallRewardClaimed)
 }
 inline bool QuestCompBin::_internal_dailymallrewardclaimed() const {
@@ -16454,6 +16928,71 @@ inline bool QuestCompBin::_internal_dailymallrewardclaimed() const {
 inline void QuestCompBin::_internal_set_dailymallrewardclaimed(bool value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.dailymallrewardclaimed_ = value;
+}
+
+// bytes worldClassRewards = 7;
+inline void QuestCompBin::clear_worldclassrewards() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.worldclassrewards_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::std::string& QuestCompBin::worldclassrewards() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.QuestCompBin.worldClassRewards)
+  return _internal_worldclassrewards();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void QuestCompBin::set_worldclassrewards(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  _impl_.worldclassrewards_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:ServerProto.QuestCompBin.worldClassRewards)
+}
+inline ::std::string* PROTOBUF_NONNULL QuestCompBin::mutable_worldclassrewards()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::std::string* _s = _internal_mutable_worldclassrewards();
+  // @@protoc_insertion_point(field_mutable:ServerProto.QuestCompBin.worldClassRewards)
+  return _s;
+}
+inline const ::std::string& QuestCompBin::_internal_worldclassrewards() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.worldclassrewards_.Get();
+}
+inline void QuestCompBin::_internal_set_worldclassrewards(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.worldclassrewards_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL QuestCompBin::_internal_mutable_worldclassrewards() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.worldclassrewards_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE QuestCompBin::release_worldclassrewards() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.QuestCompBin.worldClassRewards)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  auto* released = _impl_.worldclassrewards_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.worldclassrewards_.Set("", GetArena());
+  }
+  return released;
+}
+inline void QuestCompBin::set_allocated_worldclassrewards(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  }
+  _impl_.worldclassrewards_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.worldclassrewards_.IsDefault()) {
+    _impl_.worldclassrewards_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.QuestCompBin.worldClassRewards)
 }
 
 // -------------------------------------------------------------------
@@ -25079,6 +25618,195 @@ inline ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>* PR
 
 // -------------------------------------------------------------------
 
+// AgentBin
+
+// uint32 id = 1;
+inline void AgentBin::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t AgentBin::id() const {
+  // @@protoc_insertion_point(field_get:ServerProto.AgentBin.id)
+  return _internal_id();
+}
+inline void AgentBin::set_id(::uint32_t value) {
+  _internal_set_id(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.AgentBin.id)
+}
+inline ::uint32_t AgentBin::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void AgentBin::_internal_set_id(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// uint32 processTime = 2;
+inline void AgentBin::clear_processtime() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.processtime_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::uint32_t AgentBin::processtime() const {
+  // @@protoc_insertion_point(field_get:ServerProto.AgentBin.processTime)
+  return _internal_processtime();
+}
+inline void AgentBin::set_processtime(::uint32_t value) {
+  _internal_set_processtime(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.AgentBin.processTime)
+}
+inline ::uint32_t AgentBin::_internal_processtime() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.processtime_;
+}
+inline void AgentBin::_internal_set_processtime(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.processtime_ = value;
+}
+
+// repeated uint32 charIds = 3;
+inline int AgentBin::_internal_charids_size() const {
+  return _internal_charids().size();
+}
+inline int AgentBin::charids_size() const {
+  return _internal_charids_size();
+}
+inline void AgentBin::clear_charids() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.charids_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t AgentBin::charids(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.AgentBin.charIds)
+  return _internal_charids().Get(index);
+}
+inline void AgentBin::set_charids(int index, ::uint32_t value) {
+  _internal_mutable_charids()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.AgentBin.charIds)
+}
+inline void AgentBin::add_charids(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_charids()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.AgentBin.charIds)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& AgentBin::charids() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.AgentBin.charIds)
+  return _internal_charids();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL AgentBin::mutable_charids()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.AgentBin.charIds)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_charids();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+AgentBin::_internal_charids() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.charids_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+AgentBin::_internal_mutable_charids() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.charids_;
+}
+
+// int64 startTime = 4;
+inline void AgentBin::clear_starttime() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.starttime_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::int64_t AgentBin::starttime() const {
+  // @@protoc_insertion_point(field_get:ServerProto.AgentBin.startTime)
+  return _internal_starttime();
+}
+inline void AgentBin::set_starttime(::int64_t value) {
+  _internal_set_starttime(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.AgentBin.startTime)
+}
+inline ::int64_t AgentBin::_internal_starttime() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.starttime_;
+}
+inline void AgentBin::_internal_set_starttime(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.starttime_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AgentCompBin
+
+// repeated .ServerProto.AgentBin agents = 1;
+inline int AgentCompBin::_internal_agents_size() const {
+  return _internal_agents().size();
+}
+inline int AgentCompBin::agents_size() const {
+  return _internal_agents_size();
+}
+inline void AgentCompBin::clear_agents() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.agents_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::ServerProto::AgentBin* PROTOBUF_NONNULL AgentCompBin::mutable_agents(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.AgentCompBin.agents)
+  return _internal_mutable_agents()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>* PROTOBUF_NONNULL AgentCompBin::mutable_agents()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.AgentCompBin.agents)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_agents();
+}
+inline const ::ServerProto::AgentBin& AgentCompBin::agents(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.AgentCompBin.agents)
+  return _internal_agents().Get(index);
+}
+inline ::ServerProto::AgentBin* PROTOBUF_NONNULL AgentCompBin::add_agents()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::AgentBin* _add =
+      _internal_mutable_agents()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.AgentCompBin.agents)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>& AgentCompBin::agents() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.AgentCompBin.agents)
+  return _internal_agents();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>&
+AgentCompBin::_internal_agents() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.agents_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::AgentBin>* PROTOBUF_NONNULL
+AgentCompBin::_internal_mutable_agents() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.agents_;
+}
+
+// -------------------------------------------------------------------
+
 // PlayerSaveData
 
 // .ServerProto.PlayerBasicCompBin playerdata = 2;
@@ -26168,6 +26896,105 @@ inline void PlayerSaveData::set_allocated_storycomp(::ServerProto::StoryCompBin*
 
   _impl_.storycomp_ = reinterpret_cast<::ServerProto::StoryCompBin*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.storyComp)
+}
+
+// .ServerProto.AgentCompBin agentComp = 13;
+inline bool PlayerSaveData::has_agentcomp() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000800U);
+  PROTOBUF_ASSUME(!value || _impl_.agentcomp_ != nullptr);
+  return value;
+}
+inline void PlayerSaveData::clear_agentcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.agentcomp_ != nullptr) _impl_.agentcomp_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000800U);
+}
+inline const ::ServerProto::AgentCompBin& PlayerSaveData::_internal_agentcomp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::ServerProto::AgentCompBin* p = _impl_.agentcomp_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ServerProto::AgentCompBin&>(::ServerProto::_AgentCompBin_default_instance_);
+}
+inline const ::ServerProto::AgentCompBin& PlayerSaveData::agentcomp() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.PlayerSaveData.agentComp)
+  return _internal_agentcomp();
+}
+inline void PlayerSaveData::unsafe_arena_set_allocated_agentcomp(
+    ::ServerProto::AgentCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.agentcomp_);
+  }
+  _impl_.agentcomp_ = reinterpret_cast<::ServerProto::AgentCompBin*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000800U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000800U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerProto.PlayerSaveData.agentComp)
+}
+inline ::ServerProto::AgentCompBin* PROTOBUF_NULLABLE PlayerSaveData::release_agentcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000800U);
+  ::ServerProto::AgentCompBin* released = _impl_.agentcomp_;
+  _impl_.agentcomp_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::ServerProto::AgentCompBin* PROTOBUF_NULLABLE PlayerSaveData::unsafe_arena_release_agentcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.PlayerSaveData.agentComp)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000800U);
+  ::ServerProto::AgentCompBin* temp = _impl_.agentcomp_;
+  _impl_.agentcomp_ = nullptr;
+  return temp;
+}
+inline ::ServerProto::AgentCompBin* PROTOBUF_NONNULL PlayerSaveData::_internal_mutable_agentcomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.agentcomp_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::ServerProto::AgentCompBin>(GetArena());
+    _impl_.agentcomp_ = reinterpret_cast<::ServerProto::AgentCompBin*>(p);
+  }
+  return _impl_.agentcomp_;
+}
+inline ::ServerProto::AgentCompBin* PROTOBUF_NONNULL PlayerSaveData::mutable_agentcomp()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000800U);
+  ::ServerProto::AgentCompBin* _msg = _internal_mutable_agentcomp();
+  // @@protoc_insertion_point(field_mutable:ServerProto.PlayerSaveData.agentComp)
+  return _msg;
+}
+inline void PlayerSaveData::set_allocated_agentcomp(::ServerProto::AgentCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.agentcomp_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000800U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000800U);
+  }
+
+  _impl_.agentcomp_ = reinterpret_cast<::ServerProto::AgentCompBin*>(value);
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.agentComp)
 }
 
 // -------------------------------------------------------------------

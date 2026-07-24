@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 
 #include "ActivityMgr.h"
+#include "AgentMgr.h"
 #include "AchievementMgr.h"
 #include "BattlePassMgr.h"
 #include "Bitset.h"
@@ -17,8 +18,10 @@
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../GameTime.h"
+#include "../Util.h"
 #include "../Resources/BinClass/DictionaryRes.h"
 #include "../Resources/BinClass/InstancesRes.h"
+#include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/BinClass/VampireSurvivorRes.h"
@@ -193,6 +196,7 @@ void Player::InitManagers()
 {
     mCharacterStor = std::make_unique<CharacterStor>(this);
     mActivityMgr = std::make_unique<ActivityMgr>(this);
+    mAgentMgr = std::make_unique<AgentMgr>(this);
     mAchievementMgr = std::make_unique<AchievementMgr>(this);
     mInventoryMgr = std::make_unique<InventoryMgr>(this);
     mGachaMgr = std::make_unique<GachaMgr>(this);
@@ -219,7 +223,7 @@ bool Player::InitNewPlayer(uint32_t uid, std::string name, bool gender)
     const int64_t now = GameTime::NowSeconds();
 
     data->set_createtime(now);
-    data->set_name(name.empty() ? "me" : std::move(name));
+    data->set_name(name.empty() ? "me" : NormalizeNickname(name));
     data->set_signature("");
     data->set_gender(gender);
     data->set_headicon(gender ? 101 : 102);
@@ -271,6 +275,7 @@ void Player::OnCreate()
 {
     mCharacterStor->OnCreate();
     mActivityMgr->OnCreate();
+    mAgentMgr->OnCreate();
     mAchievementMgr->OnCreate();
     mInventoryMgr->OnCreate();
     mGachaMgr->OnCreate();
@@ -299,6 +304,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
 
     mCharacterStor->OnLoad();
     mActivityMgr->OnLoad();
+    mAgentMgr->OnLoad();
     mAchievementMgr->OnLoad();
     mInventoryMgr->OnLoad();
     mGachaMgr->OnLoad();
@@ -315,6 +321,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
 {
     mCharacterStor->BeforeSave();
     mActivityMgr->BeforeSave();
+    mAgentMgr->BeforeSave();
     mAchievementMgr->BeforeSave();
     mInventoryMgr->BeforeSave();
     mGachaMgr->BeforeSave();
@@ -340,6 +347,7 @@ proto::PlayerInfo Player::ToProto()
     EncodeBasicInfo(info);
     Characters().EncodePlayerInfo(info);
     mActivityMgr->EncodePlayerInfo(info);
+    mAgentMgr->EncodePlayerInfo(info);
     mInventoryMgr->EncodePlayerInfo(info);
     mMailMgr->EncodePlayerInfo(info);
     mBattlePassMgr->EncodePlayerInfo(info);
@@ -362,6 +370,7 @@ void Player::OnLogin()
 
     mCharacterStor->OnLogin();
     mActivityMgr->OnLogin();
+    mAgentMgr->OnLogin();
     mAchievementMgr->OnLogin();
     mInventoryMgr->OnLogin();
     mGachaMgr->OnLogin();
@@ -593,6 +602,16 @@ const StoryMgr& Player::Stories() const
     return *mStoryMgr;
 }
 
+AgentMgr& Player::Agents()
+{
+    return *mAgentMgr;
+}
+
+const AgentMgr& Player::Agents() const
+{
+    return *mAgentMgr;
+}
+
 void Player::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, uint32_t param2)
 {
     mQuestMgr->Trigger(condition, progress, param1, param2);
@@ -644,6 +663,153 @@ bool Player::SetWorldLevel(uint32_t level)
 
     Trigger(71, level, 0, 0);
     QueueBattlePassUnlockNotify(oldLevel);
+    return true;
+}
+
+std::string Player::NormalizeNickname(const std::string& name)
+{
+    std::wstring value = Utf8ToUtf16(name);
+    if (value.size() > 20)
+    {
+        value.resize(19);
+    }
+    return Utf16ToUtf8(value);
+}
+
+bool Player::EditName(const std::string& name)
+{
+    const std::string normalized = NormalizeNickname(name);
+    auto* data = GetMutablePlayerData();
+    if (normalized.empty() || normalized == data->name())
+    {
+        return false;
+    }
+    data->set_name(normalized);
+    return true;
+}
+
+void Player::EditGender()
+{
+    auto* data = GetMutablePlayerData();
+    data->set_gender(!data->gender());
+}
+
+bool Player::EditTitle(uint32_t prefix, uint32_t suffix)
+{
+    if (!Inventory().HasTitle(prefix) || !Inventory().HasTitle(suffix))
+    {
+        return false;
+    }
+    auto* data = GetMutablePlayerData();
+    data->set_titleprefix(static_cast<int32_t>(prefix));
+    data->set_titlesuffix(static_cast<int32_t>(suffix));
+    return true;
+}
+
+bool Player::EditHeadIcon(uint32_t id)
+{
+    auto* data = GetMutablePlayerData();
+    if (data->headicon() == static_cast<int32_t>(id))
+    {
+        return true;
+    }
+    if (!Inventory().HasHeadIcon(id))
+    {
+        return false;
+    }
+    data->set_headicon(static_cast<int32_t>(id));
+    return true;
+}
+
+bool Player::SetMusic(int64_t id)
+{
+    if (id != 0 && !Characters().HasDisc(static_cast<int>(id)))
+    {
+        return false;
+    }
+    GetMutablePlayerData()->set_music(id);
+    return true;
+}
+
+bool Player::SetSkin(uint32_t id)
+{
+    auto* data = GetMutablePlayerData();
+    if (data->skinid() == static_cast<int32_t>(id))
+    {
+        return true;
+    }
+    if (!Inventory().HasSkin(id))
+    {
+        return false;
+    }
+    data->set_skinid(static_cast<int32_t>(id));
+    return true;
+}
+
+bool Player::SetShowChars(const google::protobuf::RepeatedField<uint32_t>& charIds)
+{
+    if (charIds.size() > 3)
+    {
+        return false;
+    }
+    for (uint32_t charId : charIds)
+    {
+        if (charId != 0 && !Characters().HasCharacter(static_cast<int>(charId)))
+        {
+            return false;
+        }
+    }
+
+    auto* data = GetMutablePlayerData();
+    data->clear_showchars();
+    for (int index = 0; index < 3; ++index)
+    {
+        data->add_showchars(index < charIds.size() ? static_cast<int32_t>(charIds.Get(index)) : 0);
+    }
+    return true;
+}
+
+bool Player::SetHonor(const google::protobuf::RepeatedField<uint32_t>& honorIds)
+{
+    if (honorIds.size() > 3)
+    {
+        return false;
+    }
+    for (uint32_t honorId : honorIds)
+    {
+        if (honorId == 0)
+        {
+            continue;
+        }
+        if (!Inventory().HasHonor(honorId) ||
+            GameData::HonorDataTable.find(static_cast<int>(honorId)) == GameData::HonorDataTable.end())
+        {
+            return false;
+        }
+    }
+
+    auto* data = GetMutablePlayerData();
+    data->clear_honor();
+    for (int index = 0; index < 3; ++index)
+    {
+        data->add_honor(index < honorIds.size() ? static_cast<int32_t>(honorIds.Get(index)) : 0);
+    }
+    return true;
+}
+
+bool Player::SetBoard(const google::protobuf::RepeatedField<uint32_t>& ids)
+{
+    if (ids.empty() || ids.size() > static_cast<int>(GameConstants::MaxShowcaseIds))
+    {
+        return false;
+    }
+
+    auto* data = GetMutablePlayerData();
+    data->clear_boards();
+    for (uint32_t id : ids)
+    {
+        data->add_boards(static_cast<int32_t>(id));
+    }
     return true;
 }
 
@@ -1136,13 +1302,12 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     state->mutable_scoreboss();
     state->mutable_startower()->CopyFrom(Towers().BuildStateProto());
     state->mutable_startowerbook()->CopyFrom(Towers().BuildBookStateProto());
-    state->mutable_worldclassreward()->set_flag(std::string(8, '\0'));
+    state->mutable_worldclassreward()->set_flag(Quests().GetWorldClassRewardFlag());
     state->mutable_travelerduelquest()->set_type(proto::TravelerDuel);
     state->mutable_tracehunt();
     state->set_storyset(true);
 
-    // titles/honorlist/formation 已由 InventoryMgr/FormationMgr 编码，这里不要重复添加。
-    info.mutable_agent();
+    // titles/honorlist/formation/agent 已由对应 Manager 编码，这里不要重复添加。
     info.mutable_phone()->set_newmessage(Characters().GetNewPhoneMessageCount());
     // TraceHunt 占位：只保证字段存在，完整玩法未实现。
     info.mutable_huntpermit()->set_tid(GameConstants::TraceHuntPermitItemId);

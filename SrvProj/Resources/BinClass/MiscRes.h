@@ -12,7 +12,7 @@ public:
     ~WorldClassRes() = default;
 
     auto GetKey() const { return Id; }
-    void OnLoad() {};
+    void OnLoad();
     bool LoadFromPb(std::string data);
     bool LoadFromJson(const nlohmann::json& data);
 
@@ -23,6 +23,7 @@ public:
     std::string Reward;
 
     // 非序列化字段
+    ItemParamMap Rewards;
 };
 
 class GuideGroupRes {

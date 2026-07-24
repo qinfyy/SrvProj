@@ -24,6 +24,11 @@ bool WorldClassRes::LoadFromPb(std::string data)
     return true;
 }
 
+void WorldClassRes::OnLoad()
+{
+    Rewards = ItemParamMap::FromJsonString(Reward);
+}
+
 bool GuideGroupRes::LoadFromJson(const nlohmann::json& data)
 {
     ReadResourceJsonField(data, "Id", Id);

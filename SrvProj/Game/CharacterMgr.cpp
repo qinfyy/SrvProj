@@ -7,6 +7,8 @@
 #include "Player.h"
 #include "../GameTime.h"
 #include "../Resources/GameData.h"
+#include "../proto/NetMsgId.h"
+#include "../proto/proto_cpp/phone_contacts_info.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 
 #include <algorithm>
@@ -1119,6 +1121,122 @@ void CharacterStor::EncodePlayerInfo(proto::PlayerInfo& out) const
     }
 }
 
+void CharacterStor::BuildPhoneContactsInfo(proto::PhoneContactsInfoResp& out) const
+{
+    for (const auto& character : Bin().charinfolist())
+    {
+        const auto& contact = character.contact();
+        auto* contacts = out.add_list();
+        contacts->set_charid(character.charid());
+        contacts->set_triggertime(contact.triggertime());
+        contacts->set_top(contact.top());
+
+        std::vector<const ServerProto::CharacterChat*> chats;
+        chats.reserve(contact.chats().size());
+        for (const auto& [_, chat] : contact.chats())
+        {
+            chats.push_back(&chat);
+        }
+        std::sort(chats.begin(), chats.end(), [](const ServerProto::CharacterChat* left, const ServerProto::CharacterChat* right) {
+            return left->id() < right->id();
+        });
+
+        for (const auto* chat : chats)
+        {
+            auto* chatProto = contacts->add_chats();
+            chatProto->set_id(chat->id());
+            chatProto->set_process(chat->process());
+            for (uint32_t option : chat->options())
+            {
+                chatProto->add_options(option);
+            }
+        }
+    }
+}
+
+bool CharacterStor::ReportPhoneContact(uint32_t chatId, uint32_t process, const google::protobuf::RepeatedField<uint32_t>& options, bool end, proto::ChangeInfo& change)
+{
+    const auto chatDataIt = GameData::ChatDataTable.find(static_cast<int>(chatId));
+    if (chatDataIt == GameData::ChatDataTable.end())
+    {
+        return false;
+    }
+
+    auto* character = GetCharacterById(chatDataIt->second.AddressBookId);
+    if (!character)
+    {
+        return false;
+    }
+
+    auto* contact = character->mutable_contact();
+    auto* chats = contact->mutable_chats();
+    const auto chatIt = chats->find(static_cast<int32_t>(chatId));
+    if (chatIt == chats->end())
+    {
+        return false;
+    }
+
+    auto& chat = chatIt->second;
+    if (chat.end())
+    {
+        return true;
+    }
+
+    chat.set_process(process);
+    chat.set_end(end);
+    if (options.size() > 0 && options.size() <= 5)
+    {
+        chat.clear_options();
+        for (uint32_t option : options)
+        {
+            chat.add_options(option);
+        }
+    }
+    contact->set_triggertime(GameTime::NowSeconds());
+
+    const auto charDataIt = GameData::CharacterDataTable.find(static_cast<int>(character->charid()));
+    if (charDataIt != GameData::CharacterDataTable.end())
+    {
+        std::vector<ChatRes*> nextChats = charDataIt->second.Chats;
+        std::sort(nextChats.begin(), nextChats.end(), [](const ChatRes* left, const ChatRes* right) {
+            return left->Id < right->Id;
+        });
+        for (const auto* nextChat : nextChats)
+        {
+            if (!nextChat || chats->find(nextChat->Id) != chats->end())
+            {
+                continue;
+            }
+            ServerProto::CharacterChat added;
+            added.set_id(nextChat->Id);
+            (*chats)[nextChat->Id] = added;
+            proto::UI32 notify;
+            notify.set_value(static_cast<uint32_t>(nextChat->Id));
+            GetPlayer()->PushNextPackage(phone_chat_change_notify, notify);
+            break;
+        }
+    }
+
+    if (chat.end())
+    {
+        GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(chatDataIt->second.Reward1), chatDataIt->second.RewardQty1, &change);
+    }
+    GetPlayer()->Trigger(23, 1);
+    return true;
+}
+
+bool CharacterStor::TogglePhoneContactTop(uint32_t charId)
+{
+    auto* character = GetCharacterById(static_cast<int>(charId));
+    if (!character)
+    {
+        return false;
+    }
+    auto* contact = character->mutable_contact();
+    contact->set_top(!contact->top());
+    return true;
+}
+
 int CharacterStor::GetNewPhoneMessageCount() const
 {
     int count = 0;
@@ -1282,18 +1400,22 @@ void CharacterStor::EnsureInitialChats(ServerProto::CharacterInfo& character) co
         return;
     }
 
-    for (const auto& [_, chatData] : GameData::ChatDataTable)
+    std::vector<ChatRes*> initialChats = it->second.Chats;
+    std::sort(initialChats.begin(), initialChats.end(), [](const ChatRes* left, const ChatRes* right) {
+        return left->Id < right->Id;
+    });
+    for (const auto* chatData : initialChats)
     {
-        if (chatData.AddressBookId != it->second.Id || chatData.PreChatId != 0)
+        if (!chatData || chatData->PreChatId != 0)
         {
             continue;
         }
 
         ServerProto::CharacterChat chat;
-        chat.set_id(chatData.Id);
+        chat.set_id(chatData->Id);
         chat.set_process(0);
         chat.set_end(false);
-        (*chats)[chatData.Id] = chat;
+        (*chats)[chatData->Id] = chat;
     }
 }
 

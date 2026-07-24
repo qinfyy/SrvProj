@@ -14,6 +14,10 @@
 #include "../proto/proto_cpp/disc_promote.pb.h"
 #include "../proto/proto_cpp/disc_strengthen.pb.h"
 
+namespace proto {
+class PhoneContactsInfoResp;
+}
+
 class CharacterStor : public ManagerBase
 {
 public:
@@ -65,6 +69,9 @@ public:
 
     void EncodePlayerInfo(proto::PlayerInfo& out) const override;
     int GetNewPhoneMessageCount() const;
+    void BuildPhoneContactsInfo(proto::PhoneContactsInfoResp& out) const;
+    bool ReportPhoneContact(uint32_t chatId, uint32_t process, const google::protobuf::RepeatedField<uint32_t>& options, bool end, proto::ChangeInfo& change);
+    bool TogglePhoneContactTop(uint32_t charId);
 
 private:
     void NormalizeCharacter(ServerProto::CharacterInfo& character) const;

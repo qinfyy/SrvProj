@@ -80,6 +80,7 @@ message QuestCompBin {
     repeated uint32 weeklyActiveIds = 4;
     bool dailyShopRewardClaimed = 5;
     bool dailyMallRewardClaimed = 6;
+    bytes worldClassRewards = 7;
 }
 
 message BattlePassCompBin {
@@ -421,6 +422,17 @@ message StoryCompBin {
     map<uint32, StoryOptionLogBin> options = 4;
 }
 
+message AgentBin {
+    uint32 id = 1;
+    uint32 processTime = 2;
+    repeated uint32 charIds = 3;
+    int64 startTime = 4;
+}
+
+message AgentCompBin {
+    repeated AgentBin agents = 1;
+}
+
 message PlayerSaveData {
     // int32 uid = 1;
 
@@ -435,6 +447,7 @@ message PlayerSaveData {
     FormationCompBin formationComp = 10;
     TowerCompBin towerComp = 11;
     StoryCompBin storyComp = 12;
+    AgentCompBin agentComp = 13;
 }
 
 message GameDiscInfoBin {

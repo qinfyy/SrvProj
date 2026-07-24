@@ -767,6 +767,56 @@ bool QuestMgr::ClaimWeeklyActiveRewards(std::vector<uint32_t>& activeIds, proto:
     return !activeIds.empty();
 }
 
+bool QuestMgr::ReceiveWorldClassReward(uint32_t id, proto::ChangeInfo& out)
+{
+    Bitset rewards(Bin().worldclassrewards());
+    std::vector<const WorldClassRes*> claimList;
+
+    if (id > 0)
+    {
+        const auto it = GameData::WorldClassDataTable.find(static_cast<int>(id));
+        if (it != GameData::WorldClassDataTable.end() && rewards.IsSet(id))
+        {
+            claimList.push_back(&it->second);
+        }
+    }
+    else
+    {
+        std::vector<int> ids;
+        ids.reserve(GameData::WorldClassDataTable.size());
+        for (const auto& [worldClassId, _] : GameData::WorldClassDataTable)
+        {
+            if (worldClassId > 0 && rewards.IsSet(static_cast<uint32_t>(worldClassId)))
+            {
+                ids.push_back(worldClassId);
+            }
+        }
+        std::sort(ids.begin(), ids.end());
+        for (int worldClassId : ids)
+        {
+            claimList.push_back(&GameData::WorldClassDataTable.at(worldClassId));
+        }
+    }
+
+    if (claimList.empty())
+    {
+        return false;
+    }
+
+    for (const auto* data : claimList)
+    {
+        GetPlayer()->Inventory().AddItems(data->Rewards, &out);
+        rewards.UnsetBit(static_cast<uint32_t>(data->Id));
+    }
+    MutableBin()->set_worldclassrewards(rewards.ToByteArray());
+    return true;
+}
+
+std::string QuestMgr::GetWorldClassRewardFlag() const
+{
+    return Bitset(Bin().worldclassrewards()).ToBigEndianByteArray();
+}
+
 bool QuestMgr::ClaimDailyShopGift(proto::ChangeInfo& out)
 {
     auto* bin = MutableBin();
@@ -826,5 +876,6 @@ void QuestMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 
     out.set_dailyshoprewardstatus(HasDailyShopReward());
     out.set_dailymallrewardstatus(HasDailyMallReward());
+    out.mutable_state()->mutable_worldclassreward()->set_flag(GetWorldClassRewardFlag());
     out.set_tourguidequestgroup(9);
 }

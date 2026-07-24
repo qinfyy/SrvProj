@@ -144,6 +144,9 @@
     <ClCompile Include="Handlers\Mall.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
+    <ClCompile Include="Handlers\Agent.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
     <ClCompile Include="Handlers\PlayerHandler.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
@@ -160,6 +163,9 @@
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\ManagerBase.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AgentMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\CharacterMgr.cpp">
@@ -1295,6 +1301,9 @@
     <ClInclude Include="Game\ManagerBase.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\AgentMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Game\CharacterMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
@@ -1399,6 +1408,9 @@
     </ClInclude>
     <ClInclude Include="Resources\ResourceDerivedData.h">
       <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Handlers\Agent.h">
+      <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\PlayerHandler.h">
       <Filter>头文件\Handlers</Filter>

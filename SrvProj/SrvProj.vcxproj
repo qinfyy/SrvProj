@@ -170,6 +170,7 @@
     <ClCompile Include="Game\AchievementMgr.cpp" />
     <ClCompile Include="Game\BattlePassMgr.cpp" />
     <ClCompile Include="Game\ChangeInfoUtil.cpp" />
+    <ClCompile Include="Game\AgentMgr.cpp" />
     <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Game\FormationMgr.cpp" />
     <ClCompile Include="Command\BasicCommands.cpp" />
@@ -196,6 +197,7 @@
     <ClCompile Include="Handlers\Item.cpp" />
     <ClCompile Include="Handlers\Login.cpp" />
     <ClCompile Include="Handlers\Mail.cpp" />
+    <ClCompile Include="Handlers\Agent.cpp" />
     <ClCompile Include="Handlers\Mall.cpp" />
     <ClCompile Include="Handlers\PlayerHandler.cpp" />
     <ClCompile Include="Handlers\Quest.cpp" />
@@ -541,6 +543,7 @@
     <ClInclude Include="Game\AchievementMgr.h" />
     <ClInclude Include="Game\Bitset.h" />
     <ClInclude Include="Game\ChangeInfoUtil.h" />
+    <ClInclude Include="Game\AgentMgr.h" />
     <ClInclude Include="Game\CharacterMgr.h" />
     <ClInclude Include="Command\BasicCommands.h" />
     <ClInclude Include="Command\CommandMgr.h" />
@@ -568,6 +571,7 @@
     <ClInclude Include="Handlers\Item.h" />
     <ClInclude Include="Handlers\Login.h" />
     <ClInclude Include="Handlers\Mail.h" />
+    <ClInclude Include="Handlers\Agent.h" />
     <ClInclude Include="Handlers\Mall.h" />
     <ClInclude Include="Handlers\PlayerHandler.h" />
     <ClInclude Include="Handlers\Quest.h" />
