@@ -642,7 +642,7 @@ bool QuestMgr::ClaimDailyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
     if (claimedCount > 0)
     {
-        Trigger(kCondQuestWithSpecificType, claimedCount, proto::Daily, 0);
+        GetPlayer()->Trigger(kCondQuestWithSpecificType, claimedCount, proto::Daily, 0);
     }
 
     return claimedCount > 0;
@@ -695,7 +695,7 @@ bool QuestMgr::ClaimWeeklyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
     if (claimedCount > 0)
     {
-        Trigger(kCondQuestWithSpecificType, claimedCount, proto::Weekly, 0);
+        GetPlayer()->Trigger(kCondQuestWithSpecificType, claimedCount, proto::Weekly, 0);
     }
 
     return claimedCount > 0;
@@ -777,7 +777,7 @@ bool QuestMgr::ClaimDailyShopGift(proto::ChangeInfo& out)
 
     bin->set_dailyshoprewardclaimed(true);
     GetPlayer()->Inventory().AddItem(GameConstants::GoldItemId, 10000, &out);
-    Trigger(105, 1, 0, 0);
+    GetPlayer()->Trigger(105, 1, 0, 0);
     return true;
 }
 
@@ -791,7 +791,7 @@ bool QuestMgr::ClaimDailyMallGift(proto::ChangeInfo& out)
 
     bin->set_dailymallrewardclaimed(true);
     GetPlayer()->Inventory().AddItem(GameConstants::JointDrillTicketId, 1, &out);
-    Trigger(105, 1, 0, 0);
+    GetPlayer()->Trigger(105, 1, 0, 0);
     return true;
 }
 

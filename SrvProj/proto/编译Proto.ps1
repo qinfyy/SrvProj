@@ -71,7 +71,7 @@ Write-Host "[OK] 使用 protoc：" -ForegroundColor Green
 Write-Host "    $Protoc"
 Write-Host ""
 
-# 清理根目录上一次生成的 C++ 文件
+<# # 清理根目录上一次生成的 C++ 文件
 Remove-Item `
     (Join-Path $ScriptDir "dump.pb.h"),
     (Join-Path $ScriptDir "dump.pb.cc"),
@@ -87,7 +87,7 @@ Start-Process `
     ) `
     -WorkingDirectory $ScriptDir `
     -NoNewWindow `
-    -Wait
+    -Wait #>
 
 function Compile-Protobuf-Directory {
     param(
@@ -151,11 +151,11 @@ function Compile-Protobuf-Directory {
     Pop-Location
 }
 
-# 编译 proto 文件夹
+<# # 编译 proto 文件夹
 Compile-Protobuf-Directory "proto" "proto_cpp"
 
 # 编译 table 文件夹
-Compile-Protobuf-Directory "table" "table_cpp"
+Compile-Protobuf-Directory "table" "table_cpp" #>
 
 # 编译 ServerProto 文件夹
 Compile-Protobuf-Directory "ServerProto" "ServerProto_cpp"

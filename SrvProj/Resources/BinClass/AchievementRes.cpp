@@ -334,6 +334,15 @@ bool AchievementRes::LoadFromJson(const nlohmann::json& data)
     return true;
 }
 
+void AchievementRes::OnLoad()
+{
+    Param1 = 0;
+    ParamCond1 = 0;
+    Param2 = 0;
+    ParamCond2 = 0;
+    ApplyAchievementParamOverride(*this);
+}
+
 bool AchievementRes::LoadFromPb(std::string data)
 {
     Achievement a;
@@ -353,12 +362,6 @@ bool AchievementRes::LoadFromPb(std::string data)
 
     Tid1 = a.tid1();
     Qty1 = a.qty1();
-
-    Param1 = 0;
-    ParamCond1 = 0;
-    Param2 = 0;
-    ParamCond2 = 0;
-    ApplyAchievementParamOverride(*this);
 
     return true;
 }

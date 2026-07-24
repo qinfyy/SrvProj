@@ -23,6 +23,7 @@ class MailMgr;
 class BattlePassMgr;
 class FormationMgr;
 class QuestMgr;
+class StoryMgr;
 class TowerMgr;
 
 class Player
@@ -73,6 +74,9 @@ public:
 
     MailMgr& Mails();
     const MailMgr& Mails() const;
+
+    StoryMgr& Stories();
+    const StoryMgr& Stories() const;
 
     void Trigger(uint32_t condition, uint32_t progress, uint32_t param1 = 0, uint32_t param2 = 0);
 
@@ -140,5 +144,6 @@ private:
     std::unique_ptr<BattlePassMgr> mBattlePassMgr;
     std::unique_ptr<FormationMgr> mFormationMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
+    std::unique_ptr<StoryMgr> mStoryMgr;
     std::unique_ptr<TowerMgr> mTowerMgr;
 };

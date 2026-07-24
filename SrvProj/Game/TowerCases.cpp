@@ -454,7 +454,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
         }
         if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
         {
-            GetGame()->GetManager()->GetPlayer()->Trigger(529, 1, 0, 0);
+            GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(529, 1, 0, 0);
         }
     }
     else if (req.has_selectreq())
@@ -471,7 +471,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
         if (selected.Level > 1 && GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
         {
             const uint32_t triggerId = GetGame()->GetPotentialLevel(selected.Id) > 0 ? 534u : 533u;
-            GetGame()->GetManager()->GetPlayer()->Trigger(triggerId, 1, 0, 0);
+            GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(triggerId, 1, 0, 0);
         }
         // 与 Nebula 一致：无论 add 是否因满级等失败，都继续 handlePending，避免卡死。
         if (GetGame()->AddRuntimeItem(selected.Id, static_cast<int>(selected.Level), rsp.mutable_change()) && GetGame()->GetManager())
@@ -936,7 +936,7 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
     {
         auto* manager = GetGame()->GetManager();
         manager->RecordEventCollection(EventId);
-        manager->GetPlayer()->Trigger(511, 1, 0, 0);
+        manager->GetPlayer()->Achievements().Trigger(511, 1, 0, 0);
         if (NpcId > 0)
         {
             auto* affinityChange = result->add_affinitychange();
@@ -1150,10 +1150,10 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
             GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
             if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
             {
-                GetGame()->GetManager()->GetPlayer()->Trigger(514, 1, 0, 0);
+                GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(514, 1, 0, 0);
                 if (goods.HasDiscount())
                 {
-                    GetGame()->GetManager()->GetPlayer()->Trigger(535, 1, 0, 0);
+                    GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(535, 1, 0, 0);
                 }
             }
             break;
@@ -1176,7 +1176,7 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
         GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
         if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
         {
-            GetGame()->GetManager()->GetPlayer()->Trigger(530, 1, 0, 0);
+            GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(530, 1, 0, 0);
         }
         rsp.mutable_selectresp()->mutable_hawkercase()->CopyFrom(ToProto().hawkercase());
     }
@@ -1269,6 +1269,13 @@ proto::StarTowerInteractResp TowerStrengthenMachineCase::Interact(const proto::S
         return rsp;
     }
 
+    auto* added = GetRoom()->AddCase(std::move(casePtr));
+    if (!added)
+    {
+        rsp.mutable_strengthenmachineresp()->set_buysucceed(false);
+        return rsp;
+    }
+
     GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -price, rsp.mutable_change());
     if (Free)
     {
@@ -1280,14 +1287,10 @@ proto::StarTowerInteractResp TowerStrengthenMachineCase::Interact(const proto::S
         ++Times;
     }
 
-    auto* added = GetRoom()->AddCase(std::move(casePtr));
-    if (added)
-    {
-        rsp.add_cases()->CopyFrom(added->ToProto());
-    }
+    rsp.add_cases()->CopyFrom(added->ToProto());
     if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
     {
-        GetGame()->GetManager()->GetPlayer()->Trigger(522, 1, 0, 0);
+        GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(522, 1, 0, 0);
     }
 
     rsp.mutable_strengthenmachineresp()->set_buysucceed(true);

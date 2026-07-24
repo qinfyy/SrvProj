@@ -404,6 +404,23 @@ message PlayerBasicCompBin {
     repeated string permissions = 23; // 服务器命令使用权限
 }
 
+message StoryChoiceBin {
+    uint32 group = 1;
+    uint32 value = 2;
+}
+
+message StoryOptionLogBin {
+    repeated StoryChoiceBin major = 1;
+    repeated StoryChoiceBin personality = 2;
+}
+
+message StoryCompBin {
+    repeated uint32 completedStories = 1;
+    map<uint32, uint32> completedSets = 2;
+    repeated uint32 evidences = 3;
+    map<uint32, StoryOptionLogBin> options = 4;
+}
+
 message PlayerSaveData {
     // int32 uid = 1;
 
@@ -417,6 +434,7 @@ message PlayerSaveData {
     BattlePassCompBin battlePassComp = 9;
     FormationCompBin formationComp = 10;
     TowerCompBin towerComp = 11;
+    StoryCompBin storyComp = 12;
 }
 
 message GameDiscInfoBin {

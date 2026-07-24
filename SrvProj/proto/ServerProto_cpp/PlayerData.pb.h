@@ -221,6 +221,26 @@ class QuestProgressBin;
 struct QuestProgressBinDefaultTypeInternal;
 extern QuestProgressBinDefaultTypeInternal _QuestProgressBin_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull QuestProgressBin_class_data_;
+class StoryChoiceBin;
+struct StoryChoiceBinDefaultTypeInternal;
+extern StoryChoiceBinDefaultTypeInternal _StoryChoiceBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StoryChoiceBin_class_data_;
+class StoryCompBin;
+struct StoryCompBinDefaultTypeInternal;
+extern StoryCompBinDefaultTypeInternal _StoryCompBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StoryCompBin_class_data_;
+class StoryCompBin_CompletedSetsEntry_DoNotUse;
+struct StoryCompBin_CompletedSetsEntry_DoNotUseDefaultTypeInternal;
+extern StoryCompBin_CompletedSetsEntry_DoNotUseDefaultTypeInternal _StoryCompBin_CompletedSetsEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StoryCompBin_CompletedSetsEntry_DoNotUse_class_data_;
+class StoryCompBin_OptionsEntry_DoNotUse;
+struct StoryCompBin_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern StoryCompBin_OptionsEntry_DoNotUseDefaultTypeInternal _StoryCompBin_OptionsEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StoryCompBin_OptionsEntry_DoNotUse_class_data_;
+class StoryOptionLogBin;
+struct StoryOptionLogBinDefaultTypeInternal;
+extern StoryOptionLogBinDefaultTypeInternal _StoryOptionLogBin_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StoryOptionLogBin_class_data_;
 class TowerBattleCaseBin;
 struct TowerBattleCaseBinDefaultTypeInternal;
 extern TowerBattleCaseBinDefaultTypeInternal _TowerBattleCaseBin_default_instance_;
@@ -2549,6 +2569,247 @@ class TowerBattleCaseBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull TowerBattleCaseBin_class_data_;
 // -------------------------------------------------------------------
 
+class StoryCompBin_CompletedSetsEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::uint32_t,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>;
+  StoryCompBin_CompletedSetsEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StoryCompBin_CompletedSetsEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit StoryCompBin_CompletedSetsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_StoryCompBin_CompletedSetsEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull StoryCompBin_CompletedSetsEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
+class StoryChoiceBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.StoryChoiceBin) */ {
+ public:
+  inline StoryChoiceBin() : StoryChoiceBin(nullptr) {}
+  ~StoryChoiceBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(StoryChoiceBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(StoryChoiceBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StoryChoiceBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline StoryChoiceBin(const StoryChoiceBin& from) : StoryChoiceBin(nullptr, from) {}
+  inline StoryChoiceBin(StoryChoiceBin&& from) noexcept
+      : StoryChoiceBin(nullptr, ::std::move(from)) {}
+  inline StoryChoiceBin& operator=(const StoryChoiceBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StoryChoiceBin& operator=(StoryChoiceBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StoryChoiceBin& default_instance() {
+    return *reinterpret_cast<const StoryChoiceBin*>(
+        &_StoryChoiceBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 65;
+  friend void swap(StoryChoiceBin& a, StoryChoiceBin& b) { a.Swap(&b); }
+  inline void Swap(StoryChoiceBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StoryChoiceBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StoryChoiceBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<StoryChoiceBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StoryChoiceBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const StoryChoiceBin& from) { StoryChoiceBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(StoryChoiceBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.StoryChoiceBin"; }
+
+  explicit StoryChoiceBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  StoryChoiceBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StoryChoiceBin& from);
+  StoryChoiceBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, StoryChoiceBin&& from) noexcept
+      : StoryChoiceBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kGroupFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // uint32 group = 1;
+  void clear_group() ;
+  ::uint32_t group() const;
+  void set_group(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_group() const;
+  void _internal_set_group(::uint32_t value);
+
+  public:
+  // uint32 value = 2;
+  void clear_value() ;
+  ::uint32_t value() const;
+  void set_value(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_value() const;
+  void _internal_set_value(::uint32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.StoryChoiceBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const StoryChoiceBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t group_;
+    ::uint32_t value_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull StoryChoiceBin_class_data_;
+// -------------------------------------------------------------------
+
 class QuestProgressBin final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.QuestProgressBin) */ {
  public:
@@ -3359,7 +3620,7 @@ class GameDiscInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GameDiscInfoBin*>(
         &_GameDiscInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 66;
+  static constexpr int kIndexInFileMessages = 71;
   friend void swap(GameDiscInfoBin& a, GameDiscInfoBin& b) { a.Swap(&b); }
   inline void Swap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -6508,6 +6769,222 @@ class TowerBuildBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull TowerBuildBin_class_data_;
+// -------------------------------------------------------------------
+
+class StoryOptionLogBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.StoryOptionLogBin) */ {
+ public:
+  inline StoryOptionLogBin() : StoryOptionLogBin(nullptr) {}
+  ~StoryOptionLogBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(StoryOptionLogBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(StoryOptionLogBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StoryOptionLogBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline StoryOptionLogBin(const StoryOptionLogBin& from) : StoryOptionLogBin(nullptr, from) {}
+  inline StoryOptionLogBin(StoryOptionLogBin&& from) noexcept
+      : StoryOptionLogBin(nullptr, ::std::move(from)) {}
+  inline StoryOptionLogBin& operator=(const StoryOptionLogBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StoryOptionLogBin& operator=(StoryOptionLogBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StoryOptionLogBin& default_instance() {
+    return *reinterpret_cast<const StoryOptionLogBin*>(
+        &_StoryOptionLogBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 66;
+  friend void swap(StoryOptionLogBin& a, StoryOptionLogBin& b) { a.Swap(&b); }
+  inline void Swap(StoryOptionLogBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StoryOptionLogBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StoryOptionLogBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<StoryOptionLogBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StoryOptionLogBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const StoryOptionLogBin& from) { StoryOptionLogBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(StoryOptionLogBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.StoryOptionLogBin"; }
+
+  explicit StoryOptionLogBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  StoryOptionLogBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StoryOptionLogBin& from);
+  StoryOptionLogBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, StoryOptionLogBin&& from) noexcept
+      : StoryOptionLogBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMajorFieldNumber = 1,
+    kPersonalityFieldNumber = 2,
+  };
+  // repeated .ServerProto.StoryChoiceBin major = 1;
+  int major_size() const;
+  private:
+  int _internal_major_size() const;
+
+  public:
+  void clear_major() ;
+  ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL mutable_major(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL mutable_major();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>& _internal_major() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL _internal_mutable_major();
+  public:
+  const ::ServerProto::StoryChoiceBin& major(int index) const;
+  ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL add_major();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>& major() const;
+  // repeated .ServerProto.StoryChoiceBin personality = 2;
+  int personality_size() const;
+  private:
+  int _internal_personality_size() const;
+
+  public:
+  void clear_personality() ;
+  ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL mutable_personality(int index);
+  ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL mutable_personality();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>& _internal_personality() const;
+  ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL _internal_mutable_personality();
+  public:
+  const ::ServerProto::StoryChoiceBin& personality(int index) const;
+  ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL add_personality();
+  const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>& personality() const;
+  // @@protoc_insertion_point(class_scope:ServerProto.StoryOptionLogBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   2, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const StoryOptionLogBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::StoryChoiceBin > major_;
+    ::google::protobuf::RepeatedPtrField< ::ServerProto::StoryChoiceBin > personality_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull StoryOptionLogBin_class_data_;
 // -------------------------------------------------------------------
 
 class QuestInfoBin final : public ::google::protobuf::Message
@@ -9760,6 +10237,45 @@ class TowerCaseBin final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull TowerCaseBin_class_data_;
 // -------------------------------------------------------------------
 
+class StoryCompBin_OptionsEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::uint32_t, ::google::protobuf::Message,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  StoryCompBin_OptionsEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StoryCompBin_OptionsEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit StoryCompBin_OptionsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_StoryCompBin_OptionsEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_PlayerData_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull StoryCompBin_OptionsEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
 class QuestCompBin final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:ServerProto.QuestCompBin) */ {
  public:
@@ -11301,6 +11817,266 @@ class TowerRoomBin final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull TowerRoomBin_class_data_;
+// -------------------------------------------------------------------
+
+class StoryCompBin final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ServerProto.StoryCompBin) */ {
+ public:
+  inline StoryCompBin() : StoryCompBin(nullptr) {}
+  ~StoryCompBin() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(StoryCompBin* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(StoryCompBin));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StoryCompBin(::google::protobuf::internal::ConstantInitialized);
+
+  inline StoryCompBin(const StoryCompBin& from) : StoryCompBin(nullptr, from) {}
+  inline StoryCompBin(StoryCompBin&& from) noexcept
+      : StoryCompBin(nullptr, ::std::move(from)) {}
+  inline StoryCompBin& operator=(const StoryCompBin& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StoryCompBin& operator=(StoryCompBin&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StoryCompBin& default_instance() {
+    return *reinterpret_cast<const StoryCompBin*>(
+        &_StoryCompBin_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 69;
+  friend void swap(StoryCompBin& a, StoryCompBin& b) { a.Swap(&b); }
+  inline void Swap(StoryCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StoryCompBin* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StoryCompBin* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<StoryCompBin>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StoryCompBin& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const StoryCompBin& from) { StoryCompBin::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(StoryCompBin* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ServerProto.StoryCompBin"; }
+
+  explicit StoryCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  StoryCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StoryCompBin& from);
+  StoryCompBin(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, StoryCompBin&& from) noexcept
+      : StoryCompBin(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kCompletedStoriesFieldNumber = 1,
+    kEvidencesFieldNumber = 3,
+    kCompletedSetsFieldNumber = 2,
+    kOptionsFieldNumber = 4,
+  };
+  // repeated uint32 completedStories = 1;
+  int completedstories_size() const;
+  private:
+  int _internal_completedstories_size() const;
+
+  public:
+  void clear_completedstories() ;
+  ::uint32_t completedstories(int index) const;
+  void set_completedstories(int index, ::uint32_t value);
+  void add_completedstories(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& completedstories() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_completedstories();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_completedstories() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_completedstories();
+
+  public:
+  // repeated uint32 evidences = 3;
+  int evidences_size() const;
+  private:
+  int _internal_evidences_size() const;
+
+  public:
+  void clear_evidences() ;
+  ::uint32_t evidences(int index) const;
+  void set_evidences(int index, ::uint32_t value);
+  void add_evidences(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& evidences() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL mutable_evidences();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_evidences() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL _internal_mutable_evidences();
+
+  public:
+  // map<uint32, uint32> completedSets = 2;
+  int completedsets_size() const;
+  private:
+  int _internal_completedsets_size() const;
+
+  public:
+  void clear_completedsets() ;
+  const ::google::protobuf::Map<::uint32_t, ::uint32_t>& completedsets() const;
+  ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL mutable_completedsets();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::uint32_t>& _internal_completedsets() const;
+  ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL _internal_mutable_completedsets();
+
+  public:
+  // map<uint32, .ServerProto.StoryOptionLogBin> options = 4;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+
+  public:
+  void clear_options() ;
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>& options() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>* PROTOBUF_NONNULL mutable_options();
+
+  private:
+  const ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>& _internal_options() const;
+  ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>* PROTOBUF_NONNULL _internal_mutable_options();
+
+  public:
+  // @@protoc_insertion_point(class_scope:ServerProto.StoryCompBin)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 4,
+                                   3, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const StoryCompBin& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> completedstories_;
+    ::google::protobuf::internal::CachedSize _completedstories_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> evidences_;
+    ::google::protobuf::internal::CachedSize _evidences_cached_byte_size_;
+    ::google::protobuf::internal::MapField<StoryCompBin_CompletedSetsEntry_DoNotUse, ::uint32_t, ::uint32_t,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>
+        completedsets_;
+    ::google::protobuf::internal::MapField<StoryCompBin_OptionsEntry_DoNotUse, ::uint32_t, ::ServerProto::StoryOptionLogBin,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_UINT32,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        options_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PlayerData_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull StoryCompBin_class_data_;
 // -------------------------------------------------------------------
 
 class GachaCompBin final : public ::google::protobuf::Message
@@ -13439,7 +14215,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerSaveData*>(
         &_PlayerSaveData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 65;
+  static constexpr int kIndexInFileMessages = 70;
   friend void swap(PlayerSaveData& a, PlayerSaveData& b) { a.Swap(&b); }
   inline void Swap(PlayerSaveData* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -13536,6 +14312,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     kBattlePassCompFieldNumber = 9,
     kFormationCompFieldNumber = 10,
     kTowerCompFieldNumber = 11,
+    kStoryCompFieldNumber = 12,
   };
   // .ServerProto.PlayerBasicCompBin playerdata = 2;
   bool has_playerdata() const;
@@ -13687,12 +14464,27 @@ class PlayerSaveData final : public ::google::protobuf::Message
   ::ServerProto::TowerCompBin* PROTOBUF_NONNULL _internal_mutable_towercomp();
 
   public:
+  // .ServerProto.StoryCompBin storyComp = 12;
+  bool has_storycomp() const;
+  void clear_storycomp() ;
+  const ::ServerProto::StoryCompBin& storycomp() const;
+  [[nodiscard]] ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE release_storycomp();
+  ::ServerProto::StoryCompBin* PROTOBUF_NONNULL mutable_storycomp();
+  void set_allocated_storycomp(::ServerProto::StoryCompBin* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_storycomp(::ServerProto::StoryCompBin* PROTOBUF_NULLABLE value);
+  ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE unsafe_arena_release_storycomp();
+
+  private:
+  const ::ServerProto::StoryCompBin& _internal_storycomp() const;
+  ::ServerProto::StoryCompBin* PROTOBUF_NONNULL _internal_mutable_storycomp();
+
+  public:
   // @@protoc_insertion_point(class_scope:ServerProto.PlayerSaveData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<4, 10,
-                                   10, 0,
+  static const ::google::protobuf::internal::TcParseTable<4, 11,
+                                   11, 0,
                                    2>
       _table_;
 
@@ -13723,6 +14515,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     ::ServerProto::BattlePassCompBin* PROTOBUF_NULLABLE battlepasscomp_;
     ::ServerProto::FormationCompBin* PROTOBUF_NULLABLE formationcomp_;
     ::ServerProto::TowerCompBin* PROTOBUF_NULLABLE towercomp_;
+    ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE storycomp_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -23944,6 +24737,348 @@ PlayerBasicCompBin::_internal_mutable_permissions() {
 
 // -------------------------------------------------------------------
 
+// StoryChoiceBin
+
+// uint32 group = 1;
+inline void StoryChoiceBin::clear_group() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.group_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t StoryChoiceBin::group() const {
+  // @@protoc_insertion_point(field_get:ServerProto.StoryChoiceBin.group)
+  return _internal_group();
+}
+inline void StoryChoiceBin::set_group(::uint32_t value) {
+  _internal_set_group(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:ServerProto.StoryChoiceBin.group)
+}
+inline ::uint32_t StoryChoiceBin::_internal_group() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.group_;
+}
+inline void StoryChoiceBin::_internal_set_group(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.group_ = value;
+}
+
+// uint32 value = 2;
+inline void StoryChoiceBin::clear_value() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.value_ = 0u;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t StoryChoiceBin::value() const {
+  // @@protoc_insertion_point(field_get:ServerProto.StoryChoiceBin.value)
+  return _internal_value();
+}
+inline void StoryChoiceBin::set_value(::uint32_t value) {
+  _internal_set_value(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.StoryChoiceBin.value)
+}
+inline ::uint32_t StoryChoiceBin::_internal_value() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.value_;
+}
+inline void StoryChoiceBin::_internal_set_value(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoryOptionLogBin
+
+// repeated .ServerProto.StoryChoiceBin major = 1;
+inline int StoryOptionLogBin::_internal_major_size() const {
+  return _internal_major().size();
+}
+inline int StoryOptionLogBin::major_size() const {
+  return _internal_major_size();
+}
+inline void StoryOptionLogBin::clear_major() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.major_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL StoryOptionLogBin::mutable_major(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.StoryOptionLogBin.major)
+  return _internal_mutable_major()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL StoryOptionLogBin::mutable_major()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.StoryOptionLogBin.major)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_major();
+}
+inline const ::ServerProto::StoryChoiceBin& StoryOptionLogBin::major(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.StoryOptionLogBin.major)
+  return _internal_major().Get(index);
+}
+inline ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL StoryOptionLogBin::add_major()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::StoryChoiceBin* _add =
+      _internal_mutable_major()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.StoryOptionLogBin.major)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>& StoryOptionLogBin::major() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.StoryOptionLogBin.major)
+  return _internal_major();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>&
+StoryOptionLogBin::_internal_major() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.major_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL
+StoryOptionLogBin::_internal_mutable_major() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.major_;
+}
+
+// repeated .ServerProto.StoryChoiceBin personality = 2;
+inline int StoryOptionLogBin::_internal_personality_size() const {
+  return _internal_personality().size();
+}
+inline int StoryOptionLogBin::personality_size() const {
+  return _internal_personality_size();
+}
+inline void StoryOptionLogBin::clear_personality() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.personality_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL StoryOptionLogBin::mutable_personality(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:ServerProto.StoryOptionLogBin.personality)
+  return _internal_mutable_personality()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL StoryOptionLogBin::mutable_personality()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.StoryOptionLogBin.personality)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_personality();
+}
+inline const ::ServerProto::StoryChoiceBin& StoryOptionLogBin::personality(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.StoryOptionLogBin.personality)
+  return _internal_personality().Get(index);
+}
+inline ::ServerProto::StoryChoiceBin* PROTOBUF_NONNULL StoryOptionLogBin::add_personality()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::ServerProto::StoryChoiceBin* _add =
+      _internal_mutable_personality()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:ServerProto.StoryOptionLogBin.personality)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>& StoryOptionLogBin::personality() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.StoryOptionLogBin.personality)
+  return _internal_personality();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>&
+StoryOptionLogBin::_internal_personality() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.personality_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ServerProto::StoryChoiceBin>* PROTOBUF_NONNULL
+StoryOptionLogBin::_internal_mutable_personality() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.personality_;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// StoryCompBin
+
+// repeated uint32 completedStories = 1;
+inline int StoryCompBin::_internal_completedstories_size() const {
+  return _internal_completedstories().size();
+}
+inline int StoryCompBin::completedstories_size() const {
+  return _internal_completedstories_size();
+}
+inline void StoryCompBin::clear_completedstories() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.completedstories_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::uint32_t StoryCompBin::completedstories(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.StoryCompBin.completedStories)
+  return _internal_completedstories().Get(index);
+}
+inline void StoryCompBin::set_completedstories(int index, ::uint32_t value) {
+  _internal_mutable_completedstories()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.StoryCompBin.completedStories)
+}
+inline void StoryCompBin::add_completedstories(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_completedstories()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:ServerProto.StoryCompBin.completedStories)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& StoryCompBin::completedstories() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.StoryCompBin.completedStories)
+  return _internal_completedstories();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL StoryCompBin::mutable_completedstories()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.StoryCompBin.completedStories)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_completedstories();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+StoryCompBin::_internal_completedstories() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.completedstories_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+StoryCompBin::_internal_mutable_completedstories() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.completedstories_;
+}
+
+// map<uint32, uint32> completedSets = 2;
+inline int StoryCompBin::_internal_completedsets_size() const {
+  return _internal_completedsets().size();
+}
+inline int StoryCompBin::completedsets_size() const {
+  return _internal_completedsets_size();
+}
+inline void StoryCompBin::clear_completedsets() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.completedsets_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::uint32_t>& StoryCompBin::_internal_completedsets() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.completedsets_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::uint32_t>& StoryCompBin::completedsets() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.StoryCompBin.completedSets)
+  return _internal_completedsets();
+}
+inline ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL StoryCompBin::_internal_mutable_completedsets() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.completedsets_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::uint32_t>* PROTOBUF_NONNULL StoryCompBin::mutable_completedsets()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.StoryCompBin.completedSets)
+  return _internal_mutable_completedsets();
+}
+
+// repeated uint32 evidences = 3;
+inline int StoryCompBin::_internal_evidences_size() const {
+  return _internal_evidences().size();
+}
+inline int StoryCompBin::evidences_size() const {
+  return _internal_evidences_size();
+}
+inline void StoryCompBin::clear_evidences() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.evidences_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::uint32_t StoryCompBin::evidences(int index) const {
+  // @@protoc_insertion_point(field_get:ServerProto.StoryCompBin.evidences)
+  return _internal_evidences().Get(index);
+}
+inline void StoryCompBin::set_evidences(int index, ::uint32_t value) {
+  _internal_mutable_evidences()->Set(index, value);
+  // @@protoc_insertion_point(field_set:ServerProto.StoryCompBin.evidences)
+}
+inline void StoryCompBin::add_evidences(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_evidences()->Add(value);
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:ServerProto.StoryCompBin.evidences)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& StoryCompBin::evidences() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:ServerProto.StoryCompBin.evidences)
+  return _internal_evidences();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL StoryCompBin::mutable_evidences()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:ServerProto.StoryCompBin.evidences)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_evidences();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>&
+StoryCompBin::_internal_evidences() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.evidences_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL
+StoryCompBin::_internal_mutable_evidences() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.evidences_;
+}
+
+// map<uint32, .ServerProto.StoryOptionLogBin> options = 4;
+inline int StoryCompBin::_internal_options_size() const {
+  return _internal_options().size();
+}
+inline int StoryCompBin::options_size() const {
+  return _internal_options_size();
+}
+inline void StoryCompBin::clear_options() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.options_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>& StoryCompBin::_internal_options() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.options_.GetMap();
+}
+inline const ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>& StoryCompBin::options() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:ServerProto.StoryCompBin.options)
+  return _internal_options();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>* PROTOBUF_NONNULL StoryCompBin::_internal_mutable_options() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.options_.MutableMap();
+}
+inline ::google::protobuf::Map<::uint32_t, ::ServerProto::StoryOptionLogBin>* PROTOBUF_NONNULL StoryCompBin::mutable_options()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_mutable_map:ServerProto.StoryCompBin.options)
+  return _internal_mutable_options();
+}
+
+// -------------------------------------------------------------------
+
 // PlayerSaveData
 
 // .ServerProto.PlayerBasicCompBin playerdata = 2;
@@ -24934,6 +26069,105 @@ inline void PlayerSaveData::set_allocated_towercomp(::ServerProto::TowerCompBin*
 
   _impl_.towercomp_ = reinterpret_cast<::ServerProto::TowerCompBin*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.towerComp)
+}
+
+// .ServerProto.StoryCompBin storyComp = 12;
+inline bool PlayerSaveData::has_storycomp() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000400U);
+  PROTOBUF_ASSUME(!value || _impl_.storycomp_ != nullptr);
+  return value;
+}
+inline void PlayerSaveData::clear_storycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.storycomp_ != nullptr) _impl_.storycomp_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000400U);
+}
+inline const ::ServerProto::StoryCompBin& PlayerSaveData::_internal_storycomp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::ServerProto::StoryCompBin* p = _impl_.storycomp_;
+  return p != nullptr ? *p : reinterpret_cast<const ::ServerProto::StoryCompBin&>(::ServerProto::_StoryCompBin_default_instance_);
+}
+inline const ::ServerProto::StoryCompBin& PlayerSaveData::storycomp() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:ServerProto.PlayerSaveData.storyComp)
+  return _internal_storycomp();
+}
+inline void PlayerSaveData::unsafe_arena_set_allocated_storycomp(
+    ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.storycomp_);
+  }
+  _impl_.storycomp_ = reinterpret_cast<::ServerProto::StoryCompBin*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000400U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000400U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ServerProto.PlayerSaveData.storyComp)
+}
+inline ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE PlayerSaveData::release_storycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000400U);
+  ::ServerProto::StoryCompBin* released = _impl_.storycomp_;
+  _impl_.storycomp_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::ServerProto::StoryCompBin* PROTOBUF_NULLABLE PlayerSaveData::unsafe_arena_release_storycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:ServerProto.PlayerSaveData.storyComp)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000400U);
+  ::ServerProto::StoryCompBin* temp = _impl_.storycomp_;
+  _impl_.storycomp_ = nullptr;
+  return temp;
+}
+inline ::ServerProto::StoryCompBin* PROTOBUF_NONNULL PlayerSaveData::_internal_mutable_storycomp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.storycomp_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::ServerProto::StoryCompBin>(GetArena());
+    _impl_.storycomp_ = reinterpret_cast<::ServerProto::StoryCompBin*>(p);
+  }
+  return _impl_.storycomp_;
+}
+inline ::ServerProto::StoryCompBin* PROTOBUF_NONNULL PlayerSaveData::mutable_storycomp()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000400U);
+  ::ServerProto::StoryCompBin* _msg = _internal_mutable_storycomp();
+  // @@protoc_insertion_point(field_mutable:ServerProto.PlayerSaveData.storyComp)
+  return _msg;
+}
+inline void PlayerSaveData::set_allocated_storycomp(::ServerProto::StoryCompBin* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.storycomp_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000400U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000400U);
+  }
+
+  _impl_.storycomp_ = reinterpret_cast<::ServerProto::StoryCompBin*>(value);
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.storyComp)
 }
 
 // -------------------------------------------------------------------

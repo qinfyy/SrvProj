@@ -12,6 +12,7 @@
 #include "InventoryMgr.h"
 #include "MailMgr.h"
 #include "QuestMgr.h"
+#include "StoryMgr.h"
 #include "TowerMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
@@ -199,6 +200,7 @@ void Player::InitManagers()
     mBattlePassMgr = std::make_unique<BattlePassMgr>(this);
     mFormationMgr = std::make_unique<FormationMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
+    mStoryMgr = std::make_unique<StoryMgr>(this);
     mTowerMgr = std::make_unique<TowerMgr>(this);
 }
 
@@ -276,6 +278,7 @@ void Player::OnCreate()
     mBattlePassMgr->OnCreate();
     mFormationMgr->OnCreate();
     mQuestMgr->OnCreate();
+    mStoryMgr->OnCreate();
     mTowerMgr->OnCreate();
 }
 
@@ -303,6 +306,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
     mBattlePassMgr->OnLoad();
     mFormationMgr->OnLoad();
     mQuestMgr->OnLoad();
+    mStoryMgr->OnLoad();
     mTowerMgr->OnLoad();
     return true;
 }
@@ -318,6 +322,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
     mBattlePassMgr->BeforeSave();
     mFormationMgr->BeforeSave();
     mQuestMgr->BeforeSave();
+    mStoryMgr->BeforeSave();
     mTowerMgr->BeforeSave();
 
     std::vector<uint8_t> out(mPlayerSaveData.ByteSizeLong());
@@ -342,6 +347,7 @@ proto::PlayerInfo Player::ToProto()
     mQuestMgr->EncodePlayerInfo(info);
     mTowerMgr->EncodePlayerInfo(info);
     EncodeMinimalSystems(info);
+    mStoryMgr->EncodePlayerInfo(info);
 
     return info;
 }
@@ -363,6 +369,7 @@ void Player::OnLogin()
     mBattlePassMgr->OnLogin();
     mFormationMgr->OnLogin();
     mQuestMgr->OnLogin();
+    mStoryMgr->OnLogin();
     mTowerMgr->OnLogin();
     QueueBattlePassUnlockNotify(oldLevel);
 }
@@ -576,6 +583,16 @@ const MailMgr& Player::Mails() const
     return *mMailMgr;
 }
 
+StoryMgr& Player::Stories()
+{
+    return *mStoryMgr;
+}
+
+const StoryMgr& Player::Stories() const
+{
+    return *mStoryMgr;
+}
+
 void Player::Trigger(uint32_t condition, uint32_t progress, uint32_t param1, uint32_t param2)
 {
     mQuestMgr->Trigger(condition, progress, param1, param2);
@@ -625,7 +642,7 @@ bool Player::SetWorldLevel(uint32_t level)
     notify.set_lastexp(0);
     PushNextPackage(world_class_number_notify, notify);
 
-    Trigger(71, level, level, 0);
+    Trigger(71, level, 0, 0);
     QueueBattlePassUnlockNotify(oldLevel);
     return true;
 }
@@ -1127,8 +1144,6 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     // titles/honorlist/formation 已由 InventoryMgr/FormationMgr 编码，这里不要重复添加。
     info.mutable_agent();
     info.mutable_phone()->set_newmessage(Characters().GetNewPhoneMessageCount());
-    info.mutable_story();
-
     // TraceHunt 占位：只保证字段存在，完整玩法未实现。
     info.mutable_huntpermit()->set_tid(GameConstants::TraceHuntPermitItemId);
     info.mutable_tracerequest()->set_tid(GameConstants::TraceHuntRequestItemId);
@@ -1289,7 +1304,4 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     handbookDiscs->set_type(2);
     handbookDiscs->set_data(BuildHandbookFlag(2, {}));
 
-    auto* handbookCg = info.add_handbook();
-    handbookCg->set_type(3);
-    handbookCg->set_data(BuildHandbookFlag(3, {}));
 }

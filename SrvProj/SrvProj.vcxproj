@@ -181,6 +181,7 @@
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\ManagerBase.cpp" />
     <ClCompile Include="Game\QuestMgr.cpp" />
+    <ClCompile Include="Game\StoryMgr.cpp" />
     <ClCompile Include="Game\StarTowerMgr.cpp" />
     <ClCompile Include="Game\TowerCases.cpp" />
     <ClCompile Include="Game\TowerMgr.cpp" />
@@ -198,6 +199,7 @@
     <ClCompile Include="Handlers\Mall.cpp" />
     <ClCompile Include="Handlers\PlayerHandler.cpp" />
     <ClCompile Include="Handlers\Quest.cpp" />
+    <ClCompile Include="Handlers\Story.cpp" />
     <ClCompile Include="Handlers\Tower.cpp" />
     <ClCompile Include="HttpMessage.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -551,6 +553,7 @@
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\ManagerBase.h" />
     <ClInclude Include="Game\QuestMgr.h" />
+    <ClInclude Include="Game\StoryMgr.h" />
     <ClInclude Include="Game\StarTowerMgr.h" />
     <ClInclude Include="Game\TowerCases.h" />
     <ClInclude Include="Game\TowerMgr.h" />
@@ -568,6 +571,7 @@
     <ClInclude Include="Handlers\Mall.h" />
     <ClInclude Include="Handlers\PlayerHandler.h" />
     <ClInclude Include="Handlers\Quest.h" />
+    <ClInclude Include="Handlers\Story.h" />
     <ClInclude Include="Handlers\Tower.h" />
     <ClInclude Include="HttpMessage.h" />
     <ClInclude Include="Logger.h" />

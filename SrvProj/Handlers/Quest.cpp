@@ -174,11 +174,7 @@ std::string client_event_report_req__Handler(GameSession* session, const std::st
         return EncodeReply(session, client_event_report_failed_ack);
     }
 
-    proto::Events events;
-    if (!req.empty() && events.ParseFromString(req))
-    {
-        session->GetPlayer()->Achievements().HandleClientEvents(events);
-    }
+    session->GetPlayer()->Trigger(200, 1, 1005, 0);
 
     session->SavePlayer();
     return EncodeReply(session, client_event_report_succeed_ack);

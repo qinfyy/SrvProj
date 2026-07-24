@@ -527,7 +527,6 @@ bool InventoryMgr::AddSkin(uint32_t id, proto::ChangeInfo* change)
     proto::Skin notify;
     notify.mutable_new_()->set_value(id);
     GetPlayer()->PushNextPackage(character_skin_gain_notify, notify);
-    GetPlayer()->Trigger(61, 1, id, 0);
     return true;
 }
 
@@ -682,7 +681,7 @@ bool InventoryMgr::Produce(uint32_t id, uint32_t count, proto::ChangeInfo& chang
     }
 
     AddItem(static_cast<uint32_t>(dataIt->second.ProductionId), static_cast<int64_t>(dataIt->second.ProductionPerBatch) * count, &change);
-    GetPlayer()->Trigger(73, count, 0, 0);
+    GetPlayer()->Trigger(50, count, 0, 0);
     return true;
 }
 

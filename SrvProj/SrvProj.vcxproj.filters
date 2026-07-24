@@ -252,6 +252,9 @@
     <ClCompile Include="Game\QuestMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\StoryMgr.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Resources\BinClass\TutorialsRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
@@ -277,6 +280,9 @@
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
     <ClCompile Include="Handlers\Quest.cpp">
+      <Filter>源文件\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Handlers\Story.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
     <ClCompile Include="Handlers\Tower.cpp">
@@ -1187,6 +1193,9 @@
     <ClInclude Include="Handlers\Quest.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
+    <ClInclude Include="Handlers\Story.h">
+      <Filter>头文件\Handlers</Filter>
+    </ClInclude>
     <ClInclude Include="Handlers\Tower.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
@@ -1329,6 +1338,9 @@
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\QuestMgr.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StoryMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\DiscRes.h">

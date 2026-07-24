@@ -329,7 +329,7 @@ void AchievementMgr::TriggerAchievementTotalIfNeeded(bool completed)
     }
 
     mUpdatingAchievementTotal = true;
-    Trigger(2, GetCompletedAchievementsCount(), 0, 0);
+    GetPlayer()->Trigger(2, GetCompletedAchievementsCount(), 0, 0);
     mUpdatingAchievementTotal = false;
 }
 
@@ -505,7 +505,6 @@ void AchievementMgr::HandleClientEvents(const proto::Events& events)
 
 bool AchievementMgr::ClaimRewards(const google::protobuf::RepeatedField<uint32_t>& ids, proto::ChangeInfo& out)
 {
-    bool claimed = false;
     for (uint32_t id : ids)
     {
         auto* achievement = FindAchievement(id);
@@ -521,11 +520,9 @@ bool AchievementMgr::ClaimRewards(const google::protobuf::RepeatedField<uint32_t
 
         achievement->set_claimed(true);
         achievement->set_status(2);
-        SyncAchievement(*achievement);
-        claimed = true;
     }
 
-    return claimed;
+    return ids.size() > 0;
 }
 
 void AchievementMgr::PushFirstLoginNotificationsBeforeSignin()

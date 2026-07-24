@@ -1,5 +1,6 @@
 ﻿#include "CharacterMgr.h"
 
+#include "AchievementMgr.h"
 #include "Bitset.h"
 #include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
@@ -240,8 +241,18 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
 
     NormalizeCharacter(*charInfo);
     SortCharacters();
-    GetPlayer()->Trigger(5, 1, static_cast<uint32_t>(data.Id), 0);
+
+    uint32_t masterCount = 0;
+    for (const auto& character : Bin().charinfolist())
+    {
+        const auto dataIt = GameData::CharacterDataTable.find(character.charid());
+        if (dataIt != GameData::CharacterDataTable.end() && dataIt->second.Grade == 1)
+        {
+            ++masterCount;
+        }
+    }
     GetPlayer()->Trigger(20, static_cast<uint32_t>(Bin().charinfolist_size()), 0, 0);
+    GetPlayer()->Trigger(20, masterCount, 1, 0);
     TriggerCharacterAchievements(*charInfo);
     return GetCharacterById(data.Id);
 }
@@ -318,8 +329,6 @@ ServerProto::GameDiscInfoBin* CharacterStor::AddDisc(const DiscRes& data)
     disc->set_createtime(GameTime::NowSeconds());
     NormalizeDisc(*disc);
     SortDiscs();
-    GetPlayer()->Trigger(28, 1, static_cast<uint32_t>(data.Id), 0);
-    GetPlayer()->Trigger(30, static_cast<uint32_t>(Bin().gamedisclist_size()), static_cast<uint32_t>(disc->level()), 0);
     return GetDiscById(data.Id);
 }
 
@@ -478,7 +487,7 @@ bool CharacterStor::ApplyDiscCommandProperties(ServerProto::GameDiscInfoBin& dis
     if (changed)
     {
         NormalizeDisc(disc);
-        GetPlayer()->Trigger(35, 1, static_cast<uint32_t>(disc.discid()), 0);
+        GetPlayer()->Trigger(35, 1, 0, 0);
     }
 
     return changed;
@@ -522,10 +531,10 @@ void CharacterStor::TriggerCharacterAchievements(const ServerProto::CharacterInf
         }
     }
 
-    GetPlayer()->Trigger(16, static_cast<uint32_t>(anyCount), character.level(), 0);
+    GetPlayer()->Achievements().Trigger(16, static_cast<uint32_t>(anyCount), character.level(), 0);
     if (element > 0)
     {
-        GetPlayer()->Trigger(17, static_cast<uint32_t>(sameElementCount), character.level(), static_cast<uint32_t>(element));
+        GetPlayer()->Achievements().Trigger(17, static_cast<uint32_t>(sameElementCount), character.level(), static_cast<uint32_t>(element));
     }
 }
 
@@ -584,7 +593,7 @@ bool CharacterStor::UpgradeCharacter(uint32_t charId, const ItemParamMap& items,
 
     if (character->level() > oldLevel)
     {
-        GetPlayer()->Trigger(12, character->level() - oldLevel, character->charid(), 0);
+        GetPlayer()->Trigger(12, character->level() - oldLevel, 0, 0);
         TriggerCharacterAchievements(*character);
     }
 
@@ -628,7 +637,7 @@ bool CharacterStor::AdvanceCharacter(uint32_t charId, proto::ChangeInfo& change)
     }
 
     NormalizeCharacter(*character);
-    GetPlayer()->Trigger(7, 1, character->charid(), 0);
+    GetPlayer()->Achievements().Trigger(7, 1, 0, 0);
     return true;
 }
 
@@ -746,10 +755,35 @@ bool CharacterStor::SendAffinityGift(uint32_t charId, const ItemParamMap& items,
         character->set_affinityexp(0);
     }
 
-    GetPlayer()->Trigger(45, static_cast<uint32_t>(count), character->charid(), 0);
+    GetPlayer()->Trigger(45, static_cast<uint32_t>(count), 0, 0);
     out.mutable_change()->CopyFrom(change);
     out.mutable_info()->CopyFrom(ToAffinityProto(*character));
     out.set_sendgiftcnt(static_cast<uint32_t>(count));
+    return true;
+}
+
+bool CharacterStor::ReceivePlotReward(uint32_t plotId, proto::ChangeInfo& change)
+{
+    const auto plotIt = GameData::PlotDataTable.find(static_cast<int>(plotId));
+    if (plotIt == GameData::PlotDataTable.end())
+    {
+        return false;
+    }
+
+    auto* character = GetCharacterById(plotIt->second.Char);
+    if (!character || character->charid() != static_cast<uint32_t>(plotIt->second.Char) ||
+        character->affinitylevel() < static_cast<uint32_t>(std::max(plotIt->second.UnlockAffinityLevel, 0)))
+    {
+        return false;
+    }
+
+    if (std::find(character->plots().begin(), character->plots().end(), plotId) != character->plots().end())
+    {
+        return false;
+    }
+
+    character->add_plots(plotId);
+    GetPlayer()->Inventory().AddItems(plotIt->second.RewardItems, &change);
     return true;
 }
 
@@ -932,7 +966,7 @@ bool CharacterStor::StrengthenDisc(uint32_t discId, const ItemParamMap& items, p
 
     if (disc->level() > oldLevel)
     {
-        GetPlayer()->Trigger(35, static_cast<uint32_t>(disc->level() - oldLevel), disc->discid(), 0);
+        GetPlayer()->Trigger(35, static_cast<uint32_t>(disc->level() - oldLevel), 0, 0);
     }
 
     out.set_level(static_cast<uint32_t>(disc->level()));
@@ -964,7 +998,7 @@ bool CharacterStor::PromoteDisc(uint32_t discId, proto::DiscPromoteResp& out)
     }
 
     disc->set_phase(disc->phase() + 1);
-    GetPlayer()->Trigger(34, 1, disc->discid(), 0);
+    GetPlayer()->Achievements().Trigger(34, 1, 0, 0);
     out.set_phase(static_cast<uint32_t>(disc->phase()));
     out.mutable_change()->CopyFrom(change);
     return true;
@@ -1297,6 +1331,11 @@ proto::Char CharacterStor::ToProto(const ServerProto::CharacterInfo& characterIn
     for (uint32_t skill : characterInfo.skills())
     {
         cliChar.add_skilllvs(skill);
+    }
+
+    for (uint32_t plotId : characterInfo.plots())
+    {
+        cliChar.add_plots(plotId);
     }
 
     auto* presets = cliChar.mutable_chargempresets();

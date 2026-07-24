@@ -11,6 +11,7 @@
 #include "Login.h"
 #include "Activity.h"
 #include "Quest.h"
+#include "Story.h"
 #include "PlayerHandler.h"
 #include "Mail.h"
 #include "Gacha.h"
@@ -87,6 +88,11 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {achievement_info_req, achievement_info_req__Handler},
     {achievement_reward_receive_req, achievement_reward_receive_req__Handler},
     {client_event_report_req, client_event_report_req__Handler},
+    {plot_reward_receive_req, plot_reward_receive_req__Handler},
+    {story_apply_req, story_apply_req__Handler},
+    {story_settle_req, story_settle_req__Handler},
+    {story_set_info_req, story_set_info_req__Handler},
+    {story_set_reward_receive_req, story_set_reward_receive_req__Handler},
     {mail_list_req, mail_list_req__Handler},
     {mail_read_req, mail_read_req__Handler},
     {mail_recv_req, mail_recv_req__Handler},

@@ -867,9 +867,9 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
             info.set_qty(count);
             ChangeInfoUtil::AddProp(*change, info);
         }
-        if (count > 0 && change && Manager && Manager->GetPlayer())
+        if (count > 0 && Manager && Manager->GetPlayer())
         {
-            Manager->GetPlayer()->Trigger(513, static_cast<uint32_t>(count), id, 0);
+            Manager->GetPlayer()->Achievements().Trigger(513, static_cast<uint32_t>(count), id, 0);
         }
         return true;
     }
@@ -910,9 +910,9 @@ bool Game::AddRuntimeItem(uint32_t id, int count, proto::ChangeInfo* change)
         info.set_qty(count);
         ChangeInfoUtil::AddProp(*change, info);
     }
-    if (count > 0 && change && Manager && Manager->GetPlayer())
+    if (count > 0 && Manager && Manager->GetPlayer())
     {
-        Manager->GetPlayer()->Trigger(513, static_cast<uint32_t>(count), id, 0);
+        Manager->GetPlayer()->Achievements().Trigger(513, static_cast<uint32_t>(count), id, 0);
     }
     if (count > 0 && change)
     {
@@ -1578,7 +1578,7 @@ void Game::RefreshSecondarySkills(proto::TowerChangeData* data)
 
         if (newSecondaryCount > 0 && Manager && Manager->GetPlayer())
         {
-            Manager->GetPlayer()->Trigger(536, newSecondaryCount, 0, 0);
+            Manager->GetPlayer()->Achievements().Trigger(536, newSecondaryCount, 0, 0);
         }
     }
 
@@ -1716,7 +1716,7 @@ bool Game::EnterNextRoom()
 
     if (Manager && Manager->GetPlayer())
     {
-        Manager->GetPlayer()->Trigger(509, 1, static_cast<uint32_t>(roomType) + 1, 0);
+        Manager->GetPlayer()->Achievements().Trigger(509, 1, static_cast<uint32_t>(roomType) + 1, 0);
     }
     Room->OnEnter();
     return true;
@@ -1825,8 +1825,8 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
 
         if (Manager->GetPlayer())
         {
-            Manager->GetPlayer()->Trigger(508, 1, 0, 0);
-            Manager->GetPlayer()->Trigger(507, 1, TowerId, 0);
+            Manager->GetPlayer()->Achievements().Trigger(508, 1, 0, 0);
+            Manager->GetPlayer()->Achievements().Trigger(507, 1, TowerId, 0);
 
             int elementType = 0;
             bool sameElement = !CharIds.empty();
@@ -1850,7 +1850,7 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
             }
             if (sameElement && elementType > 0)
             {
-                Manager->GetPlayer()->Trigger(505, 1, static_cast<uint32_t>(elementType), 0);
+                Manager->GetPlayer()->Achievements().Trigger(505, 1, static_cast<uint32_t>(elementType), 0);
             }
 
             const uint32_t diff = GetDifficulty();
@@ -1863,7 +1863,7 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
                     ++totalDiffClears;
                 }
             }
-            Manager->GetPlayer()->Trigger(506, totalDiffClears, diff, 0);
+            Manager->GetPlayer()->Achievements().Trigger(506, totalDiffClears, diff, 0);
 
             if (std::find(Manager->Bin().startowerlog().begin(), Manager->Bin().startowerlog().end(), 401u) != Manager->Bin().startowerlog().end() &&
                 Manager->Bin().startowerlog_size() >= 2)

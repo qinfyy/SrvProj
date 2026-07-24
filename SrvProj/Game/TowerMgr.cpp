@@ -1,5 +1,6 @@
 ﻿#include "TowerMgr.h"
 
+#include "AchievementMgr.h"
 #include "CharacterMgr.h"
 #include "ChangeInfoUtil.h"
 #include "FormationMgr.h"
@@ -100,6 +101,23 @@ void TowerMgr::OnCreate()
 
 void TowerMgr::OnLoad()
 {
+    std::vector<uint32_t> uniqueTowerIds;
+    uniqueTowerIds.reserve(static_cast<size_t>(Bin().startowerlog_size()));
+    for (uint32_t towerId : Bin().startowerlog())
+    {
+        if (std::find(uniqueTowerIds.begin(), uniqueTowerIds.end(), towerId) == uniqueTowerIds.end())
+        {
+            uniqueTowerIds.push_back(towerId);
+        }
+    }
+
+    auto* towerLog = MutableBin()->mutable_startowerlog();
+    towerLog->Clear();
+    for (uint32_t towerId : uniqueTowerIds)
+    {
+        towerLog->Add(towerId);
+    }
+
     InitializeDefaults();
     LoadCurrentGame();
 }
@@ -541,7 +559,7 @@ bool TowerMgr::SaveLastBuild(bool removeBuild, const std::string& name, bool loc
         }
         if (rankRarity > 0)
         {
-            GetPlayer()->Trigger(504, 1, static_cast<uint32_t>(rankRarity), 0);
+            GetPlayer()->Achievements().Trigger(504, 1, static_cast<uint32_t>(rankRarity), 0);
         }
         mBuilds.push_back(std::move(saved));
     }
