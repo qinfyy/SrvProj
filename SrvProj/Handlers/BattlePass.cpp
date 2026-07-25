@@ -12,10 +12,6 @@
 #include "../proto/proto_cpp/public.pb.h"
 
 namespace {
-bool HasLoggedInPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
 
 bool ParseOptionalUI32(const std::string& req, uint32_t& out)
 {
@@ -38,7 +34,7 @@ bool ParseOptionalUI32(const std::string& req, uint32_t& out)
 
 std::string battle_pass_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, battle_pass_info_failed_ack);
     }
@@ -49,7 +45,7 @@ std::string battle_pass_info_req__Handler(GameSession* session, const std::strin
 
 std::string battle_pass_quest_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, battle_pass_quest_reward_receive_failed_ack);
     }
@@ -79,7 +75,7 @@ std::string battle_pass_quest_reward_receive_req__Handler(GameSession* session, 
 
 std::string battle_pass_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, battle_pass_reward_receive_failed_ack);
     }
@@ -102,7 +98,7 @@ std::string battle_pass_reward_receive_req__Handler(GameSession* session, const 
 
 std::string battle_pass_level_buy_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, battle_pass_level_buy_failed_ack);
     }
@@ -125,7 +121,7 @@ std::string battle_pass_level_buy_req__Handler(GameSession* session, const std::
 
 std::string battle_pass_order_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, battle_pass_order_failed_ack);
     }
@@ -148,7 +144,7 @@ std::string battle_pass_order_req__Handler(GameSession* session, const std::stri
 
 std::string battle_pass_order_collect_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, battle_pass_order_collect_failed_ack);
     }

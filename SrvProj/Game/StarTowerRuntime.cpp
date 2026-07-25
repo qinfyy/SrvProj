@@ -8,6 +8,7 @@
 #include "StarTowerMgr.h"
 #include "AchievementMgr.h"
 #include "../GameConstants.h"
+#include "../Util.h"
 #include "../Game/ChangeInfoUtil.h"
 #include "../Resources/BinClass/CharacterRes.h"
 #include "../Resources/BinClass/ItemsRes.h"
@@ -35,29 +36,6 @@ constexpr size_t kStarTowerCharSlotCount = 3;
 constexpr size_t kStarTowerDiscSlotCount = 6;
 constexpr uint32_t kInvalidStarTowerHp = (std::numeric_limits<uint32_t>::max)();
 
-double RandomDouble()
-{
-    static thread_local std::mt19937 rng{ std::random_device{}() };
-    std::uniform_real_distribution<double> dist(0.0, 1.0);
-    return dist(rng);
-}
-
-bool RandomChance(double chance)
-{
-    return chance > 0.0 && RandomDouble() < chance;
-}
-
-int RandomInt(int minValue, int maxValue)
-{
-    if (maxValue <= minValue)
-    {
-        return minValue;
-    }
-
-    static thread_local std::mt19937 rng{ std::random_device{}() };
-    std::uniform_int_distribution<int> dist(minValue, maxValue);
-    return dist(rng);
-}
 
 template<typename T>
 T* FindMutablePairValue(std::vector<std::pair<uint32_t, T>>& items, uint32_t id)

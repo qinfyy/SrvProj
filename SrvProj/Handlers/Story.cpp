@@ -13,15 +13,11 @@
 #include "../proto/proto_cpp/story_sett.pb.h"
 
 namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
 }
 
 std::string story_apply_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, story_apply_failed_ack);
     }
@@ -38,7 +34,7 @@ std::string story_apply_req__Handler(GameSession* session, const std::string& re
 
 std::string story_settle_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, story_settle_failed_ack);
     }
@@ -58,7 +54,7 @@ std::string story_settle_req__Handler(GameSession* session, const std::string& r
 
 std::string story_set_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, story_set_info_failed_ack);
     }
@@ -70,7 +66,7 @@ std::string story_set_info_req__Handler(GameSession* session, const std::string&
 
 std::string story_set_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, story_set_reward_receive_failed_ack);
     }
@@ -89,7 +85,7 @@ std::string story_set_reward_receive_req__Handler(GameSession* session, const st
 
 std::string plot_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, plot_reward_receive_failed_ack);
     }

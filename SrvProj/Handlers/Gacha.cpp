@@ -18,10 +18,6 @@
 #include <optional>
 
 namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer();
-}
 
 std::optional<uint32_t> ResolveGachaAmount(uint32_t mode)
 {
@@ -117,7 +113,7 @@ bool HasProtoField(const std::string& data, uint32_t fieldNumber)
 
 std::string gacha_spin_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_spin_failed_ack);
     }
@@ -146,7 +142,7 @@ std::string gacha_spin_req__Handler(GameSession* session, const std::string& req
 
 std::string gacha_information_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_information_failed_ack);
     }
@@ -158,7 +154,7 @@ std::string gacha_information_req__Handler(GameSession* session, const std::stri
 
 std::string gacha_histories_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_histories_failed_ack);
     }
@@ -180,7 +176,7 @@ std::string gacha_histories_req__Handler(GameSession* session, const std::string
 
 std::string gacha_guarantee_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_guarantee_reward_receive_failed_ack);
     }
@@ -203,7 +199,7 @@ std::string gacha_guarantee_reward_receive_req__Handler(GameSession* session, co
 
 std::string gacha_newbie_spin_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_newbie_spin_failed_ack);
     }
@@ -231,7 +227,7 @@ std::string gacha_newbie_spin_req__Handler(GameSession* session, const std::stri
 
 std::string gacha_newbie_save_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_newbie_save_failed_ack);
     }
@@ -259,7 +255,7 @@ std::string gacha_newbie_save_req__Handler(GameSession* session, const std::stri
 
 std::string gacha_newbie_obtain_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_newbie_obtain_failed_ack);
     }
@@ -282,7 +278,7 @@ std::string gacha_newbie_obtain_req__Handler(GameSession* session, const std::st
 
 std::string gacha_newbie_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gacha_newbie_info_failed_ack);
     }

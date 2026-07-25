@@ -13,10 +13,6 @@
 #include <vector>
 
 namespace {
-bool HasLoggedInPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
 
 bool ParseOptionalUI32(const std::string& req, uint32_t& out)
 {
@@ -39,7 +35,7 @@ bool ParseOptionalUI32(const std::string& req, uint32_t& out)
 
 std::string quest_daily_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, quest_daily_reward_receive_failed_ack);
     }
@@ -62,7 +58,7 @@ std::string quest_daily_reward_receive_req__Handler(GameSession* session, const 
 
 std::string quest_weekly_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, quest_weekly_reward_receive_failed_ack);
     }
@@ -85,7 +81,7 @@ std::string quest_weekly_reward_receive_req__Handler(GameSession* session, const
 
 std::string quest_daily_active_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, quest_daily_active_reward_receive_failed_ack);
     }
@@ -110,7 +106,7 @@ std::string quest_daily_active_reward_receive_req__Handler(GameSession* session,
 
 std::string quest_weekly_active_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, quest_weekly_active_reward_receive_failed_ack);
     }
@@ -135,7 +131,7 @@ std::string quest_weekly_active_reward_receive_req__Handler(GameSession* session
 
 std::string achievement_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, achievement_info_failed_ack);
     }
@@ -146,7 +142,7 @@ std::string achievement_info_req__Handler(GameSession* session, const std::strin
 
 std::string achievement_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, achievement_reward_receive_failed_ack);
     }
@@ -169,7 +165,7 @@ std::string achievement_reward_receive_req__Handler(GameSession* session, const 
 
 std::string client_event_report_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, client_event_report_failed_ack);
     }
@@ -182,7 +178,7 @@ std::string client_event_report_req__Handler(GameSession* session, const std::st
 
 std::string daily_shop_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, daily_shop_reward_receive_failed_ack);
     }
@@ -199,7 +195,7 @@ std::string daily_shop_reward_receive_req__Handler(GameSession* session, const s
 
 std::string daily_mall_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, daily_mall_reward_receive_failed_ack);
     }

@@ -37,15 +37,11 @@
 #include "../proto/proto_cpp/tower_growth_node_unlock.pb.h"
 
 namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
 }
 
 std::string player_formation_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_formation_failed_ack);
     }
@@ -67,7 +63,7 @@ std::string player_formation_req__Handler(GameSession* session, const std::strin
 
 std::string potential_preselection_list_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, potential_preselection_list_failed_ack);
     }
@@ -79,7 +75,7 @@ std::string potential_preselection_list_req__Handler(GameSession* session, const
 
 std::string potential_preselection_import_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, potential_preselection_import_failed_ack);
     }
@@ -102,7 +98,7 @@ std::string potential_preselection_import_req__Handler(GameSession* session, con
 
 std::string potential_preselection_name_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, potential_preselection_name_set_failed_ack);
     }
@@ -119,7 +115,7 @@ std::string potential_preselection_name_set_req__Handler(GameSession* session, c
 
 std::string potential_preselection_preference_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, potential_preselection_preference_set_failed_ack);
     }
@@ -136,7 +132,7 @@ std::string potential_preselection_preference_set_req__Handler(GameSession* sess
 
 std::string potential_preselection_update_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, potential_preselection_update_failed_ack);
     }
@@ -159,7 +155,7 @@ std::string potential_preselection_update_req__Handler(GameSession* session, con
 
 std::string potential_preselection_delete_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, potential_preselection_delete_failed_ack);
     }
@@ -176,7 +172,7 @@ std::string potential_preselection_delete_req__Handler(GameSession* session, con
 
 std::string star_tower_build_brief_list_get_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_brief_list_get_failed_ack);
     }
@@ -188,7 +184,7 @@ std::string star_tower_build_brief_list_get_req__Handler(GameSession* session, c
 
 std::string star_tower_apply_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_apply_failed_ack);
     }
@@ -211,7 +207,7 @@ std::string star_tower_apply_req__Handler(GameSession* session, const std::strin
 
 std::string star_tower_build_delete_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_delete_failed_ack);
     }
@@ -230,7 +226,7 @@ std::string star_tower_build_delete_req__Handler(GameSession* session, const std
 
 std::string star_tower_build_detail_get_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_detail_get_failed_ack);
     }
@@ -252,7 +248,7 @@ std::string star_tower_build_detail_get_req__Handler(GameSession* session, const
 
 std::string star_tower_build_lock_unlock_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_lock_unlock_failed_ack);
     }
@@ -269,7 +265,7 @@ std::string star_tower_build_lock_unlock_req__Handler(GameSession* session, cons
 
 std::string star_tower_build_name_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_name_set_failed_ack);
     }
@@ -286,7 +282,7 @@ std::string star_tower_build_name_set_req__Handler(GameSession* session, const s
 
 std::string star_tower_build_preference_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_preference_set_failed_ack);
     }
@@ -303,7 +299,7 @@ std::string star_tower_build_preference_set_req__Handler(GameSession* session, c
 
 std::string star_tower_build_whether_save_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_build_whether_save_failed_ack);
     }
@@ -327,7 +323,7 @@ std::string star_tower_build_whether_save_req__Handler(GameSession* session, con
 
 std::string star_tower_give_up_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_give_up_failed_ack);
     }
@@ -344,7 +340,7 @@ std::string star_tower_give_up_req__Handler(GameSession* session, const std::str
 
 std::string star_tower_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_info_failed_ack);
     }
@@ -360,7 +356,7 @@ std::string star_tower_info_req__Handler(GameSession* session, const std::string
 
 std::string star_tower_interact_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_interact_failed_ack);
     }
@@ -383,7 +379,7 @@ std::string star_tower_interact_req__Handler(GameSession* session, const std::st
 
 std::string star_tower_book_potential_brief_list_get_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_book_potential_brief_list_get_failed_ack);
     }
@@ -399,7 +395,7 @@ std::string star_tower_book_potential_brief_list_get_req__Handler(GameSession* s
 
 std::string star_tower_book_char_potential_get_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_book_char_potential_get_failed_ack);
     }
@@ -421,7 +417,7 @@ std::string star_tower_book_char_potential_get_req__Handler(GameSession* session
 
 std::string star_tower_book_potential_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_book_potential_reward_receive_failed_ack);
     }
@@ -444,7 +440,7 @@ std::string star_tower_book_potential_reward_receive_req__Handler(GameSession* s
 
 std::string star_tower_book_event_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, star_tower_book_event_reward_receive_failed_ack);
     }
@@ -467,7 +463,7 @@ std::string star_tower_book_event_reward_receive_req__Handler(GameSession* sessi
 
 std::string tower_book_fate_card_detail_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, tower_book_fate_card_detail_failed_ack);
     }
@@ -479,7 +475,7 @@ std::string tower_book_fate_card_detail_req__Handler(GameSession* session, const
 
 std::string tower_book_fate_card_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, tower_book_fate_card_reward_receive_failed_ack);
     }
@@ -502,7 +498,7 @@ std::string tower_book_fate_card_reward_receive_req__Handler(GameSession* sessio
 
 std::string npc_affinity_book_get_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, npc_affinity_book_get_failed_ack);
     }
@@ -518,7 +514,7 @@ std::string npc_affinity_book_get_req__Handler(GameSession* session, const std::
 
 std::string npc_affinity_plot_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, npc_affinity_plot_reward_receive_failed_ack);
     }
@@ -541,7 +537,7 @@ std::string npc_affinity_plot_reward_receive_req__Handler(GameSession* session, 
 
 std::string tower_growth_detail_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, tower_growth_detail_failed_ack);
     }
@@ -553,7 +549,7 @@ std::string tower_growth_detail_req__Handler(GameSession* session, const std::st
 
 std::string tower_growth_group_node_unlock_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, tower_growth_group_node_unlock_failed_ack);
     }
@@ -576,7 +572,7 @@ std::string tower_growth_group_node_unlock_req__Handler(GameSession* session, co
 
 std::string tower_growth_node_unlock_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, tower_growth_node_unlock_failed_ack);
     }

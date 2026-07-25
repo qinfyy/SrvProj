@@ -18,20 +18,6 @@
 #include "../proto/proto_cpp/public.pb.h"
 
 namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer();
-}
-
-void SaveAndPush(GameSession* session, const proto::ChangeInfo& change)
-{
-    if (!HasPlayer(session))
-    {
-        return;
-    }
-
-    session->SavePlayer();
-}
 
 ItemParamMap FromItemTpls(const google::protobuf::RepeatedPtrField<proto::ItemTpl>& items)
 {
@@ -46,7 +32,7 @@ ItemParamMap FromItemTpls(const google::protobuf::RepeatedPtrField<proto::ItemTp
 
 std::string char_upgrade_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_upgrade_failed_ack);
     }
@@ -63,13 +49,13 @@ std::string char_upgrade_req__Handler(GameSession* session, const std::string& r
         return EncodeReply(session, char_upgrade_failed_ack);
     }
 
-    SaveAndPush(session, response.change());
+    session->SavePlayer();
     return EncodeReply(session, char_upgrade_succeed_ack, &response);
 }
 
 std::string char_advance_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_advance_failed_ack);
     }
@@ -86,13 +72,13 @@ std::string char_advance_req__Handler(GameSession* session, const std::string& r
         return EncodeReply(session, char_advance_failed_ack);
     }
 
-    SaveAndPush(session, change);
+    session->SavePlayer();
     return EncodeReply(session, char_advance_succeed_ack, &change);
 }
 
 std::string char_skill_upgrade_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_skill_upgrade_failed_ack);
     }
@@ -109,13 +95,13 @@ std::string char_skill_upgrade_req__Handler(GameSession* session, const std::str
         return EncodeReply(session, char_skill_upgrade_failed_ack);
     }
 
-    SaveAndPush(session, change);
+    session->SavePlayer();
     return EncodeReply(session, char_skill_upgrade_succeed_ack, &change);
 }
 
 std::string char_skin_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_skin_set_failed_ack);
     }
@@ -132,7 +118,7 @@ std::string char_skin_set_req__Handler(GameSession* session, const std::string& 
 
 std::string char_affinity_gift_send_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_affinity_gift_send_failed_ack);
     }
@@ -149,13 +135,13 @@ std::string char_affinity_gift_send_req__Handler(GameSession* session, const std
         return EncodeReply(session, char_affinity_gift_send_failed_ack);
     }
 
-    SaveAndPush(session, response.change());
+    session->SavePlayer();
     return EncodeReply(session, char_affinity_gift_send_succeed_ack, &response);
 }
 
 std::string char_favorite_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_favorite_set_failed_ack);
     }
@@ -172,7 +158,7 @@ std::string char_favorite_set_req__Handler(GameSession* session, const std::stri
 
 std::string char_gem_use_preset_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_gem_use_preset_failed_ack);
     }
@@ -189,7 +175,7 @@ std::string char_gem_use_preset_req__Handler(GameSession* session, const std::st
 
 std::string char_gem_equip_gem_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_gem_equip_gem_failed_ack);
     }
@@ -206,7 +192,7 @@ std::string char_gem_equip_gem_req__Handler(GameSession* session, const std::str
 
 std::string char_gem_refresh_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_gem_refresh_failed_ack);
     }
@@ -229,7 +215,7 @@ std::string char_gem_refresh_req__Handler(GameSession* session, const std::strin
 
 std::string char_gem_replace_attribute_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_gem_replace_attribute_failed_ack);
     }
@@ -246,7 +232,7 @@ std::string char_gem_replace_attribute_req__Handler(GameSession* session, const 
 
 std::string char_gem_update_gem_lock_status_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_gem_update_gem_lock_status_failed_ack);
     }
@@ -263,7 +249,7 @@ std::string char_gem_update_gem_lock_status_req__Handler(GameSession* session, c
 
 std::string char_gem_overlock_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, char_gem_overlock_failed_ack);
     }
@@ -280,6 +266,6 @@ std::string char_gem_overlock_req__Handler(GameSession* session, const std::stri
         return EncodeReply(session, char_gem_overlock_failed_ack);
     }
 
-    SaveAndPush(session, change);
+    session->SavePlayer();
     return EncodeReply(session, char_gem_overlock_succeed_ack, &change);
 }

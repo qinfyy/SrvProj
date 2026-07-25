@@ -4,11 +4,36 @@
 #include <sstream>
 #include <span>
 #include <array>
+#include <random>
 #include <windows.h>
 #include <openssl/evp.h>
 #include <openssl/bio.h>
 #include <openssl/buffer.h>
 #include <openssl/rand.h>
+
+double RandomDouble()
+{
+    static thread_local std::mt19937 rng{ std::random_device{}() };
+    std::uniform_real_distribution<double> dist(0.0, 1.0);
+    return dist(rng);
+}
+
+int RandomInt(int minIncl, int maxIncl)
+{
+    if (maxIncl <= minIncl)
+    {
+        return minIncl;
+    }
+
+    static thread_local std::mt19937 rng{ std::random_device{}() };
+    std::uniform_int_distribution<int> dist(minIncl, maxIncl);
+    return dist(rng);
+}
+
+bool RandomChance(double chance)
+{
+    return chance > 0.0 && RandomDouble() < chance;
+}
 
 std::string Utf16ToUtf8(const std::wstring& wstr)
 {

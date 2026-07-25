@@ -1,6 +1,7 @@
 ﻿#include "QuestMgr.h"
 
 #include "AchievementMgr.h"
+#include "ChangeInfoUtil.h"
 #include "Bitset.h"
 #include "InventoryMgr.h"
 #include "Player.h"
@@ -85,18 +86,6 @@ bool Contains(const google::protobuf::RepeatedField<uint32_t>& values, uint32_t 
     return std::find(values.begin(), values.end(), value) != values.end();
 }
 
-void AddItemChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
-{
-    if (tid == 0 || qty == 0)
-    {
-        return;
-    }
-
-    proto::Item item;
-    item.set_tid(tid);
-    item.set_qty(qty);
-    change.add_props()->PackFrom(item);
-}
 
 uint32_t QuestStatus(uint32_t status, uint32_t cur, uint32_t max)
 {
@@ -163,7 +152,7 @@ proto::SigninRewardUpdate BuildSigninRewardUpdate()
 
     if (firstReward)
     {
-        AddItemChange(*update.mutable_change(), static_cast<uint32_t>(firstReward->ItemId), firstReward->ItemQty);
+        ChangeInfoUtil::AddItemChange(*update.mutable_change(), static_cast<uint32_t>(firstReward->ItemId), firstReward->ItemQty);
     }
     else
     {

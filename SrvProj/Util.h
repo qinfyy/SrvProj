@@ -5,6 +5,10 @@
 
 #define U8(str) reinterpret_cast<const char*>(u8##str)
 
+double RandomDouble();
+int RandomInt(int minIncl, int maxIncl);
+bool RandomChance(double chance);
+
 std::string Utf16ToUtf8(const std::wstring& wstr);
 
 std::wstring Utf8ToUtf16(const std::string& str);

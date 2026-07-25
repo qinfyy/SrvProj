@@ -8,16 +8,10 @@
 #include "../proto/proto_cpp/agent_give_up.pb.h"
 #include "../proto/proto_cpp/agent_reward_receive.pb.h"
 
-namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
-}
 
 std::string agent_apply_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, agent_apply_failed_ack);
     }
@@ -50,7 +44,7 @@ std::string agent_apply_req__Handler(GameSession* session, const std::string& re
 
 std::string agent_give_up_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, agent_give_up_failed_ack);
     }
@@ -73,7 +67,7 @@ std::string agent_give_up_req__Handler(GameSession* session, const std::string& 
 
 std::string agent_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, agent_reward_receive_failed_ack);
     }

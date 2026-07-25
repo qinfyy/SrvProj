@@ -7,6 +7,7 @@
 #include "StarTowerMgr.h"
 #include "StarTowerRooms.h"
 #include "../GameConstants.h"
+#include "../Util.h"
 #include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/BinClass/StarTowerRes.h"
 #include "../Resources/GameData.h"
@@ -26,29 +27,6 @@ constexpr int kStarTowerEventSubNoteLargeReward = 10;
 constexpr uint32_t kStarTowerNpcEventAffinityIncrease = 100;
 constexpr int kStarTowerSubNoteSkillItemSubType = 19;
 
-double RandomDouble()
-{
-    static thread_local std::mt19937 rng{ std::random_device{}() };
-    std::uniform_real_distribution<double> dist(0.0, 1.0);
-    return dist(rng);
-}
-
-bool RandomChance(double chance)
-{
-    return chance > 0.0 && RandomDouble() < chance;
-}
-
-int RandomInt(int minValue, int maxValue)
-{
-    if (maxValue <= minValue)
-    {
-        return minValue;
-    }
-
-    static thread_local std::mt19937 rng{ std::random_device{}() };
-    std::uniform_int_distribution<int> dist(minValue, maxValue);
-    return dist(rng);
-}
 }
 
 void StarTowerCaseBase::Register(StarTowerRoom* room, uint32_t id)

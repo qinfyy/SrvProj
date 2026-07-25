@@ -41,4 +41,5 @@ namespace ChangeInfoUtil
     void AddTitle(proto::ChangeInfo& change, uint32_t titleId);
     void AddHonor(proto::ChangeInfo& change, uint32_t honorId, uint32_t level = 0);
     void AddHeadIcon(proto::ChangeInfo& change, uint32_t tid);
+    void AddItemChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty);
 }

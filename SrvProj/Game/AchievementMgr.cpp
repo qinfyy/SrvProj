@@ -21,18 +21,6 @@
 #endif
 
 namespace {
-void AddItemChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
-{
-    if (tid == 0 || qty == 0)
-    {
-        return;
-    }
-
-    proto::Item item;
-    item.set_tid(tid);
-    item.set_qty(qty);
-    change.add_props()->PackFrom(item);
-}
 
 bool IsIncrementalCondition(uint32_t condition)
 {

@@ -61,6 +61,7 @@ private:
     const CommandRegEntry* FindCommand(const std::string& label) const;
 
     static std::vector<std::string> Split(const std::string& input);
-    static int64_t ParseInt64(const std::string& text, int64_t fallback = 0);
-    static std::string ToLower(std::string text);
 };
+
+int64_t ParseInt64(const std::string& text, int64_t fallback = 0);
+std::string ToLower(std::string text);

@@ -25,15 +25,11 @@
 namespace {
 constexpr uint32_t kErrConfig = 119902;
 
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
 }
 
 std::string player_learn_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!session || !session->HasPlayer() || !session->GetPlayer())
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_learn_failed_ack);
     }
@@ -81,7 +77,7 @@ std::string player_signature_edit_req__Handler(GameSession* session, const std::
 
 std::string phone_contacts_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, phone_contacts_info_failed_ack);
     }
@@ -93,7 +89,7 @@ std::string phone_contacts_info_req__Handler(GameSession* session, const std::st
 
 std::string phone_contacts_report_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, phone_contacts_report_failed_ack);
     }
@@ -116,7 +112,7 @@ std::string phone_contacts_report_req__Handler(GameSession* session, const std::
 
 std::string phone_contacts_top_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, phone_contacts_top_failed_ack);
     }
@@ -133,7 +129,7 @@ std::string phone_contacts_top_req__Handler(GameSession* session, const std::str
 
 std::string player_board_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_board_set_failed_ack);
     }
@@ -150,7 +146,7 @@ std::string player_board_set_req__Handler(GameSession* session, const std::strin
 
 std::string player_chars_show_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_chars_show_failed_ack);
     }
@@ -167,7 +163,7 @@ std::string player_chars_show_req__Handler(GameSession* session, const std::stri
 
 std::string player_gender_edit_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_gender_edit_failed_ack);
     }
@@ -179,7 +175,7 @@ std::string player_gender_edit_req__Handler(GameSession* session, const std::str
 
 std::string player_head_icon_info_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_head_icon_info_failed_ack);
     }
@@ -194,7 +190,7 @@ std::string player_head_icon_info_req__Handler(GameSession* session, const std::
 
 std::string player_head_icon_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_head_icon_set_failed_ack);
     }
@@ -211,7 +207,7 @@ std::string player_head_icon_set_req__Handler(GameSession* session, const std::s
 
 std::string player_honor_edit_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_honor_edit_failed_ack);
     }
@@ -236,7 +232,7 @@ std::string player_honor_edit_req__Handler(GameSession* session, const std::stri
 
 std::string player_music_set_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_music_set_failed_ack);
     }
@@ -253,7 +249,7 @@ std::string player_music_set_req__Handler(GameSession* session, const std::strin
 
 std::string player_name_edit_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_name_edit_failed_ack);
     }
@@ -270,7 +266,7 @@ std::string player_name_edit_req__Handler(GameSession* session, const std::strin
 
 std::string player_skin_show_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_skin_show_failed_ack);
     }
@@ -287,7 +283,7 @@ std::string player_skin_show_req__Handler(GameSession* session, const std::strin
 
 std::string player_title_edit_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_title_edit_failed_ack);
     }
@@ -304,7 +300,7 @@ std::string player_title_edit_req__Handler(GameSession* session, const std::stri
 
 std::string player_world_class_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, player_world_class_reward_receive_failed_ack);
     }
