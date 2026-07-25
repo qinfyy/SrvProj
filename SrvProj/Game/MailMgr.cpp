@@ -11,7 +11,6 @@
 #include <algorithm>
 #include <limits>
 
-
 void MailMgr::OnCreate()
 {
     EnsureDefaults();

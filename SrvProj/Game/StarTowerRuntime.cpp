@@ -24,6 +24,13 @@
 #include <mutex>
 #include <random>
 
+#ifdef min
+#undef min
+#endif
+#ifdef max
+#undef max
+#endif
+
 namespace StarTowerRuntime
 {
 namespace
@@ -353,26 +360,33 @@ proto::PotentialPreselection Preset::ToProto() const
 
 uint64_t GenerateUid()
 {
-    constexpr int64_t kEpoch = 1735689600;
-    static std::mutex mutex;
-    static int32_t cachedTimestamp = 0;
-    static int32_t sequence = 0;
-
-    std::lock_guard<std::mutex> lock(mutex);
-    const int64_t now = std::chrono::duration_cast<std::chrono::seconds>(
-        std::chrono::system_clock::now().time_since_epoch()).count();
-    const int32_t timestamp = static_cast<int32_t>(now - kEpoch);
-    if (cachedTimestamp != timestamp)
+    std::string token;
+    if (!GenerateToken(token, true))
     {
-        sequence = 0;
-        cachedTimestamp = timestamp;
-    }
-    else
-    {
-        sequence = ((sequence + 129) % 256) - 128;
+        return 0;
     }
 
-    return static_cast<uint64_t>((static_cast<int64_t>(cachedTimestamp) << 4) + sequence);
+    if (token.size() >= 16)
+    {
+        std::string hex64 = token.substr(0, 16);
+        uint64_t value = 0;
+        std::stringstream ss;
+        ss << std::hex << hex64;
+
+        if (ss >> value)
+        {
+            char remaining;
+            if (!(ss >> remaining))
+            {
+                return value;
+            }
+        }
+    }
+
+    uint64_t value = 0;
+    const size_t copyLen = std::min(token.size(), sizeof(uint64_t));
+    memcpy(&value, token.data(), copyLen);
+    return value;
 }
 
 uint32_t BuildScoreFromPotentialLevel(uint32_t level, const std::vector<int>& buildScores)
@@ -398,6 +412,7 @@ uint32_t ClampNameLength(std::string& name)
         value.resize(31);
         name = Utf16ToUtf8(value);
     }
+
     return static_cast<uint32_t>(value.size());
 }
 
