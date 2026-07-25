@@ -269,6 +269,7 @@ void LoadBytesRes(Archive* arc, Container& container, const std::string& resName
     inStream.write(reinterpret_cast<const char*>(inFile.data()), inFile.size());
     ParseBytesFile(inStream, header, items);
 
+    size_t loadedCount = 0;
     for (const auto& item : items) {
         try {
             T res;
@@ -276,13 +277,19 @@ void LoadBytesRes(Archive* arc, Container& container, const std::string& resName
                 throw std::runtime_error("从 protobuf 数据加载资源失败");
             }
             res.OnLoad();
-            container.emplace(res.GetKey(), std::move(res));
+            auto result = container.emplace(res.GetKey(), std::move(res));
+            if (result.second)
+            {
+                ++loadedCount;
+            }
         }
         catch (const std::exception& e) {
             //std::throw_with_nested(std::runtime_error("LoadRes: 解析 " + resName + "中 key = " + item.key + " 的记录失败"));
             LOG_ERROR("LoadRes: 解析 " + resName + "中 key = " + item.key + " 的记录失败, ERROR: " + std::string(e.what()));
         }
     }
+
+    LOG_INFO("Loaded {} {}.", loadedCount, resName);
 }
 
 template<typename T, typename Container>
@@ -299,6 +306,7 @@ void LoadJsonRes(const std::filesystem::path& jsonBinPath, Container& container,
     nlohmann::json root;
     in >> root;
 
+    size_t loadedCount = 0;
     auto loadOne = [&](const std::string& key, const nlohmann::json& item) {
         try {
             T res;
@@ -309,7 +317,11 @@ void LoadJsonRes(const std::filesystem::path& jsonBinPath, Container& container,
                 throw std::runtime_error("从 JSON 数据加载资源失败");
             }
             res.OnLoad();
-            container.emplace(res.GetKey(), std::move(res));
+            auto result = container.emplace(res.GetKey(), std::move(res));
+            if (result.second)
+            {
+                ++loadedCount;
+            }
         }
         catch (const std::exception& e) {
             LOG_ERROR("LoadJsonRes: 解析 " + resName + "中 key = " + key + " 的记录失败, FILE: " + jsonFilePath.string() + ", ERROR: " + std::string(e.what()));
@@ -329,6 +341,8 @@ void LoadJsonRes(const std::filesystem::path& jsonBinPath, Container& container,
     else {
         throw std::runtime_error("JSON 资源文件根节点必须是对象或数组: " + jsonFilePath.string());
     }
+
+    LOG_INFO("Loaded {} {}.", loadedCount, resName);
 }
 
 template<typename T, typename Container>
@@ -343,6 +357,8 @@ void LoadRes(ResourceLoadSource* source, Container& container) {
 }
 
 void LoadResources() {
+    LOG_INFO("Starting to load resources");
+
     ResourceLoadSource source;
     std::unique_ptr<Archive> arc;
     const auto resourceType = NormalizeResourceType(Config::Get().resourceConfig.type);
@@ -733,4 +749,6 @@ void LoadResources() {
     GachaPkgRes::ClearPackages();
     LoadRes<GachaPkgRes>(&source, GameData::GachaPkgDataTable);
     LoadRes<GachaRes>(&source, GameData::GachaDataTable);
+
+    LOG_INFO("Resource loading complete.");
 }

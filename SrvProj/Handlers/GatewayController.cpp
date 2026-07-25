@@ -21,7 +21,7 @@
 #include "Character.h"
 #include "Disc.h"
 #include "BattlePass.h"
-#include "Tower.h"
+#include "StarTower.h"
 #include "../GameTime.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);

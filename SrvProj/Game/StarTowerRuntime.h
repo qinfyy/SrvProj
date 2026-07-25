@@ -10,12 +10,12 @@
 #include <vector>
 
 class Player;
-class TowerRoom;
-class TowerCaseBase;
+class StarTowerRoom;
+class StarTowerCaseBase;
 class StarTowerRes;
-class TowerMgr;
+class StarTowerMgr;
 
-namespace TowerRuntime
+namespace StarTowerRuntime
 {
 class Game;
 class Build;
@@ -54,7 +54,7 @@ public:
     bool Lock = false;
     bool Preference = false;
     uint32_t Score = 0;
-    uint32_t TowerId = 0;
+    uint32_t StarTowerId = 0;
     std::vector<uint32_t> CharIds;
     std::vector<uint32_t> DiscIds;
     std::vector<uint32_t> ActiveSecondaryIds;
@@ -62,8 +62,8 @@ public:
     std::vector<std::pair<uint32_t, uint32_t>> Potentials;
     std::vector<std::pair<uint32_t, int32_t>> SubNoteSkills;
 
-    void LoadFromBin(const ServerProto::TowerBuildBin& bin);
-    void SaveToBin(ServerProto::TowerBuildBin& bin) const;
+    void LoadFromBin(const ServerProto::StarTowerBuildBin& bin);
+    void SaveToBin(ServerProto::StarTowerBuildBin& bin) const;
     proto::StarTowerBuildInfo ToProto() const;
     proto::StarTowerBuildBrief ToBriefProto() const;
     proto::StarTowerBuildDetail ToDetailProto() const;
@@ -78,8 +78,8 @@ public:
     int64_t Timestamp = 0;
     std::vector<std::pair<uint32_t, std::vector<PotentialInfo>>> CharPotentials;
 
-    void LoadFromBin(const ServerProto::TowerPotentialPresetBin& bin);
-    void SaveToBin(ServerProto::TowerPotentialPresetBin& bin) const;
+    void LoadFromBin(const ServerProto::StarTowerPotentialPresetBin& bin);
+    void SaveToBin(ServerProto::StarTowerPotentialPresetBin& bin) const;
     proto::PotentialPreselection ToProto() const;
 };
 
@@ -92,7 +92,7 @@ class Game
 public:
     ~Game();
 
-    uint32_t TowerId = 0;
+    uint32_t StarTowerId = 0;
     uint32_t FormationId = 0;
     uint64_t BuildId = 0;
     uint32_t FloorCount = 0;
@@ -120,14 +120,14 @@ public:
     std::vector<uint32_t> ActiveSecondaryIds;
     std::vector<uint32_t> FateCards;
     std::vector<uint64_t> TotalDamages;
-    std::unique_ptr<TowerRoom> Room;
+    std::unique_ptr<StarTowerRoom> Room;
 
-    TowerMgr* GetManager() const { return Manager; }
-    void SetManager(TowerMgr* manager) { Manager = manager; }
+    StarTowerMgr* GetManager() const { return Manager; }
+    void SetManager(StarTowerMgr* manager) { Manager = manager; }
 
     proto::StarTowerInfo ToProto() const;
-    void SaveToBin(ServerProto::TowerGameBin& bin) const;
-    void LoadFromBin(const ServerProto::TowerGameBin& bin);
+    void SaveToBin(ServerProto::StarTowerGameBin& bin) const;
+    void LoadFromBin(const ServerProto::StarTowerGameBin& bin);
     void InitModifierState();
 
     int GetItemCount(uint32_t id) const;
@@ -142,9 +142,9 @@ public:
     void FlushNewInfos(proto::TowerChangeData* data);
     void AddPotentialSelectors(uint32_t amount);
     void AddRarePotentialSelectors(uint32_t amount);
-    std::unique_ptr<TowerCaseBase> CreatePotentialSelector(uint32_t charId = 0, bool rare = false);
-    std::unique_ptr<TowerCaseBase> CreateRarePotentialSelector();
-    std::unique_ptr<TowerCaseBase> CreateStrengthenSelector();
+    std::unique_ptr<StarTowerCaseBase> CreatePotentialSelector(uint32_t charId = 0, bool rare = false);
+    std::unique_ptr<StarTowerCaseBase> CreateRarePotentialSelector();
+    std::unique_ptr<StarTowerCaseBase> CreateStrengthenSelector();
     void HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp);
     bool IsOnFinalFloor(const StarTowerRes& tower) const;
     uint32_t GetNextStageId(const StarTowerRes& tower) const;
@@ -177,7 +177,7 @@ public:
     Build BuildSnapshot() const;
 
 private:
-    TowerMgr* Manager = nullptr;
+    StarTowerMgr* Manager = nullptr;
     std::unique_ptr<Build> mCachedBuild;
 };
 }

@@ -12,8 +12,8 @@ namespace GameConstants
     inline constexpr std::uint32_t EnergyBuyItemId = StellaniteDustItemId;
     inline constexpr std::uint32_t WeeklyEntryItemId = 28;
     inline constexpr std::uint32_t JointDrillTicketId = 36;
-    inline constexpr std::uint32_t TowerCoinItemId = 11;
-    inline constexpr std::uint32_t TowerEventIds[] = { 101, 102, 104, 105, 106, 107, 108, 114, 115, 116, 126, 127, 128 };
+    inline constexpr std::uint32_t StarTowerCoinItemId = 11;
+    inline constexpr std::uint32_t StarTowerEventIds[] = { 101, 102, 104, 105, 106, 107, 108, 114, 115, 116, 126, 127, 128 };
 
     inline constexpr std::int32_t MaxEnergy = 240;
     inline constexpr std::int64_t EnergyRegenTime = 360;

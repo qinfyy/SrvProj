@@ -2,7 +2,7 @@
 
 #include "CharacterMgr.h"
 #include "Player.h"
-#include "TowerMgr.h"
+#include "StarTowerMgr.h"
 #include "../GameConstants.h"
 
 #include <algorithm>
@@ -194,7 +194,7 @@ bool FormationMgr::UpdateFormation(const proto::FormationInfo& info)
     }
 
     uint64_t presetId = 0;
-    if (info.preselectionid() > 0 && GetPlayer()->Towers().IsValidPresetForCharacters(info.preselectionid(), info.charids()))
+    if (info.preselectionid() > 0 && GetPlayer()->StarTowers().IsValidPresetForCharacters(info.preselectionid(), info.charids()))
     {
         presetId = info.preselectionid();
     }

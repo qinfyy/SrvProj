@@ -1,11 +1,11 @@
-﻿#include "TowerRuntime.h"
+﻿#include "StarTowerRuntime.h"
 
 #include "CharacterMgr.h"
 #include "InventoryMgr.h"
 #include "Player.h"
-#include "TowerCases.h"
-#include "TowerRooms.h"
-#include "TowerMgr.h"
+#include "StarTowerCases.h"
+#include "StarTowerRooms.h"
+#include "StarTowerMgr.h"
 #include "AchievementMgr.h"
 #include "../GameConstants.h"
 #include "../Game/ChangeInfoUtil.h"
@@ -23,7 +23,7 @@
 #include <mutex>
 #include <random>
 
-namespace TowerRuntime
+namespace StarTowerRuntime
 {
 namespace
 {
@@ -31,9 +31,9 @@ constexpr int kItemSubTypeRes = 1;
 constexpr int kItemSubTypeSubNoteSkill = 19;
 constexpr int kItemSubTypePotential = 41;
 constexpr int kItemSubTypeSpecificPotential = 42;
-constexpr size_t kTowerCharSlotCount = 3;
-constexpr size_t kTowerDiscSlotCount = 6;
-constexpr uint32_t kInvalidTowerHp = (std::numeric_limits<uint32_t>::max)();
+constexpr size_t kStarTowerCharSlotCount = 3;
+constexpr size_t kStarTowerDiscSlotCount = 6;
+constexpr uint32_t kInvalidStarTowerHp = (std::numeric_limits<uint32_t>::max)();
 
 double RandomDouble()
 {
@@ -122,14 +122,14 @@ uint32_t ShopGoods::GetCharId(const Game& game) const
     return game.CharIds[index];
 }
 
-void Build::LoadFromBin(const ServerProto::TowerBuildBin& bin)
+void Build::LoadFromBin(const ServerProto::StarTowerBuildBin& bin)
 {
     Uid = bin.uid();
     Name = bin.name();
     Lock = bin.lock();
     Preference = bin.preference();
     Score = bin.score();
-    TowerId = bin.towerid();
+    StarTowerId = bin.towerid();
 
     CharIds.assign(bin.charids().begin(), bin.charids().end());
     DiscIds.assign(bin.discids().begin(), bin.discids().end());
@@ -154,7 +154,7 @@ void Build::LoadFromBin(const ServerProto::TowerBuildBin& bin)
     }
 }
 
-void Build::SaveToBin(ServerProto::TowerBuildBin& bin) const
+void Build::SaveToBin(ServerProto::StarTowerBuildBin& bin) const
 {
     bin.Clear();
     bin.set_uid(Uid);
@@ -162,7 +162,7 @@ void Build::SaveToBin(ServerProto::TowerBuildBin& bin) const
     bin.set_lock(Lock);
     bin.set_preference(Preference);
     bin.set_score(Score);
-    bin.set_towerid(TowerId);
+    bin.set_towerid(StarTowerId);
 
     for (uint32_t charId : CharIds)
     {
@@ -253,7 +253,7 @@ proto::StarTowerBuildDetail Build::ToDetailProto() const
 proto::StarTowerBuildInfo Build::ToProto() const
 {
     proto::StarTowerBuildInfo out;
-    TowerRuntime::Build copy = *this;
+    StarTowerRuntime::Build copy = *this;
     copy.Score = 0;
     copy.CharPotentials.clear();
 
@@ -301,7 +301,7 @@ proto::StarTowerBuildInfo Build::ToProto() const
     copy.DiscIds = DiscIds;
     copy.Name = Name;
     copy.Uid = Uid;
-    copy.TowerId = TowerId;
+    copy.StarTowerId = StarTowerId;
     copy.Lock = Lock;
     copy.Preference = Preference;
 
@@ -310,7 +310,7 @@ proto::StarTowerBuildInfo Build::ToProto() const
     return out;
 }
 
-void Preset::LoadFromBin(const ServerProto::TowerPotentialPresetBin& bin)
+void Preset::LoadFromBin(const ServerProto::StarTowerPotentialPresetBin& bin)
 {
     Uid = bin.uid();
     Name = bin.name();
@@ -330,7 +330,7 @@ void Preset::LoadFromBin(const ServerProto::TowerPotentialPresetBin& bin)
     }
 }
 
-void Preset::SaveToBin(ServerProto::TowerPotentialPresetBin& bin) const
+void Preset::SaveToBin(ServerProto::StarTowerPotentialPresetBin& bin) const
 {
     bin.Clear();
     bin.set_uid(Uid);
@@ -427,13 +427,13 @@ proto::StarTowerInfo Game::ToProto() const
 {
     proto::StarTowerInfo out;
     auto* meta = out.mutable_meta();
-    meta->set_id(TowerId);
-    meta->set_charhp(CharHp < 0 ? kInvalidTowerHp : static_cast<uint32_t>(CharHp));
+    meta->set_id(StarTowerId);
+    meta->set_charhp(CharHp < 0 ? kInvalidStarTowerHp : static_cast<uint32_t>(CharHp));
     meta->set_teamlevel(TeamLevel);
     meta->set_totaltime(BattleTime);
     meta->set_buildid(BuildId);
 
-    for (size_t i = 0; i < kTowerCharSlotCount; ++i)
+    for (size_t i = 0; i < kStarTowerCharSlotCount; ++i)
     {
         auto* ch = meta->add_chars();
         if (i >= CharIds.size() || !Manager)
@@ -458,7 +458,7 @@ proto::StarTowerInfo Game::ToProto() const
         }
     }
 
-    for (size_t i = 0; i < kTowerDiscSlotCount; ++i)
+    for (size_t i = 0; i < kStarTowerDiscSlotCount; ++i)
     {
         auto* disc = meta->add_discs();
         if (i >= DiscIds.size() || !Manager)
@@ -519,10 +519,10 @@ proto::StarTowerInfo Game::ToProto() const
     return out;
 }
 
-void Game::SaveToBin(ServerProto::TowerGameBin& bin) const
+void Game::SaveToBin(ServerProto::StarTowerGameBin& bin) const
 {
     bin.Clear();
-    bin.set_towerid(TowerId);
+    bin.set_towerid(StarTowerId);
     bin.set_formationid(FormationId);
     bin.set_buildid(BuildId);
     bin.set_floorcount(FloorCount);
@@ -582,9 +582,9 @@ void Game::SaveToBin(ServerProto::TowerGameBin& bin) const
     }
 }
 
-void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
+void Game::LoadFromBin(const ServerProto::StarTowerGameBin& bin)
 {
-    TowerId = bin.towerid();
+    StarTowerId = bin.towerid();
     FormationId = bin.formationid();
     BuildId = bin.buildid();
     FloorCount = bin.floorcount();
@@ -596,7 +596,7 @@ void Game::LoadFromBin(const ServerProto::TowerGameBin& bin)
         TeamLevel = 1;
     }
     TeamExp = bin.teamexp();
-    // 与 Nebula 一致：读档只还原等级/经验并计算下一级阈值，不在 load 时 levelUp。
+    // 读档只还原等级/经验并计算下一级阈值，不在 load 时 levelUp。
     // 否则重登或局中存档恢复会把 TeamExp 直接消化成多级，结算显示满级。
     const auto teamExpIt = GameData::StarTowerTeamExpDataTable.find(TeamLevel + 1);
     NextLevelExp = teamExpIt == GameData::StarTowerTeamExpDataTable.end()
@@ -967,7 +967,7 @@ void Game::AddRarePotentialSelectors(uint32_t amount)
     PendingRarePotentialCases += amount;
 }
 
-std::unique_ptr<TowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bool rare)
+std::unique_ptr<StarTowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bool rare)
 {
     if (rare && charId != 0 && GetRarePotentialCount(charId) >= 2)
     {
@@ -1006,7 +1006,7 @@ std::unique_ptr<TowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bo
     auto candidates = charIt->second.GetPotentialList(!CharIds.empty() && CharIds.front() == charId, rare);
     std::shuffle(candidates.begin(), candidates.end(), std::mt19937{ std::random_device{}() });
 
-    auto casePtr = std::make_unique<TowerPotentialCase>();
+    auto casePtr = std::make_unique<StarTowerPotentialCase>();
     casePtr->TeamLevel = TeamLevel;
     casePtr->CharId = charId;
     casePtr->Rare = rare;
@@ -1050,17 +1050,17 @@ std::unique_ptr<TowerCaseBase> Game::CreatePotentialSelector(uint32_t charId, bo
     {
         return nullptr;
     }
-    return std::unique_ptr<TowerCaseBase>(std::move(casePtr));
+    return std::unique_ptr<StarTowerCaseBase>(std::move(casePtr));
 }
 
-std::unique_ptr<TowerCaseBase> Game::CreateRarePotentialSelector()
+std::unique_ptr<StarTowerCaseBase> Game::CreateRarePotentialSelector()
 {
     return CreatePotentialSelector(0, true);
 }
 
-std::unique_ptr<TowerCaseBase> Game::CreateStrengthenSelector()
+std::unique_ptr<StarTowerCaseBase> Game::CreateStrengthenSelector()
 {
-    auto casePtr = std::make_unique<TowerPotentialCase>();
+    auto casePtr = std::make_unique<StarTowerPotentialCase>();
     casePtr->TeamLevel = TeamLevel;
     casePtr->Strengthen = true;
     casePtr->RerollPrice = GetPotentialRerollPrice();
@@ -1105,7 +1105,7 @@ std::unique_ptr<TowerCaseBase> Game::CreateStrengthenSelector()
     {
         return nullptr;
     }
-    return std::unique_ptr<TowerCaseBase>(std::move(casePtr));
+    return std::unique_ptr<StarTowerCaseBase>(std::move(casePtr));
 }
 
 void Game::HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp)
@@ -1157,41 +1157,41 @@ void Game::HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp)
         rsp.add_cases()->CopyFrom(door->ToProto());
     }
 
-    if (Room->GetType() == TowerRoomType::FinalBossRoom)
+    if (Room->GetType() == StarTowerRoomType::FinalBossRoom)
     {
-        auto* hawker = Room->AddCase(std::make_unique<TowerHawkerCase>());
+        auto* hawker = Room->AddCase(std::make_unique<StarTowerHawkerCase>());
         if (hawker)
         {
             rsp.add_cases()->CopyFrom(hawker->ToProto());
         }
         if (GetDifficulty() >= 2 && Manager && Manager->HasGrowthNode(10601))
         {
-            auto* machine = Room->AddCase(std::make_unique<TowerStrengthenMachineCase>());
+            auto* machine = Room->AddCase(std::make_unique<StarTowerStrengthenMachineCase>());
             if (machine)
             {
                 rsp.add_cases()->CopyFrom(machine->ToProto());
             }
         }
     }
-    else if (Room->GetType() == TowerRoomType::BattleRoom)
+    else if (Room->GetType() == StarTowerRoomType::BattleRoom)
     {
-        TowerCaseBase* added = nullptr;
+        StarTowerCaseBase* added = nullptr;
         if (RandomChance(GetBattleNpcEventChance()))
         {
             added = Room->AddCase(Room->CreateNpcEventCase());
         }
         if (!added)
         {
-            added = Room->AddCase(std::make_unique<TowerNpcRecoveryHPCase>());
+            added = Room->AddCase(std::make_unique<StarTowerNpcRecoveryHPCase>());
         }
         if (added)
         {
             rsp.add_cases()->CopyFrom(added->ToProto());
         }
     }
-    else if (dynamic_cast<TowerBattleRoom*>(Room.get()) != nullptr)
+    else if (dynamic_cast<StarTowerBattleRoom*>(Room.get()) != nullptr)
     {
-        auto* added = Room->AddCase(std::make_unique<TowerNpcRecoveryHPCase>());
+        auto* added = Room->AddCase(std::make_unique<StarTowerNpcRecoveryHPCase>());
         if (added)
         {
             rsp.add_cases()->CopyFrom(added->ToProto());
@@ -1201,7 +1201,7 @@ void Game::HandlePendingPotentialSelectors(proto::StarTowerInteractResp& rsp)
 
 uint32_t Game::GetDifficulty() const
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(TowerId);
+    const auto towerIt = GameData::StarTowerDataTable.find(StarTowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return 0;
@@ -1530,7 +1530,7 @@ void Game::ConsumeFreeStrengthen()
 
 int Game::GetRandomSubNoteId() const
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(TowerId);
+    const auto towerIt = GameData::StarTowerDataTable.find(StarTowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return 0;
@@ -1630,15 +1630,15 @@ void Game::AddStartingItems()
 
     if (Manager->HasGrowthNode(10103))
     {
-        AddRuntimeItem(GameConstants::TowerCoinItemId, 50, nullptr);
+        AddRuntimeItem(GameConstants::StarTowerCoinItemId, 50, nullptr);
     }
     if (Manager->HasGrowthNode(10403))
     {
-        AddRuntimeItem(GameConstants::TowerCoinItemId, 100, nullptr);
+        AddRuntimeItem(GameConstants::StarTowerCoinItemId, 100, nullptr);
     }
     if (Manager->HasGrowthNode(10702))
     {
-        AddRuntimeItem(GameConstants::TowerCoinItemId, 200, nullptr);
+        AddRuntimeItem(GameConstants::StarTowerCoinItemId, 200, nullptr);
     }
 
     int subNotes = 0;
@@ -1661,7 +1661,7 @@ void Game::AddStartingItems()
 
 bool Game::EnterNextRoom()
 {
-    const auto towerIt = GameData::StarTowerDataTable.find(TowerId);
+    const auto towerIt = GameData::StarTowerDataTable.find(StarTowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return false;
@@ -1685,7 +1685,7 @@ bool Game::EnterNextRoom()
         StageFloor = nextStageFloor;
     }
 
-    const uint32_t stageId = (TowerId * 10000u) + (StageNum * 100u) + StageFloor;
+    const uint32_t stageId = (StarTowerId * 10000u) + (StageNum * 100u) + StageFloor;
     const auto stageIt = GameData::StarTowerStageDataTable.find(stageId);
     if (stageIt == GameData::StarTowerStageDataTable.end())
     {
@@ -1695,23 +1695,23 @@ bool Game::EnterNextRoom()
         return false;
     }
 
-    const TowerRoomType roomType = static_cast<TowerRoomType>((std::max)(stageIt->second.RoomType, 0));
-    if (roomType == TowerRoomType::EventRoom)
+    const StarTowerRoomType roomType = static_cast<StarTowerRoomType>((std::max)(stageIt->second.RoomType, 0));
+    if (roomType == StarTowerRoomType::EventRoom)
     {
-        Room = std::make_unique<TowerEventRoom>(this, stageId, roomType);
+        Room = std::make_unique<StarTowerEventRoom>(this, stageId, roomType);
     }
-    else if (roomType == TowerRoomType::ShopRoom)
+    else if (roomType == StarTowerRoomType::ShopRoom)
     {
-        Room = std::make_unique<TowerHawkerRoom>(this, stageId, roomType);
+        Room = std::make_unique<StarTowerHawkerRoom>(this, stageId, roomType);
     }
-    else if (roomType == TowerRoomType::BattleRoom || roomType == TowerRoomType::EliteBattleRoom ||
-        roomType == TowerRoomType::BossRoom || roomType == TowerRoomType::FinalBossRoom)
+    else if (roomType == StarTowerRoomType::BattleRoom || roomType == StarTowerRoomType::EliteBattleRoom ||
+        roomType == StarTowerRoomType::BossRoom || roomType == StarTowerRoomType::FinalBossRoom)
     {
-        Room = std::make_unique<TowerBattleRoom>(this, stageId, roomType);
+        Room = std::make_unique<StarTowerBattleRoom>(this, stageId, roomType);
     }
     else
     {
-        Room = std::make_unique<TowerRoom>(this, stageId, roomType);
+        Room = std::make_unique<StarTowerRoom>(this, stageId, roomType);
     }
 
     if (Manager && Manager->GetPlayer())
@@ -1738,7 +1738,7 @@ uint32_t Game::GetTotalPotentialCount() const
 Build Game::BuildSnapshot() const
 {
     Build build;
-    build.TowerId = TowerId;
+    build.StarTowerId = StarTowerId;
     build.CharIds = CharIds;
     build.DiscIds = DiscIds;
     build.ActiveSecondaryIds = ActiveSecondaryIds;
@@ -1795,7 +1795,7 @@ Build& Game::GetBuild()
 {
     if (!mCachedBuild)
     {
-        // Nebula 的局内 BuildId 与结算记录 Build.Id 分别生成；结算和存档复用同一份记录。
+        // 局内 BuildId 与结算记录 Build.Id 分别生成；结算和存档复用同一份记录。
         mCachedBuild = std::make_unique<Build>(BuildSnapshot());
         mCachedBuild->Uid = GenerateUid();
     }
@@ -1818,15 +1818,15 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
 
     if (victory && Manager)
     {
-        if (std::find(Manager->Bin().startowerlog().begin(), Manager->Bin().startowerlog().end(), TowerId) == Manager->Bin().startowerlog().end())
+        if (std::find(Manager->Bin().startowerlog().begin(), Manager->Bin().startowerlog().end(), StarTowerId) == Manager->Bin().startowerlog().end())
         {
-            Manager->MutableBin()->add_startowerlog(TowerId);
+            Manager->MutableBin()->add_startowerlog(StarTowerId);
         }
 
         if (Manager->GetPlayer())
         {
             Manager->GetPlayer()->Achievements().Trigger(508, 1, 0, 0);
-            Manager->GetPlayer()->Achievements().Trigger(507, 1, TowerId, 0);
+            Manager->GetPlayer()->Achievements().Trigger(507, 1, StarTowerId, 0);
 
             int elementType = 0;
             bool sameElement = !CharIds.empty();
@@ -1903,12 +1903,12 @@ void Game::Settle(bool victory, proto::StarTowerInteractResp& rsp)
                 weeklyLimit = 2500;
             }
 
-            const uint32_t current = Manager->GetTowerTickets();
+            const uint32_t current = Manager->GetStarTowerTickets();
             const uint32_t remain = current >= weeklyLimit ? 0 : (weeklyLimit - current);
             Manager->MutableBin()->set_towertickets(current + (std::min)(ticketQty, remain));
         }
 
-        // Nebula settle 额外发研究材料 51（星塔任务未接时的补偿），并写入 settle.change。
+        // settle 额外发研究材料 51（星塔任务未接时的补偿），并写入 settle.change。
         if (Manager->GetPlayer())
         {
             const int researchMin = static_cast<int>(GetDifficulty()) - 1;
@@ -1944,6 +1944,6 @@ uint32_t Game::GetNextStageId(const StarTowerRes& tower) const
         ++stage;
     }
 
-    return (TowerId * 10000u) + (stage * 100u) + floor;
+    return (StarTowerId * 10000u) + (stage * 100u) + floor;
 }
 }

@@ -25,7 +25,7 @@ class BattlePassMgr;
 class FormationMgr;
 class QuestMgr;
 class StoryMgr;
-class TowerMgr;
+class StarTowerMgr;
 
 class Player
 {
@@ -61,8 +61,8 @@ public:
     FormationMgr& Formations();
     const FormationMgr& Formations() const;
 
-    TowerMgr& Towers();
-    const TowerMgr& Towers() const;
+    StarTowerMgr& StarTowers();
+    const StarTowerMgr& StarTowers() const;
 
     AchievementMgr& Achievements();
     const AchievementMgr& Achievements() const;
@@ -160,5 +160,5 @@ private:
     std::unique_ptr<FormationMgr> mFormationMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
     std::unique_ptr<StoryMgr> mStoryMgr;
-    std::unique_ptr<TowerMgr> mTowerMgr;
+    std::unique_ptr<StarTowerMgr> mStarTowerMgr;
 };

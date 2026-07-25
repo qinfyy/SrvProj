@@ -1,7 +1,7 @@
-﻿#include "TowerRooms.h"
+﻿#include "StarTowerRooms.h"
 
-#include "TowerCases.h"
-#include "TowerMgr.h"
+#include "StarTowerCases.h"
+#include "StarTowerMgr.h"
 #include "../GameConstants.h"
 #include "../Resources/BinClass/StarTowerRes.h"
 #include "../Resources/GameData.h"
@@ -48,25 +48,25 @@ std::vector<uint32_t> BuildEventOptions(const StarTowerEventRes& data)
     return options;
 }
 
-bool IsBattleRoomType(TowerRoomType type)
+bool IsBattleRoomType(StarTowerRoomType type)
 {
-    return type == TowerRoomType::BattleRoom ||
-        type == TowerRoomType::EliteBattleRoom ||
-        type == TowerRoomType::BossRoom ||
-        type == TowerRoomType::FinalBossRoom;
+    return type == StarTowerRoomType::BattleRoom ||
+        type == StarTowerRoomType::EliteBattleRoom ||
+        type == StarTowerRoomType::BossRoom ||
+        type == StarTowerRoomType::FinalBossRoom;
 }
 }
 
-TowerRoom::TowerRoom(TowerRuntime::Game* game, uint32_t stageId, TowerRoomType roomType)
+StarTowerRoom::StarTowerRoom(StarTowerRuntime::Game* game, uint32_t stageId, StarTowerRoomType roomType)
     : mGame(game)
     , mStageId(stageId)
     , mRoomType(roomType)
 {
 }
 
-TowerRoom::~TowerRoom() = default;
+StarTowerRoom::~StarTowerRoom() = default;
 
-void TowerRoom::SetMapInfo(uint32_t mapId, uint32_t mapTableId, const std::string& mapParam, uint32_t paramId)
+void StarTowerRoom::SetMapInfo(uint32_t mapId, uint32_t mapTableId, const std::string& mapParam, uint32_t paramId)
 {
     mMapId = mapId;
     mMapTableId = mapTableId;
@@ -74,12 +74,12 @@ void TowerRoom::SetMapInfo(uint32_t mapId, uint32_t mapTableId, const std::strin
     mParamId = paramId;
 }
 
-uint32_t TowerRoom::GetNextCaseId()
+uint32_t StarTowerRoom::GetNextCaseId()
 {
     return ++mLastCaseId;
 }
 
-TowerCaseBase* TowerRoom::AddCase(std::unique_ptr<TowerCaseBase> towerCase)
+StarTowerCaseBase* StarTowerRoom::AddCase(std::unique_ptr<StarTowerCaseBase> towerCase)
 {
     if (!towerCase)
     {
@@ -96,17 +96,17 @@ TowerCaseBase* TowerRoom::AddCase(std::unique_ptr<TowerCaseBase> towerCase)
         towerCase->Register(this, towerCase->GetId());
     }
 
-    if (towerCase->GetType() == TowerCaseType::Door)
+    if (towerCase->GetType() == StarTowerCaseType::Door)
     {
         mHasDoor = true;
     }
 
-    TowerCaseBase* result = towerCase.get();
+    StarTowerCaseBase* result = towerCase.get();
     mCases.push_back(std::move(towerCase));
     return result;
 }
 
-TowerCaseBase* TowerRoom::AddLoadedCase(std::unique_ptr<TowerCaseBase> towerCase)
+StarTowerCaseBase* StarTowerRoom::AddLoadedCase(std::unique_ptr<StarTowerCaseBase> towerCase)
 {
     if (!towerCase)
     {
@@ -123,17 +123,17 @@ TowerCaseBase* TowerRoom::AddLoadedCase(std::unique_ptr<TowerCaseBase> towerCase
         towerCase->RegisterLoaded(this, towerCase->GetId());
     }
 
-    if (towerCase->GetType() == TowerCaseType::Door)
+    if (towerCase->GetType() == StarTowerCaseType::Door)
     {
         mHasDoor = true;
     }
 
-    TowerCaseBase* result = towerCase.get();
+    StarTowerCaseBase* result = towerCase.get();
     mCases.push_back(std::move(towerCase));
     return result;
 }
 
-TowerCaseBase* TowerRoom::GetCaseById(uint32_t id) const
+StarTowerCaseBase* StarTowerRoom::GetCaseById(uint32_t id) const
 {
     for (const auto& towerCase : mCases)
     {
@@ -146,13 +146,13 @@ TowerCaseBase* TowerRoom::GetCaseById(uint32_t id) const
     return nullptr;
 }
 
-void TowerRoom::OnEnter()
+void StarTowerRoom::OnEnter()
 {
-    AddCase(std::make_unique<TowerSyncHPCase>());
+    AddCase(std::make_unique<StarTowerSyncHPCase>());
     AddCase(CreateDoorCase());
 }
 
-proto::StarTowerRoom TowerRoom::ToProto() const
+proto::StarTowerRoom StarTowerRoom::ToProto() const
 {
     proto::StarTowerRoom out;
     auto* data = out.mutable_data();
@@ -175,12 +175,12 @@ proto::StarTowerRoom TowerRoom::ToProto() const
     return out;
 }
 
-std::unique_ptr<TowerCaseBase> TowerRoom::CreateNpcEventCase() const
+std::unique_ptr<StarTowerCaseBase> StarTowerRoom::CreateNpcEventCase() const
 {
     std::vector<const StarTowerEventRes*> candidates;
-    candidates.reserve(sizeof(GameConstants::TowerEventIds) / sizeof(GameConstants::TowerEventIds[0]));
+    candidates.reserve(sizeof(GameConstants::StarTowerEventIds) / sizeof(GameConstants::StarTowerEventIds[0]));
 
-    for (uint32_t eventId : GameConstants::TowerEventIds)
+    for (uint32_t eventId : GameConstants::StarTowerEventIds)
     {
         const auto it = GameData::StarTowerEventDataTable.find(eventId);
         if (it == GameData::StarTowerEventDataTable.end())
@@ -209,20 +209,20 @@ std::unique_ptr<TowerCaseBase> TowerRoom::CreateNpcEventCase() const
         return nullptr;
     }
 
-    auto instance = std::make_unique<TowerNpcEventCase>();
+    auto instance = std::make_unique<StarTowerNpcEventCase>();
     instance->NpcId = static_cast<uint32_t>(npcs.front());
     instance->EventId = static_cast<uint32_t>(data.Id);
     instance->Options = BuildEventOptions(data);
     return instance;
 }
 
-std::unique_ptr<TowerCaseBase> TowerRoom::CreateDoorCase() const
+std::unique_ptr<StarTowerCaseBase> StarTowerRoom::CreateDoorCase() const
 {
-    auto instance = std::make_unique<TowerDoorCase>();
+    auto instance = std::make_unique<StarTowerDoorCase>();
     instance->FloorNum = mGame ? mGame->FloorCount + 1 : 0;
     if (mGame)
     {
-        const auto towerIt = GameData::StarTowerDataTable.find(mGame->TowerId);
+        const auto towerIt = GameData::StarTowerDataTable.find(mGame->StarTowerId);
         if (towerIt != GameData::StarTowerDataTable.end())
         {
             const uint32_t nextStageId = mGame->GetNextStageId(towerIt->second);
@@ -236,7 +236,7 @@ std::unique_ptr<TowerCaseBase> TowerRoom::CreateDoorCase() const
     return instance;
 }
 
-void TowerRoom::SaveToBin(ServerProto::TowerRoomBin& bin) const
+void StarTowerRoom::SaveToBin(ServerProto::StarTowerRoomBin& bin) const
 {
     bin.Clear();
     bin.set_stageid(mStageId);
@@ -258,25 +258,25 @@ void TowerRoom::SaveToBin(ServerProto::TowerRoomBin& bin) const
     }
 }
 
-std::unique_ptr<TowerRoom> TowerRoom::LoadFromBin(TowerRuntime::Game* game, const ServerProto::TowerRoomBin& bin)
+std::unique_ptr<StarTowerRoom> StarTowerRoom::LoadFromBin(StarTowerRuntime::Game* game, const ServerProto::StarTowerRoomBin& bin)
 {
-    std::unique_ptr<TowerRoom> room;
-    const TowerRoomType type = static_cast<TowerRoomType>(bin.roomtype());
-    if (type == TowerRoomType::EventRoom)
+    std::unique_ptr<StarTowerRoom> room;
+    const StarTowerRoomType type = static_cast<StarTowerRoomType>(bin.roomtype());
+    if (type == StarTowerRoomType::EventRoom)
     {
-        room = std::make_unique<TowerEventRoom>(game, bin.stageid(), type);
+        room = std::make_unique<StarTowerEventRoom>(game, bin.stageid(), type);
     }
-    else if (type == TowerRoomType::ShopRoom)
+    else if (type == StarTowerRoomType::ShopRoom)
     {
-        room = std::make_unique<TowerHawkerRoom>(game, bin.stageid(), type);
+        room = std::make_unique<StarTowerHawkerRoom>(game, bin.stageid(), type);
     }
     else if (IsBattleRoomType(type))
     {
-        room = std::make_unique<TowerBattleRoom>(game, bin.stageid(), type);
+        room = std::make_unique<StarTowerBattleRoom>(game, bin.stageid(), type);
     }
     else
     {
-        room = std::make_unique<TowerRoom>(game, bin.stageid(), type);
+        room = std::make_unique<StarTowerRoom>(game, bin.stageid(), type);
     }
 
     room->mMapId = bin.mapid();
@@ -288,7 +288,7 @@ std::unique_ptr<TowerRoom> TowerRoom::LoadFromBin(TowerRuntime::Game* game, cons
 
     for (const auto& caseBin : bin.cases())
     {
-        auto towerCase = TowerCaseBase::LoadFromBin(game, caseBin);
+        auto towerCase = StarTowerCaseBase::LoadFromBin(game, caseBin);
         if (towerCase)
         {
             room->AddLoadedCase(std::move(towerCase));
@@ -298,26 +298,26 @@ std::unique_ptr<TowerRoom> TowerRoom::LoadFromBin(TowerRuntime::Game* game, cons
     return room;
 }
 
-void TowerBattleRoom::OnEnter()
+void StarTowerBattleRoom::OnEnter()
 {
-    AddCase(std::make_unique<TowerBattleCase>());
-    AddCase(std::make_unique<TowerSyncHPCase>());
+    AddCase(std::make_unique<StarTowerBattleCase>());
+    AddCase(std::make_unique<StarTowerSyncHPCase>());
 }
 
-void TowerEventRoom::OnEnter()
+void StarTowerEventRoom::OnEnter()
 {
     AddCase(CreateNpcEventCase());
-    AddCase(std::make_unique<TowerSyncHPCase>());
+    AddCase(std::make_unique<StarTowerSyncHPCase>());
     AddCase(CreateDoorCase());
 }
 
-void TowerHawkerRoom::OnEnter()
+void StarTowerHawkerRoom::OnEnter()
 {
-    AddCase(std::make_unique<TowerHawkerCase>());
+    AddCase(std::make_unique<StarTowerHawkerCase>());
     if (GetGame() && GetGame()->GetDifficulty() >= 4 && GetGame()->GetManager() && GetGame()->GetManager()->HasGrowthNode(20301))
     {
-        AddCase(std::make_unique<TowerStrengthenMachineCase>());
+        AddCase(std::make_unique<StarTowerStrengthenMachineCase>());
     }
-    AddCase(std::make_unique<TowerSyncHPCase>());
+    AddCase(std::make_unique<StarTowerSyncHPCase>());
     AddCase(CreateDoorCase());
 }

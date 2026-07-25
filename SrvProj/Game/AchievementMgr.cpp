@@ -55,7 +55,7 @@ bool IsIncrementalCondition(uint32_t condition)
     case 42:  // GachaCharacterTotal
     case 44:  // GachaTotal
     case 45:  // GiftGiveTotal
-    case 47:  // InfinityTowerClearTotal
+    case 47:  // InfinityStarTowerClearTotal
     case 48:  // ItemsAdd
     case 49:  // ItemsDeplete
     case 50:  // ItemsProductTotal
@@ -71,7 +71,7 @@ bool IsIncrementalCondition(uint32_t condition)
     case 82:  // VampireWithSpecificClearTotal
     case 83:  // AgentFinishTotal
     case 84:  // AgentWithSpecificFinishTotal
-    case 89:  // InfinityTowerClearSpecificDifficultyAndTotal
+    case 89:  // InfinityStarTowerClearSpecificDifficultyAndTotal
     case 90:  // SkillInstanceClearTotal
     case 92:  // WeekBoosClearSpecificDifficultyAndTotal
     case 95:  // JointDrillScoreTotal
@@ -80,34 +80,34 @@ bool IsIncrementalCondition(uint32_t condition)
     case 106: // AgentApplyTotal
     case 121: // TutorialLevelSpecificClearTotal
     case 123: // WeekBossClearTotal
-    case 501: // TowerBattleTimes
-    case 502: // TowerBossChallengeSpecificHighRewardWithTotal
-    case 504: // TowerBuildSpecificScoreWithTotal
-    case 505: // TowerClearSpecificCharacterTypeWithTotal
-    case 507: // TowerClearSpecificLevelWithDifficultyAndTotal
-    case 508: // TowerClearTotal
-    case 509: // TowerEnterRoom
-    case 511: // TowerEventTimes
-    case 512: // TowerFateTimes
-    case 513: // TowerItemsGet
-    case 514: // TowerSpecificDifficultyShopBuyTimes
-    case 521: // TowerBuildSpecificDifficultyAndScoreWithTotal
-    case 522: // TowerSpecificDifficultyStrengthenMachineTotal
-    case 524: // TowerSpecificDifficultyKillBossTotal
-    case 525: // TowerBookSpecificCharWithPotentialTotal
-    case 526: // TowerBuildSpecificCharSpecificScoreWithTotal
-    case 528: // TowerSpecificFateCardReRollTotal
-    case 529: // TowerSpecificPotentialReRollTotal
-    case 530: // TowerSpecificShopReRollTotal
-    case 531: // TowerSpecificNoteActivateTotal
-    case 532: // TowerSpecificNoteLevelTotal
-    case 533: // TowerSpecificPotentialBonusTotal
-    case 534: // TowerSpecificPotentialLuckyTotal
-    case 535: // TowerSpecificShopBuyDiscountTotal
-    case 536: // TowerSpecificSecondarySkillActivateTotal
-    case 537: // TowerSpecificGetExtraNoteLvTotal
-    case 539: // TowerSweepTimes
-    case 540: // TowerSweepTotal
+    case 501: // StarTowerBattleTimes
+    case 502: // StarTowerBossChallengeSpecificHighRewardWithTotal
+    case 504: // StarTowerBuildSpecificScoreWithTotal
+    case 505: // StarTowerClearSpecificCharacterTypeWithTotal
+    case 507: // StarTowerClearSpecificLevelWithDifficultyAndTotal
+    case 508: // StarTowerClearTotal
+    case 509: // StarTowerEnterRoom
+    case 511: // StarTowerEventTimes
+    case 512: // StarTowerFateTimes
+    case 513: // StarTowerItemsGet
+    case 514: // StarTowerSpecificDifficultyShopBuyTimes
+    case 521: // StarTowerBuildSpecificDifficultyAndScoreWithTotal
+    case 522: // StarTowerSpecificDifficultyStrengthenMachineTotal
+    case 524: // StarTowerSpecificDifficultyKillBossTotal
+    case 525: // StarTowerBookSpecificCharWithPotentialTotal
+    case 526: // StarTowerBuildSpecificCharSpecificScoreWithTotal
+    case 528: // StarTowerSpecificFateCardReRollTotal
+    case 529: // StarTowerSpecificPotentialReRollTotal
+    case 530: // StarTowerSpecificShopReRollTotal
+    case 531: // StarTowerSpecificNoteActivateTotal
+    case 532: // StarTowerSpecificNoteLevelTotal
+    case 533: // StarTowerSpecificPotentialBonusTotal
+    case 534: // StarTowerSpecificPotentialLuckyTotal
+    case 535: // StarTowerSpecificShopBuyDiscountTotal
+    case 536: // StarTowerSpecificSecondarySkillActivateTotal
+    case 537: // StarTowerSpecificGetExtraNoteLvTotal
+    case 539: // StarTowerSweepTimes
+    case 540: // StarTowerSweepTotal
         return true;
     default:
         return false;

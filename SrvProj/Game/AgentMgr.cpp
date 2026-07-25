@@ -117,8 +117,7 @@ const ServerProto::AgentBin* AgentMgr::Apply(const proto::AgentApplyInfo& apply)
     }
 
     const auto dataIt = GameData::AgentDataTable.find(static_cast<int>(apply.id()));
-    if (dataIt == GameData::AgentDataTable.end() || apply.charids_size() <= 0 ||
-        apply.charids_size() > dataIt->second.MemberLimit)
+    if (dataIt == GameData::AgentDataTable.end() || apply.charids_size() <= 0 || apply.charids_size() > dataIt->second.MemberLimit)
     {
         return nullptr;
     }

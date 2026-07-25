@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TowerRuntime.h"
+#include "StarTowerRuntime.h"
 #include "../proto/ServerProto_cpp/PlayerData.pb.h"
 #include "../proto/proto_cpp/star_tower_interact.pb.h"
 
@@ -9,9 +9,9 @@
 #include <string>
 #include <vector>
 
-class TowerRoom;
+class StarTowerRoom;
 
-enum class TowerCaseType : uint32_t
+enum class StarTowerCaseType : uint32_t
 {
     Battle = 1,
     Door = 2,
@@ -28,58 +28,58 @@ enum class TowerCaseType : uint32_t
     SyncHP = 13,
 };
 
-class TowerCaseBase
+class StarTowerCaseBase
 {
 public:
-    virtual ~TowerCaseBase() = default;
+    virtual ~StarTowerCaseBase() = default;
 
-    TowerRuntime::Game* GetGame() const { return mGame; }
-    TowerRoom* GetRoom() const { return mRoom; }
+    StarTowerRuntime::Game* GetGame() const { return mGame; }
+    StarTowerRoom* GetRoom() const { return mRoom; }
     uint32_t GetId() const { return mId; }
 
-    void Register(TowerRoom* room, uint32_t id);
-    void RegisterLoaded(TowerRoom* room, uint32_t id);
+    void Register(StarTowerRoom* room, uint32_t id);
+    void RegisterLoaded(StarTowerRoom* room, uint32_t id);
     virtual void OnRegister() {}
-    virtual TowerCaseType GetType() const = 0;
+    virtual StarTowerCaseType GetType() const = 0;
     virtual bool RemoveAfterInteract() const { return true; }
     virtual proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) = 0;
     virtual proto::StarTowerRoomCase ToProto() const = 0;
-    virtual void SaveToBin(ServerProto::TowerCaseBin& bin) const = 0;
+    virtual void SaveToBin(ServerProto::StarTowerCaseBin& bin) const = 0;
 
-    static std::unique_ptr<TowerCaseBase> LoadFromBin(TowerRuntime::Game* game, const ServerProto::TowerCaseBin& bin);
+    static std::unique_ptr<StarTowerCaseBase> LoadFromBin(StarTowerRuntime::Game* game, const ServerProto::StarTowerCaseBin& bin);
 
 protected:
-    TowerRuntime::Game* mGame = nullptr;
-    TowerRoom* mRoom = nullptr;
+    StarTowerRuntime::Game* mGame = nullptr;
+    StarTowerRoom* mRoom = nullptr;
     uint32_t mId = 0;
 };
 
-class TowerBattleCase : public TowerCaseBase
+class StarTowerBattleCase : public StarTowerCaseBase
 {
 public:
     uint32_t SubNoteDrops = 0;
     uint32_t ExpReward = 0;
 
-    TowerCaseType GetType() const override { return TowerCaseType::Battle; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::Battle; }
     void OnRegister() override;
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerDoorCase : public TowerCaseBase
+class StarTowerDoorCase : public StarTowerCaseBase
 {
 public:
     uint32_t FloorNum = 0;
     uint32_t RoomType = 0;
 
-    TowerCaseType GetType() const override { return TowerCaseType::Door; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::Door; }
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerPotentialCase : public TowerCaseBase
+class StarTowerPotentialCase : public StarTowerCaseBase
 {
 public:
     uint32_t TeamLevel = 0;
@@ -88,16 +88,16 @@ public:
     uint32_t RerollPrice = 0;
     bool Strengthen = false;
     bool Rare = false;
-    std::vector<TowerRuntime::PotentialInfo> Potentials;
+    std::vector<StarTowerRuntime::PotentialInfo> Potentials;
     uint32_t SourceType = 0;
 
-    TowerCaseType GetType() const override { return Rare ? TowerCaseType::SelectSpecialPotential : TowerCaseType::Potential; }
+    StarTowerCaseType GetType() const override { return Rare ? StarTowerCaseType::SelectSpecialPotential : StarTowerCaseType::Potential; }
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerNpcEventCase : public TowerCaseBase
+class StarTowerNpcEventCase : public StarTowerCaseBase
 {
 public:
     uint32_t NpcId = 0;
@@ -105,29 +105,29 @@ public:
     std::vector<uint32_t> Options;
     bool Completed = false;
 
-    TowerCaseType GetType() const override { return TowerCaseType::NpcEvent; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::NpcEvent; }
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerHawkerCase : public TowerCaseBase
+class StarTowerHawkerCase : public StarTowerCaseBase
 {
 public:
-    std::vector<TowerRuntime::ShopGoods> Goods;
+    std::vector<StarTowerRuntime::ShopGoods> Goods;
     uint32_t RerollTimes = 0;
     uint32_t RerollPrice = 0;
 
-    TowerCaseType GetType() const override { return TowerCaseType::Hawker; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::Hawker; }
     bool RemoveAfterInteract() const override { return false; }
     void OnRegister() override;
     void InitGoods();
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerStrengthenMachineCase : public TowerCaseBase
+class StarTowerStrengthenMachineCase : public StarTowerCaseBase
 {
 public:
     bool Free = false;
@@ -135,41 +135,41 @@ public:
     uint32_t Times = 0;
     int32_t GetPrice() const;
 
-    TowerCaseType GetType() const override { return TowerCaseType::StrengthenMachine; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::StrengthenMachine; }
     bool RemoveAfterInteract() const override { return false; }
     void OnRegister() override;
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerRecoveryHPCase : public TowerCaseBase
+class StarTowerRecoveryHPCase : public StarTowerCaseBase
 {
 public:
     uint32_t EffectId = 0;
 
-    TowerCaseType GetType() const override { return TowerCaseType::RecoveryHP; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::RecoveryHP; }
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerNpcRecoveryHPCase : public TowerCaseBase
+class StarTowerNpcRecoveryHPCase : public StarTowerCaseBase
 {
 public:
     uint32_t EffectId = 989970;
 
-    TowerCaseType GetType() const override { return TowerCaseType::NpcRecoveryHP; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::NpcRecoveryHP; }
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };
 
-class TowerSyncHPCase : public TowerCaseBase
+class StarTowerSyncHPCase : public StarTowerCaseBase
 {
 public:
-    TowerCaseType GetType() const override { return TowerCaseType::SyncHP; }
+    StarTowerCaseType GetType() const override { return StarTowerCaseType::SyncHP; }
     proto::StarTowerInteractResp Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp) override;
     proto::StarTowerRoomCase ToProto() const override;
-    void SaveToBin(ServerProto::TowerCaseBin& bin) const override;
+    void SaveToBin(ServerProto::StarTowerCaseBin& bin) const override;
 };

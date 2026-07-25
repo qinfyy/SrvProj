@@ -216,22 +216,19 @@
     <ClCompile Include="Resources\BinClass\StoryRes.cpp">
       <Filter>源文件\Resources\BinClass</Filter>
     </ClCompile>
-    <ClCompile Include="Game\StarTowerMgr.cpp">
-      <Filter>源文件\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\FormationMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\TowerCases.cpp">
+    <ClCompile Include="Game\StarTowerCases.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\TowerMgr.cpp">
+    <ClCompile Include="Game\StarTowerMgr.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\TowerRooms.cpp">
+    <ClCompile Include="Game\StarTowerRooms.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\TowerRuntime.cpp">
+    <ClCompile Include="Game\StarTowerRuntime.cpp">
       <Filter>源文件\Game</Filter>
     </ClCompile>
     <ClCompile Include="Resources\BinClass\StarTowerRes.cpp">
@@ -291,7 +288,7 @@
     <ClCompile Include="Handlers\Story.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
-    <ClCompile Include="Handlers\Tower.cpp">
+    <ClCompile Include="Handlers\StarTower.cpp">
       <Filter>源文件\Handlers</Filter>
     </ClCompile>
     <ClCompile Include="proto\proto_cpp\achievement_info.pb.cc">
@@ -1202,7 +1199,7 @@
     <ClInclude Include="Handlers\Story.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
-    <ClInclude Include="Handlers\Tower.h">
+    <ClInclude Include="Handlers\StarTower.h">
       <Filter>头文件\Handlers</Filter>
     </ClInclude>
     <ClInclude Include="Handlers\BattlePass.h">
@@ -1253,16 +1250,16 @@
     <ClInclude Include="Game\FormationMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\TowerCases.h">
+    <ClInclude Include="Game\StarTowerCases.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\TowerMgr.h">
+    <ClInclude Include="Game\StarTowerMgr.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\TowerRooms.h">
+    <ClInclude Include="Game\StarTowerRooms.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\TowerRuntime.h">
+    <ClInclude Include="Game\StarTowerRuntime.h">
       <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattlePassMgr.h">
@@ -1363,9 +1360,6 @@
     </ClInclude>
     <ClInclude Include="Resources\BinClass\StoryRes.h">
       <Filter>头文件\Resources\BinClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\StarTowerMgr.h">
-      <Filter>头文件\Game</Filter>
     </ClInclude>
     <ClInclude Include="Resources\BinClass\StarTowerRes.h">
       <Filter>头文件\Resources\BinClass</Filter>

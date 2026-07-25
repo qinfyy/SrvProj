@@ -1,11 +1,11 @@
-﻿#include "TowerCases.h"
+﻿#include "StarTowerCases.h"
 
 #include "ChangeInfoUtil.h"
 #include "AchievementMgr.h"
 #include "InventoryMgr.h"
 #include "Player.h"
-#include "TowerMgr.h"
-#include "TowerRooms.h"
+#include "StarTowerMgr.h"
+#include "StarTowerRooms.h"
 #include "../GameConstants.h"
 #include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/BinClass/StarTowerRes.h"
@@ -18,13 +18,13 @@
 
 namespace
 {
-constexpr uint32_t kTowerEventWrongAnswerOptionsParamId = 100140101;
-constexpr uint32_t kTowerEventSubNoteSkillBaseId = 90010;
-constexpr int kTowerEventCoinSmallReward = 30;
-constexpr int kTowerEventSubNoteSmallReward = 5;
-constexpr int kTowerEventSubNoteLargeReward = 10;
-constexpr uint32_t kTowerNpcEventAffinityIncrease = 100;
-constexpr int kTowerSubNoteSkillItemSubType = 19;
+constexpr uint32_t kStarTowerEventWrongAnswerOptionsParamId = 100140101;
+constexpr uint32_t kStarTowerEventSubNoteSkillBaseId = 90010;
+constexpr int kStarTowerEventCoinSmallReward = 30;
+constexpr int kStarTowerEventSubNoteSmallReward = 5;
+constexpr int kStarTowerEventSubNoteLargeReward = 10;
+constexpr uint32_t kStarTowerNpcEventAffinityIncrease = 100;
+constexpr int kStarTowerSubNoteSkillItemSubType = 19;
 
 double RandomDouble()
 {
@@ -51,7 +51,7 @@ int RandomInt(int minValue, int maxValue)
 }
 }
 
-void TowerCaseBase::Register(TowerRoom* room, uint32_t id)
+void StarTowerCaseBase::Register(StarTowerRoom* room, uint32_t id)
 {
     mRoom = room;
     mGame = room ? room->GetGame() : nullptr;
@@ -59,21 +59,21 @@ void TowerCaseBase::Register(TowerRoom* room, uint32_t id)
     OnRegister();
 }
 
-void TowerCaseBase::RegisterLoaded(TowerRoom* room, uint32_t id)
+void StarTowerCaseBase::RegisterLoaded(StarTowerRoom* room, uint32_t id)
 {
     mRoom = room;
     mGame = room ? room->GetGame() : nullptr;
     mId = id;
 }
 
-std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* game, const ServerProto::TowerCaseBin& bin)
+std::unique_ptr<StarTowerCaseBase> StarTowerCaseBase::LoadFromBin(StarTowerRuntime::Game* game, const ServerProto::StarTowerCaseBin& bin)
 {
-    std::unique_ptr<TowerCaseBase> towerCase;
-    switch (static_cast<TowerCaseType>(bin.type()))
+    std::unique_ptr<StarTowerCaseBase> towerCase;
+    switch (static_cast<StarTowerCaseType>(bin.type()))
     {
-    case TowerCaseType::Battle:
+    case StarTowerCaseType::Battle:
     {
-        auto instance = std::make_unique<TowerBattleCase>();
+        auto instance = std::make_unique<StarTowerBattleCase>();
         if (bin.has_battlecase())
         {
             instance->SubNoteDrops = bin.battlecase().subnotedrops();
@@ -82,9 +82,9 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::Door:
+    case StarTowerCaseType::Door:
     {
-        auto instance = std::make_unique<TowerDoorCase>();
+        auto instance = std::make_unique<StarTowerDoorCase>();
         if (bin.has_doorcase())
         {
             instance->FloorNum = bin.doorcase().floornum();
@@ -93,11 +93,11 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::Potential:
-    case TowerCaseType::SelectSpecialPotential:
+    case StarTowerCaseType::Potential:
+    case StarTowerCaseType::SelectSpecialPotential:
     {
-        auto instance = std::make_unique<TowerPotentialCase>();
-        instance->Rare = static_cast<TowerCaseType>(bin.type()) == TowerCaseType::SelectSpecialPotential;
+        auto instance = std::make_unique<StarTowerPotentialCase>();
+        instance->Rare = static_cast<StarTowerCaseType>(bin.type()) == StarTowerCaseType::SelectSpecialPotential;
         const auto& caseBin = bin.has_selectspecialpotentialcase() ? bin.selectspecialpotentialcase() : bin.potentialcase();
         instance->TeamLevel = caseBin.teamlevel();
         instance->CharId = caseBin.charid();
@@ -112,9 +112,9 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::NpcEvent:
+    case StarTowerCaseType::NpcEvent:
     {
-        auto instance = std::make_unique<TowerNpcEventCase>();
+        auto instance = std::make_unique<StarTowerNpcEventCase>();
         if (bin.has_npceventcase())
         {
             instance->NpcId = bin.npceventcase().npcid();
@@ -125,16 +125,16 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::Hawker:
+    case StarTowerCaseType::Hawker:
     {
-        auto instance = std::make_unique<TowerHawkerCase>();
+        auto instance = std::make_unique<StarTowerHawkerCase>();
         if (bin.has_hawkercase())
         {
             instance->RerollTimes = bin.hawkercase().rerolltimes();
             instance->RerollPrice = bin.hawkercase().rerollprice();
             for (const auto& goods : bin.hawkercase().goods())
             {
-                TowerRuntime::ShopGoods item;
+                StarTowerRuntime::ShopGoods item;
                 item.Sid = goods.sid();
                 item.Type = goods.type();
                 item.Idx = goods.idx();
@@ -149,9 +149,9 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::StrengthenMachine:
+    case StarTowerCaseType::StrengthenMachine:
     {
-        auto instance = std::make_unique<TowerStrengthenMachineCase>();
+        auto instance = std::make_unique<StarTowerStrengthenMachineCase>();
         if (bin.has_strengthenmachinecase())
         {
             instance->Free = bin.strengthenmachinecase().free();
@@ -161,9 +161,9 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::RecoveryHP:
+    case StarTowerCaseType::RecoveryHP:
     {
-        auto instance = std::make_unique<TowerRecoveryHPCase>();
+        auto instance = std::make_unique<StarTowerRecoveryHPCase>();
         if (bin.has_recoveryhpcase())
         {
             instance->EffectId = bin.recoveryhpcase().effectid();
@@ -171,9 +171,9 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::NpcRecoveryHP:
+    case StarTowerCaseType::NpcRecoveryHP:
     {
-        auto instance = std::make_unique<TowerNpcRecoveryHPCase>();
+        auto instance = std::make_unique<StarTowerNpcRecoveryHPCase>();
         if (bin.has_npcrecoveryhpcase())
         {
             instance->EffectId = bin.npcrecoveryhpcase().effectid();
@@ -181,9 +181,9 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
         towerCase = std::move(instance);
         break;
     }
-    case TowerCaseType::SyncHP:
+    case StarTowerCaseType::SyncHP:
     {
-        towerCase = std::make_unique<TowerSyncHPCase>();
+        towerCase = std::make_unique<StarTowerSyncHPCase>();
         break;
     }
     default:
@@ -199,14 +199,14 @@ std::unique_ptr<TowerCaseBase> TowerCaseBase::LoadFromBin(TowerRuntime::Game* ga
     return towerCase;
 }
 
-void TowerBattleCase::OnRegister()
+void StarTowerBattleCase::OnRegister()
 {
     if (!GetGame())
     {
         return;
     }
 
-    const auto towerIt = GameData::StarTowerDataTable.find(GetGame()->TowerId);
+    const auto towerIt = GameData::StarTowerDataTable.find(GetGame()->StarTowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         SubNoteDrops = 1;
@@ -216,26 +216,26 @@ void TowerBattleCase::OnRegister()
 
     for (const auto& [_, floorExp] : GameData::StarTowerFloorExpDataTable)
     {
-        if (floorExp.StarTowerId != static_cast<int>(GetGame()->TowerId))
+        if (floorExp.StarTowerId != static_cast<int>(GetGame()->StarTowerId))
         {
             continue;
         }
 
         switch (GetRoom()->GetType())
         {
-        case TowerRoomType::BattleRoom:
+        case StarTowerRoomType::BattleRoom:
             SubNoteDrops = RandomChance(GetGame()->GetBattleSubNoteDropChance() + 0.4) ? 1u : 0u;
             ExpReward = static_cast<uint32_t>((std::max)(floorExp.NormalExp, 0));
             break;
-        case TowerRoomType::EliteBattleRoom:
+        case StarTowerRoomType::EliteBattleRoom:
             SubNoteDrops = 1;
             ExpReward = static_cast<uint32_t>((std::max)(floorExp.EliteExp, 0));
             break;
-        case TowerRoomType::BossRoom:
+        case StarTowerRoomType::BossRoom:
             SubNoteDrops = 2;
             ExpReward = static_cast<uint32_t>((std::max)(floorExp.BossExp, 0));
             break;
-        case TowerRoomType::FinalBossRoom:
+        case StarTowerRoomType::FinalBossRoom:
             SubNoteDrops = 2;
             ExpReward = static_cast<uint32_t>((std::max)(floorExp.FinalBossExp, 0));
             break;
@@ -251,7 +251,7 @@ void TowerBattleCase::OnRegister()
     ExpReward = 100;
 }
 
-proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerBattleCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     if (req.has_battleendreq() && req.battleendreq().has_victory())
     {
@@ -260,13 +260,13 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
         int picks = GetGame()->LevelUp();
         if (picks > 0)
         {
-            // 与 Nebula 一致：首层 / Boss / 最终 Boss 优先稀有，否则 1/8 概率稀有。
+            // 首层 / Boss / 最终 Boss 优先稀有，否则 1/8 概率稀有。
             if (GetGame()->FloorCount == 1)
             {
                 GetGame()->AddRarePotentialSelectors(1);
                 --picks;
             }
-            else if (GetRoom()->GetType() == TowerRoomType::BossRoom || GetRoom()->GetType() == TowerRoomType::FinalBossRoom)
+            else if (GetRoom()->GetType() == StarTowerRoomType::BossRoom || GetRoom()->GetType() == StarTowerRoomType::FinalBossRoom)
             {
                 GetGame()->AddRarePotentialSelectors(1);
                 --picks;
@@ -296,12 +296,12 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
             }
             if (coin > 0)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, coin, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, coin, rsp.mutable_change());
             }
         }
 
         uint32_t subNoteDrops = SubNoteDrops;
-        if (GetRoom()->GetType() == TowerRoomType::BossRoom && GetGame()->GetBonusBossSubNotes() > 0 && RandomChance(0.5))
+        if (GetRoom()->GetType() == StarTowerRoomType::BossRoom && GetGame()->GetBonusBossSubNotes() > 0 && RandomChance(0.5))
         {
             subNoteDrops += GetGame()->GetBonusBossSubNotes();
         }
@@ -310,7 +310,7 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
             subNoteDrops += GetGame()->GetBonusSubNotes();
         }
 
-        // 与 Nebula 一致：先挂 pending 潜能/门，再发副音符（都写入 change，顺序对齐）。
+        // 先挂 pending 潜能/门，再发副音符（都写入 change，顺序固定为潜能→副音符）。
         GetGame()->HandlePendingPotentialSelectors(rsp);
 
         if (subNoteDrops > 0)
@@ -336,14 +336,14 @@ proto::StarTowerInteractResp TowerBattleCase::Interact(const proto::StarTowerInt
     }
     else
     {
-        // Nebula 失败时只返回结算结构，不额外填充 BattleEndResp。
+        // 战斗失败时只返回结算结构，不额外填充 BattleEndResp。
         GetGame()->Settle(false, rsp);
     }
     rsp.mutable_change();
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerBattleCase::ToProto() const
+proto::StarTowerRoomCase StarTowerBattleCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -351,7 +351,7 @@ proto::StarTowerRoomCase TowerBattleCase::ToProto() const
     return out;
 }
 
-void TowerBattleCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerBattleCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -361,15 +361,15 @@ void TowerBattleCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     data->set_expreward(ExpReward);
 }
 
-proto::StarTowerInteractResp TowerDoorCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerDoorCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
-    TowerRuntime::Game* game = GetGame();
+    StarTowerRuntime::Game* game = GetGame();
     if (!game)
     {
         return rsp;
     }
 
-    const auto towerIt = GameData::StarTowerDataTable.find(game->TowerId);
+    const auto towerIt = GameData::StarTowerDataTable.find(game->StarTowerId);
     if (towerIt == GameData::StarTowerDataTable.end())
     {
         return rsp;
@@ -381,7 +381,7 @@ proto::StarTowerInteractResp TowerDoorCase::Interact(const proto::StarTowerInter
         return rsp;
     }
 
-    std::unique_ptr<TowerRoom> keepAlive = std::move(game->Room);
+    std::unique_ptr<StarTowerRoom> keepAlive = std::move(game->Room);
     if (!game->EnterNextRoom() || !game->Room)
     {
         game->Room = std::move(keepAlive);
@@ -396,7 +396,7 @@ proto::StarTowerInteractResp TowerDoorCase::Interact(const proto::StarTowerInter
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerDoorCase::ToProto() const
+proto::StarTowerRoomCase StarTowerDoorCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -406,7 +406,7 @@ proto::StarTowerRoomCase TowerDoorCase::ToProto() const
     return out;
 }
 
-void TowerDoorCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerDoorCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -416,16 +416,16 @@ void TowerDoorCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     data->set_roomtype(RoomType);
 }
 
-proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerPotentialCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     if (req.has_selectreq() && req.selectreq().has_reroll())
     {
-        if (Reroll == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
+        if (Reroll == 0 || GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) < static_cast<int>(RerollPrice))
         {
             return rsp;
         }
 
-        std::unique_ptr<TowerCaseBase> rerollBase;
+        std::unique_ptr<StarTowerCaseBase> rerollBase;
         if (Strengthen)
         {
             rerollBase = GetGame()->CreateStrengthenSelector();
@@ -435,7 +435,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
             rerollBase = GetGame()->CreatePotentialSelector(CharId, Rare);
         }
 
-        auto* rerollCase = dynamic_cast<TowerPotentialCase*>(rerollBase.get());
+        auto* rerollCase = dynamic_cast<StarTowerPotentialCase*>(rerollBase.get());
         if (!rerollCase || rerollCase->Potentials.empty())
         {
             return rsp;
@@ -446,7 +446,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
         rerollCase->RerollPrice = RerollPrice;
         rerollCase->Strengthen = Strengthen;
         rerollCase->Rare = Rare;
-        GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
+        GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
         auto* added = GetRoom()->AddCase(std::move(rerollBase));
         if (added)
         {
@@ -459,7 +459,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
     }
     else if (req.has_selectreq())
     {
-        // 与 Nebula 一致：非法 index 直接返回，不推进 pending/door。
+        // 非法 index 直接返回，不推进 pending/door。
         const int index = static_cast<int>(req.selectreq().index());
         if (index < 0 || index >= static_cast<int>(Potentials.size()))
         {
@@ -473,7 +473,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
             const uint32_t triggerId = GetGame()->GetPotentialLevel(selected.Id) > 0 ? 534u : 533u;
             GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(triggerId, 1, 0, 0);
         }
-        // 与 Nebula 一致：无论 add 是否因满级等失败，都继续 handlePending，避免卡死。
+        // 无论 add 是否因满级等失败，都继续 handlePending，避免卡死。
         if (GetGame()->AddRuntimeItem(selected.Id, static_cast<int>(selected.Level), rsp.mutable_change()) && GetGame()->GetManager())
         {
             GetGame()->GetManager()->RecordPotentialCollection(selected.Id, GetGame()->GetPotentialLevel(selected.Id));
@@ -487,7 +487,7 @@ proto::StarTowerInteractResp TowerPotentialCase::Interact(const proto::StarTower
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerPotentialCase::ToProto() const
+proto::StarTowerRoomCase StarTowerPotentialCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -528,7 +528,7 @@ proto::StarTowerRoomCase TowerPotentialCase::ToProto() const
     return out;
 }
 
-void TowerPotentialCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerPotentialCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -548,7 +548,7 @@ void TowerPotentialCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     }
 }
 
-proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerNpcEventCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     if (Completed)
     {
@@ -567,9 +567,9 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         {
         // 消耗100星塔币，生成普通潜能选择。
         case 10101:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 100)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 100)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -100, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -100, rsp.mutable_change());
                 auto selector = GetGame()->CreatePotentialSelector(0, false);
                 if (selector)
                 {
@@ -587,9 +587,9 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             break;
         // 消耗120星塔币，生成普通潜能选择。
         case 10102:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 120)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 120)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -120, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -120, rsp.mutable_change());
                 auto selector = GetGame()->CreatePotentialSelector(0, false);
                 if (selector)
                 {
@@ -621,13 +621,13 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         case 10809:
         // 获得30星塔币。
         case 12802:
-            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, kTowerEventCoinSmallReward, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, kStarTowerEventCoinSmallReward, rsp.mutable_change());
             break;
         // 消耗120星塔币，为支援角色生成普通潜能选择。
         case 10201:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 120)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 120)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -120, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -120, rsp.mutable_change());
                 uint32_t supportCharId = 0;
                 if (GetGame()->CharIds.size() <= 1)
                 {
@@ -656,9 +656,9 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             break;
         // 消耗160星塔币，为队长生成普通潜能选择。
         case 10202:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 160)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 160)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -160, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -160, rsp.mutable_change());
                 auto selector = GetGame()->CreatePotentialSelector(GetGame()->CharIds.empty() ? 0u : GetGame()->CharIds.front(), false);
                 if (selector)
                 {
@@ -678,9 +678,9 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         case 10203:
         // 1消耗200星塔币，生成稀有潜能选择。
         case 10402:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 200)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 200)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -200, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -200, rsp.mutable_change());
                 auto selector = GetGame()->CreatePotentialSelector(0, true);
                 if (selector)
                 {
@@ -704,11 +704,11 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             break;
         // 50%获得200星塔币，否则失去100星塔币。
         case 10501:
-            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, RandomChance(0.5) ? 200 : -100, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, RandomChance(0.5) ? 200 : -100, rsp.mutable_change());
             break;
         // 30%获得650星塔币，否则失去200星塔币。
         case 10502:
-            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, RandomChance(0.3) ? 650 : -200, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, RandomChance(0.3) ? 650 : -200, rsp.mutable_change());
             break;
         // 50%生成稀有潜能选择。
         case 10601:
@@ -753,11 +753,11 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         case 10706:
         // 获得固定副音符技能90017，数量5。
         case 10707:
-            GetGame()->AddRuntimeItem((optionId % 100) + kTowerEventSubNoteSkillBaseId, kTowerEventSubNoteSmallReward, rsp.mutable_change());
+            GetGame()->AddRuntimeItem((optionId % 100) + kStarTowerEventSubNoteSkillBaseId, kStarTowerEventSubNoteSmallReward, rsp.mutable_change());
             break;
         // 获得随机副音符技能，数量5。
         case 10708:
-            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteSmallReward, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kStarTowerEventSubNoteSmallReward, rsp.mutable_change());
             break;
         // 消耗140星塔币，获得固定副音符技能90011，数量10。
         case 10801:
@@ -773,10 +773,10 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         case 10806:
         // 消耗140星塔币，获得固定副音符技能90017，数量10。
         case 10807:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 140)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 140)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -140, rsp.mutable_change());
-                GetGame()->AddRuntimeItem((optionId % 100) + kTowerEventSubNoteSkillBaseId, kTowerEventSubNoteLargeReward, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -140, rsp.mutable_change());
+                GetGame()->AddRuntimeItem((optionId % 100) + kStarTowerEventSubNoteSkillBaseId, kStarTowerEventSubNoteLargeReward, rsp.mutable_change());
             }
             else
             {
@@ -785,10 +785,10 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             break;
         // 消耗90星塔币，获得随机副音符技能，数量10。
         case 10808:
-            if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 90)
+            if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 90)
             {
-                GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -90, rsp.mutable_change());
-                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteLargeReward, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -90, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kStarTowerEventSubNoteLargeReward, rsp.mutable_change());
             }
             else
             {
@@ -807,11 +807,11 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         case 11405:
             if (optionId == 11403)
             {
-                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteLargeReward, rsp.mutable_change());
+                GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kStarTowerEventSubNoteLargeReward, rsp.mutable_change());
             }
             else
             {
-                result->set_optionsparamid(kTowerEventWrongAnswerOptionsParamId);
+                result->set_optionsparamid(kStarTowerEventWrongAnswerOptionsParamId);
             }
             break;
         // 答题错误，设置错误答案提示参数。
@@ -838,7 +838,7 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             }
             else
             {
-                result->set_optionsparamid(kTowerEventWrongAnswerOptionsParamId);
+                result->set_optionsparamid(kStarTowerEventWrongAnswerOptionsParamId);
             }
             break;
         // 答题错误，设置错误答案提示参数。
@@ -865,7 +865,7 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
             }
             else
             {
-                result->set_optionsparamid(kTowerEventWrongAnswerOptionsParamId);
+                result->set_optionsparamid(kStarTowerEventWrongAnswerOptionsParamId);
             }
             break;
         // 为支援角色生成普通潜能选择。
@@ -897,7 +897,7 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         }
         // 获得随机副音符技能，数量5。
         case 12702:
-            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kTowerEventSubNoteSmallReward, rsp.mutable_change());
+            GetGame()->AddRuntimeItem(static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0)), kStarTowerEventSubNoteSmallReward, rsp.mutable_change());
             break;
         // 为支援角色生成稀有潜能选择。
         case 12801:
@@ -940,14 +940,14 @@ proto::StarTowerInteractResp TowerNpcEventCase::Interact(const proto::StarTowerI
         if (NpcId > 0)
         {
             auto* affinityChange = result->add_affinitychange();
-            const uint32_t affinity = manager->AddNpcAffinity(NpcId, kTowerNpcEventAffinityIncrease, affinityChange);
-            manager->PushNpcAffinityNotify(NpcId, affinity, kTowerNpcEventAffinityIncrease);
+            const uint32_t affinity = manager->AddNpcAffinity(NpcId, kStarTowerNpcEventAffinityIncrease, affinityChange);
+            manager->PushNpcAffinityNotify(NpcId, affinity, kStarTowerNpcEventAffinityIncrease);
         }
     }
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerNpcEventCase::ToProto() const
+proto::StarTowerRoomCase StarTowerNpcEventCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -967,7 +967,7 @@ proto::StarTowerRoomCase TowerNpcEventCase::ToProto() const
     return out;
 }
 
-void TowerNpcEventCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerNpcEventCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -982,7 +982,7 @@ void TowerNpcEventCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     }
 }
 
-void TowerHawkerCase::OnRegister()
+void StarTowerHawkerCase::OnRegister()
 {
     if (Goods.empty())
     {
@@ -996,7 +996,7 @@ void TowerHawkerCase::OnRegister()
     }
 }
 
-void TowerHawkerCase::InitGoods()
+void StarTowerHawkerCase::InitGoods()
 {
     Goods.clear();
 
@@ -1005,11 +1005,11 @@ void TowerHawkerCase::InitGoods()
     const uint32_t maxPotentials = (std::max)(total - 1u, minPotentials);
     const uint32_t potentialCount = static_cast<uint32_t>(RandomInt(static_cast<int>(minPotentials), static_cast<int>(maxPotentials)));
     const uint32_t subNoteCount = total > potentialCount ? total - potentialCount : 0;
-    const bool hasCoins = GetGame() && GetGame()->GetResCount(GameConstants::TowerCoinItemId) >= 500;
+    const bool hasCoins = GetGame() && GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) >= 500;
 
     for (uint32_t i = 0; i < potentialCount; ++i)
     {
-        TowerRuntime::ShopGoods goods;
+        StarTowerRuntime::ShopGoods goods;
         goods.Sid = static_cast<uint32_t>(Goods.size() + 1);
         goods.Type = 1;
         goods.Idx = 1;
@@ -1024,7 +1024,7 @@ void TowerHawkerCase::InitGoods()
 
     for (uint32_t i = 0; i < subNoteCount; ++i)
     {
-        TowerRuntime::ShopGoods goods;
+        StarTowerRuntime::ShopGoods goods;
         goods.Sid = static_cast<uint32_t>(Goods.size() + 1);
         goods.Type = 2;
         goods.GoodsId = static_cast<uint32_t>((std::max)(GetGame()->GetRandomSubNoteId(), 0));
@@ -1083,10 +1083,10 @@ void TowerHawkerCase::InitGoods()
     }
 }
 
-proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerHawkerCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
-    // 与 Nebula 一致：默认置 NilResp；reroll/购买成功时 oneof 会被 SelectResp 或后续字段覆盖。
-    // 注意：购买潜能时只往 Cases 加 selector，oneof 仍可能是 NilResp（官方/Nebula 同）。
+    // 默认置 NilResp；reroll/购买成功时 oneof 会被 SelectResp 或后续字段覆盖。
+    // 注意：购买潜能时只往 Cases 加 selector，oneof 仍可能是 NilResp（客户端按空响应处理即可）。
     rsp.mutable_nilresp();
 
     if (!req.has_hawkerreq() || !GetGame())
@@ -1105,7 +1105,7 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
             }
 
             // 先验证商品可交付，避免无候选潜能或无效副音符仍扣费并售罄。
-            if (goods.Sold || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < goods.GetPrice())
+            if (goods.Sold || GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) < goods.GetPrice())
             {
                 break;
             }
@@ -1130,7 +1130,7 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
             else if (goods.Type == 2)
             {
                 const auto itemIt = GameData::ItemDataTable.find(goods.GoodsId);
-                if (itemIt == GameData::ItemDataTable.end() || itemIt->second.Stype != kTowerSubNoteSkillItemSubType || goods.GetCount() <= 0)
+                if (itemIt == GameData::ItemDataTable.end() || itemIt->second.Stype != kStarTowerSubNoteSkillItemSubType || goods.GetCount() <= 0)
                 {
                     break;
                 }
@@ -1147,7 +1147,7 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
                 break;
             }
 
-            GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
+            GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -goods.GetPrice(), rsp.mutable_change());
             if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
             {
                 GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(514, 1, 0, 0);
@@ -1161,10 +1161,10 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
     }
     else if (req.hawkerreq().has_reroll())
     {
-        // 与 Nebula 一致：先检查次数与币，再刷货，再扣币与消耗 reroll。
+        // 先检查次数与币，再刷货，再扣币与消耗 reroll。
         RerollTimes = GetGame()->ShopRerollTimes;
         RerollPrice = GetGame()->ShopRerollPrice;
-        if (RerollTimes == 0 || GetGame()->GetResCount(GameConstants::TowerCoinItemId) < static_cast<int>(RerollPrice))
+        if (RerollTimes == 0 || GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) < static_cast<int>(RerollPrice))
         {
             return rsp;
         }
@@ -1173,7 +1173,7 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
         GetGame()->ConsumeShopReroll();
         RerollTimes = GetGame()->ShopRerollTimes;
         RerollPrice = GetGame()->ShopRerollPrice;
-        GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
+        GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -static_cast<int>(RerollPrice), rsp.mutable_change());
         if (GetGame()->GetManager() && GetGame()->GetManager()->GetPlayer())
         {
             GetGame()->GetManager()->GetPlayer()->Achievements().Trigger(530, 1, 0, 0);
@@ -1184,7 +1184,7 @@ proto::StarTowerInteractResp TowerHawkerCase::Interact(const proto::StarTowerInt
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerHawkerCase::ToProto() const
+proto::StarTowerRoomCase StarTowerHawkerCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -1220,7 +1220,7 @@ proto::StarTowerRoomCase TowerHawkerCase::ToProto() const
     return out;
 }
 
-void TowerHawkerCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerHawkerCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -1242,7 +1242,7 @@ void TowerHawkerCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     }
 }
 
-void TowerStrengthenMachineCase::OnRegister()
+void StarTowerStrengthenMachineCase::OnRegister()
 {
     if (!GetGame() || !GetGame()->GetManager())
     {
@@ -1253,10 +1253,10 @@ void TowerStrengthenMachineCase::OnRegister()
     Discount = static_cast<int32_t>(GetGame()->GetStrengthenDiscount());
 }
 
-proto::StarTowerInteractResp TowerStrengthenMachineCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerStrengthenMachineCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     const int price = GetPrice();
-    if (GetGame()->GetResCount(GameConstants::TowerCoinItemId) < price)
+    if (GetGame()->GetResCount(GameConstants::StarTowerCoinItemId) < price)
     {
         rsp.mutable_strengthenmachineresp()->set_buysucceed(false);
         return rsp;
@@ -1276,7 +1276,7 @@ proto::StarTowerInteractResp TowerStrengthenMachineCase::Interact(const proto::S
         return rsp;
     }
 
-    GetGame()->AddRuntimeItem(GameConstants::TowerCoinItemId, -price, rsp.mutable_change());
+    GetGame()->AddRuntimeItem(GameConstants::StarTowerCoinItemId, -price, rsp.mutable_change());
     if (Free)
     {
         Free = false;
@@ -1297,7 +1297,7 @@ proto::StarTowerInteractResp TowerStrengthenMachineCase::Interact(const proto::S
     return rsp;
 }
 
-int TowerStrengthenMachineCase::GetPrice() const
+int StarTowerStrengthenMachineCase::GetPrice() const
 {
     if (Free)
     {
@@ -1308,7 +1308,7 @@ int TowerStrengthenMachineCase::GetPrice() const
     return (std::max)(price, 0);
 }
 
-proto::StarTowerRoomCase TowerStrengthenMachineCase::ToProto() const
+proto::StarTowerRoomCase StarTowerStrengthenMachineCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -1319,7 +1319,7 @@ proto::StarTowerRoomCase TowerStrengthenMachineCase::ToProto() const
     return out;
 }
 
-void TowerStrengthenMachineCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerStrengthenMachineCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -1330,12 +1330,12 @@ void TowerStrengthenMachineCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     data->set_times(Times);
 }
 
-proto::StarTowerInteractResp TowerRecoveryHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerRecoveryHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     rsp.mutable_nilresp();
     if (GetRoom())
     {
-        auto* added = GetRoom()->AddCase(std::make_unique<TowerSyncHPCase>());
+        auto* added = GetRoom()->AddCase(std::make_unique<StarTowerSyncHPCase>());
         if (added)
         {
             rsp.add_cases()->CopyFrom(added->ToProto());
@@ -1344,7 +1344,7 @@ proto::StarTowerInteractResp TowerRecoveryHPCase::Interact(const proto::StarTowe
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerRecoveryHPCase::ToProto() const
+proto::StarTowerRoomCase StarTowerRecoveryHPCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -1352,7 +1352,7 @@ proto::StarTowerRoomCase TowerRecoveryHPCase::ToProto() const
     return out;
 }
 
-void TowerRecoveryHPCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerRecoveryHPCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -1360,7 +1360,7 @@ void TowerRecoveryHPCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     bin.mutable_recoveryhpcase()->set_effectid(EffectId);
 }
 
-proto::StarTowerInteractResp TowerNpcRecoveryHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerNpcRecoveryHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     if (req.has_recoveryhpreq())
     {
@@ -1369,7 +1369,7 @@ proto::StarTowerInteractResp TowerNpcRecoveryHPCase::Interact(const proto::StarT
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerNpcRecoveryHPCase::ToProto() const
+proto::StarTowerRoomCase StarTowerNpcRecoveryHPCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -1377,7 +1377,7 @@ proto::StarTowerRoomCase TowerNpcRecoveryHPCase::ToProto() const
     return out;
 }
 
-void TowerNpcRecoveryHPCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerNpcRecoveryHPCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());
@@ -1385,7 +1385,7 @@ void TowerNpcRecoveryHPCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
     bin.mutable_npcrecoveryhpcase()->set_effectid(EffectId);
 }
 
-proto::StarTowerInteractResp TowerSyncHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
+proto::StarTowerInteractResp StarTowerSyncHPCase::Interact(const proto::StarTowerInteractReq& req, proto::StarTowerInteractResp& rsp)
 {
     if (req.has_recoveryhpreq())
     {
@@ -1394,7 +1394,7 @@ proto::StarTowerInteractResp TowerSyncHPCase::Interact(const proto::StarTowerInt
     return rsp;
 }
 
-proto::StarTowerRoomCase TowerSyncHPCase::ToProto() const
+proto::StarTowerRoomCase StarTowerSyncHPCase::ToProto() const
 {
     proto::StarTowerRoomCase out;
     out.set_id(GetId());
@@ -1402,7 +1402,7 @@ proto::StarTowerRoomCase TowerSyncHPCase::ToProto() const
     return out;
 }
 
-void TowerSyncHPCase::SaveToBin(ServerProto::TowerCaseBin& bin) const
+void StarTowerSyncHPCase::SaveToBin(ServerProto::StarTowerCaseBin& bin) const
 {
     bin.Clear();
     bin.set_id(GetId());

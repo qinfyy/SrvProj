@@ -1,8 +1,8 @@
-#include "Tower.h"
+#include "StarTower.h"
 
 #include "../Game/FormationMgr.h"
 #include "../Game/Player.h"
-#include "../Game/TowerMgr.h"
+#include "../Game/StarTowerMgr.h"
 #include "../GameSession.h"
 #include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/player_formation.pb.h"
@@ -73,7 +73,7 @@ std::string potential_preselection_list_req__Handler(GameSession* session, const
     }
 
     proto::PotentialPreselectionList rsp;
-    session->GetPlayer()->Towers().BuildPresetList(rsp);
+    session->GetPlayer()->StarTowers().BuildPresetList(rsp);
     return EncodeReply(session, potential_preselection_list_succeed_ack, &rsp);
 }
 
@@ -91,7 +91,7 @@ std::string potential_preselection_import_req__Handler(GameSession* session, con
     }
 
     proto::PotentialPreselection rsp;
-    if (!session->GetPlayer()->Towers().ImportPreset(reqPb.name(), reqPb.preference(), reqPb.charpotentials(), rsp))
+    if (!session->GetPlayer()->StarTowers().ImportPreset(reqPb.name(), reqPb.preference(), reqPb.charpotentials(), rsp))
     {
         return EncodeReply(session, potential_preselection_import_failed_ack);
     }
@@ -108,7 +108,7 @@ std::string potential_preselection_name_set_req__Handler(GameSession* session, c
     }
 
     proto::PotentialPreselectionNameSetReq reqPb;
-    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->Towers().SetPresetName(reqPb.id(), reqPb.name()))
+    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->StarTowers().SetPresetName(reqPb.id(), reqPb.name()))
     {
         return EncodeReply(session, potential_preselection_name_set_failed_ack);
     }
@@ -125,7 +125,7 @@ std::string potential_preselection_preference_set_req__Handler(GameSession* sess
     }
 
     proto::PotentialPreselectionPreferenceSetReq reqPb;
-    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->Towers().SetPresetPreference(reqPb.checkinids(), reqPb.checkoutids()))
+    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->StarTowers().SetPresetPreference(reqPb.checkinids(), reqPb.checkoutids()))
     {
         return EncodeReply(session, potential_preselection_preference_set_failed_ack);
     }
@@ -148,7 +148,7 @@ std::string potential_preselection_update_req__Handler(GameSession* session, con
     }
 
     proto::PotentialPreselection rsp;
-    if (!session->GetPlayer()->Towers().UpdatePreset(reqPb.id(), reqPb.charpotentials(), rsp))
+    if (!session->GetPlayer()->StarTowers().UpdatePreset(reqPb.id(), reqPb.charpotentials(), rsp))
     {
         return EncodeReply(session, potential_preselection_update_failed_ack);
     }
@@ -165,7 +165,7 @@ std::string potential_preselection_delete_req__Handler(GameSession* session, con
     }
 
     proto::PotentialPreselectionDeleteReq reqPb;
-    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->Towers().DeletePresets(reqPb.ids()))
+    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->StarTowers().DeletePresets(reqPb.ids()))
     {
         return EncodeReply(session, potential_preselection_delete_failed_ack);
     }
@@ -182,7 +182,7 @@ std::string star_tower_build_brief_list_get_req__Handler(GameSession* session, c
     }
 
     proto::StarTowerBuildBriefListGetResp rsp;
-    session->GetPlayer()->Towers().BuildBriefList(rsp);
+    session->GetPlayer()->StarTowers().BuildBriefList(rsp);
     return EncodeReply(session, star_tower_build_brief_list_get_succeed_ack, &rsp);
 }
 
@@ -200,7 +200,7 @@ std::string star_tower_apply_req__Handler(GameSession* session, const std::strin
     }
 
     proto::StarTowerApplyResp rsp;
-    if (!session->GetPlayer()->Towers().Apply(reqPb, rsp))
+    if (!session->GetPlayer()->StarTowers().Apply(reqPb, rsp))
     {
         return EncodeReply(session, star_tower_apply_failed_ack);
     }
@@ -223,7 +223,7 @@ std::string star_tower_build_delete_req__Handler(GameSession* session, const std
     }
 
     proto::StarTowerBuildDeleteResp rsp;
-    session->GetPlayer()->Towers().DeleteBuilds(reqPb.buildids(), rsp);
+    session->GetPlayer()->StarTowers().DeleteBuilds(reqPb.buildids(), rsp);
     session->SavePlayer();
     return EncodeReply(session, star_tower_build_delete_succeed_ack, &rsp);
 }
@@ -242,7 +242,7 @@ std::string star_tower_build_detail_get_req__Handler(GameSession* session, const
     }
 
     proto::StarTowerBuildDetailGetResp rsp;
-    if (!session->GetPlayer()->Towers().BuildDetail(reqPb.buildid(), rsp))
+    if (!session->GetPlayer()->StarTowers().BuildDetail(reqPb.buildid(), rsp))
     {
         return EncodeReply(session, star_tower_build_detail_get_failed_ack);
     }
@@ -258,7 +258,7 @@ std::string star_tower_build_lock_unlock_req__Handler(GameSession* session, cons
     }
 
     proto::StarTowerBuildLockUnlockReq reqPb;
-    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->Towers().SetBuildLock(reqPb.buildid(), reqPb.lock()))
+    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->StarTowers().SetBuildLock(reqPb.buildid(), reqPb.lock()))
     {
         return EncodeReply(session, star_tower_build_lock_unlock_failed_ack);
     }
@@ -275,7 +275,7 @@ std::string star_tower_build_name_set_req__Handler(GameSession* session, const s
     }
 
     proto::StarTowerBuildNameSetReq reqPb;
-    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->Towers().SetBuildName(reqPb.buildid(), reqPb.name()))
+    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->StarTowers().SetBuildName(reqPb.buildid(), reqPb.name()))
     {
         return EncodeReply(session, star_tower_build_name_set_failed_ack);
     }
@@ -292,7 +292,7 @@ std::string star_tower_build_preference_set_req__Handler(GameSession* session, c
     }
 
     proto::StarTowerBuildPreferenceSetReq reqPb;
-    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->Towers().SetBuildPreference(reqPb.checkinids(), reqPb.checkoutids()))
+    if (!reqPb.ParseFromString(req) || !session->GetPlayer()->StarTowers().SetBuildPreference(reqPb.checkinids(), reqPb.checkoutids()))
     {
         return EncodeReply(session, star_tower_build_preference_set_failed_ack);
     }
@@ -315,7 +315,7 @@ std::string star_tower_build_whether_save_req__Handler(GameSession* session, con
     }
 
     proto::StarTowerBuildWhetherSaveResp rsp;
-    if (!session->GetPlayer()->Towers().SaveLastBuild(reqPb.delete_(), reqPb.buildname(), reqPb.lock(), rsp))
+    if (!session->GetPlayer()->StarTowers().SaveLastBuild(reqPb.delete_(), reqPb.buildname(), reqPb.lock(), rsp))
     {
         session->SavePlayer();
         return EncodeReply(session, star_tower_build_whether_save_failed_ack);
@@ -333,7 +333,7 @@ std::string star_tower_give_up_req__Handler(GameSession* session, const std::str
     }
 
     proto::StarTowerGiveUpResp rsp;
-    if (!session->GetPlayer()->Towers().GiveUp(rsp))
+    if (!session->GetPlayer()->StarTowers().GiveUp(rsp))
     {
         return EncodeReply(session, star_tower_give_up_failed_ack);
     }
@@ -350,7 +350,7 @@ std::string star_tower_info_req__Handler(GameSession* session, const std::string
     }
 
     proto::StarTowerInfo rsp;
-    if (!session->GetPlayer()->Towers().HandleInfo(rsp))
+    if (!session->GetPlayer()->StarTowers().HandleInfo(rsp))
     {
         return EncodeReply(session, star_tower_info_failed_ack);
     }
@@ -372,7 +372,7 @@ std::string star_tower_interact_req__Handler(GameSession* session, const std::st
     }
 
     proto::StarTowerInteractResp rsp;
-    if (!session->GetPlayer()->Towers().HandleInteract(reqPb, rsp))
+    if (!session->GetPlayer()->StarTowers().HandleInteract(reqPb, rsp))
     {
         return EncodeReply(session, star_tower_interact_failed_ack);
     }
@@ -389,7 +389,7 @@ std::string star_tower_book_potential_brief_list_get_req__Handler(GameSession* s
     }
 
     proto::StarTowerBookPotentialBriefListResp rsp;
-    if (!session->GetPlayer()->Towers().BuildPotentialBriefList(rsp))
+    if (!session->GetPlayer()->StarTowers().BuildPotentialBriefList(rsp))
     {
         return EncodeReply(session, star_tower_book_potential_brief_list_get_failed_ack);
     }
@@ -411,7 +411,7 @@ std::string star_tower_book_char_potential_get_req__Handler(GameSession* session
     }
 
     proto::StarTowerBookPotentialGetResp rsp;
-    if (!session->GetPlayer()->Towers().BuildCharPotential(reqPb.value(), rsp))
+    if (!session->GetPlayer()->StarTowers().BuildCharPotential(reqPb.value(), rsp))
     {
         return EncodeReply(session, star_tower_book_char_potential_get_failed_ack);
     }
@@ -433,7 +433,7 @@ std::string star_tower_book_potential_reward_receive_req__Handler(GameSession* s
     }
 
     proto::StarTowerBookPotentialRewardReceiveResp rsp;
-    if (!session->GetPlayer()->Towers().ReceivePotentialBookReward(reqPb.value(), rsp))
+    if (!session->GetPlayer()->StarTowers().ReceivePotentialBookReward(reqPb.value(), rsp))
     {
         return EncodeReply(session, star_tower_book_potential_reward_receive_failed_ack);
     }
@@ -456,7 +456,7 @@ std::string star_tower_book_event_reward_receive_req__Handler(GameSession* sessi
     }
 
     proto::StarTowerBookEventRewardReceiveResp rsp;
-    if (!session->GetPlayer()->Towers().ReceiveEventBookReward(reqPb.value(), rsp))
+    if (!session->GetPlayer()->StarTowers().ReceiveEventBookReward(reqPb.value(), rsp))
     {
         return EncodeReply(session, star_tower_book_event_reward_receive_failed_ack);
     }
@@ -473,7 +473,7 @@ std::string tower_book_fate_card_detail_req__Handler(GameSession* session, const
     }
 
     proto::TowerBookFateCardDetailResp rsp;
-    session->GetPlayer()->Towers().BuildFateCardDetail(rsp);
+    session->GetPlayer()->StarTowers().BuildFateCardDetail(rsp);
     return EncodeReply(session, tower_book_fate_card_detail_succeed_ack, &rsp);
 }
 
@@ -491,7 +491,7 @@ std::string tower_book_fate_card_reward_receive_req__Handler(GameSession* sessio
     }
 
     proto::ChangeInfo rsp;
-    if (!session->GetPlayer()->Towers().ReceiveFateCardReward(reqPb.cardbundleid(), reqPb.questid(), rsp))
+    if (!session->GetPlayer()->StarTowers().ReceiveFateCardReward(reqPb.cardbundleid(), reqPb.questid(), rsp))
     {
         return EncodeReply(session, tower_book_fate_card_reward_receive_failed_ack);
     }
@@ -508,7 +508,7 @@ std::string npc_affinity_book_get_req__Handler(GameSession* session, const std::
     }
 
     proto::NPCAffinityBookGetResp rsp;
-    if (!session->GetPlayer()->Towers().BuildNpcAffinityBook(rsp))
+    if (!session->GetPlayer()->StarTowers().BuildNpcAffinityBook(rsp))
     {
         return EncodeReply(session, npc_affinity_book_get_failed_ack);
     }
@@ -530,7 +530,7 @@ std::string npc_affinity_plot_reward_receive_req__Handler(GameSession* session, 
     }
 
     proto::NPCAffinityPlotRewardReceiveResp rsp;
-    if (!session->GetPlayer()->Towers().ReceiveNpcAffinityPlotReward(reqPb.value(), rsp))
+    if (!session->GetPlayer()->StarTowers().ReceiveNpcAffinityPlotReward(reqPb.value(), rsp))
     {
         return EncodeReply(session, npc_affinity_plot_reward_receive_failed_ack);
     }
@@ -547,7 +547,7 @@ std::string tower_growth_detail_req__Handler(GameSession* session, const std::st
     }
 
     proto::TowerGrowthDetailResp rsp;
-    session->GetPlayer()->Towers().BuildGrowthDetail(rsp);
+    session->GetPlayer()->StarTowers().BuildGrowthDetail(rsp);
     return EncodeReply(session, tower_growth_detail_succeed_ack, &rsp);
 }
 
@@ -565,7 +565,7 @@ std::string tower_growth_group_node_unlock_req__Handler(GameSession* session, co
     }
 
     proto::TowerGrowthGroupNodeUnlockResp rsp;
-    if (!session->GetPlayer()->Towers().UnlockGrowthGroup(reqPb.value(), rsp))
+    if (!session->GetPlayer()->StarTowers().UnlockGrowthGroup(reqPb.value(), rsp))
     {
         return EncodeReply(session, tower_growth_group_node_unlock_failed_ack);
     }
@@ -588,7 +588,7 @@ std::string tower_growth_node_unlock_req__Handler(GameSession* session, const st
     }
 
     proto::ChangeInfo rsp;
-    if (!session->GetPlayer()->Towers().UnlockGrowthNode(reqPb.value(), rsp))
+    if (!session->GetPlayer()->StarTowers().UnlockGrowthNode(reqPb.value(), rsp))
     {
         return EncodeReply(session, tower_growth_node_unlock_failed_ack);
     }

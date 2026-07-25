@@ -183,11 +183,10 @@
     <ClCompile Include="Game\ManagerBase.cpp" />
     <ClCompile Include="Game\QuestMgr.cpp" />
     <ClCompile Include="Game\StoryMgr.cpp" />
+    <ClCompile Include="Game\StarTowerCases.cpp" />
     <ClCompile Include="Game\StarTowerMgr.cpp" />
-    <ClCompile Include="Game\TowerCases.cpp" />
-    <ClCompile Include="Game\TowerMgr.cpp" />
-    <ClCompile Include="Game\TowerRooms.cpp" />
-    <ClCompile Include="Game\TowerRuntime.cpp" />
+    <ClCompile Include="Game\StarTowerRooms.cpp" />
+    <ClCompile Include="Game\StarTowerRuntime.cpp" />
     <ClCompile Include="Handlers\Activity.cpp" />
     <ClCompile Include="Handlers\BattlePass.cpp" />
     <ClCompile Include="Handlers\Character.cpp" />
@@ -202,7 +201,7 @@
     <ClCompile Include="Handlers\PlayerHandler.cpp" />
     <ClCompile Include="Handlers\Quest.cpp" />
     <ClCompile Include="Handlers\Story.cpp" />
-    <ClCompile Include="Handlers\Tower.cpp" />
+    <ClCompile Include="Handlers\StarTower.cpp" />
     <ClCompile Include="HttpMessage.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="proto\dump.pb.cc" />
@@ -557,11 +556,10 @@
     <ClInclude Include="Game\ManagerBase.h" />
     <ClInclude Include="Game\QuestMgr.h" />
     <ClInclude Include="Game\StoryMgr.h" />
+    <ClInclude Include="Game\StarTowerCases.h" />
     <ClInclude Include="Game\StarTowerMgr.h" />
-    <ClInclude Include="Game\TowerCases.h" />
-    <ClInclude Include="Game\TowerMgr.h" />
-    <ClInclude Include="Game\TowerRooms.h" />
-    <ClInclude Include="Game\TowerRuntime.h" />
+    <ClInclude Include="Game\StarTowerRooms.h" />
+    <ClInclude Include="Game\StarTowerRuntime.h" />
     <ClInclude Include="Handlers\Activity.h" />
     <ClInclude Include="Handlers\BattlePass.h" />
     <ClInclude Include="Handlers\Character.h" />
@@ -576,7 +574,7 @@
     <ClInclude Include="Handlers\PlayerHandler.h" />
     <ClInclude Include="Handlers\Quest.h" />
     <ClInclude Include="Handlers\Story.h" />
-    <ClInclude Include="Handlers\Tower.h" />
+    <ClInclude Include="Handlers\StarTower.h" />
     <ClInclude Include="HttpMessage.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="proto\dump.pb.h" />

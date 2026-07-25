@@ -25,391 +25,6 @@ namespace _pb = ::google::protobuf;
 namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
 namespace ServerProto {
-
-inline constexpr TowerSyncHPCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        placeholder_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerSyncHPCaseBin::TowerSyncHPCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerSyncHPCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerSyncHPCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerSyncHPCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerSyncHPCaseBinDefaultTypeInternal() {}
-  union {
-    TowerSyncHPCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerSyncHPCaseBinDefaultTypeInternal _TowerSyncHPCaseBin_default_instance_;
-
-inline constexpr TowerStrengthenMachineCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        free_{false},
-        discount_{0},
-        times_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerStrengthenMachineCaseBin::TowerStrengthenMachineCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerStrengthenMachineCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerStrengthenMachineCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerStrengthenMachineCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerStrengthenMachineCaseBinDefaultTypeInternal() {}
-  union {
-    TowerStrengthenMachineCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerStrengthenMachineCaseBinDefaultTypeInternal _TowerStrengthenMachineCaseBin_default_instance_;
-
-inline constexpr TowerShopGoodsBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        sid_{0u},
-        type_{0u},
-        idx_{0u},
-        goodsid_{0u},
-        price_{0},
-        discount_{0},
-        charpos_{0u},
-        sold_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerShopGoodsBin::TowerShopGoodsBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerShopGoodsBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerShopGoodsBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerShopGoodsBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerShopGoodsBinDefaultTypeInternal() {}
-  union {
-    TowerShopGoodsBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerShopGoodsBinDefaultTypeInternal _TowerShopGoodsBin_default_instance_;
-
-inline constexpr TowerRecoveryHPCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        effectid_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerRecoveryHPCaseBin::TowerRecoveryHPCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerRecoveryHPCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerRecoveryHPCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerRecoveryHPCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerRecoveryHPCaseBinDefaultTypeInternal() {}
-  union {
-    TowerRecoveryHPCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerRecoveryHPCaseBinDefaultTypeInternal _TowerRecoveryHPCaseBin_default_instance_;
-
-inline constexpr TowerPotentialLevelBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        id_{0u},
-        level_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerPotentialLevelBin::TowerPotentialLevelBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerPotentialLevelBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerPotentialLevelBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerPotentialLevelBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerPotentialLevelBinDefaultTypeInternal() {}
-  union {
-    TowerPotentialLevelBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerPotentialLevelBinDefaultTypeInternal _TowerPotentialLevelBin_default_instance_;
-
-inline constexpr TowerNpcRecoveryHPCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        effectid_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerNpcRecoveryHPCaseBin::TowerNpcRecoveryHPCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerNpcRecoveryHPCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerNpcRecoveryHPCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerNpcRecoveryHPCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerNpcRecoveryHPCaseBinDefaultTypeInternal() {}
-  union {
-    TowerNpcRecoveryHPCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerNpcRecoveryHPCaseBinDefaultTypeInternal _TowerNpcRecoveryHPCaseBin_default_instance_;
-
-inline constexpr TowerNpcEventCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        options_{},
-        _options_cached_byte_size_{0},
-        npcid_{0u},
-        eventid_{0u},
-        completed_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerNpcEventCaseBin::TowerNpcEventCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerNpcEventCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerNpcEventCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerNpcEventCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerNpcEventCaseBinDefaultTypeInternal() {}
-  union {
-    TowerNpcEventCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerNpcEventCaseBinDefaultTypeInternal _TowerNpcEventCaseBin_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerGameBin_ResEntry_DoNotUse::TowerGameBin_ResEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerGameBin_ResEntry_DoNotUse::MapEntry(TowerGameBin_ResEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerGameBin_ResEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerGameBin_ResEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerGameBin_ResEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerGameBin_ResEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerGameBin_ResEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerGameBin_ResEntry_DoNotUseDefaultTypeInternal _TowerGameBin_ResEntry_DoNotUse_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerGameBin_RarePotentialCountEntry_DoNotUse::TowerGameBin_RarePotentialCountEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerGameBin_RarePotentialCountEntry_DoNotUse::MapEntry(TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerGameBin_RarePotentialCountEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerGameBin_RarePotentialCountEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal _TowerGameBin_RarePotentialCountEntry_DoNotUse_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerGameBin_PotentialsEntry_DoNotUse::TowerGameBin_PotentialsEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerGameBin_PotentialsEntry_DoNotUse::MapEntry(TowerGameBin_PotentialsEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerGameBin_PotentialsEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerGameBin_PotentialsEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal _TowerGameBin_PotentialsEntry_DoNotUse_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerGameBin_ItemsEntry_DoNotUse::TowerGameBin_ItemsEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerGameBin_ItemsEntry_DoNotUse::MapEntry(TowerGameBin_ItemsEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerGameBin_ItemsEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerGameBin_ItemsEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal _TowerGameBin_ItemsEntry_DoNotUse_default_instance_;
-
-inline constexpr TowerDoorCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        floornum_{0u},
-        roomtype_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerDoorCaseBin::TowerDoorCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerDoorCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerDoorCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerDoorCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerDoorCaseBinDefaultTypeInternal() {}
-  union {
-    TowerDoorCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerDoorCaseBinDefaultTypeInternal _TowerDoorCaseBin_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerCompBin_BookPotentialLevelsEntry_DoNotUse::TowerCompBin_BookPotentialLevelsEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerCompBin_BookPotentialLevelsEntry_DoNotUse::MapEntry(TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerCompBin_BookPotentialLevelsEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerCompBin_BookPotentialLevelsEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal _TowerCompBin_BookPotentialLevelsEntry_DoNotUse_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerBuildBin_SubNoteSkillsEntry_DoNotUse::TowerBuildBin_SubNoteSkillsEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerBuildBin_SubNoteSkillsEntry_DoNotUse::MapEntry(TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerBuildBin_SubNoteSkillsEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerBuildBin_SubNoteSkillsEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal _TowerBuildBin_SubNoteSkillsEntry_DoNotUse_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerBuildBin_PotentialsEntry_DoNotUse::TowerBuildBin_PotentialsEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerBuildBin_PotentialsEntry_DoNotUse::MapEntry(TowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerBuildBin_PotentialsEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerBuildBin_PotentialsEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal _TowerBuildBin_PotentialsEntry_DoNotUse_default_instance_;
-template <typename>
-PROTOBUF_CONSTEXPR TowerBuildBin_CharPotentialsEntry_DoNotUse::TowerBuildBin_CharPotentialsEntry_DoNotUse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : TowerBuildBin_CharPotentialsEntry_DoNotUse::MapEntry(TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : TowerBuildBin_CharPotentialsEntry_DoNotUse::MapEntry() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal() {}
-  union {
-    TowerBuildBin_CharPotentialsEntry_DoNotUse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal _TowerBuildBin_CharPotentialsEntry_DoNotUse_default_instance_;
-
-inline constexpr TowerBattleCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        subnotedrops_{0u},
-        expreward_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerBattleCaseBin::TowerBattleCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerBattleCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerBattleCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerBattleCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerBattleCaseBinDefaultTypeInternal() {}
-  union {
-    TowerBattleCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerBattleCaseBinDefaultTypeInternal _TowerBattleCaseBin_default_instance_;
 template <typename>
 PROTOBUF_CONSTEXPR StoryCompBin_CompletedSetsEntry_DoNotUse::StoryCompBin_CompletedSetsEntry_DoNotUse(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -454,6 +69,391 @@ struct StoryChoiceBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StoryChoiceBinDefaultTypeInternal _StoryChoiceBin_default_instance_;
+
+inline constexpr StarTowerSyncHPCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        placeholder_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerSyncHPCaseBin::StarTowerSyncHPCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerSyncHPCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerSyncHPCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerSyncHPCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerSyncHPCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerSyncHPCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerSyncHPCaseBinDefaultTypeInternal _StarTowerSyncHPCaseBin_default_instance_;
+
+inline constexpr StarTowerStrengthenMachineCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        free_{false},
+        discount_{0},
+        times_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerStrengthenMachineCaseBin::StarTowerStrengthenMachineCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerStrengthenMachineCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerStrengthenMachineCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerStrengthenMachineCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerStrengthenMachineCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerStrengthenMachineCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerStrengthenMachineCaseBinDefaultTypeInternal _StarTowerStrengthenMachineCaseBin_default_instance_;
+
+inline constexpr StarTowerShopGoodsBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        sid_{0u},
+        type_{0u},
+        idx_{0u},
+        goodsid_{0u},
+        price_{0},
+        discount_{0},
+        charpos_{0u},
+        sold_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerShopGoodsBin::StarTowerShopGoodsBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerShopGoodsBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerShopGoodsBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerShopGoodsBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerShopGoodsBinDefaultTypeInternal() {}
+  union {
+    StarTowerShopGoodsBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerShopGoodsBinDefaultTypeInternal _StarTowerShopGoodsBin_default_instance_;
+
+inline constexpr StarTowerRecoveryHPCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        effectid_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerRecoveryHPCaseBin::StarTowerRecoveryHPCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerRecoveryHPCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerRecoveryHPCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerRecoveryHPCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerRecoveryHPCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerRecoveryHPCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerRecoveryHPCaseBinDefaultTypeInternal _StarTowerRecoveryHPCaseBin_default_instance_;
+
+inline constexpr StarTowerPotentialLevelBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        id_{0u},
+        level_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerPotentialLevelBin::StarTowerPotentialLevelBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerPotentialLevelBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerPotentialLevelBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerPotentialLevelBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerPotentialLevelBinDefaultTypeInternal() {}
+  union {
+    StarTowerPotentialLevelBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerPotentialLevelBinDefaultTypeInternal _StarTowerPotentialLevelBin_default_instance_;
+
+inline constexpr StarTowerNpcRecoveryHPCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        effectid_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerNpcRecoveryHPCaseBin::StarTowerNpcRecoveryHPCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerNpcRecoveryHPCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerNpcRecoveryHPCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerNpcRecoveryHPCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerNpcRecoveryHPCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerNpcRecoveryHPCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerNpcRecoveryHPCaseBinDefaultTypeInternal _StarTowerNpcRecoveryHPCaseBin_default_instance_;
+
+inline constexpr StarTowerNpcEventCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        options_{},
+        _options_cached_byte_size_{0},
+        npcid_{0u},
+        eventid_{0u},
+        completed_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerNpcEventCaseBin::StarTowerNpcEventCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerNpcEventCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerNpcEventCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerNpcEventCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerNpcEventCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerNpcEventCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerNpcEventCaseBinDefaultTypeInternal _StarTowerNpcEventCaseBin_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerGameBin_ResEntry_DoNotUse::StarTowerGameBin_ResEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerGameBin_ResEntry_DoNotUse::MapEntry(StarTowerGameBin_ResEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerGameBin_ResEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerGameBin_ResEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerGameBin_ResEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerGameBin_ResEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerGameBin_ResEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerGameBin_ResEntry_DoNotUseDefaultTypeInternal _StarTowerGameBin_ResEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerGameBin_RarePotentialCountEntry_DoNotUse::StarTowerGameBin_RarePotentialCountEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerGameBin_RarePotentialCountEntry_DoNotUse::MapEntry(StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerGameBin_RarePotentialCountEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerGameBin_RarePotentialCountEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerGameBin_RarePotentialCountEntry_DoNotUseDefaultTypeInternal _StarTowerGameBin_RarePotentialCountEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerGameBin_PotentialsEntry_DoNotUse::StarTowerGameBin_PotentialsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerGameBin_PotentialsEntry_DoNotUse::MapEntry(StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerGameBin_PotentialsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerGameBin_PotentialsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerGameBin_PotentialsEntry_DoNotUseDefaultTypeInternal _StarTowerGameBin_PotentialsEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerGameBin_ItemsEntry_DoNotUse::StarTowerGameBin_ItemsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerGameBin_ItemsEntry_DoNotUse::MapEntry(StarTowerGameBin_ItemsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerGameBin_ItemsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerGameBin_ItemsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerGameBin_ItemsEntry_DoNotUseDefaultTypeInternal _StarTowerGameBin_ItemsEntry_DoNotUse_default_instance_;
+
+inline constexpr StarTowerDoorCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        floornum_{0u},
+        roomtype_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerDoorCaseBin::StarTowerDoorCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerDoorCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerDoorCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerDoorCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerDoorCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerDoorCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerDoorCaseBinDefaultTypeInternal _StarTowerDoorCaseBin_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::MapEntry(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerCompBin_BookPotentialLevelsEntry_DoNotUseDefaultTypeInternal _StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::MapEntry(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerBuildBin_SubNoteSkillsEntry_DoNotUseDefaultTypeInternal _StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerBuildBin_PotentialsEntry_DoNotUse::StarTowerBuildBin_PotentialsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerBuildBin_PotentialsEntry_DoNotUse::MapEntry(StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerBuildBin_PotentialsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerBuildBin_PotentialsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerBuildBin_PotentialsEntry_DoNotUseDefaultTypeInternal _StarTowerBuildBin_PotentialsEntry_DoNotUse_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerBuildBin_CharPotentialsEntry_DoNotUse::StarTowerBuildBin_CharPotentialsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : StarTowerBuildBin_CharPotentialsEntry_DoNotUse::MapEntry(StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : StarTowerBuildBin_CharPotentialsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct StarTowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    StarTowerBuildBin_CharPotentialsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerBuildBin_CharPotentialsEntry_DoNotUseDefaultTypeInternal _StarTowerBuildBin_CharPotentialsEntry_DoNotUse_default_instance_;
+
+inline constexpr StarTowerBattleCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        subnotedrops_{0u},
+        expreward_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerBattleCaseBin::StarTowerBattleCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerBattleCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerBattleCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerBattleCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerBattleCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerBattleCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerBattleCaseBinDefaultTypeInternal _StarTowerBattleCaseBin_default_instance_;
 
 inline constexpr QuestProgressBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -962,131 +962,6 @@ struct AgentBinDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AgentBinDefaultTypeInternal _AgentBin_default_instance_;
 
-inline constexpr TowerPresetCharBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        potentials_{},
-        charid_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerPresetCharBin::TowerPresetCharBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerPresetCharBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerPresetCharBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerPresetCharBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerPresetCharBinDefaultTypeInternal() {}
-  union {
-    TowerPresetCharBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerPresetCharBinDefaultTypeInternal _TowerPresetCharBin_default_instance_;
-
-inline constexpr TowerPotentialCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        potentials_{},
-        teamlevel_{0u},
-        charid_{0u},
-        reroll_{0u},
-        rerollprice_{0u},
-        strengthen_{false},
-        rare_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerPotentialCaseBin::TowerPotentialCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerPotentialCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerPotentialCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerPotentialCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerPotentialCaseBinDefaultTypeInternal() {}
-  union {
-    TowerPotentialCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerPotentialCaseBinDefaultTypeInternal _TowerPotentialCaseBin_default_instance_;
-
-inline constexpr TowerHawkerCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        goods_{},
-        rerolltimes_{0u},
-        rerollprice_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerHawkerCaseBin::TowerHawkerCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerHawkerCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerHawkerCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerHawkerCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerHawkerCaseBinDefaultTypeInternal() {}
-  union {
-    TowerHawkerCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerHawkerCaseBinDefaultTypeInternal _TowerHawkerCaseBin_default_instance_;
-
-inline constexpr TowerBuildBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        charids_{},
-        _charids_cached_byte_size_{0},
-        discids_{},
-        _discids_cached_byte_size_{0},
-        activesecondaryids_{},
-        _activesecondaryids_cached_byte_size_{0},
-        name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        uid_{::uint64_t{0u}},
-        lock_{false},
-        preference_{false},
-        score_{0u},
-        towerid_{0u},
-        charpotentials_{},
-        potentials_{},
-        subnoteskills_{} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerBuildBin::TowerBuildBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerBuildBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerBuildBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerBuildBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerBuildBinDefaultTypeInternal() {}
-  union {
-    TowerBuildBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerBuildBinDefaultTypeInternal _TowerBuildBin_default_instance_;
-
 inline constexpr StoryOptionLogBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -1112,6 +987,131 @@ struct StoryOptionLogBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StoryOptionLogBinDefaultTypeInternal _StoryOptionLogBin_default_instance_;
+
+inline constexpr StarTowerPresetCharBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        potentials_{},
+        charid_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerPresetCharBin::StarTowerPresetCharBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerPresetCharBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerPresetCharBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerPresetCharBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerPresetCharBinDefaultTypeInternal() {}
+  union {
+    StarTowerPresetCharBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerPresetCharBinDefaultTypeInternal _StarTowerPresetCharBin_default_instance_;
+
+inline constexpr StarTowerPotentialCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        potentials_{},
+        teamlevel_{0u},
+        charid_{0u},
+        reroll_{0u},
+        rerollprice_{0u},
+        strengthen_{false},
+        rare_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerPotentialCaseBin::StarTowerPotentialCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerPotentialCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerPotentialCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerPotentialCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerPotentialCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerPotentialCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerPotentialCaseBinDefaultTypeInternal _StarTowerPotentialCaseBin_default_instance_;
+
+inline constexpr StarTowerHawkerCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        goods_{},
+        rerolltimes_{0u},
+        rerollprice_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerHawkerCaseBin::StarTowerHawkerCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerHawkerCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerHawkerCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerHawkerCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerHawkerCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerHawkerCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerHawkerCaseBinDefaultTypeInternal _StarTowerHawkerCaseBin_default_instance_;
+
+inline constexpr StarTowerBuildBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        charids_{},
+        _charids_cached_byte_size_{0},
+        discids_{},
+        _discids_cached_byte_size_{0},
+        activesecondaryids_{},
+        _activesecondaryids_cached_byte_size_{0},
+        name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        uid_{::uint64_t{0u}},
+        lock_{false},
+        preference_{false},
+        score_{0u},
+        towerid_{0u},
+        charpotentials_{},
+        potentials_{},
+        subnoteskills_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerBuildBin::StarTowerBuildBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerBuildBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerBuildBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerBuildBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerBuildBinDefaultTypeInternal() {}
+  union {
+    StarTowerBuildBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerBuildBinDefaultTypeInternal _StarTowerBuildBin_default_instance_;
 
 inline constexpr QuestInfoBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1467,65 +1467,6 @@ struct AchievementInfoBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AchievementInfoBinDefaultTypeInternal _AchievementInfoBin_default_instance_;
-
-inline constexpr TowerPotentialPresetBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        chars_{},
-        name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        uid_{::uint64_t{0u}},
-        timestamp_{::int64_t{0}},
-        preference_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerPotentialPresetBin::TowerPotentialPresetBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerPotentialPresetBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerPotentialPresetBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerPotentialPresetBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerPotentialPresetBinDefaultTypeInternal() {}
-  union {
-    TowerPotentialPresetBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerPotentialPresetBinDefaultTypeInternal _TowerPotentialPresetBin_default_instance_;
-
-inline constexpr TowerCaseBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        id_{0u},
-        type_{0u},
-        data_{},
-        _oneof_case_{} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerCaseBin::TowerCaseBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerCaseBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerCaseBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerCaseBinDefaultTypeInternal() {}
-  union {
-    TowerCaseBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerCaseBinDefaultTypeInternal _TowerCaseBin_default_instance_;
 template <typename>
 PROTOBUF_CONSTEXPR StoryCompBin_OptionsEntry_DoNotUse::StoryCompBin_OptionsEntry_DoNotUse(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -1544,6 +1485,65 @@ struct StoryCompBin_OptionsEntry_DoNotUseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StoryCompBin_OptionsEntry_DoNotUseDefaultTypeInternal _StoryCompBin_OptionsEntry_DoNotUse_default_instance_;
+
+inline constexpr StarTowerPotentialPresetBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        chars_{},
+        name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        uid_{::uint64_t{0u}},
+        timestamp_{::int64_t{0}},
+        preference_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerPotentialPresetBin::StarTowerPotentialPresetBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerPotentialPresetBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerPotentialPresetBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerPotentialPresetBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerPotentialPresetBinDefaultTypeInternal() {}
+  union {
+    StarTowerPotentialPresetBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerPotentialPresetBinDefaultTypeInternal _StarTowerPotentialPresetBin_default_instance_;
+
+inline constexpr StarTowerCaseBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        id_{0u},
+        type_{0u},
+        data_{},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerCaseBin::StarTowerCaseBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerCaseBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerCaseBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerCaseBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerCaseBinDefaultTypeInternal() {}
+  union {
+    StarTowerCaseBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerCaseBinDefaultTypeInternal _StarTowerCaseBin_default_instance_;
 
 inline constexpr QuestCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1713,41 +1713,6 @@ struct AchievementCompBinDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AchievementCompBinDefaultTypeInternal _AchievementCompBin_default_instance_;
 
-inline constexpr TowerRoomBin::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        cases_{},
-        mapparam_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        stageid_{0u},
-        roomtype_{0u},
-        mapid_{0u},
-        maptableid_{0u},
-        paramid_{0u},
-        lastcaseid_{0u},
-        hasdoor_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TowerRoomBin::TowerRoomBin(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerRoomBin_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct TowerRoomBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerRoomBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerRoomBinDefaultTypeInternal() {}
-  union {
-    TowerRoomBin _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerRoomBinDefaultTypeInternal _TowerRoomBin_default_instance_;
-
 inline constexpr StoryCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -1777,6 +1742,41 @@ struct StoryCompBinDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StoryCompBinDefaultTypeInternal _StoryCompBin_default_instance_;
+
+inline constexpr StarTowerRoomBin::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        cases_{},
+        mapparam_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        stageid_{0u},
+        roomtype_{0u},
+        mapid_{0u},
+        maptableid_{0u},
+        paramid_{0u},
+        lastcaseid_{0u},
+        hasdoor_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StarTowerRoomBin::StarTowerRoomBin(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(StarTowerRoomBin_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StarTowerRoomBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerRoomBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerRoomBinDefaultTypeInternal() {}
+  union {
+    StarTowerRoomBin _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerRoomBinDefaultTypeInternal _StarTowerRoomBin_default_instance_;
 
 inline constexpr GachaCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1851,7 +1851,7 @@ struct CharacterInfoDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterInfoDefaultTypeInternal _CharacterInfo_default_instance_;
 
-inline constexpr TowerGameBin::Impl_::Impl_(
+inline constexpr StarTowerGameBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         charids_{},
@@ -1889,24 +1889,24 @@ inline constexpr TowerGameBin::Impl_::Impl_(
         rarepotentialcount_{} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR TowerGameBin::TowerGameBin(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR StarTowerGameBin::StarTowerGameBin(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerGameBin_class_data_.base()),
+    : ::google::protobuf::Message(StarTowerGameBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(),
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct TowerGameBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerGameBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerGameBinDefaultTypeInternal() {}
+struct StarTowerGameBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerGameBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerGameBinDefaultTypeInternal() {}
   union {
-    TowerGameBin _instance;
+    StarTowerGameBin _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerGameBinDefaultTypeInternal _TowerGameBin_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerGameBinDefaultTypeInternal _StarTowerGameBin_default_instance_;
 
 inline constexpr CharacterCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1934,7 +1934,7 @@ struct CharacterCompBinDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharacterCompBinDefaultTypeInternal _CharacterCompBin_default_instance_;
 
-inline constexpr TowerCompBin::Impl_::Impl_(
+inline constexpr StarTowerCompBin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         startowerlog_{},
@@ -1974,24 +1974,24 @@ inline constexpr TowerCompBin::Impl_::Impl_(
         bookpotentiallevels_{} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR TowerCompBin::TowerCompBin(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR StarTowerCompBin::StarTowerCompBin(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(TowerCompBin_class_data_.base()),
+    : ::google::protobuf::Message(StarTowerCompBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(),
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct TowerCompBinDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TowerCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TowerCompBinDefaultTypeInternal() {}
+struct StarTowerCompBinDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StarTowerCompBinDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StarTowerCompBinDefaultTypeInternal() {}
   union {
-    TowerCompBin _instance;
+    StarTowerCompBin _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TowerCompBinDefaultTypeInternal _TowerCompBin_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StarTowerCompBinDefaultTypeInternal _StarTowerCompBin_default_instance_;
 
 inline constexpr PlayerSaveData::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2431,68 +2431,68 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::ServerProto::FormationCompBin, _impl_.infos_),
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialLevelBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialLevelBin, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialLevelBin, _impl_.id_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialLevelBin, _impl_.level_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialLevelBin, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialLevelBin, _impl_.level_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPresetCharBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPresetCharBin, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPresetCharBin, _impl_.charid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPresetCharBin, _impl_.potentials_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPresetCharBin, _impl_.charid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPresetCharBin, _impl_.potentials_),
         1,
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialPresetBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialPresetBin, _impl_._has_bits_),
         8, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialPresetBin, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialPresetBin, _impl_.name_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialPresetBin, _impl_.preference_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialPresetBin, _impl_.timestamp_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialPresetBin, _impl_.chars_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialPresetBin, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialPresetBin, _impl_.name_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialPresetBin, _impl_.preference_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialPresetBin, _impl_.timestamp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialPresetBin, _impl_.chars_),
         2,
         1,
         4,
         3,
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_._has_bits_),
         15, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.name_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.lock_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.preference_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.score_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.charids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.discids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.charpotentials_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.potentials_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.subnoteskills_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.activesecondaryids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBuildBin, _impl_.towerid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.name_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.lock_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.preference_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.score_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.charids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.discids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.charpotentials_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.potentials_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.subnoteskills_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.activesecondaryids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBuildBin, _impl_.towerid_),
         4,
         3,
         5,
@@ -2506,16 +2506,16 @@ const ::uint32_t
         2,
         8,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_._has_bits_),
         11, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.sid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.type_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.idx_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.goodsid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.price_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.discount_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.charpos_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerShopGoodsBin, _impl_.sold_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.sid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.type_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.idx_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.goodsid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.price_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.discount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.charpos_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerShopGoodsBin, _impl_.sold_),
         0,
         1,
         2,
@@ -2525,29 +2525,29 @@ const ::uint32_t
         6,
         7,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBattleCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBattleCaseBin, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBattleCaseBin, _impl_.subnotedrops_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerBattleCaseBin, _impl_.expreward_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBattleCaseBin, _impl_.subnotedrops_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerBattleCaseBin, _impl_.expreward_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerDoorCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerDoorCaseBin, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerDoorCaseBin, _impl_.floornum_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerDoorCaseBin, _impl_.roomtype_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerDoorCaseBin, _impl_.floornum_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerDoorCaseBin, _impl_.roomtype_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_._has_bits_),
         10, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.teamlevel_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.charid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.reroll_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.rerollprice_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.strengthen_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.rare_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerPotentialCaseBin, _impl_.potentials_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.teamlevel_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.charid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.reroll_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.rerollprice_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.strengthen_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.rare_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerPotentialCaseBin, _impl_.potentials_),
         1,
         2,
         3,
@@ -2556,66 +2556,66 @@ const ::uint32_t
         6,
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcEventCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcEventCaseBin, _impl_._has_bits_),
         7, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcEventCaseBin, _impl_.npcid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcEventCaseBin, _impl_.eventid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcEventCaseBin, _impl_.options_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcEventCaseBin, _impl_.completed_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcEventCaseBin, _impl_.npcid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcEventCaseBin, _impl_.eventid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcEventCaseBin, _impl_.options_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcEventCaseBin, _impl_.completed_),
         1,
         2,
         0,
         3,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerHawkerCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerHawkerCaseBin, _impl_._has_bits_),
         6, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerHawkerCaseBin, _impl_.goods_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerHawkerCaseBin, _impl_.rerolltimes_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerHawkerCaseBin, _impl_.rerollprice_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerHawkerCaseBin, _impl_.goods_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerHawkerCaseBin, _impl_.rerolltimes_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerHawkerCaseBin, _impl_.rerollprice_),
         0,
         1,
         2,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerStrengthenMachineCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerStrengthenMachineCaseBin, _impl_._has_bits_),
         6, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerStrengthenMachineCaseBin, _impl_.free_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerStrengthenMachineCaseBin, _impl_.discount_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerStrengthenMachineCaseBin, _impl_.times_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerStrengthenMachineCaseBin, _impl_.free_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerStrengthenMachineCaseBin, _impl_.discount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerStrengthenMachineCaseBin, _impl_.times_),
         0,
         1,
         2,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRecoveryHPCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRecoveryHPCaseBin, _impl_._has_bits_),
         4, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRecoveryHPCaseBin, _impl_.effectid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRecoveryHPCaseBin, _impl_.effectid_),
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcRecoveryHPCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcRecoveryHPCaseBin, _impl_._has_bits_),
         4, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerNpcRecoveryHPCaseBin, _impl_.effectid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerNpcRecoveryHPCaseBin, _impl_.effectid_),
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerSyncHPCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerSyncHPCaseBin, _impl_._has_bits_),
         4, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerSyncHPCaseBin, _impl_.placeholder_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerSyncHPCaseBin, _impl_.placeholder_),
         0,
         0x085, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_._oneof_case_[0]),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_._oneof_case_[0]),
         17, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.id_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.type_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.type_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_.data_),
         0,
         1,
         ~0u,
@@ -2629,17 +2629,17 @@ const ::uint32_t
         ~0u,
         ~0u,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_._has_bits_),
         12, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.stageid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.roomtype_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.mapid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.maptableid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.mapparam_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.paramid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.lastcaseid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.hasdoor_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerRoomBin, _impl_.cases_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.stageid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.roomtype_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.mapid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.maptableid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.mapparam_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.paramid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.lastcaseid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.hasdoor_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerRoomBin, _impl_.cases_),
         2,
         3,
         4,
@@ -2650,64 +2650,64 @@ const ::uint32_t
         8,
         0,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_ItemsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_ItemsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_ItemsEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_ItemsEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_ResEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_ResEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_ResEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_ResEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_ResEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_ResEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_._has_bits_),
         31, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.towerid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.formationid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.buildid_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.floorcount_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.stagenum_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.stagefloor_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.teamlevel_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.teamexp_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.nextlevelexp_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.charhp_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.battletime_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.charids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.discids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.pendingpotentialcases_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.pendingrarepotentialcases_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.completed_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.sweep_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.items_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.res_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.potentials_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.rarepotentialcount_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.activesecondaryids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.fatecards_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.room_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.totaldamages_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.shoprerolltimes_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.shoprerollprice_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerGameBin, _impl_.freestrengthenavailable_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.towerid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.formationid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.buildid_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.floorcount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.stagenum_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.stagefloor_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.teamlevel_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.teamexp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.nextlevelexp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.charhp_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.battletime_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.charids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.discids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.pendingpotentialcases_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.pendingrarepotentialcases_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.completed_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.sweep_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.items_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.res_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.potentials_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.rarepotentialcount_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.activesecondaryids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.fatecards_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.room_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.totaldamages_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.shoprerolltimes_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.shoprerollprice_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerGameBin, _impl_.freestrengthenavailable_),
         6,
         7,
         8,
@@ -2737,36 +2737,36 @@ const ::uint32_t
         23,
         21,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._has_bits_),
         5, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_),
         0,
         1,
         0x081, // bitmap
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_._has_bits_),
         24, // hasbit index offset
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.startowerlog_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.startowergrowth_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.towertickets_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.presets_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.builds_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.currentgame_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.lastbuild_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.fatecards_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookcharids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookeventids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookbundles_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookpotentialreceivedids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookeventreceivedids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.fatecardrewardreceivedids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinityrewardreceivedplotids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinitybooknpcids_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinitybookplots_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinitybooklevels_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.npcaffinitybookvalues_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.bookpotentiallevels_),
-        PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCompBin, _impl_.defaultunlockallstartower_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.startowerlog_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.startowergrowth_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.towertickets_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.presets_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.builds_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.currentgame_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.lastbuild_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.fatecards_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.bookcharids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.bookeventids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.bookbundles_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.bookpotentialreceivedids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.bookeventreceivedids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.fatecardrewardreceivedids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.npcaffinityrewardreceivedplotids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.npcaffinitybooknpcids_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.npcaffinitybookplots_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.npcaffinitybooklevels_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.npcaffinitybookvalues_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.bookpotentiallevels_),
+        PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCompBin, _impl_.defaultunlockallstartower_),
         0,
         1,
         18,
@@ -2990,32 +2990,32 @@ static const ::_pbi::MigrationSchema
         {367, sizeof(::ServerProto::GachaCompBin)},
         {378, sizeof(::ServerProto::FormationInfoBin)},
         {389, sizeof(::ServerProto::FormationCompBin)},
-        {394, sizeof(::ServerProto::TowerPotentialLevelBin)},
-        {401, sizeof(::ServerProto::TowerPresetCharBin)},
-        {408, sizeof(::ServerProto::TowerPotentialPresetBin)},
-        {421, sizeof(::ServerProto::TowerBuildBin_CharPotentialsEntry_DoNotUse)},
-        {428, sizeof(::ServerProto::TowerBuildBin_PotentialsEntry_DoNotUse)},
-        {435, sizeof(::ServerProto::TowerBuildBin_SubNoteSkillsEntry_DoNotUse)},
-        {442, sizeof(::ServerProto::TowerBuildBin)},
-        {469, sizeof(::ServerProto::TowerShopGoodsBin)},
-        {488, sizeof(::ServerProto::TowerBattleCaseBin)},
-        {495, sizeof(::ServerProto::TowerDoorCaseBin)},
-        {502, sizeof(::ServerProto::TowerPotentialCaseBin)},
-        {519, sizeof(::ServerProto::TowerNpcEventCaseBin)},
-        {530, sizeof(::ServerProto::TowerHawkerCaseBin)},
-        {539, sizeof(::ServerProto::TowerStrengthenMachineCaseBin)},
-        {548, sizeof(::ServerProto::TowerRecoveryHPCaseBin)},
-        {553, sizeof(::ServerProto::TowerNpcRecoveryHPCaseBin)},
-        {558, sizeof(::ServerProto::TowerSyncHPCaseBin)},
-        {563, sizeof(::ServerProto::TowerCaseBin)},
-        {592, sizeof(::ServerProto::TowerRoomBin)},
-        {613, sizeof(::ServerProto::TowerGameBin_ItemsEntry_DoNotUse)},
-        {620, sizeof(::ServerProto::TowerGameBin_ResEntry_DoNotUse)},
-        {627, sizeof(::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse)},
-        {634, sizeof(::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse)},
-        {641, sizeof(::ServerProto::TowerGameBin)},
-        {700, sizeof(::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse)},
-        {707, sizeof(::ServerProto::TowerCompBin)},
+        {394, sizeof(::ServerProto::StarTowerPotentialLevelBin)},
+        {401, sizeof(::ServerProto::StarTowerPresetCharBin)},
+        {408, sizeof(::ServerProto::StarTowerPotentialPresetBin)},
+        {421, sizeof(::ServerProto::StarTowerBuildBin_CharPotentialsEntry_DoNotUse)},
+        {428, sizeof(::ServerProto::StarTowerBuildBin_PotentialsEntry_DoNotUse)},
+        {435, sizeof(::ServerProto::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse)},
+        {442, sizeof(::ServerProto::StarTowerBuildBin)},
+        {469, sizeof(::ServerProto::StarTowerShopGoodsBin)},
+        {488, sizeof(::ServerProto::StarTowerBattleCaseBin)},
+        {495, sizeof(::ServerProto::StarTowerDoorCaseBin)},
+        {502, sizeof(::ServerProto::StarTowerPotentialCaseBin)},
+        {519, sizeof(::ServerProto::StarTowerNpcEventCaseBin)},
+        {530, sizeof(::ServerProto::StarTowerHawkerCaseBin)},
+        {539, sizeof(::ServerProto::StarTowerStrengthenMachineCaseBin)},
+        {548, sizeof(::ServerProto::StarTowerRecoveryHPCaseBin)},
+        {553, sizeof(::ServerProto::StarTowerNpcRecoveryHPCaseBin)},
+        {558, sizeof(::ServerProto::StarTowerSyncHPCaseBin)},
+        {563, sizeof(::ServerProto::StarTowerCaseBin)},
+        {592, sizeof(::ServerProto::StarTowerRoomBin)},
+        {613, sizeof(::ServerProto::StarTowerGameBin_ItemsEntry_DoNotUse)},
+        {620, sizeof(::ServerProto::StarTowerGameBin_ResEntry_DoNotUse)},
+        {627, sizeof(::ServerProto::StarTowerGameBin_PotentialsEntry_DoNotUse)},
+        {634, sizeof(::ServerProto::StarTowerGameBin_RarePotentialCountEntry_DoNotUse)},
+        {641, sizeof(::ServerProto::StarTowerGameBin)},
+        {700, sizeof(::ServerProto::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse)},
+        {707, sizeof(::ServerProto::StarTowerCompBin)},
         {752, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse)},
         {759, sizeof(::ServerProto::PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse)},
         {766, sizeof(::ServerProto::PlayerBasicCompBin)},
@@ -3066,32 +3066,32 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::ServerProto::_GachaCompBin_default_instance_._instance,
     &::ServerProto::_FormationInfoBin_default_instance_._instance,
     &::ServerProto::_FormationCompBin_default_instance_._instance,
-    &::ServerProto::_TowerPotentialLevelBin_default_instance_._instance,
-    &::ServerProto::_TowerPresetCharBin_default_instance_._instance,
-    &::ServerProto::_TowerPotentialPresetBin_default_instance_._instance,
-    &::ServerProto::_TowerBuildBin_CharPotentialsEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerBuildBin_PotentialsEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerBuildBin_SubNoteSkillsEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerBuildBin_default_instance_._instance,
-    &::ServerProto::_TowerShopGoodsBin_default_instance_._instance,
-    &::ServerProto::_TowerBattleCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerDoorCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerPotentialCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerNpcEventCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerHawkerCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerStrengthenMachineCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerRecoveryHPCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerNpcRecoveryHPCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerSyncHPCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerCaseBin_default_instance_._instance,
-    &::ServerProto::_TowerRoomBin_default_instance_._instance,
-    &::ServerProto::_TowerGameBin_ItemsEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerGameBin_ResEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerGameBin_PotentialsEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerGameBin_RarePotentialCountEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerGameBin_default_instance_._instance,
-    &::ServerProto::_TowerCompBin_BookPotentialLevelsEntry_DoNotUse_default_instance_._instance,
-    &::ServerProto::_TowerCompBin_default_instance_._instance,
+    &::ServerProto::_StarTowerPotentialLevelBin_default_instance_._instance,
+    &::ServerProto::_StarTowerPresetCharBin_default_instance_._instance,
+    &::ServerProto::_StarTowerPotentialPresetBin_default_instance_._instance,
+    &::ServerProto::_StarTowerBuildBin_CharPotentialsEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerBuildBin_PotentialsEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerBuildBin_default_instance_._instance,
+    &::ServerProto::_StarTowerShopGoodsBin_default_instance_._instance,
+    &::ServerProto::_StarTowerBattleCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerDoorCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerPotentialCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerNpcEventCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerHawkerCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerStrengthenMachineCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerRecoveryHPCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerNpcRecoveryHPCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerSyncHPCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerCaseBin_default_instance_._instance,
+    &::ServerProto::_StarTowerRoomBin_default_instance_._instance,
+    &::ServerProto::_StarTowerGameBin_ItemsEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerGameBin_ResEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerGameBin_PotentialsEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerGameBin_RarePotentialCountEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerGameBin_default_instance_._instance,
+    &::ServerProto::_StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_default_instance_._instance,
+    &::ServerProto::_StarTowerCompBin_default_instance_._instance,
     &::ServerProto::_PlayerBasicCompBin_MonthlyCardExpireDaysEntry_DoNotUse_default_instance_._instance,
     &::ServerProto::_PlayerBasicCompBin_MonthlyCardLastRewardDaysEntry_DoNotUse_default_instance_._instance,
     &::ServerProto::_PlayerBasicCompBin_default_instance_._instance,
@@ -3217,88 +3217,92 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "rmationInfoBin\022\016\n\006number\030\001 \001(\r\022\017\n\007charId"
     "s\030\002 \003(\r\022\017\n\007discIds\030\003 \003(\r\022\026\n\016preselection"
     "Id\030\004 \001(\004\"@\n\020FormationCompBin\022,\n\005infos\030\001 "
-    "\003(\0132\035.ServerProto.FormationInfoBin\"3\n\026To"
-    "werPotentialLevelBin\022\n\n\002id\030\001 \001(\r\022\r\n\005leve"
-    "l\030\002 \001(\r\"]\n\022TowerPresetCharBin\022\016\n\006charId\030"
-    "\001 \001(\r\0227\n\npotentials\030\002 \003(\0132#.ServerProto."
-    "TowerPotentialLevelBin\"\213\001\n\027TowerPotentia"
-    "lPresetBin\022\013\n\003uid\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\022\n"
-    "\npreference\030\003 \001(\010\022\021\n\ttimestamp\030\004 \001(\003\022.\n\005"
-    "chars\030\005 \003(\0132\037.ServerProto.TowerPresetCha"
-    "rBin\"\230\004\n\rTowerBuildBin\022\013\n\003uid\030\001 \001(\004\022\014\n\004n"
-    "ame\030\002 \001(\t\022\014\n\004lock\030\003 \001(\010\022\022\n\npreference\030\004 "
-    "\001(\010\022\r\n\005score\030\005 \001(\r\022\017\n\007charIds\030\006 \003(\r\022\017\n\007d"
-    "iscIds\030\007 \003(\r\022F\n\016charPotentials\030\010 \003(\0132..S"
-    "erverProto.TowerBuildBin.CharPotentialsE"
-    "ntry\022>\n\npotentials\030\t \003(\0132*.ServerProto.T"
-    "owerBuildBin.PotentialsEntry\022D\n\rsubNoteS"
-    "kills\030\n \003(\0132-.ServerProto.TowerBuildBin."
-    "SubNoteSkillsEntry\022\032\n\022activeSecondaryIds"
-    "\030\013 \003(\r\022\017\n\007towerId\030\014 \001(\r\0325\n\023CharPotential"
-    "sEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0321"
-    "\n\017PotentialsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030"
-    "\002 \001(\r:\0028\001\0324\n\022SubNoteSkillsEntry\022\013\n\003key\030\001"
-    " \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\"\214\001\n\021TowerShopGoo"
+    "\003(\0132\035.ServerProto.FormationInfoBin\"7\n\032St"
+    "arTowerPotentialLevelBin\022\n\n\002id\030\001 \001(\r\022\r\n\005"
+    "level\030\002 \001(\r\"e\n\026StarTowerPresetCharBin\022\016\n"
+    "\006charId\030\001 \001(\r\022;\n\npotentials\030\002 \003(\0132\'.Serv"
+    "erProto.StarTowerPotentialLevelBin\"\223\001\n\033S"
+    "tarTowerPotentialPresetBin\022\013\n\003uid\030\001 \001(\004\022"
+    "\014\n\004name\030\002 \001(\t\022\022\n\npreference\030\003 \001(\010\022\021\n\ttim"
+    "estamp\030\004 \001(\003\0222\n\005chars\030\005 \003(\0132#.ServerProt"
+    "o.StarTowerPresetCharBin\"\250\004\n\021StarTowerBu"
+    "ildBin\022\013\n\003uid\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\022\014\n\004loc"
+    "k\030\003 \001(\010\022\022\n\npreference\030\004 \001(\010\022\r\n\005score\030\005 \001"
+    "(\r\022\017\n\007charIds\030\006 \003(\r\022\017\n\007discIds\030\007 \003(\r\022J\n\016"
+    "charPotentials\030\010 \003(\01322.ServerProto.StarT"
+    "owerBuildBin.CharPotentialsEntry\022B\n\npote"
+    "ntials\030\t \003(\0132..ServerProto.StarTowerBuil"
+    "dBin.PotentialsEntry\022H\n\rsubNoteSkills\030\n "
+    "\003(\01321.ServerProto.StarTowerBuildBin.SubN"
+    "oteSkillsEntry\022\032\n\022activeSecondaryIds\030\013 \003"
+    "(\r\022\017\n\007towerId\030\014 \001(\r\0325\n\023CharPotentialsEnt"
+    "ry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\0321\n\017Po"
+    "tentialsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001("
+    "\r:\0028\001\0324\n\022SubNoteSkillsEntry\022\013\n\003key\030\001 \001(\r"
+    "\022\r\n\005value\030\002 \001(\005:\0028\001\"\220\001\n\025StarTowerShopGoo"
     "dsBin\022\013\n\003sid\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\022\013\n\003idx\030"
     "\003 \001(\r\022\017\n\007goodsId\030\004 \001(\r\022\r\n\005price\030\005 \001(\005\022\020\n"
     "\010discount\030\006 \001(\005\022\017\n\007charPos\030\007 \001(\r\022\014\n\004sold"
-    "\030\010 \001(\010\"=\n\022TowerBattleCaseBin\022\024\n\014subNoteD"
-    "rops\030\001 \001(\r\022\021\n\texpReward\030\002 \001(\r\"6\n\020TowerDo"
-    "orCaseBin\022\020\n\010floorNum\030\001 \001(\r\022\020\n\010roomType\030"
-    "\002 \001(\r\"\272\001\n\025TowerPotentialCaseBin\022\021\n\tteamL"
-    "evel\030\001 \001(\r\022\016\n\006charId\030\002 \001(\r\022\016\n\006reroll\030\003 \001"
-    "(\r\022\023\n\013rerollPrice\030\004 \001(\r\022\022\n\nstrengthen\030\005 "
-    "\001(\010\022\014\n\004rare\030\006 \001(\010\0227\n\npotentials\030\007 \003(\0132#."
-    "ServerProto.TowerPotentialLevelBin\"Z\n\024To"
-    "werNpcEventCaseBin\022\r\n\005npcId\030\001 \001(\r\022\017\n\007eve"
-    "ntId\030\002 \001(\r\022\017\n\007options\030\003 \003(\r\022\021\n\tcompleted"
-    "\030\004 \001(\010\"m\n\022TowerHawkerCaseBin\022-\n\005goods\030\001 "
-    "\003(\0132\036.ServerProto.TowerShopGoodsBin\022\023\n\013r"
-    "erollTimes\030\002 \001(\r\022\023\n\013rerollPrice\030\003 \001(\r\"N\n"
-    "\035TowerStrengthenMachineCaseBin\022\014\n\004free\030\001"
-    " \001(\010\022\020\n\010discount\030\002 \001(\005\022\r\n\005times\030\003 \001(\r\"*\n"
-    "\026TowerRecoveryHPCaseBin\022\020\n\010effectId\030\001 \001("
-    "\r\"-\n\031TowerNpcRecoveryHPCaseBin\022\020\n\010effect"
-    "Id\030\001 \001(\r\")\n\022TowerSyncHPCaseBin\022\023\n\013placeh"
-    "older\030\001 \001(\010\"\233\005\n\014TowerCaseBin\022\n\n\002id\030\001 \001(\r"
-    "\022\014\n\004type\030\002 \001(\r\0225\n\nbattleCase\030\003 \001(\0132\037.Ser"
-    "verProto.TowerBattleCaseBinH\000\0221\n\010doorCas"
-    "e\030\004 \001(\0132\035.ServerProto.TowerDoorCaseBinH\000"
-    "\022;\n\rpotentialCase\030\005 \001(\0132\".ServerProto.To"
-    "werPotentialCaseBinH\000\0229\n\014npcEventCase\030\006 "
-    "\001(\0132!.ServerProto.TowerNpcEventCaseBinH\000"
-    "\0225\n\nhawkerCase\030\007 \001(\0132\037.ServerProto.Tower"
-    "HawkerCaseBinH\000\022K\n\025strengthenMachineCase"
-    "\030\010 \001(\0132*.ServerProto.TowerStrengthenMach"
-    "ineCaseBinH\000\022=\n\016recoveryHPCase\030\t \001(\0132#.S"
-    "erverProto.TowerRecoveryHPCaseBinH\000\022C\n\021n"
-    "pcRecoveryHPCase\030\n \001(\0132&.ServerProto.Tow"
-    "erNpcRecoveryHPCaseBinH\000\0225\n\nsyncHPCase\030\013"
-    " \001(\0132\037.ServerProto.TowerSyncHPCaseBinH\000\022"
-    "H\n\032selectSpecialPotentialCase\030\014 \001(\0132\".Se"
-    "rverProto.TowerPotentialCaseBinH\000B\006\n\004dat"
-    "a\"\306\001\n\014TowerRoomBin\022\017\n\007stageId\030\001 \001(\r\022\020\n\010r"
-    "oomType\030\002 \001(\r\022\r\n\005mapId\030\003 \001(\r\022\022\n\nmapTable"
-    "Id\030\004 \001(\r\022\020\n\010mapParam\030\005 \001(\t\022\017\n\007paramId\030\006 "
-    "\001(\r\022\022\n\nlastCaseId\030\007 \001(\r\022\017\n\007hasDoor\030\010 \001(\010"
-    "\022(\n\005cases\030\t \003(\0132\031.ServerProto.TowerCaseB"
-    "in\"\340\007\n\014TowerGameBin\022\017\n\007towerId\030\001 \001(\r\022\023\n\013"
-    "formationId\030\002 \001(\r\022\017\n\007buildId\030\003 \001(\004\022\022\n\nfl"
-    "oorCount\030\004 \001(\r\022\020\n\010stageNum\030\005 \001(\r\022\022\n\nstag"
-    "eFloor\030\006 \001(\r\022\021\n\tteamLevel\030\007 \001(\r\022\017\n\007teamE"
-    "xp\030\010 \001(\r\022\024\n\014nextLevelExp\030\t \001(\r\022\016\n\006charHp"
-    "\030\n \001(\005\022\022\n\nbattleTime\030\013 \001(\r\022\017\n\007charIds\030\014 "
-    "\003(\r\022\017\n\007discIds\030\r \003(\r\022\035\n\025pendingPotential"
-    "Cases\030\016 \001(\r\022!\n\031pendingRarePotentialCases"
-    "\030\017 \001(\r\022\021\n\tcompleted\030\020 \001(\010\022\r\n\005sweep\030\021 \001(\010"
-    "\0223\n\005items\030\022 \003(\0132$.ServerProto.TowerGameB"
-    "in.ItemsEntry\022/\n\003res\030\023 \003(\0132\".ServerProto"
-    ".TowerGameBin.ResEntry\022=\n\npotentials\030\024 \003"
-    "(\0132).ServerProto.TowerGameBin.Potentials"
-    "Entry\022M\n\022rarePotentialCount\030\025 \003(\01321.Serv"
-    "erProto.TowerGameBin.RarePotentialCountE"
-    "ntry\022\032\n\022activeSecondaryIds\030\026 \003(\r\022\021\n\tfate"
-    "Cards\030\027 \003(\r\022\'\n\004room\030\030 \001(\0132\031.ServerProto."
+    "\030\010 \001(\010\"A\n\026StarTowerBattleCaseBin\022\024\n\014subN"
+    "oteDrops\030\001 \001(\r\022\021\n\texpReward\030\002 \001(\r\":\n\024Sta"
+    "rTowerDoorCaseBin\022\020\n\010floorNum\030\001 \001(\r\022\020\n\010r"
+    "oomType\030\002 \001(\r\"\302\001\n\031StarTowerPotentialCase"
+    "Bin\022\021\n\tteamLevel\030\001 \001(\r\022\016\n\006charId\030\002 \001(\r\022\016"
+    "\n\006reroll\030\003 \001(\r\022\023\n\013rerollPrice\030\004 \001(\r\022\022\n\ns"
+    "trengthen\030\005 \001(\010\022\014\n\004rare\030\006 \001(\010\022;\n\npotenti"
+    "als\030\007 \003(\0132\'.ServerProto.StarTowerPotenti"
+    "alLevelBin\"^\n\030StarTowerNpcEventCaseBin\022\r"
+    "\n\005npcId\030\001 \001(\r\022\017\n\007eventId\030\002 \001(\r\022\017\n\007option"
+    "s\030\003 \003(\r\022\021\n\tcompleted\030\004 \001(\010\"u\n\026StarTowerH"
+    "awkerCaseBin\0221\n\005goods\030\001 \003(\0132\".ServerProt"
+    "o.StarTowerShopGoodsBin\022\023\n\013rerollTimes\030\002"
+    " \001(\r\022\023\n\013rerollPrice\030\003 \001(\r\"R\n!StarTowerSt"
+    "rengthenMachineCaseBin\022\014\n\004free\030\001 \001(\010\022\020\n\010"
+    "discount\030\002 \001(\005\022\r\n\005times\030\003 \001(\r\".\n\032StarTow"
+    "erRecoveryHPCaseBin\022\020\n\010effectId\030\001 \001(\r\"1\n"
+    "\035StarTowerNpcRecoveryHPCaseBin\022\020\n\010effect"
+    "Id\030\001 \001(\r\"-\n\026StarTowerSyncHPCaseBin\022\023\n\013pl"
+    "aceholder\030\001 \001(\010\"\307\005\n\020StarTowerCaseBin\022\n\n\002"
+    "id\030\001 \001(\r\022\014\n\004type\030\002 \001(\r\0229\n\nbattleCase\030\003 \001"
+    "(\0132#.ServerProto.StarTowerBattleCaseBinH"
+    "\000\0225\n\010doorCase\030\004 \001(\0132!.ServerProto.StarTo"
+    "werDoorCaseBinH\000\022\?\n\rpotentialCase\030\005 \001(\0132"
+    "&.ServerProto.StarTowerPotentialCaseBinH"
+    "\000\022=\n\014npcEventCase\030\006 \001(\0132%.ServerProto.St"
+    "arTowerNpcEventCaseBinH\000\0229\n\nhawkerCase\030\007"
+    " \001(\0132#.ServerProto.StarTowerHawkerCaseBi"
+    "nH\000\022O\n\025strengthenMachineCase\030\010 \001(\0132..Ser"
+    "verProto.StarTowerStrengthenMachineCaseB"
+    "inH\000\022A\n\016recoveryHPCase\030\t \001(\0132\'.ServerPro"
+    "to.StarTowerRecoveryHPCaseBinH\000\022G\n\021npcRe"
+    "coveryHPCase\030\n \001(\0132*.ServerProto.StarTow"
+    "erNpcRecoveryHPCaseBinH\000\0229\n\nsyncHPCase\030\013"
+    " \001(\0132#.ServerProto.StarTowerSyncHPCaseBi"
+    "nH\000\022L\n\032selectSpecialPotentialCase\030\014 \001(\0132"
+    "&.ServerProto.StarTowerPotentialCaseBinH"
+    "\000B\006\n\004data\"\316\001\n\020StarTowerRoomBin\022\017\n\007stageI"
+    "d\030\001 \001(\r\022\020\n\010roomType\030\002 \001(\r\022\r\n\005mapId\030\003 \001(\r"
+    "\022\022\n\nmapTableId\030\004 \001(\r\022\020\n\010mapParam\030\005 \001(\t\022\017"
+    "\n\007paramId\030\006 \001(\r\022\022\n\nlastCaseId\030\007 \001(\r\022\017\n\007h"
+    "asDoor\030\010 \001(\010\022,\n\005cases\030\t \003(\0132\035.ServerProt"
+    "o.StarTowerCaseBin\"\370\007\n\020StarTowerGameBin\022"
+    "\017\n\007towerId\030\001 \001(\r\022\023\n\013formationId\030\002 \001(\r\022\017\n"
+    "\007buildId\030\003 \001(\004\022\022\n\nfloorCount\030\004 \001(\r\022\020\n\010st"
+    "ageNum\030\005 \001(\r\022\022\n\nstageFloor\030\006 \001(\r\022\021\n\tteam"
+    "Level\030\007 \001(\r\022\017\n\007teamExp\030\010 \001(\r\022\024\n\014nextLeve"
+    "lExp\030\t \001(\r\022\016\n\006charHp\030\n \001(\005\022\022\n\nbattleTime"
+    "\030\013 \001(\r\022\017\n\007charIds\030\014 \003(\r\022\017\n\007discIds\030\r \003(\r"
+    "\022\035\n\025pendingPotentialCases\030\016 \001(\r\022!\n\031pendi"
+    "ngRarePotentialCases\030\017 \001(\r\022\021\n\tcompleted\030"
+    "\020 \001(\010\022\r\n\005sweep\030\021 \001(\010\0227\n\005items\030\022 \003(\0132(.Se"
+    "rverProto.StarTowerGameBin.ItemsEntry\0223\n"
+    "\003res\030\023 \003(\0132&.ServerProto.StarTowerGameBi"
+    "n.ResEntry\022A\n\npotentials\030\024 \003(\0132-.ServerP"
+    "roto.StarTowerGameBin.PotentialsEntry\022Q\n"
+    "\022rarePotentialCount\030\025 \003(\01325.ServerProto."
+    "StarTowerGameBin.RarePotentialCountEntry"
+    "\022\032\n\022activeSecondaryIds\030\026 \003(\r\022\021\n\tfateCard"
+    "s\030\027 \003(\r\022+\n\004room\030\030 \001(\0132\035.ServerProto.Star"
     "TowerRoomBin\022\024\n\014totalDamages\030\031 \003(\004\022\027\n\017sh"
     "opRerollTimes\030\032 \001(\r\022\027\n\017shopRerollPrice\030\033"
     " \001(\r\022\037\n\027freeStrengthenAvailable\030\034 \001(\010\032,\n"
@@ -3306,86 +3310,86 @@ const char descriptor_table_protodef_PlayerData_2eproto[] ABSL_ATTRIBUTE_SECTION
     "\0028\001\032*\n\010ResEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 "
     "\001(\005:\0028\001\0321\n\017PotentialsEntry\022\013\n\003key\030\001 \001(\r\022"
     "\r\n\005value\030\002 \001(\005:\0028\001\0329\n\027RarePotentialCount"
-    "Entry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\"\240\006"
-    "\n\014TowerCompBin\022\024\n\014starTowerLog\030\001 \003(\r\022\027\n\017"
-    "starTowerGrowth\030\002 \003(\r\022\024\n\014towerTickets\030\003 "
-    "\001(\r\0225\n\007presets\030\004 \003(\0132$.ServerProto.Tower"
-    "PotentialPresetBin\022*\n\006builds\030\005 \003(\0132\032.Ser"
-    "verProto.TowerBuildBin\022.\n\013currentGame\030\006 "
-    "\001(\0132\031.ServerProto.TowerGameBin\022-\n\tlastBu"
-    "ild\030\007 \001(\0132\032.ServerProto.TowerBuildBin\022\021\n"
-    "\tfateCards\030\010 \003(\r\022\023\n\013bookCharIds\030\t \003(\r\022\024\n"
-    "\014bookEventIds\030\n \003(\r\022\023\n\013bookBundles\030\013 \003(\r"
-    "\022 \n\030bookPotentialReceivedIds\030\014 \003(\r\022\034\n\024bo"
-    "okEventReceivedIds\030\r \003(\r\022!\n\031fateCardRewa"
-    "rdReceivedIds\030\016 \003(\r\022(\n npcAffinityReward"
-    "ReceivedPlotIds\030\017 \003(\r\022\035\n\025npcAffinityBook"
-    "NpcIds\030\020 \003(\r\022\034\n\024npcAffinityBookPlots\030\021 \003"
-    "(\r\022\035\n\025npcAffinityBookLevels\030\022 \003(\r\022\035\n\025npc"
-    "AffinityBookValues\030\023 \003(\r\022O\n\023bookPotentia"
-    "lLevels\030\024 \003(\01322.ServerProto.TowerCompBin"
-    ".BookPotentialLevelsEntry\022!\n\031defaultUnlo"
-    "ckAllStarTower\030\025 \001(\010\032:\n\030BookPotentialLev"
-    "elsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001"
-    "\"\275\005\n\022PlayerBasicCompBin\022\022\n\ncreateTime\030\002 "
-    "\001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006"
-    "gender\030\005 \001(\010\022\020\n\010headIcon\030\006 \001(\005\022\016\n\006skinId"
-    "\030\007 \001(\005\022\023\n\013titlePrefix\030\010 \001(\005\022\023\n\013titleSuff"
-    "ix\030\t \001(\005\022\r\n\005music\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021"
-    "\n\tshowChars\030\014 \003(\005\022\016\n\006boards\030\r \003(\005\022\r\n\005lev"
-    "el\030\016 \001(\005\022\013\n\003exp\030\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n"
-    "\020energyLastUpdate\030\021 \001(\003\022\023\n\013signInIndex\030\022"
-    " \001(\005\022\024\n\014lastEpochDay\030\023 \001(\003\022\021\n\tlastLogin\030"
-    "\024 \001(\003\022Y\n\025monthlyCardExpireDays\030\025 \003(\0132:.S"
-    "erverProto.PlayerBasicCompBin.MonthlyCar"
-    "dExpireDaysEntry\022a\n\031monthlyCardLastRewar"
-    "dDays\030\026 \003(\0132>.ServerProto.PlayerBasicCom"
-    "pBin.MonthlyCardLastRewardDaysEntry\022\023\n\013p"
-    "ermissions\030\027 \003(\t\032<\n\032MonthlyCardExpireDay"
-    "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032@"
-    "\n\036MonthlyCardLastRewardDaysEntry\022\013\n\003key\030"
-    "\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\".\n\016StoryChoiceB"
-    "in\022\r\n\005group\030\001 \001(\r\022\r\n\005value\030\002 \001(\r\"q\n\021Stor"
-    "yOptionLogBin\022*\n\005major\030\001 \003(\0132\033.ServerPro"
-    "to.StoryChoiceBin\0220\n\013personality\030\002 \003(\0132\033"
-    ".ServerProto.StoryChoiceBin\"\277\002\n\014StoryCom"
-    "pBin\022\030\n\020completedStories\030\001 \003(\r\022C\n\rcomple"
-    "tedSets\030\002 \003(\0132,.ServerProto.StoryCompBin"
-    ".CompletedSetsEntry\022\021\n\tevidences\030\003 \003(\r\0227"
-    "\n\007options\030\004 \003(\0132&.ServerProto.StoryCompB"
-    "in.OptionsEntry\0324\n\022CompletedSetsEntry\022\013\n"
-    "\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\032N\n\014Options"
-    "Entry\022\013\n\003key\030\001 \001(\r\022-\n\005value\030\002 \001(\0132\036.Serv"
-    "erProto.StoryOptionLogBin:\0028\001\"O\n\010AgentBi"
-    "n\022\n\n\002id\030\001 \001(\r\022\023\n\013processTime\030\002 \001(\r\022\017\n\007ch"
-    "arIds\030\003 \003(\r\022\021\n\tstartTime\030\004 \001(\003\"5\n\014AgentC"
-    "ompBin\022%\n\006agents\030\001 \003(\0132\025.ServerProto.Age"
-    "ntBin\"\346\004\n\016PlayerSaveData\0223\n\nplayerdata\030\002"
-    " \001(\0132\037.ServerProto.PlayerBasicCompBin\022/\n"
-    "\010charComp\030\003 \001(\0132\035.ServerProto.CharacterC"
-    "ompBin\022,\n\tquestComp\030\004 \001(\0132\031.ServerProto."
-    "QuestCompBin\0228\n\017achievementComp\030\005 \001(\0132\037."
-    "ServerProto.AchievementCompBin\0224\n\rinvent"
-    "oryComp\030\006 \001(\0132\035.ServerProto.InventoryCom"
-    "pBin\022*\n\010mailComp\030\007 \001(\0132\030.ServerProto.Mai"
-    "lCompBin\022,\n\tgachaComp\030\010 \001(\0132\031.ServerProt"
-    "o.GachaCompBin\0226\n\016battlePassComp\030\t \001(\0132\036"
-    ".ServerProto.BattlePassCompBin\0224\n\rformat"
-    "ionComp\030\n \001(\0132\035.ServerProto.FormationCom"
-    "pBin\022,\n\ttowerComp\030\013 \001(\0132\031.ServerProto.To"
-    "werCompBin\022,\n\tstoryComp\030\014 \001(\0132\031.ServerPr"
-    "oto.StoryCompBin\022,\n\tagentComp\030\r \001(\0132\031.Se"
-    "rverProto.AgentCompBin\"\211\001\n\017GameDiscInfoB"
-    "in\022\016\n\006discId\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp"
-    "\030\004 \001(\005\022\r\n\005phase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004r"
-    "ead\030\007 \001(\010\022\013\n\003avg\030\010 \001(\010\022\022\n\ncreateTime\030\t \001"
-    "(\003b\006proto3"
+    "Entry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\005:\0028\001\"\270\006"
+    "\n\020StarTowerCompBin\022\024\n\014starTowerLog\030\001 \003(\r"
+    "\022\027\n\017starTowerGrowth\030\002 \003(\r\022\024\n\014towerTicket"
+    "s\030\003 \001(\r\0229\n\007presets\030\004 \003(\0132(.ServerProto.S"
+    "tarTowerPotentialPresetBin\022.\n\006builds\030\005 \003"
+    "(\0132\036.ServerProto.StarTowerBuildBin\0222\n\013cu"
+    "rrentGame\030\006 \001(\0132\035.ServerProto.StarTowerG"
+    "ameBin\0221\n\tlastBuild\030\007 \001(\0132\036.ServerProto."
+    "StarTowerBuildBin\022\021\n\tfateCards\030\010 \003(\r\022\023\n\013"
+    "bookCharIds\030\t \003(\r\022\024\n\014bookEventIds\030\n \003(\r\022"
+    "\023\n\013bookBundles\030\013 \003(\r\022 \n\030bookPotentialRec"
+    "eivedIds\030\014 \003(\r\022\034\n\024bookEventReceivedIds\030\r"
+    " \003(\r\022!\n\031fateCardRewardReceivedIds\030\016 \003(\r\022"
+    "(\n npcAffinityRewardReceivedPlotIds\030\017 \003("
+    "\r\022\035\n\025npcAffinityBookNpcIds\030\020 \003(\r\022\034\n\024npcA"
+    "ffinityBookPlots\030\021 \003(\r\022\035\n\025npcAffinityBoo"
+    "kLevels\030\022 \003(\r\022\035\n\025npcAffinityBookValues\030\023"
+    " \003(\r\022S\n\023bookPotentialLevels\030\024 \003(\01326.Serv"
+    "erProto.StarTowerCompBin.BookPotentialLe"
+    "velsEntry\022!\n\031defaultUnlockAllStarTower\030\025"
+    " \001(\010\032:\n\030BookPotentialLevelsEntry\022\013\n\003key\030"
+    "\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\"\275\005\n\022PlayerBasic"
+    "CompBin\022\022\n\ncreateTime\030\002 \001(\003\022\014\n\004name\030\003 \001("
+    "\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006gender\030\005 \001(\010\022\020\n\010"
+    "headIcon\030\006 \001(\005\022\016\n\006skinId\030\007 \001(\005\022\023\n\013titleP"
+    "refix\030\010 \001(\005\022\023\n\013titleSuffix\030\t \001(\005\022\r\n\005musi"
+    "c\030\n \001(\003\022\r\n\005honor\030\013 \003(\005\022\021\n\tshowChars\030\014 \003("
+    "\005\022\016\n\006boards\030\r \003(\005\022\r\n\005level\030\016 \001(\005\022\013\n\003exp\030"
+    "\017 \001(\005\022\016\n\006energy\030\020 \001(\005\022\030\n\020energyLastUpdat"
+    "e\030\021 \001(\003\022\023\n\013signInIndex\030\022 \001(\005\022\024\n\014lastEpoc"
+    "hDay\030\023 \001(\003\022\021\n\tlastLogin\030\024 \001(\003\022Y\n\025monthly"
+    "CardExpireDays\030\025 \003(\0132:.ServerProto.Playe"
+    "rBasicCompBin.MonthlyCardExpireDaysEntry"
+    "\022a\n\031monthlyCardLastRewardDays\030\026 \003(\0132>.Se"
+    "rverProto.PlayerBasicCompBin.MonthlyCard"
+    "LastRewardDaysEntry\022\023\n\013permissions\030\027 \003(\t"
+    "\032<\n\032MonthlyCardExpireDaysEntry\022\013\n\003key\030\001 "
+    "\001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\032@\n\036MonthlyCardLas"
+    "tRewardDaysEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002"
+    " \001(\r:\0028\001\".\n\016StoryChoiceBin\022\r\n\005group\030\001 \001("
+    "\r\022\r\n\005value\030\002 \001(\r\"q\n\021StoryOptionLogBin\022*\n"
+    "\005major\030\001 \003(\0132\033.ServerProto.StoryChoiceBi"
+    "n\0220\n\013personality\030\002 \003(\0132\033.ServerProto.Sto"
+    "ryChoiceBin\"\277\002\n\014StoryCompBin\022\030\n\020complete"
+    "dStories\030\001 \003(\r\022C\n\rcompletedSets\030\002 \003(\0132,."
+    "ServerProto.StoryCompBin.CompletedSetsEn"
+    "try\022\021\n\tevidences\030\003 \003(\r\0227\n\007options\030\004 \003(\0132"
+    "&.ServerProto.StoryCompBin.OptionsEntry\032"
+    "4\n\022CompletedSetsEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005va"
+    "lue\030\002 \001(\r:\0028\001\032N\n\014OptionsEntry\022\013\n\003key\030\001 \001"
+    "(\r\022-\n\005value\030\002 \001(\0132\036.ServerProto.StoryOpt"
+    "ionLogBin:\0028\001\"O\n\010AgentBin\022\n\n\002id\030\001 \001(\r\022\023\n"
+    "\013processTime\030\002 \001(\r\022\017\n\007charIds\030\003 \003(\r\022\021\n\ts"
+    "tartTime\030\004 \001(\003\"5\n\014AgentCompBin\022%\n\006agents"
+    "\030\001 \003(\0132\025.ServerProto.AgentBin\"\352\004\n\016Player"
+    "SaveData\0223\n\nplayerdata\030\002 \001(\0132\037.ServerPro"
+    "to.PlayerBasicCompBin\022/\n\010charComp\030\003 \001(\0132"
+    "\035.ServerProto.CharacterCompBin\022,\n\tquestC"
+    "omp\030\004 \001(\0132\031.ServerProto.QuestCompBin\0228\n\017"
+    "achievementComp\030\005 \001(\0132\037.ServerProto.Achi"
+    "evementCompBin\0224\n\rinventoryComp\030\006 \001(\0132\035."
+    "ServerProto.InventoryCompBin\022*\n\010mailComp"
+    "\030\007 \001(\0132\030.ServerProto.MailCompBin\022,\n\tgach"
+    "aComp\030\010 \001(\0132\031.ServerProto.GachaCompBin\0226"
+    "\n\016battlePassComp\030\t \001(\0132\036.ServerProto.Bat"
+    "tlePassCompBin\0224\n\rformationComp\030\n \001(\0132\035."
+    "ServerProto.FormationCompBin\0220\n\ttowerCom"
+    "p\030\013 \001(\0132\035.ServerProto.StarTowerCompBin\022,"
+    "\n\tstoryComp\030\014 \001(\0132\031.ServerProto.StoryCom"
+    "pBin\022,\n\tagentComp\030\r \001(\0132\031.ServerProto.Ag"
+    "entCompBin\"\211\001\n\017GameDiscInfoBin\022\016\n\006discId"
+    "\030\002 \001(\005\022\r\n\005level\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\r\n\005ph"
+    "ase\030\005 \001(\005\022\014\n\004star\030\006 \001(\005\022\014\n\004read\030\007 \001(\010\022\013\n"
+    "\003avg\030\010 \001(\010\022\022\n\ncreateTime\030\t \001(\003b\006proto3"
 };
 static ::absl::once_flag descriptor_table_PlayerData_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PlayerData_2eproto = {
     false,
     false,
-    10890,
+    11078,
     descriptor_table_protodef_PlayerData_2eproto,
     "PlayerData.proto",
     &descriptor_table_PlayerData_2eproto_once,
@@ -14996,27 +15000,27 @@ void FormationCompBin::InternalSwap(FormationCompBin* PROTOBUF_RESTRICT PROTOBUF
 }
 // ===================================================================
 
-class TowerPotentialLevelBin::_Internal {
+class StarTowerPotentialLevelBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerPotentialLevelBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerPotentialLevelBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_._has_bits_);
 };
 
-TowerPotentialLevelBin::TowerPotentialLevelBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerPotentialLevelBin::StarTowerPotentialLevelBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPotentialLevelBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPotentialLevelBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerPotentialLevelBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerPotentialLevelBin)
 }
-TowerPotentialLevelBin::TowerPotentialLevelBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerPotentialLevelBin& from)
+StarTowerPotentialLevelBin::StarTowerPotentialLevelBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerPotentialLevelBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPotentialLevelBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerPotentialLevelBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -15024,12 +15028,12 @@ TowerPotentialLevelBin::TowerPotentialLevelBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerPotentialLevelBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPotentialLevelBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerPotentialLevelBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerPotentialLevelBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, id_),
@@ -15038,12 +15042,12 @@ inline void TowerPotentialLevelBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE a
                offsetof(Impl_, id_) +
                sizeof(Impl_::level_));
 }
-TowerPotentialLevelBin::~TowerPotentialLevelBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerPotentialLevelBin)
+StarTowerPotentialLevelBin::~StarTowerPotentialLevelBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerPotentialLevelBin)
   SharedDtor(*this);
 }
-inline void TowerPotentialLevelBin::SharedDtor(MessageLite& self) {
-  TowerPotentialLevelBin& this_ = static_cast<TowerPotentialLevelBin&>(self);
+inline void StarTowerPotentialLevelBin::SharedDtor(MessageLite& self) {
+  StarTowerPotentialLevelBin& this_ = static_cast<StarTowerPotentialLevelBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -15052,53 +15056,53 @@ inline void TowerPotentialLevelBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerPotentialLevelBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerPotentialLevelBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerPotentialLevelBin(arena);
+  return ::new (mem) StarTowerPotentialLevelBin(arena);
 }
-constexpr auto TowerPotentialLevelBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerPotentialLevelBin),
-                                            alignof(TowerPotentialLevelBin));
+constexpr auto StarTowerPotentialLevelBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerPotentialLevelBin),
+                                            alignof(StarTowerPotentialLevelBin));
 }
-constexpr auto TowerPotentialLevelBin::InternalGenerateClassData_() {
+constexpr auto StarTowerPotentialLevelBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerPotentialLevelBin_default_instance_._instance,
+          &_StarTowerPotentialLevelBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerPotentialLevelBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerPotentialLevelBin>(),
+          &StarTowerPotentialLevelBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerPotentialLevelBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerPotentialLevelBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerPotentialLevelBin>(), &TowerPotentialLevelBin::ByteSizeLong,
-              &TowerPotentialLevelBin::_InternalSerialize,
+          &StarTowerPotentialLevelBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerPotentialLevelBin>(), &StarTowerPotentialLevelBin::ByteSizeLong,
+              &StarTowerPotentialLevelBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_._cached_size_),
           false,
       },
-      &TowerPotentialLevelBin::kDescriptorMethods,
+      &StarTowerPotentialLevelBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerPotentialLevelBin_class_data_ =
-        TowerPotentialLevelBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerPotentialLevelBin_class_data_ =
+        StarTowerPotentialLevelBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerPotentialLevelBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerPotentialLevelBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerPotentialLevelBin_class_data_.tc_table);
-  return TowerPotentialLevelBin_class_data_.base();
+StarTowerPotentialLevelBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerPotentialLevelBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerPotentialLevelBin_class_data_.tc_table);
+  return StarTowerPotentialLevelBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerPotentialLevelBin::_table_ = {
+StarTowerPotentialLevelBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -15107,35 +15111,35 @@ TowerPotentialLevelBin::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerPotentialLevelBin_class_data_.base(),
+    StarTowerPotentialLevelBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialLevelBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialLevelBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 level = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPotentialLevelBin, _impl_.level_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPotentialLevelBin, _impl_.level_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_.level_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_.level_)}},
     // uint32 id = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPotentialLevelBin, _impl_.id_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPotentialLevelBin, _impl_.id_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_.id_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_.id_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 id = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_.id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_.id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 level = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_.level_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_.level_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerPotentialLevelBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerPotentialLevelBin)
+PROTOBUF_NOINLINE void StarTowerPotentialLevelBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerPotentialLevelBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -15152,20 +15156,20 @@ PROTOBUF_NOINLINE void TowerPotentialLevelBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerPotentialLevelBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPotentialLevelBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerPotentialLevelBin& this_ = static_cast<const TowerPotentialLevelBin&>(base);
+  const StarTowerPotentialLevelBin& this_ = static_cast<const StarTowerPotentialLevelBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerPotentialLevelBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPotentialLevelBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerPotentialLevelBin& this_ = *this;
+  const StarTowerPotentialLevelBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerPotentialLevelBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerPotentialLevelBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -15193,18 +15197,18 @@ PROTOBUF_NOINLINE void TowerPotentialLevelBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerPotentialLevelBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerPotentialLevelBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerPotentialLevelBin::ByteSizeLong(const MessageLite& base) {
-  const TowerPotentialLevelBin& this_ = static_cast<const TowerPotentialLevelBin&>(base);
+::size_t StarTowerPotentialLevelBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerPotentialLevelBin& this_ = static_cast<const StarTowerPotentialLevelBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerPotentialLevelBin::ByteSizeLong() const {
-  const TowerPotentialLevelBin& this_ = *this;
+::size_t StarTowerPotentialLevelBin::ByteSizeLong() const {
+  const StarTowerPotentialLevelBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerPotentialLevelBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerPotentialLevelBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -15233,15 +15237,15 @@ PROTOBUF_NOINLINE void TowerPotentialLevelBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerPotentialLevelBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerPotentialLevelBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerPotentialLevelBin*>(&to_msg);
-  auto& from = static_cast<const TowerPotentialLevelBin&>(from_msg);
+      static_cast<StarTowerPotentialLevelBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerPotentialLevelBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerPotentialLevelBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerPotentialLevelBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -15264,89 +15268,89 @@ void TowerPotentialLevelBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerPotentialLevelBin::CopyFrom(const TowerPotentialLevelBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerPotentialLevelBin)
+void StarTowerPotentialLevelBin::CopyFrom(const StarTowerPotentialLevelBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerPotentialLevelBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerPotentialLevelBin::InternalSwap(TowerPotentialLevelBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerPotentialLevelBin::InternalSwap(StarTowerPotentialLevelBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_.level_)
-      + sizeof(TowerPotentialLevelBin::_impl_.level_)
-      - PROTOBUF_FIELD_OFFSET(TowerPotentialLevelBin, _impl_.id_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_.level_)
+      + sizeof(StarTowerPotentialLevelBin::_impl_.level_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerPotentialLevelBin, _impl_.id_)>(
           reinterpret_cast<char*>(&_impl_.id_),
           reinterpret_cast<char*>(&other->_impl_.id_));
 }
 
-::google::protobuf::Metadata TowerPotentialLevelBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerPotentialLevelBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerPresetCharBin::_Internal {
+class StarTowerPresetCharBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerPresetCharBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerPresetCharBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_._has_bits_);
 };
 
-TowerPresetCharBin::TowerPresetCharBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerPresetCharBin::StarTowerPresetCharBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPresetCharBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPresetCharBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerPresetCharBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerPresetCharBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerPresetCharBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPresetCharBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerPresetCharBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerPresetCharBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         potentials_{visibility, arena, from.potentials_} {}
 
-TowerPresetCharBin::TowerPresetCharBin(
+StarTowerPresetCharBin::StarTowerPresetCharBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerPresetCharBin& from)
+    const StarTowerPresetCharBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPresetCharBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPresetCharBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerPresetCharBin* const _this = this;
+  StarTowerPresetCharBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   _impl_.charid_ = from._impl_.charid_;
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerPresetCharBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerPresetCharBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerPresetCharBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPresetCharBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         potentials_{visibility, arena} {}
 
-inline void TowerPresetCharBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerPresetCharBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   _impl_.charid_ = {};
 }
-TowerPresetCharBin::~TowerPresetCharBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerPresetCharBin)
+StarTowerPresetCharBin::~StarTowerPresetCharBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerPresetCharBin)
   SharedDtor(*this);
 }
-inline void TowerPresetCharBin::SharedDtor(MessageLite& self) {
-  TowerPresetCharBin& this_ = static_cast<TowerPresetCharBin&>(self);
+inline void StarTowerPresetCharBin::SharedDtor(MessageLite& self) {
+  StarTowerPresetCharBin& this_ = static_cast<StarTowerPresetCharBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -15355,65 +15359,65 @@ inline void TowerPresetCharBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerPresetCharBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerPresetCharBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerPresetCharBin(arena);
+  return ::new (mem) StarTowerPresetCharBin(arena);
 }
-constexpr auto TowerPresetCharBin::InternalNewImpl_() {
+constexpr auto StarTowerPresetCharBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_.potentials_) +
-          decltype(TowerPresetCharBin::_impl_.potentials_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_.potentials_) +
+          decltype(StarTowerPresetCharBin::_impl_.potentials_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(TowerPresetCharBin), alignof(TowerPresetCharBin), *arena_bits);
+        sizeof(StarTowerPresetCharBin), alignof(StarTowerPresetCharBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerPresetCharBin::PlacementNew_,
-                                 sizeof(TowerPresetCharBin),
-                                 alignof(TowerPresetCharBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerPresetCharBin::PlacementNew_,
+                                 sizeof(StarTowerPresetCharBin),
+                                 alignof(StarTowerPresetCharBin));
   }
 }
-constexpr auto TowerPresetCharBin::InternalGenerateClassData_() {
+constexpr auto StarTowerPresetCharBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerPresetCharBin_default_instance_._instance,
+          &_StarTowerPresetCharBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerPresetCharBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerPresetCharBin>(),
+          &StarTowerPresetCharBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerPresetCharBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerPresetCharBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerPresetCharBin>(), &TowerPresetCharBin::ByteSizeLong,
-              &TowerPresetCharBin::_InternalSerialize,
+          &StarTowerPresetCharBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerPresetCharBin>(), &StarTowerPresetCharBin::ByteSizeLong,
+              &StarTowerPresetCharBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_._cached_size_),
           false,
       },
-      &TowerPresetCharBin::kDescriptorMethods,
+      &StarTowerPresetCharBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerPresetCharBin_class_data_ =
-        TowerPresetCharBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerPresetCharBin_class_data_ =
+        StarTowerPresetCharBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerPresetCharBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerPresetCharBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerPresetCharBin_class_data_.tc_table);
-  return TowerPresetCharBin_class_data_.base();
+StarTowerPresetCharBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerPresetCharBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerPresetCharBin_class_data_.tc_table);
+  return StarTowerPresetCharBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
-TowerPresetCharBin::_table_ = {
+StarTowerPresetCharBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -15422,37 +15426,37 @@ TowerPresetCharBin::_table_ = {
     2,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerPresetCharBin_class_data_.base(),
+    StarTowerPresetCharBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerPresetCharBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerPresetCharBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // repeated .ServerProto.TowerPotentialLevelBin potentials = 2;
+    // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 2;
     {::_pbi::TcParser::FastMtR1,
      {18, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_.potentials_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_.potentials_)}},
     // uint32 charId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPresetCharBin, _impl_.charid_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPresetCharBin, _impl_.charid_), 1>(),
      {8, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_.charid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_.charid_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 charId = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_.charid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // repeated .ServerProto.TowerPotentialLevelBin potentials = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerPresetCharBin, _impl_.potentials_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_.charid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 2;
+    {PROTOBUF_FIELD_OFFSET(StarTowerPresetCharBin, _impl_.potentials_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialLevelBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialLevelBin>()},
   }},
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerPresetCharBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerPresetCharBin)
+PROTOBUF_NOINLINE void StarTowerPresetCharBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerPresetCharBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -15468,20 +15472,20 @@ PROTOBUF_NOINLINE void TowerPresetCharBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerPresetCharBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPresetCharBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerPresetCharBin& this_ = static_cast<const TowerPresetCharBin&>(base);
+  const StarTowerPresetCharBin& this_ = static_cast<const StarTowerPresetCharBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerPresetCharBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPresetCharBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerPresetCharBin& this_ = *this;
+  const StarTowerPresetCharBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerPresetCharBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerPresetCharBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -15495,7 +15499,7 @@ PROTOBUF_NOINLINE void TowerPresetCharBin::Clear() {
     }
   }
 
-  // repeated .ServerProto.TowerPotentialLevelBin potentials = 2;
+  // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 2;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_potentials_size());
@@ -15513,18 +15517,18 @@ PROTOBUF_NOINLINE void TowerPresetCharBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerPresetCharBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerPresetCharBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerPresetCharBin::ByteSizeLong(const MessageLite& base) {
-  const TowerPresetCharBin& this_ = static_cast<const TowerPresetCharBin&>(base);
+::size_t StarTowerPresetCharBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerPresetCharBin& this_ = static_cast<const StarTowerPresetCharBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerPresetCharBin::ByteSizeLong() const {
-  const TowerPresetCharBin& this_ = *this;
+::size_t StarTowerPresetCharBin::ByteSizeLong() const {
+  const StarTowerPresetCharBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerPresetCharBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerPresetCharBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -15534,7 +15538,7 @@ PROTOBUF_NOINLINE void TowerPresetCharBin::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
-    // repeated .ServerProto.TowerPotentialLevelBin potentials = 2;
+    // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 2;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_potentials_size();
       for (const auto& msg : this_._internal_potentials()) {
@@ -15553,16 +15557,16 @@ PROTOBUF_NOINLINE void TowerPresetCharBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerPresetCharBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerPresetCharBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerPresetCharBin*>(&to_msg);
-  auto& from = static_cast<const TowerPresetCharBin&>(from_msg);
+      static_cast<StarTowerPresetCharBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerPresetCharBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerPresetCharBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerPresetCharBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -15585,15 +15589,15 @@ void TowerPresetCharBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerPresetCharBin::CopyFrom(const TowerPresetCharBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerPresetCharBin)
+void StarTowerPresetCharBin::CopyFrom(const StarTowerPresetCharBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerPresetCharBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerPresetCharBin::InternalSwap(TowerPresetCharBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerPresetCharBin::InternalSwap(StarTowerPresetCharBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
@@ -15601,46 +15605,46 @@ void TowerPresetCharBin::InternalSwap(TowerPresetCharBin* PROTOBUF_RESTRICT PROT
   swap(_impl_.charid_, other->_impl_.charid_);
 }
 
-::google::protobuf::Metadata TowerPresetCharBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerPresetCharBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerPotentialPresetBin::_Internal {
+class StarTowerPotentialPresetBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerPotentialPresetBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerPotentialPresetBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_._has_bits_);
 };
 
-TowerPotentialPresetBin::TowerPotentialPresetBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerPotentialPresetBin::StarTowerPotentialPresetBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPotentialPresetBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPotentialPresetBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerPotentialPresetBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerPotentialPresetBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerPotentialPresetBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPotentialPresetBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerPotentialPresetBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerPotentialPresetBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         chars_{visibility, arena, from.chars_},
         name_(arena, from.name_) {}
 
-TowerPotentialPresetBin::TowerPotentialPresetBin(
+StarTowerPotentialPresetBin::StarTowerPotentialPresetBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerPotentialPresetBin& from)
+    const StarTowerPotentialPresetBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPotentialPresetBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPotentialPresetBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerPotentialPresetBin* const _this = this;
+  StarTowerPotentialPresetBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -15653,16 +15657,16 @@ TowerPotentialPresetBin::TowerPotentialPresetBin(
                offsetof(Impl_, uid_) +
                sizeof(Impl_::preference_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerPotentialPresetBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerPotentialPresetBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerPotentialPresetBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPotentialPresetBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         chars_{visibility, arena},
         name_(arena) {}
 
-inline void TowerPotentialPresetBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerPotentialPresetBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, uid_),
@@ -15671,12 +15675,12 @@ inline void TowerPotentialPresetBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE 
                offsetof(Impl_, uid_) +
                sizeof(Impl_::preference_));
 }
-TowerPotentialPresetBin::~TowerPotentialPresetBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerPotentialPresetBin)
+StarTowerPotentialPresetBin::~StarTowerPotentialPresetBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerPotentialPresetBin)
   SharedDtor(*this);
 }
-inline void TowerPotentialPresetBin::SharedDtor(MessageLite& self) {
-  TowerPotentialPresetBin& this_ = static_cast<TowerPotentialPresetBin&>(self);
+inline void StarTowerPotentialPresetBin::SharedDtor(MessageLite& self) {
+  StarTowerPotentialPresetBin& this_ = static_cast<StarTowerPotentialPresetBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -15686,65 +15690,65 @@ inline void TowerPotentialPresetBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerPotentialPresetBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerPotentialPresetBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerPotentialPresetBin(arena);
+  return ::new (mem) StarTowerPotentialPresetBin(arena);
 }
-constexpr auto TowerPotentialPresetBin::InternalNewImpl_() {
+constexpr auto StarTowerPotentialPresetBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.chars_) +
-          decltype(TowerPotentialPresetBin::_impl_.chars_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.chars_) +
+          decltype(StarTowerPotentialPresetBin::_impl_.chars_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(TowerPotentialPresetBin), alignof(TowerPotentialPresetBin), *arena_bits);
+        sizeof(StarTowerPotentialPresetBin), alignof(StarTowerPotentialPresetBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerPotentialPresetBin::PlacementNew_,
-                                 sizeof(TowerPotentialPresetBin),
-                                 alignof(TowerPotentialPresetBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerPotentialPresetBin::PlacementNew_,
+                                 sizeof(StarTowerPotentialPresetBin),
+                                 alignof(StarTowerPotentialPresetBin));
   }
 }
-constexpr auto TowerPotentialPresetBin::InternalGenerateClassData_() {
+constexpr auto StarTowerPotentialPresetBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerPotentialPresetBin_default_instance_._instance,
+          &_StarTowerPotentialPresetBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerPotentialPresetBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerPotentialPresetBin>(),
+          &StarTowerPotentialPresetBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerPotentialPresetBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerPotentialPresetBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerPotentialPresetBin>(), &TowerPotentialPresetBin::ByteSizeLong,
-              &TowerPotentialPresetBin::_InternalSerialize,
+          &StarTowerPotentialPresetBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerPotentialPresetBin>(), &StarTowerPotentialPresetBin::ByteSizeLong,
+              &StarTowerPotentialPresetBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_._cached_size_),
           false,
       },
-      &TowerPotentialPresetBin::kDescriptorMethods,
+      &StarTowerPotentialPresetBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerPotentialPresetBin_class_data_ =
-        TowerPotentialPresetBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerPotentialPresetBin_class_data_ =
+        StarTowerPotentialPresetBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerPotentialPresetBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerPotentialPresetBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerPotentialPresetBin_class_data_.tc_table);
-  return TowerPotentialPresetBin_class_data_.base();
+StarTowerPotentialPresetBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerPotentialPresetBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerPotentialPresetBin_class_data_.tc_table);
+  return StarTowerPotentialPresetBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 1, 48, 2>
-TowerPotentialPresetBin::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 1, 52, 2>
+StarTowerPotentialPresetBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_._has_bits_),
     0, // no _extensions_
     5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -15753,61 +15757,61 @@ TowerPotentialPresetBin::_table_ = {
     5,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerPotentialPresetBin_class_data_.base(),
+    StarTowerPotentialPresetBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialPresetBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialPresetBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // uint64 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(TowerPotentialPresetBin, _impl_.uid_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(StarTowerPotentialPresetBin, _impl_.uid_), 2>(),
      {8, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.uid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.uid_)}},
     // string name = 2;
     {::_pbi::TcParser::FastUS1,
      {18, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.name_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.name_)}},
     // bool preference = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerPotentialPresetBin, _impl_.preference_), 4>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerPotentialPresetBin, _impl_.preference_), 4>(),
      {24, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.preference_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.preference_)}},
     // int64 timestamp = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(TowerPotentialPresetBin, _impl_.timestamp_), 3>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(StarTowerPotentialPresetBin, _impl_.timestamp_), 3>(),
      {32, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.timestamp_)}},
-    // repeated .ServerProto.TowerPresetCharBin chars = 5;
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.timestamp_)}},
+    // repeated .ServerProto.StarTowerPresetCharBin chars = 5;
     {::_pbi::TcParser::FastMtR1,
      {42, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.chars_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.chars_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // uint64 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.uid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.uid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
     // string name = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.name_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.name_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // bool preference = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.preference_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.preference_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // int64 timestamp = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.timestamp_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
-    // repeated .ServerProto.TowerPresetCharBin chars = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.chars_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.timestamp_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    // repeated .ServerProto.StarTowerPresetCharBin chars = 5;
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.chars_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerPresetCharBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerPresetCharBin>()},
   }},
   {{
-    "\43\0\4\0\0\0\0\0"
-    "ServerProto.TowerPotentialPresetBin"
+    "\47\0\4\0\0\0\0\0"
+    "ServerProto.StarTowerPotentialPresetBin"
     "name"
   }},
 };
-PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerPotentialPresetBin)
+PROTOBUF_NOINLINE void StarTowerPotentialPresetBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerPotentialPresetBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -15832,20 +15836,20 @@ PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerPotentialPresetBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPotentialPresetBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerPotentialPresetBin& this_ = static_cast<const TowerPotentialPresetBin&>(base);
+  const StarTowerPotentialPresetBin& this_ = static_cast<const StarTowerPotentialPresetBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerPotentialPresetBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPotentialPresetBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerPotentialPresetBin& this_ = *this;
+  const StarTowerPotentialPresetBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerPotentialPresetBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerPotentialPresetBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -15864,7 +15868,7 @@ PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
     if (!this_._internal_name().empty()) {
       const ::std::string& _s = this_._internal_name();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.TowerPotentialPresetBin.name");
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.StarTowerPotentialPresetBin.name");
       target = stream->WriteStringMaybeAliased(2, _s, target);
     }
   }
@@ -15887,7 +15891,7 @@ PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
     }
   }
 
-  // repeated .ServerProto.TowerPresetCharBin chars = 5;
+  // repeated .ServerProto.StarTowerPresetCharBin chars = 5;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_chars_size());
@@ -15905,18 +15909,18 @@ PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerPotentialPresetBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerPotentialPresetBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerPotentialPresetBin::ByteSizeLong(const MessageLite& base) {
-  const TowerPotentialPresetBin& this_ = static_cast<const TowerPotentialPresetBin&>(base);
+::size_t StarTowerPotentialPresetBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerPotentialPresetBin& this_ = static_cast<const StarTowerPotentialPresetBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerPotentialPresetBin::ByteSizeLong() const {
-  const TowerPotentialPresetBin& this_ = *this;
+::size_t StarTowerPotentialPresetBin::ByteSizeLong() const {
+  const StarTowerPotentialPresetBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerPotentialPresetBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerPotentialPresetBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -15926,7 +15930,7 @@ PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
-    // repeated .ServerProto.TowerPresetCharBin chars = 5;
+    // repeated .ServerProto.StarTowerPresetCharBin chars = 5;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_chars_size();
       for (const auto& msg : this_._internal_chars()) {
@@ -15965,16 +15969,16 @@ PROTOBUF_NOINLINE void TowerPotentialPresetBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerPotentialPresetBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerPotentialPresetBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerPotentialPresetBin*>(&to_msg);
-  auto& from = static_cast<const TowerPotentialPresetBin&>(from_msg);
+      static_cast<StarTowerPotentialPresetBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerPotentialPresetBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerPotentialPresetBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerPotentialPresetBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -16016,15 +16020,15 @@ void TowerPotentialPresetBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerPotentialPresetBin::CopyFrom(const TowerPotentialPresetBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerPotentialPresetBin)
+void StarTowerPotentialPresetBin::CopyFrom(const StarTowerPotentialPresetBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerPotentialPresetBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerPotentialPresetBin::InternalSwap(TowerPotentialPresetBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerPotentialPresetBin::InternalSwap(StarTowerPotentialPresetBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
@@ -16033,75 +16037,75 @@ void TowerPotentialPresetBin::InternalSwap(TowerPotentialPresetBin* PROTOBUF_RES
   _impl_.chars_.InternalSwap(&other->_impl_.chars_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.preference_)
-      + sizeof(TowerPotentialPresetBin::_impl_.preference_)
-      - PROTOBUF_FIELD_OFFSET(TowerPotentialPresetBin, _impl_.uid_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.preference_)
+      + sizeof(StarTowerPotentialPresetBin::_impl_.preference_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerPotentialPresetBin, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
 }
 
-::google::protobuf::Metadata TowerPotentialPresetBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerPotentialPresetBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerBuildBin_CharPotentialsEntry_DoNotUse::TowerBuildBin_CharPotentialsEntry_DoNotUse()
-    : SuperType(TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base()) {}
-TowerBuildBin_CharPotentialsEntry_DoNotUse::TowerBuildBin_CharPotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base()) {}
+StarTowerBuildBin_CharPotentialsEntry_DoNotUse::StarTowerBuildBin_CharPotentialsEntry_DoNotUse()
+    : SuperType(StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base()) {}
+StarTowerBuildBin_CharPotentialsEntry_DoNotUse::StarTowerBuildBin_CharPotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerBuildBin_CharPotentialsEntry_DoNotUse::TowerBuildBin_CharPotentialsEntry_DoNotUse() : SuperType() {}
-TowerBuildBin_CharPotentialsEntry_DoNotUse::TowerBuildBin_CharPotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerBuildBin_CharPotentialsEntry_DoNotUse::StarTowerBuildBin_CharPotentialsEntry_DoNotUse() : SuperType() {}
+StarTowerBuildBin_CharPotentialsEntry_DoNotUse::StarTowerBuildBin_CharPotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerBuildBin_CharPotentialsEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerBuildBin_CharPotentialsEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerBuildBin_CharPotentialsEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerBuildBin_CharPotentialsEntry_DoNotUse(arena);
 }
-constexpr auto TowerBuildBin_CharPotentialsEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerBuildBin_CharPotentialsEntry_DoNotUse),
-                                            alignof(TowerBuildBin_CharPotentialsEntry_DoNotUse));
+constexpr auto StarTowerBuildBin_CharPotentialsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerBuildBin_CharPotentialsEntry_DoNotUse),
+                                            alignof(StarTowerBuildBin_CharPotentialsEntry_DoNotUse));
 }
-constexpr auto TowerBuildBin_CharPotentialsEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerBuildBin_CharPotentialsEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerBuildBin_CharPotentialsEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerBuildBin_CharPotentialsEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerBuildBin_CharPotentialsEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerBuildBin_CharPotentialsEntry_DoNotUse>(),
+          &StarTowerBuildBin_CharPotentialsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerBuildBin_CharPotentialsEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerBuildBin_CharPotentialsEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerBuildBin_CharPotentialsEntry_DoNotUse::ClearImpl),
+          &StarTowerBuildBin_CharPotentialsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerBuildBin_CharPotentialsEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerBuildBin_CharPotentialsEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerBuildBin_CharPotentialsEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_ =
-        TowerBuildBin_CharPotentialsEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_ =
+        StarTowerBuildBin_CharPotentialsEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerBuildBin_CharPotentialsEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.tc_table);
-  return TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base();
+StarTowerBuildBin_CharPotentialsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerBuildBin_CharPotentialsEntry_DoNotUse::_table_ = {
+StarTowerBuildBin_CharPotentialsEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -16110,28 +16114,28 @@ TowerBuildBin_CharPotentialsEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base(),
+    StarTowerBuildBin_CharPotentialsEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerBuildBin_CharPotentialsEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerBuildBin_CharPotentialsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_CharPotentialsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
@@ -16140,62 +16144,62 @@ TowerBuildBin_CharPotentialsEntry_DoNotUse::_table_ = {
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerBuildBin_PotentialsEntry_DoNotUse::TowerBuildBin_PotentialsEntry_DoNotUse()
-    : SuperType(TowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
-TowerBuildBin_PotentialsEntry_DoNotUse::TowerBuildBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
+StarTowerBuildBin_PotentialsEntry_DoNotUse::StarTowerBuildBin_PotentialsEntry_DoNotUse()
+    : SuperType(StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
+StarTowerBuildBin_PotentialsEntry_DoNotUse::StarTowerBuildBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerBuildBin_PotentialsEntry_DoNotUse::TowerBuildBin_PotentialsEntry_DoNotUse() : SuperType() {}
-TowerBuildBin_PotentialsEntry_DoNotUse::TowerBuildBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerBuildBin_PotentialsEntry_DoNotUse::StarTowerBuildBin_PotentialsEntry_DoNotUse() : SuperType() {}
+StarTowerBuildBin_PotentialsEntry_DoNotUse::StarTowerBuildBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerBuildBin_PotentialsEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerBuildBin_PotentialsEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerBuildBin_PotentialsEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerBuildBin_PotentialsEntry_DoNotUse(arena);
 }
-constexpr auto TowerBuildBin_PotentialsEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerBuildBin_PotentialsEntry_DoNotUse),
-                                            alignof(TowerBuildBin_PotentialsEntry_DoNotUse));
+constexpr auto StarTowerBuildBin_PotentialsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerBuildBin_PotentialsEntry_DoNotUse),
+                                            alignof(StarTowerBuildBin_PotentialsEntry_DoNotUse));
 }
-constexpr auto TowerBuildBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerBuildBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerBuildBin_PotentialsEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerBuildBin_PotentialsEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerBuildBin_PotentialsEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerBuildBin_PotentialsEntry_DoNotUse>(),
+          &StarTowerBuildBin_PotentialsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerBuildBin_PotentialsEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerBuildBin_PotentialsEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerBuildBin_PotentialsEntry_DoNotUse::ClearImpl),
+          &StarTowerBuildBin_PotentialsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerBuildBin_PotentialsEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerBuildBin_PotentialsEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerBuildBin_PotentialsEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerBuildBin_PotentialsEntry_DoNotUse_class_data_ =
-        TowerBuildBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_ =
+        StarTowerBuildBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerBuildBin_PotentialsEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerBuildBin_PotentialsEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerBuildBin_PotentialsEntry_DoNotUse_class_data_.tc_table);
-  return TowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base();
+StarTowerBuildBin_PotentialsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerBuildBin_PotentialsEntry_DoNotUse::_table_ = {
+StarTowerBuildBin_PotentialsEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -16204,28 +16208,28 @@ TowerBuildBin_PotentialsEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base(),
+    StarTowerBuildBin_PotentialsEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerBuildBin_PotentialsEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerBuildBin_PotentialsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_PotentialsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
@@ -16234,62 +16238,62 @@ TowerBuildBin_PotentialsEntry_DoNotUse::_table_ = {
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerBuildBin_SubNoteSkillsEntry_DoNotUse::TowerBuildBin_SubNoteSkillsEntry_DoNotUse()
-    : SuperType(TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base()) {}
-TowerBuildBin_SubNoteSkillsEntry_DoNotUse::TowerBuildBin_SubNoteSkillsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base()) {}
+StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse()
+    : SuperType(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base()) {}
+StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerBuildBin_SubNoteSkillsEntry_DoNotUse::TowerBuildBin_SubNoteSkillsEntry_DoNotUse() : SuperType() {}
-TowerBuildBin_SubNoteSkillsEntry_DoNotUse::TowerBuildBin_SubNoteSkillsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse() : SuperType() {}
+StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerBuildBin_SubNoteSkillsEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerBuildBin_SubNoteSkillsEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse(arena);
 }
-constexpr auto TowerBuildBin_SubNoteSkillsEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerBuildBin_SubNoteSkillsEntry_DoNotUse),
-                                            alignof(TowerBuildBin_SubNoteSkillsEntry_DoNotUse));
+constexpr auto StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse),
+                                            alignof(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse));
 }
-constexpr auto TowerBuildBin_SubNoteSkillsEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerBuildBin_SubNoteSkillsEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerBuildBin_SubNoteSkillsEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerBuildBin_SubNoteSkillsEntry_DoNotUse>(),
+          &StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerBuildBin_SubNoteSkillsEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerBuildBin_SubNoteSkillsEntry_DoNotUse::ClearImpl),
+          &StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerBuildBin_SubNoteSkillsEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_ =
-        TowerBuildBin_SubNoteSkillsEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_ =
+        StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerBuildBin_SubNoteSkillsEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.tc_table);
-  return TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base();
+StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerBuildBin_SubNoteSkillsEntry_DoNotUse::_table_ = {
+StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -16298,28 +16302,28 @@ TowerBuildBin_SubNoteSkillsEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base(),
+    StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerBuildBin_SubNoteSkillsEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // int32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin_SubNoteSkillsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
   }},
   // no aux_entries
   {{
@@ -16327,27 +16331,27 @@ TowerBuildBin_SubNoteSkillsEntry_DoNotUse::_table_ = {
 };
 // ===================================================================
 
-class TowerBuildBin::_Internal {
+class StarTowerBuildBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerBuildBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerBuildBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_._has_bits_);
 };
 
-TowerBuildBin::TowerBuildBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerBuildBin::StarTowerBuildBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerBuildBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerBuildBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerBuildBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerBuildBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerBuildBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerBuildBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerBuildBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerBuildBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         charids_{visibility, arena, from.charids_},
@@ -16361,15 +16365,15 @@ PROTOBUF_NDEBUG_INLINE TowerBuildBin::Impl_::Impl_(
         potentials_{visibility, arena, from.potentials_},
         subnoteskills_{visibility, arena, from.subnoteskills_} {}
 
-TowerBuildBin::TowerBuildBin(
+StarTowerBuildBin::StarTowerBuildBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerBuildBin& from)
+    const StarTowerBuildBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerBuildBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerBuildBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerBuildBin* const _this = this;
+  StarTowerBuildBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -16382,9 +16386,9 @@ TowerBuildBin::TowerBuildBin(
                offsetof(Impl_, uid_) +
                sizeof(Impl_::towerid_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerBuildBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerBuildBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerBuildBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerBuildBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
@@ -16399,7 +16403,7 @@ PROTOBUF_NDEBUG_INLINE TowerBuildBin::Impl_::Impl_(
         potentials_{visibility, arena},
         subnoteskills_{visibility, arena} {}
 
-inline void TowerBuildBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerBuildBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, uid_),
@@ -16408,12 +16412,12 @@ inline void TowerBuildBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                offsetof(Impl_, uid_) +
                sizeof(Impl_::towerid_));
 }
-TowerBuildBin::~TowerBuildBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerBuildBin)
+StarTowerBuildBin::~StarTowerBuildBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerBuildBin)
   SharedDtor(*this);
 }
-inline void TowerBuildBin::SharedDtor(MessageLite& self) {
-  TowerBuildBin& this_ = static_cast<TowerBuildBin&>(self);
+inline void StarTowerBuildBin::SharedDtor(MessageLite& self) {
+  StarTowerBuildBin& this_ = static_cast<StarTowerBuildBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -16423,85 +16427,85 @@ inline void TowerBuildBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerBuildBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerBuildBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerBuildBin(arena);
+  return ::new (mem) StarTowerBuildBin(arena);
 }
-constexpr auto TowerBuildBin::InternalNewImpl_() {
+constexpr auto StarTowerBuildBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charids_) +
-          decltype(TowerBuildBin::_impl_.charids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.charids_) +
+          decltype(StarTowerBuildBin::_impl_.charids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.discids_) +
-          decltype(TowerBuildBin::_impl_.discids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.discids_) +
+          decltype(StarTowerBuildBin::_impl_.discids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charpotentials_) +
-          decltype(TowerBuildBin::_impl_.charpotentials_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.charpotentials_) +
+          decltype(StarTowerBuildBin::_impl_.charpotentials_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.potentials_) +
-          decltype(TowerBuildBin::_impl_.potentials_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.potentials_) +
+          decltype(StarTowerBuildBin::_impl_.potentials_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.subnoteskills_) +
-          decltype(TowerBuildBin::_impl_.subnoteskills_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.subnoteskills_) +
+          decltype(StarTowerBuildBin::_impl_.subnoteskills_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.activesecondaryids_) +
-          decltype(TowerBuildBin::_impl_.activesecondaryids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.activesecondaryids_) +
+          decltype(StarTowerBuildBin::_impl_.activesecondaryids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(TowerBuildBin), alignof(TowerBuildBin), *arena_bits);
+        sizeof(StarTowerBuildBin), alignof(StarTowerBuildBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerBuildBin::PlacementNew_,
-                                 sizeof(TowerBuildBin),
-                                 alignof(TowerBuildBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerBuildBin::PlacementNew_,
+                                 sizeof(StarTowerBuildBin),
+                                 alignof(StarTowerBuildBin));
   }
 }
-constexpr auto TowerBuildBin::InternalGenerateClassData_() {
+constexpr auto StarTowerBuildBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerBuildBin_default_instance_._instance,
+          &_StarTowerBuildBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerBuildBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerBuildBin>(),
+          &StarTowerBuildBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerBuildBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerBuildBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerBuildBin>(), &TowerBuildBin::ByteSizeLong,
-              &TowerBuildBin::_InternalSerialize,
+          &StarTowerBuildBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerBuildBin>(), &StarTowerBuildBin::ByteSizeLong,
+              &StarTowerBuildBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_._cached_size_),
           false,
       },
-      &TowerBuildBin::kDescriptorMethods,
+      &StarTowerBuildBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerBuildBin_class_data_ =
-        TowerBuildBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerBuildBin_class_data_ =
+        StarTowerBuildBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerBuildBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerBuildBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerBuildBin_class_data_.tc_table);
-  return TowerBuildBin_class_data_.base();
+StarTowerBuildBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerBuildBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerBuildBin_class_data_.tc_table);
+  return StarTowerBuildBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 12, 3, 46, 2>
-TowerBuildBin::_table_ = {
+const ::_pbi::TcParseTable<4, 12, 3, 50, 2>
+StarTowerBuildBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_._has_bits_),
     0, // no _extensions_
     12, 120,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -16510,53 +16514,53 @@ TowerBuildBin::_table_ = {
     12,  // num_field_entries
     3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerBuildBin_class_data_.base(),
+    StarTowerBuildBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerBuildBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerBuildBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // uint64 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(TowerBuildBin, _impl_.uid_), 4>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(StarTowerBuildBin, _impl_.uid_), 4>(),
      {8, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.uid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.uid_)}},
     // string name = 2;
     {::_pbi::TcParser::FastUS1,
      {18, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.name_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.name_)}},
     // bool lock = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerBuildBin, _impl_.lock_), 5>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerBuildBin, _impl_.lock_), 5>(),
      {24, 5, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.lock_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.lock_)}},
     // bool preference = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerBuildBin, _impl_.preference_), 6>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerBuildBin, _impl_.preference_), 6>(),
      {32, 6, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.preference_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.preference_)}},
     // uint32 score = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin, _impl_.score_), 7>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin, _impl_.score_), 7>(),
      {40, 7, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.score_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.score_)}},
     // repeated uint32 charIds = 6;
     {::_pbi::TcParser::FastV32P1,
      {50, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.charids_)}},
     // repeated uint32 discIds = 7;
     {::_pbi::TcParser::FastV32P1,
      {58, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.discids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.discids_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     // repeated uint32 activeSecondaryIds = 11;
     {::_pbi::TcParser::FastV32P1,
      {90, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.activesecondaryids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.activesecondaryids_)}},
     // uint32 towerId = 12;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBuildBin, _impl_.towerid_), 8>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBuildBin, _impl_.towerid_), 8>(),
      {96, 8, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.towerid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.towerid_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -16564,29 +16568,29 @@ TowerBuildBin::_table_ = {
     65535, 65535
   }}, {{
     // uint64 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.uid_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.uid_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
     // string name = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.name_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.name_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // bool lock = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.lock_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.lock_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // bool preference = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.preference_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.preference_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // uint32 score = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.score_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.score_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // repeated uint32 charIds = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charids_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.charids_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 discIds = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.discids_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.discids_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // map<uint32, uint32> charPotentials = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.charpotentials_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.charpotentials_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, uint32> potentials = 9;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.potentials_), _Internal::kHasBitsOffset + 10, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.potentials_), _Internal::kHasBitsOffset + 10, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> subNoteSkills = 10;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.subnoteskills_), _Internal::kHasBitsOffset + 11, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.subnoteskills_), _Internal::kHasBitsOffset + 11, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // repeated uint32 activeSecondaryIds = 11;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // uint32 towerId = 12;
-    {PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.towerid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.towerid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   {{
       {::_pbi::TcParser::GetMapAuxInfo(
@@ -16597,13 +16601,13 @@ TowerBuildBin::_table_ = {
           0, 0, 13, 5, 0)},
   }},
   {{
-    "\31\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0"
-    "ServerProto.TowerBuildBin"
+    "\35\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    "ServerProto.StarTowerBuildBin"
     "name"
   }},
 };
-PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerBuildBin)
+PROTOBUF_NOINLINE void StarTowerBuildBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerBuildBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -16646,20 +16650,20 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerBuildBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerBuildBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerBuildBin& this_ = static_cast<const TowerBuildBin&>(base);
+  const StarTowerBuildBin& this_ = static_cast<const StarTowerBuildBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerBuildBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerBuildBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerBuildBin& this_ = *this;
+  const StarTowerBuildBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerBuildBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerBuildBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -16678,7 +16682,7 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
     if (!this_._internal_name().empty()) {
       const ::std::string& _s = this_._internal_name();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.TowerBuildBin.name");
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.StarTowerBuildBin.name");
       target = stream->WriteStringMaybeAliased(2, _s, target);
     }
   }
@@ -16826,18 +16830,18 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerBuildBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerBuildBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerBuildBin::ByteSizeLong(const MessageLite& base) {
-  const TowerBuildBin& this_ = static_cast<const TowerBuildBin&>(base);
+::size_t StarTowerBuildBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerBuildBin& this_ = static_cast<const StarTowerBuildBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerBuildBin::ByteSizeLong() const {
-  const TowerBuildBin& this_ = *this;
+::size_t StarTowerBuildBin::ByteSizeLong() const {
+  const StarTowerBuildBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerBuildBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerBuildBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -16945,15 +16949,15 @@ PROTOBUF_NOINLINE void TowerBuildBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerBuildBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerBuildBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerBuildBin*>(&to_msg);
-  auto& from = static_cast<const TowerBuildBin&>(from_msg);
+      static_cast<StarTowerBuildBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerBuildBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerBuildBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerBuildBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -17020,15 +17024,15 @@ void TowerBuildBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerBuildBin::CopyFrom(const TowerBuildBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerBuildBin)
+void StarTowerBuildBin::CopyFrom(const StarTowerBuildBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerBuildBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerBuildBin::InternalSwap(TowerBuildBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerBuildBin::InternalSwap(StarTowerBuildBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
@@ -17039,9 +17043,9 @@ void TowerBuildBin::InternalSwap(TowerBuildBin* PROTOBUF_RESTRICT PROTOBUF_NONNU
   _impl_.activesecondaryids_.InternalSwap(&other->_impl_.activesecondaryids_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.towerid_)
-      + sizeof(TowerBuildBin::_impl_.towerid_)
-      - PROTOBUF_FIELD_OFFSET(TowerBuildBin, _impl_.uid_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.towerid_)
+      + sizeof(StarTowerBuildBin::_impl_.towerid_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerBuildBin, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
   _impl_.charpotentials_.InternalSwap(&other->_impl_.charpotentials_);
@@ -17049,32 +17053,32 @@ void TowerBuildBin::InternalSwap(TowerBuildBin* PROTOBUF_RESTRICT PROTOBUF_NONNU
   _impl_.subnoteskills_.InternalSwap(&other->_impl_.subnoteskills_);
 }
 
-::google::protobuf::Metadata TowerBuildBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerBuildBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerShopGoodsBin::_Internal {
+class StarTowerShopGoodsBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerShopGoodsBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerShopGoodsBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_._has_bits_);
 };
 
-TowerShopGoodsBin::TowerShopGoodsBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerShopGoodsBin::StarTowerShopGoodsBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerShopGoodsBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerShopGoodsBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerShopGoodsBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerShopGoodsBin)
 }
-TowerShopGoodsBin::TowerShopGoodsBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerShopGoodsBin& from)
+StarTowerShopGoodsBin::StarTowerShopGoodsBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerShopGoodsBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerShopGoodsBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerShopGoodsBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -17082,12 +17086,12 @@ TowerShopGoodsBin::TowerShopGoodsBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerShopGoodsBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerShopGoodsBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerShopGoodsBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerShopGoodsBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, sid_),
@@ -17096,12 +17100,12 @@ inline void TowerShopGoodsBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena)
                offsetof(Impl_, sid_) +
                sizeof(Impl_::sold_));
 }
-TowerShopGoodsBin::~TowerShopGoodsBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerShopGoodsBin)
+StarTowerShopGoodsBin::~StarTowerShopGoodsBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerShopGoodsBin)
   SharedDtor(*this);
 }
-inline void TowerShopGoodsBin::SharedDtor(MessageLite& self) {
-  TowerShopGoodsBin& this_ = static_cast<TowerShopGoodsBin&>(self);
+inline void StarTowerShopGoodsBin::SharedDtor(MessageLite& self) {
+  StarTowerShopGoodsBin& this_ = static_cast<StarTowerShopGoodsBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -17110,53 +17114,53 @@ inline void TowerShopGoodsBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerShopGoodsBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerShopGoodsBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerShopGoodsBin(arena);
+  return ::new (mem) StarTowerShopGoodsBin(arena);
 }
-constexpr auto TowerShopGoodsBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerShopGoodsBin),
-                                            alignof(TowerShopGoodsBin));
+constexpr auto StarTowerShopGoodsBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerShopGoodsBin),
+                                            alignof(StarTowerShopGoodsBin));
 }
-constexpr auto TowerShopGoodsBin::InternalGenerateClassData_() {
+constexpr auto StarTowerShopGoodsBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerShopGoodsBin_default_instance_._instance,
+          &_StarTowerShopGoodsBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerShopGoodsBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerShopGoodsBin>(),
+          &StarTowerShopGoodsBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerShopGoodsBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerShopGoodsBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerShopGoodsBin>(), &TowerShopGoodsBin::ByteSizeLong,
-              &TowerShopGoodsBin::_InternalSerialize,
+          &StarTowerShopGoodsBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerShopGoodsBin>(), &StarTowerShopGoodsBin::ByteSizeLong,
+              &StarTowerShopGoodsBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_._cached_size_),
           false,
       },
-      &TowerShopGoodsBin::kDescriptorMethods,
+      &StarTowerShopGoodsBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerShopGoodsBin_class_data_ =
-        TowerShopGoodsBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerShopGoodsBin_class_data_ =
+        StarTowerShopGoodsBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerShopGoodsBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerShopGoodsBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerShopGoodsBin_class_data_.tc_table);
-  return TowerShopGoodsBin_class_data_.base();
+StarTowerShopGoodsBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerShopGoodsBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerShopGoodsBin_class_data_.tc_table);
+  return StarTowerShopGoodsBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<3, 8, 0, 0, 2>
-TowerShopGoodsBin::_table_ = {
+StarTowerShopGoodsBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_._has_bits_),
     0, // no _extensions_
     8, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -17165,71 +17169,71 @@ TowerShopGoodsBin::_table_ = {
     8,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerShopGoodsBin_class_data_.base(),
+    StarTowerShopGoodsBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerShopGoodsBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerShopGoodsBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // bool sold = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerShopGoodsBin, _impl_.sold_), 7>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerShopGoodsBin, _impl_.sold_), 7>(),
      {64, 7, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.sold_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.sold_)}},
     // uint32 sid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.sid_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.sid_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.sid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.sid_)}},
     // uint32 type = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.type_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.type_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.type_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.type_)}},
     // uint32 idx = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.idx_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.idx_), 2>(),
      {24, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.idx_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.idx_)}},
     // uint32 goodsId = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.goodsid_), 3>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.goodsid_), 3>(),
      {32, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.goodsid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.goodsid_)}},
     // int32 price = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.price_), 4>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.price_), 4>(),
      {40, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.price_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.price_)}},
     // int32 discount = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.discount_), 5>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.discount_), 5>(),
      {48, 5, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.discount_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.discount_)}},
     // uint32 charPos = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerShopGoodsBin, _impl_.charpos_), 6>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerShopGoodsBin, _impl_.charpos_), 6>(),
      {56, 6, 0,
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.charpos_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.charpos_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 sid = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.sid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.sid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 type = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.type_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.type_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 idx = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.idx_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.idx_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 goodsId = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.goodsid_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.goodsid_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 price = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.price_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.price_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // int32 discount = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.discount_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.discount_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // uint32 charPos = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.charpos_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.charpos_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool sold = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.sold_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.sold_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerShopGoodsBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerShopGoodsBin)
+PROTOBUF_NOINLINE void StarTowerShopGoodsBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerShopGoodsBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -17246,20 +17250,20 @@ PROTOBUF_NOINLINE void TowerShopGoodsBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerShopGoodsBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerShopGoodsBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerShopGoodsBin& this_ = static_cast<const TowerShopGoodsBin&>(base);
+  const StarTowerShopGoodsBin& this_ = static_cast<const StarTowerShopGoodsBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerShopGoodsBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerShopGoodsBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerShopGoodsBin& this_ = *this;
+  const StarTowerShopGoodsBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerShopGoodsBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerShopGoodsBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -17341,18 +17345,18 @@ PROTOBUF_NOINLINE void TowerShopGoodsBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerShopGoodsBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerShopGoodsBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerShopGoodsBin::ByteSizeLong(const MessageLite& base) {
-  const TowerShopGoodsBin& this_ = static_cast<const TowerShopGoodsBin&>(base);
+::size_t StarTowerShopGoodsBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerShopGoodsBin& this_ = static_cast<const StarTowerShopGoodsBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerShopGoodsBin::ByteSizeLong() const {
-  const TowerShopGoodsBin& this_ = *this;
+::size_t StarTowerShopGoodsBin::ByteSizeLong() const {
+  const StarTowerShopGoodsBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerShopGoodsBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerShopGoodsBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -17422,15 +17426,15 @@ PROTOBUF_NOINLINE void TowerShopGoodsBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerShopGoodsBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerShopGoodsBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerShopGoodsBin*>(&to_msg);
-  auto& from = static_cast<const TowerShopGoodsBin&>(from_msg);
+      static_cast<StarTowerShopGoodsBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerShopGoodsBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerShopGoodsBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerShopGoodsBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -17483,52 +17487,52 @@ void TowerShopGoodsBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerShopGoodsBin::CopyFrom(const TowerShopGoodsBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerShopGoodsBin)
+void StarTowerShopGoodsBin::CopyFrom(const StarTowerShopGoodsBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerShopGoodsBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerShopGoodsBin::InternalSwap(TowerShopGoodsBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerShopGoodsBin::InternalSwap(StarTowerShopGoodsBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.sold_)
-      + sizeof(TowerShopGoodsBin::_impl_.sold_)
-      - PROTOBUF_FIELD_OFFSET(TowerShopGoodsBin, _impl_.sid_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.sold_)
+      + sizeof(StarTowerShopGoodsBin::_impl_.sold_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerShopGoodsBin, _impl_.sid_)>(
           reinterpret_cast<char*>(&_impl_.sid_),
           reinterpret_cast<char*>(&other->_impl_.sid_));
 }
 
-::google::protobuf::Metadata TowerShopGoodsBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerShopGoodsBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerBattleCaseBin::_Internal {
+class StarTowerBattleCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerBattleCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerBattleCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_._has_bits_);
 };
 
-TowerBattleCaseBin::TowerBattleCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerBattleCaseBin::StarTowerBattleCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerBattleCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerBattleCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerBattleCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerBattleCaseBin)
 }
-TowerBattleCaseBin::TowerBattleCaseBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerBattleCaseBin& from)
+StarTowerBattleCaseBin::StarTowerBattleCaseBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerBattleCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerBattleCaseBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerBattleCaseBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -17536,12 +17540,12 @@ TowerBattleCaseBin::TowerBattleCaseBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerBattleCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerBattleCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerBattleCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerBattleCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, subnotedrops_),
@@ -17550,12 +17554,12 @@ inline void TowerBattleCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena
                offsetof(Impl_, subnotedrops_) +
                sizeof(Impl_::expreward_));
 }
-TowerBattleCaseBin::~TowerBattleCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerBattleCaseBin)
+StarTowerBattleCaseBin::~StarTowerBattleCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerBattleCaseBin)
   SharedDtor(*this);
 }
-inline void TowerBattleCaseBin::SharedDtor(MessageLite& self) {
-  TowerBattleCaseBin& this_ = static_cast<TowerBattleCaseBin&>(self);
+inline void StarTowerBattleCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerBattleCaseBin& this_ = static_cast<StarTowerBattleCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -17564,53 +17568,53 @@ inline void TowerBattleCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerBattleCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerBattleCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerBattleCaseBin(arena);
+  return ::new (mem) StarTowerBattleCaseBin(arena);
 }
-constexpr auto TowerBattleCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerBattleCaseBin),
-                                            alignof(TowerBattleCaseBin));
+constexpr auto StarTowerBattleCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerBattleCaseBin),
+                                            alignof(StarTowerBattleCaseBin));
 }
-constexpr auto TowerBattleCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerBattleCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerBattleCaseBin_default_instance_._instance,
+          &_StarTowerBattleCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerBattleCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerBattleCaseBin>(),
+          &StarTowerBattleCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerBattleCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerBattleCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerBattleCaseBin>(), &TowerBattleCaseBin::ByteSizeLong,
-              &TowerBattleCaseBin::_InternalSerialize,
+          &StarTowerBattleCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerBattleCaseBin>(), &StarTowerBattleCaseBin::ByteSizeLong,
+              &StarTowerBattleCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerBattleCaseBin::kDescriptorMethods,
+      &StarTowerBattleCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerBattleCaseBin_class_data_ =
-        TowerBattleCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerBattleCaseBin_class_data_ =
+        StarTowerBattleCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerBattleCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerBattleCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerBattleCaseBin_class_data_.tc_table);
-  return TowerBattleCaseBin_class_data_.base();
+StarTowerBattleCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerBattleCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerBattleCaseBin_class_data_.tc_table);
+  return StarTowerBattleCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerBattleCaseBin::_table_ = {
+StarTowerBattleCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -17619,35 +17623,35 @@ TowerBattleCaseBin::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerBattleCaseBin_class_data_.base(),
+    StarTowerBattleCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerBattleCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerBattleCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 expReward = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBattleCaseBin, _impl_.expreward_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBattleCaseBin, _impl_.expreward_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_.expreward_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_.expreward_)}},
     // uint32 subNoteDrops = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerBattleCaseBin, _impl_.subnotedrops_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerBattleCaseBin, _impl_.subnotedrops_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_.subnotedrops_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_.subnotedrops_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 subNoteDrops = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_.subnotedrops_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_.subnotedrops_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 expReward = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_.expreward_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_.expreward_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerBattleCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerBattleCaseBin)
+PROTOBUF_NOINLINE void StarTowerBattleCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerBattleCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -17664,20 +17668,20 @@ PROTOBUF_NOINLINE void TowerBattleCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerBattleCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerBattleCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerBattleCaseBin& this_ = static_cast<const TowerBattleCaseBin&>(base);
+  const StarTowerBattleCaseBin& this_ = static_cast<const StarTowerBattleCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerBattleCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerBattleCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerBattleCaseBin& this_ = *this;
+  const StarTowerBattleCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerBattleCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerBattleCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -17705,18 +17709,18 @@ PROTOBUF_NOINLINE void TowerBattleCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerBattleCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerBattleCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerBattleCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerBattleCaseBin& this_ = static_cast<const TowerBattleCaseBin&>(base);
+::size_t StarTowerBattleCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerBattleCaseBin& this_ = static_cast<const StarTowerBattleCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerBattleCaseBin::ByteSizeLong() const {
-  const TowerBattleCaseBin& this_ = *this;
+::size_t StarTowerBattleCaseBin::ByteSizeLong() const {
+  const StarTowerBattleCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerBattleCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerBattleCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -17745,15 +17749,15 @@ PROTOBUF_NOINLINE void TowerBattleCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerBattleCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerBattleCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerBattleCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerBattleCaseBin&>(from_msg);
+      static_cast<StarTowerBattleCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerBattleCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerBattleCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerBattleCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -17776,52 +17780,52 @@ void TowerBattleCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerBattleCaseBin::CopyFrom(const TowerBattleCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerBattleCaseBin)
+void StarTowerBattleCaseBin::CopyFrom(const StarTowerBattleCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerBattleCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerBattleCaseBin::InternalSwap(TowerBattleCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerBattleCaseBin::InternalSwap(StarTowerBattleCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_.expreward_)
-      + sizeof(TowerBattleCaseBin::_impl_.expreward_)
-      - PROTOBUF_FIELD_OFFSET(TowerBattleCaseBin, _impl_.subnotedrops_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_.expreward_)
+      + sizeof(StarTowerBattleCaseBin::_impl_.expreward_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerBattleCaseBin, _impl_.subnotedrops_)>(
           reinterpret_cast<char*>(&_impl_.subnotedrops_),
           reinterpret_cast<char*>(&other->_impl_.subnotedrops_));
 }
 
-::google::protobuf::Metadata TowerBattleCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerBattleCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerDoorCaseBin::_Internal {
+class StarTowerDoorCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerDoorCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerDoorCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_._has_bits_);
 };
 
-TowerDoorCaseBin::TowerDoorCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerDoorCaseBin::StarTowerDoorCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerDoorCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerDoorCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerDoorCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerDoorCaseBin)
 }
-TowerDoorCaseBin::TowerDoorCaseBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerDoorCaseBin& from)
+StarTowerDoorCaseBin::StarTowerDoorCaseBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerDoorCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerDoorCaseBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerDoorCaseBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -17829,12 +17833,12 @@ TowerDoorCaseBin::TowerDoorCaseBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerDoorCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerDoorCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerDoorCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerDoorCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, floornum_),
@@ -17843,12 +17847,12 @@ inline void TowerDoorCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) 
                offsetof(Impl_, floornum_) +
                sizeof(Impl_::roomtype_));
 }
-TowerDoorCaseBin::~TowerDoorCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerDoorCaseBin)
+StarTowerDoorCaseBin::~StarTowerDoorCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerDoorCaseBin)
   SharedDtor(*this);
 }
-inline void TowerDoorCaseBin::SharedDtor(MessageLite& self) {
-  TowerDoorCaseBin& this_ = static_cast<TowerDoorCaseBin&>(self);
+inline void StarTowerDoorCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerDoorCaseBin& this_ = static_cast<StarTowerDoorCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -17857,53 +17861,53 @@ inline void TowerDoorCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerDoorCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerDoorCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerDoorCaseBin(arena);
+  return ::new (mem) StarTowerDoorCaseBin(arena);
 }
-constexpr auto TowerDoorCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerDoorCaseBin),
-                                            alignof(TowerDoorCaseBin));
+constexpr auto StarTowerDoorCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerDoorCaseBin),
+                                            alignof(StarTowerDoorCaseBin));
 }
-constexpr auto TowerDoorCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerDoorCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerDoorCaseBin_default_instance_._instance,
+          &_StarTowerDoorCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerDoorCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerDoorCaseBin>(),
+          &StarTowerDoorCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerDoorCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerDoorCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerDoorCaseBin>(), &TowerDoorCaseBin::ByteSizeLong,
-              &TowerDoorCaseBin::_InternalSerialize,
+          &StarTowerDoorCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerDoorCaseBin>(), &StarTowerDoorCaseBin::ByteSizeLong,
+              &StarTowerDoorCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerDoorCaseBin::kDescriptorMethods,
+      &StarTowerDoorCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerDoorCaseBin_class_data_ =
-        TowerDoorCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerDoorCaseBin_class_data_ =
+        StarTowerDoorCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerDoorCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerDoorCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerDoorCaseBin_class_data_.tc_table);
-  return TowerDoorCaseBin_class_data_.base();
+StarTowerDoorCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerDoorCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerDoorCaseBin_class_data_.tc_table);
+  return StarTowerDoorCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerDoorCaseBin::_table_ = {
+StarTowerDoorCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -17912,35 +17916,35 @@ TowerDoorCaseBin::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerDoorCaseBin_class_data_.base(),
+    StarTowerDoorCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerDoorCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerDoorCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 roomType = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerDoorCaseBin, _impl_.roomtype_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerDoorCaseBin, _impl_.roomtype_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_.roomtype_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_.roomtype_)}},
     // uint32 floorNum = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerDoorCaseBin, _impl_.floornum_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerDoorCaseBin, _impl_.floornum_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_.floornum_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_.floornum_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 floorNum = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_.floornum_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_.floornum_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 roomType = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_.roomtype_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_.roomtype_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerDoorCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerDoorCaseBin)
+PROTOBUF_NOINLINE void StarTowerDoorCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerDoorCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -17957,20 +17961,20 @@ PROTOBUF_NOINLINE void TowerDoorCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerDoorCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerDoorCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerDoorCaseBin& this_ = static_cast<const TowerDoorCaseBin&>(base);
+  const StarTowerDoorCaseBin& this_ = static_cast<const StarTowerDoorCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerDoorCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerDoorCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerDoorCaseBin& this_ = *this;
+  const StarTowerDoorCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerDoorCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerDoorCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -17998,18 +18002,18 @@ PROTOBUF_NOINLINE void TowerDoorCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerDoorCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerDoorCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerDoorCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerDoorCaseBin& this_ = static_cast<const TowerDoorCaseBin&>(base);
+::size_t StarTowerDoorCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerDoorCaseBin& this_ = static_cast<const StarTowerDoorCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerDoorCaseBin::ByteSizeLong() const {
-  const TowerDoorCaseBin& this_ = *this;
+::size_t StarTowerDoorCaseBin::ByteSizeLong() const {
+  const StarTowerDoorCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerDoorCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerDoorCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -18038,15 +18042,15 @@ PROTOBUF_NOINLINE void TowerDoorCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerDoorCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerDoorCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerDoorCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerDoorCaseBin&>(from_msg);
+      static_cast<StarTowerDoorCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerDoorCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerDoorCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerDoorCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -18069,65 +18073,65 @@ void TowerDoorCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerDoorCaseBin::CopyFrom(const TowerDoorCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerDoorCaseBin)
+void StarTowerDoorCaseBin::CopyFrom(const StarTowerDoorCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerDoorCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerDoorCaseBin::InternalSwap(TowerDoorCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerDoorCaseBin::InternalSwap(StarTowerDoorCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_.roomtype_)
-      + sizeof(TowerDoorCaseBin::_impl_.roomtype_)
-      - PROTOBUF_FIELD_OFFSET(TowerDoorCaseBin, _impl_.floornum_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_.roomtype_)
+      + sizeof(StarTowerDoorCaseBin::_impl_.roomtype_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerDoorCaseBin, _impl_.floornum_)>(
           reinterpret_cast<char*>(&_impl_.floornum_),
           reinterpret_cast<char*>(&other->_impl_.floornum_));
 }
 
-::google::protobuf::Metadata TowerDoorCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerDoorCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerPotentialCaseBin::_Internal {
+class StarTowerPotentialCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerPotentialCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerPotentialCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_._has_bits_);
 };
 
-TowerPotentialCaseBin::TowerPotentialCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerPotentialCaseBin::StarTowerPotentialCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPotentialCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPotentialCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerPotentialCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerPotentialCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerPotentialCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPotentialCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerPotentialCaseBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerPotentialCaseBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         potentials_{visibility, arena, from.potentials_} {}
 
-TowerPotentialCaseBin::TowerPotentialCaseBin(
+StarTowerPotentialCaseBin::StarTowerPotentialCaseBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerPotentialCaseBin& from)
+    const StarTowerPotentialCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerPotentialCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerPotentialCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerPotentialCaseBin* const _this = this;
+  StarTowerPotentialCaseBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -18140,15 +18144,15 @@ TowerPotentialCaseBin::TowerPotentialCaseBin(
                offsetof(Impl_, teamlevel_) +
                sizeof(Impl_::rare_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerPotentialCaseBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerPotentialCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerPotentialCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerPotentialCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         potentials_{visibility, arena} {}
 
-inline void TowerPotentialCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerPotentialCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, teamlevel_),
@@ -18157,12 +18161,12 @@ inline void TowerPotentialCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE ar
                offsetof(Impl_, teamlevel_) +
                sizeof(Impl_::rare_));
 }
-TowerPotentialCaseBin::~TowerPotentialCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerPotentialCaseBin)
+StarTowerPotentialCaseBin::~StarTowerPotentialCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerPotentialCaseBin)
   SharedDtor(*this);
 }
-inline void TowerPotentialCaseBin::SharedDtor(MessageLite& self) {
-  TowerPotentialCaseBin& this_ = static_cast<TowerPotentialCaseBin&>(self);
+inline void StarTowerPotentialCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerPotentialCaseBin& this_ = static_cast<StarTowerPotentialCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -18171,65 +18175,65 @@ inline void TowerPotentialCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerPotentialCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerPotentialCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerPotentialCaseBin(arena);
+  return ::new (mem) StarTowerPotentialCaseBin(arena);
 }
-constexpr auto TowerPotentialCaseBin::InternalNewImpl_() {
+constexpr auto StarTowerPotentialCaseBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.potentials_) +
-          decltype(TowerPotentialCaseBin::_impl_.potentials_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.potentials_) +
+          decltype(StarTowerPotentialCaseBin::_impl_.potentials_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(TowerPotentialCaseBin), alignof(TowerPotentialCaseBin), *arena_bits);
+        sizeof(StarTowerPotentialCaseBin), alignof(StarTowerPotentialCaseBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerPotentialCaseBin::PlacementNew_,
-                                 sizeof(TowerPotentialCaseBin),
-                                 alignof(TowerPotentialCaseBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerPotentialCaseBin::PlacementNew_,
+                                 sizeof(StarTowerPotentialCaseBin),
+                                 alignof(StarTowerPotentialCaseBin));
   }
 }
-constexpr auto TowerPotentialCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerPotentialCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerPotentialCaseBin_default_instance_._instance,
+          &_StarTowerPotentialCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerPotentialCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerPotentialCaseBin>(),
+          &StarTowerPotentialCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerPotentialCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerPotentialCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerPotentialCaseBin>(), &TowerPotentialCaseBin::ByteSizeLong,
-              &TowerPotentialCaseBin::_InternalSerialize,
+          &StarTowerPotentialCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerPotentialCaseBin>(), &StarTowerPotentialCaseBin::ByteSizeLong,
+              &StarTowerPotentialCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerPotentialCaseBin::kDescriptorMethods,
+      &StarTowerPotentialCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerPotentialCaseBin_class_data_ =
-        TowerPotentialCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerPotentialCaseBin_class_data_ =
+        StarTowerPotentialCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerPotentialCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerPotentialCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerPotentialCaseBin_class_data_.tc_table);
-  return TowerPotentialCaseBin_class_data_.base();
+StarTowerPotentialCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerPotentialCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerPotentialCaseBin_class_data_.tc_table);
+  return StarTowerPotentialCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<3, 7, 1, 0, 2>
-TowerPotentialCaseBin::_table_ = {
+StarTowerPotentialCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -18238,68 +18242,68 @@ TowerPotentialCaseBin::_table_ = {
     7,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerPotentialCaseBin_class_data_.base(),
+    StarTowerPotentialCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // uint32 teamLevel = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPotentialCaseBin, _impl_.teamlevel_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPotentialCaseBin, _impl_.teamlevel_), 1>(),
      {8, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.teamlevel_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.teamlevel_)}},
     // uint32 charId = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPotentialCaseBin, _impl_.charid_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPotentialCaseBin, _impl_.charid_), 2>(),
      {16, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.charid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.charid_)}},
     // uint32 reroll = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPotentialCaseBin, _impl_.reroll_), 3>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPotentialCaseBin, _impl_.reroll_), 3>(),
      {24, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.reroll_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.reroll_)}},
     // uint32 rerollPrice = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerPotentialCaseBin, _impl_.rerollprice_), 4>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerPotentialCaseBin, _impl_.rerollprice_), 4>(),
      {32, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.rerollprice_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.rerollprice_)}},
     // bool strengthen = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerPotentialCaseBin, _impl_.strengthen_), 5>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerPotentialCaseBin, _impl_.strengthen_), 5>(),
      {40, 5, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.strengthen_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.strengthen_)}},
     // bool rare = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerPotentialCaseBin, _impl_.rare_), 6>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerPotentialCaseBin, _impl_.rare_), 6>(),
      {48, 6, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.rare_)}},
-    // repeated .ServerProto.TowerPotentialLevelBin potentials = 7;
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.rare_)}},
+    // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 7;
     {::_pbi::TcParser::FastMtR1,
      {58, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.potentials_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.potentials_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 teamLevel = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.teamlevel_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.teamlevel_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 charId = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.charid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.charid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 reroll = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.reroll_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.reroll_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 rerollPrice = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.rerollprice_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.rerollprice_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool strengthen = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.strengthen_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.strengthen_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // bool rare = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.rare_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
-    // repeated .ServerProto.TowerPotentialLevelBin potentials = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.potentials_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.rare_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 7;
+    {PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.potentials_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialLevelBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialLevelBin>()},
   }},
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerPotentialCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerPotentialCaseBin)
+PROTOBUF_NOINLINE void StarTowerPotentialCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerPotentialCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -18319,20 +18323,20 @@ PROTOBUF_NOINLINE void TowerPotentialCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerPotentialCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPotentialCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerPotentialCaseBin& this_ = static_cast<const TowerPotentialCaseBin&>(base);
+  const StarTowerPotentialCaseBin& this_ = static_cast<const StarTowerPotentialCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerPotentialCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerPotentialCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerPotentialCaseBin& this_ = *this;
+  const StarTowerPotentialCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerPotentialCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerPotentialCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -18391,7 +18395,7 @@ PROTOBUF_NOINLINE void TowerPotentialCaseBin::Clear() {
     }
   }
 
-  // repeated .ServerProto.TowerPotentialLevelBin potentials = 7;
+  // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 7;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_potentials_size());
@@ -18409,18 +18413,18 @@ PROTOBUF_NOINLINE void TowerPotentialCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerPotentialCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerPotentialCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerPotentialCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerPotentialCaseBin& this_ = static_cast<const TowerPotentialCaseBin&>(base);
+::size_t StarTowerPotentialCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerPotentialCaseBin& this_ = static_cast<const StarTowerPotentialCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerPotentialCaseBin::ByteSizeLong() const {
-  const TowerPotentialCaseBin& this_ = *this;
+::size_t StarTowerPotentialCaseBin::ByteSizeLong() const {
+  const StarTowerPotentialCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerPotentialCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerPotentialCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -18430,7 +18434,7 @@ PROTOBUF_NOINLINE void TowerPotentialCaseBin::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
-    // repeated .ServerProto.TowerPotentialLevelBin potentials = 7;
+    // repeated .ServerProto.StarTowerPotentialLevelBin potentials = 7;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_potentials_size();
       for (const auto& msg : this_._internal_potentials()) {
@@ -18482,16 +18486,16 @@ PROTOBUF_NOINLINE void TowerPotentialCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerPotentialCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerPotentialCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerPotentialCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerPotentialCaseBin&>(from_msg);
+      static_cast<StarTowerPotentialCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerPotentialCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerPotentialCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerPotentialCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -18539,67 +18543,67 @@ void TowerPotentialCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerPotentialCaseBin::CopyFrom(const TowerPotentialCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerPotentialCaseBin)
+void StarTowerPotentialCaseBin::CopyFrom(const StarTowerPotentialCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerPotentialCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerPotentialCaseBin::InternalSwap(TowerPotentialCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerPotentialCaseBin::InternalSwap(StarTowerPotentialCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.potentials_.InternalSwap(&other->_impl_.potentials_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.rare_)
-      + sizeof(TowerPotentialCaseBin::_impl_.rare_)
-      - PROTOBUF_FIELD_OFFSET(TowerPotentialCaseBin, _impl_.teamlevel_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.rare_)
+      + sizeof(StarTowerPotentialCaseBin::_impl_.rare_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerPotentialCaseBin, _impl_.teamlevel_)>(
           reinterpret_cast<char*>(&_impl_.teamlevel_),
           reinterpret_cast<char*>(&other->_impl_.teamlevel_));
 }
 
-::google::protobuf::Metadata TowerPotentialCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerPotentialCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerNpcEventCaseBin::_Internal {
+class StarTowerNpcEventCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerNpcEventCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerNpcEventCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_._has_bits_);
 };
 
-TowerNpcEventCaseBin::TowerNpcEventCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerNpcEventCaseBin::StarTowerNpcEventCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerNpcEventCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerNpcEventCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerNpcEventCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerNpcEventCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerNpcEventCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerNpcEventCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerNpcEventCaseBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerNpcEventCaseBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         options_{visibility, arena, from.options_},
         _options_cached_byte_size_{0} {}
 
-TowerNpcEventCaseBin::TowerNpcEventCaseBin(
+StarTowerNpcEventCaseBin::StarTowerNpcEventCaseBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerNpcEventCaseBin& from)
+    const StarTowerNpcEventCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerNpcEventCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerNpcEventCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerNpcEventCaseBin* const _this = this;
+  StarTowerNpcEventCaseBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -18612,16 +18616,16 @@ TowerNpcEventCaseBin::TowerNpcEventCaseBin(
                offsetof(Impl_, npcid_) +
                sizeof(Impl_::completed_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerNpcEventCaseBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerNpcEventCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerNpcEventCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerNpcEventCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         options_{visibility, arena},
         _options_cached_byte_size_{0} {}
 
-inline void TowerNpcEventCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerNpcEventCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, npcid_),
@@ -18630,12 +18634,12 @@ inline void TowerNpcEventCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE are
                offsetof(Impl_, npcid_) +
                sizeof(Impl_::completed_));
 }
-TowerNpcEventCaseBin::~TowerNpcEventCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerNpcEventCaseBin)
+StarTowerNpcEventCaseBin::~StarTowerNpcEventCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerNpcEventCaseBin)
   SharedDtor(*this);
 }
-inline void TowerNpcEventCaseBin::SharedDtor(MessageLite& self) {
-  TowerNpcEventCaseBin& this_ = static_cast<TowerNpcEventCaseBin&>(self);
+inline void StarTowerNpcEventCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerNpcEventCaseBin& this_ = static_cast<StarTowerNpcEventCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -18644,65 +18648,65 @@ inline void TowerNpcEventCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerNpcEventCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerNpcEventCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerNpcEventCaseBin(arena);
+  return ::new (mem) StarTowerNpcEventCaseBin(arena);
 }
-constexpr auto TowerNpcEventCaseBin::InternalNewImpl_() {
+constexpr auto StarTowerNpcEventCaseBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.options_) +
-          decltype(TowerNpcEventCaseBin::_impl_.options_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.options_) +
+          decltype(StarTowerNpcEventCaseBin::_impl_.options_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(TowerNpcEventCaseBin), alignof(TowerNpcEventCaseBin), *arena_bits);
+        sizeof(StarTowerNpcEventCaseBin), alignof(StarTowerNpcEventCaseBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerNpcEventCaseBin::PlacementNew_,
-                                 sizeof(TowerNpcEventCaseBin),
-                                 alignof(TowerNpcEventCaseBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerNpcEventCaseBin::PlacementNew_,
+                                 sizeof(StarTowerNpcEventCaseBin),
+                                 alignof(StarTowerNpcEventCaseBin));
   }
 }
-constexpr auto TowerNpcEventCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerNpcEventCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerNpcEventCaseBin_default_instance_._instance,
+          &_StarTowerNpcEventCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerNpcEventCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerNpcEventCaseBin>(),
+          &StarTowerNpcEventCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerNpcEventCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerNpcEventCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerNpcEventCaseBin>(), &TowerNpcEventCaseBin::ByteSizeLong,
-              &TowerNpcEventCaseBin::_InternalSerialize,
+          &StarTowerNpcEventCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerNpcEventCaseBin>(), &StarTowerNpcEventCaseBin::ByteSizeLong,
+              &StarTowerNpcEventCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerNpcEventCaseBin::kDescriptorMethods,
+      &StarTowerNpcEventCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerNpcEventCaseBin_class_data_ =
-        TowerNpcEventCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerNpcEventCaseBin_class_data_ =
+        StarTowerNpcEventCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerNpcEventCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerNpcEventCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerNpcEventCaseBin_class_data_.tc_table);
-  return TowerNpcEventCaseBin_class_data_.base();
+StarTowerNpcEventCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerNpcEventCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerNpcEventCaseBin_class_data_.tc_table);
+  return StarTowerNpcEventCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<2, 4, 0, 0, 2>
-TowerNpcEventCaseBin::_table_ = {
+StarTowerNpcEventCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -18711,47 +18715,47 @@ TowerNpcEventCaseBin::_table_ = {
     4,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerNpcEventCaseBin_class_data_.base(),
+    StarTowerNpcEventCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerNpcEventCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerNpcEventCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // bool completed = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerNpcEventCaseBin, _impl_.completed_), 3>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerNpcEventCaseBin, _impl_.completed_), 3>(),
      {32, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.completed_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.completed_)}},
     // uint32 npcId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerNpcEventCaseBin, _impl_.npcid_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerNpcEventCaseBin, _impl_.npcid_), 1>(),
      {8, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.npcid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.npcid_)}},
     // uint32 eventId = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerNpcEventCaseBin, _impl_.eventid_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerNpcEventCaseBin, _impl_.eventid_), 2>(),
      {16, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.eventid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.eventid_)}},
     // repeated uint32 options = 3;
     {::_pbi::TcParser::FastV32P1,
      {26, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.options_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.options_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 npcId = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.npcid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.npcid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 eventId = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.eventid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.eventid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // repeated uint32 options = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.options_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.options_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // bool completed = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.completed_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.completed_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerNpcEventCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerNpcEventCaseBin)
+PROTOBUF_NOINLINE void StarTowerNpcEventCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerNpcEventCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -18771,20 +18775,20 @@ PROTOBUF_NOINLINE void TowerNpcEventCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerNpcEventCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerNpcEventCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerNpcEventCaseBin& this_ = static_cast<const TowerNpcEventCaseBin&>(base);
+  const StarTowerNpcEventCaseBin& this_ = static_cast<const StarTowerNpcEventCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerNpcEventCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerNpcEventCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerNpcEventCaseBin& this_ = *this;
+  const StarTowerNpcEventCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerNpcEventCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerNpcEventCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -18832,18 +18836,18 @@ PROTOBUF_NOINLINE void TowerNpcEventCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerNpcEventCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerNpcEventCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerNpcEventCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerNpcEventCaseBin& this_ = static_cast<const TowerNpcEventCaseBin&>(base);
+::size_t StarTowerNpcEventCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerNpcEventCaseBin& this_ = static_cast<const StarTowerNpcEventCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerNpcEventCaseBin::ByteSizeLong() const {
-  const TowerNpcEventCaseBin& this_ = *this;
+::size_t StarTowerNpcEventCaseBin::ByteSizeLong() const {
+  const StarTowerNpcEventCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerNpcEventCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerNpcEventCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -18885,15 +18889,15 @@ PROTOBUF_NOINLINE void TowerNpcEventCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerNpcEventCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerNpcEventCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerNpcEventCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerNpcEventCaseBin&>(from_msg);
+      static_cast<StarTowerNpcEventCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerNpcEventCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerNpcEventCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerNpcEventCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -18924,66 +18928,66 @@ void TowerNpcEventCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerNpcEventCaseBin::CopyFrom(const TowerNpcEventCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerNpcEventCaseBin)
+void StarTowerNpcEventCaseBin::CopyFrom(const StarTowerNpcEventCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerNpcEventCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerNpcEventCaseBin::InternalSwap(TowerNpcEventCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerNpcEventCaseBin::InternalSwap(StarTowerNpcEventCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.options_.InternalSwap(&other->_impl_.options_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.completed_)
-      + sizeof(TowerNpcEventCaseBin::_impl_.completed_)
-      - PROTOBUF_FIELD_OFFSET(TowerNpcEventCaseBin, _impl_.npcid_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.completed_)
+      + sizeof(StarTowerNpcEventCaseBin::_impl_.completed_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerNpcEventCaseBin, _impl_.npcid_)>(
           reinterpret_cast<char*>(&_impl_.npcid_),
           reinterpret_cast<char*>(&other->_impl_.npcid_));
 }
 
-::google::protobuf::Metadata TowerNpcEventCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerNpcEventCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerHawkerCaseBin::_Internal {
+class StarTowerHawkerCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerHawkerCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerHawkerCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_._has_bits_);
 };
 
-TowerHawkerCaseBin::TowerHawkerCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerHawkerCaseBin::StarTowerHawkerCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerHawkerCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerHawkerCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerHawkerCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerHawkerCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerHawkerCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerHawkerCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerHawkerCaseBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerHawkerCaseBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         goods_{visibility, arena, from.goods_} {}
 
-TowerHawkerCaseBin::TowerHawkerCaseBin(
+StarTowerHawkerCaseBin::StarTowerHawkerCaseBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerHawkerCaseBin& from)
+    const StarTowerHawkerCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerHawkerCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerHawkerCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerHawkerCaseBin* const _this = this;
+  StarTowerHawkerCaseBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -18996,15 +19000,15 @@ TowerHawkerCaseBin::TowerHawkerCaseBin(
                offsetof(Impl_, rerolltimes_) +
                sizeof(Impl_::rerollprice_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerHawkerCaseBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerHawkerCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerHawkerCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerHawkerCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         goods_{visibility, arena} {}
 
-inline void TowerHawkerCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerHawkerCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, rerolltimes_),
@@ -19013,12 +19017,12 @@ inline void TowerHawkerCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena
                offsetof(Impl_, rerolltimes_) +
                sizeof(Impl_::rerollprice_));
 }
-TowerHawkerCaseBin::~TowerHawkerCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerHawkerCaseBin)
+StarTowerHawkerCaseBin::~StarTowerHawkerCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerHawkerCaseBin)
   SharedDtor(*this);
 }
-inline void TowerHawkerCaseBin::SharedDtor(MessageLite& self) {
-  TowerHawkerCaseBin& this_ = static_cast<TowerHawkerCaseBin&>(self);
+inline void StarTowerHawkerCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerHawkerCaseBin& this_ = static_cast<StarTowerHawkerCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -19027,65 +19031,65 @@ inline void TowerHawkerCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerHawkerCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerHawkerCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerHawkerCaseBin(arena);
+  return ::new (mem) StarTowerHawkerCaseBin(arena);
 }
-constexpr auto TowerHawkerCaseBin::InternalNewImpl_() {
+constexpr auto StarTowerHawkerCaseBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.goods_) +
-          decltype(TowerHawkerCaseBin::_impl_.goods_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.goods_) +
+          decltype(StarTowerHawkerCaseBin::_impl_.goods_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(TowerHawkerCaseBin), alignof(TowerHawkerCaseBin), *arena_bits);
+        sizeof(StarTowerHawkerCaseBin), alignof(StarTowerHawkerCaseBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerHawkerCaseBin::PlacementNew_,
-                                 sizeof(TowerHawkerCaseBin),
-                                 alignof(TowerHawkerCaseBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerHawkerCaseBin::PlacementNew_,
+                                 sizeof(StarTowerHawkerCaseBin),
+                                 alignof(StarTowerHawkerCaseBin));
   }
 }
-constexpr auto TowerHawkerCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerHawkerCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerHawkerCaseBin_default_instance_._instance,
+          &_StarTowerHawkerCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerHawkerCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerHawkerCaseBin>(),
+          &StarTowerHawkerCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerHawkerCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerHawkerCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerHawkerCaseBin>(), &TowerHawkerCaseBin::ByteSizeLong,
-              &TowerHawkerCaseBin::_InternalSerialize,
+          &StarTowerHawkerCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerHawkerCaseBin>(), &StarTowerHawkerCaseBin::ByteSizeLong,
+              &StarTowerHawkerCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerHawkerCaseBin::kDescriptorMethods,
+      &StarTowerHawkerCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerHawkerCaseBin_class_data_ =
-        TowerHawkerCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerHawkerCaseBin_class_data_ =
+        StarTowerHawkerCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerHawkerCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerHawkerCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerHawkerCaseBin_class_data_.tc_table);
-  return TowerHawkerCaseBin_class_data_.base();
+StarTowerHawkerCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerHawkerCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerHawkerCaseBin_class_data_.tc_table);
+  return StarTowerHawkerCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<2, 3, 1, 0, 2>
-TowerHawkerCaseBin::_table_ = {
+StarTowerHawkerCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -19094,44 +19098,44 @@ TowerHawkerCaseBin::_table_ = {
     3,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerHawkerCaseBin_class_data_.base(),
+    StarTowerHawkerCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerHawkerCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerHawkerCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // repeated .ServerProto.TowerShopGoodsBin goods = 1;
+    // repeated .ServerProto.StarTowerShopGoodsBin goods = 1;
     {::_pbi::TcParser::FastMtR1,
      {10, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.goods_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.goods_)}},
     // uint32 rerollTimes = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerHawkerCaseBin, _impl_.rerolltimes_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerHawkerCaseBin, _impl_.rerolltimes_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.rerolltimes_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.rerolltimes_)}},
     // uint32 rerollPrice = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerHawkerCaseBin, _impl_.rerollprice_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerHawkerCaseBin, _impl_.rerollprice_), 2>(),
      {24, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.rerollprice_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.rerollprice_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated .ServerProto.TowerShopGoodsBin goods = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.goods_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .ServerProto.StarTowerShopGoodsBin goods = 1;
+    {PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.goods_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // uint32 rerollTimes = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.rerolltimes_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.rerolltimes_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 rerollPrice = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.rerollprice_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.rerollprice_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerShopGoodsBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerShopGoodsBin>()},
   }},
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerHawkerCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerHawkerCaseBin)
+PROTOBUF_NOINLINE void StarTowerHawkerCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerHawkerCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -19151,25 +19155,25 @@ PROTOBUF_NOINLINE void TowerHawkerCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerHawkerCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerHawkerCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerHawkerCaseBin& this_ = static_cast<const TowerHawkerCaseBin&>(base);
+  const StarTowerHawkerCaseBin& this_ = static_cast<const StarTowerHawkerCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerHawkerCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerHawkerCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerHawkerCaseBin& this_ = *this;
+  const StarTowerHawkerCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerHawkerCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerHawkerCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
   cached_has_bits = this_._impl_._has_bits_[0];
-  // repeated .ServerProto.TowerShopGoodsBin goods = 1;
+  // repeated .ServerProto.StarTowerShopGoodsBin goods = 1;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_goods_size());
@@ -19205,18 +19209,18 @@ PROTOBUF_NOINLINE void TowerHawkerCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerHawkerCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerHawkerCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerHawkerCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerHawkerCaseBin& this_ = static_cast<const TowerHawkerCaseBin&>(base);
+::size_t StarTowerHawkerCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerHawkerCaseBin& this_ = static_cast<const StarTowerHawkerCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerHawkerCaseBin::ByteSizeLong() const {
-  const TowerHawkerCaseBin& this_ = *this;
+::size_t StarTowerHawkerCaseBin::ByteSizeLong() const {
+  const StarTowerHawkerCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerHawkerCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerHawkerCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -19226,7 +19230,7 @@ PROTOBUF_NOINLINE void TowerHawkerCaseBin::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
-    // repeated .ServerProto.TowerShopGoodsBin goods = 1;
+    // repeated .ServerProto.StarTowerShopGoodsBin goods = 1;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_goods_size();
       for (const auto& msg : this_._internal_goods()) {
@@ -19252,16 +19256,16 @@ PROTOBUF_NOINLINE void TowerHawkerCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerHawkerCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerHawkerCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerHawkerCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerHawkerCaseBin&>(from_msg);
+      static_cast<StarTowerHawkerCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerHawkerCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerHawkerCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerHawkerCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -19289,53 +19293,53 @@ void TowerHawkerCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerHawkerCaseBin::CopyFrom(const TowerHawkerCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerHawkerCaseBin)
+void StarTowerHawkerCaseBin::CopyFrom(const StarTowerHawkerCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerHawkerCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerHawkerCaseBin::InternalSwap(TowerHawkerCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerHawkerCaseBin::InternalSwap(StarTowerHawkerCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.goods_.InternalSwap(&other->_impl_.goods_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.rerollprice_)
-      + sizeof(TowerHawkerCaseBin::_impl_.rerollprice_)
-      - PROTOBUF_FIELD_OFFSET(TowerHawkerCaseBin, _impl_.rerolltimes_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.rerollprice_)
+      + sizeof(StarTowerHawkerCaseBin::_impl_.rerollprice_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerHawkerCaseBin, _impl_.rerolltimes_)>(
           reinterpret_cast<char*>(&_impl_.rerolltimes_),
           reinterpret_cast<char*>(&other->_impl_.rerolltimes_));
 }
 
-::google::protobuf::Metadata TowerHawkerCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerHawkerCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerStrengthenMachineCaseBin::_Internal {
+class StarTowerStrengthenMachineCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerStrengthenMachineCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerStrengthenMachineCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_._has_bits_);
 };
 
-TowerStrengthenMachineCaseBin::TowerStrengthenMachineCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerStrengthenMachineCaseBin::StarTowerStrengthenMachineCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerStrengthenMachineCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerStrengthenMachineCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerStrengthenMachineCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerStrengthenMachineCaseBin)
 }
-TowerStrengthenMachineCaseBin::TowerStrengthenMachineCaseBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerStrengthenMachineCaseBin& from)
+StarTowerStrengthenMachineCaseBin::StarTowerStrengthenMachineCaseBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerStrengthenMachineCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerStrengthenMachineCaseBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerStrengthenMachineCaseBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -19343,12 +19347,12 @@ TowerStrengthenMachineCaseBin::TowerStrengthenMachineCaseBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerStrengthenMachineCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerStrengthenMachineCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerStrengthenMachineCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerStrengthenMachineCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, free_),
@@ -19357,12 +19361,12 @@ inline void TowerStrengthenMachineCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NUL
                offsetof(Impl_, free_) +
                sizeof(Impl_::times_));
 }
-TowerStrengthenMachineCaseBin::~TowerStrengthenMachineCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerStrengthenMachineCaseBin)
+StarTowerStrengthenMachineCaseBin::~StarTowerStrengthenMachineCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerStrengthenMachineCaseBin)
   SharedDtor(*this);
 }
-inline void TowerStrengthenMachineCaseBin::SharedDtor(MessageLite& self) {
-  TowerStrengthenMachineCaseBin& this_ = static_cast<TowerStrengthenMachineCaseBin&>(self);
+inline void StarTowerStrengthenMachineCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerStrengthenMachineCaseBin& this_ = static_cast<StarTowerStrengthenMachineCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -19371,53 +19375,53 @@ inline void TowerStrengthenMachineCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerStrengthenMachineCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerStrengthenMachineCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerStrengthenMachineCaseBin(arena);
+  return ::new (mem) StarTowerStrengthenMachineCaseBin(arena);
 }
-constexpr auto TowerStrengthenMachineCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerStrengthenMachineCaseBin),
-                                            alignof(TowerStrengthenMachineCaseBin));
+constexpr auto StarTowerStrengthenMachineCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerStrengthenMachineCaseBin),
+                                            alignof(StarTowerStrengthenMachineCaseBin));
 }
-constexpr auto TowerStrengthenMachineCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerStrengthenMachineCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerStrengthenMachineCaseBin_default_instance_._instance,
+          &_StarTowerStrengthenMachineCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerStrengthenMachineCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerStrengthenMachineCaseBin>(),
+          &StarTowerStrengthenMachineCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerStrengthenMachineCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerStrengthenMachineCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerStrengthenMachineCaseBin>(), &TowerStrengthenMachineCaseBin::ByteSizeLong,
-              &TowerStrengthenMachineCaseBin::_InternalSerialize,
+          &StarTowerStrengthenMachineCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerStrengthenMachineCaseBin>(), &StarTowerStrengthenMachineCaseBin::ByteSizeLong,
+              &StarTowerStrengthenMachineCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerStrengthenMachineCaseBin::kDescriptorMethods,
+      &StarTowerStrengthenMachineCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerStrengthenMachineCaseBin_class_data_ =
-        TowerStrengthenMachineCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerStrengthenMachineCaseBin_class_data_ =
+        StarTowerStrengthenMachineCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerStrengthenMachineCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerStrengthenMachineCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerStrengthenMachineCaseBin_class_data_.tc_table);
-  return TowerStrengthenMachineCaseBin_class_data_.base();
+StarTowerStrengthenMachineCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerStrengthenMachineCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerStrengthenMachineCaseBin_class_data_.tc_table);
+  return StarTowerStrengthenMachineCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<2, 3, 0, 0, 2>
-TowerStrengthenMachineCaseBin::_table_ = {
+StarTowerStrengthenMachineCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -19426,42 +19430,42 @@ TowerStrengthenMachineCaseBin::_table_ = {
     3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerStrengthenMachineCaseBin_class_data_.base(),
+    StarTowerStrengthenMachineCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerStrengthenMachineCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerStrengthenMachineCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // bool free = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerStrengthenMachineCaseBin, _impl_.free_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerStrengthenMachineCaseBin, _impl_.free_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.free_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.free_)}},
     // int32 discount = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerStrengthenMachineCaseBin, _impl_.discount_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerStrengthenMachineCaseBin, _impl_.discount_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.discount_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.discount_)}},
     // uint32 times = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerStrengthenMachineCaseBin, _impl_.times_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerStrengthenMachineCaseBin, _impl_.times_), 2>(),
      {24, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.times_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.times_)}},
   }}, {{
     65535, 65535
   }}, {{
     // bool free = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.free_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.free_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // int32 discount = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.discount_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.discount_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // uint32 times = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.times_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.times_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerStrengthenMachineCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerStrengthenMachineCaseBin)
+PROTOBUF_NOINLINE void StarTowerStrengthenMachineCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerStrengthenMachineCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -19478,20 +19482,20 @@ PROTOBUF_NOINLINE void TowerStrengthenMachineCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerStrengthenMachineCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerStrengthenMachineCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerStrengthenMachineCaseBin& this_ = static_cast<const TowerStrengthenMachineCaseBin&>(base);
+  const StarTowerStrengthenMachineCaseBin& this_ = static_cast<const StarTowerStrengthenMachineCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerStrengthenMachineCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerStrengthenMachineCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerStrengthenMachineCaseBin& this_ = *this;
+  const StarTowerStrengthenMachineCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerStrengthenMachineCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerStrengthenMachineCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -19528,18 +19532,18 @@ PROTOBUF_NOINLINE void TowerStrengthenMachineCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerStrengthenMachineCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerStrengthenMachineCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerStrengthenMachineCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerStrengthenMachineCaseBin& this_ = static_cast<const TowerStrengthenMachineCaseBin&>(base);
+::size_t StarTowerStrengthenMachineCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerStrengthenMachineCaseBin& this_ = static_cast<const StarTowerStrengthenMachineCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerStrengthenMachineCaseBin::ByteSizeLong() const {
-  const TowerStrengthenMachineCaseBin& this_ = *this;
+::size_t StarTowerStrengthenMachineCaseBin::ByteSizeLong() const {
+  const StarTowerStrengthenMachineCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerStrengthenMachineCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerStrengthenMachineCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -19574,15 +19578,15 @@ PROTOBUF_NOINLINE void TowerStrengthenMachineCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerStrengthenMachineCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerStrengthenMachineCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerStrengthenMachineCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerStrengthenMachineCaseBin&>(from_msg);
+      static_cast<StarTowerStrengthenMachineCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerStrengthenMachineCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerStrengthenMachineCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerStrengthenMachineCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -19610,52 +19614,52 @@ void TowerStrengthenMachineCaseBin::MergeImpl(::google::protobuf::MessageLite& t
       from._internal_metadata_);
 }
 
-void TowerStrengthenMachineCaseBin::CopyFrom(const TowerStrengthenMachineCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerStrengthenMachineCaseBin)
+void StarTowerStrengthenMachineCaseBin::CopyFrom(const StarTowerStrengthenMachineCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerStrengthenMachineCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerStrengthenMachineCaseBin::InternalSwap(TowerStrengthenMachineCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerStrengthenMachineCaseBin::InternalSwap(StarTowerStrengthenMachineCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.times_)
-      + sizeof(TowerStrengthenMachineCaseBin::_impl_.times_)
-      - PROTOBUF_FIELD_OFFSET(TowerStrengthenMachineCaseBin, _impl_.free_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.times_)
+      + sizeof(StarTowerStrengthenMachineCaseBin::_impl_.times_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerStrengthenMachineCaseBin, _impl_.free_)>(
           reinterpret_cast<char*>(&_impl_.free_),
           reinterpret_cast<char*>(&other->_impl_.free_));
 }
 
-::google::protobuf::Metadata TowerStrengthenMachineCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerStrengthenMachineCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerRecoveryHPCaseBin::_Internal {
+class StarTowerRecoveryHPCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerRecoveryHPCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerRecoveryHPCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerRecoveryHPCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerRecoveryHPCaseBin, _impl_._has_bits_);
 };
 
-TowerRecoveryHPCaseBin::TowerRecoveryHPCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerRecoveryHPCaseBin::StarTowerRecoveryHPCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerRecoveryHPCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerRecoveryHPCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerRecoveryHPCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerRecoveryHPCaseBin)
 }
-TowerRecoveryHPCaseBin::TowerRecoveryHPCaseBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerRecoveryHPCaseBin& from)
+StarTowerRecoveryHPCaseBin::StarTowerRecoveryHPCaseBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerRecoveryHPCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerRecoveryHPCaseBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerRecoveryHPCaseBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -19663,21 +19667,21 @@ TowerRecoveryHPCaseBin::TowerRecoveryHPCaseBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerRecoveryHPCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerRecoveryHPCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerRecoveryHPCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerRecoveryHPCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   _impl_.effectid_ = {};
 }
-TowerRecoveryHPCaseBin::~TowerRecoveryHPCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerRecoveryHPCaseBin)
+StarTowerRecoveryHPCaseBin::~StarTowerRecoveryHPCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerRecoveryHPCaseBin)
   SharedDtor(*this);
 }
-inline void TowerRecoveryHPCaseBin::SharedDtor(MessageLite& self) {
-  TowerRecoveryHPCaseBin& this_ = static_cast<TowerRecoveryHPCaseBin&>(self);
+inline void StarTowerRecoveryHPCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerRecoveryHPCaseBin& this_ = static_cast<StarTowerRecoveryHPCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -19686,53 +19690,53 @@ inline void TowerRecoveryHPCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerRecoveryHPCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerRecoveryHPCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerRecoveryHPCaseBin(arena);
+  return ::new (mem) StarTowerRecoveryHPCaseBin(arena);
 }
-constexpr auto TowerRecoveryHPCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerRecoveryHPCaseBin),
-                                            alignof(TowerRecoveryHPCaseBin));
+constexpr auto StarTowerRecoveryHPCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerRecoveryHPCaseBin),
+                                            alignof(StarTowerRecoveryHPCaseBin));
 }
-constexpr auto TowerRecoveryHPCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerRecoveryHPCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerRecoveryHPCaseBin_default_instance_._instance,
+          &_StarTowerRecoveryHPCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerRecoveryHPCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerRecoveryHPCaseBin>(),
+          &StarTowerRecoveryHPCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerRecoveryHPCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerRecoveryHPCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerRecoveryHPCaseBin>(), &TowerRecoveryHPCaseBin::ByteSizeLong,
-              &TowerRecoveryHPCaseBin::_InternalSerialize,
+          &StarTowerRecoveryHPCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerRecoveryHPCaseBin>(), &StarTowerRecoveryHPCaseBin::ByteSizeLong,
+              &StarTowerRecoveryHPCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerRecoveryHPCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerRecoveryHPCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerRecoveryHPCaseBin::kDescriptorMethods,
+      &StarTowerRecoveryHPCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerRecoveryHPCaseBin_class_data_ =
-        TowerRecoveryHPCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerRecoveryHPCaseBin_class_data_ =
+        StarTowerRecoveryHPCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerRecoveryHPCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerRecoveryHPCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerRecoveryHPCaseBin_class_data_.tc_table);
-  return TowerRecoveryHPCaseBin_class_data_.base();
+StarTowerRecoveryHPCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerRecoveryHPCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerRecoveryHPCaseBin_class_data_.tc_table);
+  return StarTowerRecoveryHPCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<0, 1, 0, 0, 2>
-TowerRecoveryHPCaseBin::_table_ = {
+StarTowerRecoveryHPCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerRecoveryHPCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerRecoveryHPCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -19741,29 +19745,29 @@ TowerRecoveryHPCaseBin::_table_ = {
     1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerRecoveryHPCaseBin_class_data_.base(),
+    StarTowerRecoveryHPCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerRecoveryHPCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerRecoveryHPCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 effectId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRecoveryHPCaseBin, _impl_.effectid_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRecoveryHPCaseBin, _impl_.effectid_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRecoveryHPCaseBin, _impl_.effectid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRecoveryHPCaseBin, _impl_.effectid_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 effectId = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerRecoveryHPCaseBin, _impl_.effectid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRecoveryHPCaseBin, _impl_.effectid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerRecoveryHPCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerRecoveryHPCaseBin)
+PROTOBUF_NOINLINE void StarTowerRecoveryHPCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerRecoveryHPCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -19775,20 +19779,20 @@ PROTOBUF_NOINLINE void TowerRecoveryHPCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerRecoveryHPCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerRecoveryHPCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerRecoveryHPCaseBin& this_ = static_cast<const TowerRecoveryHPCaseBin&>(base);
+  const StarTowerRecoveryHPCaseBin& this_ = static_cast<const StarTowerRecoveryHPCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerRecoveryHPCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerRecoveryHPCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerRecoveryHPCaseBin& this_ = *this;
+  const StarTowerRecoveryHPCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerRecoveryHPCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerRecoveryHPCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -19807,18 +19811,18 @@ PROTOBUF_NOINLINE void TowerRecoveryHPCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerRecoveryHPCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerRecoveryHPCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerRecoveryHPCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerRecoveryHPCaseBin& this_ = static_cast<const TowerRecoveryHPCaseBin&>(base);
+::size_t StarTowerRecoveryHPCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerRecoveryHPCaseBin& this_ = static_cast<const StarTowerRecoveryHPCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerRecoveryHPCaseBin::ByteSizeLong() const {
-  const TowerRecoveryHPCaseBin& this_ = *this;
+::size_t StarTowerRecoveryHPCaseBin::ByteSizeLong() const {
+  const StarTowerRecoveryHPCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerRecoveryHPCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerRecoveryHPCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -19839,15 +19843,15 @@ PROTOBUF_NOINLINE void TowerRecoveryHPCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerRecoveryHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerRecoveryHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerRecoveryHPCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerRecoveryHPCaseBin&>(from_msg);
+      static_cast<StarTowerRecoveryHPCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerRecoveryHPCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerRecoveryHPCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerRecoveryHPCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -19863,47 +19867,47 @@ void TowerRecoveryHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerRecoveryHPCaseBin::CopyFrom(const TowerRecoveryHPCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerRecoveryHPCaseBin)
+void StarTowerRecoveryHPCaseBin::CopyFrom(const StarTowerRecoveryHPCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerRecoveryHPCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerRecoveryHPCaseBin::InternalSwap(TowerRecoveryHPCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerRecoveryHPCaseBin::InternalSwap(StarTowerRecoveryHPCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   swap(_impl_.effectid_, other->_impl_.effectid_);
 }
 
-::google::protobuf::Metadata TowerRecoveryHPCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerRecoveryHPCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerNpcRecoveryHPCaseBin::_Internal {
+class StarTowerNpcRecoveryHPCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerNpcRecoveryHPCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerNpcRecoveryHPCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerNpcRecoveryHPCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerNpcRecoveryHPCaseBin, _impl_._has_bits_);
 };
 
-TowerNpcRecoveryHPCaseBin::TowerNpcRecoveryHPCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerNpcRecoveryHPCaseBin::StarTowerNpcRecoveryHPCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerNpcRecoveryHPCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerNpcRecoveryHPCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerNpcRecoveryHPCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerNpcRecoveryHPCaseBin)
 }
-TowerNpcRecoveryHPCaseBin::TowerNpcRecoveryHPCaseBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerNpcRecoveryHPCaseBin& from)
+StarTowerNpcRecoveryHPCaseBin::StarTowerNpcRecoveryHPCaseBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerNpcRecoveryHPCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerNpcRecoveryHPCaseBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerNpcRecoveryHPCaseBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -19911,21 +19915,21 @@ TowerNpcRecoveryHPCaseBin::TowerNpcRecoveryHPCaseBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerNpcRecoveryHPCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerNpcRecoveryHPCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerNpcRecoveryHPCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerNpcRecoveryHPCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   _impl_.effectid_ = {};
 }
-TowerNpcRecoveryHPCaseBin::~TowerNpcRecoveryHPCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerNpcRecoveryHPCaseBin)
+StarTowerNpcRecoveryHPCaseBin::~StarTowerNpcRecoveryHPCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   SharedDtor(*this);
 }
-inline void TowerNpcRecoveryHPCaseBin::SharedDtor(MessageLite& self) {
-  TowerNpcRecoveryHPCaseBin& this_ = static_cast<TowerNpcRecoveryHPCaseBin&>(self);
+inline void StarTowerNpcRecoveryHPCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerNpcRecoveryHPCaseBin& this_ = static_cast<StarTowerNpcRecoveryHPCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -19934,53 +19938,53 @@ inline void TowerNpcRecoveryHPCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerNpcRecoveryHPCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerNpcRecoveryHPCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerNpcRecoveryHPCaseBin(arena);
+  return ::new (mem) StarTowerNpcRecoveryHPCaseBin(arena);
 }
-constexpr auto TowerNpcRecoveryHPCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerNpcRecoveryHPCaseBin),
-                                            alignof(TowerNpcRecoveryHPCaseBin));
+constexpr auto StarTowerNpcRecoveryHPCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerNpcRecoveryHPCaseBin),
+                                            alignof(StarTowerNpcRecoveryHPCaseBin));
 }
-constexpr auto TowerNpcRecoveryHPCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerNpcRecoveryHPCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerNpcRecoveryHPCaseBin_default_instance_._instance,
+          &_StarTowerNpcRecoveryHPCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerNpcRecoveryHPCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerNpcRecoveryHPCaseBin>(),
+          &StarTowerNpcRecoveryHPCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerNpcRecoveryHPCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerNpcRecoveryHPCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerNpcRecoveryHPCaseBin>(), &TowerNpcRecoveryHPCaseBin::ByteSizeLong,
-              &TowerNpcRecoveryHPCaseBin::_InternalSerialize,
+          &StarTowerNpcRecoveryHPCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerNpcRecoveryHPCaseBin>(), &StarTowerNpcRecoveryHPCaseBin::ByteSizeLong,
+              &StarTowerNpcRecoveryHPCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerNpcRecoveryHPCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerNpcRecoveryHPCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerNpcRecoveryHPCaseBin::kDescriptorMethods,
+      &StarTowerNpcRecoveryHPCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerNpcRecoveryHPCaseBin_class_data_ =
-        TowerNpcRecoveryHPCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerNpcRecoveryHPCaseBin_class_data_ =
+        StarTowerNpcRecoveryHPCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerNpcRecoveryHPCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerNpcRecoveryHPCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerNpcRecoveryHPCaseBin_class_data_.tc_table);
-  return TowerNpcRecoveryHPCaseBin_class_data_.base();
+StarTowerNpcRecoveryHPCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerNpcRecoveryHPCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerNpcRecoveryHPCaseBin_class_data_.tc_table);
+  return StarTowerNpcRecoveryHPCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<0, 1, 0, 0, 2>
-TowerNpcRecoveryHPCaseBin::_table_ = {
+StarTowerNpcRecoveryHPCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerNpcRecoveryHPCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerNpcRecoveryHPCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -19989,29 +19993,29 @@ TowerNpcRecoveryHPCaseBin::_table_ = {
     1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerNpcRecoveryHPCaseBin_class_data_.base(),
+    StarTowerNpcRecoveryHPCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerNpcRecoveryHPCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerNpcRecoveryHPCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 effectId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerNpcRecoveryHPCaseBin, _impl_.effectid_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerNpcRecoveryHPCaseBin, _impl_.effectid_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerNpcRecoveryHPCaseBin, _impl_.effectid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerNpcRecoveryHPCaseBin, _impl_.effectid_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 effectId = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerNpcRecoveryHPCaseBin, _impl_.effectid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerNpcRecoveryHPCaseBin, _impl_.effectid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerNpcRecoveryHPCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerNpcRecoveryHPCaseBin)
+PROTOBUF_NOINLINE void StarTowerNpcRecoveryHPCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -20023,20 +20027,20 @@ PROTOBUF_NOINLINE void TowerNpcRecoveryHPCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerNpcRecoveryHPCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerNpcRecoveryHPCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerNpcRecoveryHPCaseBin& this_ = static_cast<const TowerNpcRecoveryHPCaseBin&>(base);
+  const StarTowerNpcRecoveryHPCaseBin& this_ = static_cast<const StarTowerNpcRecoveryHPCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerNpcRecoveryHPCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerNpcRecoveryHPCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerNpcRecoveryHPCaseBin& this_ = *this;
+  const StarTowerNpcRecoveryHPCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerNpcRecoveryHPCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -20055,18 +20059,18 @@ PROTOBUF_NOINLINE void TowerNpcRecoveryHPCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerNpcRecoveryHPCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerNpcRecoveryHPCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerNpcRecoveryHPCaseBin& this_ = static_cast<const TowerNpcRecoveryHPCaseBin&>(base);
+::size_t StarTowerNpcRecoveryHPCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerNpcRecoveryHPCaseBin& this_ = static_cast<const StarTowerNpcRecoveryHPCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerNpcRecoveryHPCaseBin::ByteSizeLong() const {
-  const TowerNpcRecoveryHPCaseBin& this_ = *this;
+::size_t StarTowerNpcRecoveryHPCaseBin::ByteSizeLong() const {
+  const StarTowerNpcRecoveryHPCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerNpcRecoveryHPCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -20087,15 +20091,15 @@ PROTOBUF_NOINLINE void TowerNpcRecoveryHPCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerNpcRecoveryHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerNpcRecoveryHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerNpcRecoveryHPCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerNpcRecoveryHPCaseBin&>(from_msg);
+      static_cast<StarTowerNpcRecoveryHPCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerNpcRecoveryHPCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerNpcRecoveryHPCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -20111,47 +20115,47 @@ void TowerNpcRecoveryHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_ms
       from._internal_metadata_);
 }
 
-void TowerNpcRecoveryHPCaseBin::CopyFrom(const TowerNpcRecoveryHPCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerNpcRecoveryHPCaseBin)
+void StarTowerNpcRecoveryHPCaseBin::CopyFrom(const StarTowerNpcRecoveryHPCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerNpcRecoveryHPCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerNpcRecoveryHPCaseBin::InternalSwap(TowerNpcRecoveryHPCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerNpcRecoveryHPCaseBin::InternalSwap(StarTowerNpcRecoveryHPCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   swap(_impl_.effectid_, other->_impl_.effectid_);
 }
 
-::google::protobuf::Metadata TowerNpcRecoveryHPCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerNpcRecoveryHPCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerSyncHPCaseBin::_Internal {
+class StarTowerSyncHPCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerSyncHPCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerSyncHPCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerSyncHPCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerSyncHPCaseBin, _impl_._has_bits_);
 };
 
-TowerSyncHPCaseBin::TowerSyncHPCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerSyncHPCaseBin::StarTowerSyncHPCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerSyncHPCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerSyncHPCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerSyncHPCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerSyncHPCaseBin)
 }
-TowerSyncHPCaseBin::TowerSyncHPCaseBin(
-    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const TowerSyncHPCaseBin& from)
+StarTowerSyncHPCaseBin::StarTowerSyncHPCaseBin(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StarTowerSyncHPCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerSyncHPCaseBin_class_data_.base()),
+    : ::google::protobuf::Message(arena, StarTowerSyncHPCaseBin_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena),
 #endif  // PROTOBUF_CUSTOM_VTABLE
@@ -20159,21 +20163,21 @@ TowerSyncHPCaseBin::TowerSyncHPCaseBin(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
 }
-PROTOBUF_NDEBUG_INLINE TowerSyncHPCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerSyncHPCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0} {}
 
-inline void TowerSyncHPCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerSyncHPCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   _impl_.placeholder_ = {};
 }
-TowerSyncHPCaseBin::~TowerSyncHPCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerSyncHPCaseBin)
+StarTowerSyncHPCaseBin::~StarTowerSyncHPCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerSyncHPCaseBin)
   SharedDtor(*this);
 }
-inline void TowerSyncHPCaseBin::SharedDtor(MessageLite& self) {
-  TowerSyncHPCaseBin& this_ = static_cast<TowerSyncHPCaseBin&>(self);
+inline void StarTowerSyncHPCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerSyncHPCaseBin& this_ = static_cast<StarTowerSyncHPCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -20182,53 +20186,53 @@ inline void TowerSyncHPCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerSyncHPCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerSyncHPCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerSyncHPCaseBin(arena);
+  return ::new (mem) StarTowerSyncHPCaseBin(arena);
 }
-constexpr auto TowerSyncHPCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerSyncHPCaseBin),
-                                            alignof(TowerSyncHPCaseBin));
+constexpr auto StarTowerSyncHPCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerSyncHPCaseBin),
+                                            alignof(StarTowerSyncHPCaseBin));
 }
-constexpr auto TowerSyncHPCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerSyncHPCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerSyncHPCaseBin_default_instance_._instance,
+          &_StarTowerSyncHPCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerSyncHPCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerSyncHPCaseBin>(),
+          &StarTowerSyncHPCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerSyncHPCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerSyncHPCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerSyncHPCaseBin>(), &TowerSyncHPCaseBin::ByteSizeLong,
-              &TowerSyncHPCaseBin::_InternalSerialize,
+          &StarTowerSyncHPCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerSyncHPCaseBin>(), &StarTowerSyncHPCaseBin::ByteSizeLong,
+              &StarTowerSyncHPCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerSyncHPCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerSyncHPCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerSyncHPCaseBin::kDescriptorMethods,
+      &StarTowerSyncHPCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerSyncHPCaseBin_class_data_ =
-        TowerSyncHPCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerSyncHPCaseBin_class_data_ =
+        StarTowerSyncHPCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerSyncHPCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerSyncHPCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerSyncHPCaseBin_class_data_.tc_table);
-  return TowerSyncHPCaseBin_class_data_.base();
+StarTowerSyncHPCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerSyncHPCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerSyncHPCaseBin_class_data_.tc_table);
+  return StarTowerSyncHPCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<0, 1, 0, 0, 2>
-TowerSyncHPCaseBin::_table_ = {
+StarTowerSyncHPCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerSyncHPCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerSyncHPCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -20237,29 +20241,29 @@ TowerSyncHPCaseBin::_table_ = {
     1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerSyncHPCaseBin_class_data_.base(),
+    StarTowerSyncHPCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerSyncHPCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerSyncHPCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // bool placeholder = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerSyncHPCaseBin, _impl_.placeholder_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerSyncHPCaseBin, _impl_.placeholder_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerSyncHPCaseBin, _impl_.placeholder_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerSyncHPCaseBin, _impl_.placeholder_)}},
   }}, {{
     65535, 65535
   }}, {{
     // bool placeholder = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerSyncHPCaseBin, _impl_.placeholder_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerSyncHPCaseBin, _impl_.placeholder_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   // no aux_entries
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerSyncHPCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerSyncHPCaseBin)
+PROTOBUF_NOINLINE void StarTowerSyncHPCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerSyncHPCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -20271,20 +20275,20 @@ PROTOBUF_NOINLINE void TowerSyncHPCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerSyncHPCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerSyncHPCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerSyncHPCaseBin& this_ = static_cast<const TowerSyncHPCaseBin&>(base);
+  const StarTowerSyncHPCaseBin& this_ = static_cast<const StarTowerSyncHPCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerSyncHPCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerSyncHPCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerSyncHPCaseBin& this_ = *this;
+  const StarTowerSyncHPCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerSyncHPCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerSyncHPCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -20303,18 +20307,18 @@ PROTOBUF_NOINLINE void TowerSyncHPCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerSyncHPCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerSyncHPCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerSyncHPCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerSyncHPCaseBin& this_ = static_cast<const TowerSyncHPCaseBin&>(base);
+::size_t StarTowerSyncHPCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerSyncHPCaseBin& this_ = static_cast<const StarTowerSyncHPCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerSyncHPCaseBin::ByteSizeLong() const {
-  const TowerSyncHPCaseBin& this_ = *this;
+::size_t StarTowerSyncHPCaseBin::ByteSizeLong() const {
+  const StarTowerSyncHPCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerSyncHPCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerSyncHPCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -20334,15 +20338,15 @@ PROTOBUF_NOINLINE void TowerSyncHPCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerSyncHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerSyncHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerSyncHPCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerSyncHPCaseBin&>(from_msg);
+      static_cast<StarTowerSyncHPCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerSyncHPCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerSyncHPCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerSyncHPCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -20358,37 +20362,37 @@ void TowerSyncHPCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerSyncHPCaseBin::CopyFrom(const TowerSyncHPCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerSyncHPCaseBin)
+void StarTowerSyncHPCaseBin::CopyFrom(const StarTowerSyncHPCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerSyncHPCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerSyncHPCaseBin::InternalSwap(TowerSyncHPCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerSyncHPCaseBin::InternalSwap(StarTowerSyncHPCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   swap(_impl_.placeholder_, other->_impl_.placeholder_);
 }
 
-::google::protobuf::Metadata TowerSyncHPCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerSyncHPCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerCaseBin::_Internal {
+class StarTowerCaseBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerCaseBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerCaseBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_._has_bits_);
   static constexpr ::int32_t kOneofCaseOffset =
-      PROTOBUF_FIELD_OFFSET(::ServerProto::TowerCaseBin, _impl_._oneof_case_);
+      PROTOBUF_FIELD_OFFSET(::ServerProto::StarTowerCaseBin, _impl_._oneof_case_);
 };
 
-void TowerCaseBin::set_allocated_battlecase(::ServerProto::TowerBattleCaseBin* PROTOBUF_NULLABLE battlecase) {
+void StarTowerCaseBin::set_allocated_battlecase(::ServerProto::StarTowerBattleCaseBin* PROTOBUF_NULLABLE battlecase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (battlecase) {
@@ -20399,9 +20403,9 @@ void TowerCaseBin::set_allocated_battlecase(::ServerProto::TowerBattleCaseBin* P
     set_has_battlecase();
     _impl_.data_.battlecase_ = battlecase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.battleCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.battleCase)
 }
-void TowerCaseBin::set_allocated_doorcase(::ServerProto::TowerDoorCaseBin* PROTOBUF_NULLABLE doorcase) {
+void StarTowerCaseBin::set_allocated_doorcase(::ServerProto::StarTowerDoorCaseBin* PROTOBUF_NULLABLE doorcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (doorcase) {
@@ -20412,9 +20416,9 @@ void TowerCaseBin::set_allocated_doorcase(::ServerProto::TowerDoorCaseBin* PROTO
     set_has_doorcase();
     _impl_.data_.doorcase_ = doorcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.doorCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.doorCase)
 }
-void TowerCaseBin::set_allocated_potentialcase(::ServerProto::TowerPotentialCaseBin* PROTOBUF_NULLABLE potentialcase) {
+void StarTowerCaseBin::set_allocated_potentialcase(::ServerProto::StarTowerPotentialCaseBin* PROTOBUF_NULLABLE potentialcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (potentialcase) {
@@ -20425,9 +20429,9 @@ void TowerCaseBin::set_allocated_potentialcase(::ServerProto::TowerPotentialCase
     set_has_potentialcase();
     _impl_.data_.potentialcase_ = potentialcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.potentialCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.potentialCase)
 }
-void TowerCaseBin::set_allocated_npceventcase(::ServerProto::TowerNpcEventCaseBin* PROTOBUF_NULLABLE npceventcase) {
+void StarTowerCaseBin::set_allocated_npceventcase(::ServerProto::StarTowerNpcEventCaseBin* PROTOBUF_NULLABLE npceventcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (npceventcase) {
@@ -20438,9 +20442,9 @@ void TowerCaseBin::set_allocated_npceventcase(::ServerProto::TowerNpcEventCaseBi
     set_has_npceventcase();
     _impl_.data_.npceventcase_ = npceventcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.npcEventCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.npcEventCase)
 }
-void TowerCaseBin::set_allocated_hawkercase(::ServerProto::TowerHawkerCaseBin* PROTOBUF_NULLABLE hawkercase) {
+void StarTowerCaseBin::set_allocated_hawkercase(::ServerProto::StarTowerHawkerCaseBin* PROTOBUF_NULLABLE hawkercase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (hawkercase) {
@@ -20451,9 +20455,9 @@ void TowerCaseBin::set_allocated_hawkercase(::ServerProto::TowerHawkerCaseBin* P
     set_has_hawkercase();
     _impl_.data_.hawkercase_ = hawkercase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.hawkerCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.hawkerCase)
 }
-void TowerCaseBin::set_allocated_strengthenmachinecase(::ServerProto::TowerStrengthenMachineCaseBin* PROTOBUF_NULLABLE strengthenmachinecase) {
+void StarTowerCaseBin::set_allocated_strengthenmachinecase(::ServerProto::StarTowerStrengthenMachineCaseBin* PROTOBUF_NULLABLE strengthenmachinecase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (strengthenmachinecase) {
@@ -20464,9 +20468,9 @@ void TowerCaseBin::set_allocated_strengthenmachinecase(::ServerProto::TowerStren
     set_has_strengthenmachinecase();
     _impl_.data_.strengthenmachinecase_ = strengthenmachinecase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.strengthenMachineCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.strengthenMachineCase)
 }
-void TowerCaseBin::set_allocated_recoveryhpcase(::ServerProto::TowerRecoveryHPCaseBin* PROTOBUF_NULLABLE recoveryhpcase) {
+void StarTowerCaseBin::set_allocated_recoveryhpcase(::ServerProto::StarTowerRecoveryHPCaseBin* PROTOBUF_NULLABLE recoveryhpcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (recoveryhpcase) {
@@ -20477,9 +20481,9 @@ void TowerCaseBin::set_allocated_recoveryhpcase(::ServerProto::TowerRecoveryHPCa
     set_has_recoveryhpcase();
     _impl_.data_.recoveryhpcase_ = recoveryhpcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.recoveryHPCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.recoveryHPCase)
 }
-void TowerCaseBin::set_allocated_npcrecoveryhpcase(::ServerProto::TowerNpcRecoveryHPCaseBin* PROTOBUF_NULLABLE npcrecoveryhpcase) {
+void StarTowerCaseBin::set_allocated_npcrecoveryhpcase(::ServerProto::StarTowerNpcRecoveryHPCaseBin* PROTOBUF_NULLABLE npcrecoveryhpcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (npcrecoveryhpcase) {
@@ -20490,9 +20494,9 @@ void TowerCaseBin::set_allocated_npcrecoveryhpcase(::ServerProto::TowerNpcRecove
     set_has_npcrecoveryhpcase();
     _impl_.data_.npcrecoveryhpcase_ = npcrecoveryhpcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.npcRecoveryHPCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.npcRecoveryHPCase)
 }
-void TowerCaseBin::set_allocated_synchpcase(::ServerProto::TowerSyncHPCaseBin* PROTOBUF_NULLABLE synchpcase) {
+void StarTowerCaseBin::set_allocated_synchpcase(::ServerProto::StarTowerSyncHPCaseBin* PROTOBUF_NULLABLE synchpcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (synchpcase) {
@@ -20503,9 +20507,9 @@ void TowerCaseBin::set_allocated_synchpcase(::ServerProto::TowerSyncHPCaseBin* P
     set_has_synchpcase();
     _impl_.data_.synchpcase_ = synchpcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.syncHPCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.syncHPCase)
 }
-void TowerCaseBin::set_allocated_selectspecialpotentialcase(::ServerProto::TowerPotentialCaseBin* PROTOBUF_NULLABLE selectspecialpotentialcase) {
+void StarTowerCaseBin::set_allocated_selectspecialpotentialcase(::ServerProto::StarTowerPotentialCaseBin* PROTOBUF_NULLABLE selectspecialpotentialcase) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_data();
   if (selectspecialpotentialcase) {
@@ -20516,35 +20520,35 @@ void TowerCaseBin::set_allocated_selectspecialpotentialcase(::ServerProto::Tower
     set_has_selectspecialpotentialcase();
     _impl_.data_.selectspecialpotentialcase_ = selectspecialpotentialcase;
   }
-  // @@protoc_insertion_point(field_set_allocated:ServerProto.TowerCaseBin.selectSpecialPotentialCase)
+  // @@protoc_insertion_point(field_set_allocated:ServerProto.StarTowerCaseBin.selectSpecialPotentialCase)
 }
-TowerCaseBin::TowerCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerCaseBin::StarTowerCaseBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerCaseBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerCaseBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerCaseBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         data_{},
         _oneof_case_{from._oneof_case_[0]} {}
 
-TowerCaseBin::TowerCaseBin(
+StarTowerCaseBin::StarTowerCaseBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerCaseBin& from)
+    const StarTowerCaseBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerCaseBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerCaseBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerCaseBin* const _this = this;
+  StarTowerCaseBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -20591,16 +20595,16 @@ TowerCaseBin::TowerCaseBin(
         break;
   }
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerCaseBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerCaseBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerCaseBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerCaseBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         data_{},
         _oneof_case_{} {}
 
-inline void TowerCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, id_),
@@ -20609,12 +20613,12 @@ inline void TowerCaseBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                offsetof(Impl_, id_) +
                sizeof(Impl_::type_));
 }
-TowerCaseBin::~TowerCaseBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerCaseBin)
+StarTowerCaseBin::~StarTowerCaseBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerCaseBin)
   SharedDtor(*this);
 }
-inline void TowerCaseBin::SharedDtor(MessageLite& self) {
-  TowerCaseBin& this_ = static_cast<TowerCaseBin&>(self);
+inline void StarTowerCaseBin::SharedDtor(MessageLite& self) {
+  StarTowerCaseBin& this_ = static_cast<StarTowerCaseBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -20626,8 +20630,8 @@ inline void TowerCaseBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-void TowerCaseBin::clear_data() {
-// @@protoc_insertion_point(one_of_clear_start:ServerProto.TowerCaseBin)
+void StarTowerCaseBin::clear_data() {
+// @@protoc_insertion_point(one_of_clear_start:ServerProto.StarTowerCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   switch (data_case()) {
     case kBattleCase: {
@@ -20718,53 +20722,53 @@ void TowerCaseBin::clear_data() {
 }
 
 
-inline void* PROTOBUF_NONNULL TowerCaseBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerCaseBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerCaseBin(arena);
+  return ::new (mem) StarTowerCaseBin(arena);
 }
-constexpr auto TowerCaseBin::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerCaseBin),
-                                            alignof(TowerCaseBin));
+constexpr auto StarTowerCaseBin::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerCaseBin),
+                                            alignof(StarTowerCaseBin));
 }
-constexpr auto TowerCaseBin::InternalGenerateClassData_() {
+constexpr auto StarTowerCaseBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerCaseBin_default_instance_._instance,
+          &_StarTowerCaseBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerCaseBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerCaseBin>(),
+          &StarTowerCaseBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerCaseBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerCaseBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerCaseBin>(), &TowerCaseBin::ByteSizeLong,
-              &TowerCaseBin::_InternalSerialize,
+          &StarTowerCaseBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerCaseBin>(), &StarTowerCaseBin::ByteSizeLong,
+              &StarTowerCaseBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_._cached_size_),
           false,
       },
-      &TowerCaseBin::kDescriptorMethods,
+      &StarTowerCaseBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerCaseBin_class_data_ =
-        TowerCaseBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerCaseBin_class_data_ =
+        StarTowerCaseBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerCaseBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerCaseBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerCaseBin_class_data_.tc_table);
-  return TowerCaseBin_class_data_.base();
+StarTowerCaseBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerCaseBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerCaseBin_class_data_.tc_table);
+  return StarTowerCaseBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 12, 10, 0, 2>
-TowerCaseBin::_table_ = {
+StarTowerCaseBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_._has_bits_),
     0, // no _extensions_
     12, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -20773,66 +20777,66 @@ TowerCaseBin::_table_ = {
     12,  // num_field_entries
     10,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerCaseBin_class_data_.base(),
+    StarTowerCaseBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerCaseBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerCaseBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 type = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerCaseBin, _impl_.type_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerCaseBin, _impl_.type_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.type_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.type_)}},
     // uint32 id = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerCaseBin, _impl_.id_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerCaseBin, _impl_.id_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.id_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.id_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 id = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 type = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.type_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // .ServerProto.TowerBattleCaseBin battleCase = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.battlecase_), _Internal::kOneofCaseOffset + 0, 0, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerDoorCaseBin doorCase = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.doorcase_), _Internal::kOneofCaseOffset + 0, 1, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerPotentialCaseBin potentialCase = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.potentialcase_), _Internal::kOneofCaseOffset + 0, 2, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerNpcEventCaseBin npcEventCase = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.npceventcase_), _Internal::kOneofCaseOffset + 0, 3, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerHawkerCaseBin hawkerCase = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.hawkercase_), _Internal::kOneofCaseOffset + 0, 4, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerStrengthenMachineCaseBin strengthenMachineCase = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.strengthenmachinecase_), _Internal::kOneofCaseOffset + 0, 5, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerRecoveryHPCaseBin recoveryHPCase = 9;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.recoveryhpcase_), _Internal::kOneofCaseOffset + 0, 6, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.npcrecoveryhpcase_), _Internal::kOneofCaseOffset + 0, 7, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerSyncHPCaseBin syncHPCase = 11;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.synchpcase_), _Internal::kOneofCaseOffset + 0, 8, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerPotentialCaseBin selectSpecialPotentialCase = 12;
-    {PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.data_.selectspecialpotentialcase_), _Internal::kOneofCaseOffset + 0, 9, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.type_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // .ServerProto.StarTowerBattleCaseBin battleCase = 3;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.battlecase_), _Internal::kOneofCaseOffset + 0, 0, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerDoorCaseBin doorCase = 4;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.doorcase_), _Internal::kOneofCaseOffset + 0, 1, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerPotentialCaseBin potentialCase = 5;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.potentialcase_), _Internal::kOneofCaseOffset + 0, 2, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerNpcEventCaseBin npcEventCase = 6;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.npceventcase_), _Internal::kOneofCaseOffset + 0, 3, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerHawkerCaseBin hawkerCase = 7;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.hawkercase_), _Internal::kOneofCaseOffset + 0, 4, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerStrengthenMachineCaseBin strengthenMachineCase = 8;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.strengthenmachinecase_), _Internal::kOneofCaseOffset + 0, 5, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerRecoveryHPCaseBin recoveryHPCase = 9;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.recoveryhpcase_), _Internal::kOneofCaseOffset + 0, 6, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.npcrecoveryhpcase_), _Internal::kOneofCaseOffset + 0, 7, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerSyncHPCaseBin syncHPCase = 11;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.synchpcase_), _Internal::kOneofCaseOffset + 0, 8, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerPotentialCaseBin selectSpecialPotentialCase = 12;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.data_.selectspecialpotentialcase_), _Internal::kOneofCaseOffset + 0, 9, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerBattleCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerDoorCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerNpcEventCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerHawkerCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerStrengthenMachineCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerRecoveryHPCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerNpcRecoveryHPCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerSyncHPCaseBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerBattleCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerDoorCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerNpcEventCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerHawkerCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerStrengthenMachineCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerRecoveryHPCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerNpcRecoveryHPCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerSyncHPCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialCaseBin>()},
   }},
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerCaseBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerCaseBin)
+PROTOBUF_NOINLINE void StarTowerCaseBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerCaseBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -20850,20 +20854,20 @@ PROTOBUF_NOINLINE void TowerCaseBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerCaseBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerCaseBin& this_ = static_cast<const TowerCaseBin&>(base);
+  const StarTowerCaseBin& this_ = static_cast<const StarTowerCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerCaseBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerCaseBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerCaseBin& this_ = *this;
+  const StarTowerCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerCaseBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -20955,18 +20959,18 @@ PROTOBUF_NOINLINE void TowerCaseBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerCaseBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerCaseBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerCaseBin::ByteSizeLong(const MessageLite& base) {
-  const TowerCaseBin& this_ = static_cast<const TowerCaseBin&>(base);
+::size_t StarTowerCaseBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerCaseBin& this_ = static_cast<const StarTowerCaseBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerCaseBin::ByteSizeLong() const {
-  const TowerCaseBin& this_ = *this;
+::size_t StarTowerCaseBin::ByteSizeLong() const {
+  const StarTowerCaseBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerCaseBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerCaseBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -20992,61 +20996,61 @@ PROTOBUF_NOINLINE void TowerCaseBin::Clear() {
     }
   }
   switch (this_.data_case()) {
-    // .ServerProto.TowerBattleCaseBin battleCase = 3;
+    // .ServerProto.StarTowerBattleCaseBin battleCase = 3;
     case kBattleCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.battlecase_);
       break;
     }
-    // .ServerProto.TowerDoorCaseBin doorCase = 4;
+    // .ServerProto.StarTowerDoorCaseBin doorCase = 4;
     case kDoorCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.doorcase_);
       break;
     }
-    // .ServerProto.TowerPotentialCaseBin potentialCase = 5;
+    // .ServerProto.StarTowerPotentialCaseBin potentialCase = 5;
     case kPotentialCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.potentialcase_);
       break;
     }
-    // .ServerProto.TowerNpcEventCaseBin npcEventCase = 6;
+    // .ServerProto.StarTowerNpcEventCaseBin npcEventCase = 6;
     case kNpcEventCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.npceventcase_);
       break;
     }
-    // .ServerProto.TowerHawkerCaseBin hawkerCase = 7;
+    // .ServerProto.StarTowerHawkerCaseBin hawkerCase = 7;
     case kHawkerCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.hawkercase_);
       break;
     }
-    // .ServerProto.TowerStrengthenMachineCaseBin strengthenMachineCase = 8;
+    // .ServerProto.StarTowerStrengthenMachineCaseBin strengthenMachineCase = 8;
     case kStrengthenMachineCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.strengthenmachinecase_);
       break;
     }
-    // .ServerProto.TowerRecoveryHPCaseBin recoveryHPCase = 9;
+    // .ServerProto.StarTowerRecoveryHPCaseBin recoveryHPCase = 9;
     case kRecoveryHPCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.recoveryhpcase_);
       break;
     }
-    // .ServerProto.TowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
+    // .ServerProto.StarTowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
     case kNpcRecoveryHPCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.npcrecoveryhpcase_);
       break;
     }
-    // .ServerProto.TowerSyncHPCaseBin syncHPCase = 11;
+    // .ServerProto.StarTowerSyncHPCaseBin syncHPCase = 11;
     case kSyncHPCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.synchpcase_);
       break;
     }
-    // .ServerProto.TowerPotentialCaseBin selectSpecialPotentialCase = 12;
+    // .ServerProto.StarTowerPotentialCaseBin selectSpecialPotentialCase = 12;
     case kSelectSpecialPotentialCase: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_.selectspecialpotentialcase_);
@@ -21060,16 +21064,16 @@ PROTOBUF_NOINLINE void TowerCaseBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerCaseBin*>(&to_msg);
-  auto& from = static_cast<const TowerCaseBin&>(from_msg);
+      static_cast<StarTowerCaseBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerCaseBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerCaseBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerCaseBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -21188,68 +21192,68 @@ void TowerCaseBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerCaseBin::CopyFrom(const TowerCaseBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerCaseBin)
+void StarTowerCaseBin::CopyFrom(const StarTowerCaseBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerCaseBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerCaseBin::InternalSwap(TowerCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerCaseBin::InternalSwap(StarTowerCaseBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.type_)
-      + sizeof(TowerCaseBin::_impl_.type_)
-      - PROTOBUF_FIELD_OFFSET(TowerCaseBin, _impl_.id_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.type_)
+      + sizeof(StarTowerCaseBin::_impl_.type_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerCaseBin, _impl_.id_)>(
           reinterpret_cast<char*>(&_impl_.id_),
           reinterpret_cast<char*>(&other->_impl_.id_));
   swap(_impl_.data_, other->_impl_.data_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-::google::protobuf::Metadata TowerCaseBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerCaseBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class TowerRoomBin::_Internal {
+class StarTowerRoomBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerRoomBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerRoomBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_._has_bits_);
 };
 
-TowerRoomBin::TowerRoomBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerRoomBin::StarTowerRoomBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerRoomBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerRoomBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerRoomBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerRoomBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerRoomBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerRoomBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerRoomBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerRoomBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         cases_{visibility, arena, from.cases_},
         mapparam_(arena, from.mapparam_) {}
 
-TowerRoomBin::TowerRoomBin(
+StarTowerRoomBin::StarTowerRoomBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerRoomBin& from)
+    const StarTowerRoomBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerRoomBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerRoomBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerRoomBin* const _this = this;
+  StarTowerRoomBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -21262,16 +21266,16 @@ TowerRoomBin::TowerRoomBin(
                offsetof(Impl_, stageid_) +
                sizeof(Impl_::hasdoor_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerRoomBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerRoomBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerRoomBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerRoomBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         cases_{visibility, arena},
         mapparam_(arena) {}
 
-inline void TowerRoomBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerRoomBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, stageid_),
@@ -21280,12 +21284,12 @@ inline void TowerRoomBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                offsetof(Impl_, stageid_) +
                sizeof(Impl_::hasdoor_));
 }
-TowerRoomBin::~TowerRoomBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerRoomBin)
+StarTowerRoomBin::~StarTowerRoomBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerRoomBin)
   SharedDtor(*this);
 }
-inline void TowerRoomBin::SharedDtor(MessageLite& self) {
-  TowerRoomBin& this_ = static_cast<TowerRoomBin&>(self);
+inline void StarTowerRoomBin::SharedDtor(MessageLite& self) {
+  StarTowerRoomBin& this_ = static_cast<StarTowerRoomBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -21295,65 +21299,65 @@ inline void TowerRoomBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerRoomBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerRoomBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerRoomBin(arena);
+  return ::new (mem) StarTowerRoomBin(arena);
 }
-constexpr auto TowerRoomBin::InternalNewImpl_() {
+constexpr auto StarTowerRoomBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.cases_) +
-          decltype(TowerRoomBin::_impl_.cases_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.cases_) +
+          decltype(StarTowerRoomBin::_impl_.cases_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(TowerRoomBin), alignof(TowerRoomBin), *arena_bits);
+        sizeof(StarTowerRoomBin), alignof(StarTowerRoomBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerRoomBin::PlacementNew_,
-                                 sizeof(TowerRoomBin),
-                                 alignof(TowerRoomBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerRoomBin::PlacementNew_,
+                                 sizeof(StarTowerRoomBin),
+                                 alignof(StarTowerRoomBin));
   }
 }
-constexpr auto TowerRoomBin::InternalGenerateClassData_() {
+constexpr auto StarTowerRoomBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerRoomBin_default_instance_._instance,
+          &_StarTowerRoomBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerRoomBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerRoomBin>(),
+          &StarTowerRoomBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerRoomBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerRoomBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerRoomBin>(), &TowerRoomBin::ByteSizeLong,
-              &TowerRoomBin::_InternalSerialize,
+          &StarTowerRoomBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerRoomBin>(), &StarTowerRoomBin::ByteSizeLong,
+              &StarTowerRoomBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_._cached_size_),
           false,
       },
-      &TowerRoomBin::kDescriptorMethods,
+      &StarTowerRoomBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerRoomBin_class_data_ =
-        TowerRoomBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerRoomBin_class_data_ =
+        StarTowerRoomBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerRoomBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerRoomBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerRoomBin_class_data_.tc_table);
-  return TowerRoomBin_class_data_.base();
+StarTowerRoomBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerRoomBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerRoomBin_class_data_.tc_table);
+  return StarTowerRoomBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 9, 1, 49, 2>
-TowerRoomBin::_table_ = {
+const ::_pbi::TcParseTable<4, 9, 1, 53, 2>
+StarTowerRoomBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_._has_bits_),
     0, // no _extensions_
     9, 120,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -21362,50 +21366,50 @@ TowerRoomBin::_table_ = {
     9,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerRoomBin_class_data_.base(),
+    StarTowerRoomBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerRoomBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerRoomBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // uint32 stageId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRoomBin, _impl_.stageid_), 2>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRoomBin, _impl_.stageid_), 2>(),
      {8, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.stageid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.stageid_)}},
     // uint32 roomType = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRoomBin, _impl_.roomtype_), 3>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRoomBin, _impl_.roomtype_), 3>(),
      {16, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.roomtype_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.roomtype_)}},
     // uint32 mapId = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRoomBin, _impl_.mapid_), 4>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRoomBin, _impl_.mapid_), 4>(),
      {24, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.mapid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.mapid_)}},
     // uint32 mapTableId = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRoomBin, _impl_.maptableid_), 5>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRoomBin, _impl_.maptableid_), 5>(),
      {32, 5, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.maptableid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.maptableid_)}},
     // string mapParam = 5;
     {::_pbi::TcParser::FastUS1,
      {42, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.mapparam_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.mapparam_)}},
     // uint32 paramId = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRoomBin, _impl_.paramid_), 6>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRoomBin, _impl_.paramid_), 6>(),
      {48, 6, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.paramid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.paramid_)}},
     // uint32 lastCaseId = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerRoomBin, _impl_.lastcaseid_), 7>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerRoomBin, _impl_.lastcaseid_), 7>(),
      {56, 7, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.lastcaseid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.lastcaseid_)}},
     // bool hasDoor = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TowerRoomBin, _impl_.hasdoor_), 8>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StarTowerRoomBin, _impl_.hasdoor_), 8>(),
      {64, 8, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.hasdoor_)}},
-    // repeated .ServerProto.TowerCaseBin cases = 9;
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.hasdoor_)}},
+    // repeated .ServerProto.StarTowerCaseBin cases = 9;
     {::_pbi::TcParser::FastMtR1,
      {74, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.cases_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.cases_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -21416,35 +21420,35 @@ TowerRoomBin::_table_ = {
     65535, 65535
   }}, {{
     // uint32 stageId = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.stageid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.stageid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 roomType = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.roomtype_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.roomtype_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 mapId = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.mapid_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.mapid_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 mapTableId = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.maptableid_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.maptableid_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // string mapParam = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.mapparam_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.mapparam_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // uint32 paramId = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.paramid_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.paramid_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 lastCaseId = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.lastcaseid_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.lastcaseid_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool hasDoor = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.hasdoor_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
-    // repeated .ServerProto.TowerCaseBin cases = 9;
-    {PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.cases_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.hasdoor_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // repeated .ServerProto.StarTowerCaseBin cases = 9;
+    {PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.cases_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerCaseBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerCaseBin>()},
   }},
   {{
-    "\30\0\0\0\0\10\0\0\0\0\0\0\0\0\0\0"
-    "ServerProto.TowerRoomBin"
+    "\34\0\0\0\0\10\0\0\0\0\0\0\0\0\0\0"
+    "ServerProto.StarTowerRoomBin"
     "mapParam"
   }},
 };
-PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerRoomBin)
+PROTOBUF_NOINLINE void StarTowerRoomBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerRoomBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -21470,20 +21474,20 @@ PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerRoomBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerRoomBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerRoomBin& this_ = static_cast<const TowerRoomBin&>(base);
+  const StarTowerRoomBin& this_ = static_cast<const StarTowerRoomBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerRoomBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerRoomBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerRoomBin& this_ = *this;
+  const StarTowerRoomBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerRoomBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerRoomBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -21529,7 +21533,7 @@ PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
     if (!this_._internal_mapparam().empty()) {
       const ::std::string& _s = this_._internal_mapparam();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.TowerRoomBin.mapParam");
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ServerProto.StarTowerRoomBin.mapParam");
       target = stream->WriteStringMaybeAliased(5, _s, target);
     }
   }
@@ -21561,7 +21565,7 @@ PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
     }
   }
 
-  // repeated .ServerProto.TowerCaseBin cases = 9;
+  // repeated .ServerProto.StarTowerCaseBin cases = 9;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_cases_size());
@@ -21579,18 +21583,18 @@ PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerRoomBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerRoomBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerRoomBin::ByteSizeLong(const MessageLite& base) {
-  const TowerRoomBin& this_ = static_cast<const TowerRoomBin&>(base);
+::size_t StarTowerRoomBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerRoomBin& this_ = static_cast<const StarTowerRoomBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerRoomBin::ByteSizeLong() const {
-  const TowerRoomBin& this_ = *this;
+::size_t StarTowerRoomBin::ByteSizeLong() const {
+  const StarTowerRoomBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerRoomBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerRoomBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -21600,7 +21604,7 @@ PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
   if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
-    // repeated .ServerProto.TowerCaseBin cases = 9;
+    // repeated .ServerProto.StarTowerCaseBin cases = 9;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_cases_size();
       for (const auto& msg : this_._internal_cases()) {
@@ -21669,16 +21673,16 @@ PROTOBUF_NOINLINE void TowerRoomBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerRoomBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerRoomBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerRoomBin*>(&to_msg);
-  auto& from = static_cast<const TowerRoomBin&>(from_msg);
+      static_cast<StarTowerRoomBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerRoomBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerRoomBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerRoomBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -21740,15 +21744,15 @@ void TowerRoomBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerRoomBin::CopyFrom(const TowerRoomBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerRoomBin)
+void StarTowerRoomBin::CopyFrom(const StarTowerRoomBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerRoomBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerRoomBin::InternalSwap(TowerRoomBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerRoomBin::InternalSwap(StarTowerRoomBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
@@ -21757,75 +21761,75 @@ void TowerRoomBin::InternalSwap(TowerRoomBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   _impl_.cases_.InternalSwap(&other->_impl_.cases_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.mapparam_, &other->_impl_.mapparam_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.hasdoor_)
-      + sizeof(TowerRoomBin::_impl_.hasdoor_)
-      - PROTOBUF_FIELD_OFFSET(TowerRoomBin, _impl_.stageid_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.hasdoor_)
+      + sizeof(StarTowerRoomBin::_impl_.hasdoor_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerRoomBin, _impl_.stageid_)>(
           reinterpret_cast<char*>(&_impl_.stageid_),
           reinterpret_cast<char*>(&other->_impl_.stageid_));
 }
 
-::google::protobuf::Metadata TowerRoomBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerRoomBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerGameBin_ItemsEntry_DoNotUse::TowerGameBin_ItemsEntry_DoNotUse()
-    : SuperType(TowerGameBin_ItemsEntry_DoNotUse_class_data_.base()) {}
-TowerGameBin_ItemsEntry_DoNotUse::TowerGameBin_ItemsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerGameBin_ItemsEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_ItemsEntry_DoNotUse::StarTowerGameBin_ItemsEntry_DoNotUse()
+    : SuperType(StarTowerGameBin_ItemsEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_ItemsEntry_DoNotUse::StarTowerGameBin_ItemsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerGameBin_ItemsEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerGameBin_ItemsEntry_DoNotUse::TowerGameBin_ItemsEntry_DoNotUse() : SuperType() {}
-TowerGameBin_ItemsEntry_DoNotUse::TowerGameBin_ItemsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerGameBin_ItemsEntry_DoNotUse::StarTowerGameBin_ItemsEntry_DoNotUse() : SuperType() {}
+StarTowerGameBin_ItemsEntry_DoNotUse::StarTowerGameBin_ItemsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerGameBin_ItemsEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerGameBin_ItemsEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerGameBin_ItemsEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerGameBin_ItemsEntry_DoNotUse(arena);
 }
-constexpr auto TowerGameBin_ItemsEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerGameBin_ItemsEntry_DoNotUse),
-                                            alignof(TowerGameBin_ItemsEntry_DoNotUse));
+constexpr auto StarTowerGameBin_ItemsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerGameBin_ItemsEntry_DoNotUse),
+                                            alignof(StarTowerGameBin_ItemsEntry_DoNotUse));
 }
-constexpr auto TowerGameBin_ItemsEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerGameBin_ItemsEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerGameBin_ItemsEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerGameBin_ItemsEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerGameBin_ItemsEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerGameBin_ItemsEntry_DoNotUse>(),
+          &StarTowerGameBin_ItemsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerGameBin_ItemsEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerGameBin_ItemsEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerGameBin_ItemsEntry_DoNotUse::ClearImpl),
+          &StarTowerGameBin_ItemsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerGameBin_ItemsEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerGameBin_ItemsEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerGameBin_ItemsEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerGameBin_ItemsEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerGameBin_ItemsEntry_DoNotUse_class_data_ =
-        TowerGameBin_ItemsEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerGameBin_ItemsEntry_DoNotUse_class_data_ =
+        StarTowerGameBin_ItemsEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerGameBin_ItemsEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerGameBin_ItemsEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerGameBin_ItemsEntry_DoNotUse_class_data_.tc_table);
-  return TowerGameBin_ItemsEntry_DoNotUse_class_data_.base();
+StarTowerGameBin_ItemsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerGameBin_ItemsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerGameBin_ItemsEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerGameBin_ItemsEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerGameBin_ItemsEntry_DoNotUse::_table_ = {
+StarTowerGameBin_ItemsEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerGameBin_ItemsEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -21834,28 +21838,28 @@ TowerGameBin_ItemsEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerGameBin_ItemsEntry_DoNotUse_class_data_.base(),
+    StarTowerGameBin_ItemsEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerGameBin_ItemsEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerGameBin_ItemsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // int32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_ItemsEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_ItemsEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_ItemsEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_ItemsEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_ItemsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_ItemsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ItemsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
   }},
   // no aux_entries
   {{
@@ -21864,62 +21868,62 @@ TowerGameBin_ItemsEntry_DoNotUse::_table_ = {
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerGameBin_ResEntry_DoNotUse::TowerGameBin_ResEntry_DoNotUse()
-    : SuperType(TowerGameBin_ResEntry_DoNotUse_class_data_.base()) {}
-TowerGameBin_ResEntry_DoNotUse::TowerGameBin_ResEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerGameBin_ResEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_ResEntry_DoNotUse::StarTowerGameBin_ResEntry_DoNotUse()
+    : SuperType(StarTowerGameBin_ResEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_ResEntry_DoNotUse::StarTowerGameBin_ResEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerGameBin_ResEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerGameBin_ResEntry_DoNotUse::TowerGameBin_ResEntry_DoNotUse() : SuperType() {}
-TowerGameBin_ResEntry_DoNotUse::TowerGameBin_ResEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerGameBin_ResEntry_DoNotUse::StarTowerGameBin_ResEntry_DoNotUse() : SuperType() {}
+StarTowerGameBin_ResEntry_DoNotUse::StarTowerGameBin_ResEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerGameBin_ResEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerGameBin_ResEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerGameBin_ResEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerGameBin_ResEntry_DoNotUse(arena);
 }
-constexpr auto TowerGameBin_ResEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerGameBin_ResEntry_DoNotUse),
-                                            alignof(TowerGameBin_ResEntry_DoNotUse));
+constexpr auto StarTowerGameBin_ResEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerGameBin_ResEntry_DoNotUse),
+                                            alignof(StarTowerGameBin_ResEntry_DoNotUse));
 }
-constexpr auto TowerGameBin_ResEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerGameBin_ResEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerGameBin_ResEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerGameBin_ResEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerGameBin_ResEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerGameBin_ResEntry_DoNotUse>(),
+          &StarTowerGameBin_ResEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerGameBin_ResEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerGameBin_ResEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerGameBin_ResEntry_DoNotUse::ClearImpl),
+          &StarTowerGameBin_ResEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerGameBin_ResEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerGameBin_ResEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ResEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerGameBin_ResEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerGameBin_ResEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerGameBin_ResEntry_DoNotUse_class_data_ =
-        TowerGameBin_ResEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerGameBin_ResEntry_DoNotUse_class_data_ =
+        StarTowerGameBin_ResEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerGameBin_ResEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerGameBin_ResEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerGameBin_ResEntry_DoNotUse_class_data_.tc_table);
-  return TowerGameBin_ResEntry_DoNotUse_class_data_.base();
+StarTowerGameBin_ResEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerGameBin_ResEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerGameBin_ResEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerGameBin_ResEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerGameBin_ResEntry_DoNotUse::_table_ = {
+StarTowerGameBin_ResEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerGameBin_ResEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ResEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -21928,28 +21932,28 @@ TowerGameBin_ResEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerGameBin_ResEntry_DoNotUse_class_data_.base(),
+    StarTowerGameBin_ResEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerGameBin_ResEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerGameBin_ResEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // int32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_ResEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_ResEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_ResEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ResEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_ResEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_ResEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_ResEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ResEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_ResEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ResEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_ResEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_ResEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
   }},
   // no aux_entries
   {{
@@ -21958,62 +21962,62 @@ TowerGameBin_ResEntry_DoNotUse::_table_ = {
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerGameBin_PotentialsEntry_DoNotUse::TowerGameBin_PotentialsEntry_DoNotUse()
-    : SuperType(TowerGameBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
-TowerGameBin_PotentialsEntry_DoNotUse::TowerGameBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerGameBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_PotentialsEntry_DoNotUse::StarTowerGameBin_PotentialsEntry_DoNotUse()
+    : SuperType(StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_PotentialsEntry_DoNotUse::StarTowerGameBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerGameBin_PotentialsEntry_DoNotUse::TowerGameBin_PotentialsEntry_DoNotUse() : SuperType() {}
-TowerGameBin_PotentialsEntry_DoNotUse::TowerGameBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerGameBin_PotentialsEntry_DoNotUse::StarTowerGameBin_PotentialsEntry_DoNotUse() : SuperType() {}
+StarTowerGameBin_PotentialsEntry_DoNotUse::StarTowerGameBin_PotentialsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerGameBin_PotentialsEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerGameBin_PotentialsEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerGameBin_PotentialsEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerGameBin_PotentialsEntry_DoNotUse(arena);
 }
-constexpr auto TowerGameBin_PotentialsEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerGameBin_PotentialsEntry_DoNotUse),
-                                            alignof(TowerGameBin_PotentialsEntry_DoNotUse));
+constexpr auto StarTowerGameBin_PotentialsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerGameBin_PotentialsEntry_DoNotUse),
+                                            alignof(StarTowerGameBin_PotentialsEntry_DoNotUse));
 }
-constexpr auto TowerGameBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerGameBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerGameBin_PotentialsEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerGameBin_PotentialsEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerGameBin_PotentialsEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerGameBin_PotentialsEntry_DoNotUse>(),
+          &StarTowerGameBin_PotentialsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerGameBin_PotentialsEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerGameBin_PotentialsEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerGameBin_PotentialsEntry_DoNotUse::ClearImpl),
+          &StarTowerGameBin_PotentialsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerGameBin_PotentialsEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerGameBin_PotentialsEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerGameBin_PotentialsEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerGameBin_PotentialsEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerGameBin_PotentialsEntry_DoNotUse_class_data_ =
-        TowerGameBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_ =
+        StarTowerGameBin_PotentialsEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerGameBin_PotentialsEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerGameBin_PotentialsEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerGameBin_PotentialsEntry_DoNotUse_class_data_.tc_table);
-  return TowerGameBin_PotentialsEntry_DoNotUse_class_data_.base();
+StarTowerGameBin_PotentialsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerGameBin_PotentialsEntry_DoNotUse::_table_ = {
+StarTowerGameBin_PotentialsEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerGameBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -22022,28 +22026,28 @@ TowerGameBin_PotentialsEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerGameBin_PotentialsEntry_DoNotUse_class_data_.base(),
+    StarTowerGameBin_PotentialsEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerGameBin_PotentialsEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerGameBin_PotentialsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // int32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_PotentialsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
   }},
   // no aux_entries
   {{
@@ -22052,62 +22056,62 @@ TowerGameBin_PotentialsEntry_DoNotUse::_table_ = {
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerGameBin_RarePotentialCountEntry_DoNotUse::TowerGameBin_RarePotentialCountEntry_DoNotUse()
-    : SuperType(TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base()) {}
-TowerGameBin_RarePotentialCountEntry_DoNotUse::TowerGameBin_RarePotentialCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_RarePotentialCountEntry_DoNotUse::StarTowerGameBin_RarePotentialCountEntry_DoNotUse()
+    : SuperType(StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base()) {}
+StarTowerGameBin_RarePotentialCountEntry_DoNotUse::StarTowerGameBin_RarePotentialCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerGameBin_RarePotentialCountEntry_DoNotUse::TowerGameBin_RarePotentialCountEntry_DoNotUse() : SuperType() {}
-TowerGameBin_RarePotentialCountEntry_DoNotUse::TowerGameBin_RarePotentialCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerGameBin_RarePotentialCountEntry_DoNotUse::StarTowerGameBin_RarePotentialCountEntry_DoNotUse() : SuperType() {}
+StarTowerGameBin_RarePotentialCountEntry_DoNotUse::StarTowerGameBin_RarePotentialCountEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerGameBin_RarePotentialCountEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerGameBin_RarePotentialCountEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerGameBin_RarePotentialCountEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerGameBin_RarePotentialCountEntry_DoNotUse(arena);
 }
-constexpr auto TowerGameBin_RarePotentialCountEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerGameBin_RarePotentialCountEntry_DoNotUse),
-                                            alignof(TowerGameBin_RarePotentialCountEntry_DoNotUse));
+constexpr auto StarTowerGameBin_RarePotentialCountEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerGameBin_RarePotentialCountEntry_DoNotUse),
+                                            alignof(StarTowerGameBin_RarePotentialCountEntry_DoNotUse));
 }
-constexpr auto TowerGameBin_RarePotentialCountEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerGameBin_RarePotentialCountEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerGameBin_RarePotentialCountEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerGameBin_RarePotentialCountEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerGameBin_RarePotentialCountEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerGameBin_RarePotentialCountEntry_DoNotUse>(),
+          &StarTowerGameBin_RarePotentialCountEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerGameBin_RarePotentialCountEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerGameBin_RarePotentialCountEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerGameBin_RarePotentialCountEntry_DoNotUse::ClearImpl),
+          &StarTowerGameBin_RarePotentialCountEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerGameBin_RarePotentialCountEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerGameBin_RarePotentialCountEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerGameBin_RarePotentialCountEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_ =
-        TowerGameBin_RarePotentialCountEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_ =
+        StarTowerGameBin_RarePotentialCountEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerGameBin_RarePotentialCountEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.tc_table);
-  return TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base();
+StarTowerGameBin_RarePotentialCountEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerGameBin_RarePotentialCountEntry_DoNotUse::_table_ = {
+StarTowerGameBin_RarePotentialCountEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -22116,28 +22120,28 @@ TowerGameBin_RarePotentialCountEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base(),
+    StarTowerGameBin_RarePotentialCountEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerGameBin_RarePotentialCountEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerGameBin_RarePotentialCountEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // int32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin_RarePotentialCountEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
   }},
   // no aux_entries
   {{
@@ -22145,27 +22149,27 @@ TowerGameBin_RarePotentialCountEntry_DoNotUse::_table_ = {
 };
 // ===================================================================
 
-class TowerGameBin::_Internal {
+class StarTowerGameBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerGameBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerGameBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_._has_bits_);
 };
 
-TowerGameBin::TowerGameBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerGameBin::StarTowerGameBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerGameBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerGameBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerGameBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerGameBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerGameBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerGameBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerGameBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerGameBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         charids_{visibility, arena, from.charids_},
@@ -22183,15 +22187,15 @@ PROTOBUF_NDEBUG_INLINE TowerGameBin::Impl_::Impl_(
         potentials_{visibility, arena, from.potentials_},
         rarepotentialcount_{visibility, arena, from.rarepotentialcount_} {}
 
-TowerGameBin::TowerGameBin(
+StarTowerGameBin::StarTowerGameBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerGameBin& from)
+    const StarTowerGameBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerGameBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerGameBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerGameBin* const _this = this;
+  StarTowerGameBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -22208,9 +22212,9 @@ TowerGameBin::TowerGameBin(
                offsetof(Impl_, towerid_) +
                sizeof(Impl_::shoprerollprice_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerGameBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerGameBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerGameBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerGameBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
@@ -22229,7 +22233,7 @@ PROTOBUF_NDEBUG_INLINE TowerGameBin::Impl_::Impl_(
         potentials_{visibility, arena},
         rarepotentialcount_{visibility, arena} {}
 
-inline void TowerGameBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerGameBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, room_),
@@ -22238,12 +22242,12 @@ inline void TowerGameBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                offsetof(Impl_, room_) +
                sizeof(Impl_::shoprerollprice_));
 }
-TowerGameBin::~TowerGameBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerGameBin)
+StarTowerGameBin::~StarTowerGameBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerGameBin)
   SharedDtor(*this);
 }
-inline void TowerGameBin::SharedDtor(MessageLite& self) {
-  TowerGameBin& this_ = static_cast<TowerGameBin&>(self);
+inline void StarTowerGameBin::SharedDtor(MessageLite& self) {
+  StarTowerGameBin& this_ = static_cast<StarTowerGameBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -22253,97 +22257,97 @@ inline void TowerGameBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerGameBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerGameBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerGameBin(arena);
+  return ::new (mem) StarTowerGameBin(arena);
 }
-constexpr auto TowerGameBin::InternalNewImpl_() {
+constexpr auto StarTowerGameBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.charids_) +
-          decltype(TowerGameBin::_impl_.charids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.charids_) +
+          decltype(StarTowerGameBin::_impl_.charids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.discids_) +
-          decltype(TowerGameBin::_impl_.discids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.discids_) +
+          decltype(StarTowerGameBin::_impl_.discids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.items_) +
-          decltype(TowerGameBin::_impl_.items_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.items_) +
+          decltype(StarTowerGameBin::_impl_.items_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.res_) +
-          decltype(TowerGameBin::_impl_.res_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.res_) +
+          decltype(StarTowerGameBin::_impl_.res_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.potentials_) +
-          decltype(TowerGameBin::_impl_.potentials_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.potentials_) +
+          decltype(StarTowerGameBin::_impl_.potentials_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.rarepotentialcount_) +
-          decltype(TowerGameBin::_impl_.rarepotentialcount_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.rarepotentialcount_) +
+          decltype(StarTowerGameBin::_impl_.rarepotentialcount_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.activesecondaryids_) +
-          decltype(TowerGameBin::_impl_.activesecondaryids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.activesecondaryids_) +
+          decltype(StarTowerGameBin::_impl_.activesecondaryids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.fatecards_) +
-          decltype(TowerGameBin::_impl_.fatecards_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.fatecards_) +
+          decltype(StarTowerGameBin::_impl_.fatecards_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.totaldamages_) +
-          decltype(TowerGameBin::_impl_.totaldamages_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.totaldamages_) +
+          decltype(StarTowerGameBin::_impl_.totaldamages_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(TowerGameBin), alignof(TowerGameBin), *arena_bits);
+        sizeof(StarTowerGameBin), alignof(StarTowerGameBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerGameBin::PlacementNew_,
-                                 sizeof(TowerGameBin),
-                                 alignof(TowerGameBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerGameBin::PlacementNew_,
+                                 sizeof(StarTowerGameBin),
+                                 alignof(StarTowerGameBin));
   }
 }
-constexpr auto TowerGameBin::InternalGenerateClassData_() {
+constexpr auto StarTowerGameBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerGameBin_default_instance_._instance,
+          &_StarTowerGameBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerGameBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerGameBin>(),
+          &StarTowerGameBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerGameBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerGameBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerGameBin>(), &TowerGameBin::ByteSizeLong,
-              &TowerGameBin::_InternalSerialize,
+          &StarTowerGameBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerGameBin>(), &StarTowerGameBin::ByteSizeLong,
+              &StarTowerGameBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_._cached_size_),
           false,
       },
-      &TowerGameBin::kDescriptorMethods,
+      &StarTowerGameBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerGameBin_class_data_ =
-        TowerGameBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerGameBin_class_data_ =
+        StarTowerGameBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerGameBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerGameBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerGameBin_class_data_.tc_table);
-  return TowerGameBin_class_data_.base();
+StarTowerGameBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerGameBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerGameBin_class_data_.tc_table);
+  return StarTowerGameBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<5, 28, 5, 0, 2>
-TowerGameBin::_table_ = {
+StarTowerGameBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_._has_bits_),
     0, // no _extensions_
     28, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -22352,82 +22356,82 @@ TowerGameBin::_table_ = {
     28,  // num_field_entries
     5,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerGameBin_class_data_.base(),
+    StarTowerGameBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerGameBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerGameBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // uint32 towerId = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.towerid_), 6>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.towerid_), 6>(),
      {8, 6, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.towerid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.towerid_)}},
     // uint32 formationId = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.formationid_), 7>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.formationid_), 7>(),
      {16, 7, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.formationid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.formationid_)}},
     // uint64 buildId = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(TowerGameBin, _impl_.buildid_), 8>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(StarTowerGameBin, _impl_.buildid_), 8>(),
      {24, 8, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.buildid_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.buildid_)}},
     // uint32 floorCount = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.floorcount_), 9>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.floorcount_), 9>(),
      {32, 9, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.floorcount_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.floorcount_)}},
     // uint32 stageNum = 5;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.stagenum_), 10>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.stagenum_), 10>(),
      {40, 10, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.stagenum_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.stagenum_)}},
     // uint32 stageFloor = 6;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.stagefloor_), 11>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.stagefloor_), 11>(),
      {48, 11, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.stagefloor_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.stagefloor_)}},
     // uint32 teamLevel = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.teamlevel_), 12>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.teamlevel_), 12>(),
      {56, 12, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.teamlevel_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.teamlevel_)}},
     // uint32 teamExp = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.teamexp_), 13>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.teamexp_), 13>(),
      {64, 13, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.teamexp_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.teamexp_)}},
     // uint32 nextLevelExp = 9;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.nextlevelexp_), 14>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.nextlevelexp_), 14>(),
      {72, 14, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.nextlevelexp_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.nextlevelexp_)}},
     // int32 charHp = 10;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.charhp_), 15>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.charhp_), 15>(),
      {80, 15, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.charhp_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.charhp_)}},
     // uint32 battleTime = 11;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.battletime_), 16>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.battletime_), 16>(),
      {88, 16, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.battletime_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.battletime_)}},
     // repeated uint32 charIds = 12;
     {::_pbi::TcParser::FastV32P1,
      {98, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.charids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.charids_)}},
     // repeated uint32 discIds = 13;
     {::_pbi::TcParser::FastV32P1,
      {106, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.discids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.discids_)}},
     // uint32 pendingPotentialCases = 14;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.pendingpotentialcases_), 17>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.pendingpotentialcases_), 17>(),
      {112, 17, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.pendingpotentialcases_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.pendingpotentialcases_)}},
     // uint32 pendingRarePotentialCases = 15;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerGameBin, _impl_.pendingrarepotentialcases_), 18>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerGameBin, _impl_.pendingrarepotentialcases_), 18>(),
      {120, 18, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.pendingrarepotentialcases_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.pendingrarepotentialcases_)}},
     // bool completed = 16;
     {::_pbi::TcParser::FastV8S2,
      {384, 19, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.completed_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.completed_)}},
     // bool sweep = 17;
     {::_pbi::TcParser::FastV8S2,
      {392, 20, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.sweep_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.sweep_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -22435,31 +22439,31 @@ TowerGameBin::_table_ = {
     // repeated uint32 activeSecondaryIds = 22;
     {::_pbi::TcParser::FastV32P2,
      {434, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.activesecondaryids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.activesecondaryids_)}},
     // repeated uint32 fateCards = 23;
     {::_pbi::TcParser::FastV32P2,
      {442, 3, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.fatecards_)}},
-    // .ServerProto.TowerRoomBin room = 24;
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.fatecards_)}},
+    // .ServerProto.StarTowerRoomBin room = 24;
     {::_pbi::TcParser::FastMtS2,
      {450, 5, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.room_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.room_)}},
     // repeated uint64 totalDamages = 25;
     {::_pbi::TcParser::FastV64P2,
      {458, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.totaldamages_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.totaldamages_)}},
     // uint32 shopRerollTimes = 26;
     {::_pbi::TcParser::FastV32S2,
      {464, 22, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerolltimes_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.shoprerolltimes_)}},
     // uint32 shopRerollPrice = 27;
     {::_pbi::TcParser::FastV32S2,
      {472, 23, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerollprice_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.shoprerollprice_)}},
     // bool freeStrengthenAvailable = 28;
     {::_pbi::TcParser::FastV8S2,
      {480, 21, 0,
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.freestrengthenavailable_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.freestrengthenavailable_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -22467,64 +22471,64 @@ TowerGameBin::_table_ = {
     65535, 65535
   }}, {{
     // uint32 towerId = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.towerid_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.towerid_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 formationId = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.formationid_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.formationid_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint64 buildId = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.buildid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.buildid_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
     // uint32 floorCount = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.floorcount_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.floorcount_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 stageNum = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.stagenum_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.stagenum_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 stageFloor = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.stagefloor_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.stagefloor_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 teamLevel = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.teamlevel_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.teamlevel_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 teamExp = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.teamexp_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.teamexp_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 nextLevelExp = 9;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.nextlevelexp_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.nextlevelexp_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // int32 charHp = 10;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.charhp_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.charhp_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
     // uint32 battleTime = 11;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.battletime_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.battletime_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // repeated uint32 charIds = 12;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.charids_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.charids_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 discIds = 13;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.discids_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.discids_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // uint32 pendingPotentialCases = 14;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.pendingpotentialcases_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.pendingpotentialcases_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 pendingRarePotentialCases = 15;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.pendingrarepotentialcases_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.pendingrarepotentialcases_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool completed = 16;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.completed_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.completed_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // bool sweep = 17;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.sweep_), _Internal::kHasBitsOffset + 20, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.sweep_), _Internal::kHasBitsOffset + 20, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // map<uint32, int32> items = 18;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.items_), _Internal::kHasBitsOffset + 24, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.items_), _Internal::kHasBitsOffset + 24, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> res = 19;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.res_), _Internal::kHasBitsOffset + 25, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.res_), _Internal::kHasBitsOffset + 25, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> potentials = 20;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.potentials_), _Internal::kHasBitsOffset + 26, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.potentials_), _Internal::kHasBitsOffset + 26, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // map<uint32, int32> rarePotentialCount = 21;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.rarepotentialcount_), _Internal::kHasBitsOffset + 27, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.rarepotentialcount_), _Internal::kHasBitsOffset + 27, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // repeated uint32 activeSecondaryIds = 22;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 fateCards = 23;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.fatecards_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
-    // .ServerProto.TowerRoomBin room = 24;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.room_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.fatecards_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // .ServerProto.StarTowerRoomBin room = 24;
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.room_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated uint64 totalDamages = 25;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.totaldamages_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt64)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.totaldamages_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt64)},
     // uint32 shopRerollTimes = 26;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerolltimes_), _Internal::kHasBitsOffset + 22, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.shoprerolltimes_), _Internal::kHasBitsOffset + 22, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 shopRerollPrice = 27;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerollprice_), _Internal::kHasBitsOffset + 23, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.shoprerollprice_), _Internal::kHasBitsOffset + 23, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool freeStrengthenAvailable = 28;
-    {PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.freestrengthenavailable_), _Internal::kHasBitsOffset + 21, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.freestrengthenavailable_), _Internal::kHasBitsOffset + 21, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerRoomBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerRoomBin>()},
       {::_pbi::TcParser::GetMapAuxInfo(
           0, 0, 13, 5, 0)},
       {::_pbi::TcParser::GetMapAuxInfo(
@@ -22537,8 +22541,8 @@ TowerGameBin::_table_ = {
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerGameBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerGameBin)
+PROTOBUF_NOINLINE void StarTowerGameBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerGameBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -22600,20 +22604,20 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerGameBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerGameBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerGameBin& this_ = static_cast<const TowerGameBin&>(base);
+  const StarTowerGameBin& this_ = static_cast<const StarTowerGameBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerGameBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerGameBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerGameBin& this_ = *this;
+  const StarTowerGameBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerGameBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerGameBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -22889,7 +22893,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
     }
   }
 
-  // .ServerProto.TowerRoomBin room = 24;
+  // .ServerProto.StarTowerRoomBin room = 24;
   if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         24, *this_._impl_.room_, this_._impl_.room_->GetCachedSize(), target,
@@ -22939,18 +22943,18 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerGameBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerGameBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerGameBin::ByteSizeLong(const MessageLite& base) {
-  const TowerGameBin& this_ = static_cast<const TowerGameBin&>(base);
+::size_t StarTowerGameBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerGameBin& this_ = static_cast<const StarTowerGameBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerGameBin::ByteSizeLong() const {
-  const TowerGameBin& this_ = *this;
+::size_t StarTowerGameBin::ByteSizeLong() const {
+  const StarTowerGameBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerGameBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerGameBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -22995,7 +22999,7 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
               this_._internal_totaldamages(), 2,
               this_._impl_._totaldamages_cached_byte_size_);
     }
-    // .ServerProto.TowerRoomBin room = 24;
+    // .ServerProto.StarTowerRoomBin room = 24;
     if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.room_);
@@ -23174,16 +23178,16 @@ PROTOBUF_NOINLINE void TowerGameBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerGameBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerGameBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerGameBin*>(&to_msg);
-  auto& from = static_cast<const TowerGameBin&>(from_msg);
+      static_cast<StarTowerGameBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerGameBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerGameBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerGameBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -23327,15 +23331,15 @@ void TowerGameBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerGameBin::CopyFrom(const TowerGameBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerGameBin)
+void StarTowerGameBin::CopyFrom(const StarTowerGameBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerGameBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerGameBin::InternalSwap(TowerGameBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerGameBin::InternalSwap(StarTowerGameBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
@@ -23345,9 +23349,9 @@ void TowerGameBin::InternalSwap(TowerGameBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   _impl_.fatecards_.InternalSwap(&other->_impl_.fatecards_);
   _impl_.totaldamages_.InternalSwap(&other->_impl_.totaldamages_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.shoprerollprice_)
-      + sizeof(TowerGameBin::_impl_.shoprerollprice_)
-      - PROTOBUF_FIELD_OFFSET(TowerGameBin, _impl_.room_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.shoprerollprice_)
+      + sizeof(StarTowerGameBin::_impl_.shoprerollprice_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerGameBin, _impl_.room_)>(
           reinterpret_cast<char*>(&_impl_.room_),
           reinterpret_cast<char*>(&other->_impl_.room_));
   _impl_.items_.InternalSwap(&other->_impl_.items_);
@@ -23356,68 +23360,68 @@ void TowerGameBin::InternalSwap(TowerGameBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   _impl_.rarepotentialcount_.InternalSwap(&other->_impl_.rarepotentialcount_);
 }
 
-::google::protobuf::Metadata TowerGameBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerGameBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-TowerCompBin_BookPotentialLevelsEntry_DoNotUse::TowerCompBin_BookPotentialLevelsEntry_DoNotUse()
-    : SuperType(TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base()) {}
-TowerCompBin_BookPotentialLevelsEntry_DoNotUse::TowerCompBin_BookPotentialLevelsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
-    : SuperType(arena, TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base()) {}
+StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse()
+    : SuperType(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base()) {}
+StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base()) {}
 #else   // PROTOBUF_CUSTOM_VTABLE
-TowerCompBin_BookPotentialLevelsEntry_DoNotUse::TowerCompBin_BookPotentialLevelsEntry_DoNotUse() : SuperType() {}
-TowerCompBin_BookPotentialLevelsEntry_DoNotUse::TowerCompBin_BookPotentialLevelsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse() : SuperType() {}
+StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
 #endif  // PROTOBUF_CUSTOM_VTABLE
-inline void* PROTOBUF_NONNULL TowerCompBin_BookPotentialLevelsEntry_DoNotUse::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerCompBin_BookPotentialLevelsEntry_DoNotUse(arena);
+  return ::new (mem) StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse(arena);
 }
-constexpr auto TowerCompBin_BookPotentialLevelsEntry_DoNotUse::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(TowerCompBin_BookPotentialLevelsEntry_DoNotUse),
-                                            alignof(TowerCompBin_BookPotentialLevelsEntry_DoNotUse));
+constexpr auto StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse),
+                                            alignof(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse));
 }
-constexpr auto TowerCompBin_BookPotentialLevelsEntry_DoNotUse::InternalGenerateClassData_() {
+constexpr auto StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerCompBin_BookPotentialLevelsEntry_DoNotUse_default_instance_._instance,
+          &_StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerCompBin_BookPotentialLevelsEntry_DoNotUse::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerCompBin_BookPotentialLevelsEntry_DoNotUse>(),
+          &StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerCompBin_BookPotentialLevelsEntry_DoNotUse::SharedDtor,
-          static_cast<void (::google::protobuf::MessageLite::*)()>(&TowerCompBin_BookPotentialLevelsEntry_DoNotUse::ClearImpl),
+          &StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::ClearImpl),
               ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
               ,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._cached_size_),
           false,
       },
-      &TowerCompBin_BookPotentialLevelsEntry_DoNotUse::kDescriptorMethods,
+      &StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_ =
-        TowerCompBin_BookPotentialLevelsEntry_DoNotUse::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_ =
+        StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerCompBin_BookPotentialLevelsEntry_DoNotUse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.tc_table);
-  return TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base();
+StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.tc_table);
+  return StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<1, 2, 0, 0, 2>
-TowerCompBin_BookPotentialLevelsEntry_DoNotUse::_table_ = {
+StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
     2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -23426,28 +23430,28 @@ TowerCompBin_BookPotentialLevelsEntry_DoNotUse::_table_ = {
     2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
-    TowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base(),
+    StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerCompBin_BookPotentialLevelsEntry_DoNotUse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // uint32 value = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_), 1>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_), 1>(),
      {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_)}},
     // uint32 key = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_), 0>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_), 0>(),
      {8, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint32 key = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // uint32 value = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin_BookPotentialLevelsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
@@ -23455,27 +23459,27 @@ TowerCompBin_BookPotentialLevelsEntry_DoNotUse::_table_ = {
 };
 // ===================================================================
 
-class TowerCompBin::_Internal {
+class StarTowerCompBin::_Internal {
  public:
   using HasBits =
-      decltype(::std::declval<TowerCompBin>()._impl_._has_bits_);
+      decltype(::std::declval<StarTowerCompBin>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_._has_bits_);
 };
 
-TowerCompBin::TowerCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+StarTowerCompBin::StarTowerCompBin(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerCompBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerCompBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:ServerProto.TowerCompBin)
+  // @@protoc_insertion_point(arena_constructor:ServerProto.StarTowerCompBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerCompBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerCompBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
-    [[maybe_unused]] const ::ServerProto::TowerCompBin& from_msg)
+    [[maybe_unused]] const ::ServerProto::StarTowerCompBin& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         startowerlog_{visibility, arena, from.startowerlog_},
@@ -23510,15 +23514,15 @@ PROTOBUF_NDEBUG_INLINE TowerCompBin::Impl_::Impl_(
         _npcaffinitybookvalues_cached_byte_size_{0},
         bookpotentiallevels_{visibility, arena, from.bookpotentiallevels_} {}
 
-TowerCompBin::TowerCompBin(
+StarTowerCompBin::StarTowerCompBin(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
-    const TowerCompBin& from)
+    const StarTowerCompBin& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, TowerCompBin_class_data_.base()) {
+    : ::google::protobuf::Message(arena, StarTowerCompBin_class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TowerCompBin* const _this = this;
+  StarTowerCompBin* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
@@ -23538,9 +23542,9 @@ TowerCompBin::TowerCompBin(
                offsetof(Impl_, towertickets_) +
                sizeof(Impl_::defaultunlockallstartower_));
 
-  // @@protoc_insertion_point(copy_constructor:ServerProto.TowerCompBin)
+  // @@protoc_insertion_point(copy_constructor:ServerProto.StarTowerCompBin)
 }
-PROTOBUF_NDEBUG_INLINE TowerCompBin::Impl_::Impl_(
+PROTOBUF_NDEBUG_INLINE StarTowerCompBin::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
@@ -23576,7 +23580,7 @@ PROTOBUF_NDEBUG_INLINE TowerCompBin::Impl_::Impl_(
         _npcaffinitybookvalues_cached_byte_size_{0},
         bookpotentiallevels_{visibility, arena} {}
 
-inline void TowerCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+inline void StarTowerCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, currentgame_),
@@ -23585,12 +23589,12 @@ inline void TowerCompBin::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
                offsetof(Impl_, currentgame_) +
                sizeof(Impl_::defaultunlockallstartower_));
 }
-TowerCompBin::~TowerCompBin() {
-  // @@protoc_insertion_point(destructor:ServerProto.TowerCompBin)
+StarTowerCompBin::~StarTowerCompBin() {
+  // @@protoc_insertion_point(destructor:ServerProto.StarTowerCompBin)
   SharedDtor(*this);
 }
-inline void TowerCompBin::SharedDtor(MessageLite& self) {
-  TowerCompBin& this_ = static_cast<TowerCompBin&>(self);
+inline void StarTowerCompBin::SharedDtor(MessageLite& self) {
+  StarTowerCompBin& this_ = static_cast<StarTowerCompBin&>(self);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
@@ -23601,129 +23605,129 @@ inline void TowerCompBin::SharedDtor(MessageLite& self) {
   this_._impl_.~Impl_();
 }
 
-inline void* PROTOBUF_NONNULL TowerCompBin::PlacementNew_(
+inline void* PROTOBUF_NONNULL StarTowerCompBin::PlacementNew_(
     const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
-  return ::new (mem) TowerCompBin(arena);
+  return ::new (mem) StarTowerCompBin(arena);
 }
-constexpr auto TowerCompBin::InternalNewImpl_() {
+constexpr auto StarTowerCompBin::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.startowerlog_) +
-          decltype(TowerCompBin::_impl_.startowerlog_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.startowerlog_) +
+          decltype(StarTowerCompBin::_impl_.startowerlog_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.startowergrowth_) +
-          decltype(TowerCompBin::_impl_.startowergrowth_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.startowergrowth_) +
+          decltype(StarTowerCompBin::_impl_.startowergrowth_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.presets_) +
-          decltype(TowerCompBin::_impl_.presets_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.presets_) +
+          decltype(StarTowerCompBin::_impl_.presets_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.builds_) +
-          decltype(TowerCompBin::_impl_.builds_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.builds_) +
+          decltype(StarTowerCompBin::_impl_.builds_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.fatecards_) +
-          decltype(TowerCompBin::_impl_.fatecards_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.fatecards_) +
+          decltype(StarTowerCompBin::_impl_.fatecards_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookcharids_) +
-          decltype(TowerCompBin::_impl_.bookcharids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookcharids_) +
+          decltype(StarTowerCompBin::_impl_.bookcharids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookeventids_) +
-          decltype(TowerCompBin::_impl_.bookeventids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookeventids_) +
+          decltype(StarTowerCompBin::_impl_.bookeventids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookbundles_) +
-          decltype(TowerCompBin::_impl_.bookbundles_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookbundles_) +
+          decltype(StarTowerCompBin::_impl_.bookbundles_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentialreceivedids_) +
-          decltype(TowerCompBin::_impl_.bookpotentialreceivedids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookpotentialreceivedids_) +
+          decltype(StarTowerCompBin::_impl_.bookpotentialreceivedids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookeventreceivedids_) +
-          decltype(TowerCompBin::_impl_.bookeventreceivedids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookeventreceivedids_) +
+          decltype(StarTowerCompBin::_impl_.bookeventreceivedids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.fatecardrewardreceivedids_) +
-          decltype(TowerCompBin::_impl_.fatecardrewardreceivedids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.fatecardrewardreceivedids_) +
+          decltype(StarTowerCompBin::_impl_.fatecardrewardreceivedids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinityrewardreceivedplotids_) +
-          decltype(TowerCompBin::_impl_.npcaffinityrewardreceivedplotids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinityrewardreceivedplotids_) +
+          decltype(StarTowerCompBin::_impl_.npcaffinityrewardreceivedplotids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybooknpcids_) +
-          decltype(TowerCompBin::_impl_.npcaffinitybooknpcids_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybooknpcids_) +
+          decltype(StarTowerCompBin::_impl_.npcaffinitybooknpcids_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookplots_) +
-          decltype(TowerCompBin::_impl_.npcaffinitybookplots_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybookplots_) +
+          decltype(StarTowerCompBin::_impl_.npcaffinitybookplots_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybooklevels_) +
-          decltype(TowerCompBin::_impl_.npcaffinitybooklevels_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybooklevels_) +
+          decltype(StarTowerCompBin::_impl_.npcaffinitybooklevels_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookvalues_) +
-          decltype(TowerCompBin::_impl_.npcaffinitybookvalues_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybookvalues_) +
+          decltype(StarTowerCompBin::_impl_.npcaffinitybookvalues_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentiallevels_) +
-          decltype(TowerCompBin::_impl_.bookpotentiallevels_)::
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookpotentiallevels_) +
+          decltype(StarTowerCompBin::_impl_.bookpotentiallevels_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
-        sizeof(TowerCompBin), alignof(TowerCompBin), *arena_bits);
+        sizeof(StarTowerCompBin), alignof(StarTowerCompBin), *arena_bits);
   } else {
-    return ::google::protobuf::internal::MessageCreator(&TowerCompBin::PlacementNew_,
-                                 sizeof(TowerCompBin),
-                                 alignof(TowerCompBin));
+    return ::google::protobuf::internal::MessageCreator(&StarTowerCompBin::PlacementNew_,
+                                 sizeof(StarTowerCompBin),
+                                 alignof(StarTowerCompBin));
   }
 }
-constexpr auto TowerCompBin::InternalGenerateClassData_() {
+constexpr auto StarTowerCompBin::InternalGenerateClassData_() {
   return ::google::protobuf::internal::ClassDataFull{
       ::google::protobuf::internal::ClassData{
-          &_TowerCompBin_default_instance_._instance,
+          &_StarTowerCompBin_default_instance_._instance,
           &_table_.header,
           nullptr,  // OnDemandRegisterArenaDtor
           nullptr,  // IsInitialized
-          &TowerCompBin::MergeImpl,
-          ::google::protobuf::Message::GetNewImpl<TowerCompBin>(),
+          &StarTowerCompBin::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<StarTowerCompBin>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-          &TowerCompBin::SharedDtor,
-          ::google::protobuf::Message::GetClearImpl<TowerCompBin>(), &TowerCompBin::ByteSizeLong,
-              &TowerCompBin::_InternalSerialize,
+          &StarTowerCompBin::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<StarTowerCompBin>(), &StarTowerCompBin::ByteSizeLong,
+              &StarTowerCompBin::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_._cached_size_),
+          PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_._cached_size_),
           false,
       },
-      &TowerCompBin::kDescriptorMethods,
+      &StarTowerCompBin::kDescriptorMethods,
       &descriptor_table_PlayerData_2eproto,
       nullptr,  // tracker
   };
 }
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
-    ::google::protobuf::internal::ClassDataFull TowerCompBin_class_data_ =
-        TowerCompBin::InternalGenerateClassData_();
+    ::google::protobuf::internal::ClassDataFull StarTowerCompBin_class_data_ =
+        StarTowerCompBin::InternalGenerateClassData_();
 
 PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
-TowerCompBin::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&TowerCompBin_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(TowerCompBin_class_data_.tc_table);
-  return TowerCompBin_class_data_.base();
+StarTowerCompBin::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&StarTowerCompBin_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(StarTowerCompBin_class_data_.tc_table);
+  return StarTowerCompBin_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::_pbi::TcParseTable<5, 21, 5, 0, 2>
-TowerCompBin::_table_ = {
+StarTowerCompBin::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_._has_bits_),
     0, // no _extensions_
     21, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
@@ -23732,95 +23736,95 @@ TowerCompBin::_table_ = {
     21,  // num_field_entries
     5,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
-    TowerCompBin_class_data_.base(),
+    StarTowerCompBin_class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::ServerProto::TowerCompBin>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ServerProto::StarTowerCompBin>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // repeated uint32 starTowerLog = 1;
     {::_pbi::TcParser::FastV32P1,
      {10, 0, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.startowerlog_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.startowerlog_)}},
     // repeated uint32 starTowerGrowth = 2;
     {::_pbi::TcParser::FastV32P1,
      {18, 1, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.startowergrowth_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.startowergrowth_)}},
     // uint32 towerTickets = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TowerCompBin, _impl_.towertickets_), 18>(),
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StarTowerCompBin, _impl_.towertickets_), 18>(),
      {24, 18, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.towertickets_)}},
-    // repeated .ServerProto.TowerPotentialPresetBin presets = 4;
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.towertickets_)}},
+    // repeated .ServerProto.StarTowerPotentialPresetBin presets = 4;
     {::_pbi::TcParser::FastMtR1,
      {34, 2, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.presets_)}},
-    // repeated .ServerProto.TowerBuildBin builds = 5;
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.presets_)}},
+    // repeated .ServerProto.StarTowerBuildBin builds = 5;
     {::_pbi::TcParser::FastMtR1,
      {42, 3, 1,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.builds_)}},
-    // .ServerProto.TowerGameBin currentGame = 6;
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.builds_)}},
+    // .ServerProto.StarTowerGameBin currentGame = 6;
     {::_pbi::TcParser::FastMtS1,
      {50, 16, 2,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.currentgame_)}},
-    // .ServerProto.TowerBuildBin lastBuild = 7;
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.currentgame_)}},
+    // .ServerProto.StarTowerBuildBin lastBuild = 7;
     {::_pbi::TcParser::FastMtS1,
      {58, 17, 3,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.lastbuild_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.lastbuild_)}},
     // repeated uint32 fateCards = 8;
     {::_pbi::TcParser::FastV32P1,
      {66, 4, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.fatecards_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.fatecards_)}},
     // repeated uint32 bookCharIds = 9;
     {::_pbi::TcParser::FastV32P1,
      {74, 5, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookcharids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookcharids_)}},
     // repeated uint32 bookEventIds = 10;
     {::_pbi::TcParser::FastV32P1,
      {82, 6, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookeventids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookeventids_)}},
     // repeated uint32 bookBundles = 11;
     {::_pbi::TcParser::FastV32P1,
      {90, 7, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookbundles_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookbundles_)}},
     // repeated uint32 bookPotentialReceivedIds = 12;
     {::_pbi::TcParser::FastV32P1,
      {98, 8, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentialreceivedids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookpotentialreceivedids_)}},
     // repeated uint32 bookEventReceivedIds = 13;
     {::_pbi::TcParser::FastV32P1,
      {106, 9, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookeventreceivedids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookeventreceivedids_)}},
     // repeated uint32 fateCardRewardReceivedIds = 14;
     {::_pbi::TcParser::FastV32P1,
      {114, 10, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.fatecardrewardreceivedids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.fatecardrewardreceivedids_)}},
     // repeated uint32 npcAffinityRewardReceivedPlotIds = 15;
     {::_pbi::TcParser::FastV32P1,
      {122, 11, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinityrewardreceivedplotids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinityrewardreceivedplotids_)}},
     // repeated uint32 npcAffinityBookNpcIds = 16;
     {::_pbi::TcParser::FastV32P2,
      {386, 12, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybooknpcids_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybooknpcids_)}},
     // repeated uint32 npcAffinityBookPlots = 17;
     {::_pbi::TcParser::FastV32P2,
      {394, 13, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookplots_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybookplots_)}},
     // repeated uint32 npcAffinityBookLevels = 18;
     {::_pbi::TcParser::FastV32P2,
      {402, 14, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybooklevels_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybooklevels_)}},
     // repeated uint32 npcAffinityBookValues = 19;
     {::_pbi::TcParser::FastV32P2,
      {410, 15, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookvalues_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybookvalues_)}},
     {::_pbi::TcParser::MiniParse, {}},
     // bool defaultUnlockAllStarTower = 21;
     {::_pbi::TcParser::FastV8S2,
      {424, 19, 0,
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.defaultunlockallstartower_)}},
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.defaultunlockallstartower_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -23835,61 +23839,61 @@ TowerCompBin::_table_ = {
     65535, 65535
   }}, {{
     // repeated uint32 starTowerLog = 1;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.startowerlog_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.startowerlog_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 starTowerGrowth = 2;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.startowergrowth_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.startowergrowth_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // uint32 towerTickets = 3;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.towertickets_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
-    // repeated .ServerProto.TowerPotentialPresetBin presets = 4;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.presets_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated .ServerProto.TowerBuildBin builds = 5;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.builds_), _Internal::kHasBitsOffset + 3, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerGameBin currentGame = 6;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.currentgame_), _Internal::kHasBitsOffset + 16, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerBuildBin lastBuild = 7;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.lastbuild_), _Internal::kHasBitsOffset + 17, 3, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.towertickets_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .ServerProto.StarTowerPotentialPresetBin presets = 4;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.presets_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .ServerProto.StarTowerBuildBin builds = 5;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.builds_), _Internal::kHasBitsOffset + 3, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerGameBin currentGame = 6;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.currentgame_), _Internal::kHasBitsOffset + 16, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ServerProto.StarTowerBuildBin lastBuild = 7;
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.lastbuild_), _Internal::kHasBitsOffset + 17, 3, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated uint32 fateCards = 8;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.fatecards_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.fatecards_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 bookCharIds = 9;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookcharids_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookcharids_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 bookEventIds = 10;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookeventids_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookeventids_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 bookBundles = 11;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookbundles_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookbundles_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 bookPotentialReceivedIds = 12;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentialreceivedids_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookpotentialreceivedids_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 bookEventReceivedIds = 13;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookeventreceivedids_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookeventreceivedids_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 fateCardRewardReceivedIds = 14;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.fatecardrewardreceivedids_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.fatecardrewardreceivedids_), _Internal::kHasBitsOffset + 10, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 npcAffinityRewardReceivedPlotIds = 15;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinityrewardreceivedplotids_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinityrewardreceivedplotids_), _Internal::kHasBitsOffset + 11, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 npcAffinityBookNpcIds = 16;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybooknpcids_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybooknpcids_), _Internal::kHasBitsOffset + 12, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 npcAffinityBookPlots = 17;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookplots_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybookplots_), _Internal::kHasBitsOffset + 13, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 npcAffinityBookLevels = 18;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybooklevels_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybooklevels_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // repeated uint32 npcAffinityBookValues = 19;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.npcaffinitybookvalues_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.npcaffinitybookvalues_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
     // map<uint32, uint32> bookPotentialLevels = 20;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.bookpotentiallevels_), _Internal::kHasBitsOffset + 20, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.bookpotentiallevels_), _Internal::kHasBitsOffset + 20, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // bool defaultUnlockAllStarTower = 21;
-    {PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.defaultunlockallstartower_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.defaultunlockallstartower_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
   }},
   {{
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerPotentialPresetBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerBuildBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerGameBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerBuildBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerPotentialPresetBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerBuildBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerGameBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerBuildBin>()},
       {::_pbi::TcParser::GetMapAuxInfo(
           0, 0, 13, 13, 0)},
   }},
   {{
   }},
 };
-PROTOBUF_NOINLINE void TowerCompBin::Clear() {
-// @@protoc_insertion_point(message_clear_start:ServerProto.TowerCompBin)
+PROTOBUF_NOINLINE void StarTowerCompBin::Clear() {
+// @@protoc_insertion_point(message_clear_start:ServerProto.StarTowerCompBin)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -23971,20 +23975,20 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::uint8_t* PROTOBUF_NONNULL TowerCompBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerCompBin::_InternalSerialize(
     const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
-  const TowerCompBin& this_ = static_cast<const TowerCompBin&>(base);
+  const StarTowerCompBin& this_ = static_cast<const StarTowerCompBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::uint8_t* PROTOBUF_NONNULL TowerCompBin::_InternalSerialize(
+::uint8_t* PROTOBUF_NONNULL StarTowerCompBin::_InternalSerialize(
     ::uint8_t* PROTOBUF_NONNULL target,
     ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
-  const TowerCompBin& this_ = *this;
+  const StarTowerCompBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     this_.CheckHasBitConsistency();
   }
-  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.TowerCompBin)
+  // @@protoc_insertion_point(serialize_to_array_start:ServerProto.StarTowerCompBin)
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
@@ -24020,7 +24024,7 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
     }
   }
 
-  // repeated .ServerProto.TowerPotentialPresetBin presets = 4;
+  // repeated .ServerProto.StarTowerPotentialPresetBin presets = 4;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_presets_size());
@@ -24033,7 +24037,7 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
     }
   }
 
-  // repeated .ServerProto.TowerBuildBin builds = 5;
+  // repeated .ServerProto.StarTowerBuildBin builds = 5;
   if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
     for (unsigned i = 0, n = static_cast<unsigned>(
                              this_._internal_builds_size());
@@ -24046,14 +24050,14 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
     }
   }
 
-  // .ServerProto.TowerGameBin currentGame = 6;
+  // .ServerProto.StarTowerGameBin currentGame = 6;
   if (CheckHasBit(cached_has_bits, 0x00010000U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         6, *this_._impl_.currentgame_, this_._impl_.currentgame_->GetCachedSize(), target,
         stream);
   }
 
-  // .ServerProto.TowerBuildBin lastBuild = 7;
+  // .ServerProto.StarTowerBuildBin lastBuild = 7;
   if (CheckHasBit(cached_has_bits, 0x00020000U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         7, *this_._impl_.lastbuild_, this_._impl_.lastbuild_->GetCachedSize(), target,
@@ -24229,18 +24233,18 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
             this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.TowerCompBin)
+  // @@protoc_insertion_point(serialize_to_array_end:ServerProto.StarTowerCompBin)
   return target;
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-::size_t TowerCompBin::ByteSizeLong(const MessageLite& base) {
-  const TowerCompBin& this_ = static_cast<const TowerCompBin&>(base);
+::size_t StarTowerCompBin::ByteSizeLong(const MessageLite& base) {
+  const StarTowerCompBin& this_ = static_cast<const StarTowerCompBin&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-::size_t TowerCompBin::ByteSizeLong() const {
-  const TowerCompBin& this_ = *this;
+::size_t StarTowerCompBin::ByteSizeLong() const {
+  const StarTowerCompBin& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(message_byte_size_start:ServerProto.TowerCompBin)
+  // @@protoc_insertion_point(message_byte_size_start:ServerProto.StarTowerCompBin)
   ::size_t total_size = 0;
 
   ::uint32_t cached_has_bits = 0;
@@ -24264,14 +24268,14 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
               this_._internal_startowergrowth(), 1,
               this_._impl_._startowergrowth_cached_byte_size_);
     }
-    // repeated .ServerProto.TowerPotentialPresetBin presets = 4;
+    // repeated .ServerProto.StarTowerPotentialPresetBin presets = 4;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
       total_size += 1UL * this_._internal_presets_size();
       for (const auto& msg : this_._internal_presets()) {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
-    // repeated .ServerProto.TowerBuildBin builds = 5;
+    // repeated .ServerProto.StarTowerBuildBin builds = 5;
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
       total_size += 1UL * this_._internal_builds_size();
       for (const auto& msg : this_._internal_builds()) {
@@ -24366,12 +24370,12 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
     }
   }
   if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
-    // .ServerProto.TowerGameBin currentGame = 6;
+    // .ServerProto.StarTowerGameBin currentGame = 6;
     if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.currentgame_);
     }
-    // .ServerProto.TowerBuildBin lastBuild = 7;
+    // .ServerProto.StarTowerBuildBin lastBuild = 7;
     if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.lastbuild_);
@@ -24404,16 +24408,16 @@ PROTOBUF_NOINLINE void TowerCompBin::Clear() {
                                              &this_._impl_._cached_size_);
 }
 
-void TowerCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
+void StarTowerCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
                             const ::google::protobuf::MessageLite& from_msg) {
    auto* const _this =
-      static_cast<TowerCompBin*>(&to_msg);
-  auto& from = static_cast<const TowerCompBin&>(from_msg);
+      static_cast<StarTowerCompBin*>(&to_msg);
+  auto& from = static_cast<const StarTowerCompBin&>(from_msg);
   if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
     from.CheckHasBitConsistency();
   }
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.TowerCompBin)
+  // @@protoc_insertion_point(class_specific_merge_from_start:ServerProto.StarTowerCompBin)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
@@ -24511,15 +24515,15 @@ void TowerCompBin::MergeImpl(::google::protobuf::MessageLite& to_msg,
       from._internal_metadata_);
 }
 
-void TowerCompBin::CopyFrom(const TowerCompBin& from) {
-  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.TowerCompBin)
+void StarTowerCompBin::CopyFrom(const StarTowerCompBin& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:ServerProto.StarTowerCompBin)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void TowerCompBin::InternalSwap(TowerCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+void StarTowerCompBin::InternalSwap(StarTowerCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
   using ::std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
@@ -24540,15 +24544,15 @@ void TowerCompBin::InternalSwap(TowerCompBin* PROTOBUF_RESTRICT PROTOBUF_NONNULL
   _impl_.npcaffinitybooklevels_.InternalSwap(&other->_impl_.npcaffinitybooklevels_);
   _impl_.npcaffinitybookvalues_.InternalSwap(&other->_impl_.npcaffinitybookvalues_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.defaultunlockallstartower_)
-      + sizeof(TowerCompBin::_impl_.defaultunlockallstartower_)
-      - PROTOBUF_FIELD_OFFSET(TowerCompBin, _impl_.currentgame_)>(
+      PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.defaultunlockallstartower_)
+      + sizeof(StarTowerCompBin::_impl_.defaultunlockallstartower_)
+      - PROTOBUF_FIELD_OFFSET(StarTowerCompBin, _impl_.currentgame_)>(
           reinterpret_cast<char*>(&_impl_.currentgame_),
           reinterpret_cast<char*>(&other->_impl_.currentgame_));
   _impl_.bookpotentiallevels_.InternalSwap(&other->_impl_.bookpotentiallevels_);
 }
 
-::google::protobuf::Metadata TowerCompBin::GetMetadata() const {
+::google::protobuf::Metadata StarTowerCompBin::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -27906,7 +27910,7 @@ PlayerSaveData::_table_ = {
     {::_pbi::TcParser::FastMtS1,
      {82, 8, 8,
       PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.formationcomp_)}},
-    // .ServerProto.TowerCompBin towerComp = 11;
+    // .ServerProto.StarTowerCompBin towerComp = 11;
     {::_pbi::TcParser::FastMtS1,
      {90, 9, 9,
       PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.towercomp_)}},
@@ -27941,7 +27945,7 @@ PlayerSaveData::_table_ = {
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.battlepasscomp_), _Internal::kHasBitsOffset + 7, 7, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .ServerProto.FormationCompBin formationComp = 10;
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.formationcomp_), _Internal::kHasBitsOffset + 8, 8, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .ServerProto.TowerCompBin towerComp = 11;
+    // .ServerProto.StarTowerCompBin towerComp = 11;
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.towercomp_), _Internal::kHasBitsOffset + 9, 9, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .ServerProto.StoryCompBin storyComp = 12;
     {PROTOBUF_FIELD_OFFSET(PlayerSaveData, _impl_.storycomp_), _Internal::kHasBitsOffset + 10, 10, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
@@ -27958,7 +27962,7 @@ PlayerSaveData::_table_ = {
       {::_pbi::TcParser::GetTable<::ServerProto::GachaCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::BattlePassCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::FormationCompBin>()},
-      {::_pbi::TcParser::GetTable<::ServerProto::TowerCompBin>()},
+      {::_pbi::TcParser::GetTable<::ServerProto::StarTowerCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::StoryCompBin>()},
       {::_pbi::TcParser::GetTable<::ServerProto::AgentCompBin>()},
   }},
@@ -28111,7 +28115,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
         stream);
   }
 
-  // .ServerProto.TowerCompBin towerComp = 11;
+  // .ServerProto.StarTowerCompBin towerComp = 11;
   if (CheckHasBit(cached_has_bits, 0x00000200U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         11, *this_._impl_.towercomp_, this_._impl_.towercomp_->GetCachedSize(), target,
@@ -28205,7 +28209,7 @@ PROTOBUF_NOINLINE void PlayerSaveData::Clear() {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.formationcomp_);
     }
-    // .ServerProto.TowerCompBin towerComp = 11;
+    // .ServerProto.StarTowerCompBin towerComp = 11;
     if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.towercomp_);

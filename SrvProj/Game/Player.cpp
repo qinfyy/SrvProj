@@ -14,7 +14,7 @@
 #include "MailMgr.h"
 #include "QuestMgr.h"
 #include "StoryMgr.h"
-#include "TowerMgr.h"
+#include "StarTowerMgr.h"
 #include "../GameConstants.h"
 #include "../GameSession.h"
 #include "../GameTime.h"
@@ -205,7 +205,7 @@ void Player::InitManagers()
     mFormationMgr = std::make_unique<FormationMgr>(this);
     mQuestMgr = std::make_unique<QuestMgr>(this);
     mStoryMgr = std::make_unique<StoryMgr>(this);
-    mTowerMgr = std::make_unique<TowerMgr>(this);
+    mStarTowerMgr = std::make_unique<StarTowerMgr>(this);
 }
 
 bool Player::Save()
@@ -284,7 +284,7 @@ void Player::OnCreate()
     mFormationMgr->OnCreate();
     mQuestMgr->OnCreate();
     mStoryMgr->OnCreate();
-    mTowerMgr->OnCreate();
+    mStarTowerMgr->OnCreate();
 }
 
 bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
@@ -313,7 +313,7 @@ bool Player::LoadFromBlob(uint32_t uid, std::span<const uint8_t> data)
     mFormationMgr->OnLoad();
     mQuestMgr->OnLoad();
     mStoryMgr->OnLoad();
-    mTowerMgr->OnLoad();
+    mStarTowerMgr->OnLoad();
     return true;
 }
 
@@ -330,7 +330,7 @@ std::vector<uint8_t> Player::SaveToBlob() const
     mFormationMgr->BeforeSave();
     mQuestMgr->BeforeSave();
     mStoryMgr->BeforeSave();
-    mTowerMgr->BeforeSave();
+    mStarTowerMgr->BeforeSave();
 
     std::vector<uint8_t> out(mPlayerSaveData.ByteSizeLong());
     if (!out.empty())
@@ -353,7 +353,7 @@ proto::PlayerInfo Player::ToProto()
     mBattlePassMgr->EncodePlayerInfo(info);
     mFormationMgr->EncodePlayerInfo(info);
     mQuestMgr->EncodePlayerInfo(info);
-    mTowerMgr->EncodePlayerInfo(info);
+    mStarTowerMgr->EncodePlayerInfo(info);
     EncodeMinimalSystems(info);
     mStoryMgr->EncodePlayerInfo(info);
 
@@ -379,7 +379,7 @@ void Player::OnLogin()
     mFormationMgr->OnLogin();
     mQuestMgr->OnLogin();
     mStoryMgr->OnLogin();
-    mTowerMgr->OnLogin();
+    mStarTowerMgr->OnLogin();
     QueueBattlePassUnlockNotify(oldLevel);
 }
 
@@ -542,14 +542,14 @@ const FormationMgr& Player::Formations() const
     return *mFormationMgr;
 }
 
-TowerMgr& Player::Towers()
+StarTowerMgr& Player::StarTowers()
 {
-    return *mTowerMgr;
+    return *mStarTowerMgr;
 }
 
-const TowerMgr& Player::Towers() const
+const StarTowerMgr& Player::StarTowers() const
 {
-    return *mTowerMgr;
+    return *mStarTowerMgr;
 }
 
 AchievementMgr& Player::Achievements()
@@ -1194,7 +1194,7 @@ void Player::ResetDailies(bool resetWeekly, bool resetMonthly)
             Inventory().AddItem(GameConstants::WeeklyEntryItemId, 3 - entries);
         }
 
-        Towers().ResetWeeklyTickets();
+        StarTowers().ResetWeeklyTickets();
     }
 
     if (resetMonthly)
@@ -1300,8 +1300,8 @@ void Player::EncodeMinimalSystems(proto::PlayerInfo& info) const
     state->mutable_friendenergy();
     state->mutable_mallpackage();
     state->mutable_scoreboss();
-    state->mutable_startower()->CopyFrom(Towers().BuildStateProto());
-    state->mutable_startowerbook()->CopyFrom(Towers().BuildBookStateProto());
+    state->mutable_startower()->CopyFrom(StarTowers().BuildStateProto());
+    state->mutable_startowerbook()->CopyFrom(StarTowers().BuildBookStateProto());
     state->mutable_worldclassreward()->set_flag(Quests().GetWorldClassRewardFlag());
     state->mutable_travelerduelquest()->set_type(proto::TravelerDuel);
     state->mutable_tracehunt();
