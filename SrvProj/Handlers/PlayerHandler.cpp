@@ -22,10 +22,7 @@
 #include "../proto/proto_cpp/player_world_class_reward_receive.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 
-namespace {
 constexpr uint32_t kErrConfig = 119902;
-
-}
 
 std::string player_learn_req__Handler(GameSession* session, const std::string& req)
 {

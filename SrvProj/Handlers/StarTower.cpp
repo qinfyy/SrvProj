@@ -36,9 +36,6 @@
 #include "../proto/proto_cpp/tower_growth_group_node_unlock.pb.h"
 #include "../proto/proto_cpp/tower_growth_node_unlock.pb.h"
 
-namespace {
-}
-
 std::string player_formation_req__Handler(GameSession* session, const std::string& req)
 {
     if (!IsLoggedIn(session))

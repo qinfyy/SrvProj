@@ -12,9 +12,6 @@
 #include "../proto/proto_cpp/story_set_reward_receive.pb.h"
 #include "../proto/proto_cpp/story_sett.pb.h"
 
-namespace {
-}
-
 std::string story_apply_req__Handler(GameSession* session, const std::string& req)
 {
     if (!IsLoggedIn(session))

@@ -131,10 +131,6 @@ Player* GameSession::GetLoggedInPlayer() const {
     return HasPlayer() ? GetPlayer() : nullptr;
 }
 
-bool IsLoggedIn(GameSession* session) {
-    return session && session->GetLoggedInPlayer();
-}
-
 bool GameSession::HasPlayer() const {
     return mPlayer != nullptr;
 }

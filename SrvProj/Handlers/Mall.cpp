@@ -18,9 +18,6 @@
 #include "../proto/proto_cpp/public.pb.h"
 #include "../proto/proto_cpp/gem_convert.pb.h"
 
-namespace {
-}
-
 std::string mall_gem_list_req__Handler(GameSession* session, const std::string& req)
 {
     if (!IsLoggedIn(session))

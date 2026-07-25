@@ -8,7 +8,6 @@
 #include "../proto/proto_cpp/agent_give_up.pb.h"
 #include "../proto/proto_cpp/agent_reward_receive.pb.h"
 
-
 std::string agent_apply_req__Handler(GameSession* session, const std::string& req)
 {
     if (!IsLoggedIn(session))
