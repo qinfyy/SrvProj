@@ -8,6 +8,7 @@
 
 // 这里使用前置声明，在GameData.cpp和其他使用的地方中包含具体的头文件，避免在这里引入过多的依赖，导致后面触发循环依赖。
 class CharacterRes;
+class CharacterDesRes;
 class CharacterAdvanceRes;
 class CharacterSkillUpgradeRes;
 class CharacterUpgradeRes;
@@ -131,6 +132,7 @@ public:
 
     // Characters
     static std::unordered_map<int, CharacterRes> CharacterDataTable;
+    static std::unordered_map<int, CharacterDesRes> CharacterDesDataTable;
     static std::unordered_map<int, CharacterAdvanceRes> CharacterAdvanceDataTable;
     static std::unordered_map<int, CharacterSkillUpgradeRes> CharacterSkillUpgradeDataTable;
     static std::unordered_map<int, CharacterUpgradeRes> CharacterUpgradeDataTable;

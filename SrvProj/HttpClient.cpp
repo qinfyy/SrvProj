@@ -197,7 +197,7 @@ std::vector<std::pair<std::string, std::string>> BuildForwardHeaders(const HttpR
 
     if (!hasUserAgent)
     {
-        headers.emplace_back("User-Agent", "UnityPlayer/2022.3.62f2 (UnityWebRequest/1.0, libcurl/8.10.1-DEV)");
+        headers.emplace_back("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
     }
 
     return headers;

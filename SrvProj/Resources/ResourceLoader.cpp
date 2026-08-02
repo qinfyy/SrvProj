@@ -708,6 +708,7 @@ void LoadResources() {
     // LOW
 
     // Characters
+    LoadRes<CharacterDesRes>(&source, GameData::CharacterDesDataTable);
     LoadRes<CharacterAdvanceRes>(&source, GameData::CharacterAdvanceDataTable);
     LoadRes<TalentRes>(&source, GameData::TalentDataTable);
 
