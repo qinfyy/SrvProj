@@ -88,14 +88,6 @@ int64_t ParseInt64(const std::string& text, int64_t fallback)
     }
 }
 
-std::string ToLower(std::string text)
-{
-    std::transform(text.begin(), text.end(), text.begin(), [](unsigned char ch) {
-        return static_cast<char>(std::tolower(ch));
-    });
-    return text;
-}
-
 CommandArgs CommandMgr::ParseArgs(Player* sender, std::vector<std::string> args, bool requireTargetOnline) const
 {
     CommandArgs out;

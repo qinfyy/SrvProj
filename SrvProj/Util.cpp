@@ -195,3 +195,11 @@ bool GenerateToken(std::string& outToken, bool lowerCase) {
     outToken = ToHex(buf, lowerCase);
     return true;
 }
+
+std::string ToLower(std::string text)
+{
+    std::transform(text.begin(), text.end(), text.begin(), [](unsigned char ch) {
+        return static_cast<char>(std::tolower(ch));
+        });
+    return text;
+}

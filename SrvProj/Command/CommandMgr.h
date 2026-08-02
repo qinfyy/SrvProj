@@ -64,4 +64,3 @@ private:
 };
 
 int64_t ParseInt64(const std::string& text, int64_t fallback = 0);
-std::string ToLower(std::string text);
