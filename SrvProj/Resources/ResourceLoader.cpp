@@ -276,10 +276,10 @@ void LoadBytesRes(Archive* arc, Container& container, const std::string& resName
             if (!res.LoadFromPb(item.data)) {
                 throw std::runtime_error("从 protobuf 数据加载资源失败");
             }
-            res.OnLoad();
             auto result = container.emplace(res.GetKey(), std::move(res));
             if (result.second)
             {
+                result.first->second.OnLoad();
                 ++loadedCount;
             }
         }
@@ -316,10 +316,10 @@ void LoadJsonRes(const std::filesystem::path& jsonBinPath, Container& container,
             if (!res.LoadFromJson(item)) {
                 throw std::runtime_error("从 JSON 数据加载资源失败");
             }
-            res.OnLoad();
             auto result = container.emplace(res.GetKey(), std::move(res));
             if (result.second)
             {
+                result.first->second.OnLoad();
                 ++loadedCount;
             }
         }
