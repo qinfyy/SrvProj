@@ -53,6 +53,19 @@ message CharacterInfo {
     CharacterContact contact = 18;
 }
 
+message GameDiscInfoBin {
+    int32 discId = 2;
+    int32 level = 3;
+    int32 exp = 4;
+    int32 phase = 5;
+    int32 star = 6;
+    
+    bool read = 7;
+    bool avg = 8;
+    
+    int64 createTime = 9;
+}
+
 message CharacterCompBin {
     repeated CharacterInfo charInfoList = 2;
     repeated GameDiscInfoBin gameDiscList = 4;
@@ -448,17 +461,4 @@ message PlayerSaveData {
     StarTowerCompBin towerComp = 11;
     StoryCompBin storyComp = 12;
     AgentCompBin agentComp = 13;
-}
-
-message GameDiscInfoBin {
-    int32 discId = 2;
-    int32 level = 3;
-    int32 exp = 4;
-    int32 phase = 5;
-    int32 star = 6;
-    
-    bool read = 7;
-    bool avg = 8;
-    
-    int64 createTime = 9;
 }

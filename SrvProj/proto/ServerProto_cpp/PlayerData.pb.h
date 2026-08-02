@@ -460,7 +460,7 @@ class StoryChoiceBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StoryChoiceBin*>(
         &_StoryChoiceBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 65;
+  static constexpr int kIndexInFileMessages = 66;
   friend void swap(StoryChoiceBin& a, StoryChoiceBin& b) { a.Swap(&b); }
   inline void Swap(StoryChoiceBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -662,7 +662,7 @@ class StarTowerSyncHPCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerSyncHPCaseBin*>(
         &_StarTowerSyncHPCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 52;
+  static constexpr int kIndexInFileMessages = 53;
   friend void swap(StarTowerSyncHPCaseBin& a, StarTowerSyncHPCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerSyncHPCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -852,7 +852,7 @@ class StarTowerStrengthenMachineCaseBin final : public ::google::protobuf::Messa
     return *reinterpret_cast<const StarTowerStrengthenMachineCaseBin*>(
         &_StarTowerStrengthenMachineCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 49;
+  static constexpr int kIndexInFileMessages = 50;
   friend void swap(StarTowerStrengthenMachineCaseBin& a, StarTowerStrengthenMachineCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerStrengthenMachineCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1066,7 +1066,7 @@ class StarTowerShopGoodsBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerShopGoodsBin*>(
         &_StarTowerShopGoodsBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 43;
+  static constexpr int kIndexInFileMessages = 44;
   friend void swap(StarTowerShopGoodsBin& a, StarTowerShopGoodsBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerShopGoodsBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1340,7 +1340,7 @@ class StarTowerRecoveryHPCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerRecoveryHPCaseBin*>(
         &_StarTowerRecoveryHPCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 50;
+  static constexpr int kIndexInFileMessages = 51;
   friend void swap(StarTowerRecoveryHPCaseBin& a, StarTowerRecoveryHPCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerRecoveryHPCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1530,7 +1530,7 @@ class StarTowerPotentialLevelBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerPotentialLevelBin*>(
         &_StarTowerPotentialLevelBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 36;
+  static constexpr int kIndexInFileMessages = 37;
   friend void swap(StarTowerPotentialLevelBin& a, StarTowerPotentialLevelBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerPotentialLevelBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1732,7 +1732,7 @@ class StarTowerNpcRecoveryHPCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerNpcRecoveryHPCaseBin*>(
         &_StarTowerNpcRecoveryHPCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 51;
+  static constexpr int kIndexInFileMessages = 52;
   friend void swap(StarTowerNpcRecoveryHPCaseBin& a, StarTowerNpcRecoveryHPCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerNpcRecoveryHPCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1922,7 +1922,7 @@ class StarTowerNpcEventCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerNpcEventCaseBin*>(
         &_StarTowerNpcEventCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 47;
+  static constexpr int kIndexInFileMessages = 48;
   friend void swap(StarTowerNpcEventCaseBin& a, StarTowerNpcEventCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerNpcEventCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2313,7 +2313,7 @@ class StarTowerDoorCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerDoorCaseBin*>(
         &_StarTowerDoorCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 45;
+  static constexpr int kIndexInFileMessages = 46;
   friend void swap(StarTowerDoorCaseBin& a, StarTowerDoorCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerDoorCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2671,7 +2671,7 @@ class StarTowerBattleCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerBattleCaseBin*>(
         &_StarTowerBattleCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 44;
+  static constexpr int kIndexInFileMessages = 45;
   friend void swap(StarTowerBattleCaseBin& a, StarTowerBattleCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerBattleCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -2873,7 +2873,7 @@ class QuestProgressBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const QuestProgressBin*>(
         &_QuestProgressBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(QuestProgressBin& a, QuestProgressBin& b) { a.Swap(&b); }
   inline void Swap(QuestProgressBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -3153,7 +3153,7 @@ class MailAttachmentBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const MailAttachmentBin*>(
         &_MailAttachmentBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 22;
+  static constexpr int kIndexInFileMessages = 23;
   friend void swap(MailAttachmentBin& a, MailAttachmentBin& b) { a.Swap(&b); }
   inline void Swap(MailAttachmentBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -3628,7 +3628,7 @@ class GameDiscInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GameDiscInfoBin*>(
         &_GameDiscInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 73;
+  static constexpr int kIndexInFileMessages = 7;
   friend void swap(GameDiscInfoBin& a, GameDiscInfoBin& b) { a.Swap(&b); }
   inline void Swap(GameDiscInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -3902,7 +3902,7 @@ class GachaPityStateBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GachaPityStateBin*>(
         &_GachaPityStateBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 26;
+  static constexpr int kIndexInFileMessages = 27;
   friend void swap(GachaPityStateBin& a, GachaPityStateBin& b) { a.Swap(&b); }
   inline void Swap(GachaPityStateBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -4128,7 +4128,7 @@ class GachaHistoryBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GachaHistoryBin*>(
         &_GachaHistoryBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 29;
+  static constexpr int kIndexInFileMessages = 30;
   friend void swap(GachaHistoryBin& a, GachaHistoryBin& b) { a.Swap(&b); }
   inline void Swap(GachaHistoryBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -4363,7 +4363,7 @@ class GachaCardGroupBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GachaCardGroupBin*>(
         &_GachaCardGroupBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 27;
+  static constexpr int kIndexInFileMessages = 28;
   friend void swap(GachaCardGroupBin& a, GachaCardGroupBin& b) { a.Swap(&b); }
   inline void Swap(GachaCardGroupBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -4562,7 +4562,7 @@ class GachaBannerInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GachaBannerInfoBin*>(
         &_GachaBannerInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 25;
+  static constexpr int kIndexInFileMessages = 26;
   friend void swap(GachaBannerInfoBin& a, GachaBannerInfoBin& b) { a.Swap(&b); }
   inline void Swap(GachaBannerInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -4788,7 +4788,7 @@ class FormationInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const FormationInfoBin*>(
         &_FormationInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 34;
+  static constexpr int kIndexInFileMessages = 35;
   friend void swap(FormationInfoBin& a, FormationInfoBin& b) { a.Swap(&b); }
   inline void Swap(FormationInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -5757,7 +5757,7 @@ class AgentBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const AgentBin*>(
         &_AgentBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 70;
+  static constexpr int kIndexInFileMessages = 71;
   friend void swap(AgentBin& a, AgentBin& b) { a.Swap(&b); }
   inline void Swap(AgentBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -5992,7 +5992,7 @@ class StoryOptionLogBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StoryOptionLogBin*>(
         &_StoryOptionLogBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 66;
+  static constexpr int kIndexInFileMessages = 67;
   friend void swap(StoryOptionLogBin& a, StoryOptionLogBin& b) { a.Swap(&b); }
   inline void Swap(StoryOptionLogBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -6208,7 +6208,7 @@ class StarTowerPresetCharBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerPresetCharBin*>(
         &_StarTowerPresetCharBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 37;
+  static constexpr int kIndexInFileMessages = 38;
   friend void swap(StarTowerPresetCharBin& a, StarTowerPresetCharBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerPresetCharBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -6417,7 +6417,7 @@ class StarTowerPotentialCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerPotentialCaseBin*>(
         &_StarTowerPotentialCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 46;
+  static constexpr int kIndexInFileMessages = 47;
   friend void swap(StarTowerPotentialCaseBin& a, StarTowerPotentialCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerPotentialCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -6686,7 +6686,7 @@ class StarTowerHawkerCaseBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerHawkerCaseBin*>(
         &_StarTowerHawkerCaseBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 48;
+  static constexpr int kIndexInFileMessages = 49;
   friend void swap(StarTowerHawkerCaseBin& a, StarTowerHawkerCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerHawkerCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -6907,7 +6907,7 @@ class StarTowerBuildBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerBuildBin*>(
         &_StarTowerBuildBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 42;
+  static constexpr int kIndexInFileMessages = 43;
   friend void swap(StarTowerBuildBin& a, StarTowerBuildBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerBuildBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -7285,7 +7285,7 @@ class QuestInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const QuestInfoBin*>(
         &_QuestInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 9;
+  static constexpr int kIndexInFileMessages = 10;
   friend void swap(QuestInfoBin& a, QuestInfoBin& b) { a.Swap(&b); }
   inline void Swap(QuestInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -7554,7 +7554,7 @@ class PlayerBasicCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerBasicCompBin*>(
         &_PlayerBasicCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 64;
+  static constexpr int kIndexInFileMessages = 65;
   friend void swap(PlayerBasicCompBin& a, PlayerBasicCompBin& b) { a.Swap(&b); }
   inline void Swap(PlayerBasicCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -8061,7 +8061,7 @@ class NewbieGachaStateBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const NewbieGachaStateBin*>(
         &_NewbieGachaStateBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 28;
+  static constexpr int kIndexInFileMessages = 29;
   friend void swap(NewbieGachaStateBin& a, NewbieGachaStateBin& b) { a.Swap(&b); }
   inline void Swap(NewbieGachaStateBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -8339,7 +8339,7 @@ class MailInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const MailInfoBin*>(
         &_MailInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 23;
+  static constexpr int kIndexInFileMessages = 24;
   friend void swap(MailInfoBin& a, MailInfoBin& b) { a.Swap(&b); }
   inline void Swap(MailInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -8671,7 +8671,7 @@ class InventoryCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const InventoryCompBin*>(
         &_InventoryCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 21;
+  static constexpr int kIndexInFileMessages = 22;
   friend void swap(InventoryCompBin& a, InventoryCompBin& b) { a.Swap(&b); }
   inline void Swap(InventoryCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -9151,7 +9151,7 @@ class FormationCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const FormationCompBin*>(
         &_FormationCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 35;
+  static constexpr int kIndexInFileMessages = 36;
   friend void swap(FormationCompBin& a, FormationCompBin& b) { a.Swap(&b); }
   inline void Swap(FormationCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -9596,7 +9596,7 @@ class AgentCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const AgentCompBin*>(
         &_AgentCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 71;
+  static constexpr int kIndexInFileMessages = 72;
   friend void swap(AgentCompBin& a, AgentCompBin& b) { a.Swap(&b); }
   inline void Swap(AgentCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -9793,7 +9793,7 @@ class AchievementInfoBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const AchievementInfoBin*>(
         &_AchievementInfoBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 12;
+  static constexpr int kIndexInFileMessages = 13;
   friend void swap(AchievementInfoBin& a, AchievementInfoBin& b) { a.Swap(&b); }
   inline void Swap(AchievementInfoBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -10077,7 +10077,7 @@ class StarTowerPotentialPresetBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerPotentialPresetBin*>(
         &_StarTowerPotentialPresetBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 38;
+  static constexpr int kIndexInFileMessages = 39;
   friend void swap(StarTowerPotentialPresetBin& a, StarTowerPotentialPresetBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerPotentialPresetBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -10340,7 +10340,7 @@ class StarTowerCaseBin final : public ::google::protobuf::Message
     kSelectSpecialPotentialCase = 12,
     DATA_NOT_SET = 0,
   };
-  static constexpr int kIndexInFileMessages = 53;
+  static constexpr int kIndexInFileMessages = 54;
   friend void swap(StarTowerCaseBin& a, StarTowerCaseBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerCaseBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -10771,7 +10771,7 @@ class QuestCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const QuestCompBin*>(
         &_QuestCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 10;
+  static constexpr int kIndexInFileMessages = 11;
   friend void swap(QuestCompBin& a, QuestCompBin& b) { a.Swap(&b); }
   inline void Swap(QuestCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -11063,7 +11063,7 @@ class MailCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const MailCompBin*>(
         &_MailCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 24;
+  static constexpr int kIndexInFileMessages = 25;
   friend void swap(MailCompBin& a, MailCompBin& b) { a.Swap(&b); }
   inline void Swap(MailCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -11545,7 +11545,7 @@ class BattlePassCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const BattlePassCompBin*>(
         &_BattlePassCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 11;
+  static constexpr int kIndexInFileMessages = 12;
   friend void swap(BattlePassCompBin& a, BattlePassCompBin& b) { a.Swap(&b); }
   inline void Swap(BattlePassCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -11836,7 +11836,7 @@ class AchievementCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const AchievementCompBin*>(
         &_AchievementCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 13;
+  static constexpr int kIndexInFileMessages = 14;
   friend void swap(AchievementCompBin& a, AchievementCompBin& b) { a.Swap(&b); }
   inline void Swap(AchievementCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -12033,7 +12033,7 @@ class StoryCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StoryCompBin*>(
         &_StoryCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 69;
+  static constexpr int kIndexInFileMessages = 70;
   friend void swap(StoryCompBin& a, StoryCompBin& b) { a.Swap(&b); }
   inline void Swap(StoryCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -12293,7 +12293,7 @@ class StarTowerRoomBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerRoomBin*>(
         &_StarTowerRoomBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 54;
+  static constexpr int kIndexInFileMessages = 55;
   friend void swap(StarTowerRoomBin& a, StarTowerRoomBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerRoomBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -12591,7 +12591,7 @@ class GachaCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const GachaCompBin*>(
         &_GachaCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 33;
+  static constexpr int kIndexInFileMessages = 34;
   friend void swap(GachaCompBin& a, GachaCompBin& b) { a.Swap(&b); }
   inline void Swap(GachaCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -13272,7 +13272,7 @@ class StarTowerGameBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerGameBin*>(
         &_StarTowerGameBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 59;
+  static constexpr int kIndexInFileMessages = 60;
   friend void swap(StarTowerGameBin& a, StarTowerGameBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerGameBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -13868,7 +13868,7 @@ class CharacterCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const CharacterCompBin*>(
         &_CharacterCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(CharacterCompBin& a, CharacterCompBin& b) { a.Swap(&b); }
   inline void Swap(CharacterCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -14084,7 +14084,7 @@ class StarTowerCompBin final : public ::google::protobuf::Message
     return *reinterpret_cast<const StarTowerCompBin*>(
         &_StarTowerCompBin_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 61;
+  static constexpr int kIndexInFileMessages = 62;
   friend void swap(StarTowerCompBin& a, StarTowerCompBin& b) { a.Swap(&b); }
   inline void Swap(StarTowerCompBin* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -14672,7 +14672,7 @@ class PlayerSaveData final : public ::google::protobuf::Message
     return *reinterpret_cast<const PlayerSaveData*>(
         &_PlayerSaveData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 72;
+  static constexpr int kIndexInFileMessages = 73;
   friend void swap(PlayerSaveData& a, PlayerSaveData& b) { a.Swap(&b); }
   inline void Swap(PlayerSaveData* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -16313,6 +16313,210 @@ inline void CharacterInfo::set_allocated_contact(::ServerProto::CharacterContact
 
   _impl_.contact_ = reinterpret_cast<::ServerProto::CharacterContact*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.CharacterInfo.contact)
+}
+
+// -------------------------------------------------------------------
+
+// GameDiscInfoBin
+
+// int32 discId = 2;
+inline void GameDiscInfoBin::clear_discid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.discid_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::int32_t GameDiscInfoBin::discid() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.discId)
+  return _internal_discid();
+}
+inline void GameDiscInfoBin::set_discid(::int32_t value) {
+  _internal_set_discid(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.discId)
+}
+inline ::int32_t GameDiscInfoBin::_internal_discid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.discid_;
+}
+inline void GameDiscInfoBin::_internal_set_discid(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.discid_ = value;
+}
+
+// int32 level = 3;
+inline void GameDiscInfoBin::clear_level() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.level_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::int32_t GameDiscInfoBin::level() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.level)
+  return _internal_level();
+}
+inline void GameDiscInfoBin::set_level(::int32_t value) {
+  _internal_set_level(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.level)
+}
+inline ::int32_t GameDiscInfoBin::_internal_level() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.level_;
+}
+inline void GameDiscInfoBin::_internal_set_level(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.level_ = value;
+}
+
+// int32 exp = 4;
+inline void GameDiscInfoBin::clear_exp() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exp_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::int32_t GameDiscInfoBin::exp() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.exp)
+  return _internal_exp();
+}
+inline void GameDiscInfoBin::set_exp(::int32_t value) {
+  _internal_set_exp(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.exp)
+}
+inline ::int32_t GameDiscInfoBin::_internal_exp() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.exp_;
+}
+inline void GameDiscInfoBin::_internal_set_exp(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exp_ = value;
+}
+
+// int32 phase = 5;
+inline void GameDiscInfoBin::clear_phase() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.phase_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::int32_t GameDiscInfoBin::phase() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.phase)
+  return _internal_phase();
+}
+inline void GameDiscInfoBin::set_phase(::int32_t value) {
+  _internal_set_phase(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.phase)
+}
+inline ::int32_t GameDiscInfoBin::_internal_phase() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.phase_;
+}
+inline void GameDiscInfoBin::_internal_set_phase(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.phase_ = value;
+}
+
+// int32 star = 6;
+inline void GameDiscInfoBin::clear_star() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.star_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline ::int32_t GameDiscInfoBin::star() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.star)
+  return _internal_star();
+}
+inline void GameDiscInfoBin::set_star(::int32_t value) {
+  _internal_set_star(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.star)
+}
+inline ::int32_t GameDiscInfoBin::_internal_star() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.star_;
+}
+inline void GameDiscInfoBin::_internal_set_star(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.star_ = value;
+}
+
+// bool read = 7;
+inline void GameDiscInfoBin::clear_read() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.read_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline bool GameDiscInfoBin::read() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.read)
+  return _internal_read();
+}
+inline void GameDiscInfoBin::set_read(bool value) {
+  _internal_set_read(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.read)
+}
+inline bool GameDiscInfoBin::_internal_read() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.read_;
+}
+inline void GameDiscInfoBin::_internal_set_read(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.read_ = value;
+}
+
+// bool avg = 8;
+inline void GameDiscInfoBin::clear_avg() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.avg_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline bool GameDiscInfoBin::avg() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.avg)
+  return _internal_avg();
+}
+inline void GameDiscInfoBin::set_avg(bool value) {
+  _internal_set_avg(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.avg)
+}
+inline bool GameDiscInfoBin::_internal_avg() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.avg_;
+}
+inline void GameDiscInfoBin::_internal_set_avg(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.avg_ = value;
+}
+
+// int64 createTime = 9;
+inline void GameDiscInfoBin::clear_createtime() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.createtime_ = ::int64_t{0};
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000080U);
+}
+inline ::int64_t GameDiscInfoBin::createtime() const {
+  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.createTime)
+  return _internal_createtime();
+}
+inline void GameDiscInfoBin::set_createtime(::int64_t value) {
+  _internal_set_createtime(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.createTime)
+}
+inline ::int64_t GameDiscInfoBin::_internal_createtime() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.createtime_;
+}
+inline void GameDiscInfoBin::_internal_set_createtime(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.createtime_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -26995,210 +27199,6 @@ inline void PlayerSaveData::set_allocated_agentcomp(::ServerProto::AgentCompBin*
 
   _impl_.agentcomp_ = reinterpret_cast<::ServerProto::AgentCompBin*>(value);
   // @@protoc_insertion_point(field_set_allocated:ServerProto.PlayerSaveData.agentComp)
-}
-
-// -------------------------------------------------------------------
-
-// GameDiscInfoBin
-
-// int32 discId = 2;
-inline void GameDiscInfoBin::clear_discid() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.discid_ = 0;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000001U);
-}
-inline ::int32_t GameDiscInfoBin::discid() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.discId)
-  return _internal_discid();
-}
-inline void GameDiscInfoBin::set_discid(::int32_t value) {
-  _internal_set_discid(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.discId)
-}
-inline ::int32_t GameDiscInfoBin::_internal_discid() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.discid_;
-}
-inline void GameDiscInfoBin::_internal_set_discid(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.discid_ = value;
-}
-
-// int32 level = 3;
-inline void GameDiscInfoBin::clear_level() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.level_ = 0;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000002U);
-}
-inline ::int32_t GameDiscInfoBin::level() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.level)
-  return _internal_level();
-}
-inline void GameDiscInfoBin::set_level(::int32_t value) {
-  _internal_set_level(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.level)
-}
-inline ::int32_t GameDiscInfoBin::_internal_level() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.level_;
-}
-inline void GameDiscInfoBin::_internal_set_level(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.level_ = value;
-}
-
-// int32 exp = 4;
-inline void GameDiscInfoBin::clear_exp() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.exp_ = 0;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000004U);
-}
-inline ::int32_t GameDiscInfoBin::exp() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.exp)
-  return _internal_exp();
-}
-inline void GameDiscInfoBin::set_exp(::int32_t value) {
-  _internal_set_exp(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.exp)
-}
-inline ::int32_t GameDiscInfoBin::_internal_exp() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.exp_;
-}
-inline void GameDiscInfoBin::_internal_set_exp(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.exp_ = value;
-}
-
-// int32 phase = 5;
-inline void GameDiscInfoBin::clear_phase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.phase_ = 0;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000008U);
-}
-inline ::int32_t GameDiscInfoBin::phase() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.phase)
-  return _internal_phase();
-}
-inline void GameDiscInfoBin::set_phase(::int32_t value) {
-  _internal_set_phase(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.phase)
-}
-inline ::int32_t GameDiscInfoBin::_internal_phase() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.phase_;
-}
-inline void GameDiscInfoBin::_internal_set_phase(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.phase_ = value;
-}
-
-// int32 star = 6;
-inline void GameDiscInfoBin::clear_star() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.star_ = 0;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000010U);
-}
-inline ::int32_t GameDiscInfoBin::star() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.star)
-  return _internal_star();
-}
-inline void GameDiscInfoBin::set_star(::int32_t value) {
-  _internal_set_star(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.star)
-}
-inline ::int32_t GameDiscInfoBin::_internal_star() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.star_;
-}
-inline void GameDiscInfoBin::_internal_set_star(::int32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.star_ = value;
-}
-
-// bool read = 7;
-inline void GameDiscInfoBin::clear_read() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.read_ = false;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000020U);
-}
-inline bool GameDiscInfoBin::read() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.read)
-  return _internal_read();
-}
-inline void GameDiscInfoBin::set_read(bool value) {
-  _internal_set_read(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.read)
-}
-inline bool GameDiscInfoBin::_internal_read() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.read_;
-}
-inline void GameDiscInfoBin::_internal_set_read(bool value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.read_ = value;
-}
-
-// bool avg = 8;
-inline void GameDiscInfoBin::clear_avg() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.avg_ = false;
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000040U);
-}
-inline bool GameDiscInfoBin::avg() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.avg)
-  return _internal_avg();
-}
-inline void GameDiscInfoBin::set_avg(bool value) {
-  _internal_set_avg(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.avg)
-}
-inline bool GameDiscInfoBin::_internal_avg() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.avg_;
-}
-inline void GameDiscInfoBin::_internal_set_avg(bool value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.avg_ = value;
-}
-
-// int64 createTime = 9;
-inline void GameDiscInfoBin::clear_createtime() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.createtime_ = ::int64_t{0};
-  ClearHasBit(_impl_._has_bits_[0],
-                  0x00000080U);
-}
-inline ::int64_t GameDiscInfoBin::createtime() const {
-  // @@protoc_insertion_point(field_get:ServerProto.GameDiscInfoBin.createTime)
-  return _internal_createtime();
-}
-inline void GameDiscInfoBin::set_createtime(::int64_t value) {
-  _internal_set_createtime(value);
-  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
-  // @@protoc_insertion_point(field_set:ServerProto.GameDiscInfoBin.createTime)
-}
-inline ::int64_t GameDiscInfoBin::_internal_createtime() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.createtime_;
-}
-inline void GameDiscInfoBin::_internal_set_createtime(::int64_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.createtime_ = value;
 }
 
 #ifdef __GNUC__

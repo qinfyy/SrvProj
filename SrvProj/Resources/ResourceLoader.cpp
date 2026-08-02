@@ -14,6 +14,7 @@
 #include <Archive.h>
 #include "../Config.h"
 #include "../Logger.h"
+#include "../Util.h"
 
 #include "BinClass\AchievementsRes.h"
 #include "BinClass\ActivityRes.h"
@@ -236,13 +237,6 @@ std::filesystem::path ResolveJsonBinPath(const std::string& inputPath) {
     return path;
 }
 
-std::string NormalizeResourceType(std::string value) {
-    std::transform(value.begin(), value.end(), value.begin(), [](unsigned char ch) {
-        return static_cast<char>(std::tolower(ch));
-    });
-    return value;
-}
-
 template<typename T, typename Container>
 void CheckResourceInterface() {
     static_assert(std::is_same_v<decltype(std::declval<T&>().LoadFromPb(std::declval<std::string>())), bool>,
@@ -361,7 +355,7 @@ void LoadResources() {
 
     ResourceLoadSource source;
     std::unique_ptr<Archive> arc;
-    const auto resourceType = NormalizeResourceType(Config::Get().resourceConfig.type);
+    const auto resourceType = ToLower(Config::Get().resourceConfig.type);
 
     if (resourceType == "arcx") {
         source.useBytes = true;
@@ -374,175 +368,6 @@ void LoadResources() {
     else {
         throw std::runtime_error("资源加载类型无效，仅支持 arcx 或 json: " + Config::Get().resourceConfig.type);
     }
-
-    //LoadRes<CharacterRes>(&source, GameData::CharacterDataTable);
-    //LoadRes<CharacterAdvanceRes>(&source, GameData::CharacterAdvanceDataTable);
-    //LoadRes<CharacterSkillUpgradeRes>(&source, GameData::CharacterSkillUpgradeDataTable);
-    //LoadRes<CharacterUpgradeRes>(&source, GameData::CharacterUpgradeDataTable);
-    //LoadRes<CharItemExpRes>(&source, GameData::CharItemExpDataTable);
-    //LoadRes<CharacterSkinRes>(&source, GameData::CharacterSkinDataTable);
-    //LoadRes<TalentGroupRes>(&source, GameData::TalentGroupDataTable);
-    //LoadRes<TalentRes>(&source, GameData::TalentDataTable);
-
-    //// Characters: Emblems
-    //LoadRes<CharGemRes>(&source, GameData::CharGemDataTable);
-    //LoadRes<CharGemSlotControlRes>(&source, GameData::CharGemSlotControlDataTable);
-    //LoadRes<CharGemAttrValueRes>(&source, GameData::CharGemAttrValueDataTable);
-
-    //// Characters: Affinity
-    //LoadRes<AffinityLevelRes>(&source, GameData::AffinityLevelDataTable);
-    //LoadRes<AffinityGiftRes>(&source, GameData::AffinityGiftDataTable);
-    //LoadRes<PlotRes>(&source, GameData::PlotDataTable);
-
-    //// Characters: Phone
-    //LoadRes<ChatRes>(&source, GameData::ChatDataTable);
-
-    //// Characters: Dating
-    //LoadRes<DatingLandmarkRes>(&source, GameData::DatingLandmarkDataTable);
-    //LoadRes<DatingLandmarkEventRes>(&source, GameData::DatingLandmarkEventDataTable);
-    //LoadRes<DatingCharacterEventRes>(&source, GameData::DatingCharacterEventDataTable);
-
-    //// ===== Discs =====
-    //LoadRes<DiscRes>(&source, GameData::DiscDataTable);
-    //LoadRes<DiscStrengthenRes>(&source, GameData::DiscStrengthenDataTable);
-    //LoadRes<DiscItemExpRes>(&source, GameData::DiscItemExpDataTable);
-    //LoadRes<DiscPromoteRes>(&source, GameData::DiscPromoteDataTable);
-    //LoadRes<DiscPromoteLimitRes>(&source, GameData::DiscPromoteLimitDataTable);
-
-    //// Discs: Melody items
-    //LoadRes<SecondarySkillRes>(&source, GameData::SecondarySkillDataTable);
-
-    //// ===== Items =====
-    //LoadRes<ItemRes>(&source, GameData::ItemDataTable);
-    //LoadRes<ProductionRes>(&source, GameData::ProductionDataTable);
-    //LoadRes<PlayerHeadRes>(&source, GameData::PlayerHeadDataTable);
-    //LoadRes<TitleRes>(&source, GameData::TitleDataTable);
-    //LoadRes<HonorRes>(&source, GameData::HonorDataTable);
-    //LoadRes<DropPkgRes>(&source, GameData::DropPkgDataTable);
-
-    //// ===== Shops =====
-    //LoadRes<MallMonthlyCardRes>(&source, GameData::MallMonthlyCardDataTable);
-    //LoadRes<MallPackageRes>(&source, GameData::MallPackageDataTable);
-    //LoadRes<MallShopRes>(&source, GameData::MallShopDataTable);
-    //LoadRes<MallGemRes>(&source, GameData::MallGemDataTable);
-
-    //LoadRes<ResidentShopRes>(&source, GameData::ResidentShopDataTable);
-    //LoadRes<ResidentGoodsRes>(&source, GameData::ResidentGoodsDataTable);
-
-
-    //// ===== Battle Pass =====
-    //LoadRes<BattlePassRes>(&source, GameData::BattlePassDataTable);
-    //LoadRes<BattlePassLevelRes>(&source, GameData::BattlePassLevelDataTable);
-    //LoadRes<BattlePassQuestRes>(&source, GameData::BattlePassQuestDataTable);
-    //LoadRes<BattlePassRewardRes>(&source, GameData::BattlePassRewardDataTable);
-
-    //// ===== Commissions =====
-    //LoadRes<AgentRes>(&source, GameData::AgentDataTable);
-
-    //// ===== Dictionary =====
-    //LoadRes<DictionaryTabRes>(&source, GameData::DictionaryTabDataTable);
-    //LoadRes<DictionaryEntryRes>(&source, GameData::DictionaryEntryDataTable);
-
-    //// ===== Gacha =====
-    //LoadRes<GachaATypeProbRes>(&source, GameData::GachaATypeProbDataTable);
-    //LoadRes<GachaRes>(&source, GameData::GachaDataTable);
-    //LoadRes<GachaNewbieRes>(&source, GameData::GachaNewbieDataTable);
-    //LoadRes<GachaStorageRes>(&source, GameData::GachaStorageDataTable);
-    //LoadRes<GachaTypeRes>(&source, GameData::GachaTypeDataTable);
-
-    //// ===== Story =====
-    //LoadRes<StoryRes>(&source, GameData::StoryDataTable);
-    //LoadRes<StorySetSectionRes>(&source, GameData::StorySetSectionDataTable);
-    //LoadRes<StoryEvidenceRes>(&source, GameData::StoryEvidenceDataTable);
-
-    //LoadRes<MainScreenCGRes>(&source, GameData::MainScreenCGDataTable);
-
-    //// ===== Daily/Weekly Quests =====
-    //LoadRes<DailyQuestRes>(&source, GameData::DailyQuestDataTable);
-    //LoadRes<DailyQuestActiveRes>(&source, GameData::DailyQuestActiveDataTable);
-    //LoadRes<WeeklyQuestRes>(&source, GameData::WeeklyQuestDataTable);
-    //LoadRes<WeeklyQuestActiveRes>(&source, GameData::WeeklyQuestActiveDataTable);
-
-    //// ===== Achievements =====
-    //LoadRes<AchievementRes>(&source, GameData::AchievementDataTable);
-
-    //// ===== Tutorials =====
-    //LoadRes<TutorialLevelRes>(&source, GameData::TutorialLevelDataTable);
-
-    //// ===== Instances =====
-    //LoadRes<DailyInstanceRes>(&source, GameData::DailyInstanceDataTable);
-    //LoadRes<DailyInstanceRewardGroupRes>(&source, GameData::DailyInstanceRewardGroupDataTable);
-    //LoadRes<RegionBossLevelRes>(&source, GameData::RegionBossLevelDataTable);
-    //LoadRes<SkillInstanceRes>(&source, GameData::SkillInstanceDataTable);
-    //LoadRes<CharGemInstanceRes>(&source, GameData::CharGemInstanceDataTable);
-    //LoadRes<WeekBossLevelRes>(&source, GameData::WeekBossLevelDataTable);
-
-    //// ===== Star Tower =====
-    //LoadRes<StarTowerRes>(&source, GameData::StarTowerDataTable);
-    //LoadRes<StarTowerStageRes>(&source, GameData::StarTowerStageDataTable);
-    //LoadRes<StarTowerGrowthNodeRes>(&source, GameData::StarTowerGrowthNodeDataTable);
-    //LoadRes<StarTowerFloorExpRes>(&source, GameData::StarTowerFloorExpDataTable);
-    //LoadRes<StarTowerTeamExpRes>(&source, GameData::StarTowerTeamExpDataTable);
-    //LoadRes<StarTowerEventRes>(&source, GameData::StarTowerEventDataTable);
-    //LoadRes<StarTowerBuildRankRes>(&source, GameData::StarTowerBuildRankDataTable);
-    //LoadRes<SubNoteSkillPromoteGroupRes>(&source, GameData::SubNoteSkillPromoteGroupDataTable);
-
-    //LoadRes<PotentialRes>(&source, GameData::PotentialDataTable);
-    //LoadRes<CharPotentialRes>(&source, GameData::CharPotentialDataTable);
-
-    //LoadRes<StarTowerBookFateCardBundleRes>(&source, GameData::StarTowerBookFateCardBundleDataTable);
-    //LoadRes<StarTowerBookFateCardQuestRes>(&source, GameData::StarTowerBookFateCardQuestDataTable);
-    //LoadRes<StarTowerBookFateCardRes>(&source, GameData::StarTowerBookFateCardDataTable);
-    //LoadRes<FateCardRes>(&source, GameData::FateCardDataTable);
-
-    //// ===== Infinity Tower =====
-    //LoadRes<InfinityTowerLevelRes>(&source, GameData::InfinityTowerLevelDataTable);
-    //LoadRes<InfinityTowerDifficultyRes>(&source, GameData::InfinityTowerDifficultyDataTable);
-
-    //// ===== Vampire Survivor =====
-    //LoadRes<VampireSurvivorRes>(&source, GameData::VampireSurvivorDataTable);
-    //LoadRes<VampireTalentRes>(&source, GameData::VampireTalentDataTable);
-
-    //// ===== Score Boss =====
-    //LoadRes<ScoreBossControlRes>(&source, GameData::ScoreBossControlDataTable);
-    //LoadRes<ScoreBossRewardRes>(&source, GameData::ScoreBossRewardDataTable);
-
-
-    //// ===== Misc =====
-    //LoadRes<WorldClassRes>(&source, GameData::WorldClassDataTable);
-    //LoadRes<GuideGroupRes>(&source, GameData::GuideGroupDataTable);
-    //LoadRes<HandbookRes>(&source, GameData::HandbookDataTable);
-    //LoadRes<SignInRes>(&source, GameData::SignInDataTable);
-
-    //// ===== Activity =====
-    //LoadRes<ActivityRes>(&source, GameData::ActivityDataTable);
-
-    //// Activity: Login Reward
-    //LoadRes<LoginRewardGroupControlRes>(&source, GameData::LoginRewardGroupControlDataTable);
-
-    //// Activity: Tower Defense
-    //LoadRes<TowerDefenseLevelRes>(&source, GameData::TowerDefenseLevelDataTable);
-
-    //// Activity: Trials
-    //LoadRes<TrialControlRes>(&source, GameData::TrialControlDataTable);
-    //LoadRes<TrialGroupRes>(&source, GameData::TrialGroupDataTable);
-
-    //// Activity: Joint Drill
-    //LoadRes<JointDrill2LevelRes>(&source, GameData::JointDrill2LevelDataTable);
-
-    //// Activity: Levels
-    //LoadRes<ActivityLevelsLevelRes>(&source, GameData::ActivityLevelsLevelDataTable);
-
-    //// Activity: Task
-    //LoadRes<ActivityTaskRes>(&source, GameData::ActivityTaskDataTable);
-    //LoadRes<ActivityTaskGroupRes>(&source, GameData::ActivityTaskGroupDataTable);
-
-    //// Activity: Shop
-    //LoadRes<ActivityShopRes>(&source, GameData::ActivityShopDataTable);
-    //LoadRes<ActivityShopControlRes>(&source, GameData::ActivityShopControlDataTable);
-    //LoadRes<ActivityGoodsRes>(&source, GameData::ActivityGoodsDataTable);
-
-
 
     // HIGHEST
 

@@ -542,7 +542,7 @@ bool AccountServer::Start()
 
     if (mLogLevel <= LogLevel::Info)
     {
-        LOG_INFO("AccountServer listening on {}:{} with {} IOCP workers", mBindIp, mPort, workerCount);
+        LOG_INFO("AccountServer listening on {}:{}", mBindIp, mPort);
     }
 
     return true;
