@@ -97,7 +97,21 @@ int main() {
 
     //GetServerList();
     //GetNoticeList();
-    AccountServer server(Config::Get().httpServerConfig.ip, Config::Get().httpServerConfig.port);
+    size_t workerCount = 0;
+    const std::string& workerConfig = Config::Get().httpServerConfig.workerCount;
+    if (!workerConfig.empty() && workerConfig != "auto")
+    {
+        try
+        {
+            workerCount = static_cast<size_t>(std::stoul(workerConfig));
+        }
+        catch (...)
+        {
+            workerCount = 0;
+        }
+    }
+
+    AccountServer server(Config::Get().httpServerConfig.ip, Config::Get().httpServerConfig.port, workerCount);
     if (!server.Start()) {
         return 1;
     }

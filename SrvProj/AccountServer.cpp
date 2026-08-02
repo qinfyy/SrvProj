@@ -292,8 +292,8 @@ private:
     HttpResponseBodyMode mBodyMode = HttpResponseBodyMode::ContentLength;
 };
 
-AccountServer::AccountServer(const std::string& bindIp, uint16_t port)
-    : mBindIp(bindIp), mPort(port), mListenSocket(INVALID_SOCKET),
+AccountServer::AccountServer(const std::string& bindIp, uint16_t port, size_t workerCount)
+    : mBindIp(bindIp), mPort(port), mWorkerCount(workerCount), mListenSocket(INVALID_SOCKET),
     mRunning(false), mEnableHttpLogging(false),
     mEnableRegisteredLogging(true), mEnableRequestLogging(true),
     mLogLevel(LogLevel::Info)
@@ -409,8 +409,12 @@ bool AccountServer::Start()
         return false;
     }
 
-    const size_t hardwareThreads = std::thread::hardware_concurrency();
-    const size_t workerCount = std::max<size_t>(hardwareThreads, hardwareThreads * 4);
+    size_t workerCount = mWorkerCount;
+    if (workerCount == 0)
+    {
+        const size_t hardwareThreads = std::thread::hardware_concurrency();
+        workerCount = std::max<size_t>(hardwareThreads, hardwareThreads * 4);
+    }
 
     try
     {

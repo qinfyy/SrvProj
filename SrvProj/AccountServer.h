@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <winsock2.h>
 #include <ws2tcpip.h>
@@ -68,7 +68,8 @@ public:
 
 class AccountServer {
 public:
-    AccountServer(const std::string& bindIp, uint16_t port);
+    // workerCount 为 0 时按 "auto" 公式（hardware * 4）计算
+    AccountServer(const std::string& bindIp, uint16_t port, size_t workerCount = 0);
 
     ~AccountServer();
 
@@ -117,6 +118,7 @@ private:
 
     std::string mBindIp;
     uint16_t mPort;
+    size_t mWorkerCount = 0;
     std::atomic<SOCKET> mListenSocket;
     std::atomic<bool> mRunning;
     std::atomic<bool> mEnableHttpLogging;
