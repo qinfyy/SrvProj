@@ -14,6 +14,10 @@
 #include "../proto/proto_cpp/disc_promote.pb.h"
 #include "../proto/proto_cpp/disc_strengthen.pb.h"
 
+namespace proto {
+class PhoneContactsInfoResp;
+}
+
 class CharacterStor : public ManagerBase
 {
 public:
@@ -49,6 +53,7 @@ public:
     bool SetCharacterSkin(uint32_t charId, uint32_t skinId);
     bool ToggleCharacterFavorite(uint32_t charId);
     bool SendAffinityGift(uint32_t charId, const ItemParamMap& items, proto::CharAffinityGiftSendResp& out);
+    bool ReceivePlotReward(uint32_t plotId, proto::ChangeInfo& change);
     bool UseGemPreset(uint32_t charId, uint32_t presetId);
     bool EquipGem(uint32_t charId, uint32_t slotId, int32_t gemIndex, uint32_t presetId);
     bool RefreshGem(uint32_t charId, uint32_t slotId, uint32_t gemIndex, const google::protobuf::RepeatedField<uint32_t>& lockAttrs, proto::CharGemRefreshResp& out);
@@ -64,6 +69,9 @@ public:
 
     void EncodePlayerInfo(proto::PlayerInfo& out) const override;
     int GetNewPhoneMessageCount() const;
+    void BuildPhoneContactsInfo(proto::PhoneContactsInfoResp& out) const;
+    bool ReportPhoneContact(uint32_t chatId, uint32_t process, const google::protobuf::RepeatedField<uint32_t>& options, bool end, proto::ChangeInfo& change);
+    bool TogglePhoneContactTop(uint32_t charId);
 
 private:
     void NormalizeCharacter(ServerProto::CharacterInfo& character) const;

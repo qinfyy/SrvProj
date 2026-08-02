@@ -29,6 +29,8 @@ public:
     bool HasPlayer() const;
     void ClearNextPackages();
 
+    Player* GetLoggedInPlayer() const;
+
     std::string mClientPublicKey;
     std::string mServerPublicKey;
     std::string mServerPrivateKey;
@@ -67,3 +69,5 @@ private:
 };
 
 std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Message* payload = nullptr);
+
+bool IsLoggedIn(GameSession* session);

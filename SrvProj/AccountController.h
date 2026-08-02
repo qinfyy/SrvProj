@@ -2,25 +2,20 @@
 #include <iterator>
 #include <algorithm>
 #include <optional>
-#include "proto/dump.pb.h"
+#include "HttpClient.h"
 #include "HttpMessage.h"
+#include "proto/dump.pb.h"
 
-std::optional<ServerListMeta> GetServerList();
+class RouteContext;
 
-void ServerListHandler(const HttpRequest& req, HttpResponse& rsp);
+AsyncTask<std::optional<ServerListMeta>> GetServerList(RouteContext& context);
 
-void NoticeListHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void QuickLoginHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void LoginHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void DetailHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void SmsHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void AuthHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void VersionHandler(const HttpRequest& req, HttpResponse& rsp);
-
-void CommonConfigHandler(const HttpRequest& req, HttpResponse& rsp);
+AsyncTask<void> ServerListHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> NoticeListHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> QuickLoginHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> LoginHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> DetailHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> SmsHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> AuthHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> VersionHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
+AsyncTask<void> CommonConfigHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);

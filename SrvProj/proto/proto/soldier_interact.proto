@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+import "public_soldier.proto";
+
+message SoldierInteractReq {
+    uint32 Id = 1;
+    bytes NextPackage = 2047;
+    oneof Action {
+        InteractShopReq ShopReq = 2;
+        InteractFightReq FightReq = 3;
+        InteractSoldierBattleReq BattleReq = 4;
+        InteractSoldierSelectReq SelectReq = 5;
+        InteractEventSettlementOfDisputeReq EventSettlementOfDisputeReq = 6;
+        InteractEventSettlementOfDisputeBattleReq EventSettlementOfDisputeBattleReq = 7;
+        InteractDeploySyncReq DeploySyncReq = 14;
+        InteractClientEventReq ClientEventReq = 15;
+    }
+}
+
+message SoldierInteractResp {
+    uint32 Id = 1;
+    repeated SoldierCase Cases = 2;
+    ChangeInfo Change = 3;
+    SoldierNodeData Node = 4;
+    SoldierSyncData SyncData = 5;
+    repeated SoldierEffect Effects = 6;
+    bytes NextPackage = 2047;
+    oneof Action {
+        InteractShopResp ShopResp = 8;
+        InteractSoldierBattleResp BattleResp = 9;
+        InteractSoldierSelectResp SelectResp = 10;
+        InteractEventSettlementOfDisputeResp EventSettlementOfDisputeResp = 11;
+        InteractEventSettlementOfDisputeBattleResp EventSettlementOfDisputeBattleResp = 12;
+        Nil NilResp = 14;
+        SoldierSettleDataResp Settle = 15;
+    }
+}

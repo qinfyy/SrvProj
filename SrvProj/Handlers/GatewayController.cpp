@@ -1,14 +1,18 @@
 ﻿#include "GatewayController.h"
+#include "../AccountServer.h"
 #include <sstream>
+#include <string_view>
 #include <openssl/rand.h>
 #include "../GameSession.h"
 #include "../AeadTool.h"
 #include "../GameServices.h"
 #include "../logger.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "Login.h"
 #include "Activity.h"
+#include "Agent.h"
 #include "Quest.h"
+#include "Story.h"
 #include "PlayerHandler.h"
 #include "Mail.h"
 #include "Gacha.h"
@@ -17,7 +21,7 @@
 #include "Character.h"
 #include "Disc.h"
 #include "BattlePass.h"
-#include "Tower.h"
+#include "StarTower.h"
 #include "../GameTime.h"
 
 typedef std::string(*ReqHandler)(GameSession*, const std::string&);
@@ -31,6 +35,23 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {player_formation_req, player_formation_req__Handler},
     {player_signature_edit_req, player_signature_edit_req__Handler},
     {player_learn_req, player_learn_req__Handler},
+    {player_board_set_req, player_board_set_req__Handler},
+    {player_chars_show_req, player_chars_show_req__Handler},
+    {player_gender_edit_req, player_gender_edit_req__Handler},
+    {player_head_icon_info_req, player_head_icon_info_req__Handler},
+    {player_head_icon_set_req, player_head_icon_set_req__Handler},
+    {player_honor_edit_req, player_honor_edit_req__Handler},
+    {player_music_set_req, player_music_set_req__Handler},
+    {player_name_edit_req, player_name_edit_req__Handler},
+    {player_skin_show_req, player_skin_show_req__Handler},
+    {player_title_edit_req, player_title_edit_req__Handler},
+    {player_world_class_reward_receive_req, player_world_class_reward_receive_req__Handler},
+    {phone_contacts_info_req, phone_contacts_info_req__Handler},
+    {phone_contacts_report_req, phone_contacts_report_req__Handler},
+    {phone_contacts_top_req, phone_contacts_top_req__Handler},
+    {agent_apply_req, agent_apply_req__Handler},
+    {agent_give_up_req, agent_give_up_req__Handler},
+    {agent_reward_receive_req, agent_reward_receive_req__Handler},
     {energy_info_req, energy_info_req__Handler},
     {mall_gem_list_req, mall_gem_list_req__Handler},
     {mall_gem_order_req, mall_gem_order_req__Handler},
@@ -85,6 +106,11 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {achievement_info_req, achievement_info_req__Handler},
     {achievement_reward_receive_req, achievement_reward_receive_req__Handler},
     {client_event_report_req, client_event_report_req__Handler},
+    {plot_reward_receive_req, plot_reward_receive_req__Handler},
+    {story_apply_req, story_apply_req__Handler},
+    {story_settle_req, story_settle_req__Handler},
+    {story_set_info_req, story_set_info_req__Handler},
+    {story_set_reward_receive_req, story_set_reward_receive_req__Handler},
     {mail_list_req, mail_list_req__Handler},
     {mail_read_req, mail_read_req__Handler},
     {mail_recv_req, mail_recv_req__Handler},
@@ -122,187 +148,195 @@ std::unordered_map<short, ReqHandler> g_HandlerMap = {
     {tower_growth_node_unlock_req, tower_growth_node_unlock_req__Handler},
 };
 
-void AgentHandler(const HttpRequest& req, HttpResponse& rsp) {
-    GameSession* session = nullptr;
-
-    std::string defaultSessionKey = AeadTool::twServerGarbleKey;
-    bool hasKey3 = false;
-    int encryptFunction = 0;
-
-    std::string sessionToken;
-    if (auto it = req.headers.find("X-Token"); it != req.headers.end()) {
-        sessionToken = it->second;
-    }
-
-    rsp.headers["Server"] = "agent";
-
-    if (!sessionToken.empty()) {
-        session = GameServices::Instance().GetSessionByToken(sessionToken);
-
-        // 找不到会话
-        if (!session || session->mKey.empty()) {
-            rsp.statusCode = 500;
-            rsp.body = "";
-            return;
-        }
-
-        defaultSessionKey = session->mKey;
-        encryptFunction = session->mEncryptFunction;
-        hasKey3 = true;
-    }
-
-    std::string reqData;
-    short msgId = 0;
-
-    try {
-        std::string body = req.body;
-        std::string plain;
-        int offset = 0;
-        if (body.size() <= 12) {
-            rsp.statusCode = 500;
-            rsp.body = "";
-            return;
-        }
-
-        if (hasKey3) {
-            std::array<char, 12> iv;
-            memcpy(iv.data(), body.data(), 12);
-            std::string cipher(reinterpret_cast<const char*>(body.data() + 12), body.size() - 12);
-            AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, encryptFunction);
-            offset = 10; // 跳过客户端包包头
-        }
-        else {
-            auto whitewashed = AeadUtil::Wash(body, defaultSessionKey);
-            std::array<char, 12> iv;
-            memcpy(iv.data(), whitewashed.data(), 12);
-            std::string cipher(reinterpret_cast<const char*>(whitewashed.data() + 12), whitewashed.size() - 12);
-            AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
-        }
-
-        msgId = (static_cast<uint8_t>(plain[offset]) << 8) | (static_cast<uint8_t>(plain[offset + 1]));
-        offset += 2;
-        reqData = plain.substr(offset);
-
-        LOG_DEBUG("Received request, msgId: {}, data size: {}, sessionToken: {}, hasKey3: {}, encryptFunction: {}",
-            msgId, reqData.size(), sessionToken, hasKey3, encryptFunction);
-
-        if (session) {
-            session->mLastActiveTime = GameTime::NowMilliseconds();
-        }
-        GameServices::Instance().CleanupExpiredSessions();
-
-        ReqHandler handler = nullptr;
-        if (auto it = g_HandlerMap.find(msgId); it != g_HandlerMap.end())
+AsyncTask<void> AgentHandler(RouteContext& context, const HttpRequest& request, HttpResponseWriter& writer)
+{
+    HttpResponse response;
+    co_await context.Runtime().RunBlocking([&request, &response]
         {
-            handler = it->second;
-        }
+            const HttpRequest& req = request;
+            HttpResponse& rsp = response;
+            GameSession* session = nullptr;
 
-        std::string rspOut;
-        if (handler) {
-            rspOut = handler(session, reqData);
-        }
-        else {
-            rspOut = DummyHandler(msgId);
-        }
+            std::string defaultSessionKey = AeadTool::twServerGarbleKey;
+            bool hasKey3 = false;
+            int encryptFunction = 0;
 
-        if (rspOut.empty()) {
-            LOG_WARNING("Unhandled request: {}", msgId);
-            rsp.statusCode = 500;
-            rsp.body = "";
-            return;
-        }
-        else {
-            LOG_DEBUG("Request handled successfully, response size: {}", rspOut.size());
-        }
+            std::string sessionToken;
+            if (auto it = req.headers.find("X-Token"); it != req.headers.end()) {
+                sessionToken = it->second;
+            }
 
-        if (hasKey3) {
-            std::array<char, 12> iv;
-            RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
-            std::string cipher;
-            AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, encryptFunction);
-            
-            std::string finalResult;
-            finalResult.reserve(cipher.size() + 12);
-            finalResult.append(iv.data(), 12);
-            finalResult.append(cipher);
+            rsp.headers["Server"] = "agent";
 
-            rsp.statusCode = 200;
-            rsp.body = finalResult;
-        }
-        else {
-            std::array<char, 12> iv;
-            RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
-            std::string cipher;
-            AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
-            
-            std::string result;
-            result.reserve(cipher.size() + 12);
-            result.append(iv.data(), 12);
-            result.append(cipher);
+            if (!sessionToken.empty()) {
+                session = GameServices::Instance().GetSessionByToken(sessionToken);
 
-            auto finalResult = AeadUtil::Obfuscate(result, defaultSessionKey);
+                // 找不到会话
+                if (!session || session->mKey.empty()) {
+                    rsp.statusCode = 500;
+                    rsp.body = "";
+                    return;
+                }
 
-            rsp.statusCode = 200;
-            rsp.body = finalResult;
+                defaultSessionKey = session->mKey;
+                encryptFunction = session->mEncryptFunction;
+                hasKey3 = true;
+            }
 
-            return;
-        }
-    }
-    catch (const std::exception& e) {
-        // error
-        std::ostringstream logOs;
-        logOs << "Agent 错误: ";
-        const std::exception* current = &e;
-        int level = 0;
-
-        while (current) {
-            logOs << std::string(level * 2, ' ') << current->what() << std::endl;
+            std::string reqData;
+            short msgId = 0;
 
             try {
-                std::rethrow_if_nested(*current);
-                break;
-            }
-            catch (const std::exception& nested) {
-                current = &nested;
-                level++;
-            }
-            catch (...) {
-                break;
-            }
-        }
+                std::string body = req.body;
+                std::string plain;
+                int offset = 0;
+                if (body.size() <= 12) {
+                    rsp.statusCode = 500;
+                    rsp.body = "";
+                    return;
+                }
 
-        LOG_ERROR(logOs.str());
+                if (hasKey3) {
+                    std::array<char, 12> iv;
+                    memcpy(iv.data(), body.data(), 12);
+                    std::string cipher(reinterpret_cast<const char*>(body.data() + 12), body.size() - 12);
+                    AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, encryptFunction);
+                    offset = 10; // 跳过客户端包包头
+                }
+                else {
+                    auto whitewashed = AeadUtil::Wash(body, defaultSessionKey);
+                    std::array<char, 12> iv;
+                    memcpy(iv.data(), whitewashed.data(), 12);
+                    std::string cipher(reinterpret_cast<const char*>(whitewashed.data() + 12), whitewashed.size() - 12);
+                    AeadTool::Dencrypt_BouncyCastle(plain, defaultSessionKey, std::string_view(iv.data(), iv.size()), cipher, cipher.size(), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
+                }
 
-        rsp.statusCode = 500;
-        rsp.body = "";
+                msgId = (static_cast<uint8_t>(plain[offset]) << 8) | (static_cast<uint8_t>(plain[offset + 1]));
+                offset += 2;
+                reqData = plain.substr(offset);
 
-        return;
-    }
+                LOG_DEBUG("Received request, msgId: {}, data size: {}, sessionToken: {}, hasKey3: {}, encryptFunction: {}",
+                    msgId, reqData.size(), sessionToken, hasKey3, encryptFunction);
+
+                if (session) {
+                    session->mLastActiveTime = GameTime::NowMilliseconds();
+                }
+                GameServices::Instance().CleanupExpiredSessions();
+
+                ReqHandler handler = nullptr;
+                if (auto it = g_HandlerMap.find(msgId); it != g_HandlerMap.end())
+                {
+                    handler = it->second;
+                }
+
+                std::string rspOut;
+                if (handler) {
+                    rspOut = handler(session, reqData);
+                }
+                else {
+                    rspOut = DummyHandler(msgId);
+                }
+
+                if (rspOut.empty()) {
+                    LOG_WARNING("Unhandled request: {}", msgId);
+                    rsp.statusCode = 500;
+                    rsp.body = "";
+                    return;
+                }
+                else {
+                    LOG_DEBUG("Request handled successfully, response size: {}", rspOut.size());
+                }
+
+                if (hasKey3) {
+                    std::array<char, 12> iv;
+                    RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
+                    std::string cipher;
+                    AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, encryptFunction);
+
+                    std::string finalResult;
+                    finalResult.reserve(cipher.size() + 12);
+                    finalResult.append(iv.data(), 12);
+                    finalResult.append(cipher);
+
+                    rsp.statusCode = 200;
+                    rsp.body = finalResult;
+                }
+                else {
+                    std::array<char, 12> iv;
+                    RAND_bytes(reinterpret_cast<unsigned char*>(iv.data()), iv.size());
+                    std::string cipher;
+                    AeadTool::Encrypt_BouncyCastle(cipher, defaultSessionKey, std::string_view(iv.data(), iv.size()), rspOut, static_cast<int>(rspOut.size()), true, 0); // 0 = AES GCM, 1 = ChaCha20Poly1305
+
+                    std::string result;
+                    result.reserve(cipher.size() + 12);
+                    result.append(iv.data(), 12);
+                    result.append(cipher);
+
+                    auto finalResult = AeadUtil::Obfuscate(result, defaultSessionKey);
+
+                    rsp.statusCode = 200;
+                    rsp.body = finalResult;
+
+                    return;
+                }
+            }
+            catch (const std::exception& e) {
+                // error
+                std::ostringstream logOs;
+                logOs << "Agent 错误: ";
+                const std::exception* current = &e;
+                int level = 0;
+
+                while (current) {
+                    logOs << std::string(level * 2, ' ') << current->what() << std::endl;
+
+                    try {
+                        std::rethrow_if_nested(*current);
+                        break;
+                    }
+                    catch (const std::exception& nested) {
+                        current = &nested;
+                        level++;
+                    }
+                    catch (...) {
+                        break;
+                    }
+                }
+
+                LOG_ERROR(logOs.str());
+
+                rsp.statusCode = 500;
+                rsp.body = "";
+
+                return;
+            }
+        });
+    co_await writer.WriteResponse(response);
 }
 
 std::string DummyHandler(short reqId)
 {
-    const auto* enumDesc = NetMsgId_descriptor();
-    if (!enumDesc) {
+    std::string reqName;
+    for (const auto& [name, id] : kNetMsgIdMap) {
+        if (id == reqId) {
+            reqName = name;
+            break;
+        }
+    }
+    if (reqName.empty()) {
         return "";
     }
 
-    const auto* reqValue = enumDesc->FindValueByNumber(reqId);
-    if (!reqValue) {
-        return "";
-    }
-
-    std::string_view reqName = reqValue->name();
     constexpr std::string_view suffix = "req";
-    if (!reqName.ends_with(suffix)) {
+    if (!std::string_view(reqName).ends_with(suffix)) {
         return "";
     }
 
-    std::string failedAckName = std::string(reqName.substr(0, reqName.size() - suffix.size())) + "failed_ack";
-    const auto* failedAckValue = enumDesc->FindValueByName(failedAckName);
-    if (!failedAckValue) {
+    std::string failedAckName = reqName.substr(0, reqName.size() - suffix.size()) + "failed_ack";
+    const auto failedAckIt = kNetMsgIdMap.find(failedAckName);
+    if (failedAckIt == kNetMsgIdMap.end()) {
         return "";
     }
 
-    return GameSession::EncodeMessage(static_cast<short>(failedAckValue->number()), "");
+    return GameSession::EncodeMessage(static_cast<short>(failedAckIt->second), "");
 }

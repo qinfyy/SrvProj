@@ -4,6 +4,11 @@
 
 using namespace nova::client;
 
+void StoryRes::OnLoad()
+{
+    Rewards = ItemParamMap::FromJsonString(RewardDisplay);
+}
+
 bool StoryRes::LoadFromJson(const nlohmann::json& data)
 {
     ReadResourceJsonField(data, "Id", Id);
@@ -33,6 +38,12 @@ bool StorySetSectionRes::LoadFromJson(const nlohmann::json& data)
     ReadResourceJsonField(data, "RewardItem1Tid", RewardItem1Tid);
     ReadResourceJsonField(data, "RewardItem1Qty", RewardItem1Qty);
     return true;
+}
+
+void StorySetSectionRes::OnLoad()
+{
+    Rewards = {};
+    Rewards.Add(RewardItem1Tid, RewardItem1Qty);
 }
 
 bool StorySetSectionRes::LoadFromPb(std::string data)

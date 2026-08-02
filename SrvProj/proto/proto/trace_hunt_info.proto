@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message TraceHuntInfo {
+    uint32 ControlID = 1;
+    uint32 Level = 2;
+    uint32 Exp = 3;
+    uint32 BossID = 4;
+    uint32 TraceProgress = 5;
+    uint32 HuntProgress = 6;
+    int64 BossCreateTime = 7;
+    uint32 SelfHuntTimes = 8;
+    uint64 BuildID = 9;
+    repeated TraceHuntBossCollection BossCollections = 10;
+    repeated TraceHuntLogEntry TraceLog = 11;
+    repeated TraceHuntLogEntry HuntLog = 12;
+    bytes NextPackage = 2047;
+}

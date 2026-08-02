@@ -5,6 +5,7 @@
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameConstants.h"
+#include "../Util.h"
 #include "../GameTime.h"
 #include "../Resources/BinClass/CharacterRes.h"
 #include "../Resources/BinClass/DiscRes.h"
@@ -37,21 +38,6 @@ constexpr double kNewbieFiveRate = 0.75;
 constexpr double kNewbieMultiFourRate = 10.0 / 15.0;
 constexpr double kNewbieThreeFourRate = 0.35;
 
-int32_t ClampChangeQty(int64_t qty)
-{
-    if (qty > std::numeric_limits<int32_t>::max())
-    {
-        return std::numeric_limits<int32_t>::max();
-    }
-
-    if (qty < std::numeric_limits<int32_t>::min())
-    {
-        return std::numeric_limits<int32_t>::min();
-    }
-
-    return static_cast<int32_t>(qty);
-}
-
 void AddItemTpl(proto::ItemTpl* tpl, uint32_t tid, int64_t qty)
 {
     if (!tpl)
@@ -60,7 +46,7 @@ void AddItemTpl(proto::ItemTpl* tpl, uint32_t tid, int64_t qty)
     }
 
     tpl->set_tid(tid);
-    tpl->set_qty(ClampChangeQty(qty));
+    tpl->set_qty(ChangeInfoUtil::ClampQty(qty));
 }
 
 void AddMapItem(std::map<uint32_t, int64_t>& items, uint32_t tid, int64_t qty)
@@ -105,19 +91,6 @@ bool IsResolvableItem(uint32_t itemId)
     return true;
 }
 
-double RandomDouble()
-{
-    static thread_local std::mt19937 rng{ std::random_device{}() };
-    std::uniform_real_distribution<double> dist(0.0, 1.0);
-    return dist(rng);
-}
-
-int RandomInt(int minValue, int maxValue)
-{
-    static thread_local std::mt19937 rng{ std::random_device{}() };
-    std::uniform_int_distribution<int> dist(minValue, maxValue);
-    return dist(rng);
-}
 }
 
 void GachaMgr::OnCreate()

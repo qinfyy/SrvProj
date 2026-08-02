@@ -4,7 +4,7 @@
 #include "../Game/InventoryMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/disc_all_limit_break.pb.h"
 #include "../proto/proto_cpp/disc_limit_break.pb.h"
 #include "../proto/proto_cpp/disc_promote.pb.h"
@@ -13,20 +13,6 @@
 #include "../proto/proto_cpp/public.pb.h"
 
 namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer();
-}
-
-void SaveAndPush(GameSession* session, const proto::ChangeInfo& change)
-{
-    if (!HasPlayer(session))
-    {
-        return;
-    }
-
-    session->SavePlayer();
-}
 
 ItemParamMap FromItemInfos(const google::protobuf::RepeatedPtrField<proto::ItemInfo>& items)
 {
@@ -41,7 +27,7 @@ ItemParamMap FromItemInfos(const google::protobuf::RepeatedPtrField<proto::ItemI
 
 std::string disc_strengthen_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, disc_strengthen_failed_ack);
     }
@@ -58,13 +44,13 @@ std::string disc_strengthen_req__Handler(GameSession* session, const std::string
         return EncodeReply(session, disc_strengthen_failed_ack);
     }
 
-    SaveAndPush(session, response.change());
+    session->SavePlayer();
     return EncodeReply(session, disc_strengthen_succeed_ack, &response);
 }
 
 std::string disc_promote_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, disc_promote_failed_ack);
     }
@@ -81,13 +67,13 @@ std::string disc_promote_req__Handler(GameSession* session, const std::string& r
         return EncodeReply(session, disc_promote_failed_ack);
     }
 
-    SaveAndPush(session, response.change());
+    session->SavePlayer();
     return EncodeReply(session, disc_promote_succeed_ack, &response);
 }
 
 std::string disc_limit_break_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, disc_limit_break_failed_ack);
     }
@@ -104,13 +90,13 @@ std::string disc_limit_break_req__Handler(GameSession* session, const std::strin
         return EncodeReply(session, disc_limit_break_failed_ack);
     }
 
-    SaveAndPush(session, response.change());
+    session->SavePlayer();
     return EncodeReply(session, disc_limit_break_succeed_ack, &response);
 }
 
 std::string disc_all_limit_break_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, disc_all_limit_break_failed_ack);
     }
@@ -121,13 +107,13 @@ std::string disc_all_limit_break_req__Handler(GameSession* session, const std::s
         return EncodeReply(session, disc_all_limit_break_failed_ack);
     }
 
-    SaveAndPush(session, response.change());
+    session->SavePlayer();
     return EncodeReply(session, disc_all_limit_break_succeed_ack, &response);
 }
 
 std::string disc_read_reward_receive_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, disc_read_reward_receive_failed_ack);
     }
@@ -144,6 +130,6 @@ std::string disc_read_reward_receive_req__Handler(GameSession* session, const st
         return EncodeReply(session, disc_read_reward_receive_failed_ack);
     }
 
-    SaveAndPush(session, change);
+    session->SavePlayer();
     return EncodeReply(session, disc_read_reward_receive_succeed_ack, &change);
 }

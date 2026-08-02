@@ -3,17 +3,13 @@
 #include "../Game/InventoryMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/item_product.pb.h"
 #include "../proto/proto_cpp/item_quick_growth.pb.h"
 #include "../proto/proto_cpp/item_use.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 
 namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer();
-}
 
 void FinishChange(GameSession* session, const proto::ChangeInfo& change)
 {
@@ -28,7 +24,7 @@ void FinishChange(GameSession* session, const proto::ChangeInfo& change)
 
 std::string item_use_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, item_use_failed_ack);
     }
@@ -67,7 +63,7 @@ std::string item_use_req__Handler(GameSession* session, const std::string& req)
 
 std::string item_product_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, item_product_failed_ack);
     }
@@ -90,7 +86,7 @@ std::string item_product_req__Handler(GameSession* session, const std::string& r
 
 std::string item_quick_growth_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, item_quick_growth_failed_ack);
     }

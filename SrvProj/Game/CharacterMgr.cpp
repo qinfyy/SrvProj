@@ -1,11 +1,14 @@
 ﻿#include "CharacterMgr.h"
 
+#include "AchievementMgr.h"
 #include "Bitset.h"
 #include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameTime.h"
 #include "../Resources/GameData.h"
+#include "../proto/NetMsgId.h"
+#include "../proto/proto_cpp/phone_contacts_info.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 
 #include <algorithm>
@@ -240,8 +243,18 @@ ServerProto::CharacterInfo* CharacterStor::AddCharacter(const CharacterRes& data
 
     NormalizeCharacter(*charInfo);
     SortCharacters();
-    GetPlayer()->Trigger(5, 1, static_cast<uint32_t>(data.Id), 0);
+
+    uint32_t masterCount = 0;
+    for (const auto& character : Bin().charinfolist())
+    {
+        const auto dataIt = GameData::CharacterDataTable.find(character.charid());
+        if (dataIt != GameData::CharacterDataTable.end() && dataIt->second.Grade == 1)
+        {
+            ++masterCount;
+        }
+    }
     GetPlayer()->Trigger(20, static_cast<uint32_t>(Bin().charinfolist_size()), 0, 0);
+    GetPlayer()->Trigger(20, masterCount, 1, 0);
     TriggerCharacterAchievements(*charInfo);
     return GetCharacterById(data.Id);
 }
@@ -318,8 +331,6 @@ ServerProto::GameDiscInfoBin* CharacterStor::AddDisc(const DiscRes& data)
     disc->set_createtime(GameTime::NowSeconds());
     NormalizeDisc(*disc);
     SortDiscs();
-    GetPlayer()->Trigger(28, 1, static_cast<uint32_t>(data.Id), 0);
-    GetPlayer()->Trigger(30, static_cast<uint32_t>(Bin().gamedisclist_size()), static_cast<uint32_t>(disc->level()), 0);
     return GetDiscById(data.Id);
 }
 
@@ -478,7 +489,7 @@ bool CharacterStor::ApplyDiscCommandProperties(ServerProto::GameDiscInfoBin& dis
     if (changed)
     {
         NormalizeDisc(disc);
-        GetPlayer()->Trigger(35, 1, static_cast<uint32_t>(disc.discid()), 0);
+        GetPlayer()->Trigger(35, 1, 0, 0);
     }
 
     return changed;
@@ -522,10 +533,10 @@ void CharacterStor::TriggerCharacterAchievements(const ServerProto::CharacterInf
         }
     }
 
-    GetPlayer()->Trigger(16, static_cast<uint32_t>(anyCount), character.level(), 0);
+    GetPlayer()->Achievements().Trigger(16, static_cast<uint32_t>(anyCount), character.level(), 0);
     if (element > 0)
     {
-        GetPlayer()->Trigger(17, static_cast<uint32_t>(sameElementCount), character.level(), static_cast<uint32_t>(element));
+        GetPlayer()->Achievements().Trigger(17, static_cast<uint32_t>(sameElementCount), character.level(), static_cast<uint32_t>(element));
     }
 }
 
@@ -584,7 +595,7 @@ bool CharacterStor::UpgradeCharacter(uint32_t charId, const ItemParamMap& items,
 
     if (character->level() > oldLevel)
     {
-        GetPlayer()->Trigger(12, character->level() - oldLevel, character->charid(), 0);
+        GetPlayer()->Trigger(12, character->level() - oldLevel, 0, 0);
         TriggerCharacterAchievements(*character);
     }
 
@@ -628,7 +639,7 @@ bool CharacterStor::AdvanceCharacter(uint32_t charId, proto::ChangeInfo& change)
     }
 
     NormalizeCharacter(*character);
-    GetPlayer()->Trigger(7, 1, character->charid(), 0);
+    GetPlayer()->Achievements().Trigger(7, 1, 0, 0);
     return true;
 }
 
@@ -746,10 +757,35 @@ bool CharacterStor::SendAffinityGift(uint32_t charId, const ItemParamMap& items,
         character->set_affinityexp(0);
     }
 
-    GetPlayer()->Trigger(45, static_cast<uint32_t>(count), character->charid(), 0);
+    GetPlayer()->Trigger(45, static_cast<uint32_t>(count), 0, 0);
     out.mutable_change()->CopyFrom(change);
     out.mutable_info()->CopyFrom(ToAffinityProto(*character));
     out.set_sendgiftcnt(static_cast<uint32_t>(count));
+    return true;
+}
+
+bool CharacterStor::ReceivePlotReward(uint32_t plotId, proto::ChangeInfo& change)
+{
+    const auto plotIt = GameData::PlotDataTable.find(static_cast<int>(plotId));
+    if (plotIt == GameData::PlotDataTable.end())
+    {
+        return false;
+    }
+
+    auto* character = GetCharacterById(plotIt->second.Char);
+    if (!character || character->charid() != static_cast<uint32_t>(plotIt->second.Char) ||
+        character->affinitylevel() < static_cast<uint32_t>(std::max(plotIt->second.UnlockAffinityLevel, 0)))
+    {
+        return false;
+    }
+
+    if (std::find(character->plots().begin(), character->plots().end(), plotId) != character->plots().end())
+    {
+        return false;
+    }
+
+    character->add_plots(plotId);
+    GetPlayer()->Inventory().AddItems(plotIt->second.RewardItems, &change);
     return true;
 }
 
@@ -932,7 +968,7 @@ bool CharacterStor::StrengthenDisc(uint32_t discId, const ItemParamMap& items, p
 
     if (disc->level() > oldLevel)
     {
-        GetPlayer()->Trigger(35, static_cast<uint32_t>(disc->level() - oldLevel), disc->discid(), 0);
+        GetPlayer()->Trigger(35, static_cast<uint32_t>(disc->level() - oldLevel), 0, 0);
     }
 
     out.set_level(static_cast<uint32_t>(disc->level()));
@@ -964,7 +1000,7 @@ bool CharacterStor::PromoteDisc(uint32_t discId, proto::DiscPromoteResp& out)
     }
 
     disc->set_phase(disc->phase() + 1);
-    GetPlayer()->Trigger(34, 1, disc->discid(), 0);
+    GetPlayer()->Achievements().Trigger(34, 1, 0, 0);
     out.set_phase(static_cast<uint32_t>(disc->phase()));
     out.mutable_change()->CopyFrom(change);
     return true;
@@ -1083,6 +1119,122 @@ void CharacterStor::EncodePlayerInfo(proto::PlayerInfo& out) const
     {
         out.add_discs()->CopyFrom(ToProto(disc));
     }
+}
+
+void CharacterStor::BuildPhoneContactsInfo(proto::PhoneContactsInfoResp& out) const
+{
+    for (const auto& character : Bin().charinfolist())
+    {
+        const auto& contact = character.contact();
+        auto* contacts = out.add_list();
+        contacts->set_charid(character.charid());
+        contacts->set_triggertime(contact.triggertime());
+        contacts->set_top(contact.top());
+
+        std::vector<const ServerProto::CharacterChat*> chats;
+        chats.reserve(contact.chats().size());
+        for (const auto& [_, chat] : contact.chats())
+        {
+            chats.push_back(&chat);
+        }
+        std::sort(chats.begin(), chats.end(), [](const ServerProto::CharacterChat* left, const ServerProto::CharacterChat* right) {
+            return left->id() < right->id();
+        });
+
+        for (const auto* chat : chats)
+        {
+            auto* chatProto = contacts->add_chats();
+            chatProto->set_id(chat->id());
+            chatProto->set_process(chat->process());
+            for (uint32_t option : chat->options())
+            {
+                chatProto->add_options(option);
+            }
+        }
+    }
+}
+
+bool CharacterStor::ReportPhoneContact(uint32_t chatId, uint32_t process, const google::protobuf::RepeatedField<uint32_t>& options, bool end, proto::ChangeInfo& change)
+{
+    const auto chatDataIt = GameData::ChatDataTable.find(static_cast<int>(chatId));
+    if (chatDataIt == GameData::ChatDataTable.end())
+    {
+        return false;
+    }
+
+    auto* character = GetCharacterById(chatDataIt->second.AddressBookId);
+    if (!character)
+    {
+        return false;
+    }
+
+    auto* contact = character->mutable_contact();
+    auto* chats = contact->mutable_chats();
+    const auto chatIt = chats->find(static_cast<int32_t>(chatId));
+    if (chatIt == chats->end())
+    {
+        return false;
+    }
+
+    auto& chat = chatIt->second;
+    if (chat.end())
+    {
+        return true;
+    }
+
+    chat.set_process(process);
+    chat.set_end(end);
+    if (options.size() > 0 && options.size() <= 5)
+    {
+        chat.clear_options();
+        for (uint32_t option : options)
+        {
+            chat.add_options(option);
+        }
+    }
+    contact->set_triggertime(GameTime::NowSeconds());
+
+    const auto charDataIt = GameData::CharacterDataTable.find(static_cast<int>(character->charid()));
+    if (charDataIt != GameData::CharacterDataTable.end())
+    {
+        std::vector<ChatRes*> nextChats = charDataIt->second.Chats;
+        std::sort(nextChats.begin(), nextChats.end(), [](const ChatRes* left, const ChatRes* right) {
+            return left->Id < right->Id;
+        });
+        for (const auto* nextChat : nextChats)
+        {
+            if (!nextChat || chats->find(nextChat->Id) != chats->end())
+            {
+                continue;
+            }
+            ServerProto::CharacterChat added;
+            added.set_id(nextChat->Id);
+            (*chats)[nextChat->Id] = added;
+            proto::UI32 notify;
+            notify.set_value(static_cast<uint32_t>(nextChat->Id));
+            GetPlayer()->PushNextPackage(phone_chat_change_notify, notify);
+            break;
+        }
+    }
+
+    if (chat.end())
+    {
+        GetPlayer()->Inventory().AddItem(static_cast<uint32_t>(chatDataIt->second.Reward1), chatDataIt->second.RewardQty1, &change);
+    }
+    GetPlayer()->Trigger(23, 1);
+    return true;
+}
+
+bool CharacterStor::TogglePhoneContactTop(uint32_t charId)
+{
+    auto* character = GetCharacterById(static_cast<int>(charId));
+    if (!character)
+    {
+        return false;
+    }
+    auto* contact = character->mutable_contact();
+    contact->set_top(!contact->top());
+    return true;
 }
 
 int CharacterStor::GetNewPhoneMessageCount() const
@@ -1248,18 +1400,22 @@ void CharacterStor::EnsureInitialChats(ServerProto::CharacterInfo& character) co
         return;
     }
 
-    for (const auto& [_, chatData] : GameData::ChatDataTable)
+    std::vector<ChatRes*> initialChats = it->second.Chats;
+    std::sort(initialChats.begin(), initialChats.end(), [](const ChatRes* left, const ChatRes* right) {
+        return left->Id < right->Id;
+    });
+    for (const auto* chatData : initialChats)
     {
-        if (chatData.AddressBookId != it->second.Id || chatData.PreChatId != 0)
+        if (!chatData || chatData->PreChatId != 0)
         {
             continue;
         }
 
         ServerProto::CharacterChat chat;
-        chat.set_id(chatData.Id);
+        chat.set_id(chatData->Id);
         chat.set_process(0);
         chat.set_end(false);
-        (*chats)[chatData.Id] = chat;
+        (*chats)[chatData->Id] = chat;
     }
 }
 
@@ -1297,6 +1453,11 @@ proto::Char CharacterStor::ToProto(const ServerProto::CharacterInfo& characterIn
     for (uint32_t skill : characterInfo.skills())
     {
         cliChar.add_skilllvs(skill);
+    }
+
+    for (uint32_t plotId : characterInfo.plots())
+    {
+        cliChar.add_plots(plotId);
     }
 
     auto* presets = cliChar.mutable_chargempresets();

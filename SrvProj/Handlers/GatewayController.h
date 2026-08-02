@@ -1,6 +1,9 @@
 ﻿#pragma once
-#include "../HttpMessage.h"
+// HttpClient 先带入 winsock2，再间接提供 AsyncTask
+#include "../HttpClient.h"
 
-void AgentHandler(const HttpRequest& req, HttpResponse& rsp);
+class RouteContext;
+
+AsyncTask<void> AgentHandler(RouteContext& context, const HttpRequest& req, HttpResponseWriter& writer);
 
 std::string DummyHandler(short reqId);

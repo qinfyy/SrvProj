@@ -410,6 +410,157 @@ struct TravelerDuelBossLevelDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TravelerDuelBossLevelDefaultTypeInternal _TravelerDuelBossLevel_default_instance_;
 
+inline constexpr TraceHuntState::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        bossrewardcanreceive_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR TraceHuntState::TraceHuntState(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(TraceHuntState_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct TraceHuntStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceHuntStateDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceHuntStateDefaultTypeInternal() {}
+  union {
+    TraceHuntState _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceHuntStateDefaultTypeInternal _TraceHuntState_default_instance_;
+
+inline constexpr TraceHuntLogEntry::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        args_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        tid_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR TraceHuntLogEntry::TraceHuntLogEntry(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(TraceHuntLogEntry_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct TraceHuntLogEntryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceHuntLogEntryDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceHuntLogEntryDefaultTypeInternal() {}
+  union {
+    TraceHuntLogEntry _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceHuntLogEntryDefaultTypeInternal _TraceHuntLogEntry_default_instance_;
+
+inline constexpr TraceHuntItemInfo::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        tid_{0u},
+        energyoverflow_{0u},
+        convertedcount_{0u},
+        grantedcount_{0u},
+        dailycount_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR TraceHuntItemInfo::TraceHuntItemInfo(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(TraceHuntItemInfo_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct TraceHuntItemInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceHuntItemInfoDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceHuntItemInfoDefaultTypeInternal() {}
+  union {
+    TraceHuntItemInfo _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceHuntItemInfoDefaultTypeInternal _TraceHuntItemInfo_default_instance_;
+
+inline constexpr TraceHuntItem::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        tid_{0u},
+        pointqty_{0},
+        convertqty_{0},
+        grantqty_{0},
+        dailycount_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR TraceHuntItem::TraceHuntItem(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(TraceHuntItem_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct TraceHuntItemDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceHuntItemDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceHuntItemDefaultTypeInternal() {}
+  union {
+    TraceHuntItem _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceHuntItemDefaultTypeInternal _TraceHuntItem_default_instance_;
+
+inline constexpr TraceHuntBossCollection::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        id_{0u},
+        huntcount_{0u},
+        assisthuntcount_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR TraceHuntBossCollection::TraceHuntBossCollection(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(TraceHuntBossCollection_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct TraceHuntBossCollectionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceHuntBossCollectionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceHuntBossCollectionDefaultTypeInternal() {}
+  union {
+    TraceHuntBossCollection _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceHuntBossCollectionDefaultTypeInternal _TraceHuntBossCollection_default_instance_;
+
 inline constexpr Title::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -2535,6 +2686,67 @@ struct ActivityStateDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityStateDefaultTypeInternal _ActivityState_default_instance_;
 
+inline constexpr ActivityShare::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        state_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityShare::ActivityShare(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityShare_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityShareDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityShareDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityShareDefaultTypeInternal() {}
+  union {
+    ActivityShare _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityShareDefaultTypeInternal _ActivityShare_default_instance_;
+
+inline constexpr ActivityPersonalityModel::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        chapterid_{0u},
+        a_{0u},
+        b_{0u},
+        c_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityPersonalityModel::ActivityPersonalityModel(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityPersonalityModel_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityPersonalityModelDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityPersonalityModelDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityPersonalityModelDefaultTypeInternal() {}
+  union {
+    ActivityPersonalityModel _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityPersonalityModelDefaultTypeInternal _ActivityPersonalityModel_default_instance_;
+
 inline constexpr ActivityPenguinCardLevel::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -2624,6 +2836,36 @@ struct ActivityLevelDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityLevelDefaultTypeInternal _ActivityLevel_default_instance_;
+
+inline constexpr ActivityIceCreamLevel::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        levelid_{0u},
+        score_{0u},
+        firstcomplete_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityIceCreamLevel::ActivityIceCreamLevel(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityIceCreamLevel_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityIceCreamLevelDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityIceCreamLevelDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityIceCreamLevelDefaultTypeInternal() {}
+  union {
+    ActivityIceCreamLevel _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityIceCreamLevelDefaultTypeInternal _ActivityIceCreamLevel_default_instance_;
 
 inline constexpr ActivityHonor::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -3090,6 +3332,7 @@ inline constexpr StateInfo::Impl_::Impl_(
         startower_{nullptr},
         startowerbook_{nullptr},
         scoreboss_{nullptr},
+        tracehunt_{nullptr},
         infinitytower_{0u},
         vampiresurvivorid_{0u},
         travelerduelidlereward_{::int64_t{0}},
@@ -3776,6 +4019,37 @@ struct ActivityLevelsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityLevelsDefaultTypeInternal _ActivityLevels_default_instance_;
 
+inline constexpr ActivityHistoryStory::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        major_{},
+        personality_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        id_{0u},
+        receive_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityHistoryStory::ActivityHistoryStory(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityHistoryStory_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityHistoryStoryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityHistoryStoryDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityHistoryStoryDefaultTypeInternal() {}
+  union {
+    ActivityHistoryStory _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityHistoryStoryDefaultTypeInternal _ActivityHistoryStory_default_instance_;
+
 inline constexpr ActivityGDS::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -4299,6 +4573,39 @@ struct ActivityStoryChapterDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityStoryChapterDefaultTypeInternal _ActivityStoryChapter_default_instance_;
 
+inline constexpr ActivitySoldier::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        quests_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        curgradechallengeid_{0u},
+        score_{0u},
+        gradechallengeid_{0u},
+        stage_{0u},
+        nodeindex_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivitySoldier::ActivitySoldier(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivitySoldier_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivitySoldierDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivitySoldierDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivitySoldierDefaultTypeInternal() {}
+  union {
+    ActivitySoldier _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivitySoldierDefaultTypeInternal _ActivitySoldier_default_instance_;
+
 inline constexpr ActivityShop::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -4417,6 +4724,127 @@ struct ActivityMiningDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityMiningDefaultTypeInternal _ActivityMining_default_instance_;
+
+inline constexpr ActivityIceCreamLevelSettleSucceed::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        change_{nullptr},
+        passed_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityIceCreamLevelSettleSucceed::ActivityIceCreamLevelSettleSucceed(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityIceCreamLevelSettleSucceed_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityIceCreamLevelSettleSucceedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityIceCreamLevelSettleSucceedDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityIceCreamLevelSettleSucceedDefaultTypeInternal() {}
+  union {
+    ActivityIceCreamLevelSettleSucceed _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityIceCreamLevelSettleSucceedDefaultTypeInternal _ActivityIceCreamLevelSettleSucceed_default_instance_;
+
+inline constexpr ActivityIceCream::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        levels_{},
+        quests_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        activityid_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityIceCream::ActivityIceCream(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityIceCream_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityIceCreamDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityIceCreamDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityIceCreamDefaultTypeInternal() {}
+  union {
+    ActivityIceCream _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityIceCreamDefaultTypeInternal _ActivityIceCream_default_instance_;
+
+inline constexpr ActivityHistoryStoryChapter::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        evidences_{},
+        _evidences_cached_byte_size_{0},
+        stories_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        buildid_{::uint64_t{0u}},
+        chapterid_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityHistoryStoryChapter::ActivityHistoryStoryChapter(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityHistoryStoryChapter_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityHistoryStoryChapterDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityHistoryStoryChapterDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityHistoryStoryChapterDefaultTypeInternal() {}
+  union {
+    ActivityHistoryStoryChapter _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityHistoryStoryChapterDefaultTypeInternal _ActivityHistoryStoryChapter_default_instance_;
+
+inline constexpr ActivityDouble::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        quests_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        activityid_{0u},
+        dailyusetimes_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ActivityDouble::ActivityDouble(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(ActivityDouble_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ActivityDoubleDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActivityDoubleDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActivityDoubleDefaultTypeInternal() {}
+  union {
+    ActivityDouble _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActivityDoubleDefaultTypeInternal _ActivityDouble_default_instance_;
 
 inline constexpr ActivityCookie::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -4979,7 +5407,7 @@ const ::uint32_t
         3,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_._has_bits_),
-        23, // hasbit index offset
+        24, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.mail_),
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.infinitytower_),
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.friend__),
@@ -4999,26 +5427,28 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.scoreboss_),
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.activities_),
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.storyset_),
+        PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.tracehunt_),
         PROTOBUF_FIELD_OFFSET(::proto::StateInfo, _impl_.nextpackage_),
         4,
-        14,
-        17,
+        15,
+        18,
         5,
         6,
         0,
         7,
         1,
-        18,
+        19,
         8,
-        15,
+        16,
         9,
         10,
-        16,
+        17,
         11,
         12,
         13,
         2,
-        19,
+        20,
+        14,
         3,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::ItemTpl, _impl_._has_bits_),
@@ -5665,6 +6095,17 @@ const ::uint32_t
         1,
         2,
         0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityDouble, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityDouble, _impl_.activityid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityDouble, _impl_.dailyusetimes_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityDouble, _impl_.quests_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityDouble, _impl_.nextpackage_),
+        2,
+        3,
+        0,
+        1,
+        0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::AffinityInfo, _impl_._has_bits_),
         8, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::AffinityInfo, _impl_.charid_),
@@ -6247,6 +6688,157 @@ const ::uint32_t
         1,
         2,
         0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityPersonalityModel, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityPersonalityModel, _impl_.chapterid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityPersonalityModel, _impl_.a_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityPersonalityModel, _impl_.b_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityPersonalityModel, _impl_.c_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityPersonalityModel, _impl_.nextpackage_),
+        1,
+        2,
+        3,
+        4,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStory, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStory, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStory, _impl_.major_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStory, _impl_.personality_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStory, _impl_.receive_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStory, _impl_.nextpackage_),
+        3,
+        0,
+        1,
+        4,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStoryChapter, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStoryChapter, _impl_.chapterid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStoryChapter, _impl_.buildid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStoryChapter, _impl_.evidences_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStoryChapter, _impl_.stories_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityHistoryStoryChapter, _impl_.nextpackage_),
+        4,
+        3,
+        0,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityShare, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityShare, _impl_.state_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityShare, _impl_.nextpackage_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntBossCollection, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntBossCollection, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntBossCollection, _impl_.huntcount_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntBossCollection, _impl_.assisthuntcount_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntBossCollection, _impl_.nextpackage_),
+        1,
+        2,
+        3,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntLogEntry, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntLogEntry, _impl_.tid_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntLogEntry, _impl_.args_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntLogEntry, _impl_.nextpackage_),
+        2,
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_._has_bits_),
+        9, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_.tid_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_.energyoverflow_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_.convertedcount_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_.grantedcount_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_.dailycount_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItemInfo, _impl_.nextpackage_),
+        1,
+        2,
+        3,
+        4,
+        5,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_._has_bits_),
+        9, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_.tid_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_.pointqty_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_.convertqty_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_.grantqty_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_.dailycount_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntItem, _impl_.nextpackage_),
+        1,
+        2,
+        3,
+        4,
+        5,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntState, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntState, _impl_.bossrewardcanreceive_),
+        PROTOBUF_FIELD_OFFSET(::proto::TraceHuntState, _impl_.nextpackage_),
+        1,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevel, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevel, _impl_.levelid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevel, _impl_.score_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevel, _impl_.firstcomplete_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevel, _impl_.nextpackage_),
+        1,
+        2,
+        3,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCream, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCream, _impl_.activityid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCream, _impl_.levels_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCream, _impl_.quests_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCream, _impl_.nextpackage_),
+        3,
+        0,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevelSettleSucceed, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevelSettleSucceed, _impl_.change_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevelSettleSucceed, _impl_.passed_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityIceCreamLevelSettleSucceed, _impl_.nextpackage_),
+        1,
+        2,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_._has_bits_),
+        10, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.curgradechallengeid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.score_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.gradechallengeid_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.stage_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.nodeindex_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.quests_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivitySoldier, _impl_.nextpackage_),
+        2,
+        3,
+        4,
+        5,
+        6,
+        0,
+        1,
 };
 
 static const ::_pbi::MigrationSchema
@@ -6290,117 +6882,131 @@ static const ::_pbi::MigrationSchema
         {350, sizeof(::proto::StarTowerState)},
         {367, sizeof(::proto::StarTowerBookState)},
         {378, sizeof(::proto::StateInfo)},
-        {421, sizeof(::proto::ItemTpl)},
-        {430, sizeof(::proto::ItemTpls)},
-        {437, sizeof(::proto::Item)},
-        {450, sizeof(::proto::Res)},
-        {459, sizeof(::proto::Title)},
-        {466, sizeof(::proto::Char)},
-        {513, sizeof(::proto::Energy)},
-        {528, sizeof(::proto::WorldClass)},
-        {537, sizeof(::proto::Equipment)},
-        {546, sizeof(::proto::Disc)},
-        {567, sizeof(::proto::Transform)},
-        {576, sizeof(::proto::HeadIcon)},
-        {583, sizeof(::proto::AcqInfo)},
-        {594, sizeof(::proto::Acquire)},
-        {601, sizeof(::proto::Honor)},
-        {610, sizeof(::proto::ChangeInfo)},
-        {617, sizeof(::proto::FormationInfo)},
-        {630, sizeof(::proto::FormationRecord)},
-        {639, sizeof(::proto::TowerFormation)},
-        {648, sizeof(::proto::StoryChoice)},
-        {657, sizeof(::proto::Story)},
-        {668, sizeof(::proto::StoryInfo)},
-        {679, sizeof(::proto::RoomRestored)},
-        {688, sizeof(::proto::DropPkg)},
-        {695, sizeof(::proto::MonsterDrop)},
-        {704, sizeof(::proto::WorldClassUpdate)},
-        {713, sizeof(::proto::ItemInfo)},
-        {724, sizeof(::proto::RegionBossLevel)},
-        {739, sizeof(::proto::Friend)},
-        {766, sizeof(::proto::CharShow)},
-        {777, sizeof(::proto::FriendDetail)},
-        {790, sizeof(::proto::BoughtGoods)},
-        {799, sizeof(::proto::ResidentShop)},
-        {810, sizeof(::proto::HandbookInfo)},
-        {819, sizeof(::proto::QuestState)},
-        {828, sizeof(::proto::MallPackageState)},
-        {835, sizeof(::proto::DailyInstance)},
-        {846, sizeof(::proto::TravelerDuelBossLevel)},
-        {859, sizeof(::proto::TravelerDuelChallengeInfo)},
-        {872, sizeof(::proto::Activity)},
-        {883, sizeof(::proto::ActivityQuest)},
-        {896, sizeof(::proto::ActivityPeriodic)},
-        {907, sizeof(::proto::ActivityLogin)},
-        {918, sizeof(::proto::ActivityMining)},
-        {931, sizeof(::proto::ActivityCookieLevel)},
-        {944, sizeof(::proto::ActivityCookie)},
-        {955, sizeof(::proto::ActivityTowerDefenseLevel)},
-        {964, sizeof(::proto::ActivityTowerDefense)},
-        {977, sizeof(::proto::ActivityTrial)},
-        {984, sizeof(::proto::ActivityCG)},
-        {991, sizeof(::proto::ActivityLevel)},
-        {1002, sizeof(::proto::ActivityLevels)},
-        {1009, sizeof(::proto::ActivityAvg)},
-        {1016, sizeof(::proto::Milkout)},
-        {1025, sizeof(::proto::MilkoutLevel)},
-        {1034, sizeof(::proto::MilkoutCharacter)},
-        {1043, sizeof(::proto::ActivityPenguinCardLevel)},
-        {1054, sizeof(::proto::ActivityPenguinCard)},
-        {1065, sizeof(::proto::AffinityInfo)},
-        {1078, sizeof(::proto::ActivityState)},
-        {1089, sizeof(::proto::Chat)},
-        {1100, sizeof(::proto::Contacts)},
-        {1115, sizeof(::proto::InfinityTowerLevelInfo)},
-        {1126, sizeof(::proto::CollectResp)},
-        {1135, sizeof(::proto::EquipmentAttr)},
-        {1144, sizeof(::proto::EquipmentInfo)},
-        {1161, sizeof(::proto::EquipmentInstance)},
-        {1172, sizeof(::proto::AgentInfo)},
-        {1187, sizeof(::proto::AgentData)},
-        {1200, sizeof(::proto::HonorInfo)},
-        {1209, sizeof(::proto::CardInfo)},
-        {1218, sizeof(::proto::VampireSurvivorEvent)},
-        {1227, sizeof(::proto::VampireSurvivorLevelReward)},
-        {1236, sizeof(::proto::VampireSurvivorFateCardSelect)},
-        {1245, sizeof(::proto::ScoreBossLevel)},
-        {1262, sizeof(::proto::VampireSurvivorLevel)},
-        {1275, sizeof(::proto::VampireSurvivorRecordInfo)},
-        {1286, sizeof(::proto::SkillInstance)},
-        {1301, sizeof(::proto::WeekBossLevel)},
-        {1314, sizeof(::proto::ScoreBossState)},
-        {1321, sizeof(::proto::NPCAffinity)},
-        {1332, sizeof(::proto::CharGemInstance)},
-        {1347, sizeof(::proto::CharGemPreset)},
-        {1356, sizeof(::proto::CharGemPresets)},
-        {1365, sizeof(::proto::CharGem)},
-        {1380, sizeof(::proto::CharGemSlot)},
-        {1389, sizeof(::proto::ActivityTask)},
-        {1398, sizeof(::proto::ActivityShop)},
-        {1405, sizeof(::proto::TutorialLevel)},
-        {1416, sizeof(::proto::BuildConvertContent)},
-        {1425, sizeof(::proto::ActivityBuildConvert)},
-        {1434, sizeof(::proto::VampireClientData)},
-        {1449, sizeof(::proto::FateCardEftCnt)},
-        {1460, sizeof(::proto::FateCardTimeLimit)},
-        {1469, sizeof(::proto::TrekkerVersusShow_IdleValue)},
-        {1476, sizeof(::proto::TrekkerVersusShow)},
-        {1491, sizeof(::proto::ActivityTrekkerVersus_HistoryResult)},
-        {1500, sizeof(::proto::ActivityTrekkerVersus)},
-        {1523, sizeof(::proto::ActivityStoryChoice)},
-        {1532, sizeof(::proto::ActivityStory)},
-        {1543, sizeof(::proto::ActivityStoryChapter)},
-        {1554, sizeof(::proto::LastRead)},
-        {1567, sizeof(::proto::LastReadStory)},
-        {1574, sizeof(::proto::LastReadStorySet)},
-        {1583, sizeof(::proto::LastReadActivityStory)},
-        {1592, sizeof(::proto::ActivityThrowGiftLevel)},
-        {1603, sizeof(::proto::ActivityThrowGiftItem)},
-        {1612, sizeof(::proto::ActivityThrowGift)},
-        {1621, sizeof(::proto::ActivityGDSLevel)},
-        {1632, sizeof(::proto::ActivityGDS)},
-        {1639, sizeof(::proto::ActivityHonor)},
+        {423, sizeof(::proto::ItemTpl)},
+        {432, sizeof(::proto::ItemTpls)},
+        {439, sizeof(::proto::Item)},
+        {452, sizeof(::proto::Res)},
+        {461, sizeof(::proto::Title)},
+        {468, sizeof(::proto::Char)},
+        {515, sizeof(::proto::Energy)},
+        {530, sizeof(::proto::WorldClass)},
+        {539, sizeof(::proto::Equipment)},
+        {548, sizeof(::proto::Disc)},
+        {569, sizeof(::proto::Transform)},
+        {578, sizeof(::proto::HeadIcon)},
+        {585, sizeof(::proto::AcqInfo)},
+        {596, sizeof(::proto::Acquire)},
+        {603, sizeof(::proto::Honor)},
+        {612, sizeof(::proto::ChangeInfo)},
+        {619, sizeof(::proto::FormationInfo)},
+        {632, sizeof(::proto::FormationRecord)},
+        {641, sizeof(::proto::TowerFormation)},
+        {650, sizeof(::proto::StoryChoice)},
+        {659, sizeof(::proto::Story)},
+        {670, sizeof(::proto::StoryInfo)},
+        {681, sizeof(::proto::RoomRestored)},
+        {690, sizeof(::proto::DropPkg)},
+        {697, sizeof(::proto::MonsterDrop)},
+        {706, sizeof(::proto::WorldClassUpdate)},
+        {715, sizeof(::proto::ItemInfo)},
+        {726, sizeof(::proto::RegionBossLevel)},
+        {741, sizeof(::proto::Friend)},
+        {768, sizeof(::proto::CharShow)},
+        {779, sizeof(::proto::FriendDetail)},
+        {792, sizeof(::proto::BoughtGoods)},
+        {801, sizeof(::proto::ResidentShop)},
+        {812, sizeof(::proto::HandbookInfo)},
+        {821, sizeof(::proto::QuestState)},
+        {830, sizeof(::proto::MallPackageState)},
+        {837, sizeof(::proto::DailyInstance)},
+        {848, sizeof(::proto::TravelerDuelBossLevel)},
+        {861, sizeof(::proto::TravelerDuelChallengeInfo)},
+        {874, sizeof(::proto::Activity)},
+        {885, sizeof(::proto::ActivityQuest)},
+        {898, sizeof(::proto::ActivityPeriodic)},
+        {909, sizeof(::proto::ActivityLogin)},
+        {920, sizeof(::proto::ActivityMining)},
+        {933, sizeof(::proto::ActivityCookieLevel)},
+        {946, sizeof(::proto::ActivityCookie)},
+        {957, sizeof(::proto::ActivityTowerDefenseLevel)},
+        {966, sizeof(::proto::ActivityTowerDefense)},
+        {979, sizeof(::proto::ActivityTrial)},
+        {986, sizeof(::proto::ActivityCG)},
+        {993, sizeof(::proto::ActivityLevel)},
+        {1004, sizeof(::proto::ActivityLevels)},
+        {1011, sizeof(::proto::ActivityAvg)},
+        {1018, sizeof(::proto::Milkout)},
+        {1027, sizeof(::proto::MilkoutLevel)},
+        {1036, sizeof(::proto::MilkoutCharacter)},
+        {1045, sizeof(::proto::ActivityPenguinCardLevel)},
+        {1056, sizeof(::proto::ActivityPenguinCard)},
+        {1067, sizeof(::proto::ActivityDouble)},
+        {1078, sizeof(::proto::AffinityInfo)},
+        {1091, sizeof(::proto::ActivityState)},
+        {1102, sizeof(::proto::Chat)},
+        {1113, sizeof(::proto::Contacts)},
+        {1128, sizeof(::proto::InfinityTowerLevelInfo)},
+        {1139, sizeof(::proto::CollectResp)},
+        {1148, sizeof(::proto::EquipmentAttr)},
+        {1157, sizeof(::proto::EquipmentInfo)},
+        {1174, sizeof(::proto::EquipmentInstance)},
+        {1185, sizeof(::proto::AgentInfo)},
+        {1200, sizeof(::proto::AgentData)},
+        {1213, sizeof(::proto::HonorInfo)},
+        {1222, sizeof(::proto::CardInfo)},
+        {1231, sizeof(::proto::VampireSurvivorEvent)},
+        {1240, sizeof(::proto::VampireSurvivorLevelReward)},
+        {1249, sizeof(::proto::VampireSurvivorFateCardSelect)},
+        {1258, sizeof(::proto::ScoreBossLevel)},
+        {1275, sizeof(::proto::VampireSurvivorLevel)},
+        {1288, sizeof(::proto::VampireSurvivorRecordInfo)},
+        {1299, sizeof(::proto::SkillInstance)},
+        {1314, sizeof(::proto::WeekBossLevel)},
+        {1327, sizeof(::proto::ScoreBossState)},
+        {1334, sizeof(::proto::NPCAffinity)},
+        {1345, sizeof(::proto::CharGemInstance)},
+        {1360, sizeof(::proto::CharGemPreset)},
+        {1369, sizeof(::proto::CharGemPresets)},
+        {1378, sizeof(::proto::CharGem)},
+        {1393, sizeof(::proto::CharGemSlot)},
+        {1402, sizeof(::proto::ActivityTask)},
+        {1411, sizeof(::proto::ActivityShop)},
+        {1418, sizeof(::proto::TutorialLevel)},
+        {1429, sizeof(::proto::BuildConvertContent)},
+        {1438, sizeof(::proto::ActivityBuildConvert)},
+        {1447, sizeof(::proto::VampireClientData)},
+        {1462, sizeof(::proto::FateCardEftCnt)},
+        {1473, sizeof(::proto::FateCardTimeLimit)},
+        {1482, sizeof(::proto::TrekkerVersusShow_IdleValue)},
+        {1489, sizeof(::proto::TrekkerVersusShow)},
+        {1504, sizeof(::proto::ActivityTrekkerVersus_HistoryResult)},
+        {1513, sizeof(::proto::ActivityTrekkerVersus)},
+        {1536, sizeof(::proto::ActivityStoryChoice)},
+        {1545, sizeof(::proto::ActivityStory)},
+        {1556, sizeof(::proto::ActivityStoryChapter)},
+        {1567, sizeof(::proto::LastRead)},
+        {1580, sizeof(::proto::LastReadStory)},
+        {1587, sizeof(::proto::LastReadStorySet)},
+        {1596, sizeof(::proto::LastReadActivityStory)},
+        {1605, sizeof(::proto::ActivityThrowGiftLevel)},
+        {1616, sizeof(::proto::ActivityThrowGiftItem)},
+        {1625, sizeof(::proto::ActivityThrowGift)},
+        {1634, sizeof(::proto::ActivityGDSLevel)},
+        {1645, sizeof(::proto::ActivityGDS)},
+        {1652, sizeof(::proto::ActivityHonor)},
+        {1661, sizeof(::proto::ActivityPersonalityModel)},
+        {1674, sizeof(::proto::ActivityHistoryStory)},
+        {1687, sizeof(::proto::ActivityHistoryStoryChapter)},
+        {1700, sizeof(::proto::ActivityShare)},
+        {1707, sizeof(::proto::TraceHuntBossCollection)},
+        {1718, sizeof(::proto::TraceHuntLogEntry)},
+        {1727, sizeof(::proto::TraceHuntItemInfo)},
+        {1742, sizeof(::proto::TraceHuntItem)},
+        {1757, sizeof(::proto::TraceHuntState)},
+        {1764, sizeof(::proto::ActivityIceCreamLevel)},
+        {1775, sizeof(::proto::ActivityIceCream)},
+        {1786, sizeof(::proto::ActivityIceCreamLevelSettleSucceed)},
+        {1795, sizeof(::proto::ActivitySoldier)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_Nil_default_instance_._instance,
@@ -6500,6 +7106,7 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_MilkoutCharacter_default_instance_._instance,
     &::proto::_ActivityPenguinCardLevel_default_instance_._instance,
     &::proto::_ActivityPenguinCard_default_instance_._instance,
+    &::proto::_ActivityDouble_default_instance_._instance,
     &::proto::_AffinityInfo_default_instance_._instance,
     &::proto::_ActivityState_default_instance_._instance,
     &::proto::_Chat_default_instance_._instance,
@@ -6553,6 +7160,19 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_ActivityGDSLevel_default_instance_._instance,
     &::proto::_ActivityGDS_default_instance_._instance,
     &::proto::_ActivityHonor_default_instance_._instance,
+    &::proto::_ActivityPersonalityModel_default_instance_._instance,
+    &::proto::_ActivityHistoryStory_default_instance_._instance,
+    &::proto::_ActivityHistoryStoryChapter_default_instance_._instance,
+    &::proto::_ActivityShare_default_instance_._instance,
+    &::proto::_TraceHuntBossCollection_default_instance_._instance,
+    &::proto::_TraceHuntLogEntry_default_instance_._instance,
+    &::proto::_TraceHuntItemInfo_default_instance_._instance,
+    &::proto::_TraceHuntItem_default_instance_._instance,
+    &::proto::_TraceHuntState_default_instance_._instance,
+    &::proto::_ActivityIceCreamLevel_default_instance_._instance,
+    &::proto::_ActivityIceCream_default_instance_._instance,
+    &::proto::_ActivityIceCreamLevelSettleSucceed_default_instance_._instance,
+    &::proto::_ActivitySoldier_default_instance_._instance,
 };
 const char descriptor_table_protodef_public_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -6632,7 +7252,7 @@ const char descriptor_table_protodef_public_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "oor\030\006 \001(\r\022\r\n\005Sweep\030\017 \001(\010\022\024\n\013NextPackage\030"
     "\377\017 \001(\014\"^\n\022StarTowerBookState\022\017\n\007CharIds\030"
     "\001 \003(\r\022\020\n\010EventIds\030\002 \003(\r\022\017\n\007Bundles\030\003 \003(\r"
-    "\022\024\n\013NextPackage\030\377\017 \001(\014\"\226\006\n\tStateInfo\022\036\n\004"
+    "\022\024\n\013NextPackage\030\377\017 \001(\014\"\300\006\n\tStateInfo\022\036\n\004"
     "Mail\030\001 \001(\0132\020.proto.MailState\022\025\n\rInfinity"
     "Tower\030\002 \001(\r\022\016\n\006Friend\030\003 \001(\010\022*\n\nBattlePas"
     "s\030\004 \001(\0132\026.proto.BattlePassState\0226\n\020World"
@@ -6651,303 +7271,345 @@ const char descriptor_table_protodef_public_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "e\0220\n\rStarTowerBook\030\023 \001(\0132\031.proto.StarTow"
     "erBookState\022(\n\tScoreBoss\030\024 \001(\0132\025.proto.S"
     "coreBossState\022(\n\nActivities\030\025 \003(\0132\024.prot"
-    "o.ActivityState\022\020\n\010StorySet\030\026 \001(\010\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"9\n\007ItemTpl\022\013\n\003Tid\030\001 \001(\r\022"
-    "\013\n\003Qty\030\002 \001(\005\022\024\n\013NextPackage\030\377\017 \001(\014\"\?\n\010It"
-    "emTpls\022\035\n\005Items\030\001 \003(\0132\016.proto.ItemTpl\022\024\n"
-    "\013NextPackage\030\377\017 \001(\014\"R\n\004Item\022\n\n\002Id\030\001 \001(\004\022"
-    "\013\n\003Tid\030\002 \001(\r\022\013\n\003Qty\030\003 \001(\005\022\016\n\006Expire\030\004 \001("
-    "\003\022\024\n\013NextPackage\030\377\017 \001(\014\"5\n\003Res\022\013\n\003Tid\030\001 "
-    "\001(\r\022\013\n\003Qty\030\002 \001(\005\022\024\n\013NextPackage\030\377\017 \001(\014\"."
-    "\n\005Title\022\017\n\007TitleId\030\001 \001(\r\022\024\n\013NextPackage\030"
-    "\377\017 \001(\014\"\211\004\n\004Char\022\013\n\003Tid\030\001 \001(\r\022\013\n\003Exp\030\002 \001("
-    "\r\022\031\n\021DatingLandmarkIds\030\003 \003(\r\022\026\n\016DatingEv"
-    "entIds\030\004 \003(\r\022\034\n\024DatingEventRewardIds\030\005 \003"
-    "(\r\022\024\n\014EquipmentIds\030\006 \003(\004\022\r\n\005Level\030\t \001(\r\022"
-    "\020\n\010SkillLvs\030\n \003(\r\022\014\n\004Skin\030\014 \001(\r\022\025\n\rAffin"
-    "ityLevel\030\r \001(\r\022\023\n\013AffinityExp\030\016 \001(\r\022\017\n\007A"
-    "dvance\030\017 \001(\r\022\r\n\005Plots\030\020 \003(\r\022%\n\016AffinityQ"
-    "uests\030\021 \001(\0132\r.proto.Quests\022\023\n\013TalentNode"
-    "s\030\023 \001(\014\022\030\n\020ArchiveRewardIds\030\024 \003(\r\022\030\n\020Tal"
-    "entBackground\030\025 \001(\r\022(\n\014CharGemSlots\030\026 \003("
-    "\0132\022.proto.CharGemSlot\022-\n\016CharGemPresets\030"
-    "\027 \001(\0132\025.proto.CharGemPresets\022\022\n\nIsFavori"
-    "te\030\037 \001(\010\022\022\n\nCreateTime\030\177 \001(\003\022\024\n\013NextPack"
-    "age\030\377\017 \001(\014\"\177\n\006Energy\022\017\n\007Primary\030\001 \001(\r\022\021\n"
-    "\tSecondary\030\002 \001(\r\022\021\n\tIsPrimary\030\003 \001(\010\022\022\n\nU"
-    "pdateTime\030\004 \001(\003\022\024\n\014NextDuration\030\005 \001(\003\022\024\n"
-    "\013NextPackage\030\377\017 \001(\014\"G\n\nWorldClass\022\020\n\010Add"
-    "Class\030\001 \001(\r\022\021\n\tExpChange\030\002 \001(\005\022\024\n\013NextPa"
-    "ckage\030\377\017 \001(\014\"R\n\tEquipment\022\"\n\004Info\030\001 \001(\0132"
-    "\024.proto.EquipmentInfo\022\013\n\003Qty\030\002 \001(\005\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"\220\001\n\004Disc\022\n\n\002Id\030\001 \001(\r\022\r\n"
-    "\005Level\030\002 \001(\r\022\013\n\003Exp\030\003 \001(\r\022\r\n\005Phase\030\004 \001(\r"
-    "\022\014\n\004Star\030\005 \001(\r\022\014\n\004Read\030\006 \001(\010\022\013\n\003Avg\030\007 \001("
-    "\010\022\022\n\nCreateTime\030\017 \001(\003\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"[\n\tTransform\022\033\n\003Src\030\001 \003(\0132\016.proto.It"
-    "emTpl\022\033\n\003Dst\030\002 \003(\0132\016.proto.ItemTpl\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"-\n\010HeadIcon\022\013\n\003Tid\030\001 \001("
-    "\r\022\024\n\013NextPackage\030\377\017 \001(\014\"J\n\007AcqInfo\022\013\n\003Ti"
-    "d\030\001 \001(\r\022\r\n\005Begin\030\002 \001(\r\022\r\n\005Count\030\003 \001(\r\022\024\n"
-    "\013NextPackage\030\377\017 \001(\014\"=\n\007Acquire\022\034\n\004List\030\001"
-    " \003(\0132\016.proto.AcqInfo\022\024\n\013NextPackage\030\377\017 \001"
-    "(\014\";\n\005Honor\022\r\n\005NewId\030\001 \001(\r\022\r\n\005Level\030\002 \001("
-    "\r\022\024\n\013NextPackage\030\377\017 \001(\014\"G\n\nChangeInfo\022#\n"
-    "\005Props\030\001 \003(\0132\024.google.protobuf.Any\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"o\n\rFormationInfo\022\016\n\006Num"
-    "ber\030\001 \001(\r\022\017\n\007CharIds\030\002 \003(\r\022\017\n\007DiscIds\030\003 "
-    "\003(\r\022\026\n\016PreselectionId\030\004 \001(\004\022\024\n\013NextPacka"
-    "ge\030\377\017 \001(\014\"H\n\017FormationRecord\022\017\n\007GroupId\030"
-    "\001 \001(\r\022\016\n\006Number\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"r\n\016TowerFormation\022\"\n\004Info\030\001 \003(\0132\024.pr"
-    "oto.FormationInfo\022&\n\006Record\030\002 \003(\0132\026.prot"
-    "o.FormationRecord\022\024\n\013NextPackage\030\377\017 \001(\014\""
-    "A\n\013StoryChoice\022\r\n\005Group\030\001 \001(\r\022\r\n\005Value\030\002"
-    " \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"v\n\005Story\022\013\n\003I"
-    "dx\030\001 \001(\r\022!\n\005Major\030\002 \003(\0132\022.proto.StoryCho"
-    "ice\022\'\n\013Personality\030\003 \003(\0132\022.proto.StoryCh"
-    "oice\022\024\n\013NextPackage\030\377\017 \001(\014\"d\n\tStoryInfo\022"
-    "\021\n\tEvidences\030\001 \003(\r\022\035\n\007Stories\030\002 \003(\0132\014.pr"
-    "oto.Story\022\017\n\007BuildId\030\003 \001(\004\022\024\n\013NextPackag"
-    "e\030\377\017 \001(\014\"W\n\014RoomRestored\022\016\n\006RoomId\030\001 \001(\r"
-    "\022!\n\006Change\030\002 \001(\0132\021.proto.ChangeInfo\022\024\n\013N"
-    "extPackage\030\377\017 \001(\014\">\n\007DropPkg\022\035\n\005Drops\030\001 "
-    "\003(\0132\016.proto.ItemTpl\022\024\n\013NextPackage\030\377\017 \001("
-    "\014\"[\n\013MonsterDrop\022\024\n\014MonsterIndex\030\001 \001(\r\022 "
-    "\n\010DropPkgs\030\002 \003(\0132\016.proto.DropPkg\022\024\n\013Next"
-    "Package\030\377\017 \001(\014\"X\n\020WorldClassUpdate\022\013\n\003Cu"
-    "r\030\001 \001(\r\022!\n\006Change\030\002 \001(\0132\021.proto.ChangeIn"
-    "fo\022\024\n\013NextPackage\030\377\017 \001(\014\"F\n\010ItemInfo\022\n\n\002"
-    "Id\030\001 \001(\004\022\013\n\003Tid\030\002 \001(\r\022\013\n\003Qty\030\003 \001(\r\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"t\n\017RegionBossLevel\022\n\n\002I"
-    "d\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\r\n\005First\030\003 \001(\010\022\021\n\t"
-    "ThreeStar\030\004 \001(\010\022\017\n\007BuildId\030\005 \001(\004\022\024\n\013Next"
-    "Package\030\377\017 \001(\014\"\215\002\n\006Friend\022\n\n\002Id\030\001 \001(\004\022\020\n"
-    "\010NickName\030\002 \001(\t\022\017\n\007Hashtag\030\003 \001(\r\022\020\n\010Head"
-    "Icon\030\004 \001(\r\022\025\n\rLastLoginTime\030\005 \001(\003\022\022\n\nWor"
-    "ldClass\030\006 \001(\r\022\023\n\013TitlePrefix\030\007 \001(\r\022\023\n\013Ti"
-    "tleSuffix\030\010 \001(\r\022\021\n\tSignature\030\t \001(\t\022\"\n\tCh"
-    "arShows\030\n \003(\0132\017.proto.CharShow\022 \n\006Honors"
-    "\030\017 \003(\0132\020.proto.HonorInfo\022\024\n\013NextPackage\030"
-    "\377\017 \001(\014\"M\n\010CharShow\022\016\n\006CharId\030\001 \001(\r\022\r\n\005Le"
-    "vel\030\002 \001(\r\022\014\n\004Skin\030\003 \001(\r\022\024\n\013NextPackage\030\377"
-    "\017 \001(\014\"v\n\014FriendDetail\022\033\n\004Base\030\001 \001(\0132\r.pr"
-    "oto.Friend\022\014\n\004Star\030\002 \001(\010\022\022\n\nSendEnergy\030\003"
-    " \001(\010\022\021\n\tGetEnergy\030\004 \001(\r\022\024\n\013NextPackage\030\377"
-    "\017 \001(\014\"\?\n\013BoughtGoods\022\n\n\002Id\030\001 \001(\r\022\016\n\006Numb"
-    "er\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"h\n\014Reside"
-    "ntShop\022\n\n\002Id\030\001 \001(\r\022\023\n\013RefreshTime\030\002 \001(\003\022"
-    "!\n\005Infos\030\003 \003(\0132\022.proto.BoughtGoods\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"@\n\014HandbookInfo\022\014\n\004Type"
-    "\030\001 \001(\r\022\014\n\004Data\030\002 \001(\014\022\024\n\013NextPackage\030\377\017 \001"
-    "(\014\"O\n\nQuestState\022\036\n\004Type\030\001 \001(\0162\020.proto.Q"
-    "uestType\022\013\n\003New\030\002 \001(\010\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"5\n\020MallPackageState\022\013\n\003New\030\001 \001(\010\022\024\n\013"
-    "NextPackage\030\377\017 \001(\014\"P\n\rDailyInstance\022\n\n\002I"
-    "d\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007BuildId\030\017 \001(\004\022\024"
-    "\n\013NextPackage\030\377\017 \001(\014\"l\n\025TravelerDuelBoss"
-    "Level\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007Build"
-    "Id\030\003 \001(\004\022\022\n\nDifficulty\030\004 \001(\r\022\024\n\013NextPack"
-    "age\030\377\017 \001(\014\"r\n\031TravelerDuelChallengeInfo\022"
-    "\016\n\006Unlock\030\001 \001(\010\022\n\n\002Id\030\002 \001(\r\022\020\n\010OpenTime\030"
-    "\003 \001(\003\022\021\n\tCloseTime\030\004 \001(\003\022\024\n\013NextPackage\030"
-    "\377\017 \001(\014\"P\n\010Activity\022\n\n\002Id\030\001 \001(\r\022\021\n\tStartT"
-    "ime\030\002 \001(\003\022\017\n\007EndTime\030\003 \001(\003\022\024\n\013NextPackag"
-    "e\030\377\017 \001(\014\"}\n\rActivityQuest\022\n\n\002Id\030\001 \001(\r\022\016\n"
-    "\006Status\030\002 \001(\r\022\022\n\nActivityId\030\003 \001(\r\022&\n\010Pro"
-    "gress\030\017 \003(\0132\024.proto.QuestProgress\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"w\n\020ActivityPeriodic\022\022\n\nA"
-    "ctivityId\030\001 \001(\r\022\023\n\013FinalStatus\030\002 \001(\010\022$\n\006"
-    "Quests\030\017 \003(\0132\024.proto.ActivityQuest\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"Z\n\rActivityLogin\022\022\n\nAct"
-    "ivityId\030\001 \001(\r\022\017\n\007Receive\030\002 \001(\r\022\016\n\006Actual"
-    "\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"~\n\016Activity"
-    "Mining\022\022\n\nActivityId\030\001 \001(\r\022\r\n\005Layer\030\002 \001("
-    "\r\022\r\n\005Score\030\003 \001(\r\022$\n\006Quests\030\013 \003(\0132\024.proto"
-    ".ActivityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"y\n\023"
-    "ActivityCookieLevel\022\022\n\nActivityId\030\001 \001(\r\022"
-    "\017\n\007LevelId\030\002 \001(\r\022\020\n\010MaxScore\030\003 \001(\r\022\025\n\rFi"
-    "rstComplete\030\004 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\""
-    "\214\001\n\016ActivityCookie\022\022\n\nActivityId\030\001 \001(\r\022$"
-    "\n\006Quests\030\013 \003(\0132\024.proto.ActivityQuest\022*\n\006"
-    "Levels\030\014 \003(\0132\032.proto.ActivityCookieLevel"
-    "\022\024\n\013NextPackage\030\377\017 \001(\014\"K\n\031ActivityTowerD"
-    "efenseLevel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\024\n"
-    "\013NextPackage\030\377\017 \001(\014\"\251\001\n\024ActivityTowerDef"
-    "ense\022\022\n\nActivityId\030\001 \001(\r\022\017\n\007Stories\030\002 \003("
-    "\r\0220\n\006Levels\030\003 \003(\0132 .proto.ActivityTowerD"
-    "efenseLevel\022$\n\006Quests\030\013 \003(\0132\024.proto.Acti"
-    "vityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"@\n\rActiv"
-    "ityTrial\022\031\n\021CompletedGroupIds\030\001 \003(\r\022\024\n\013N"
-    "extPackage\030\377\017 \001(\014\"0\n\nActivityCG\022\014\n\004Read\030"
-    "\001 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\rActivityL"
-    "evel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007BuildI"
-    "d\030\003 \001(\004\022\024\n\013NextPackage\030\377\017 \001(\014\"L\n\016Activit"
-    "yLevels\022$\n\006levels\030\001 \003(\0132\024.proto.Activity"
-    "Level\022\024\n\013NextPackage\030\377\017 \001(\014\"6\n\013ActivityA"
-    "vg\022\021\n\tRewardIds\030\001 \003(\r\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"q\n\007Milkout\022#\n\006Levels\030\001 \003(\0132\023.proto.M"
-    "ilkoutLevel\022+\n\nCharacters\030\002 \003(\0132\027.proto."
-    "MilkoutCharacter\022\024\n\013NextPackage\030\377\017 \001(\014\"G"
-    "\n\014MilkoutLevel\022\n\n\002Id\030\001 \001(\r\022\025\n\rFirstCompl"
-    "ete\030\002 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"I\n\020Milko"
-    "utCharacter\022\n\n\002Id\030\001 \001(\r\022\023\n\013BattleTimes\030\002"
-    " \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"Y\n\030ActivityPe"
-    "nguinCardLevel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r"
-    "\022\r\n\005Score\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\226\001"
-    "\n\023ActivityPenguinCard\022\022\n\nActivityId\030\001 \001("
-    "\r\022/\n\006Levels\030\002 \003(\0132\037.proto.ActivityPengui"
-    "nCardLevel\022$\n\006Quests\030\003 \003(\0132\024.proto.Activ"
-    "ityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"\201\001\n\014Affin"
-    "ityInfo\022\016\n\006CharId\030\001 \001(\r\022\025\n\rAffinityLevel"
-    "\030\002 \001(\r\022\023\n\013AffinityExp\030\003 \001(\r\022\037\n\007Rewards\030\004"
-    " \003(\0132\016.proto.ItemTpl\022\024\n\013NextPackage\030\377\017 \001"
-    "(\014\"Q\n\rActivityState\022\n\n\002Id\030\001 \001(\r\022\016\n\006RedDo"
-    "t\030\002 \001(\010\022\016\n\006Banner\030\003 \001(\010\022\024\n\013NextPackage\030\377"
-    "\017 \001(\014\"J\n\004Chat\022\n\n\002Id\030\001 \001(\r\022\017\n\007Options\030\002 \003"
-    "(\r\022\017\n\007Process\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001("
-    "\014\"\177\n\010Contacts\022\016\n\006CharId\030\001 \001(\r\022\023\n\013Trigger"
-    "Time\030\002 \001(\003\022\032\n\005Chats\030\003 \003(\0132\013.proto.Chat\022\017"
-    "\n\007OptTime\030\016 \001(\003\022\013\n\003Top\030\017 \001(\010\022\024\n\013NextPack"
-    "age\030\377\017 \001(\014\"a\n\026InfinityTowerLevelInfo\022\n\n\002"
-    "Id\030\001 \001(\r\022\017\n\007LevelId\030\002 \001(\r\022\024\n\014ChallengeId"
-    "s\030\003 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\256\001\n\013Collec"
-    "tResp\022-\n\006Status\030\001 \001(\0162\035.proto.CollectRes"
-    "p.StatusEnum\022 \n\005Items\030\002 \001(\0132\021.proto.Chan"
-    "geInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"8\n\nStatusEn"
-    "um\022\n\n\006Unpaid\020\000\022\010\n\004Done\020\001\022\t\n\005Retry\020\002\022\t\n\005E"
-    "rror\020\003\"@\n\rEquipmentAttr\022\n\n\002Id\030\001 \001(\r\022\r\n\005V"
-    "alue\030\002 \001(\005\022\024\n\013NextPackage\030\377\017 \001(\014\"\214\001\n\rEqu"
-    "ipmentInfo\022\n\n\002Id\030\001 \001(\004\022\013\n\003Tid\030\002 \001(\r\022\013\n\003E"
-    "xp\030\003 \001(\r\022\014\n\004Lock\030\004 \001(\010\022\014\n\004Tags\030\005 \003(\r\022#\n\005"
-    "Attrs\030\006 \003(\0132\024.proto.EquipmentAttr\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"T\n\021EquipmentInstance\022\n\n\002"
-    "Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007BuildId\030\017 \001(\004\022"
-    "\024\n\013NextPackage\030\377\017 \001(\014\"w\n\tAgentInfo\022\n\n\002Id"
-    "\030\001 \001(\r\022\023\n\013ProcessTime\030\002 \001(\r\022\017\n\007CharIds\030\003"
-    " \003(\r\022\017\n\007BuildId\030\004 \001(\004\022\021\n\tStartTime\030\005 \001(\003"
-    "\022\024\n\013NextPackage\030\377\017 \001(\014\"|\n\tAgentData\022\037\n\005I"
-    "nfos\030\001 \003(\0132\020.proto.AgentInfo\022\023\n\013NewAgent"
-    "Ids\030\002 \003(\r\022\020\n\010DailyIds\030\003 \003(\r\022\021\n\tWeeklyIds"
-    "\030\004 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"A\n\tHonorInf"
-    "o\022\n\n\002Id\030\001 \001(\r\022\022\n\nAffinityLV\030\002 \001(\r\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"9\n\010CardInfo\022\n\n\002Id\030\001 \001(\r\022"
-    "\013\n\003New\030\002 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\024Va"
-    "mpireSurvivorEvent\022\021\n\tEventType\030\001 \001(\r\022\017\n"
-    "\007Numbers\030\002 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"t\n\032"
-    "VampireSurvivorLevelReward\022\r\n\005Level\030\001 \001("
-    "\r\0221\n\003Pkg\030\002 \001(\0132$.proto.VampireSurvivorFa"
-    "teCardSelect\022\024\n\013NextPackage\030\377\017 \001(\014\"e\n\035Va"
-    "mpireSurvivorFateCardSelect\022\036\n\005Cards\030\001 \003"
-    "(\0132\017.proto.CardInfo\022\016\n\006ReRoll\030\002 \001(\r\022\024\n\013N"
-    "extPackage\030\377\017 \001(\014\"\212\001\n\016ScoreBossLevel\022\017\n\007"
-    "LevelId\030\001 \001(\r\022\017\n\007BuildId\030\002 \001(\004\022\r\n\005Score\030"
-    "\003 \001(\r\022\014\n\004Star\030\004 \001(\r\022\022\n\nSkillScore\030\005 \001(\r\022"
-    "\017\n\007CharIds\030\006 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"i"
-    "\n\024VampireSurvivorLevel\022\n\n\002Id\030\001 \001(\r\022\r\n\005Sc"
-    "ore\030\002 \001(\r\022\020\n\010BuildIds\030\003 \003(\004\022\016\n\006Passed\030\004 "
-    "\001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"\241\001\n\031VampireSur"
-    "vivorRecordInfo\022,\n\007Records\030\001 \003(\0132\033.proto"
-    ".VampireSurvivorLevel\022+\n\006Season\030\002 \001(\0132\033."
-    "proto.VampireSurvivorLevel\022\023\n\013SeasonScor"
-    "e\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"r\n\rSkillIn"
-    "stance\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\r\n\005Firs"
-    "t\030\003 \001(\010\022\021\n\tThreeStar\030\004 \001(\010\022\017\n\007BuildId\030\005 "
-    "\001(\004\022\024\n\013NextPackage\030\377\017 \001(\014\"_\n\rWeekBossLev"
-    "el\022\n\n\002Id\030\001 \001(\r\022\014\n\004Time\030\002 \001(\r\022\017\n\007BuildId\030"
-    "\003 \001(\004\022\r\n\005First\030\004 \001(\010\022\024\n\013NextPackage\030\377\017 \001"
-    "(\014\"3\n\016ScoreBossState\022\013\n\003New\030\001 \001(\010\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"U\n\013NPCAffinity\022\r\n\005NPCId\030"
-    "\001 \001(\r\022\020\n\010Affinity\030\002 \001(\r\022\017\n\007PlotIds\030\003 \003(\r"
-    "\022\024\n\013NextPackage\030\377\017 \001(\014\"t\n\017CharGemInstanc"
-    "e\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\r\n\005First\030\003 \001"
-    "(\010\022\021\n\tThreeStar\030\004 \001(\010\022\017\n\007BuildId\030\005 \001(\004\022\024"
-    "\n\013NextPackage\030\377\017 \001(\014\"D\n\rCharGemPreset\022\014\n"
-    "\004Name\030\001 \001(\t\022\017\n\007SlotGem\030\002 \003(\005\022\024\n\013NextPack"
-    "age\030\377\017 \001(\014\"n\n\016CharGemPresets\022\030\n\020InUsePre"
-    "setIndex\030\001 \001(\r\022,\n\016CharGemPresets\030\002 \003(\0132\024"
-    ".proto.CharGemPreset\022\024\n\013NextPackage\030\377\017 \001"
-    "(\014\"\215\001\n\007CharGem\022\014\n\004Lock\030\001 \001(\010\022\022\n\nAttribut"
-    "es\030\002 \003(\r\022\027\n\017AlterAttributes\030\003 \003(\r\022\025\n\rOve"
-    "rlockCount\030\004 \003(\r\022\032\n\022AlterOverlockCount\030\005"
-    " \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"R\n\013CharGemSlo"
-    "t\022\n\n\002Id\030\001 \001(\r\022!\n\tAlterGems\030\002 \003(\0132\016.proto"
-    ".CharGem\022\024\n\013NextPackage\030\377\017 \001(\014\"\\\n\014Activi"
-    "tyTask\022$\n\rActivityTasks\030\001 \001(\0132\r.proto.Qu"
-    "ests\022\020\n\010GroupIds\030\002 \003(\r\022\024\n\013NextPackage\030\377\017"
-    " \001(\014\"H\n\014ActivityShop\022\"\n\005Shops\030\001 \003(\0132\023.pr"
-    "oto.ResidentShop\022\024\n\013NextPackage\030\377\017 \001(\014\"^"
-    "\n\rTutorialLevel\022\017\n\007LevelId\030\001 \001(\r\022\016\n\006Pass"
-    "ed\030\002 \001(\010\022\026\n\016RewardReceived\030\003 \001(\010\022\024\n\013Next"
-    "Package\030\377\017 \001(\014\"D\n\023BuildConvertContent\022\n\n"
-    "\002Id\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\022\024\n\013NextPackage\030\377\017"
-    " \001(\014\"\200\001\n\024ActivityBuildConvert\022,\n\010Content"
-    "s\030\001 \003(\0132\032.proto.BuildConvertContent\022$\n\006Q"
-    "uests\030\002 \003(\0132\024.proto.ActivityQuest\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"\253\001\n\021VampireClientData\022#\n"
-    "\004Efts\030\001 \003(\0132\025.proto.FateCardEftCnt\022(\n\006Li"
-    "mits\030\002 \003(\0132\030.proto.FateCardTimeLimit\022\025\n\r"
-    "FateCardTimer\030\003 \001(\r\022\r\n\005Level\030\004 \001(\r\022\013\n\003Ex"
-    "p\030\005 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\016FateCar"
-    "dEftCnt\022\n\n\002Id\030\001 \001(\r\022\r\n\005EftId\030\002 \001(\r\022\r\n\005Co"
-    "unt\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"H\n\021FateC"
-    "ardTimeLimit\022\n\n\002Id\030\001 \001(\r\022\021\n\tTimeLimit\030\002 "
-    "\001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\337\001\n\021TrekkerVer"
-    "susShow\022\021\n\tDifficult\030\001 \001(\r\022\020\n\010IdleTime\030\002"
-    " \001(\003\0226\n\nIdleValues\030\003 \003(\0132\".proto.Trekker"
-    "VersusShow.IdleValue\022\024\n\014SelfHotValue\030\004 \001"
-    "(\004\022\025\n\rRivalHotValue\030\005 \001(\004\022\024\n\013NextPackage"
-    "\030\377\017 \001(\014\032*\n\tIdleValue\022\016\n\006TypeId\030\001 \001(\r\022\r\n\005"
-    "Value\030\002 \001(\r\"\367\002\n\025ActivityTrekkerVersus\022\016\n"
-    "\006DayNum\030\001 \001(\r\022\r\n\005Level\030\002 \001(\r\022\013\n\003Exp\030\003 \001("
-    "\r\022\017\n\007BuildId\030\004 \001(\004\022&\n\004Show\030\005 \001(\0132\030.proto"
-    ".TrekkerVersusShow\022\031\n\021HotValueRewardIds\030"
-    "\006 \003(\r\022\025\n\rDuelRewardIds\030\007 \003(\r\022$\n\006Quests\030\010"
-    " \003(\0132\024.proto.ActivityQuest\022;\n\007Results\030\t "
-    "\003(\0132*.proto.ActivityTrekkerVersus.Histor"
-    "yResult\022\024\n\013NextPackage\030\377\017 \001(\014\032N\n\rHistory"
-    "Result\022\024\n\014SelfHotValue\030\001 \001(\004\022\025\n\rRivalHot"
-    "Value\030\002 \001(\004\022\020\n\010TargetId\030\003 \001(\r\"I\n\023Activit"
-    "yStoryChoice\022\r\n\005Group\030\001 \001(\r\022\r\n\005Value\030\002 \001"
-    "(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\215\001\n\rActivitySto"
-    "ry\022\n\n\002Id\030\001 \001(\r\022)\n\005Major\030\002 \003(\0132\032.proto.Ac"
-    "tivityStoryChoice\022/\n\013Personality\030\003 \003(\0132\032"
-    ".proto.ActivityStoryChoice\022\024\n\013NextPackag"
-    "e\030\377\017 \001(\014\"w\n\024ActivityStoryChapter\022\021\n\tEvid"
-    "ences\030\001 \003(\r\022\017\n\007BuildId\030\002 \001(\004\022%\n\007Stories\030"
-    "\003 \003(\0132\024.proto.ActivityStory\022\024\n\013NextPacka"
-    "ge\030\377\017 \001(\014\"\263\001\n\010LastRead\022\014\n\004Type\030\001 \001(\r\022#\n\005"
-    "Story\030\002 \001(\0132\024.proto.LastReadStory\022)\n\010Sto"
-    "rySet\030\003 \001(\0132\027.proto.LastReadStorySet\0223\n\r"
-    "ActivityStory\030\004 \001(\0132\034.proto.LastReadActi"
-    "vityStory\022\024\n\013NextPackage\030\377\017 \001(\014\"2\n\rLastR"
-    "eadStory\022\013\n\003Idx\030\001 \001(\r\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"N\n\020LastReadStorySet\022\021\n\tChapterId\030\001 \001"
-    "(\r\022\021\n\tSectionId\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\"Q\n\025LastReadActivityStory\022\021\n\tChapterI"
-    "d\030\001 \001(\r\022\017\n\007StoryId\030\002 \001(\r\022\024\n\013NextPackage\030"
-    "\377\017 \001(\014\"h\n\026ActivityThrowGiftLevel\022\017\n\007Leve"
-    "lId\030\001 \001(\r\022\020\n\010MaxScore\030\002 \001(\r\022\025\n\rFirstComp"
-    "lete\030\003 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"L\n\025Acti"
-    "vityThrowGiftItem\022\016\n\006ItemId\030\001 \001(\r\022\r\n\005Cou"
-    "nt\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\205\001\n\021Activ"
-    "ityThrowGift\022-\n\006Levels\030\001 \003(\0132\035.proto.Act"
-    "ivityThrowGiftLevel\022+\n\005Items\030\002 \003(\0132\034.pro"
-    "to.ActivityThrowGiftItem\022\024\n\013NextPackage\030"
-    "\377\017 \001(\014\"b\n\020ActivityGDSLevel\022\017\n\007LevelId\030\001 "
-    "\001(\r\022\020\n\010MaxScore\030\002 \001(\r\022\025\n\rFirstComplete\030\003"
-    " \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"L\n\013ActivityGD"
-    "S\022\'\n\006Levels\030\001 \003(\0132\027.proto.ActivityGDSLev"
-    "el\022\024\n\013NextPackage\030\377\017 \001(\014\"=\n\rActivityHono"
-    "r\022\n\n\002Id\030\001 \001(\r\022\n\n\002Lv\030\002 \001(\r\022\024\n\013NextPackage"
-    "\030\377\017 \001(\014*\221\002\n\tQuestType\022\020\n\014UnknownQuest\020\000\022"
-    "\r\n\tTourGuide\020\001\022\t\n\005Daily\020\002\022\020\n\014TravelerDue"
-    "l\020\003\022\031\n\025TravelerDuelChallenge\020\004\022\014\n\010Affini"
-    "ty\020\005\022\023\n\017BattlePassDaily\020\006\022\024\n\020BattlePassW"
-    "eekly\020\007\022\031\n\025VampireSurvivorNormal\020\010\022\031\n\025Va"
-    "mpireSurvivorSeason\020\t\022\t\n\005Tower\020\n\022\t\n\005Demo"
-    "n\020\013\022\016\n\nTowerEvent\020\014\022\n\n\006Weekly\020\r\022\n\n\006Assis"
-    "t\020\016b\006proto3"
+    "o.ActivityState\022\020\n\010StorySet\030\026 \001(\010\022(\n\tTra"
+    "ceHunt\030\027 \001(\0132\025.proto.TraceHuntState\022\024\n\013N"
+    "extPackage\030\377\017 \001(\014\"9\n\007ItemTpl\022\013\n\003Tid\030\001 \001("
+    "\r\022\013\n\003Qty\030\002 \001(\005\022\024\n\013NextPackage\030\377\017 \001(\014\"\?\n\010"
+    "ItemTpls\022\035\n\005Items\030\001 \003(\0132\016.proto.ItemTpl\022"
+    "\024\n\013NextPackage\030\377\017 \001(\014\"R\n\004Item\022\n\n\002Id\030\001 \001("
+    "\004\022\013\n\003Tid\030\002 \001(\r\022\013\n\003Qty\030\003 \001(\005\022\016\n\006Expire\030\004 "
+    "\001(\003\022\024\n\013NextPackage\030\377\017 \001(\014\"5\n\003Res\022\013\n\003Tid\030"
+    "\001 \001(\r\022\013\n\003Qty\030\002 \001(\005\022\024\n\013NextPackage\030\377\017 \001(\014"
+    "\".\n\005Title\022\017\n\007TitleId\030\001 \001(\r\022\024\n\013NextPackag"
+    "e\030\377\017 \001(\014\"\211\004\n\004Char\022\013\n\003Tid\030\001 \001(\r\022\013\n\003Exp\030\002 "
+    "\001(\r\022\031\n\021DatingLandmarkIds\030\003 \003(\r\022\026\n\016Dating"
+    "EventIds\030\004 \003(\r\022\034\n\024DatingEventRewardIds\030\005"
+    " \003(\r\022\024\n\014EquipmentIds\030\006 \003(\004\022\r\n\005Level\030\t \001("
+    "\r\022\020\n\010SkillLvs\030\n \003(\r\022\014\n\004Skin\030\014 \001(\r\022\025\n\rAff"
+    "inityLevel\030\r \001(\r\022\023\n\013AffinityExp\030\016 \001(\r\022\017\n"
+    "\007Advance\030\017 \001(\r\022\r\n\005Plots\030\020 \003(\r\022%\n\016Affinit"
+    "yQuests\030\021 \001(\0132\r.proto.Quests\022\023\n\013TalentNo"
+    "des\030\023 \001(\014\022\030\n\020ArchiveRewardIds\030\024 \003(\r\022\030\n\020T"
+    "alentBackground\030\025 \001(\r\022(\n\014CharGemSlots\030\026 "
+    "\003(\0132\022.proto.CharGemSlot\022-\n\016CharGemPreset"
+    "s\030\027 \001(\0132\025.proto.CharGemPresets\022\022\n\nIsFavo"
+    "rite\030\037 \001(\010\022\022\n\nCreateTime\030\177 \001(\003\022\024\n\013NextPa"
+    "ckage\030\377\017 \001(\014\"\177\n\006Energy\022\017\n\007Primary\030\001 \001(\r\022"
+    "\021\n\tSecondary\030\002 \001(\r\022\021\n\tIsPrimary\030\003 \001(\010\022\022\n"
+    "\nUpdateTime\030\004 \001(\003\022\024\n\014NextDuration\030\005 \001(\003\022"
+    "\024\n\013NextPackage\030\377\017 \001(\014\"G\n\nWorldClass\022\020\n\010A"
+    "ddClass\030\001 \001(\r\022\021\n\tExpChange\030\002 \001(\005\022\024\n\013Next"
+    "Package\030\377\017 \001(\014\"R\n\tEquipment\022\"\n\004Info\030\001 \001("
+    "\0132\024.proto.EquipmentInfo\022\013\n\003Qty\030\002 \001(\005\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"\220\001\n\004Disc\022\n\n\002Id\030\001 \001(\r\022"
+    "\r\n\005Level\030\002 \001(\r\022\013\n\003Exp\030\003 \001(\r\022\r\n\005Phase\030\004 \001"
+    "(\r\022\014\n\004Star\030\005 \001(\r\022\014\n\004Read\030\006 \001(\010\022\013\n\003Avg\030\007 "
+    "\001(\010\022\022\n\nCreateTime\030\017 \001(\003\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"[\n\tTransform\022\033\n\003Src\030\001 \003(\0132\016.proto."
+    "ItemTpl\022\033\n\003Dst\030\002 \003(\0132\016.proto.ItemTpl\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"-\n\010HeadIcon\022\013\n\003Tid\030\001 "
+    "\001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"J\n\007AcqInfo\022\013\n\003"
+    "Tid\030\001 \001(\r\022\r\n\005Begin\030\002 \001(\r\022\r\n\005Count\030\003 \001(\r\022"
+    "\024\n\013NextPackage\030\377\017 \001(\014\"=\n\007Acquire\022\034\n\004List"
+    "\030\001 \003(\0132\016.proto.AcqInfo\022\024\n\013NextPackage\030\377\017"
+    " \001(\014\";\n\005Honor\022\r\n\005NewId\030\001 \001(\r\022\r\n\005Level\030\002 "
+    "\001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"G\n\nChangeInfo\022"
+    "#\n\005Props\030\001 \003(\0132\024.google.protobuf.Any\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"o\n\rFormationInfo\022\016\n\006N"
+    "umber\030\001 \001(\r\022\017\n\007CharIds\030\002 \003(\r\022\017\n\007DiscIds\030"
+    "\003 \003(\r\022\026\n\016PreselectionId\030\004 \001(\004\022\024\n\013NextPac"
+    "kage\030\377\017 \001(\014\"H\n\017FormationRecord\022\017\n\007GroupI"
+    "d\030\001 \001(\r\022\016\n\006Number\030\002 \001(\r\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"r\n\016TowerFormation\022\"\n\004Info\030\001 \003(\0132\024."
+    "proto.FormationInfo\022&\n\006Record\030\002 \003(\0132\026.pr"
+    "oto.FormationRecord\022\024\n\013NextPackage\030\377\017 \001("
+    "\014\"A\n\013StoryChoice\022\r\n\005Group\030\001 \001(\r\022\r\n\005Value"
+    "\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"v\n\005Story\022\013\n"
+    "\003Idx\030\001 \001(\r\022!\n\005Major\030\002 \003(\0132\022.proto.StoryC"
+    "hoice\022\'\n\013Personality\030\003 \003(\0132\022.proto.Story"
+    "Choice\022\024\n\013NextPackage\030\377\017 \001(\014\"d\n\tStoryInf"
+    "o\022\021\n\tEvidences\030\001 \003(\r\022\035\n\007Stories\030\002 \003(\0132\014."
+    "proto.Story\022\017\n\007BuildId\030\003 \001(\004\022\024\n\013NextPack"
+    "age\030\377\017 \001(\014\"W\n\014RoomRestored\022\016\n\006RoomId\030\001 \001"
+    "(\r\022!\n\006Change\030\002 \001(\0132\021.proto.ChangeInfo\022\024\n"
+    "\013NextPackage\030\377\017 \001(\014\">\n\007DropPkg\022\035\n\005Drops\030"
+    "\001 \003(\0132\016.proto.ItemTpl\022\024\n\013NextPackage\030\377\017 "
+    "\001(\014\"[\n\013MonsterDrop\022\024\n\014MonsterIndex\030\001 \001(\r"
+    "\022 \n\010DropPkgs\030\002 \003(\0132\016.proto.DropPkg\022\024\n\013Ne"
+    "xtPackage\030\377\017 \001(\014\"X\n\020WorldClassUpdate\022\013\n\003"
+    "Cur\030\001 \001(\r\022!\n\006Change\030\002 \001(\0132\021.proto.Change"
+    "Info\022\024\n\013NextPackage\030\377\017 \001(\014\"F\n\010ItemInfo\022\n"
+    "\n\002Id\030\001 \001(\004\022\013\n\003Tid\030\002 \001(\r\022\013\n\003Qty\030\003 \001(\r\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"t\n\017RegionBossLevel\022\n\n"
+    "\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\r\n\005First\030\003 \001(\010\022\021"
+    "\n\tThreeStar\030\004 \001(\010\022\017\n\007BuildId\030\005 \001(\004\022\024\n\013Ne"
+    "xtPackage\030\377\017 \001(\014\"\215\002\n\006Friend\022\n\n\002Id\030\001 \001(\004\022"
+    "\020\n\010NickName\030\002 \001(\t\022\017\n\007Hashtag\030\003 \001(\r\022\020\n\010He"
+    "adIcon\030\004 \001(\r\022\025\n\rLastLoginTime\030\005 \001(\003\022\022\n\nW"
+    "orldClass\030\006 \001(\r\022\023\n\013TitlePrefix\030\007 \001(\r\022\023\n\013"
+    "TitleSuffix\030\010 \001(\r\022\021\n\tSignature\030\t \001(\t\022\"\n\t"
+    "CharShows\030\n \003(\0132\017.proto.CharShow\022 \n\006Hono"
+    "rs\030\017 \003(\0132\020.proto.HonorInfo\022\024\n\013NextPackag"
+    "e\030\377\017 \001(\014\"M\n\010CharShow\022\016\n\006CharId\030\001 \001(\r\022\r\n\005"
+    "Level\030\002 \001(\r\022\014\n\004Skin\030\003 \001(\r\022\024\n\013NextPackage"
+    "\030\377\017 \001(\014\"v\n\014FriendDetail\022\033\n\004Base\030\001 \001(\0132\r."
+    "proto.Friend\022\014\n\004Star\030\002 \001(\010\022\022\n\nSendEnergy"
+    "\030\003 \001(\010\022\021\n\tGetEnergy\030\004 \001(\r\022\024\n\013NextPackage"
+    "\030\377\017 \001(\014\"\?\n\013BoughtGoods\022\n\n\002Id\030\001 \001(\r\022\016\n\006Nu"
+    "mber\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"h\n\014Resi"
+    "dentShop\022\n\n\002Id\030\001 \001(\r\022\023\n\013RefreshTime\030\002 \001("
+    "\003\022!\n\005Infos\030\003 \003(\0132\022.proto.BoughtGoods\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"@\n\014HandbookInfo\022\014\n\004Ty"
+    "pe\030\001 \001(\r\022\014\n\004Data\030\002 \001(\014\022\024\n\013NextPackage\030\377\017"
+    " \001(\014\"O\n\nQuestState\022\036\n\004Type\030\001 \001(\0162\020.proto"
+    ".QuestType\022\013\n\003New\030\002 \001(\010\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"5\n\020MallPackageState\022\013\n\003New\030\001 \001(\010\022\024"
+    "\n\013NextPackage\030\377\017 \001(\014\"P\n\rDailyInstance\022\n\n"
+    "\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007BuildId\030\017 \001(\004"
+    "\022\024\n\013NextPackage\030\377\017 \001(\014\"l\n\025TravelerDuelBo"
+    "ssLevel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007Bui"
+    "ldId\030\003 \001(\004\022\022\n\nDifficulty\030\004 \001(\r\022\024\n\013NextPa"
+    "ckage\030\377\017 \001(\014\"r\n\031TravelerDuelChallengeInf"
+    "o\022\016\n\006Unlock\030\001 \001(\010\022\n\n\002Id\030\002 \001(\r\022\020\n\010OpenTim"
+    "e\030\003 \001(\003\022\021\n\tCloseTime\030\004 \001(\003\022\024\n\013NextPackag"
+    "e\030\377\017 \001(\014\"P\n\010Activity\022\n\n\002Id\030\001 \001(\r\022\021\n\tStar"
+    "tTime\030\002 \001(\003\022\017\n\007EndTime\030\003 \001(\003\022\024\n\013NextPack"
+    "age\030\377\017 \001(\014\"}\n\rActivityQuest\022\n\n\002Id\030\001 \001(\r\022"
+    "\016\n\006Status\030\002 \001(\r\022\022\n\nActivityId\030\003 \001(\r\022&\n\010P"
+    "rogress\030\017 \003(\0132\024.proto.QuestProgress\022\024\n\013N"
+    "extPackage\030\377\017 \001(\014\"w\n\020ActivityPeriodic\022\022\n"
+    "\nActivityId\030\001 \001(\r\022\023\n\013FinalStatus\030\002 \001(\010\022$"
+    "\n\006Quests\030\017 \003(\0132\024.proto.ActivityQuest\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"Z\n\rActivityLogin\022\022\n\nA"
+    "ctivityId\030\001 \001(\r\022\017\n\007Receive\030\002 \001(\r\022\016\n\006Actu"
+    "al\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"~\n\016Activi"
+    "tyMining\022\022\n\nActivityId\030\001 \001(\r\022\r\n\005Layer\030\002 "
+    "\001(\r\022\r\n\005Score\030\003 \001(\r\022$\n\006Quests\030\013 \003(\0132\024.pro"
+    "to.ActivityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"y"
+    "\n\023ActivityCookieLevel\022\022\n\nActivityId\030\001 \001("
+    "\r\022\017\n\007LevelId\030\002 \001(\r\022\020\n\010MaxScore\030\003 \001(\r\022\025\n\r"
+    "FirstComplete\030\004 \001(\010\022\024\n\013NextPackage\030\377\017 \001("
+    "\014\"\214\001\n\016ActivityCookie\022\022\n\nActivityId\030\001 \001(\r"
+    "\022$\n\006Quests\030\013 \003(\0132\024.proto.ActivityQuest\022*"
+    "\n\006Levels\030\014 \003(\0132\032.proto.ActivityCookieLev"
+    "el\022\024\n\013NextPackage\030\377\017 \001(\014\"K\n\031ActivityTowe"
+    "rDefenseLevel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022"
+    "\024\n\013NextPackage\030\377\017 \001(\014\"\251\001\n\024ActivityTowerD"
+    "efense\022\022\n\nActivityId\030\001 \001(\r\022\017\n\007Stories\030\002 "
+    "\003(\r\0220\n\006Levels\030\003 \003(\0132 .proto.ActivityTowe"
+    "rDefenseLevel\022$\n\006Quests\030\013 \003(\0132\024.proto.Ac"
+    "tivityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"@\n\rAct"
+    "ivityTrial\022\031\n\021CompletedGroupIds\030\001 \003(\r\022\024\n"
+    "\013NextPackage\030\377\017 \001(\014\"0\n\nActivityCG\022\014\n\004Rea"
+    "d\030\001 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\rActivit"
+    "yLevel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007Buil"
+    "dId\030\003 \001(\004\022\024\n\013NextPackage\030\377\017 \001(\014\"L\n\016Activ"
+    "ityLevels\022$\n\006levels\030\001 \003(\0132\024.proto.Activi"
+    "tyLevel\022\024\n\013NextPackage\030\377\017 \001(\014\"6\n\013Activit"
+    "yAvg\022\021\n\tRewardIds\030\001 \003(\r\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"q\n\007Milkout\022#\n\006Levels\030\001 \003(\0132\023.proto"
+    ".MilkoutLevel\022+\n\nCharacters\030\002 \003(\0132\027.prot"
+    "o.MilkoutCharacter\022\024\n\013NextPackage\030\377\017 \001(\014"
+    "\"G\n\014MilkoutLevel\022\n\n\002Id\030\001 \001(\r\022\025\n\rFirstCom"
+    "plete\030\002 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"I\n\020Mil"
+    "koutCharacter\022\n\n\002Id\030\001 \001(\r\022\023\n\013BattleTimes"
+    "\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"Y\n\030Activity"
+    "PenguinCardLevel\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001"
+    "(\r\022\r\n\005Score\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\""
+    "\226\001\n\023ActivityPenguinCard\022\022\n\nActivityId\030\001 "
+    "\001(\r\022/\n\006Levels\030\002 \003(\0132\037.proto.ActivityPeng"
+    "uinCardLevel\022$\n\006Quests\030\003 \003(\0132\024.proto.Act"
+    "ivityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"w\n\016Acti"
+    "vityDouble\022\022\n\nActivityId\030\001 \001(\r\022\025\n\rDailyU"
+    "seTimes\030\002 \001(\r\022$\n\006Quests\030\003 \003(\0132\024.proto.Ac"
+    "tivityQuest\022\024\n\013NextPackage\030\377\017 \001(\014\"\201\001\n\014Af"
+    "finityInfo\022\016\n\006CharId\030\001 \001(\r\022\025\n\rAffinityLe"
+    "vel\030\002 \001(\r\022\023\n\013AffinityExp\030\003 \001(\r\022\037\n\007Reward"
+    "s\030\004 \003(\0132\016.proto.ItemTpl\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"Q\n\rActivityState\022\n\n\002Id\030\001 \001(\r\022\016\n\006Re"
+    "dDot\030\002 \001(\010\022\016\n\006Banner\030\003 \001(\010\022\024\n\013NextPackag"
+    "e\030\377\017 \001(\014\"J\n\004Chat\022\n\n\002Id\030\001 \001(\r\022\017\n\007Options\030"
+    "\002 \003(\r\022\017\n\007Process\030\003 \001(\r\022\024\n\013NextPackage\030\377\017"
+    " \001(\014\"\177\n\010Contacts\022\016\n\006CharId\030\001 \001(\r\022\023\n\013Trig"
+    "gerTime\030\002 \001(\003\022\032\n\005Chats\030\003 \003(\0132\013.proto.Cha"
+    "t\022\017\n\007OptTime\030\016 \001(\003\022\013\n\003Top\030\017 \001(\010\022\024\n\013NextP"
+    "ackage\030\377\017 \001(\014\"a\n\026InfinityTowerLevelInfo\022"
+    "\n\n\002Id\030\001 \001(\r\022\017\n\007LevelId\030\002 \001(\r\022\024\n\014Challeng"
+    "eIds\030\003 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\256\001\n\013Col"
+    "lectResp\022-\n\006Status\030\001 \001(\0162\035.proto.Collect"
+    "Resp.StatusEnum\022 \n\005Items\030\002 \001(\0132\021.proto.C"
+    "hangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"8\n\nStatu"
+    "sEnum\022\n\n\006Unpaid\020\000\022\010\n\004Done\020\001\022\t\n\005Retry\020\002\022\t"
+    "\n\005Error\020\003\"@\n\rEquipmentAttr\022\n\n\002Id\030\001 \001(\r\022\r"
+    "\n\005Value\030\002 \001(\005\022\024\n\013NextPackage\030\377\017 \001(\014\"\214\001\n\r"
+    "EquipmentInfo\022\n\n\002Id\030\001 \001(\004\022\013\n\003Tid\030\002 \001(\r\022\013"
+    "\n\003Exp\030\003 \001(\r\022\014\n\004Lock\030\004 \001(\010\022\014\n\004Tags\030\005 \003(\r\022"
+    "#\n\005Attrs\030\006 \003(\0132\024.proto.EquipmentAttr\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"T\n\021EquipmentInstance\022"
+    "\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\017\n\007BuildId\030\017 \001"
+    "(\004\022\024\n\013NextPackage\030\377\017 \001(\014\"w\n\tAgentInfo\022\n\n"
+    "\002Id\030\001 \001(\r\022\023\n\013ProcessTime\030\002 \001(\r\022\017\n\007CharId"
+    "s\030\003 \003(\r\022\017\n\007BuildId\030\004 \001(\004\022\021\n\tStartTime\030\005 "
+    "\001(\003\022\024\n\013NextPackage\030\377\017 \001(\014\"|\n\tAgentData\022\037"
+    "\n\005Infos\030\001 \003(\0132\020.proto.AgentInfo\022\023\n\013NewAg"
+    "entIds\030\002 \003(\r\022\020\n\010DailyIds\030\003 \003(\r\022\021\n\tWeekly"
+    "Ids\030\004 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"A\n\tHonor"
+    "Info\022\n\n\002Id\030\001 \001(\r\022\022\n\nAffinityLV\030\002 \001(\r\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"9\n\010CardInfo\022\n\n\002Id\030\001 \001"
+    "(\r\022\013\n\003New\030\002 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n"
+    "\024VampireSurvivorEvent\022\021\n\tEventType\030\001 \001(\r"
+    "\022\017\n\007Numbers\030\002 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\""
+    "t\n\032VampireSurvivorLevelReward\022\r\n\005Level\030\001"
+    " \001(\r\0221\n\003Pkg\030\002 \001(\0132$.proto.VampireSurvivo"
+    "rFateCardSelect\022\024\n\013NextPackage\030\377\017 \001(\014\"e\n"
+    "\035VampireSurvivorFateCardSelect\022\036\n\005Cards\030"
+    "\001 \003(\0132\017.proto.CardInfo\022\016\n\006ReRoll\030\002 \001(\r\022\024"
+    "\n\013NextPackage\030\377\017 \001(\014\"\212\001\n\016ScoreBossLevel\022"
+    "\017\n\007LevelId\030\001 \001(\r\022\017\n\007BuildId\030\002 \001(\004\022\r\n\005Sco"
+    "re\030\003 \001(\r\022\014\n\004Star\030\004 \001(\r\022\022\n\nSkillScore\030\005 \001"
+    "(\r\022\017\n\007CharIds\030\006 \003(\r\022\024\n\013NextPackage\030\377\017 \001("
+    "\014\"i\n\024VampireSurvivorLevel\022\n\n\002Id\030\001 \001(\r\022\r\n"
+    "\005Score\030\002 \001(\r\022\020\n\010BuildIds\030\003 \003(\004\022\016\n\006Passed"
+    "\030\004 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"\241\001\n\031Vampire"
+    "SurvivorRecordInfo\022,\n\007Records\030\001 \003(\0132\033.pr"
+    "oto.VampireSurvivorLevel\022+\n\006Season\030\002 \001(\013"
+    "2\033.proto.VampireSurvivorLevel\022\023\n\013SeasonS"
+    "core\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"r\n\rSkil"
+    "lInstance\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\r\n\005F"
+    "irst\030\003 \001(\010\022\021\n\tThreeStar\030\004 \001(\010\022\017\n\007BuildId"
+    "\030\005 \001(\004\022\024\n\013NextPackage\030\377\017 \001(\014\"_\n\rWeekBoss"
+    "Level\022\n\n\002Id\030\001 \001(\r\022\014\n\004Time\030\002 \001(\r\022\017\n\007Build"
+    "Id\030\003 \001(\004\022\r\n\005First\030\004 \001(\010\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"3\n\016ScoreBossState\022\013\n\003New\030\001 \001(\010\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"U\n\013NPCAffinity\022\r\n\005NPC"
+    "Id\030\001 \001(\r\022\020\n\010Affinity\030\002 \001(\r\022\017\n\007PlotIds\030\003 "
+    "\003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"t\n\017CharGemInst"
+    "ance\022\n\n\002Id\030\001 \001(\r\022\014\n\004Star\030\002 \001(\r\022\r\n\005First\030"
+    "\003 \001(\010\022\021\n\tThreeStar\030\004 \001(\010\022\017\n\007BuildId\030\005 \001("
+    "\004\022\024\n\013NextPackage\030\377\017 \001(\014\"D\n\rCharGemPreset"
+    "\022\014\n\004Name\030\001 \001(\t\022\017\n\007SlotGem\030\002 \003(\005\022\024\n\013NextP"
+    "ackage\030\377\017 \001(\014\"n\n\016CharGemPresets\022\030\n\020InUse"
+    "PresetIndex\030\001 \001(\r\022,\n\016CharGemPresets\030\002 \003("
+    "\0132\024.proto.CharGemPreset\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"\215\001\n\007CharGem\022\014\n\004Lock\030\001 \001(\010\022\022\n\nAttri"
+    "butes\030\002 \003(\r\022\027\n\017AlterAttributes\030\003 \003(\r\022\025\n\r"
+    "OverlockCount\030\004 \003(\r\022\032\n\022AlterOverlockCoun"
+    "t\030\005 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"R\n\013CharGem"
+    "Slot\022\n\n\002Id\030\001 \001(\r\022!\n\tAlterGems\030\002 \003(\0132\016.pr"
+    "oto.CharGem\022\024\n\013NextPackage\030\377\017 \001(\014\"\\\n\014Act"
+    "ivityTask\022$\n\rActivityTasks\030\001 \001(\0132\r.proto"
+    ".Quests\022\020\n\010GroupIds\030\002 \003(\r\022\024\n\013NextPackage"
+    "\030\377\017 \001(\014\"H\n\014ActivityShop\022\"\n\005Shops\030\001 \003(\0132\023"
+    ".proto.ResidentShop\022\024\n\013NextPackage\030\377\017 \001("
+    "\014\"^\n\rTutorialLevel\022\017\n\007LevelId\030\001 \001(\r\022\016\n\006P"
+    "assed\030\002 \001(\010\022\026\n\016RewardReceived\030\003 \001(\010\022\024\n\013N"
+    "extPackage\030\377\017 \001(\014\"D\n\023BuildConvertContent"
+    "\022\n\n\002Id\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\022\024\n\013NextPackage"
+    "\030\377\017 \001(\014\"\200\001\n\024ActivityBuildConvert\022,\n\010Cont"
+    "ents\030\001 \003(\0132\032.proto.BuildConvertContent\022$"
+    "\n\006Quests\030\002 \003(\0132\024.proto.ActivityQuest\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"\253\001\n\021VampireClientData"
+    "\022#\n\004Efts\030\001 \003(\0132\025.proto.FateCardEftCnt\022(\n"
+    "\006Limits\030\002 \003(\0132\030.proto.FateCardTimeLimit\022"
+    "\025\n\rFateCardTimer\030\003 \001(\r\022\r\n\005Level\030\004 \001(\r\022\013\n"
+    "\003Exp\030\005 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"P\n\016Fate"
+    "CardEftCnt\022\n\n\002Id\030\001 \001(\r\022\r\n\005EftId\030\002 \001(\r\022\r\n"
+    "\005Count\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"H\n\021Fa"
+    "teCardTimeLimit\022\n\n\002Id\030\001 \001(\r\022\021\n\tTimeLimit"
+    "\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\337\001\n\021Trekker"
+    "VersusShow\022\021\n\tDifficult\030\001 \001(\r\022\020\n\010IdleTim"
+    "e\030\002 \001(\003\0226\n\nIdleValues\030\003 \003(\0132\".proto.Trek"
+    "kerVersusShow.IdleValue\022\024\n\014SelfHotValue\030"
+    "\004 \001(\004\022\025\n\rRivalHotValue\030\005 \001(\004\022\024\n\013NextPack"
+    "age\030\377\017 \001(\014\032*\n\tIdleValue\022\016\n\006TypeId\030\001 \001(\r\022"
+    "\r\n\005Value\030\002 \001(\r\"\367\002\n\025ActivityTrekkerVersus"
+    "\022\016\n\006DayNum\030\001 \001(\r\022\r\n\005Level\030\002 \001(\r\022\013\n\003Exp\030\003"
+    " \001(\r\022\017\n\007BuildId\030\004 \001(\004\022&\n\004Show\030\005 \001(\0132\030.pr"
+    "oto.TrekkerVersusShow\022\031\n\021HotValueRewardI"
+    "ds\030\006 \003(\r\022\025\n\rDuelRewardIds\030\007 \003(\r\022$\n\006Quest"
+    "s\030\010 \003(\0132\024.proto.ActivityQuest\022;\n\007Results"
+    "\030\t \003(\0132*.proto.ActivityTrekkerVersus.His"
+    "toryResult\022\024\n\013NextPackage\030\377\017 \001(\014\032N\n\rHist"
+    "oryResult\022\024\n\014SelfHotValue\030\001 \001(\004\022\025\n\rRival"
+    "HotValue\030\002 \001(\004\022\020\n\010TargetId\030\003 \001(\r\"I\n\023Acti"
+    "vityStoryChoice\022\r\n\005Group\030\001 \001(\r\022\r\n\005Value\030"
+    "\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\215\001\n\rActivity"
+    "Story\022\n\n\002Id\030\001 \001(\r\022)\n\005Major\030\002 \003(\0132\032.proto"
+    ".ActivityStoryChoice\022/\n\013Personality\030\003 \003("
+    "\0132\032.proto.ActivityStoryChoice\022\024\n\013NextPac"
+    "kage\030\377\017 \001(\014\"w\n\024ActivityStoryChapter\022\021\n\tE"
+    "vidences\030\001 \003(\r\022\017\n\007BuildId\030\002 \001(\004\022%\n\007Stori"
+    "es\030\003 \003(\0132\024.proto.ActivityStory\022\024\n\013NextPa"
+    "ckage\030\377\017 \001(\014\"\263\001\n\010LastRead\022\014\n\004Type\030\001 \001(\r\022"
+    "#\n\005Story\030\002 \001(\0132\024.proto.LastReadStory\022)\n\010"
+    "StorySet\030\003 \001(\0132\027.proto.LastReadStorySet\022"
+    "3\n\rActivityStory\030\004 \001(\0132\034.proto.LastReadA"
+    "ctivityStory\022\024\n\013NextPackage\030\377\017 \001(\014\"2\n\rLa"
+    "stReadStory\022\013\n\003Idx\030\001 \001(\r\022\024\n\013NextPackage\030"
+    "\377\017 \001(\014\"N\n\020LastReadStorySet\022\021\n\tChapterId\030"
+    "\001 \001(\r\022\021\n\tSectionId\030\002 \001(\r\022\024\n\013NextPackage\030"
+    "\377\017 \001(\014\"Q\n\025LastReadActivityStory\022\021\n\tChapt"
+    "erId\030\001 \001(\r\022\017\n\007StoryId\030\002 \001(\r\022\024\n\013NextPacka"
+    "ge\030\377\017 \001(\014\"h\n\026ActivityThrowGiftLevel\022\017\n\007L"
+    "evelId\030\001 \001(\r\022\020\n\010MaxScore\030\002 \001(\r\022\025\n\rFirstC"
+    "omplete\030\003 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"L\n\025A"
+    "ctivityThrowGiftItem\022\016\n\006ItemId\030\001 \001(\r\022\r\n\005"
+    "Count\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\205\001\n\021Ac"
+    "tivityThrowGift\022-\n\006Levels\030\001 \003(\0132\035.proto."
+    "ActivityThrowGiftLevel\022+\n\005Items\030\002 \003(\0132\034."
+    "proto.ActivityThrowGiftItem\022\024\n\013NextPacka"
+    "ge\030\377\017 \001(\014\"b\n\020ActivityGDSLevel\022\017\n\007LevelId"
+    "\030\001 \001(\r\022\020\n\010MaxScore\030\002 \001(\r\022\025\n\rFirstComplet"
+    "e\030\003 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"L\n\013Activit"
+    "yGDS\022\'\n\006Levels\030\001 \003(\0132\027.proto.ActivityGDS"
+    "Level\022\024\n\013NextPackage\030\377\017 \001(\014\"=\n\rActivityH"
+    "onor\022\n\n\002Id\030\001 \001(\r\022\n\n\002Lv\030\002 \001(\r\022\024\n\013NextPack"
+    "age\030\377\017 \001(\014\"d\n\030ActivityPersonalityModel\022\021"
+    "\n\tChapterId\030\001 \001(\r\022\t\n\001A\030\002 \001(\r\022\t\n\001B\030\003 \001(\r\022"
+    "\t\n\001C\030\004 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\245\001\n\024Act"
+    "ivityHistoryStory\022\n\n\002Id\030\001 \001(\r\022)\n\005Major\030\002"
+    " \003(\0132\032.proto.ActivityStoryChoice\022/\n\013Pers"
+    "onality\030\003 \003(\0132\032.proto.ActivityStoryChoic"
+    "e\022\017\n\007Receive\030\004 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014"
+    "\"\230\001\n\033ActivityHistoryStoryChapter\022\021\n\tChap"
+    "terId\030\001 \001(\r\022\017\n\007BuildId\030\002 \001(\004\022\021\n\tEvidence"
+    "s\030\003 \003(\r\022,\n\007Stories\030\004 \003(\0132\033.proto.Activit"
+    "yHistoryStory\022\024\n\013NextPackage\030\377\017 \001(\014\"4\n\rA"
+    "ctivityShare\022\r\n\005State\030\001 \001(\014\022\024\n\013NextPacka"
+    "ge\030\377\017 \001(\014\"g\n\027TraceHuntBossCollection\022\n\n\002"
+    "Id\030\001 \001(\r\022\021\n\tHuntCount\030\002 \001(\r\022\027\n\017AssistHun"
+    "tCount\030\003 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"D\n\021Tr"
+    "aceHuntLogEntry\022\013\n\003Tid\030\001 \001(\r\022\014\n\004args\030\002 \003"
+    "(\t\022\024\n\013NextPackage\030\377\017 \001(\014\"\220\001\n\021TraceHuntIt"
+    "emInfo\022\013\n\003Tid\030\001 \001(\r\022\026\n\016EnergyOverflow\030\002 "
+    "\001(\r\022\026\n\016ConvertedCount\030\003 \001(\r\022\024\n\014GrantedCo"
+    "unt\030\004 \001(\r\022\022\n\nDailyCount\030\005 \001(\r\022\024\n\013NextPac"
+    "kage\030\377\017 \001(\014\"~\n\rTraceHuntItem\022\013\n\003Tid\030\001 \001("
+    "\r\022\020\n\010PointQty\030\002 \001(\005\022\022\n\nConvertQty\030\003 \001(\005\022"
+    "\020\n\010GrantQty\030\004 \001(\005\022\022\n\nDailyCount\030\005 \001(\r\022\024\n"
+    "\013NextPackage\030\377\017 \001(\014\"D\n\016TraceHuntState\022\034\n"
+    "\024BossRewardCanReceive\030\001 \001(\010\022\024\n\013NextPacka"
+    "ge\030\377\017 \001(\014\"d\n\025ActivityIceCreamLevel\022\017\n\007Le"
+    "velId\030\001 \001(\r\022\r\n\005Score\030\002 \001(\r\022\025\n\rFirstCompl"
+    "ete\030\003 \001(\010\022\024\n\013NextPackage\030\377\017 \001(\014\"\220\001\n\020Acti"
+    "vityIceCream\022\022\n\nActivityId\030\001 \001(\r\022,\n\006Leve"
+    "ls\030\002 \003(\0132\034.proto.ActivityIceCreamLevel\022$"
+    "\n\006Quests\030\003 \003(\0132\024.proto.ActivityQuest\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"m\n\"ActivityIceCreamLe"
+    "velSettleSucceed\022!\n\006Change\030\001 \001(\0132\021.proto"
+    ".ChangeInfo\022\016\n\006Passed\030\002 \001(\010\022\024\n\013NextPacka"
+    "ge\030\377\017 \001(\014\"\265\001\n\017ActivitySoldier\022\033\n\023CurGrad"
+    "eChallengeId\030\001 \001(\r\022\r\n\005Score\030\002 \001(\r\022\030\n\020Gra"
+    "deChallengeId\030\003 \001(\r\022\r\n\005Stage\030\004 \001(\r\022\021\n\tNo"
+    "deIndex\030\005 \001(\r\022$\n\006Quests\030\006 \003(\0132\024.proto.Ac"
+    "tivityQuest\022\024\n\013NextPackage\030\377\017 \001(\014*\221\002\n\tQu"
+    "estType\022\020\n\014UnknownQuest\020\000\022\r\n\tTourGuide\020\001"
+    "\022\t\n\005Daily\020\002\022\020\n\014TravelerDuel\020\003\022\031\n\025Travele"
+    "rDuelChallenge\020\004\022\014\n\010Affinity\020\005\022\023\n\017Battle"
+    "PassDaily\020\006\022\024\n\020BattlePassWeekly\020\007\022\031\n\025Vam"
+    "pireSurvivorNormal\020\010\022\031\n\025VampireSurvivorS"
+    "eason\020\t\022\t\n\005Tower\020\n\022\t\n\005Demon\020\013\022\016\n\nTowerEv"
+    "ent\020\014\022\n\n\006Weekly\020\r\022\n\n\006Assist\020\016b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_public_2eproto_deps[1] = {
@@ -6957,13 +7619,13 @@ static ::absl::once_flag descriptor_table_public_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_public_2eproto = {
     false,
     false,
-    15651,
+    17357,
     descriptor_table_protodef_public_2eproto,
     "public.proto",
     &descriptor_table_public_2eproto_once,
     descriptor_table_public_2eproto_deps,
     1,
-    150,
+    164,
     schemas,
     file_default_instances,
     TableStruct_public_2eproto::offsets,
@@ -21104,6 +21766,9 @@ StateInfo::StateInfo(
   _impl_.scoreboss_ = (CheckHasBit(cached_has_bits, 0x00002000U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.scoreboss_)
                 : nullptr;
+  _impl_.tracehunt_ = (CheckHasBit(cached_has_bits, 0x00004000U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.tracehunt_)
+                : nullptr;
   ::memcpy(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, infinitytower_),
            reinterpret_cast<const char*>(&from._impl_) +
@@ -21154,6 +21819,7 @@ inline void StateInfo::SharedDtor(MessageLite& self) {
   delete this_._impl_.startower_;
   delete this_._impl_.startowerbook_;
   delete this_._impl_.scoreboss_;
+  delete this_._impl_.tracehunt_;
   this_._impl_.~Impl_();
 }
 
@@ -21220,17 +21886,17 @@ StateInfo::GetClassData() const {
   return StateInfo_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 20, 13, 0, 7>
+const ::_pbi::TcParseTable<5, 21, 14, 0, 7>
 StateInfo::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(StateInfo, _impl_._has_bits_),
     0, // no _extensions_
     2047, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4290787328,  // skipmap
+    4286593024,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    20,  // num_field_entries
-    13,  // num_aux_entries
+    21,  // num_field_entries
+    14,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     StateInfo_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -21245,12 +21911,12 @@ StateInfo::_table_ = {
      {10, 4, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.mail_)}},
     // uint32 InfinityTower = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StateInfo, _impl_.infinitytower_), 14>(),
-     {16, 14, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StateInfo, _impl_.infinitytower_), 15>(),
+     {16, 15, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.infinitytower_)}},
     // bool Friend = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StateInfo, _impl_.friend__), 17>(),
-     {24, 17, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StateInfo, _impl_.friend__), 18>(),
+     {24, 18, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.friend__)}},
     // .proto.BattlePassState BattlePass = 4;
     {::_pbi::TcParser::FastMtS1,
@@ -21273,16 +21939,16 @@ StateInfo::_table_ = {
      {66, 1, 5,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.charaffinityrewards_)}},
     // bool NpcAffinityReward = 9;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StateInfo, _impl_.npcaffinityreward_), 18>(),
-     {72, 18, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StateInfo, _impl_.npcaffinityreward_), 19>(),
+     {72, 19, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.npcaffinityreward_)}},
     // .proto.MallPackageState MallPackage = 10;
     {::_pbi::TcParser::FastMtS1,
      {82, 8, 6,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.mallpackage_)}},
     // uint32 VampireSurvivorId = 11;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StateInfo, _impl_.vampiresurvivorid_), 15>(),
-     {88, 15, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StateInfo, _impl_.vampiresurvivorid_), 16>(),
+     {88, 16, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.vampiresurvivorid_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -21297,7 +21963,7 @@ StateInfo::_table_ = {
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.travelerduelquest_)}},
     // int64 TravelerDuelIdleReward = 17;
     {::_pbi::TcParser::FastV64S2,
-     {392, 16, 0,
+     {392, 17, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.travelerduelidlereward_)}},
     // .proto.StarTowerState StarTower = 18;
     {::_pbi::TcParser::FastMtS2,
@@ -21317,9 +21983,12 @@ StateInfo::_table_ = {
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.activities_)}},
     // bool StorySet = 22;
     {::_pbi::TcParser::FastV8S2,
-     {432, 19, 0,
+     {432, 20, 0,
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.storyset_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // .proto.TraceHuntState TraceHunt = 23;
+    {::_pbi::TcParser::FastMtS2,
+     {442, 14, 13,
+      PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.tracehunt_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -21333,15 +22002,15 @@ StateInfo::_table_ = {
       PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.nextpackage_)}},
   }}, {{
     2047, 0, 1,
-    65534, 19,
+    65534, 20,
     65535, 65535
   }}, {{
     // .proto.MailState Mail = 1;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.mail_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // uint32 InfinityTower = 2;
-    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.infinitytower_), _Internal::kHasBitsOffset + 14, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.infinitytower_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bool Friend = 3;
-    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.friend__), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.friend__), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // .proto.BattlePassState BattlePass = 4;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.battlepass_), _Internal::kHasBitsOffset + 5, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .proto.WorldClassRewardState WorldClassReward = 5;
@@ -21353,17 +22022,17 @@ StateInfo::_table_ = {
     // repeated .proto.CharAffinityRewardState CharAffinityRewards = 8;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.charaffinityrewards_), _Internal::kHasBitsOffset + 1, 5, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bool NpcAffinityReward = 9;
-    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.npcaffinityreward_), _Internal::kHasBitsOffset + 18, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.npcaffinityreward_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // .proto.MallPackageState MallPackage = 10;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.mallpackage_), _Internal::kHasBitsOffset + 8, 6, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // uint32 VampireSurvivorId = 11;
-    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.vampiresurvivorid_), _Internal::kHasBitsOffset + 15, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.vampiresurvivorid_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // .proto.AchievementState Achievement = 15;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.achievement_), _Internal::kHasBitsOffset + 9, 7, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .proto.QuestState TravelerDuelQuest = 16;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.travelerduelquest_), _Internal::kHasBitsOffset + 10, 8, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // int64 TravelerDuelIdleReward = 17;
-    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.travelerduelidlereward_), _Internal::kHasBitsOffset + 16, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.travelerduelidlereward_), _Internal::kHasBitsOffset + 17, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
     // .proto.StarTowerState StarTower = 18;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.startower_), _Internal::kHasBitsOffset + 11, 9, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .proto.StarTowerBookState StarTowerBook = 19;
@@ -21373,7 +22042,9 @@ StateInfo::_table_ = {
     // repeated .proto.ActivityState Activities = 21;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.activities_), _Internal::kHasBitsOffset + 2, 12, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bool StorySet = 22;
-    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.storyset_), _Internal::kHasBitsOffset + 19, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.storyset_), _Internal::kHasBitsOffset + 20, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // .proto.TraceHuntState TraceHunt = 23;
+    {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.tracehunt_), _Internal::kHasBitsOffset + 14, 13, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // bytes NextPackage = 2047;
     {PROTOBUF_FIELD_OFFSET(StateInfo, _impl_.nextpackage_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
@@ -21391,6 +22062,7 @@ StateInfo::_table_ = {
       {::_pbi::TcParser::GetTable<::proto::StarTowerBookState>()},
       {::_pbi::TcParser::GetTable<::proto::ScoreBossState>()},
       {::_pbi::TcParser::GetTable<::proto::ActivityState>()},
+      {::_pbi::TcParser::GetTable<::proto::TraceHuntState>()},
   }},
   {{
   }},
@@ -21433,7 +22105,7 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
       _impl_.friendenergy_->Clear();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x00003f00U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00007f00U)) {
     if (CheckHasBit(cached_has_bits, 0x00000100U)) {
       ABSL_DCHECK(_impl_.mallpackage_ != nullptr);
       _impl_.mallpackage_->Clear();
@@ -21458,16 +22130,16 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
       ABSL_DCHECK(_impl_.scoreboss_ != nullptr);
       _impl_.scoreboss_->Clear();
     }
+    if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+      ABSL_DCHECK(_impl_.tracehunt_ != nullptr);
+      _impl_.tracehunt_->Clear();
+    }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x0000c000U)) {
-    ::memset(&_impl_.infinitytower_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.vampiresurvivorid_) -
-        reinterpret_cast<char*>(&_impl_.infinitytower_)) + sizeof(_impl_.vampiresurvivorid_));
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
-    ::memset(&_impl_.travelerduelidlereward_, 0, static_cast<::size_t>(
+  _impl_.infinitytower_ = 0u;
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
+    ::memset(&_impl_.vampiresurvivorid_, 0, static_cast<::size_t>(
         reinterpret_cast<char*>(&_impl_.storyset_) -
-        reinterpret_cast<char*>(&_impl_.travelerduelidlereward_)) + sizeof(_impl_.storyset_));
+        reinterpret_cast<char*>(&_impl_.vampiresurvivorid_)) + sizeof(_impl_.storyset_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -21500,7 +22172,7 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
   }
 
   // uint32 InfinityTower = 2;
-  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
     if (this_._internal_infinitytower() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -21509,7 +22181,7 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
   }
 
   // bool Friend = 3;
-  if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00040000U)) {
     if (this_._internal_friend_() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -21565,7 +22237,7 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
   }
 
   // bool NpcAffinityReward = 9;
-  if (CheckHasBit(cached_has_bits, 0x00040000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00080000U)) {
     if (this_._internal_npcaffinityreward() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -21581,7 +22253,7 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
   }
 
   // uint32 VampireSurvivorId = 11;
-  if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
     if (this_._internal_vampiresurvivorid() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -21604,7 +22276,7 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
   }
 
   // int64 TravelerDuelIdleReward = 17;
-  if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00020000U)) {
     if (this_._internal_travelerduelidlereward() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteInt64ToArray(
@@ -21647,12 +22319,19 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
   }
 
   // bool StorySet = 22;
-  if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+  if (CheckHasBit(cached_has_bits, 0x00100000U)) {
     if (this_._internal_storyset() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
           22, this_._internal_storyset(), target);
     }
+  }
+
+  // .proto.TraceHuntState TraceHunt = 23;
+  if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        23, *this_._impl_.tracehunt_, this_._impl_.tracehunt_->GetCachedSize(), target,
+        stream);
   }
 
   // bytes NextPackage = 2047;
@@ -21769,43 +22448,48 @@ PROTOBUF_NOINLINE void StateInfo::Clear() {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.scoreboss_);
     }
-    // uint32 InfinityTower = 2;
+    // .proto.TraceHuntState TraceHunt = 23;
     if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.tracehunt_);
+    }
+    // uint32 InfinityTower = 2;
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (this_._internal_infinitytower() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_infinitytower());
       }
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
     // uint32 VampireSurvivorId = 11;
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (this_._internal_vampiresurvivorid() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_vampiresurvivorid());
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
     // int64 TravelerDuelIdleReward = 17;
-    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (this_._internal_travelerduelidlereward() != 0) {
         total_size += 2 + ::_pbi::WireFormatLite::Int64Size(
                                         this_._internal_travelerduelidlereward());
       }
     }
     // bool Friend = 3;
-    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
       if (this_._internal_friend_() != 0) {
         total_size += 2;
       }
     }
     // bool NpcAffinityReward = 9;
-    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
       if (this_._internal_npcaffinityreward() != 0) {
         total_size += 2;
       }
     }
     // bool StorySet = 22;
-    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00100000U)) {
       if (this_._internal_storyset() != 0) {
         total_size += 3;
       }
@@ -21938,33 +22622,41 @@ void StateInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
       }
     }
     if (CheckHasBit(cached_has_bits, 0x00004000U)) {
+      ABSL_DCHECK(from._impl_.tracehunt_ != nullptr);
+      if (_this->_impl_.tracehunt_ == nullptr) {
+        _this->_impl_.tracehunt_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.tracehunt_);
+      } else {
+        _this->_impl_.tracehunt_->MergeFrom(*from._impl_.tracehunt_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
       if (from._internal_infinitytower() != 0) {
         _this->_impl_.infinitytower_ = from._impl_.infinitytower_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00008000U)) {
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x001f0000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
       if (from._internal_vampiresurvivorid() != 0) {
         _this->_impl_.vampiresurvivorid_ = from._impl_.vampiresurvivorid_;
       }
     }
-  }
-  if (BatchCheckHasBit(cached_has_bits, 0x000f0000U)) {
-    if (CheckHasBit(cached_has_bits, 0x00010000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
       if (from._internal_travelerduelidlereward() != 0) {
         _this->_impl_.travelerduelidlereward_ = from._impl_.travelerduelidlereward_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00020000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
       if (from._internal_friend_() != 0) {
         _this->_impl_.friend__ = from._impl_.friend__;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00040000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
       if (from._internal_npcaffinityreward() != 0) {
         _this->_impl_.npcaffinityreward_ = from._impl_.npcaffinityreward_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00080000U)) {
+    if (CheckHasBit(cached_has_bits, 0x00100000U)) {
       if (from._internal_storyset() != 0) {
         _this->_impl_.storyset_ = from._impl_.storyset_;
       }
@@ -44736,6 +45428,417 @@ void ActivityPenguinCard::InternalSwap(ActivityPenguinCard* PROTOBUF_RESTRICT PR
 }
 // ===================================================================
 
+class ActivityDouble::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityDouble>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_._has_bits_);
+};
+
+ActivityDouble::ActivityDouble(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityDouble_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityDouble)
+}
+PROTOBUF_NDEBUG_INLINE ActivityDouble::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityDouble& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        quests_{visibility, arena, from.quests_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityDouble::ActivityDouble(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityDouble& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityDouble_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityDouble* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, activityid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, activityid_),
+           offsetof(Impl_, dailyusetimes_) -
+               offsetof(Impl_, activityid_) +
+               sizeof(Impl_::dailyusetimes_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityDouble)
+}
+PROTOBUF_NDEBUG_INLINE ActivityDouble::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        quests_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void ActivityDouble::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, activityid_),
+           0,
+           offsetof(Impl_, dailyusetimes_) -
+               offsetof(Impl_, activityid_) +
+               sizeof(Impl_::dailyusetimes_));
+}
+ActivityDouble::~ActivityDouble() {
+  // @@protoc_insertion_point(destructor:proto.ActivityDouble)
+  SharedDtor(*this);
+}
+inline void ActivityDouble::SharedDtor(MessageLite& self) {
+  ActivityDouble& this_ = static_cast<ActivityDouble&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityDouble::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityDouble(arena);
+}
+constexpr auto ActivityDouble::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.quests_) +
+          decltype(ActivityDouble::_impl_.quests_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(ActivityDouble), alignof(ActivityDouble), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ActivityDouble::PlacementNew_,
+                                 sizeof(ActivityDouble),
+                                 alignof(ActivityDouble));
+  }
+}
+constexpr auto ActivityDouble::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityDouble_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityDouble::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityDouble>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityDouble::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityDouble>(), &ActivityDouble::ByteSizeLong,
+              &ActivityDouble::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_._cached_size_),
+          false,
+      },
+      &ActivityDouble::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityDouble_class_data_ =
+        ActivityDouble::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityDouble::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityDouble_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityDouble_class_data_.tc_table);
+  return ActivityDouble_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 4, 1, 0, 7>
+ActivityDouble::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    ActivityDouble_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityDouble>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 ActivityId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityDouble, _impl_.activityid_), 2>(),
+     {8, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.activityid_)}},
+    // uint32 DailyUseTimes = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityDouble, _impl_.dailyusetimes_), 3>(),
+     {16, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.dailyusetimes_)}},
+    // repeated .proto.ActivityQuest Quests = 3;
+    {::_pbi::TcParser::FastMtR1,
+     {26, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.quests_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 3,
+    65535, 65535
+  }}, {{
+    // uint32 ActivityId = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.activityid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 DailyUseTimes = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.dailyusetimes_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .proto.ActivityQuest Quests = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.quests_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ActivityQuest>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityDouble::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityDouble)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.quests_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000cU)) {
+    ::memset(&_impl_.activityid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.dailyusetimes_) -
+        reinterpret_cast<char*>(&_impl_.activityid_)) + sizeof(_impl_.dailyusetimes_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityDouble::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityDouble& this_ = static_cast<const ActivityDouble&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityDouble::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityDouble& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityDouble)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 ActivityId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_activityid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_activityid(), target);
+    }
+  }
+
+  // uint32 DailyUseTimes = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_dailyusetimes() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_dailyusetimes(), target);
+    }
+  }
+
+  // repeated .proto.ActivityQuest Quests = 3;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_quests_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_quests().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              3, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityDouble)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityDouble::ByteSizeLong(const MessageLite& base) {
+  const ActivityDouble& this_ = static_cast<const ActivityDouble&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityDouble::ByteSizeLong() const {
+  const ActivityDouble& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityDouble)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // repeated .proto.ActivityQuest Quests = 3;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_quests_size();
+      for (const auto& msg : this_._internal_quests()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 ActivityId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_activityid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_activityid());
+      }
+    }
+    // uint32 DailyUseTimes = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_dailyusetimes() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_dailyusetimes());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityDouble::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityDouble*>(&to_msg);
+  auto& from = static_cast<const ActivityDouble&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityDouble)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_quests()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_quests());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_activityid() != 0) {
+        _this->_impl_.activityid_ = from._impl_.activityid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_dailyusetimes() != 0) {
+        _this->_impl_.dailyusetimes_ = from._impl_.dailyusetimes_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityDouble::CopyFrom(const ActivityDouble& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityDouble)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityDouble::InternalSwap(ActivityDouble* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.quests_.InternalSwap(&other->_impl_.quests_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.dailyusetimes_)
+      + sizeof(ActivityDouble::_impl_.dailyusetimes_)
+      - PROTOBUF_FIELD_OFFSET(ActivityDouble, _impl_.activityid_)>(
+          reinterpret_cast<char*>(&_impl_.activityid_),
+          reinterpret_cast<char*>(&other->_impl_.activityid_));
+}
+
+::google::protobuf::Metadata ActivityDouble::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
 class AffinityInfo::_Internal {
  public:
   using HasBits =
@@ -65489,6 +66592,5190 @@ void ActivityHonor::InternalSwap(ActivityHonor* PROTOBUF_RESTRICT PROTOBUF_NONNU
 }
 
 ::google::protobuf::Metadata ActivityHonor::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityPersonalityModel::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityPersonalityModel>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_._has_bits_);
+};
+
+ActivityPersonalityModel::ActivityPersonalityModel(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityPersonalityModel_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityPersonalityModel)
+}
+PROTOBUF_NDEBUG_INLINE ActivityPersonalityModel::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityPersonalityModel& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityPersonalityModel::ActivityPersonalityModel(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityPersonalityModel& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityPersonalityModel_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityPersonalityModel* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, chapterid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, chapterid_),
+           offsetof(Impl_, c_) -
+               offsetof(Impl_, chapterid_) +
+               sizeof(Impl_::c_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityPersonalityModel)
+}
+PROTOBUF_NDEBUG_INLINE ActivityPersonalityModel::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void ActivityPersonalityModel::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, chapterid_),
+           0,
+           offsetof(Impl_, c_) -
+               offsetof(Impl_, chapterid_) +
+               sizeof(Impl_::c_));
+}
+ActivityPersonalityModel::~ActivityPersonalityModel() {
+  // @@protoc_insertion_point(destructor:proto.ActivityPersonalityModel)
+  SharedDtor(*this);
+}
+inline void ActivityPersonalityModel::SharedDtor(MessageLite& self) {
+  ActivityPersonalityModel& this_ = static_cast<ActivityPersonalityModel&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityPersonalityModel::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityPersonalityModel(arena);
+}
+constexpr auto ActivityPersonalityModel::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(ActivityPersonalityModel),
+                                            alignof(ActivityPersonalityModel));
+}
+constexpr auto ActivityPersonalityModel::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityPersonalityModel_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityPersonalityModel::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityPersonalityModel>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityPersonalityModel::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityPersonalityModel>(), &ActivityPersonalityModel::ByteSizeLong,
+              &ActivityPersonalityModel::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_._cached_size_),
+          false,
+      },
+      &ActivityPersonalityModel::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityPersonalityModel_class_data_ =
+        ActivityPersonalityModel::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityPersonalityModel::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityPersonalityModel_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityPersonalityModel_class_data_.tc_table);
+  return ActivityPersonalityModel_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 0, 0, 7>
+ActivityPersonalityModel::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    ActivityPersonalityModel_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityPersonalityModel>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 ChapterId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityPersonalityModel, _impl_.chapterid_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.chapterid_)}},
+    // uint32 A = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityPersonalityModel, _impl_.a_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.a_)}},
+    // uint32 B = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityPersonalityModel, _impl_.b_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.b_)}},
+    // uint32 C = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityPersonalityModel, _impl_.c_), 4>(),
+     {32, 4, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.c_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 4,
+    65535, 65535
+  }}, {{
+    // uint32 ChapterId = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.chapterid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 A = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.a_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 B = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.b_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 C = 4;
+    {PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.c_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityPersonalityModel::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityPersonalityModel)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001eU)) {
+    ::memset(&_impl_.chapterid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.c_) -
+        reinterpret_cast<char*>(&_impl_.chapterid_)) + sizeof(_impl_.c_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityPersonalityModel::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityPersonalityModel& this_ = static_cast<const ActivityPersonalityModel&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityPersonalityModel::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityPersonalityModel& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityPersonalityModel)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 ChapterId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_chapterid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_chapterid(), target);
+    }
+  }
+
+  // uint32 A = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_a() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_a(), target);
+    }
+  }
+
+  // uint32 B = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_b() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_b(), target);
+    }
+  }
+
+  // uint32 C = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_c() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          4, this_._internal_c(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityPersonalityModel)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityPersonalityModel::ByteSizeLong(const MessageLite& base) {
+  const ActivityPersonalityModel& this_ = static_cast<const ActivityPersonalityModel&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityPersonalityModel::ByteSizeLong() const {
+  const ActivityPersonalityModel& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityPersonalityModel)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 ChapterId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_chapterid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_chapterid());
+      }
+    }
+    // uint32 A = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_a() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_a());
+      }
+    }
+    // uint32 B = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_b() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_b());
+      }
+    }
+    // uint32 C = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_c() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_c());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityPersonalityModel::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityPersonalityModel*>(&to_msg);
+  auto& from = static_cast<const ActivityPersonalityModel&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityPersonalityModel)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_chapterid() != 0) {
+        _this->_impl_.chapterid_ = from._impl_.chapterid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_a() != 0) {
+        _this->_impl_.a_ = from._impl_.a_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_b() != 0) {
+        _this->_impl_.b_ = from._impl_.b_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_c() != 0) {
+        _this->_impl_.c_ = from._impl_.c_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityPersonalityModel::CopyFrom(const ActivityPersonalityModel& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityPersonalityModel)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityPersonalityModel::InternalSwap(ActivityPersonalityModel* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.c_)
+      + sizeof(ActivityPersonalityModel::_impl_.c_)
+      - PROTOBUF_FIELD_OFFSET(ActivityPersonalityModel, _impl_.chapterid_)>(
+          reinterpret_cast<char*>(&_impl_.chapterid_),
+          reinterpret_cast<char*>(&other->_impl_.chapterid_));
+}
+
+::google::protobuf::Metadata ActivityPersonalityModel::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityHistoryStory::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityHistoryStory>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_._has_bits_);
+};
+
+ActivityHistoryStory::ActivityHistoryStory(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityHistoryStory_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityHistoryStory)
+}
+PROTOBUF_NDEBUG_INLINE ActivityHistoryStory::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityHistoryStory& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        major_{visibility, arena, from.major_},
+        personality_{visibility, arena, from.personality_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityHistoryStory::ActivityHistoryStory(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityHistoryStory& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityHistoryStory_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityHistoryStory* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, id_),
+           offsetof(Impl_, receive_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::receive_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityHistoryStory)
+}
+PROTOBUF_NDEBUG_INLINE ActivityHistoryStory::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        major_{visibility, arena},
+        personality_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void ActivityHistoryStory::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, receive_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::receive_));
+}
+ActivityHistoryStory::~ActivityHistoryStory() {
+  // @@protoc_insertion_point(destructor:proto.ActivityHistoryStory)
+  SharedDtor(*this);
+}
+inline void ActivityHistoryStory::SharedDtor(MessageLite& self) {
+  ActivityHistoryStory& this_ = static_cast<ActivityHistoryStory&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityHistoryStory::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityHistoryStory(arena);
+}
+constexpr auto ActivityHistoryStory::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.major_) +
+          decltype(ActivityHistoryStory::_impl_.major_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.personality_) +
+          decltype(ActivityHistoryStory::_impl_.personality_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(ActivityHistoryStory), alignof(ActivityHistoryStory), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ActivityHistoryStory::PlacementNew_,
+                                 sizeof(ActivityHistoryStory),
+                                 alignof(ActivityHistoryStory));
+  }
+}
+constexpr auto ActivityHistoryStory::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityHistoryStory_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityHistoryStory::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityHistoryStory>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityHistoryStory::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityHistoryStory>(), &ActivityHistoryStory::ByteSizeLong,
+              &ActivityHistoryStory::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_._cached_size_),
+          false,
+      },
+      &ActivityHistoryStory::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityHistoryStory_class_data_ =
+        ActivityHistoryStory::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityHistoryStory::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityHistoryStory_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityHistoryStory_class_data_.tc_table);
+  return ActivityHistoryStory_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 2, 0, 7>
+ActivityHistoryStory::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    ActivityHistoryStory_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityHistoryStory>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 Id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityHistoryStory, _impl_.id_), 3>(),
+     {8, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.id_)}},
+    // repeated .proto.ActivityStoryChoice Major = 2;
+    {::_pbi::TcParser::FastMtR1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.major_)}},
+    // repeated .proto.ActivityStoryChoice Personality = 3;
+    {::_pbi::TcParser::FastMtR1,
+     {26, 1, 1,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.personality_)}},
+    // bool Receive = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(ActivityHistoryStory, _impl_.receive_), 4>(),
+     {32, 4, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.receive_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 4,
+    65535, 65535
+  }}, {{
+    // uint32 Id = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.id_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .proto.ActivityStoryChoice Major = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.major_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .proto.ActivityStoryChoice Personality = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.personality_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bool Receive = 4;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.receive_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.nextpackage_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ActivityStoryChoice>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityStoryChoice>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityHistoryStory::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityHistoryStory)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.major_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.personality_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000018U)) {
+    ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.receive_) -
+        reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.receive_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityHistoryStory::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityHistoryStory& this_ = static_cast<const ActivityHistoryStory&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityHistoryStory::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityHistoryStory& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityHistoryStory)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 Id = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_id() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_id(), target);
+    }
+  }
+
+  // repeated .proto.ActivityStoryChoice Major = 2;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_major_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_major().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              2, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // repeated .proto.ActivityStoryChoice Personality = 3;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_personality_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_personality().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              3, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bool Receive = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_receive() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          4, this_._internal_receive(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityHistoryStory)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityHistoryStory::ByteSizeLong(const MessageLite& base) {
+  const ActivityHistoryStory& this_ = static_cast<const ActivityHistoryStory&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityHistoryStory::ByteSizeLong() const {
+  const ActivityHistoryStory& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityHistoryStory)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // repeated .proto.ActivityStoryChoice Major = 2;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_major_size();
+      for (const auto& msg : this_._internal_major()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // repeated .proto.ActivityStoryChoice Personality = 3;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size += 1UL * this_._internal_personality_size();
+      for (const auto& msg : this_._internal_personality()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 Id = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_id() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_id());
+      }
+    }
+    // bool Receive = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_receive() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityHistoryStory::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityHistoryStory*>(&to_msg);
+  auto& from = static_cast<const ActivityHistoryStory&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityHistoryStory)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_major()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_major());
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_internal_mutable_personality()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_personality());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_id() != 0) {
+        _this->_impl_.id_ = from._impl_.id_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_receive() != 0) {
+        _this->_impl_.receive_ = from._impl_.receive_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityHistoryStory::CopyFrom(const ActivityHistoryStory& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityHistoryStory)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityHistoryStory::InternalSwap(ActivityHistoryStory* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.major_.InternalSwap(&other->_impl_.major_);
+  _impl_.personality_.InternalSwap(&other->_impl_.personality_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.receive_)
+      + sizeof(ActivityHistoryStory::_impl_.receive_)
+      - PROTOBUF_FIELD_OFFSET(ActivityHistoryStory, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::google::protobuf::Metadata ActivityHistoryStory::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityHistoryStoryChapter::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityHistoryStoryChapter>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_._has_bits_);
+};
+
+ActivityHistoryStoryChapter::ActivityHistoryStoryChapter(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityHistoryStoryChapter_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityHistoryStoryChapter)
+}
+PROTOBUF_NDEBUG_INLINE ActivityHistoryStoryChapter::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityHistoryStoryChapter& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        evidences_{visibility, arena, from.evidences_},
+        _evidences_cached_byte_size_{0},
+        stories_{visibility, arena, from.stories_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityHistoryStoryChapter::ActivityHistoryStoryChapter(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityHistoryStoryChapter& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityHistoryStoryChapter_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityHistoryStoryChapter* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, buildid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, buildid_),
+           offsetof(Impl_, chapterid_) -
+               offsetof(Impl_, buildid_) +
+               sizeof(Impl_::chapterid_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityHistoryStoryChapter)
+}
+PROTOBUF_NDEBUG_INLINE ActivityHistoryStoryChapter::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        evidences_{visibility, arena},
+        _evidences_cached_byte_size_{0},
+        stories_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void ActivityHistoryStoryChapter::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, buildid_),
+           0,
+           offsetof(Impl_, chapterid_) -
+               offsetof(Impl_, buildid_) +
+               sizeof(Impl_::chapterid_));
+}
+ActivityHistoryStoryChapter::~ActivityHistoryStoryChapter() {
+  // @@protoc_insertion_point(destructor:proto.ActivityHistoryStoryChapter)
+  SharedDtor(*this);
+}
+inline void ActivityHistoryStoryChapter::SharedDtor(MessageLite& self) {
+  ActivityHistoryStoryChapter& this_ = static_cast<ActivityHistoryStoryChapter&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityHistoryStoryChapter::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityHistoryStoryChapter(arena);
+}
+constexpr auto ActivityHistoryStoryChapter::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.evidences_) +
+          decltype(ActivityHistoryStoryChapter::_impl_.evidences_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.stories_) +
+          decltype(ActivityHistoryStoryChapter::_impl_.stories_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(ActivityHistoryStoryChapter), alignof(ActivityHistoryStoryChapter), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ActivityHistoryStoryChapter::PlacementNew_,
+                                 sizeof(ActivityHistoryStoryChapter),
+                                 alignof(ActivityHistoryStoryChapter));
+  }
+}
+constexpr auto ActivityHistoryStoryChapter::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityHistoryStoryChapter_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityHistoryStoryChapter::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityHistoryStoryChapter>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityHistoryStoryChapter::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityHistoryStoryChapter>(), &ActivityHistoryStoryChapter::ByteSizeLong,
+              &ActivityHistoryStoryChapter::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_._cached_size_),
+          false,
+      },
+      &ActivityHistoryStoryChapter::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityHistoryStoryChapter_class_data_ =
+        ActivityHistoryStoryChapter::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityHistoryStoryChapter::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityHistoryStoryChapter_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityHistoryStoryChapter_class_data_.tc_table);
+  return ActivityHistoryStoryChapter_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 1, 0, 7>
+ActivityHistoryStoryChapter::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    ActivityHistoryStoryChapter_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityHistoryStoryChapter>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 ChapterId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityHistoryStoryChapter, _impl_.chapterid_), 4>(),
+     {8, 4, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.chapterid_)}},
+    // uint64 BuildId = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ActivityHistoryStoryChapter, _impl_.buildid_), 3>(),
+     {16, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.buildid_)}},
+    // repeated uint32 Evidences = 3;
+    {::_pbi::TcParser::FastV32P1,
+     {26, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.evidences_)}},
+    // repeated .proto.ActivityHistoryStory Stories = 4;
+    {::_pbi::TcParser::FastMtR1,
+     {34, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.stories_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 4,
+    65535, 65535
+  }}, {{
+    // uint32 ChapterId = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.chapterid_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint64 BuildId = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.buildid_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt64)},
+    // repeated uint32 Evidences = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.evidences_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // repeated .proto.ActivityHistoryStory Stories = 4;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.stories_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.nextpackage_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ActivityHistoryStory>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityHistoryStoryChapter::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityHistoryStoryChapter)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.evidences_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.stories_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000018U)) {
+    ::memset(&_impl_.buildid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.chapterid_) -
+        reinterpret_cast<char*>(&_impl_.buildid_)) + sizeof(_impl_.chapterid_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityHistoryStoryChapter::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityHistoryStoryChapter& this_ = static_cast<const ActivityHistoryStoryChapter&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityHistoryStoryChapter::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityHistoryStoryChapter& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityHistoryStoryChapter)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 ChapterId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_chapterid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_chapterid(), target);
+    }
+  }
+
+  // uint64 BuildId = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_buildid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
+          2, this_._internal_buildid(), target);
+    }
+  }
+
+  // repeated uint32 Evidences = 3;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    {
+      int byte_size = this_._impl_._evidences_cached_byte_size_.Get();
+      if (byte_size > 0) {
+        target = stream->WriteUInt32Packed(
+            3, this_._internal_evidences(), byte_size, target);
+      }
+    }
+  }
+
+  // repeated .proto.ActivityHistoryStory Stories = 4;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_stories_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_stories().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              4, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityHistoryStoryChapter)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityHistoryStoryChapter::ByteSizeLong(const MessageLite& base) {
+  const ActivityHistoryStoryChapter& this_ = static_cast<const ActivityHistoryStoryChapter&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityHistoryStoryChapter::ByteSizeLong() const {
+  const ActivityHistoryStoryChapter& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityHistoryStoryChapter)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // repeated uint32 Evidences = 3;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          ::_pbi::WireFormatLite::UInt32SizeWithPackedTagSize(
+              this_._internal_evidences(), 1,
+              this_._impl_._evidences_cached_byte_size_);
+    }
+    // repeated .proto.ActivityHistoryStory Stories = 4;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size += 1UL * this_._internal_stories_size();
+      for (const auto& msg : this_._internal_stories()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint64 BuildId = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_buildid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+            this_._internal_buildid());
+      }
+    }
+    // uint32 ChapterId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_chapterid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_chapterid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityHistoryStoryChapter::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityHistoryStoryChapter*>(&to_msg);
+  auto& from = static_cast<const ActivityHistoryStoryChapter&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityHistoryStoryChapter)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_evidences()->MergeFrom(from._internal_evidences());
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_internal_mutable_stories()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_stories());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_buildid() != 0) {
+        _this->_impl_.buildid_ = from._impl_.buildid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_chapterid() != 0) {
+        _this->_impl_.chapterid_ = from._impl_.chapterid_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityHistoryStoryChapter::CopyFrom(const ActivityHistoryStoryChapter& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityHistoryStoryChapter)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityHistoryStoryChapter::InternalSwap(ActivityHistoryStoryChapter* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.evidences_.InternalSwap(&other->_impl_.evidences_);
+  _impl_.stories_.InternalSwap(&other->_impl_.stories_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.chapterid_)
+      + sizeof(ActivityHistoryStoryChapter::_impl_.chapterid_)
+      - PROTOBUF_FIELD_OFFSET(ActivityHistoryStoryChapter, _impl_.buildid_)>(
+          reinterpret_cast<char*>(&_impl_.buildid_),
+          reinterpret_cast<char*>(&other->_impl_.buildid_));
+}
+
+::google::protobuf::Metadata ActivityHistoryStoryChapter::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityShare::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityShare>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_._has_bits_);
+};
+
+ActivityShare::ActivityShare(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityShare_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityShare)
+}
+PROTOBUF_NDEBUG_INLINE ActivityShare::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityShare& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        state_(arena, from.state_),
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityShare::ActivityShare(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityShare& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityShare_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityShare* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityShare)
+}
+PROTOBUF_NDEBUG_INLINE ActivityShare::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        state_(arena),
+        nextpackage_(arena) {}
+
+inline void ActivityShare::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+ActivityShare::~ActivityShare() {
+  // @@protoc_insertion_point(destructor:proto.ActivityShare)
+  SharedDtor(*this);
+}
+inline void ActivityShare::SharedDtor(MessageLite& self) {
+  ActivityShare& this_ = static_cast<ActivityShare&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.state_.Destroy();
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityShare::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityShare(arena);
+}
+constexpr auto ActivityShare::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(ActivityShare),
+                                            alignof(ActivityShare));
+}
+constexpr auto ActivityShare::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityShare_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityShare::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityShare>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityShare::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityShare>(), &ActivityShare::ByteSizeLong,
+              &ActivityShare::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_._cached_size_),
+          false,
+      },
+      &ActivityShare::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityShare_class_data_ =
+        ActivityShare::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityShare::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityShare_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityShare_class_data_.tc_table);
+  return ActivityShare_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 2, 0, 0, 7>
+ActivityShare::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    ActivityShare_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityShare>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes State = 1;
+    {::_pbi::TcParser::FastBS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_.state_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 1,
+    65535, 65535
+  }}, {{
+    // bytes State = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_.state_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityShare, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityShare::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityShare)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.state_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityShare::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityShare& this_ = static_cast<const ActivityShare&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityShare::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityShare& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityShare)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // bytes State = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_state().empty()) {
+      const ::std::string& _s = this_._internal_state();
+      target = stream->WriteBytesMaybeAliased(1, _s, target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityShare)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityShare::ByteSizeLong(const MessageLite& base) {
+  const ActivityShare& this_ = static_cast<const ActivityShare&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityShare::ByteSizeLong() const {
+  const ActivityShare& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityShare)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // bytes State = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_state().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_state());
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityShare::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityShare*>(&to_msg);
+  auto& from = static_cast<const ActivityShare&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityShare)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_state().empty()) {
+        _this->_internal_set_state(from._internal_state());
+      } else {
+        if (_this->_impl_.state_.IsDefault()) {
+          _this->_internal_set_state("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityShare::CopyFrom(const ActivityShare& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityShare)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityShare::InternalSwap(ActivityShare* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.state_, &other->_impl_.state_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+}
+
+::google::protobuf::Metadata ActivityShare::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class TraceHuntBossCollection::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<TraceHuntBossCollection>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_._has_bits_);
+};
+
+TraceHuntBossCollection::TraceHuntBossCollection(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntBossCollection_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.TraceHuntBossCollection)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntBossCollection::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::TraceHuntBossCollection& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+TraceHuntBossCollection::TraceHuntBossCollection(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const TraceHuntBossCollection& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntBossCollection_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  TraceHuntBossCollection* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, id_),
+           offsetof(Impl_, assisthuntcount_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::assisthuntcount_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.TraceHuntBossCollection)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntBossCollection::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void TraceHuntBossCollection::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, assisthuntcount_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::assisthuntcount_));
+}
+TraceHuntBossCollection::~TraceHuntBossCollection() {
+  // @@protoc_insertion_point(destructor:proto.TraceHuntBossCollection)
+  SharedDtor(*this);
+}
+inline void TraceHuntBossCollection::SharedDtor(MessageLite& self) {
+  TraceHuntBossCollection& this_ = static_cast<TraceHuntBossCollection&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL TraceHuntBossCollection::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) TraceHuntBossCollection(arena);
+}
+constexpr auto TraceHuntBossCollection::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(TraceHuntBossCollection),
+                                            alignof(TraceHuntBossCollection));
+}
+constexpr auto TraceHuntBossCollection::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_TraceHuntBossCollection_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &TraceHuntBossCollection::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<TraceHuntBossCollection>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &TraceHuntBossCollection::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<TraceHuntBossCollection>(), &TraceHuntBossCollection::ByteSizeLong,
+              &TraceHuntBossCollection::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_._cached_size_),
+          false,
+      },
+      &TraceHuntBossCollection::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull TraceHuntBossCollection_class_data_ =
+        TraceHuntBossCollection::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+TraceHuntBossCollection::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&TraceHuntBossCollection_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(TraceHuntBossCollection_class_data_.tc_table);
+  return TraceHuntBossCollection_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 4, 0, 0, 7>
+TraceHuntBossCollection::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    TraceHuntBossCollection_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::TraceHuntBossCollection>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 Id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntBossCollection, _impl_.id_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.id_)}},
+    // uint32 HuntCount = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntBossCollection, _impl_.huntcount_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.huntcount_)}},
+    // uint32 AssistHuntCount = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntBossCollection, _impl_.assisthuntcount_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.assisthuntcount_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 3,
+    65535, 65535
+  }}, {{
+    // uint32 Id = 1;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.id_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 HuntCount = 2;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.huntcount_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 AssistHuntCount = 3;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.assisthuntcount_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void TraceHuntBossCollection::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.TraceHuntBossCollection)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000eU)) {
+    ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.assisthuntcount_) -
+        reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.assisthuntcount_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL TraceHuntBossCollection::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const TraceHuntBossCollection& this_ = static_cast<const TraceHuntBossCollection&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL TraceHuntBossCollection::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const TraceHuntBossCollection& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.TraceHuntBossCollection)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 Id = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_id() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_id(), target);
+    }
+  }
+
+  // uint32 HuntCount = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_huntcount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_huntcount(), target);
+    }
+  }
+
+  // uint32 AssistHuntCount = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_assisthuntcount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_assisthuntcount(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.TraceHuntBossCollection)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t TraceHuntBossCollection::ByteSizeLong(const MessageLite& base) {
+  const TraceHuntBossCollection& this_ = static_cast<const TraceHuntBossCollection&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t TraceHuntBossCollection::ByteSizeLong() const {
+  const TraceHuntBossCollection& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.TraceHuntBossCollection)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 Id = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_id() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_id());
+      }
+    }
+    // uint32 HuntCount = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_huntcount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_huntcount());
+      }
+    }
+    // uint32 AssistHuntCount = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_assisthuntcount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_assisthuntcount());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void TraceHuntBossCollection::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<TraceHuntBossCollection*>(&to_msg);
+  auto& from = static_cast<const TraceHuntBossCollection&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.TraceHuntBossCollection)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_id() != 0) {
+        _this->_impl_.id_ = from._impl_.id_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_huntcount() != 0) {
+        _this->_impl_.huntcount_ = from._impl_.huntcount_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_assisthuntcount() != 0) {
+        _this->_impl_.assisthuntcount_ = from._impl_.assisthuntcount_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void TraceHuntBossCollection::CopyFrom(const TraceHuntBossCollection& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.TraceHuntBossCollection)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void TraceHuntBossCollection::InternalSwap(TraceHuntBossCollection* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.assisthuntcount_)
+      + sizeof(TraceHuntBossCollection::_impl_.assisthuntcount_)
+      - PROTOBUF_FIELD_OFFSET(TraceHuntBossCollection, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::google::protobuf::Metadata TraceHuntBossCollection::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class TraceHuntLogEntry::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<TraceHuntLogEntry>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_._has_bits_);
+};
+
+TraceHuntLogEntry::TraceHuntLogEntry(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntLogEntry_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.TraceHuntLogEntry)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntLogEntry::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::TraceHuntLogEntry& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        args_{visibility, arena, from.args_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+TraceHuntLogEntry::TraceHuntLogEntry(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const TraceHuntLogEntry& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntLogEntry_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  TraceHuntLogEntry* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.tid_ = from._impl_.tid_;
+
+  // @@protoc_insertion_point(copy_constructor:proto.TraceHuntLogEntry)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntLogEntry::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        args_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void TraceHuntLogEntry::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.tid_ = {};
+}
+TraceHuntLogEntry::~TraceHuntLogEntry() {
+  // @@protoc_insertion_point(destructor:proto.TraceHuntLogEntry)
+  SharedDtor(*this);
+}
+inline void TraceHuntLogEntry::SharedDtor(MessageLite& self) {
+  TraceHuntLogEntry& this_ = static_cast<TraceHuntLogEntry&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL TraceHuntLogEntry::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) TraceHuntLogEntry(arena);
+}
+constexpr auto TraceHuntLogEntry::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.args_) +
+          decltype(TraceHuntLogEntry::_impl_.args_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(TraceHuntLogEntry), alignof(TraceHuntLogEntry), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&TraceHuntLogEntry::PlacementNew_,
+                                 sizeof(TraceHuntLogEntry),
+                                 alignof(TraceHuntLogEntry));
+  }
+}
+constexpr auto TraceHuntLogEntry::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_TraceHuntLogEntry_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &TraceHuntLogEntry::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<TraceHuntLogEntry>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &TraceHuntLogEntry::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<TraceHuntLogEntry>(), &TraceHuntLogEntry::ByteSizeLong,
+              &TraceHuntLogEntry::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_._cached_size_),
+          false,
+      },
+      &TraceHuntLogEntry::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull TraceHuntLogEntry_class_data_ =
+        TraceHuntLogEntry::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+TraceHuntLogEntry::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&TraceHuntLogEntry_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(TraceHuntLogEntry_class_data_.tc_table);
+  return TraceHuntLogEntry_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 0, 36, 7>
+TraceHuntLogEntry::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    TraceHuntLogEntry_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::TraceHuntLogEntry>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 Tid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntLogEntry, _impl_.tid_), 2>(),
+     {8, 2, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.tid_)}},
+    // repeated string args = 2;
+    {::_pbi::TcParser::FastUR1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.args_)}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 1, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 2,
+    65535, 65535
+  }}, {{
+    // uint32 Tid = 1;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.tid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated string args = 2;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.args_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntLogEntry, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\27\0\4\0\0\0\0\0"
+    "proto.TraceHuntLogEntry"
+    "args"
+  }},
+};
+PROTOBUF_NOINLINE void TraceHuntLogEntry::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.TraceHuntLogEntry)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.args_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_.tid_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL TraceHuntLogEntry::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const TraceHuntLogEntry& this_ = static_cast<const TraceHuntLogEntry&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL TraceHuntLogEntry::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const TraceHuntLogEntry& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.TraceHuntLogEntry)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 Tid = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_tid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_tid(), target);
+    }
+  }
+
+  // repeated string args = 2;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (int i = 0, n = this_._internal_args_size(); i < n; ++i) {
+      const auto& s = this_._internal_args().Get(i);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "proto.TraceHuntLogEntry.args");
+      target = stream->WriteString(2, s, target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.TraceHuntLogEntry)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t TraceHuntLogEntry::ByteSizeLong(const MessageLite& base) {
+  const TraceHuntLogEntry& this_ = static_cast<const TraceHuntLogEntry&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t TraceHuntLogEntry::ByteSizeLong() const {
+  const TraceHuntLogEntry& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.TraceHuntLogEntry)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // repeated string args = 2;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_args().size());
+      for (int i = 0, n = this_._internal_args().size(); i < n; ++i) {
+        total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+            this_._internal_args().Get(i));
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 Tid = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_tid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_tid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void TraceHuntLogEntry::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<TraceHuntLogEntry*>(&to_msg);
+  auto& from = static_cast<const TraceHuntLogEntry&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.TraceHuntLogEntry)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_args()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_args());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_tid() != 0) {
+        _this->_impl_.tid_ = from._impl_.tid_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void TraceHuntLogEntry::CopyFrom(const TraceHuntLogEntry& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.TraceHuntLogEntry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void TraceHuntLogEntry::InternalSwap(TraceHuntLogEntry* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.args_.InternalSwap(&other->_impl_.args_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  swap(_impl_.tid_, other->_impl_.tid_);
+}
+
+::google::protobuf::Metadata TraceHuntLogEntry::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class TraceHuntItemInfo::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<TraceHuntItemInfo>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_._has_bits_);
+};
+
+TraceHuntItemInfo::TraceHuntItemInfo(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntItemInfo_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.TraceHuntItemInfo)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntItemInfo::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::TraceHuntItemInfo& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+TraceHuntItemInfo::TraceHuntItemInfo(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const TraceHuntItemInfo& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntItemInfo_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  TraceHuntItemInfo* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, tid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, tid_),
+           offsetof(Impl_, dailycount_) -
+               offsetof(Impl_, tid_) +
+               sizeof(Impl_::dailycount_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.TraceHuntItemInfo)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntItemInfo::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void TraceHuntItemInfo::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, tid_),
+           0,
+           offsetof(Impl_, dailycount_) -
+               offsetof(Impl_, tid_) +
+               sizeof(Impl_::dailycount_));
+}
+TraceHuntItemInfo::~TraceHuntItemInfo() {
+  // @@protoc_insertion_point(destructor:proto.TraceHuntItemInfo)
+  SharedDtor(*this);
+}
+inline void TraceHuntItemInfo::SharedDtor(MessageLite& self) {
+  TraceHuntItemInfo& this_ = static_cast<TraceHuntItemInfo&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL TraceHuntItemInfo::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) TraceHuntItemInfo(arena);
+}
+constexpr auto TraceHuntItemInfo::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(TraceHuntItemInfo),
+                                            alignof(TraceHuntItemInfo));
+}
+constexpr auto TraceHuntItemInfo::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_TraceHuntItemInfo_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &TraceHuntItemInfo::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<TraceHuntItemInfo>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &TraceHuntItemInfo::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<TraceHuntItemInfo>(), &TraceHuntItemInfo::ByteSizeLong,
+              &TraceHuntItemInfo::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_._cached_size_),
+          false,
+      },
+      &TraceHuntItemInfo::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull TraceHuntItemInfo_class_data_ =
+        TraceHuntItemInfo::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+TraceHuntItemInfo::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&TraceHuntItemInfo_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(TraceHuntItemInfo_class_data_.tc_table);
+  return TraceHuntItemInfo_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 0, 0, 7>
+TraceHuntItemInfo::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    TraceHuntItemInfo_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::TraceHuntItemInfo>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 Tid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItemInfo, _impl_.tid_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.tid_)}},
+    // uint32 EnergyOverflow = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItemInfo, _impl_.energyoverflow_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.energyoverflow_)}},
+    // uint32 ConvertedCount = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItemInfo, _impl_.convertedcount_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.convertedcount_)}},
+    // uint32 GrantedCount = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItemInfo, _impl_.grantedcount_), 4>(),
+     {32, 4, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.grantedcount_)}},
+    // uint32 DailyCount = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItemInfo, _impl_.dailycount_), 5>(),
+     {40, 5, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.dailycount_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 5,
+    65535, 65535
+  }}, {{
+    // uint32 Tid = 1;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.tid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 EnergyOverflow = 2;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.energyoverflow_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 ConvertedCount = 3;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.convertedcount_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 GrantedCount = 4;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.grantedcount_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 DailyCount = 5;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.dailycount_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void TraceHuntItemInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.TraceHuntItemInfo)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003eU)) {
+    ::memset(&_impl_.tid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.dailycount_) -
+        reinterpret_cast<char*>(&_impl_.tid_)) + sizeof(_impl_.dailycount_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL TraceHuntItemInfo::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const TraceHuntItemInfo& this_ = static_cast<const TraceHuntItemInfo&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL TraceHuntItemInfo::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const TraceHuntItemInfo& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.TraceHuntItemInfo)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 Tid = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_tid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_tid(), target);
+    }
+  }
+
+  // uint32 EnergyOverflow = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_energyoverflow() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_energyoverflow(), target);
+    }
+  }
+
+  // uint32 ConvertedCount = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_convertedcount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_convertedcount(), target);
+    }
+  }
+
+  // uint32 GrantedCount = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_grantedcount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          4, this_._internal_grantedcount(), target);
+    }
+  }
+
+  // uint32 DailyCount = 5;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (this_._internal_dailycount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          5, this_._internal_dailycount(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.TraceHuntItemInfo)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t TraceHuntItemInfo::ByteSizeLong(const MessageLite& base) {
+  const TraceHuntItemInfo& this_ = static_cast<const TraceHuntItemInfo&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t TraceHuntItemInfo::ByteSizeLong() const {
+  const TraceHuntItemInfo& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.TraceHuntItemInfo)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 Tid = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_tid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_tid());
+      }
+    }
+    // uint32 EnergyOverflow = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_energyoverflow() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_energyoverflow());
+      }
+    }
+    // uint32 ConvertedCount = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_convertedcount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_convertedcount());
+      }
+    }
+    // uint32 GrantedCount = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_grantedcount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_grantedcount());
+      }
+    }
+    // uint32 DailyCount = 5;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (this_._internal_dailycount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_dailycount());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void TraceHuntItemInfo::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<TraceHuntItemInfo*>(&to_msg);
+  auto& from = static_cast<const TraceHuntItemInfo&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.TraceHuntItemInfo)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_tid() != 0) {
+        _this->_impl_.tid_ = from._impl_.tid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_energyoverflow() != 0) {
+        _this->_impl_.energyoverflow_ = from._impl_.energyoverflow_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_convertedcount() != 0) {
+        _this->_impl_.convertedcount_ = from._impl_.convertedcount_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_grantedcount() != 0) {
+        _this->_impl_.grantedcount_ = from._impl_.grantedcount_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (from._internal_dailycount() != 0) {
+        _this->_impl_.dailycount_ = from._impl_.dailycount_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void TraceHuntItemInfo::CopyFrom(const TraceHuntItemInfo& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.TraceHuntItemInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void TraceHuntItemInfo::InternalSwap(TraceHuntItemInfo* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.dailycount_)
+      + sizeof(TraceHuntItemInfo::_impl_.dailycount_)
+      - PROTOBUF_FIELD_OFFSET(TraceHuntItemInfo, _impl_.tid_)>(
+          reinterpret_cast<char*>(&_impl_.tid_),
+          reinterpret_cast<char*>(&other->_impl_.tid_));
+}
+
+::google::protobuf::Metadata TraceHuntItemInfo::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class TraceHuntItem::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<TraceHuntItem>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_._has_bits_);
+};
+
+TraceHuntItem::TraceHuntItem(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntItem_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.TraceHuntItem)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntItem::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::TraceHuntItem& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+TraceHuntItem::TraceHuntItem(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const TraceHuntItem& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntItem_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  TraceHuntItem* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, tid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, tid_),
+           offsetof(Impl_, dailycount_) -
+               offsetof(Impl_, tid_) +
+               sizeof(Impl_::dailycount_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.TraceHuntItem)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntItem::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void TraceHuntItem::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, tid_),
+           0,
+           offsetof(Impl_, dailycount_) -
+               offsetof(Impl_, tid_) +
+               sizeof(Impl_::dailycount_));
+}
+TraceHuntItem::~TraceHuntItem() {
+  // @@protoc_insertion_point(destructor:proto.TraceHuntItem)
+  SharedDtor(*this);
+}
+inline void TraceHuntItem::SharedDtor(MessageLite& self) {
+  TraceHuntItem& this_ = static_cast<TraceHuntItem&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL TraceHuntItem::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) TraceHuntItem(arena);
+}
+constexpr auto TraceHuntItem::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(TraceHuntItem),
+                                            alignof(TraceHuntItem));
+}
+constexpr auto TraceHuntItem::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_TraceHuntItem_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &TraceHuntItem::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<TraceHuntItem>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &TraceHuntItem::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<TraceHuntItem>(), &TraceHuntItem::ByteSizeLong,
+              &TraceHuntItem::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_._cached_size_),
+          false,
+      },
+      &TraceHuntItem::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull TraceHuntItem_class_data_ =
+        TraceHuntItem::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+TraceHuntItem::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&TraceHuntItem_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(TraceHuntItem_class_data_.tc_table);
+  return TraceHuntItem_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 0, 0, 7>
+TraceHuntItem::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    TraceHuntItem_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::TraceHuntItem>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 Tid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItem, _impl_.tid_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.tid_)}},
+    // int32 PointQty = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItem, _impl_.pointqty_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.pointqty_)}},
+    // int32 ConvertQty = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItem, _impl_.convertqty_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.convertqty_)}},
+    // int32 GrantQty = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItem, _impl_.grantqty_), 4>(),
+     {32, 4, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.grantqty_)}},
+    // uint32 DailyCount = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TraceHuntItem, _impl_.dailycount_), 5>(),
+     {40, 5, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.dailycount_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 5,
+    65535, 65535
+  }}, {{
+    // uint32 Tid = 1;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.tid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // int32 PointQty = 2;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.pointqty_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 ConvertQty = 3;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.convertqty_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 GrantQty = 4;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.grantqty_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // uint32 DailyCount = 5;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.dailycount_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void TraceHuntItem::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.TraceHuntItem)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003eU)) {
+    ::memset(&_impl_.tid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.dailycount_) -
+        reinterpret_cast<char*>(&_impl_.tid_)) + sizeof(_impl_.dailycount_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL TraceHuntItem::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const TraceHuntItem& this_ = static_cast<const TraceHuntItem&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL TraceHuntItem::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const TraceHuntItem& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.TraceHuntItem)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 Tid = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_tid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_tid(), target);
+    }
+  }
+
+  // int32 PointQty = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_pointqty() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<2>(
+              stream, this_._internal_pointqty(), target);
+    }
+  }
+
+  // int32 ConvertQty = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_convertqty() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<3>(
+              stream, this_._internal_convertqty(), target);
+    }
+  }
+
+  // int32 GrantQty = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_grantqty() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<4>(
+              stream, this_._internal_grantqty(), target);
+    }
+  }
+
+  // uint32 DailyCount = 5;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (this_._internal_dailycount() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          5, this_._internal_dailycount(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.TraceHuntItem)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t TraceHuntItem::ByteSizeLong(const MessageLite& base) {
+  const TraceHuntItem& this_ = static_cast<const TraceHuntItem&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t TraceHuntItem::ByteSizeLong() const {
+  const TraceHuntItem& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.TraceHuntItem)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 Tid = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_tid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_tid());
+      }
+    }
+    // int32 PointQty = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_pointqty() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_pointqty());
+      }
+    }
+    // int32 ConvertQty = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_convertqty() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_convertqty());
+      }
+    }
+    // int32 GrantQty = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_grantqty() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_grantqty());
+      }
+    }
+    // uint32 DailyCount = 5;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (this_._internal_dailycount() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_dailycount());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void TraceHuntItem::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<TraceHuntItem*>(&to_msg);
+  auto& from = static_cast<const TraceHuntItem&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.TraceHuntItem)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_tid() != 0) {
+        _this->_impl_.tid_ = from._impl_.tid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_pointqty() != 0) {
+        _this->_impl_.pointqty_ = from._impl_.pointqty_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_convertqty() != 0) {
+        _this->_impl_.convertqty_ = from._impl_.convertqty_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_grantqty() != 0) {
+        _this->_impl_.grantqty_ = from._impl_.grantqty_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (from._internal_dailycount() != 0) {
+        _this->_impl_.dailycount_ = from._impl_.dailycount_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void TraceHuntItem::CopyFrom(const TraceHuntItem& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.TraceHuntItem)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void TraceHuntItem::InternalSwap(TraceHuntItem* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.dailycount_)
+      + sizeof(TraceHuntItem::_impl_.dailycount_)
+      - PROTOBUF_FIELD_OFFSET(TraceHuntItem, _impl_.tid_)>(
+          reinterpret_cast<char*>(&_impl_.tid_),
+          reinterpret_cast<char*>(&other->_impl_.tid_));
+}
+
+::google::protobuf::Metadata TraceHuntItem::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class TraceHuntState::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<TraceHuntState>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_._has_bits_);
+};
+
+TraceHuntState::TraceHuntState(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntState_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.TraceHuntState)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntState::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::TraceHuntState& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+TraceHuntState::TraceHuntState(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const TraceHuntState& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, TraceHuntState_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  TraceHuntState* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.bossrewardcanreceive_ = from._impl_.bossrewardcanreceive_;
+
+  // @@protoc_insertion_point(copy_constructor:proto.TraceHuntState)
+}
+PROTOBUF_NDEBUG_INLINE TraceHuntState::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void TraceHuntState::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.bossrewardcanreceive_ = {};
+}
+TraceHuntState::~TraceHuntState() {
+  // @@protoc_insertion_point(destructor:proto.TraceHuntState)
+  SharedDtor(*this);
+}
+inline void TraceHuntState::SharedDtor(MessageLite& self) {
+  TraceHuntState& this_ = static_cast<TraceHuntState&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL TraceHuntState::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) TraceHuntState(arena);
+}
+constexpr auto TraceHuntState::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(TraceHuntState),
+                                            alignof(TraceHuntState));
+}
+constexpr auto TraceHuntState::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_TraceHuntState_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &TraceHuntState::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<TraceHuntState>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &TraceHuntState::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<TraceHuntState>(), &TraceHuntState::ByteSizeLong,
+              &TraceHuntState::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_._cached_size_),
+          false,
+      },
+      &TraceHuntState::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull TraceHuntState_class_data_ =
+        TraceHuntState::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+TraceHuntState::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&TraceHuntState_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(TraceHuntState_class_data_.tc_table);
+  return TraceHuntState_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 2, 0, 0, 7>
+TraceHuntState::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    TraceHuntState_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::TraceHuntState>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // bool BossRewardCanReceive = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TraceHuntState, _impl_.bossrewardcanreceive_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_.bossrewardcanreceive_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 1,
+    65535, 65535
+  }}, {{
+    // bool BossRewardCanReceive = 1;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_.bossrewardcanreceive_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(TraceHuntState, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void TraceHuntState::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.TraceHuntState)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  }
+  _impl_.bossrewardcanreceive_ = false;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL TraceHuntState::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const TraceHuntState& this_ = static_cast<const TraceHuntState&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL TraceHuntState::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const TraceHuntState& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.TraceHuntState)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // bool BossRewardCanReceive = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_bossrewardcanreceive() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          1, this_._internal_bossrewardcanreceive(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.TraceHuntState)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t TraceHuntState::ByteSizeLong(const MessageLite& base) {
+  const TraceHuntState& this_ = static_cast<const TraceHuntState&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t TraceHuntState::ByteSizeLong() const {
+  const TraceHuntState& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.TraceHuntState)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // bool BossRewardCanReceive = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_bossrewardcanreceive() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void TraceHuntState::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<TraceHuntState*>(&to_msg);
+  auto& from = static_cast<const TraceHuntState&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.TraceHuntState)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_bossrewardcanreceive() != 0) {
+        _this->_impl_.bossrewardcanreceive_ = from._impl_.bossrewardcanreceive_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void TraceHuntState::CopyFrom(const TraceHuntState& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.TraceHuntState)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void TraceHuntState::InternalSwap(TraceHuntState* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  swap(_impl_.bossrewardcanreceive_, other->_impl_.bossrewardcanreceive_);
+}
+
+::google::protobuf::Metadata TraceHuntState::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityIceCreamLevel::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityIceCreamLevel>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_._has_bits_);
+};
+
+ActivityIceCreamLevel::ActivityIceCreamLevel(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityIceCreamLevel_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityIceCreamLevel)
+}
+PROTOBUF_NDEBUG_INLINE ActivityIceCreamLevel::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityIceCreamLevel& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityIceCreamLevel::ActivityIceCreamLevel(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityIceCreamLevel& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityIceCreamLevel_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityIceCreamLevel* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, levelid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, levelid_),
+           offsetof(Impl_, firstcomplete_) -
+               offsetof(Impl_, levelid_) +
+               sizeof(Impl_::firstcomplete_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityIceCreamLevel)
+}
+PROTOBUF_NDEBUG_INLINE ActivityIceCreamLevel::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void ActivityIceCreamLevel::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, levelid_),
+           0,
+           offsetof(Impl_, firstcomplete_) -
+               offsetof(Impl_, levelid_) +
+               sizeof(Impl_::firstcomplete_));
+}
+ActivityIceCreamLevel::~ActivityIceCreamLevel() {
+  // @@protoc_insertion_point(destructor:proto.ActivityIceCreamLevel)
+  SharedDtor(*this);
+}
+inline void ActivityIceCreamLevel::SharedDtor(MessageLite& self) {
+  ActivityIceCreamLevel& this_ = static_cast<ActivityIceCreamLevel&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityIceCreamLevel::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityIceCreamLevel(arena);
+}
+constexpr auto ActivityIceCreamLevel::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(ActivityIceCreamLevel),
+                                            alignof(ActivityIceCreamLevel));
+}
+constexpr auto ActivityIceCreamLevel::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityIceCreamLevel_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityIceCreamLevel::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityIceCreamLevel>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityIceCreamLevel::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityIceCreamLevel>(), &ActivityIceCreamLevel::ByteSizeLong,
+              &ActivityIceCreamLevel::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_._cached_size_),
+          false,
+      },
+      &ActivityIceCreamLevel::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityIceCreamLevel_class_data_ =
+        ActivityIceCreamLevel::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityIceCreamLevel::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityIceCreamLevel_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityIceCreamLevel_class_data_.tc_table);
+  return ActivityIceCreamLevel_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 4, 0, 0, 7>
+ActivityIceCreamLevel::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    ActivityIceCreamLevel_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityIceCreamLevel>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 LevelId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityIceCreamLevel, _impl_.levelid_), 1>(),
+     {8, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.levelid_)}},
+    // uint32 Score = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityIceCreamLevel, _impl_.score_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.score_)}},
+    // bool FirstComplete = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(ActivityIceCreamLevel, _impl_.firstcomplete_), 3>(),
+     {24, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.firstcomplete_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 3,
+    65535, 65535
+  }}, {{
+    // uint32 LevelId = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.levelid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 Score = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.score_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // bool FirstComplete = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.firstcomplete_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityIceCreamLevel::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityIceCreamLevel)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.nextpackage_.ClearNonDefaultToEmpty();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000eU)) {
+    ::memset(&_impl_.levelid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.firstcomplete_) -
+        reinterpret_cast<char*>(&_impl_.levelid_)) + sizeof(_impl_.firstcomplete_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityIceCreamLevel::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityIceCreamLevel& this_ = static_cast<const ActivityIceCreamLevel&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityIceCreamLevel::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityIceCreamLevel& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityIceCreamLevel)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 LevelId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_levelid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_levelid(), target);
+    }
+  }
+
+  // uint32 Score = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_score() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_score(), target);
+    }
+  }
+
+  // bool FirstComplete = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_firstcomplete() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          3, this_._internal_firstcomplete(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityIceCreamLevel)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityIceCreamLevel::ByteSizeLong(const MessageLite& base) {
+  const ActivityIceCreamLevel& this_ = static_cast<const ActivityIceCreamLevel&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityIceCreamLevel::ByteSizeLong() const {
+  const ActivityIceCreamLevel& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityIceCreamLevel)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 LevelId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_levelid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_levelid());
+      }
+    }
+    // uint32 Score = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_score() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_score());
+      }
+    }
+    // bool FirstComplete = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_firstcomplete() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityIceCreamLevel::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityIceCreamLevel*>(&to_msg);
+  auto& from = static_cast<const ActivityIceCreamLevel&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityIceCreamLevel)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_levelid() != 0) {
+        _this->_impl_.levelid_ = from._impl_.levelid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_score() != 0) {
+        _this->_impl_.score_ = from._impl_.score_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_firstcomplete() != 0) {
+        _this->_impl_.firstcomplete_ = from._impl_.firstcomplete_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityIceCreamLevel::CopyFrom(const ActivityIceCreamLevel& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityIceCreamLevel)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityIceCreamLevel::InternalSwap(ActivityIceCreamLevel* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.firstcomplete_)
+      + sizeof(ActivityIceCreamLevel::_impl_.firstcomplete_)
+      - PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevel, _impl_.levelid_)>(
+          reinterpret_cast<char*>(&_impl_.levelid_),
+          reinterpret_cast<char*>(&other->_impl_.levelid_));
+}
+
+::google::protobuf::Metadata ActivityIceCreamLevel::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityIceCream::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityIceCream>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_._has_bits_);
+};
+
+ActivityIceCream::ActivityIceCream(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityIceCream_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityIceCream)
+}
+PROTOBUF_NDEBUG_INLINE ActivityIceCream::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityIceCream& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        levels_{visibility, arena, from.levels_},
+        quests_{visibility, arena, from.quests_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityIceCream::ActivityIceCream(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityIceCream& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityIceCream_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityIceCream* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.activityid_ = from._impl_.activityid_;
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityIceCream)
+}
+PROTOBUF_NDEBUG_INLINE ActivityIceCream::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        levels_{visibility, arena},
+        quests_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void ActivityIceCream::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.activityid_ = {};
+}
+ActivityIceCream::~ActivityIceCream() {
+  // @@protoc_insertion_point(destructor:proto.ActivityIceCream)
+  SharedDtor(*this);
+}
+inline void ActivityIceCream::SharedDtor(MessageLite& self) {
+  ActivityIceCream& this_ = static_cast<ActivityIceCream&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityIceCream::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityIceCream(arena);
+}
+constexpr auto ActivityIceCream::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.levels_) +
+          decltype(ActivityIceCream::_impl_.levels_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.quests_) +
+          decltype(ActivityIceCream::_impl_.quests_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(ActivityIceCream), alignof(ActivityIceCream), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ActivityIceCream::PlacementNew_,
+                                 sizeof(ActivityIceCream),
+                                 alignof(ActivityIceCream));
+  }
+}
+constexpr auto ActivityIceCream::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityIceCream_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityIceCream::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityIceCream>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityIceCream::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityIceCream>(), &ActivityIceCream::ByteSizeLong,
+              &ActivityIceCream::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_._cached_size_),
+          false,
+      },
+      &ActivityIceCream::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityIceCream_class_data_ =
+        ActivityIceCream::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityIceCream::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityIceCream_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityIceCream_class_data_.tc_table);
+  return ActivityIceCream_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 4, 2, 0, 7>
+ActivityIceCream::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    ActivityIceCream_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityIceCream>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 ActivityId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivityIceCream, _impl_.activityid_), 3>(),
+     {8, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.activityid_)}},
+    // repeated .proto.ActivityIceCreamLevel Levels = 2;
+    {::_pbi::TcParser::FastMtR1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.levels_)}},
+    // repeated .proto.ActivityQuest Quests = 3;
+    {::_pbi::TcParser::FastMtR1,
+     {26, 1, 1,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.quests_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 3,
+    65535, 65535
+  }}, {{
+    // uint32 ActivityId = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.activityid_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .proto.ActivityIceCreamLevel Levels = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.levels_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .proto.ActivityQuest Quests = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.quests_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCream, _impl_.nextpackage_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ActivityIceCreamLevel>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityQuest>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityIceCream::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityIceCream)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.levels_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _impl_.quests_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_.activityid_ = 0u;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityIceCream::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityIceCream& this_ = static_cast<const ActivityIceCream&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityIceCream::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityIceCream& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityIceCream)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 ActivityId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_activityid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_activityid(), target);
+    }
+  }
+
+  // repeated .proto.ActivityIceCreamLevel Levels = 2;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_levels_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_levels().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              2, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // repeated .proto.ActivityQuest Quests = 3;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_quests_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_quests().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              3, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityIceCream)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityIceCream::ByteSizeLong(const MessageLite& base) {
+  const ActivityIceCream& this_ = static_cast<const ActivityIceCream&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityIceCream::ByteSizeLong() const {
+  const ActivityIceCream& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityIceCream)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // repeated .proto.ActivityIceCreamLevel Levels = 2;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_levels_size();
+      for (const auto& msg : this_._internal_levels()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // repeated .proto.ActivityQuest Quests = 3;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      total_size += 1UL * this_._internal_quests_size();
+      for (const auto& msg : this_._internal_quests()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 ActivityId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_activityid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_activityid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityIceCream::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityIceCream*>(&to_msg);
+  auto& from = static_cast<const ActivityIceCream&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityIceCream)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_levels()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_levels());
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
+      _this->_internal_mutable_quests()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_quests());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_activityid() != 0) {
+        _this->_impl_.activityid_ = from._impl_.activityid_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityIceCream::CopyFrom(const ActivityIceCream& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityIceCream)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityIceCream::InternalSwap(ActivityIceCream* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.levels_.InternalSwap(&other->_impl_.levels_);
+  _impl_.quests_.InternalSwap(&other->_impl_.quests_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  swap(_impl_.activityid_, other->_impl_.activityid_);
+}
+
+::google::protobuf::Metadata ActivityIceCream::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivityIceCreamLevelSettleSucceed::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivityIceCreamLevelSettleSucceed>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_._has_bits_);
+};
+
+ActivityIceCreamLevelSettleSucceed::ActivityIceCreamLevelSettleSucceed(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityIceCreamLevelSettleSucceed_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivityIceCreamLevelSettleSucceed)
+}
+PROTOBUF_NDEBUG_INLINE ActivityIceCreamLevelSettleSucceed::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivityIceCreamLevelSettleSucceed& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivityIceCreamLevelSettleSucceed::ActivityIceCreamLevelSettleSucceed(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivityIceCreamLevelSettleSucceed& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivityIceCreamLevelSettleSucceed_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivityIceCreamLevelSettleSucceed* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.change_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.change_)
+                : nullptr;
+  _impl_.passed_ = from._impl_.passed_;
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivityIceCreamLevelSettleSucceed)
+}
+PROTOBUF_NDEBUG_INLINE ActivityIceCreamLevelSettleSucceed::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        nextpackage_(arena) {}
+
+inline void ActivityIceCreamLevelSettleSucceed::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, change_),
+           0,
+           offsetof(Impl_, passed_) -
+               offsetof(Impl_, change_) +
+               sizeof(Impl_::passed_));
+}
+ActivityIceCreamLevelSettleSucceed::~ActivityIceCreamLevelSettleSucceed() {
+  // @@protoc_insertion_point(destructor:proto.ActivityIceCreamLevelSettleSucceed)
+  SharedDtor(*this);
+}
+inline void ActivityIceCreamLevelSettleSucceed::SharedDtor(MessageLite& self) {
+  ActivityIceCreamLevelSettleSucceed& this_ = static_cast<ActivityIceCreamLevelSettleSucceed&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  delete this_._impl_.change_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivityIceCreamLevelSettleSucceed::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivityIceCreamLevelSettleSucceed(arena);
+}
+constexpr auto ActivityIceCreamLevelSettleSucceed::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(ActivityIceCreamLevelSettleSucceed),
+                                            alignof(ActivityIceCreamLevelSettleSucceed));
+}
+constexpr auto ActivityIceCreamLevelSettleSucceed::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivityIceCreamLevelSettleSucceed_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivityIceCreamLevelSettleSucceed::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivityIceCreamLevelSettleSucceed>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivityIceCreamLevelSettleSucceed::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivityIceCreamLevelSettleSucceed>(), &ActivityIceCreamLevelSettleSucceed::ByteSizeLong,
+              &ActivityIceCreamLevelSettleSucceed::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_._cached_size_),
+          false,
+      },
+      &ActivityIceCreamLevelSettleSucceed::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivityIceCreamLevelSettleSucceed_class_data_ =
+        ActivityIceCreamLevelSettleSucceed::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivityIceCreamLevelSettleSucceed::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivityIceCreamLevelSettleSucceed_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivityIceCreamLevelSettleSucceed_class_data_.tc_table);
+  return ActivityIceCreamLevelSettleSucceed_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 0, 7>
+ActivityIceCreamLevelSettleSucceed::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    ActivityIceCreamLevelSettleSucceed_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivityIceCreamLevelSettleSucceed>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // .proto.ChangeInfo Change = 1;
+    {::_pbi::TcParser::FastMtS1,
+     {10, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.change_)}},
+    // bool Passed = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(ActivityIceCreamLevelSettleSucceed, _impl_.passed_), 2>(),
+     {16, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.passed_)}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 2,
+    65535, 65535
+  }}, {{
+    // .proto.ChangeInfo Change = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.change_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bool Passed = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.passed_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ChangeInfo>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivityIceCreamLevelSettleSucceed::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivityIceCreamLevelSettleSucceed)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.change_ != nullptr);
+      _impl_.change_->Clear();
+    }
+  }
+  _impl_.passed_ = false;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivityIceCreamLevelSettleSucceed::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivityIceCreamLevelSettleSucceed& this_ = static_cast<const ActivityIceCreamLevelSettleSucceed&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivityIceCreamLevelSettleSucceed::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivityIceCreamLevelSettleSucceed& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivityIceCreamLevelSettleSucceed)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .proto.ChangeInfo Change = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.change_, this_._impl_.change_->GetCachedSize(), target,
+        stream);
+  }
+
+  // bool Passed = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_passed() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          2, this_._internal_passed(), target);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivityIceCreamLevelSettleSucceed)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivityIceCreamLevelSettleSucceed::ByteSizeLong(const MessageLite& base) {
+  const ActivityIceCreamLevelSettleSucceed& this_ = static_cast<const ActivityIceCreamLevelSettleSucceed&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivityIceCreamLevelSettleSucceed::ByteSizeLong() const {
+  const ActivityIceCreamLevelSettleSucceed& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivityIceCreamLevelSettleSucceed)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // .proto.ChangeInfo Change = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.change_);
+    }
+    // bool Passed = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_passed() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivityIceCreamLevelSettleSucceed::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivityIceCreamLevelSettleSucceed*>(&to_msg);
+  auto& from = static_cast<const ActivityIceCreamLevelSettleSucceed&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivityIceCreamLevelSettleSucceed)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.change_ != nullptr);
+      if (_this->_impl_.change_ == nullptr) {
+        _this->_impl_.change_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.change_);
+      } else {
+        _this->_impl_.change_->MergeFrom(*from._impl_.change_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_passed() != 0) {
+        _this->_impl_.passed_ = from._impl_.passed_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivityIceCreamLevelSettleSucceed::CopyFrom(const ActivityIceCreamLevelSettleSucceed& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivityIceCreamLevelSettleSucceed)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivityIceCreamLevelSettleSucceed::InternalSwap(ActivityIceCreamLevelSettleSucceed* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.passed_)
+      + sizeof(ActivityIceCreamLevelSettleSucceed::_impl_.passed_)
+      - PROTOBUF_FIELD_OFFSET(ActivityIceCreamLevelSettleSucceed, _impl_.change_)>(
+          reinterpret_cast<char*>(&_impl_.change_),
+          reinterpret_cast<char*>(&other->_impl_.change_));
+}
+
+::google::protobuf::Metadata ActivityIceCreamLevelSettleSucceed::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActivitySoldier::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<ActivitySoldier>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_._has_bits_);
+};
+
+ActivitySoldier::ActivitySoldier(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivitySoldier_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.ActivitySoldier)
+}
+PROTOBUF_NDEBUG_INLINE ActivitySoldier::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::ActivitySoldier& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        quests_{visibility, arena, from.quests_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+ActivitySoldier::ActivitySoldier(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const ActivitySoldier& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, ActivitySoldier_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActivitySoldier* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, curgradechallengeid_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, curgradechallengeid_),
+           offsetof(Impl_, nodeindex_) -
+               offsetof(Impl_, curgradechallengeid_) +
+               sizeof(Impl_::nodeindex_));
+
+  // @@protoc_insertion_point(copy_constructor:proto.ActivitySoldier)
+}
+PROTOBUF_NDEBUG_INLINE ActivitySoldier::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        quests_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void ActivitySoldier::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, curgradechallengeid_),
+           0,
+           offsetof(Impl_, nodeindex_) -
+               offsetof(Impl_, curgradechallengeid_) +
+               sizeof(Impl_::nodeindex_));
+}
+ActivitySoldier::~ActivitySoldier() {
+  // @@protoc_insertion_point(destructor:proto.ActivitySoldier)
+  SharedDtor(*this);
+}
+inline void ActivitySoldier::SharedDtor(MessageLite& self) {
+  ActivitySoldier& this_ = static_cast<ActivitySoldier&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL ActivitySoldier::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) ActivitySoldier(arena);
+}
+constexpr auto ActivitySoldier::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.quests_) +
+          decltype(ActivitySoldier::_impl_.quests_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(ActivitySoldier), alignof(ActivitySoldier), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ActivitySoldier::PlacementNew_,
+                                 sizeof(ActivitySoldier),
+                                 alignof(ActivitySoldier));
+  }
+}
+constexpr auto ActivitySoldier::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_ActivitySoldier_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &ActivitySoldier::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<ActivitySoldier>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &ActivitySoldier::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<ActivitySoldier>(), &ActivitySoldier::ByteSizeLong,
+              &ActivitySoldier::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_._cached_size_),
+          false,
+      },
+      &ActivitySoldier::kDescriptorMethods,
+      &descriptor_table_public_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull ActivitySoldier_class_data_ =
+        ActivitySoldier::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+ActivitySoldier::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&ActivitySoldier_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(ActivitySoldier_class_data_.tc_table);
+  return ActivitySoldier_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 7, 1, 0, 7>
+ActivitySoldier::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967232,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    7,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    ActivitySoldier_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::ActivitySoldier>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 CurGradeChallengeId = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivitySoldier, _impl_.curgradechallengeid_), 2>(),
+     {8, 2, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.curgradechallengeid_)}},
+    // uint32 Score = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivitySoldier, _impl_.score_), 3>(),
+     {16, 3, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.score_)}},
+    // uint32 GradeChallengeId = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivitySoldier, _impl_.gradechallengeid_), 4>(),
+     {24, 4, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.gradechallengeid_)}},
+    // uint32 Stage = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivitySoldier, _impl_.stage_), 5>(),
+     {32, 5, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.stage_)}},
+    // uint32 NodeIndex = 5;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ActivitySoldier, _impl_.nodeindex_), 6>(),
+     {40, 6, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.nodeindex_)}},
+    // repeated .proto.ActivityQuest Quests = 6;
+    {::_pbi::TcParser::FastMtR1,
+     {50, 0, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.quests_)}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 1, 0,
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 6,
+    65535, 65535
+  }}, {{
+    // uint32 CurGradeChallengeId = 1;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.curgradechallengeid_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 Score = 2;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.score_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 GradeChallengeId = 3;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.gradechallengeid_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 Stage = 4;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.stage_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // uint32 NodeIndex = 5;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.nodeindex_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    // repeated .proto.ActivityQuest Quests = 6;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.quests_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ActivityQuest>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void ActivitySoldier::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.ActivitySoldier)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.quests_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007cU)) {
+    ::memset(&_impl_.curgradechallengeid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.nodeindex_) -
+        reinterpret_cast<char*>(&_impl_.curgradechallengeid_)) + sizeof(_impl_.nodeindex_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL ActivitySoldier::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const ActivitySoldier& this_ = static_cast<const ActivitySoldier&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL ActivitySoldier::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const ActivitySoldier& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.ActivitySoldier)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // uint32 CurGradeChallengeId = 1;
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_curgradechallengeid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          1, this_._internal_curgradechallengeid(), target);
+    }
+  }
+
+  // uint32 Score = 2;
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_score() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          2, this_._internal_score(), target);
+    }
+  }
+
+  // uint32 GradeChallengeId = 3;
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (this_._internal_gradechallengeid() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          3, this_._internal_gradechallengeid(), target);
+    }
+  }
+
+  // uint32 Stage = 4;
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (this_._internal_stage() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          4, this_._internal_stage(), target);
+    }
+  }
+
+  // uint32 NodeIndex = 5;
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (this_._internal_nodeindex() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          5, this_._internal_nodeindex(), target);
+    }
+  }
+
+  // repeated .proto.ActivityQuest Quests = 6;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_quests_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_quests().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              6, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.ActivitySoldier)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t ActivitySoldier::ByteSizeLong(const MessageLite& base) {
+  const ActivitySoldier& this_ = static_cast<const ActivitySoldier&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t ActivitySoldier::ByteSizeLong() const {
+  const ActivitySoldier& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.ActivitySoldier)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+    // repeated .proto.ActivityQuest Quests = 6;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_quests_size();
+      for (const auto& msg : this_._internal_quests()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+    // uint32 CurGradeChallengeId = 1;
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_curgradechallengeid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_curgradechallengeid());
+      }
+    }
+    // uint32 Score = 2;
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_score() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_score());
+      }
+    }
+    // uint32 GradeChallengeId = 3;
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (this_._internal_gradechallengeid() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_gradechallengeid());
+      }
+    }
+    // uint32 Stage = 4;
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (this_._internal_stage() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_stage());
+      }
+    }
+    // uint32 NodeIndex = 5;
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (this_._internal_nodeindex() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_nodeindex());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void ActivitySoldier::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<ActivitySoldier*>(&to_msg);
+  auto& from = static_cast<const ActivitySoldier&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.ActivitySoldier)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_quests()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_quests());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_curgradechallengeid() != 0) {
+        _this->_impl_.curgradechallengeid_ = from._impl_.curgradechallengeid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_score() != 0) {
+        _this->_impl_.score_ = from._impl_.score_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (from._internal_gradechallengeid() != 0) {
+        _this->_impl_.gradechallengeid_ = from._impl_.gradechallengeid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      if (from._internal_stage() != 0) {
+        _this->_impl_.stage_ = from._impl_.stage_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      if (from._internal_nodeindex() != 0) {
+        _this->_impl_.nodeindex_ = from._impl_.nodeindex_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void ActivitySoldier::CopyFrom(const ActivitySoldier& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.ActivitySoldier)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ActivitySoldier::InternalSwap(ActivitySoldier* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.quests_.InternalSwap(&other->_impl_.quests_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.nodeindex_)
+      + sizeof(ActivitySoldier::_impl_.nodeindex_)
+      - PROTOBUF_FIELD_OFFSET(ActivitySoldier, _impl_.curgradechallengeid_)>(
+          reinterpret_cast<char*>(&_impl_.curgradechallengeid_),
+          reinterpret_cast<char*>(&other->_impl_.curgradechallengeid_));
+}
+
+::google::protobuf::Metadata ActivitySoldier::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

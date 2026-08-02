@@ -1,6 +1,5 @@
 
-Íä
-
+²ì
 client_table.protonova.client"Ù
 Achievement
 Id (RId
@@ -89,7 +88,33 @@ PreLevelId
 Desc (	RDesc>
 FirstCompleteRewardPreview (	RFirstCompleteRewardPreview"K
 table_ActivityAvgLevel1
-list (2.nova.client.ActivityAvgLevelRlist"÷
+list (2.nova.client.ActivityAvgLevelRlist"Ö
+ActivityDouble
+Id (RId"
+InstanceType (RInstanceType
+
+DailyTimes (R
+DailyTimes
+
+RewardType (R
+RewardType
+UIAssets (	RUIAssets
+CtrlName (	RCtrlName
+DesText (	RDesText"G
+table_ActivityDouble/
+list (2.nova.client.ActivityDoubleRlist"Ë
+ActivityDoubleQuest
+Id (RId
+
+ActivityId (R
+ActivityId
+Desc (	RDesc
+	QuestType (R	QuestType 
+QuestParams (	RQuestParams
+ItemId (RItemId
+ItemQty (RItemQty"Q
+table_ActivityDoubleQuest4
+list (2 .nova.client.ActivityDoubleQuestRlist"÷
 ActivityGoods
 Id (RId
 Name (	RName
@@ -110,36 +135,75 @@ SaleNumber
 UnlockPurchaseTime (	RUnlockPurchaseTime 
 DisplayMode (RDisplayMode"E
 table_ActivityGoods.
-list (2.nova.client.ActivityGoodsRlist"ß
+list (2.nova.client.ActivityGoodsRlist"…
 ActivityGroup
 Id (RId,
 ActivityGroupType (RActivityGroupType,
 ActivityThemeType (RActivityThemeType
 	StartTime (	R	StartTime
 EndTime (	REndTime"
-EnterEndTime (	REnterEndTime
-EnterRes (	REnterRes
-PanelId (RPanelId
-Prologue	 (RPrologue
-PreLimit
- (RPreLimit
+EnterEndTime (	REnterEndTime$
+StoryShowTime (	RStoryShowTime
+EnterRes (	REnterRes
+PanelId	 (RPanelId
+Prologue
+ (RPrologue
+PreLimit (RPreLimit
 
-LimitParam (	R
+LimitParam (	R
 LimitParam$
-StartCondType (RStartCondType(
-StartCondParams (RStartCondParams
-CG (	RCG
-Enter (	REnter$
-MultipleEnter (	RMultipleEnter&
-UIAssetsPrefab (	RUIAssetsPrefab
-CtrlName (	RCtrlName 
-RewardsShow (RRewardsShow
-DesText (	RDesText
-	BannerRes (	R	BannerRes
-TabBgRes (	RTabBgRes"
-TransitionId (RTransitionId"E
+StartCondType (RStartCondType(
+StartCondParams (RStartCondParams
+CG (	RCG
+Enter (	REnter$
+MultipleEnter (	RMultipleEnter&
+UIAssetsPrefab (	RUIAssetsPrefab
+CtrlName (	RCtrlName 
+RewardsShow (RRewardsShow
+DesText (	RDesText
+	BannerRes (	R	BannerRes
+TabBgRes (	RTabBgRes"
+TransitionId (RTransitionId"E
 table_ActivityGroup.
-list (2.nova.client.ActivityGroupRlist"½
+list (2.nova.client.ActivityGroupRlist"Û
+ActivityIceCreamLevel
+Id (RId
+
+ActivityId (R
+ActivityId
+Duration (RDuration
+
+IslandName (	R
+IslandName
+Name (	RName
+Des (	RDes
+
+PreLevelId (R
+PreLevelId
+	LevelType (R	LevelType$
+CustomerCount	 (RCustomerCount$
+PatienceValue
+ (RPatienceValue
+Health (RHealth
+Fever (RFever,
+IceCreamBallLimit (RIceCreamBallLimit
+
+BuffPoolId (R
+BuffPoolId
+
+CharPoolId (R
+CharPoolId
+	PassScore (R	PassScore"
+PassScoreDes (	RPassScoreDes
+OrderNum (ROrderNum 
+OrderNumDes (	ROrderNumDes8
+FirstCompleteReward1Tid (RFirstCompleteReward1Tid8
+FirstCompleteReward1Qty (RFirstCompleteReward1Qty8
+FirstCompleteReward2Tid (RFirstCompleteReward2Tid8
+FirstCompleteReward2Qty (RFirstCompleteReward2Qty"
+DictionaryId (RDictionaryId"U
+table_ActivityIceCreamLevel6
+list (2".nova.client.ActivityIceCreamLevelRlist"½
 ActivityLevelsFloor
 Id (RId
 	MonsterLv (R	MonsterLv
@@ -210,7 +274,7 @@ ActivityId
 ScoreLevel (R
 ScoreLevel"[
 table_ActivityPenguinCardLevel9
-list (2%.nova.client.ActivityPenguinCardLevelRlist"ì
+list (2%.nova.client.ActivityPenguinCardLevelRlist"Œ
 ActivityPenguinCardQuest
 Id (RId
 Group (RGroup
@@ -218,11 +282,15 @@ ScoreLevel"[
 FinishType (R
 FinishType"
 FinishParams (	RFinishParams
-Desc (	RDesc
-Item1 (RItem1
-Qty1 (RQty1
-Item2 (RItem2
-Qty2	 (RQty2"[
+Desc (	RDesc
+
+AimNumShow (R
+AimNumShow
+Item1 (RItem1
+Qty1 (RQty1
+Item2	 (RItem2
+Qty2
+ (RQty2"[
 table_ActivityPenguinCardQuest9
 list (2%.nova.client.ActivityPenguinCardQuestRlist"m
 ActivityPenguinCardQuestGroup
@@ -288,12 +356,10 @@ AvgLuaName
 FirstCompleteReward (	RFirstCompleteReward
 Icon (	RIcon"E
 table_ActivityStory.
-list (2.nova.client.ActivityStoryRlist"ô
+list (2.nova.client.ActivityStoryRlist"ò
 ActivityStoryChapter
-Id (RId
-
-ActivityId (R
-ActivityId$
+Id (RId
+	ChapterId (R	ChapterId$
 PersonalityId (RPersonalityId,
 ActivityGroupType (RActivityGroupType
 IconRes (	RIconRes>
@@ -1323,7 +1389,12 @@ BattleLose"W
 Desc (	RDesc
 Icon (	RIcon"O
 table_CharacterSkinTheme3
-list (2.nova.client.CharacterSkinThemeRlist"N
+list (2.nova.client.CharacterSkinThemeRlist":
+CharacterSpine
+Id (RId
+ResPath (	RResPath"G
+table_CharacterSpine/
+list (2.nova.client.CharacterSpineRlist"N
 CharacterTag
 Id (RId
 Title (	RTitle
@@ -2344,7 +2415,25 @@ ThemeValue*
 EffectId (REffectId
 BuffId (RBuffId"=
 table_FloorBuff*
-list (2.nova.client.FloorBuffRlist"w
+list (2.nova.client.FloorBuffRlist"˜
+FollowSocialMediaControl
+Id (RId
+UseType (RUseType
+UIAssets (	RUIAssets
+CtrlName (	RCtrlName
+LinkList (RLinkList"[
+table_FollowSocialMediaControl9
+list (2%.nova.client.FollowSocialMediaControlRlist"Á
+FollowSocialMediaLinkConfig
+Id (RId
+Icon (	RIcon
+Name (	RName
+URL (	RURL
+DeepLink (	RDeepLink
+RewardId (RRewardId 
+RewardCount (RRewardCount"a
+!table_FollowSocialMediaLinkConfig<
+list (2(.nova.client.FollowSocialMediaLinkConfigRlist"w
 Force
 Id (RId
 Title (	RTitle
@@ -2566,13 +2655,14 @@ BaseFactor&
 GetHighValue (RGetHighValue(
 HighValueEffect	 (RHighValueEffect"I
 table_GoldenSpyConfig0
-list (2.nova.client.GoldenSpyConfigRlist"œ
+list (2.nova.client.GoldenSpyConfigRlist"À
 GoldenSpyControl
 Id (RId
 UseType (RUseType
 UIAssets (	RUIAssets
 CtrlName (	RCtrlName&
-LevelGroupList (RLevelGroupList"K
+LevelGroupList (RLevelGroupList"
+LevelPanelId (RLevelPanelId"K
 table_GoldenSpyControl1
 list (2.nova.client.GoldenSpyControlRlist"q
 GoldenSpyExtraScore
@@ -2612,7 +2702,7 @@ PrefabName
 IsTask (RIsTask$
 NeedShowFlash (RNeedShowFlash"E
 table_GoldenSpyItem.
-list (2.nova.client.GoldenSpyItemRlist"€
+list (2.nova.client.GoldenSpyItemRlist"ª
 GoldenSpyLevel
 Id (RId
 	LevelType (R	LevelType
@@ -2627,16 +2717,17 @@ PreLevelId
 Score	 (RScore 
 WinCondDesc
  (	RWinCondDesc&
-BuffCardPoolId (RBuffCardPoolId
-	LevelDesc (	R	LevelDesc
-Skill (	RSkill
-Item1Id (RItem1Id
+BuffCardPoolId (RBuffCardPoolId(
+BuffRefeshCount (RBuffRefeshCount
+	LevelDesc (	R	LevelDesc
+Skill (	RSkill
+Item1Id (RItem1Id
 
-Item1Count (R
+Item1Count (R
 Item1Count
-Item2Id (RItem2Id
+Item2Id (RItem2Id
 
-Item2Count (R
+Item2Count (R
 Item2Count"G
 table_GoldenSpyLevel/
 list (2.nova.client.GoldenSpyLevelRlist"µ
@@ -2729,7 +2820,7 @@ ScriptPath
 SkinId (RSkinId
 Cond (RCond";
 table_Handbook)
-list (2.nova.client.HandbookRlist"µ
+list (2.nova.client.HandbookRlist"Ù
 	HitDamage
 Id (RId$
 levelTypeData (RlevelTypeData
@@ -2763,7 +2854,8 @@ EffectType
 SkillId (RSkillId$
 SkillSlotType (RSkillSlotType
 PerkId (RPerkId(
-HitImmunityTime (RHitImmunityTime"=
+HitImmunityTime (RHitImmunityTime"
+SingleDamage (RSingleDamage"=
 table_HitDamage*
 list (2.nova.client.HitDamageRlist"‡
 Honor
@@ -2809,7 +2901,59 @@ HtmlConfig
 Id (RId
 	HtmlFrame (	R	HtmlFrame"?
 table_HtmlConfig+
-list (2.nova.client.HtmlConfigRlist"û
+list (2.nova.client.HtmlConfigRlist"Œ
+IceCreamBuff
+Id (RId
+Name (	RName
+BuffType (RBuffType
+Param (RParam
+Desc (	RDesc
+Icon (	RIcon"C
+table_IceCreamBuff-
+list (2.nova.client.IceCreamBuffRlist"j
+IceCreamBuffPool
+Id (RId
+PoolId (RPoolId
+BuffId (RBuffId
+Weight (RWeight"K
+table_IceCreamBuffPool1
+list (2.nova.client.IceCreamBuffPoolRlist"­
+IceCreamChar
+Id (RId
+Name (	RName
+Voice_Happy (	R
+VoiceHappy
+	Voice_Sad (	RVoiceSad
+Voice_Angry (	R
+VoiceAngry
+CharType (RCharType"C
+table_IceCreamChar-
+list (2.nova.client.IceCreamCharRlist"j
+IceCreamCharPool
+Id (RId
+PoolId (RPoolId
+CharId (RCharId
+Weight (RWeight"K
+table_IceCreamCharPool1
+list (2.nova.client.IceCreamCharPoolRlist"¼
+IceCreamCreate
+Id (RId
+Name (	RName
+Path (	RPath
+
+OptionType (R
+OptionType
+	LocalParm (R	LocalParm
+isStack (RisStack
+StackMax (RStackMax"G
+table_IceCreamCreate/
+list (2.nova.client.IceCreamCreateRlist"_
+IceCreamFever
+Combo (RCombo$
+Magnification (RMagnification
+Icon (	RIcon"E
+table_IceCreamFever.
+list (2.nova.client.IceCreamFeverRlist"û
 InfinityTower
 Id (RId
 Name (	RName 
@@ -3497,12 +3641,14 @@ SimpleName
 Type (RType
 Sort (RSort"I
 table_MallPackagePage0
-list (2.nova.client.MallPackagePageRlist"n
+list (2.nova.client.MallPackagePageRlist"¦
 MallRecommendGroup
 Id (	RId
 Sort (RSort 
 PackageList (	RPackageList
-Name (	RName"O
+Name (	RName
+	StartTime (	R	StartTime
+EndTime (	REndTime"O
 table_MallRecommendGroup3
 list (2.nova.client.MallRecommendGroupRlist"¦
 MallShop
@@ -3550,17 +3696,22 @@ DeListTime"C
 EndTime (	REndTime
 Weight (RWeight"C
 table_MangaLoading-
-list (2.nova.client.MangaLoadingRlist"¡
+list (2.nova.client.MangaLoadingRlist"
 MiningControl
 Id (RId
 UseType (RUseType
 UIAssets (	RUIAssets
-CtrlName (	RCtrlName*
-DigConsumeItemId (RDigConsumeItemId&
-ConfigMaxLayer (RConfigMaxLayer
-ShopId (RShopId
-BgPrefab (	RBgPrefab&
-GridListPrefab	 (	RGridListPrefab"E
+CtrlName (	RCtrlName 
+GamePanelId (RGamePanelId"
+QuestPanelId (RQuestPanelId
+Desc (	RDesc 
+RewardsShow (	RRewardsShow*
+DigConsumeItemId	 (RDigConsumeItemId&
+ConfigMaxLayer
+ (RConfigMaxLayer
+ShopId (RShopId
+BgPrefab (	RBgPrefab&
+GridListPrefab (	RGridListPrefab"E
 table_MiningControl.
 list (2.nova.client.MiningControlRlist"ò
 MiningDemoConfig
@@ -3589,20 +3740,29 @@ RewardType (R
 RewardType
 	ImageName (	R	ImageName"W
 table_MiningDemoRewardConfig7
-list (2#.nova.client.MiningDemoRewardConfigRlist"ÿ
+list (2#.nova.client.MiningDemoRewardConfigRlist"™
 MiningQuest
+Id (RId
+GroupId (RGroupId
+
+ActivityId (R
+ActivityId
+QuestDes (	RQuestDes"
+CompleteCond (RCompleteCond.
+CompleteCondParams (	RCompleteCondParams
+JumpTo (RJumpTo
+RewardId (RRewardId
+	RewardQty	 (R	RewardQty"A
+table_MiningQuest,
+list (2.nova.client.MiningQuestRlist"`
+MiningQuestGroup
 Id (RId
 
 ActivityId (R
-ActivityId
-QuestDes (	RQuestDes"
-CompleteCond (RCompleteCond.
-CompleteCondParams (	RCompleteCondParams
-JumpTo (RJumpTo
-RewardId (RRewardId
-	RewardQty (R	RewardQty"A
-table_MiningQuest,
-list (2.nova.client.MiningQuestRlist"
+ActivityId
+	GroupName (	R	GroupName"K
+table_MiningQuestGroup1
+list (2.nova.client.MiningQuestGroupRlist"
 MiningStory
 Id (RId
 
@@ -3643,51 +3803,52 @@ SelfRotate
 MiningItemRarity (RMiningItemRarity
 Score	 (RScore"G
 table_MiningTreasure/
-list (2.nova.client.MiningTreasureRlist"ï
+list (2.nova.client.MiningTreasureRlist"‘	
 Monster
 Id (RId
 Name (	RName
-EpicLv (REpicLv(
-MonsterPosition (RMonsterPosition
-	BloodType (R	BloodType
-Force (	RForce
-FCId (RFCId
-FAId (RFAId
-MovType	 (RMovType
-RunSpd
- (RRunSpd$
-TransSpdScale (RTransSpdScale
-WalkSpd (RWalkSpd
-MovAcc (RMovAcc
-	VisionRng (R	VisionRng
-	VisionDeg (R	VisionDeg
-HearRng (RHearRng
-RefRng (RRefRng
-ActRng (RActRng
-	DisActRng (R	DisActRng
-	SearchRng (R	SearchRng
-RotSpd (RRotSpd$
-RotSpdInSkill (RRotSpdInSkill
-Templete (RTemplete
-BuffIds (RBuffIds
-SubType (RSubType
-Faction (RFaction
+EpicLv (REpicLv 
+SubBossType (RSubBossType(
+MonsterPosition (RMonsterPosition
+	BloodType (R	BloodType
+Force (	RForce
+FCId (RFCId
+FAId	 (RFAId
+MovType
+ (RMovType
+RunSpd (RRunSpd$
+TransSpdScale (RTransSpdScale
+WalkSpd (RWalkSpd
+MovAcc (RMovAcc
+	VisionRng (R	VisionRng
+	VisionDeg (R	VisionDeg
+HearRng (RHearRng
+RefRng (RRefRng
+ActRng (RActRng
+	DisActRng (R	DisActRng
+	SearchRng (R	SearchRng
+RotSpd (RRotSpd$
+RotSpdInSkill (RRotSpdInSkill
+Templete (RTemplete
+BuffIds (RBuffIds
+SubType (RSubType
+Faction (RFaction
 
-TrapTagIds (R
+TrapTagIds (R
 TrapTagIds
-	SupCharge (R	SupCharge
-	IsShowRng (R	IsShowRng
-Weight (RWeight0
-ToughnessBrokenTime (RToughnessBrokenTime0
-IsToughnessRecorver  (RIsToughnessRecorver
-Tag1! (	RTag1
-Tag2" (	RTag2
-Tag3# (	RTag3
-Tag4$ (	RTag4
-Tag5% (	RTag5&
-AttackHintType& (RAttackHintType$
-BlockPriority' (RBlockPriority$
-MonsterTeamId( (RMonsterTeamId"9
+	SupCharge (R	SupCharge
+	IsShowRng (R	IsShowRng
+Weight (RWeight0
+ToughnessBrokenTime  (RToughnessBrokenTime0
+IsToughnessRecorver! (RIsToughnessRecorver
+Tag1" (	RTag1
+Tag2# (	RTag2
+Tag3$ (	RTag3
+Tag4% (	RTag4
+Tag5& (	RTag5&
+AttackHintType' (RAttackHintType$
+BlockPriority( (RBlockPriority$
+MonsterTeamId) (RMonsterTeamId"9
 table_Monster(
 list (2.nova.client.MonsterRlist"µ
 MonsterActionBranch
@@ -3744,11 +3905,21 @@ IdleAIPath
 WanderRate (R
 WanderRate"=
 table_MonsterAI*
-list (2.nova.client.MonsterAIRlist"_
+list (2.nova.client.MonsterAIRlist"n
+MonsterAttackAjust
+Id (RId
+GroupId (RGroupId
+Lv (RLv
+
+SwitchRate (R
+SwitchRate"O
+table_MonsterAttackAjust3
+list (2.nova.client.MonsterAttackAjustRlist"…
 MonsterAttributeContact
 Id (RId
 GroupId (RGroupId
-MaxLevel (RMaxLevel"Y
+MaxLevel (RMaxLevel$
+AtkTemplateId (RAtkTemplateId"Y
 table_MonsterAttributeContact8
 list (2$.nova.client.MonsterAttributeContactRlist"¢
 MonsterBornGroup
@@ -4069,7 +4240,7 @@ PopWindows
 Param5 (	RParam5
 Param6 (	RParam6";
 table_OpenFunc)
-list (2.nova.client.OpenFuncRlist"·
+list (2.nova.client.OpenFuncRlist"í
 PenguinBaseCard
 Id (RId
 Title (	RTitle
@@ -4080,8 +4251,12 @@ SuitCount1
 Suit2 (RSuit2
 
 SuitCount2 (R
-SuitCount2
-Icon (	RIcon"I
+SuitCount2
+Suit3 (RSuit3
+
+SuitCount3 (R
+SuitCount3
+Icon	 (	RIcon"I
 table_PenguinBaseCard0
 list (2.nova.client.PenguinBaseCardRlist"]
 PenguinBaseCardPool
@@ -4179,24 +4354,25 @@ EffectType
 BaseCardId (R
 BaseCardId"S
 table_PenguinCardFixedTurn5
-list (2!.nova.client.PenguinCardFixedTurnRlist"ž
+list (2!.nova.client.PenguinCardFixedTurnRlist"Ì
 PenguinCardFloor
 Id (RId
 MaxTurn (RMaxTurn"
 InitialScore (RInitialScore 
 InitialSlot (RInitialSlot"
-InitialRound (RInitialRound(
-InitialBuyLimit (RInitialBuyLimit 
-WeightGroup (RWeightGroup
-PoolId (RPoolId
-	QuestTurn	 (R	QuestTurn
+InitialRound (RInitialRound,
+InitialCheckRound (RInitialCheckRound(
+InitialBuyLimit (RInitialBuyLimit 
+WeightGroup (RWeightGroup
+PoolId	 (RPoolId
+	QuestTurn
+ (R	QuestTurn
 
-QuestGroup
- (R
+QuestGroup (R
 QuestGroup
-	FixedTurn (R	FixedTurn
-	Floortips (	R	Floortips
-ShowWin (RShowWin"K
+	FixedTurn (R	FixedTurn
+	Floortips (	R	Floortips
+ShowWin (RShowWin"K
 table_PenguinCardFloor1
 list (2.nova.client.PenguinCardFloorRlist"¯
 PenguinCardHandRank
@@ -4791,7 +4967,7 @@ toDefAmend,
 LevelGroup (R
 LevelGroup"K
 table_ScoreBossControl1
-list (2.nova.client.ScoreBossControlRlist"æ
+list (2.nova.client.ScoreBossControlRlist"ˆ
 ScoreBossFloor
 Id (RId
 	SceneName (	R	SceneName*
@@ -4799,7 +4975,8 @@ LevelGroup"K
 Theme (RTheme
 BGM (	RBGM,
 LeaveTriggerEvent (	RLeaveTriggerEvent$
-IntroCutscene (	RIntroCutscene"G
+IntroCutscene (	RIntroCutscene 
+LevelScript (	RLevelScript"G
 table_ScoreBossFloor/
 list (2.nova.client.ScoreBossFloorRlist"ß
 ScoreBossGetControl
@@ -5077,7 +5254,410 @@ DropMaxNum$
 Sort (RSort
 EET (REET"M
 table_SkillInstanceType2
-list (2.nova.client.SkillInstanceTypeRlist"Û
+list (2.nova.client.SkillInstanceTypeRlist"…
+SoldierBuff
+Id (RId
+Cond1 (RCond1 
+CondParams1 (RCondParams1
+Cond2 (RCond2 
+CondParams2 (RCondParams2
+Cond3 (RCond3 
+CondParams3 (RCondParams3
+Effect1 (REffect1$
+EffectParams1	 (	REffectParams1
+Effect2
+ (REffect2$
+EffectParams2 (	REffectParams2
+Effect3 (REffect3$
+EffectParams3 (	REffectParams3"A
+table_SoldierBuff,
+list (2.nova.client.SoldierBuffRlist"=
+SoldierCardEffect
+Id (RId
+BuffIds (RBuffIds"M
+table_SoldierCardEffect2
+list (2.nova.client.SoldierCardEffectRlist"Ó
+SoldierCharacter
+Id (RId
+Name (	RName
+GroupId (RGroupId
+Rarity (RRarity
+Cost (RCost
+MaxStar (RMaxStar
+Faction (RFaction$
+CharacterType (RCharacterType
+Skin	 (RSkin
+AIID
+ (RAIID
+Energy (REnergy$
+InitialEnergy (RInitialEnergy
+Recovery (RRecovery2
+SkillEndStartRecover (RSkillEndStartRecover
+Templete (RTemplete6
+AssistSkillOnStageType (RAssistSkillOnStageType*
+AssistSkillAngle (RAssistSkillAngle,
+AssistSkillRadius (RAssistSkillRadiusD
+AssistSkillOnStageOrientation (RAssistSkillOnStageOrientation
+
+Potential1 (R
+Potential1
+
+Potential2 (R
+Potential2
+
+Potential3 (R
+Potential3
+
+Potential4 (R
+Potential4*
+StopNormalAttack (RStopNormalAttack"
+SearchRadius (RSearchRadius.
+NormalAttackRadius (RNormalAttackRadius 
+SkillRadius (RSkillRadius
+Normal (RNormal
+Skill (RSkill
+Support (RSupport
+Type (RType 
+PartnerType  (RPartnerType
+ATKSPD_P! (RATKSPDP
+MovType" (RMovType
+WalkSpd# (RWalkSpd
+RunSpd$ (RRunSpd
+SpRunSpd% (RSpRunSpd
+TransSpd& (RTransSpd,
+WalkToRunDuration' (RWalkToRunDuration
+MovAcc( (RMovAcc
+RotSpd) (RRotSpd
+RotAcc* (RRotAcc
+Weight+ (RWeight$
+BlockPriority, (RBlockPriority 
+AimAtTarget- (RAimAtTarget
+	HideBlood. (R	HideBlood
+
+BoardChess/ (R
+BoardChess"K
+table_SoldierCharacter1
+list (2.nova.client.SoldierCharacterRlist"à
+SoldierChessAI
+Id (RId&
+ComboGroupPath (	RComboGroupPath"
+ActionAIPath (	RActionAIPath&
+ParallelAIPath (	RParallelAIPath 
+SpawnSkill1 (RSpawnSkill1 
+SpawnSkill2 (RSpawnSkill2 
+SpawnSkill3 (RSpawnSkill3 
+DeathSkill1 (RDeathSkill1 
+DeathSkill2	 (RDeathSkill2 
+DeathSkill3
+ (RDeathSkill3"G
+table_SoldierChessAI/
+list (2.nova.client.SoldierChessAIRlist"Œ
+SoldierChessType
+Id (RId
+	ChessType (R	ChessType
+Name (	RName
+Icon (	RIcon"
+PositionType (RPositionType"K
+table_SoldierChessType1
+list (2.nova.client.SoldierChessTypeRlist"Í
+SoldierClientBuff
+Id (RId
+Cond1 (RCond1 
+CondParams1 (	RCondParams1
+Cond2 (RCond2 
+CondParams2 (	RCondParams2
+Cond3 (RCond3 
+CondParams3 (	RCondParams3
+
+TargetType (R
+TargetType 
+TargetParam	 (RTargetParam
+Effect1
+ (REffect1$
+EffectParams1 (	REffectParams1
+Effect2 (REffect2$
+EffectParams2 (	REffectParams2
+Effect3 (REffect3$
+EffectParams3 (	REffectParams3"M
+table_SoldierClientBuff2
+list (2.nova.client.SoldierClientBuffRlist"¸
+SoldierControl
+Id (RId
+UIAssets (	RUIAssets
+CtrlName (	RCtrlName 
+RewardsShow (	RRewardsShow
+DesText (	RDesText"
+DictionaryId (RDictionaryId"G
+table_SoldierControl/
+list (2.nova.client.SoldierControlRlist"Î
+SoldierEventBattlePool
+Id (RId
+PoolId (RPoolId
+	LevelName (R	LevelName
+Title (	RTitle
+Name (	RName"
+AddDifficult (RAddDifficult
+weight (Rweight
+
+FloorGroup (R
+FloorGroup
+coin	 (Rcoin&
+CharacterCount
+ (RCharacterCount,
+StrategyCardCount (RStrategyCardCount"W
+table_SoldierEventBattlePool7
+list (2#.nova.client.SoldierEventBattlePoolRlist"d
+SoldierEventPlan
+Id (RId"
+EventGroupId (REventGroupId
+	EventType (R	EventType"K
+table_SoldierEventPlan1
+list (2.nova.client.SoldierEventPlanRlist"æ
+SoldierFloor
+Id (RId
+Default (RDefault
+
+BattleTime (R
+BattleTime 
+BothAddBuff (RBothAddBuff
+	SceneName (	R	SceneName*
+ConfigPrefabName (	RConfigPrefabName
+
+MapPreview (	R
+MapPreview&
+MonsterPreview (	RMonsterPreview 
+LevelScript	 (	RLevelScript
+BGM
+ (	RBGM$
+IntroCutscene (	RIntroCutscene"C
+table_SoldierFloor-
+list (2.nova.client.SoldierFloorRlist"
+SoldierGradeChallenge
+Id (RId
+
+KeyGradeId (R
+KeyGradeId
+
+GradeLevel (R
+GradeLevel
+Name (	RName
+Icon (	RIcon$
+OppoLevelShow (ROppoLevelShow0
+DiffcultyTemplateLv (RDiffcultyTemplateLv
+
+AffixCount (R
+AffixCount"
+AffixGroupId	 (RAffixGroupId 
+NodeGroupId
+ (RNodeGroupId
+Score (RScore*
+UnlockGradeLevel (RUnlockGradeLevel"U
+table_SoldierGradeChallenge6
+list (2".nova.client.SoldierGradeChallengeRlist"½
+SoldierKeyGrade
+Id (RId
+Name (	RName
+Icon (	RIcon
+Reward1 (RReward1
+
+RewardQty1 (R
+RewardQty1
+Reward2 (RReward2
+
+RewardQty2 (R
+RewardQty2"I
+table_SoldierKeyGrade0
+list (2.nova.client.SoldierKeyGradeRlist"6
+SoldierLabelMark
+Id (RId
+Icon (	RIcon"K
+table_SoldierLabelMark1
+list (2.nova.client.SoldierLabelMarkRlist"Ý
+SoldierNodePlan
+Id (RId 
+NodeGroupId (RNodeGroupId
+Stage (RStage
+Index (RIndex
+NodeType (RNodeType"
+EventGroupId (REventGroupId
+NodeIcon (	RNodeIcon.
+DifficultyLevelAdd (RDifficultyLevelAdd
+Coin	 (RCoin
+
+Experience
+ (R
+Experience
+AddHp (RAddHp
+LoseHp (RLoseHp"I
+table_SoldierNodePlan0
+list (2.nova.client.SoldierNodePlanRlist"Â
+SoldierPartner
+Id (RId 
+PartnerType (RPartnerType
+Name (	RName0
+PartnerLevelQuality (RPartnerLevelQuality
+Desc (	RDesc
+Level (RLevel
+Num (RNum4
+SoldierPartnerNumType (RSoldierPartnerNumType"
+ServerEffect	 (RServerEffect"
+ClientEffect
+ (RClientEffect"G
+table_SoldierPartner/
+list (2.nova.client.SoldierPartnerRlist"Å
+SoldierPartnerGroup
+Id (RId 
+PartnerType (RPartnerType
+Name (	RName
+Icon (	RIcon
+Desc (	RDesc,
+ChessCharacterIds (RChessCharacterIds
+Path (	RPath"Q
+table_SoldierPartnerGroup4
+list (2 .nova.client.SoldierPartnerGroupRlist"ó
+SoldierPositionEffect
+Id (RId"
+PositionType (RPositionType
+Index (RIndex
+Icon (	RIcon
+Name (	RName 
+KeyEffectId (RKeyEffectId"
+KeyEffectDes (	RKeyEffectDes"
+OppoEffectId (ROppoEffectId"U
+table_SoldierPositionEffect6
+list (2".nova.client.SoldierPositionEffectRlist"~
+SoldierPotential
+Id (RId
+Name (	RName
+Des (	RDes
+Icon (	RIcon 
+CharacterID (RCharacterID"K
+table_SoldierPotential1
+list (2.nova.client.SoldierPotentialRlist"
+SoldierQuest
+Id (RId
+Group (RGroup
+Desc (	RDesc"
+CompleteCond (RCompleteCond.
+CompleteCondParams (	RCompleteCondParams
+Reward1 (RReward1
+
+RewardQty1 (R
+RewardQty1
+Reward2 (RReward2
+
+RewardQty2	 (R
+RewardQty2"C
+table_SoldierQuest-
+list (2.nova.client.SoldierQuestRlist"i
+SoldierQuestGroup
+Id (RId
+GroupId (RGroupId
+OpenDay (ROpenDay
+Des (	RDes"M
+table_SoldierQuestGroup2
+list (2.nova.client.SoldierQuestGroupRlist"¶
+SoldierRecommendBuilds
+Id (RId
+Title (	RTitle 
+CharacterId (RCharacterId
+Front1 (RFront1
+Front2 (RFront2
+Front3 (RFront3
+Back (	RBack
+Desc (	RDesc 
+StarterCard	 (RStarterCard"
+StrategyCard
+ (RStrategyCard
+
+PartnerAdd (	R
+PartnerAdd"W
+table_SoldierRecommendBuilds7
+list (2#.nova.client.SoldierRecommendBuildsRlist"÷
+SoldierSeason
+Id (RId&
+StarterGroupId (RStarterGroupId(
+StrategyGroupId (RStrategyGroupId(
+ShopPoolGroupId (RShopPoolGroupId"
+ChessGroupId (RChessGroupId
+	StartTime (	R	StartTime
+EndTime (	REndTime"E
+table_SoldierSeason.
+list (2.nova.client.SoldierSeasonRlist"Ò
+SoldierShopLevel
+Level (RLevel
+Exp (RExp
+Count (RCount
+Rarity1 (RRarity1
+Rarity2 (RRarity2
+Rarity3 (RRarity3
+Rarity4 (RRarity4
+Rarity5 (RRarity5"K
+table_SoldierShopLevel1
+list (2.nova.client.SoldierShopLevelRlist"¿
+SoldierShopPool
+Id (RId
+GroupId (RGroupId*
+ChessCharacterId (RChessCharacterId
+Rarity (RRarity
+Name (	RName
+Weight (RWeight
+Cost (RCost"I
+table_SoldierShopPool0
+list (2.nova.client.SoldierShopPoolRlist"å
+SoldierSkin
+Id (RId
+Name (	RName 
+characterId (RcharacterId
+Icon (	RIcon
+Model (	RModel(
+RunAnimationSpd (RRunAnimationSpd*
+WalkAnimationSpd (RWalkAnimationSpd
+	BarHeight (R	BarHeight
+
+ModelScale	 (R
+ModelScale$
+ColliderScale
+ (RColliderScale,
+ForbiddenBehitRot (RForbiddenBehitRot"A
+table_SoldierSkin,
+list (2.nova.client.SoldierSkinRlist"â
+SoldierStarterCard
+Id (RId
+GroupId (RGroupId
+Rarity (RRarity
+Icon (	RIcon
+Name (	RName"
+CardEffectId (RCardEffectId
+Des (	RDes
+Desc (	RDesc&
+GradeLevelCond	 (RGradeLevelCond
+
+UnlockCond
+ (R
+UnlockCond*
+UnlockCondParams (RUnlockCondParams$
+CharacterShow (RCharacterShow"O
+table_SoldierStarterCard3
+list (2.nova.client.SoldierStarterCardRlist"ã
+SoldierStrategyCard
+Id (RId
+GroupId (RGroupId
+Rarity (RRarity
+Icon (	RIcon
+Name (	RName"
+CardEffectId (RCardEffectId
+Des (	RDes
+Desc (	RDesc&
+GradeLevelCond	 (RGradeLevelCond
+
+UnlockCond
+ (R
+UnlockCond*
+UnlockCondParams (RUnlockCondParams$
+CharacterShow (RCharacterShow"Q
+table_SoldierStrategyCard4
+list (2 .nova.client.SoldierStrategyCardRlist"Û
 	StarTower
 Id (RId
 Name (	RName
@@ -5514,7 +6094,7 @@ RewardQty3"G
 Level (RLevel
 NeedExp (RNeedExp"K
 table_StarTowerTeamExp1
-list (2.nova.client.StarTowerTeamExpRlist"û
+list (2.nova.client.StarTowerTeamExpRlist"½
 Story
 Id (RId
 StoryId (	RStoryId
@@ -5529,20 +6109,24 @@ TrialBuild
 ConditionId	 (	RConditionId
 IsBranch
  (RIsBranch
-IsBattle (RIsBattle
-Reward (RReward$
-RewardDisplay (	RRewardDisplay$
-ParentStoryId (	RParentStoryId 
-HasEvidence (RHasEvidence
+IsBattle (RIsBattle 
+EnterMethod (REnterMethod
+Reward (RReward$
+RewardDisplay (	RRewardDisplay$
+ParentStoryId (	RParentStoryId 
+HasEvidence (RHasEvidence
 
-AvgLuaName (	R
+AvgLuaName (	R
 AvgLuaName
-FloorId (RFloorId4
-PreviewMonsterGroupId (RPreviewMonsterGroupId
-	Recommend (	R	Recommend
-Aim (	RAim
-IsLast (RIsLast
-	AvgMotion (	R	AvgMotion"5
+FloorId (RFloorId4
+PreviewMonsterGroupId (RPreviewMonsterGroupId
+	Recommend (	R	Recommend
+Aim (	RAim
+IsLast (RIsLast
+	AvgMotion (	R	AvgMotion
+
+MemoryType (R
+MemoryType"5
 table_Story&
 list (2.nova.client.StoryRlist"„
 StoryChapter
@@ -6007,7 +6591,7 @@ DieSkillId"
 DesText (	RDesText
 BGM (	RBGM"Q
 table_TowerDefenseControl4
-list (2 .nova.client.TowerDefenseControlRlist"½
+list (2 .nova.client.TowerDefenseControlRlist"ï
 TowerDefenseFloor
 Id (RId
 	SceneName (	R	SceneName*
@@ -6030,7 +6614,8 @@ MonsterNum
 ItemID (RItemID
 BGM (	RBGM,
 LeaveTriggerEvent (	RLeaveTriggerEvent$
-IntroCutscene (	RIntroCutscene"M
+IntroCutscene (	RIntroCutscene0
+TDLevelGamePlayType (RTDLevelGamePlayType"M
 table_TowerDefenseFloor2
 list (2.nova.client.TowerDefenseFloorRlist"Á
 TowerDefenseGuide
@@ -6044,16 +6629,21 @@ ActivityId
 LevelId (RLevelId
 IsShow (RIsShow"M
 table_TowerDefenseGuide2
-list (2.nova.client.TowerDefenseGuideRlist"¸
+list (2.nova.client.TowerDefenseGuideRlist"È
 TowerDefenseItem
 Id (RId
 Name (	RName
 Des (	RDes
 Amount (RAmount
-Cd (RCd
-Script (	RScript
-CardIcon (	RCardIcon
-Head (	RHead"K
+Cd (RCd"
+ChargeScript (	RChargeScript"
+ChargeParam1 (RChargeParam1"
+ChargeParam2 (RChargeParam2"
+ChargeParam3	 (RChargeParam3
+Script
+ (	RScript
+CardIcon (	RCardIcon
+Head (	RHead"K
 table_TowerDefenseItem1
 list (2.nova.client.TowerDefenseItemRlist"ß
 TowerDefenseLevel
@@ -6163,7 +6753,91 @@ PreStoryId
 Lv (RLv
 Exp (RExp"Q
 table_TowerDefenseTeamExp4
-list (2 .nova.client.TowerDefenseTeamExpRlist"ê
+list (2 .nova.client.TowerDefenseTeamExpRlist"·
+TraceHuntBoss
+Id (RId
+	MonsterId (R	MonsterId
+	IsSpecial (R	IsSpecial
+FloorId (RFloorId0
+ScoreGetSwitchGroup (RScoreGetSwitchGroup
+ClueIcon (	RClueIcon
+
+TargetIcon (	R
+TargetIcon 
+ProfileIcon (	RProfileIcon
+HeadIcon	 (	RHeadIcon
+Image
+ (	RImage"E
+table_TraceHuntBoss.
+list (2.nova.client.TraceHuntBossRlist"œ
+TraceHuntControl
+Id (RId
+	StartTime (	R	StartTime
+EndTime (	REndTime
+BossList (RBossList*
+SelfHuntCost1Tid (RSelfHuntCost1Tid*
+SelfHuntCost1Qty (RSelfHuntCost1Qty,
+OtherHuntCost1Tid (ROtherHuntCost1Tid,
+OtherHuntCost1Qty (ROtherHuntCost1Qty$
+TraceCost1Tid	 (RTraceCost1Tid$
+TraceCost1Qty
+ (RTraceCost1Qty$
+StarDropCount (RStarDropCount"K
+table_TraceHuntControl1
+list (2.nova.client.TraceHuntControlRlist"æ
+TraceHuntFloor
+Id (RId
+	SceneName (	R	SceneName*
+ConfigPrefabName (	RConfigPrefabName
+Theme (RTheme
+BGM (	RBGM,
+LeaveTriggerEvent (	RLeaveTriggerEvent$
+IntroCutscene (	RIntroCutscene"G
+table_TraceHuntFloor/
+list (2.nova.client.TraceHuntFloorRlist"â
+TraceHuntLevel
+Level (RLevel
+Exp (RExp
+
+WorldClass (R
+WorldClass
+MaxStar (RMaxStar
+	TokenRate (R	TokenRate&
+DisplayMaxStar (RDisplayMaxStar*
+DisplayTokenRate (RDisplayTokenRate*
+DisplayLuckyRate (RDisplayLuckyRate&
+DisplayAddRate	 (RDisplayAddRate(
+DisplayFreeRate
+ (RDisplayFreeRate"G
+table_TraceHuntLevel/
+list (2.nova.client.TraceHuntLevelRlist"o
+TraceHuntLogEntryTemplate
+Id (RId
+Desc (	RDesc
+Type (RType
+Template (RTemplate"]
+table_TraceHuntLogEntryTemplate:
+list (2&.nova.client.TraceHuntLogEntryTemplateRlist"p
+TraceHuntScoreSwitch
+Id (RId
+GroupId (RGroupId
+Lv (RLv
+
+SwitchRate (R
+SwitchRate"S
+table_TraceHuntScoreSwitch5
+list (2!.nova.client.TraceHuntScoreSwitchRlist"~
+TraceHuntSelfHuntExtraCost
+Times (RTimes$
+ExtraCost1Tid (RExtraCost1Tid$
+ExtraCost1Qty (RExtraCost1Qty"_
+ table_TraceHuntSelfHuntExtraCost;
+list (2'.nova.client.TraceHuntSelfHuntExtraCostRlist"A
+TraceHuntStar
+Star (RStar
+	ScoreNeed (R	ScoreNeed"E
+table_TraceHuntStar.
+list (2.nova.client.TraceHuntStarRlist"ê
 Trap
 Id (RId
 Name (	RName

@@ -1,9 +1,32 @@
 ﻿#include "HttpMessage.h"
+#include <algorithm>
+#include <cctype>
 #include <sstream>
 #include <unordered_map>
 #include <shlwapi.h>
 #include <Urlmon.h>
 #include "Util.h"
+
+namespace
+{
+bool HeaderNameEquals(const std::string& left, const std::string& right)
+{
+    if (left.size() != right.size())
+    {
+        return false;
+    }
+
+    for (size_t i = 0; i < left.size(); ++i)
+    {
+        if (std::tolower(static_cast<unsigned char>(left[i])) !=
+            std::tolower(static_cast<unsigned char>(right[i])))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+}
 
 std::string GetStatusText(int statusCode) {
     static const std::unordered_map<int, std::string> statusMap = {
@@ -87,24 +110,99 @@ std::string GetStatusText(int statusCode) {
     return "Internal Server Error";
 }
 
-std::string HttpResponse::ToString() const {
+void HttpResponse::AddHeader(const std::string& name, const std::string& value)
+{
+    if (HasHeader(name))
+    {
+        repeatedHeaders.emplace_back(name, value);
+        return;
+    }
+
+    headers.emplace(name, value);
+}
+
+void HttpResponse::RemoveHeader(const std::string& name)
+{
+    for (auto it = headers.begin(); it != headers.end();)
+    {
+        if (HeaderNameEquals(it->first, name))
+        {
+            it = headers.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+
+    repeatedHeaders.erase(std::remove_if(repeatedHeaders.begin(), repeatedHeaders.end(),
+        [&name](const auto& header)
+        {
+            return HeaderNameEquals(header.first, name);
+        }), repeatedHeaders.end());
+}
+
+bool HttpResponse::HasHeader(const std::string& name) const
+{
+    for (const auto& header : headers)
+    {
+        if (HeaderNameEquals(header.first, name))
+        {
+            return true;
+        }
+    }
+
+    for (const auto& header : repeatedHeaders)
+    {
+        if (HeaderNameEquals(header.first, name))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+std::string HttpResponse::GetHeader(const std::string& name) const
+{
+    for (const auto& header : headers)
+    {
+        if (HeaderNameEquals(header.first, name))
+        {
+            return header.second;
+        }
+    }
+
+    for (const auto& header : repeatedHeaders)
+    {
+        if (HeaderNameEquals(header.first, name))
+        {
+            return header.second;
+        }
+    }
+
+    return "";
+}
+
+std::string HttpResponse::ToHeadersString(HttpResponseBodyMode bodyMode, bool closeConnection) const {
     std::stringstream ss;
 
     std::string finalStatusText = statusText;
-    if (finalStatusText.empty()) {
+    if (finalStatusText.empty() || (finalStatusText == "OK" && statusCode != 200)) {
         finalStatusText = GetStatusText(statusCode);
     }
 
     ss << version << " " << statusCode << " " << finalStatusText << "\r\n";
 
-    // Content-Length
-    if (headers.find("Content-Length") == headers.end()) {
+    if (bodyMode == HttpResponseBodyMode::ContentLength && !HasHeader("Content-Length")) {
         ss << "Content-Length: " << body.size() << "\r\n";
     }
+    else if (bodyMode == HttpResponseBodyMode::Chunked && !HasHeader("Transfer-Encoding")) {
+        ss << "Transfer-Encoding: chunked\r\n";
+    }
 
-    // Connection
-    if (headers.find("Connection") == headers.end()) {
-        if (version == "HTTP/1.0" || statusCode >= 400) {
+    if (!HasHeader("Connection")) {
+        if (closeConnection || version == "HTTP/1.0") {
             ss << "Connection: close\r\n";
         }
         else {
@@ -112,8 +210,7 @@ std::string HttpResponse::ToString() const {
         }
     }
 
-    // Content-Type
-    if (headers.find("Content-Type") == headers.end() && !body.empty())
+    if (!HasHeader("Content-Type") && !body.empty())
     {
         LPWSTR pwzMimeOut = NULL;
         HRESULT hr = FindMimeFromData(NULL, NULL, (void*)body.data(), body.size(), NULL, 0, &pwzMimeOut, 0);
@@ -130,9 +227,32 @@ std::string HttpResponse::ToString() const {
     for (const auto& header : headers) {
         ss << header.first << ": " << header.second << "\r\n";
     }
+    for (const auto& header : repeatedHeaders) {
+        ss << header.first << ": " << header.second << "\r\n";
+    }
 
-    ss << "\r\n" << body;
+    ss << "\r\n";
     return ss.str();
+}
+
+std::string HttpResponse::ToString() const {
+    const bool closeConnection = version == "HTTP/1.0" || statusCode >= 400;
+    return ToHeadersString(HttpResponseBodyMode::ContentLength, closeConnection) + body;
+}
+
+AsyncTask<bool> HttpResponseWriter::WriteResponse(const HttpResponse& response)
+{
+    if (!(co_await WriteHeaders(response, HttpResponseBodyMode::ContentLength)))
+    {
+        co_return false;
+    }
+
+    if (!response.body.empty() && !(co_await WriteData(response.body.data(), response.body.size())))
+    {
+        co_return false;
+    }
+
+    co_return co_await Finish();
 }
 
 std::string HttpRequest::GetPathWithoutQuery() const {

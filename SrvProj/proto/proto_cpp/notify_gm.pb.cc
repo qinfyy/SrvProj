@@ -310,6 +310,34 @@ struct GmClearAllCharGemInstanceDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GmClearAllCharGemInstanceDefaultTypeInternal _GmClearAllCharGemInstance_default_instance_;
 
+inline constexpr GmClearAllActivityIceCreamLevelsNotify::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        levels_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GmClearAllActivityIceCreamLevelsNotify::GmClearAllActivityIceCreamLevelsNotify(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(GmClearAllActivityIceCreamLevelsNotify_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GmClearAllActivityIceCreamLevelsNotifyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GmClearAllActivityIceCreamLevelsNotifyDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GmClearAllActivityIceCreamLevelsNotifyDefaultTypeInternal() {}
+  union {
+    GmClearAllActivityIceCreamLevelsNotify _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GmClearAllActivityIceCreamLevelsNotifyDefaultTypeInternal _GmClearAllActivityIceCreamLevelsNotify_default_instance_;
+
 inline constexpr GmClearAllActivityAvgNotify::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -656,6 +684,34 @@ struct CharAffinityDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CharAffinityDefaultTypeInternal _CharAffinity_default_instance_;
 
+inline constexpr SoldierEffectNtf::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        effects_{},
+        nextpackage_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR SoldierEffectNtf::SoldierEffectNtf(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(SoldierEffectNtf_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct SoldierEffectNtfDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SoldierEffectNtfDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SoldierEffectNtfDefaultTypeInternal() {}
+  union {
+    SoldierEffectNtf _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SoldierEffectNtfDefaultTypeInternal _SoldierEffectNtf_default_instance_;
+
 inline constexpr STAddTeamExpNtf::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -961,6 +1017,20 @@ const ::uint32_t
         0,
         3,
         1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::SoldierEffectNtf, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::SoldierEffectNtf, _impl_.effects_),
+        PROTOBUF_FIELD_OFFSET(::proto::SoldierEffectNtf, _impl_.nextpackage_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::proto::GmClearAllActivityIceCreamLevelsNotify, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::proto::GmClearAllActivityIceCreamLevelsNotify, _impl_.levels_),
+        PROTOBUF_FIELD_OFFSET(::proto::GmClearAllActivityIceCreamLevelsNotify, _impl_.nextpackage_),
+        0,
+        1,
 };
 
 static const ::_pbi::MigrationSchema
@@ -990,6 +1060,8 @@ static const ::_pbi::MigrationSchema
         {184, sizeof(::proto::GmClearAllActivityAvgNotify)},
         {191, sizeof(::proto::GmClearAllActivityLevelsNotify)},
         {198, sizeof(::proto::AssistAddBuildNotify)},
+        {209, sizeof(::proto::SoldierEffectNtf)},
+        {216, sizeof(::proto::GmClearAllActivityIceCreamLevelsNotify)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_GmWorldClass_default_instance_._instance,
@@ -1017,93 +1089,101 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_GmClearAllActivityAvgNotify_default_instance_._instance,
     &::proto::_GmClearAllActivityLevelsNotify_default_instance_._instance,
     &::proto::_AssistAddBuildNotify_default_instance_._instance,
+    &::proto::_SoldierEffectNtf_default_instance_._instance,
+    &::proto::_GmClearAllActivityIceCreamLevelsNotify_default_instance_._instance,
 };
 const char descriptor_table_protodef_notify_5fgm_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\017notify_gm.proto\022\005proto\032\014public.proto\032\027"
-    "public_star_tower.proto\"m\n\014GmWorldClass\022"
-    "\022\n\nFinalClass\030\001 \001(\r\022\017\n\007LastExp\030\002 \001(\005\022\r\n\005"
-    "Stage\030\003 \001(\r\022\023\n\013RewardsFlag\030\017 \001(\014\022\024\n\013Next"
-    "Package\030\377\017 \001(\014\"_\n\031GmClearAllVampireSurvi"
-    "vor\022,\n\007Records\030\001 \003(\0132\033.proto.VampireSurv"
-    "ivorLevel\022\024\n\013NextPackage\030\377\017 \001(\014\"\377\001\n\031Star"
-    "TowerSubNoteSkillInfo\022H\n\020SubNoteSkillInf"
-    "o\030\001 \003(\0132..proto.StarTowerSubNoteSkillInf"
-    "o.StageFloorNum\022\024\n\013NextPackage\030\377\017 \001(\014\032&\n"
-    "\010FloorNum\022\r\n\005Floor\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\032Z\n"
-    "\rStageFloorNum\022\017\n\007StageId\030\001 \001(\r\0228\n\005Infos"
-    "\030\002 \003(\0132).proto.StarTowerSubNoteSkillInfo"
-    ".FloorNum\"C\n\nAgentInfos\022\037\n\005Infos\030\001 \003(\0132\020"
-    ".proto.AgentInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"\200"
-    "\001\n\027GmClearAllDailyInstance\022,\n\016DailyInsta"
-    "nces\030\001 \003(\0132\024.proto.DailyInstance\022!\n\006Chan"
-    "ge\030\002 \001(\0132\021.proto.ChangeInfo\022\024\n\013NextPacka"
-    "ge\030\377\017 \001(\014\"T\n\016WeekBossLevels\022,\n\016WeekBossL"
-    "evels\030\001 \003(\0132\024.proto.WeekBossLevel\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"\206\001\n\031GmClearAllRegionBoss"
-    "Level\0220\n\020RegionBossLevels\030\001 \003(\0132\026.proto."
-    "RegionBossLevel\022!\n\006Change\030\002 \001(\0132\021.proto."
-    "ChangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"~\n\025GmCl"
-    "earAllTravelerDue\022,\n\006Levels\030\001 \003(\0132\034.prot"
-    "o.TravelerDuelBossLevel\022!\n\006Change\030\002 \001(\0132"
-    "\021.proto.ChangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014"
-    "\"]\n\027GmClearAllSkillInstance\022,\n\016SkillInst"
-    "ances\030\001 \003(\0132\024.proto.SkillInstance\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"j\n\014CharAffinity\022!\n\004Info\030"
-    "\001 \001(\0132\023.proto.AffinityInfo\022!\n\006Change\030\002 \001"
-    "(\0132\021.proto.ChangeInfo\022\024\n\013NextPackage\030\377\017 "
-    "\001(\014\":\n\025GmSTClearAllStarTower\022\013\n\003Ids\030\001 \003("
-    "\r\022\024\n\013NextPackage\030\377\017 \001(\014\"l\n\017STAddTeamExpN"
-    "tf\022\r\n\005Level\030\001 \001(\r\022\013\n\003Exp\030\002 \001(\r\022\'\n\005Cases\030"
-    "\003 \003(\0132\030.proto.StarTowerRoomCase\022\024\n\013NextP"
-    "ackage\030\377\017 \001(\014\"\214\001\n\033GmClearAllEquipmentIns"
-    "tance\0224\n\022EquipmentInstances\030\001 \003(\0132\030.prot"
-    "o.EquipmentInstance\022!\n\006Change\030\002 \001(\0132\021.pr"
-    "oto.ChangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"]\n\027"
-    "GmAllInfinityTowerInfos\022,\n\005Infos\030\001 \003(\0132\035"
-    ".proto.InfinityTowerLevelInfo\022\024\n\013NextPac"
-    "kage\030\377\017 \001(\014\"t\n\007GmStory\022\021\n\tEvidences\030\001 \003("
-    "\r\022\035\n\007Stories\030\002 \003(\0132\014.proto.Story\022!\n\006Chan"
-    "ge\030\003 \001(\0132\021.proto.ChangeInfo\022\024\n\013NextPacka"
-    "ge\030\377\017 \001(\014\":\n\024GmHarmonySkillNotify\022\014\n\004Lis"
-    "t\030\001 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"@\n\030GmTower"
-    "GrowthNodesNotify\022\016\n\006Detail\030\001 \003(\r\022\024\n\013Nex"
-    "tPackage\030\377\017 \001(\014\"h\n\016GmCharUpNotify\022\031\n\004Cha"
-    "r\030\001 \001(\0132\013.proto.Char\022%\n\010Handbook\030\002 \003(\0132\023"
-    ".proto.HandbookInfo\022\024\n\013NextPackage\030\377\017 \001("
-    "\014\"c\n\031GmClearAllCharGemInstance\0220\n\020CharGe"
-    "mInstances\030\001 \003(\0132\026.proto.CharGemInstance"
-    "\022\024\n\013NextPackage\030\377\017 \001(\014\"\227\001\n\026GmImportCharG"
-    "emsNotify\022\016\n\006CharId\030\001 \001(\r\022(\n\014CharGemSlot"
-    "s\030\002 \003(\0132\022.proto.CharGemSlot\022-\n\016CharGemPr"
-    "esets\030\003 \001(\0132\025.proto.CharGemPresets\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014\"U\n\033GmClearAllActivityAv"
-    "gNotify\022 \n\004Avgs\030\001 \003(\0132\022.proto.ActivityAv"
-    "g\022\024\n\013NextPackage\030\377\017 \001(\014\"]\n\036GmClearAllAct"
-    "ivityLevelsNotify\022%\n\006levels\030\001 \003(\0132\025.prot"
-    "o.ActivityLevels\022\024\n\013NextPackage\030\377\017 \001(\014\"\243"
-    "\001\n\024AssistAddBuildNotify\022!\n\006Change\030\001 \001(\0132"
-    "\021.proto.ChangeInfo\022$\n\014BuildRewards\030\002 \003(\013"
-    "2\016.proto.ItemTpl\022,\n\tBuildInfo\030\003 \001(\0132\031.pr"
-    "oto.StarTowerBuildInfo\022\024\n\013NextPackage\030\377\017"
-    " \001(\014b\006proto3"
+    "public_star_tower.proto\032\024public_soldier."
+    "proto\"m\n\014GmWorldClass\022\022\n\nFinalClass\030\001 \001("
+    "\r\022\017\n\007LastExp\030\002 \001(\005\022\r\n\005Stage\030\003 \001(\r\022\023\n\013Rew"
+    "ardsFlag\030\017 \001(\014\022\024\n\013NextPackage\030\377\017 \001(\014\"_\n\031"
+    "GmClearAllVampireSurvivor\022,\n\007Records\030\001 \003"
+    "(\0132\033.proto.VampireSurvivorLevel\022\024\n\013NextP"
+    "ackage\030\377\017 \001(\014\"\377\001\n\031StarTowerSubNoteSkillI"
+    "nfo\022H\n\020SubNoteSkillInfo\030\001 \003(\0132..proto.St"
+    "arTowerSubNoteSkillInfo.StageFloorNum\022\024\n"
+    "\013NextPackage\030\377\017 \001(\014\032&\n\010FloorNum\022\r\n\005Floor"
+    "\030\001 \001(\r\022\013\n\003Num\030\002 \001(\r\032Z\n\rStageFloorNum\022\017\n\007"
+    "StageId\030\001 \001(\r\0228\n\005Infos\030\002 \003(\0132).proto.Sta"
+    "rTowerSubNoteSkillInfo.FloorNum\"C\n\nAgent"
+    "Infos\022\037\n\005Infos\030\001 \003(\0132\020.proto.AgentInfo\022\024"
+    "\n\013NextPackage\030\377\017 \001(\014\"\200\001\n\027GmClearAllDaily"
+    "Instance\022,\n\016DailyInstances\030\001 \003(\0132\024.proto"
+    ".DailyInstance\022!\n\006Change\030\002 \001(\0132\021.proto.C"
+    "hangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"T\n\016WeekB"
+    "ossLevels\022,\n\016WeekBossLevels\030\001 \003(\0132\024.prot"
+    "o.WeekBossLevel\022\024\n\013NextPackage\030\377\017 \001(\014\"\206\001"
+    "\n\031GmClearAllRegionBossLevel\0220\n\020RegionBos"
+    "sLevels\030\001 \003(\0132\026.proto.RegionBossLevel\022!\n"
+    "\006Change\030\002 \001(\0132\021.proto.ChangeInfo\022\024\n\013Next"
+    "Package\030\377\017 \001(\014\"~\n\025GmClearAllTravelerDue\022"
+    ",\n\006Levels\030\001 \003(\0132\034.proto.TravelerDuelBoss"
+    "Level\022!\n\006Change\030\002 \001(\0132\021.proto.ChangeInfo"
+    "\022\024\n\013NextPackage\030\377\017 \001(\014\"]\n\027GmClearAllSkil"
+    "lInstance\022,\n\016SkillInstances\030\001 \003(\0132\024.prot"
+    "o.SkillInstance\022\024\n\013NextPackage\030\377\017 \001(\014\"j\n"
+    "\014CharAffinity\022!\n\004Info\030\001 \001(\0132\023.proto.Affi"
+    "nityInfo\022!\n\006Change\030\002 \001(\0132\021.proto.ChangeI"
+    "nfo\022\024\n\013NextPackage\030\377\017 \001(\014\":\n\025GmSTClearAl"
+    "lStarTower\022\013\n\003Ids\030\001 \003(\r\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"l\n\017STAddTeamExpNtf\022\r\n\005Level\030\001 \001(\r\022"
+    "\013\n\003Exp\030\002 \001(\r\022\'\n\005Cases\030\003 \003(\0132\030.proto.Star"
+    "TowerRoomCase\022\024\n\013NextPackage\030\377\017 \001(\014\"\214\001\n\033"
+    "GmClearAllEquipmentInstance\0224\n\022Equipment"
+    "Instances\030\001 \003(\0132\030.proto.EquipmentInstanc"
+    "e\022!\n\006Change\030\002 \001(\0132\021.proto.ChangeInfo\022\024\n\013"
+    "NextPackage\030\377\017 \001(\014\"]\n\027GmAllInfinityTower"
+    "Infos\022,\n\005Infos\030\001 \003(\0132\035.proto.InfinityTow"
+    "erLevelInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"t\n\007GmS"
+    "tory\022\021\n\tEvidences\030\001 \003(\r\022\035\n\007Stories\030\002 \003(\013"
+    "2\014.proto.Story\022!\n\006Change\030\003 \001(\0132\021.proto.C"
+    "hangeInfo\022\024\n\013NextPackage\030\377\017 \001(\014\":\n\024GmHar"
+    "monySkillNotify\022\014\n\004List\030\001 \003(\r\022\024\n\013NextPac"
+    "kage\030\377\017 \001(\014\"@\n\030GmTowerGrowthNodesNotify\022"
+    "\016\n\006Detail\030\001 \003(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"h\n"
+    "\016GmCharUpNotify\022\031\n\004Char\030\001 \001(\0132\013.proto.Ch"
+    "ar\022%\n\010Handbook\030\002 \003(\0132\023.proto.HandbookInf"
+    "o\022\024\n\013NextPackage\030\377\017 \001(\014\"c\n\031GmClearAllCha"
+    "rGemInstance\0220\n\020CharGemInstances\030\001 \003(\0132\026"
+    ".proto.CharGemInstance\022\024\n\013NextPackage\030\377\017"
+    " \001(\014\"\227\001\n\026GmImportCharGemsNotify\022\016\n\006CharI"
+    "d\030\001 \001(\r\022(\n\014CharGemSlots\030\002 \003(\0132\022.proto.Ch"
+    "arGemSlot\022-\n\016CharGemPresets\030\003 \001(\0132\025.prot"
+    "o.CharGemPresets\022\024\n\013NextPackage\030\377\017 \001(\014\"U"
+    "\n\033GmClearAllActivityAvgNotify\022 \n\004Avgs\030\001 "
+    "\003(\0132\022.proto.ActivityAvg\022\024\n\013NextPackage\030\377"
+    "\017 \001(\014\"]\n\036GmClearAllActivityLevelsNotify\022"
+    "%\n\006levels\030\001 \003(\0132\025.proto.ActivityLevels\022\024"
+    "\n\013NextPackage\030\377\017 \001(\014\"\243\001\n\024AssistAddBuildN"
+    "otify\022!\n\006Change\030\001 \001(\0132\021.proto.ChangeInfo"
+    "\022$\n\014BuildRewards\030\002 \003(\0132\016.proto.ItemTpl\022,"
+    "\n\tBuildInfo\030\003 \001(\0132\031.proto.StarTowerBuild"
+    "Info\022\024\n\013NextPackage\030\377\017 \001(\014\"O\n\020SoldierEff"
+    "ectNtf\022%\n\007Effects\030\001 \003(\0132\024.proto.SoldierE"
+    "ffect\022\024\n\013NextPackage\030\377\017 \001(\014\"l\n&GmClearAl"
+    "lActivityIceCreamLevelsNotify\022,\n\006levels\030"
+    "\001 \003(\0132\034.proto.ActivityIceCreamLevel\022\024\n\013N"
+    "extPackage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
-    descriptor_table_notify_5fgm_2eproto_deps[2] = {
+    descriptor_table_notify_5fgm_2eproto_deps[3] = {
         &::descriptor_table_public_2eproto,
+        &::descriptor_table_public_5fsoldier_2eproto,
         &::descriptor_table_public_5fstar_5ftower_2eproto,
 };
 static ::absl::once_flag descriptor_table_notify_5fgm_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_notify_5fgm_2eproto = {
     false,
     false,
-    2652,
+    2865,
     descriptor_table_protodef_notify_5fgm_2eproto,
     "notify_gm.proto",
     &descriptor_table_notify_5fgm_2eproto_once,
     descriptor_table_notify_5fgm_2eproto_deps,
-    2,
-    25,
+    3,
+    27,
     schemas,
     file_default_instances,
     TableStruct_notify_5fgm_2eproto::offsets,
@@ -10113,6 +10193,680 @@ void AssistAddBuildNotify::InternalSwap(AssistAddBuildNotify* PROTOBUF_RESTRICT 
 }
 
 ::google::protobuf::Metadata AssistAddBuildNotify::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class SoldierEffectNtf::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<SoldierEffectNtf>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_._has_bits_);
+};
+
+void SoldierEffectNtf::clear_effects() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.effects_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+SoldierEffectNtf::SoldierEffectNtf(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, SoldierEffectNtf_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.SoldierEffectNtf)
+}
+PROTOBUF_NDEBUG_INLINE SoldierEffectNtf::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::SoldierEffectNtf& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        effects_{visibility, arena, from.effects_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+SoldierEffectNtf::SoldierEffectNtf(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const SoldierEffectNtf& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, SoldierEffectNtf_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SoldierEffectNtf* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:proto.SoldierEffectNtf)
+}
+PROTOBUF_NDEBUG_INLINE SoldierEffectNtf::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        effects_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void SoldierEffectNtf::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+SoldierEffectNtf::~SoldierEffectNtf() {
+  // @@protoc_insertion_point(destructor:proto.SoldierEffectNtf)
+  SharedDtor(*this);
+}
+inline void SoldierEffectNtf::SharedDtor(MessageLite& self) {
+  SoldierEffectNtf& this_ = static_cast<SoldierEffectNtf&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL SoldierEffectNtf::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) SoldierEffectNtf(arena);
+}
+constexpr auto SoldierEffectNtf::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_.effects_) +
+          decltype(SoldierEffectNtf::_impl_.effects_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(SoldierEffectNtf), alignof(SoldierEffectNtf), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&SoldierEffectNtf::PlacementNew_,
+                                 sizeof(SoldierEffectNtf),
+                                 alignof(SoldierEffectNtf));
+  }
+}
+constexpr auto SoldierEffectNtf::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_SoldierEffectNtf_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &SoldierEffectNtf::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<SoldierEffectNtf>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &SoldierEffectNtf::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<SoldierEffectNtf>(), &SoldierEffectNtf::ByteSizeLong,
+              &SoldierEffectNtf::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_._cached_size_),
+          false,
+      },
+      &SoldierEffectNtf::kDescriptorMethods,
+      &descriptor_table_notify_5fgm_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull SoldierEffectNtf_class_data_ =
+        SoldierEffectNtf::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+SoldierEffectNtf::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&SoldierEffectNtf_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(SoldierEffectNtf_class_data_.tc_table);
+  return SoldierEffectNtf_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 2, 1, 0, 7>
+SoldierEffectNtf::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    SoldierEffectNtf_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::SoldierEffectNtf>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .proto.SoldierEffect Effects = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_.effects_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 1, 0,
+      PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 1,
+    65535, 65535
+  }}, {{
+    // repeated .proto.SoldierEffect Effects = 1;
+    {PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_.effects_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(SoldierEffectNtf, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::SoldierEffect>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void SoldierEffectNtf::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.SoldierEffectNtf)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.effects_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL SoldierEffectNtf::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const SoldierEffectNtf& this_ = static_cast<const SoldierEffectNtf&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL SoldierEffectNtf::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const SoldierEffectNtf& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.SoldierEffectNtf)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // repeated .proto.SoldierEffect Effects = 1;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_effects_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_effects().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              1, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.SoldierEffectNtf)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t SoldierEffectNtf::ByteSizeLong(const MessageLite& base) {
+  const SoldierEffectNtf& this_ = static_cast<const SoldierEffectNtf&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t SoldierEffectNtf::ByteSizeLong() const {
+  const SoldierEffectNtf& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.SoldierEffectNtf)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // repeated .proto.SoldierEffect Effects = 1;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_effects_size();
+      for (const auto& msg : this_._internal_effects()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void SoldierEffectNtf::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<SoldierEffectNtf*>(&to_msg);
+  auto& from = static_cast<const SoldierEffectNtf&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.SoldierEffectNtf)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_effects()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_effects());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void SoldierEffectNtf::CopyFrom(const SoldierEffectNtf& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.SoldierEffectNtf)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void SoldierEffectNtf::InternalSwap(SoldierEffectNtf* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.effects_.InternalSwap(&other->_impl_.effects_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+}
+
+::google::protobuf::Metadata SoldierEffectNtf::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class GmClearAllActivityIceCreamLevelsNotify::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<GmClearAllActivityIceCreamLevelsNotify>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_._has_bits_);
+};
+
+void GmClearAllActivityIceCreamLevelsNotify::clear_levels() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.levels_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+GmClearAllActivityIceCreamLevelsNotify::GmClearAllActivityIceCreamLevelsNotify(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GmClearAllActivityIceCreamLevelsNotify_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.GmClearAllActivityIceCreamLevelsNotify)
+}
+PROTOBUF_NDEBUG_INLINE GmClearAllActivityIceCreamLevelsNotify::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::proto::GmClearAllActivityIceCreamLevelsNotify& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        levels_{visibility, arena, from.levels_},
+        nextpackage_(arena, from.nextpackage_) {}
+
+GmClearAllActivityIceCreamLevelsNotify::GmClearAllActivityIceCreamLevelsNotify(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const GmClearAllActivityIceCreamLevelsNotify& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, GmClearAllActivityIceCreamLevelsNotify_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GmClearAllActivityIceCreamLevelsNotify* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:proto.GmClearAllActivityIceCreamLevelsNotify)
+}
+PROTOBUF_NDEBUG_INLINE GmClearAllActivityIceCreamLevelsNotify::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        levels_{visibility, arena},
+        nextpackage_(arena) {}
+
+inline void GmClearAllActivityIceCreamLevelsNotify::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+GmClearAllActivityIceCreamLevelsNotify::~GmClearAllActivityIceCreamLevelsNotify() {
+  // @@protoc_insertion_point(destructor:proto.GmClearAllActivityIceCreamLevelsNotify)
+  SharedDtor(*this);
+}
+inline void GmClearAllActivityIceCreamLevelsNotify::SharedDtor(MessageLite& self) {
+  GmClearAllActivityIceCreamLevelsNotify& this_ = static_cast<GmClearAllActivityIceCreamLevelsNotify&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.nextpackage_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL GmClearAllActivityIceCreamLevelsNotify::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) GmClearAllActivityIceCreamLevelsNotify(arena);
+}
+constexpr auto GmClearAllActivityIceCreamLevelsNotify::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_.levels_) +
+          decltype(GmClearAllActivityIceCreamLevelsNotify::_impl_.levels_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(GmClearAllActivityIceCreamLevelsNotify), alignof(GmClearAllActivityIceCreamLevelsNotify), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&GmClearAllActivityIceCreamLevelsNotify::PlacementNew_,
+                                 sizeof(GmClearAllActivityIceCreamLevelsNotify),
+                                 alignof(GmClearAllActivityIceCreamLevelsNotify));
+  }
+}
+constexpr auto GmClearAllActivityIceCreamLevelsNotify::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_GmClearAllActivityIceCreamLevelsNotify_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &GmClearAllActivityIceCreamLevelsNotify::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<GmClearAllActivityIceCreamLevelsNotify>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &GmClearAllActivityIceCreamLevelsNotify::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<GmClearAllActivityIceCreamLevelsNotify>(), &GmClearAllActivityIceCreamLevelsNotify::ByteSizeLong,
+              &GmClearAllActivityIceCreamLevelsNotify::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_._cached_size_),
+          false,
+      },
+      &GmClearAllActivityIceCreamLevelsNotify::kDescriptorMethods,
+      &descriptor_table_notify_5fgm_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull GmClearAllActivityIceCreamLevelsNotify_class_data_ =
+        GmClearAllActivityIceCreamLevelsNotify::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+GmClearAllActivityIceCreamLevelsNotify::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&GmClearAllActivityIceCreamLevelsNotify_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(GmClearAllActivityIceCreamLevelsNotify_class_data_.tc_table);
+  return GmClearAllActivityIceCreamLevelsNotify_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 2, 1, 0, 7>
+GmClearAllActivityIceCreamLevelsNotify::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_._has_bits_),
+    0, // no _extensions_
+    2047, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    GmClearAllActivityIceCreamLevelsNotify_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::proto::GmClearAllActivityIceCreamLevelsNotify>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .proto.ActivityIceCreamLevel levels = 1;
+    {::_pbi::TcParser::FastMtR1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_.levels_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // bytes NextPackage = 2047;
+    {::_pbi::TcParser::FastBS2,
+     {32762, 1, 0,
+      PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_.nextpackage_)}},
+  }}, {{
+    2047, 0, 1,
+    65534, 1,
+    65535, 65535
+  }}, {{
+    // repeated .proto.ActivityIceCreamLevel levels = 1;
+    {PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_.levels_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bytes NextPackage = 2047;
+    {PROTOBUF_FIELD_OFFSET(GmClearAllActivityIceCreamLevelsNotify, _impl_.nextpackage_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::proto::ActivityIceCreamLevel>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void GmClearAllActivityIceCreamLevelsNotify::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.GmClearAllActivityIceCreamLevelsNotify)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.levels_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL GmClearAllActivityIceCreamLevelsNotify::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const GmClearAllActivityIceCreamLevelsNotify& this_ = static_cast<const GmClearAllActivityIceCreamLevelsNotify&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL GmClearAllActivityIceCreamLevelsNotify::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const GmClearAllActivityIceCreamLevelsNotify& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:proto.GmClearAllActivityIceCreamLevelsNotify)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // repeated .proto.ActivityIceCreamLevel levels = 1;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_levels_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_levels().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              1, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // bytes NextPackage = 2047;
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_nextpackage().empty()) {
+      const ::std::string& _s = this_._internal_nextpackage();
+      target = stream->WriteBytesMaybeAliased(2047, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.GmClearAllActivityIceCreamLevelsNotify)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t GmClearAllActivityIceCreamLevelsNotify::ByteSizeLong(const MessageLite& base) {
+  const GmClearAllActivityIceCreamLevelsNotify& this_ = static_cast<const GmClearAllActivityIceCreamLevelsNotify&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t GmClearAllActivityIceCreamLevelsNotify::ByteSizeLong() const {
+  const GmClearAllActivityIceCreamLevelsNotify& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:proto.GmClearAllActivityIceCreamLevelsNotify)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // repeated .proto.ActivityIceCreamLevel levels = 1;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_levels_size();
+      for (const auto& msg : this_._internal_levels()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // bytes NextPackage = 2047;
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_nextpackage().empty()) {
+        total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_nextpackage());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void GmClearAllActivityIceCreamLevelsNotify::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<GmClearAllActivityIceCreamLevelsNotify*>(&to_msg);
+  auto& from = static_cast<const GmClearAllActivityIceCreamLevelsNotify&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:proto.GmClearAllActivityIceCreamLevelsNotify)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_levels()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_levels());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_nextpackage().empty()) {
+        _this->_internal_set_nextpackage(from._internal_nextpackage());
+      } else {
+        if (_this->_impl_.nextpackage_.IsDefault()) {
+          _this->_internal_set_nextpackage("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void GmClearAllActivityIceCreamLevelsNotify::CopyFrom(const GmClearAllActivityIceCreamLevelsNotify& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:proto.GmClearAllActivityIceCreamLevelsNotify)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GmClearAllActivityIceCreamLevelsNotify::InternalSwap(GmClearAllActivityIceCreamLevelsNotify* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.levels_.InternalSwap(&other->_impl_.levels_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
+}
+
+::google::protobuf::Metadata GmClearAllActivityIceCreamLevelsNotify::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

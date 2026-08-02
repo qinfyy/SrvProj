@@ -29,6 +29,67 @@ enum Action {
     Action_Download = 1;
 }
 
+// Class: EntityType, Namespaze: , Assembly: Game
+// Il2Cpp Class Generation
+enum EntityType {
+    EntityType_PLAYER = 0;
+    EntityType_BOSS = 1;
+    EntityType_LEADER = 2;
+    EntityType_ELITE = 3;
+}
+
+// Class: EntityClass, Namespaze: , Assembly: Game
+// Il2Cpp Class Generation
+enum EntityClass {
+    EntityClass_ROLE = 0;
+    EntityClass_MONSTER = 1;
+}
+
+// Class: DamageType, Namespaze: , Assembly: Game
+// Il2Cpp Class Generation
+enum DamageType {
+    DamageType_NORMAL = 0;
+    DamageType_HEAL = 1;
+    DamageType_REAL = 2;
+    DamageType_DIRECT = 3;
+    DamageType_DIRECT_HEAL = 4;
+    DamageType_DOT = 5;
+    DamageType_DOT_HEAL = 6;
+    DamageType_HP_ABSORB = 7;
+    DamageType_HP_REDUCE = 8;
+    DamageType_HP_RECOVER = 9;
+    DamageType_HP_REVERT = 10;
+    DamageType_DAMAGE_DELAY = 11;
+    DamageType_HEAL_DELAY = 12;
+}
+
+// Class: DamageFlag, Namespaze: , Assembly: Game
+// Il2Cpp Class Generation
+enum DamageFlag {
+    DamageFlag_NONE = 0;
+    DamageFlag_CRIT = 1;
+    DamageFlag_SHIELD_ABSORB = 2;
+    DamageFlag_HP_LOCK = 4;
+}
+
+// Class: DamageSource, Namespaze: , Assembly: Game
+// Il2Cpp Class Generation
+enum DamageSource {
+    DamageSource_NormalAttack = 0;
+    DamageSource_NormalSkill = 1;
+    DamageSource_UltraSkill = 2;
+}
+
+// Class: LevelType, Namespaze: , Assembly: Game
+// Il2Cpp Class Generation
+enum LevelType {
+    LevelType_STAR_TOWER = 0;
+    LevelType_TRAVELER_DUEL = 1;
+    LevelType_VAMPIRE = 2;
+    LevelType_JOINT_DRILL_1 = 3;
+    LevelType_SCOREBOSS = 4;
+}
+
 // Class: ServerListMeta, Namespaze: Pb, Assembly: Game
 // Message Descriptor Generation
 message ServerListMeta {
@@ -743,6 +804,7 @@ message HitDamage {
     int32 SkillSlotType = 24;
     int32 PerkId = 25;
     int32 HitImmunityTime = 26;
+    bool SingleDamage = 27;
 }
 
 // Class: table_HitDamage, Namespaze: Nova.Client, Assembly: Game
@@ -832,43 +894,44 @@ message Monster {
     int32 Id = 1;
     string Name = 2;
     int32 EpicLv = 3;
-    int32 MonsterPosition = 4;
-    int32 BloodType = 5;
-    string Force = 6;
-    int32 FCId = 7;
-    int32 FAId = 8;
-    int32 MovType = 9;
-    int32 RunSpd = 10;
-    int32 TransSpdScale = 11;
-    int32 WalkSpd = 12;
-    int32 MovAcc = 13;
-    int32 VisionRng = 14;
-    int32 VisionDeg = 15;
-    int32 HearRng = 16;
-    int32 RefRng = 17;
-    int32 ActRng = 18;
-    int32 DisActRng = 19;
-    int32 SearchRng = 20;
-    int32 RotSpd = 21;
-    int32 RotSpdInSkill = 22;
-    int32 Templete = 23;
-    repeated int32 BuffIds = 24;
-    int32 SubType = 25;
-    int32 Faction = 26;
-    repeated int32 TrapTagIds = 27;
-    int32 SupCharge = 28;
-    bool IsShowRng = 29;
-    int32 Weight = 30;
-    int32 ToughnessBrokenTime = 31;
-    bool IsToughnessRecorver = 32;
-    string Tag1 = 33;
-    string Tag2 = 34;
-    string Tag3 = 35;
-    string Tag4 = 36;
-    string Tag5 = 37;
-    int32 AttackHintType = 38;
-    int32 BlockPriority = 39;
-    int32 MonsterTeamId = 40;
+    int32 SubBossType = 4;
+    int32 MonsterPosition = 5;
+    int32 BloodType = 6;
+    string Force = 7;
+    int32 FCId = 8;
+    int32 FAId = 9;
+    int32 MovType = 10;
+    int32 RunSpd = 11;
+    int32 TransSpdScale = 12;
+    int32 WalkSpd = 13;
+    int32 MovAcc = 14;
+    int32 VisionRng = 15;
+    int32 VisionDeg = 16;
+    int32 HearRng = 17;
+    int32 RefRng = 18;
+    int32 ActRng = 19;
+    int32 DisActRng = 20;
+    int32 SearchRng = 21;
+    int32 RotSpd = 22;
+    int32 RotSpdInSkill = 23;
+    int32 Templete = 24;
+    repeated int32 BuffIds = 25;
+    int32 SubType = 26;
+    int32 Faction = 27;
+    repeated int32 TrapTagIds = 28;
+    int32 SupCharge = 29;
+    bool IsShowRng = 30;
+    int32 Weight = 31;
+    int32 ToughnessBrokenTime = 32;
+    bool IsToughnessRecorver = 33;
+    string Tag1 = 34;
+    string Tag2 = 35;
+    string Tag3 = 36;
+    string Tag4 = 37;
+    string Tag5 = 38;
+    int32 AttackHintType = 39;
+    int32 BlockPriority = 40;
+    int32 MonsterTeamId = 41;
 }
 
 // Class: table_Monster, Namespaze: Nova.Client, Assembly: Game
@@ -940,12 +1003,28 @@ message table_MonsterAI {
     repeated MonsterAI list = 1;
 }
 
+// Class: MonsterAttackAjust, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message MonsterAttackAjust {
+    int64 Id = 1;
+    int32 GroupId = 2;
+    int32 Lv = 3;
+    float SwitchRate = 4;
+}
+
+// Class: table_MonsterAttackAjust, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_MonsterAttackAjust {
+    repeated MonsterAttackAjust list = 1;
+}
+
 // Class: MonsterAttributeContact, Namespaze: Nova.Client, Assembly: Game
 // Message Descriptor Generation
 message MonsterAttributeContact {
     int32 Id = 1;
     int32 GroupId = 2;
     int32 MaxLevel = 3;
+    int32 AtkTemplateId = 4;
 }
 
 // Class: table_MonsterAttributeContact, Namespaze: Nova.Client, Assembly: Game
@@ -1786,6 +1865,85 @@ message table_TestTeamData {
     repeated TestTeamData list = 1;
 }
 
+// Class: TraceHuntControl, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TraceHuntControl {
+    int32 Id = 1;
+    string StartTime = 2;
+    string EndTime = 3;
+    repeated int32 BossList = 4;
+    int32 SelfHuntCost1Tid = 5;
+    int32 SelfHuntCost1Qty = 6;
+    int32 OtherHuntCost1Tid = 7;
+    int32 OtherHuntCost1Qty = 8;
+    int32 TraceCost1Tid = 9;
+    int32 TraceCost1Qty = 10;
+    repeated int32 StarDropCount = 11;
+}
+
+// Class: table_TraceHuntControl, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TraceHuntControl {
+    repeated TraceHuntControl list = 1;
+}
+
+// Class: TraceHuntLogEntryTemplate, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TraceHuntLogEntryTemplate {
+    int32 Id = 1;
+    string Desc = 2;
+    int32 Type = 3;
+    int32 Template = 4;
+}
+
+// Class: table_TraceHuntLogEntryTemplate, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TraceHuntLogEntryTemplate {
+    repeated TraceHuntLogEntryTemplate list = 1;
+}
+
+// Class: TraceHuntScoreSwitch, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TraceHuntScoreSwitch {
+    int32 Id = 1;
+    int32 GroupId = 2;
+    int32 Lv = 3;
+    float SwitchRate = 4;
+}
+
+// Class: table_TraceHuntScoreSwitch, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TraceHuntScoreSwitch {
+    repeated TraceHuntScoreSwitch list = 1;
+}
+
+// Class: TraceHuntSelfHuntExtraCost, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TraceHuntSelfHuntExtraCost {
+    int32 Times = 1;
+    int32 ExtraCost1Tid = 2;
+    int32 ExtraCost1Qty = 3;
+}
+
+// Class: table_TraceHuntSelfHuntExtraCost, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TraceHuntSelfHuntExtraCost {
+    repeated TraceHuntSelfHuntExtraCost list = 1;
+}
+
+// Class: TraceHuntStar, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message TraceHuntStar {
+    int32 Star = 1;
+    int32 ScoreNeed = 2;
+}
+
+// Class: table_TraceHuntStar, Namespaze: Nova.Client, Assembly: Game
+// Message Descriptor Generation
+message table_TraceHuntStar {
+    repeated TraceHuntStar list = 1;
+}
+
 // Class: Trap, Namespaze: Nova.Client, Assembly: Game
 // Message Descriptor Generation
 message Trap {
@@ -2006,6 +2164,297 @@ message table_WeightParameter {
     repeated WeightParameter list = 1;
 }
 
+// Class: OnceAttribute, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message OnceAttribute {
+    int32 Id = 1;
+    int32 Count = 2;
+}
+
+// Class: Attribute, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+// 与Nova.Client的Attribute消息不同冲突，暂时注释。
+//message Attribute {
+//    double Origin = 1;
+//    double BaseAmend = 2;
+//    double PercentAmend = 3;
+//    double AbsAmend = 4;
+//}
+
+// Class: SpecialAttribute, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message SpecialAttribute {
+    int32 AttrType = 1;
+    float Value = 2;
+}
+
+// Class: Attacker, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Attacker {
+    uint32 Id = 1;
+    uint32 ProtoId = 2;
+    EntityClass EntClass = 3;
+    float Atk = 4;
+    float SkillPercentAmend = 5;
+    float TalentGroupPercentAmend = 6;
+    float SkillAbsAmend = 7;
+    float TalentGroupAbsAmend = 8;
+    float PerkIntensityRatio = 9;
+    float SlotDmgRatio = 10;
+    float EE = 11;
+    float GenDmgRatio = 12;
+    float DmgPlus = 13;
+    float CritRatio = 14;
+    float FinalDmgRatio = 15;
+    float FinalDmgPlus = 16;
+    float CritRate = 17;
+    float DefPierce = 18;
+    float DefIgnore = 19;
+    int32 WEP = 20;
+    int32 FEP = 21;
+    int32 SEP = 22;
+    int32 AEP = 23;
+    int32 LEP = 24;
+    int32 DEP = 25;
+    float WEI = 26;
+    float FEI = 27;
+    float SEI = 28;
+    float AEI = 29;
+    float LEI = 30;
+    float DEI = 31;
+    float SkillIntensityRatio = 32;
+    repeated int32 BuffIDs = 33;
+    repeated int32 EffectIDs = 34;
+    repeated Attribute Attributes = 35;
+    repeated OnceAttribute OnceAttributes = 36;
+    repeated SpecialAttribute SpAttributes = 37;
+}
+
+// Class: Defender, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Defender {
+    uint32 Id = 1;
+    uint32 ProtoId = 2;
+    EntityClass EntClass = 3;
+    int64 HP = 4;
+    int64 MaxHP = 5;
+    float ErAmend = 6;
+    float DefAmend = 7;
+    float RcdSlotDmgRatio = 8;
+    float EERCD = 9;
+    float GenDmgRcdRatio = 10;
+    float DmgPlusRcd = 11;
+    float SrcDef = 12;
+    float CritResistance = 13;
+    int32 WER = 14;
+    int32 FER = 15;
+    int32 SER = 16;
+    int32 AER = 17;
+    int32 LER = 18;
+    int32 DER = 19;
+    float Suppress = 20;
+    float ToughnessBrokenDmgRatio = 21;
+    float envAmendRatio = 22;
+    repeated int32 BuffIDs = 23;
+    repeated int32 EffectIDs = 24;
+    repeated Attribute Attributes = 25;
+    repeated OnceAttribute OnceAttributes = 26;
+    repeated SpecialAttribute SpAttributes = 27;
+}
+
+// Class: Spawn, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Spawn {
+    uint32 FrameId = 1;
+    EntityType EntType = 2;
+    uint32 Id = 3;
+    uint32 ProtoId = 4;
+    int64 HP = 5;
+}
+
+// Class: Damage, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Damage {
+    uint32 Id = 1;
+    uint32 FrameId = 2;
+    DamageType DmgType = 3;
+    int64 Value = 4;
+    int64 FinalValue = 5;
+    int32 HitDamageID = 6;
+    uint32 DmgFlag = 7;
+    Attacker From = 8;
+    Defender To = 9;
+    DamageSource DamageSource = 10;
+}
+
+// Class: Death, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Death {
+    uint32 FrameId = 1;
+    uint32 Id = 2;
+}
+
+// Class: Role, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Role {
+    uint32 Id = 1;
+    int32 Level = 2;
+    int32 BreakCount = 3;
+    int64 Hp = 4;
+    int32 Atk = 5;
+    int32 Def = 6;
+    int32 MDef = 7;
+    int32 CritRate = 8;
+    int32 CritResistance = 9;
+    int32 CritPower = 10;
+    int32 HitRate = 11;
+    int32 Evd = 12;
+    int32 DefPierce = 13;
+    int32 DefIgnore = 14;
+    int32 WEP = 15;
+    int32 FEP = 16;
+    int32 SEP = 17;
+    int32 AEP = 18;
+    int32 LEP = 19;
+    int32 DEP = 20;
+    int32 WEE = 21;
+    int32 FEE = 22;
+    int32 SEE = 23;
+    int32 AEE = 24;
+    int32 LEE = 25;
+    int32 DEE = 26;
+    int32 WER = 27;
+    int32 FER = 28;
+    int32 SER = 29;
+    int32 AER = 30;
+    int32 LER = 31;
+    int32 DER = 32;
+    int32 WEI = 33;
+    int32 FEI = 34;
+    int32 SEI = 35;
+    int32 AEI = 36;
+    int32 LEI = 37;
+    int32 DEI = 38;
+    int32 ShieldBonus = 39;
+    int32 IncomingShieldBonus = 40;
+    int32 SkinId = 41;
+    int32 Suppress = 42;
+    int32 NormalDmgRatio = 43;
+    int32 SkillDmgRatio = 44;
+    int32 UltraDmgRatio = 45;
+    int32 OtherDmgRatio = 46;
+    int32 RcdNormalDmgRatio = 47;
+    int32 RcdSkillDmgRatio = 48;
+    int32 RcdUltraDmgRatio = 49;
+    int32 RcdOtherDmgRatio = 50;
+    int32 MarkDmgRatio = 51;
+    int32 SummonDmgRatio = 52;
+    int32 RcdSummonDmgRatio = 53;
+    int32 ProjectileDmgRatio = 54;
+    int32 RcdProjectileDmgRatio = 55;
+    int32 GENDMG = 56;
+    int32 DMGPLUS = 57;
+    int32 FINALDMG = 58;
+    int32 FINALDMGPLUS = 59;
+    int32 WEERCD = 60;
+    int32 FEERCD = 61;
+    int32 SEERCD = 62;
+    int32 AEERCD = 63;
+    int32 LEERCD = 64;
+    int32 DEERCD = 65;
+    int32 GENDMGRCD = 66;
+    int32 DMGPLUSRCD = 67;
+    int32 EnergyConvRatio = 68;
+    int32 EnergyEfficiency = 69;
+    int32 NormalCritRate = 70;
+    int32 SkillCritRate = 71;
+    int32 UltraCritRate = 72;
+    int32 MarkCritRate = 73;
+    int32 SummonCritRate = 74;
+    int32 ProjectileCritRate = 75;
+    int32 OtherCritRate = 76;
+    int32 NormalCritPower = 77;
+    int32 SkillCritPower = 78;
+    int32 UltraCritPower = 79;
+    int32 MarkCritPower = 80;
+    int32 SummonCritPower = 81;
+    int32 ProjectileCritPower = 82;
+    int32 OtherCritPower = 83;
+    string AttrId = 84;
+    repeated int32 SkillLevelList = 85;
+    repeated bool TalentInfoList = 86;
+}
+
+// Class: Disc, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Disc {
+    uint32 Id = 1;
+    uint32 Level = 2;
+    int32 BreakCount = 3;
+    int32 Advance = 4;
+}
+
+// Class: Potential, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Potential {
+    int32 Id = 1;
+    int32 Level = 2;
+}
+
+// Class: Note, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Note {
+    int32 Id = 1;
+    int32 Count = 2;
+}
+
+// Class: BuildChar, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message BuildChar {
+    uint32 Id = 1;
+    repeated Potential Potentials = 2;
+    repeated int32 EquipmentEffects = 3;
+}
+
+// Class: Build, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message Build {
+    int64 Id = 1;
+    string Name = 2;
+    repeated BuildChar Chars = 3;
+    repeated Disc Discs = 4;
+    repeated int32 SecondarySkills = 5;
+    repeated Note Notes = 6;
+}
+
+// Class: BossLevelUp, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message BossLevelUp {
+    uint32 FrameId = 1;
+    int32 ProtoId = 2;
+    int32 Level = 3;
+    int64 HP = 4;
+    int64 MaxHP = 5;
+}
+
+// Class: CastSkill, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message CastSkill {
+    uint32 FrameId = 1;
+    EntityClass EntClass = 2;
+    int32 ProtoId = 3;
+    int32 SkillId = 4;
+}
+
+// Class: MonsterDamage, Namespaze: , Assembly: Game
+// Message Descriptor Generation
+message MonsterDamage {
+    uint32 MonsterId = 1;
+    uint64 Damage = 2;
+    bool IsBoss = 3;
+    int64 InitialMaxHP = 4;
+}
+
 // Class: Recorder, Namespaze: Nova.Client, Assembly: Game
 // Message Descriptor Generation
 message Recorder {
@@ -2018,6 +2467,10 @@ message Recorder {
     repeated Spawn Spawners = 7;
     repeated Damage Damages = 8;
     repeated Death Deaths = 9;
+    uint32 StartTimingFrame = 10;
+    uint32 StopTimingFrame = 11;
+    uint64 TotalDamage = 12;
+    repeated MonsterDamage MonsterDamages = 13;
     // Enum Descriptor Generation
     enum EntityType {
         PLAYER = 0;
@@ -2055,6 +2508,13 @@ message Recorder {
         CRIT = 1;
         SHIELD_ABSORB = 2;
         HP_LOCK = 4;
+    }
+
+    // Enum Descriptor Generation
+    enum DamageSource {
+        NormalAttack = 0;
+        NormalSkill = 1;
+        UltraSkill = 2;
     }
 
     // Message Descriptor Generation
@@ -2169,6 +2629,7 @@ message Recorder {
         uint32 DmgFlag = 7;
         Attacker From = 8;
         Defender To = 9;
+        DamageSource DamageSource = 10;
     }
 
     // Message Descriptor Generation
@@ -2319,6 +2780,14 @@ message Recorder {
         EntityClass EntClass = 2;
         int32 ProtoId = 3;
         int32 SkillId = 4;
+    }
+
+    // Message Descriptor Generation
+    message MonsterDamage {
+        uint32 MonsterId = 1;
+        uint64 Damage = 2;
+        bool IsBoss = 3;
+        int64 InitialMaxHP = 4;
     }
 
 }

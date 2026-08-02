@@ -3,7 +3,7 @@
 #include "../Game/MailMgr.h"
 #include "../Game/Player.h"
 #include "../GameSession.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/mail_pin.pb.h"
 #include "../proto/proto_cpp/mail_recv.pb.h"
 #include "../proto/proto_cpp/mail_remove.pb.h"
@@ -12,10 +12,6 @@
 #include <vector>
 
 namespace {
-bool HasLoggedInPlayer(GameSession* session)
-{
-    return session && session->HasPlayer() && session->GetPlayer();
-}
 
 bool ParseMailRequest(const std::string& req, proto::MailRequest& out)
 {
@@ -30,7 +26,7 @@ bool ParseMailRequest(const std::string& req, proto::MailRequest& out)
 
 std::string mail_list_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mail_list_failed_ack);
     }
@@ -41,7 +37,7 @@ std::string mail_list_req__Handler(GameSession* session, const std::string& req)
 
 std::string mail_read_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mail_read_failed_ack);
     }
@@ -58,7 +54,7 @@ std::string mail_read_req__Handler(GameSession* session, const std::string& req)
 
 std::string mail_recv_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mail_recv_failed_ack);
     }
@@ -86,7 +82,7 @@ std::string mail_recv_req__Handler(GameSession* session, const std::string& req)
 
 std::string mail_remove_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mail_remove_failed_ack);
     }
@@ -115,7 +111,7 @@ std::string mail_remove_req__Handler(GameSession* session, const std::string& re
 
 std::string mail_pin_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasLoggedInPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mail_pin_failed_ack);
     }

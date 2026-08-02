@@ -1,6 +1,7 @@
 ﻿#include "QuestMgr.h"
 
 #include "AchievementMgr.h"
+#include "ChangeInfoUtil.h"
 #include "Bitset.h"
 #include "InventoryMgr.h"
 #include "Player.h"
@@ -9,7 +10,7 @@
 #include "../Resources/BinClass/MiscRes.h"
 #include "../Resources/BinClass/QuestRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/notify.pb.h"
 #include "../proto/proto_cpp/public.pb.h"
 
@@ -85,18 +86,6 @@ bool Contains(const google::protobuf::RepeatedField<uint32_t>& values, uint32_t 
     return std::find(values.begin(), values.end(), value) != values.end();
 }
 
-void AddItemChange(proto::ChangeInfo& change, uint32_t tid, int32_t qty)
-{
-    if (tid == 0 || qty == 0)
-    {
-        return;
-    }
-
-    proto::Item item;
-    item.set_tid(tid);
-    item.set_qty(qty);
-    change.add_props()->PackFrom(item);
-}
 
 uint32_t QuestStatus(uint32_t status, uint32_t cur, uint32_t max)
 {
@@ -163,7 +152,7 @@ proto::SigninRewardUpdate BuildSigninRewardUpdate()
 
     if (firstReward)
     {
-        AddItemChange(*update.mutable_change(), static_cast<uint32_t>(firstReward->ItemId), firstReward->ItemQty);
+        ChangeInfoUtil::AddItemChange(*update.mutable_change(), static_cast<uint32_t>(firstReward->ItemId), firstReward->ItemQty);
     }
     else
     {
@@ -498,7 +487,8 @@ void QuestMgr::PushFirstLoginNotifications()
     player->PushNextPackage(signin_reward_change_notify, BuildSigninRewardUpdate());
     player->Achievements().PushFirstLoginNotificationsAfterSignin();
 
-    player->PushNextPackage(handbook_change_notify, BuildHandbookInfo(1, BuildHandbookFlag(1, {410301, 410302, 410601})));
+    // 与 EncodeMinimalSystems 保持一致，只对表内存在的 handbook id 置位。
+    player->PushNextPackage(handbook_change_notify, BuildHandbookInfo(1, BuildHandbookFlag(1, {410301, 410302})));
     player->PushNextPackage(handbook_change_notify, BuildHandbookInfo(2, BuildHandbookFlag(2, {})));
 }
 
@@ -641,7 +631,7 @@ bool QuestMgr::ClaimDailyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
     if (claimedCount > 0)
     {
-        Trigger(kCondQuestWithSpecificType, claimedCount, proto::Daily, 0);
+        GetPlayer()->Trigger(kCondQuestWithSpecificType, claimedCount, proto::Daily, 0);
     }
 
     return claimedCount > 0;
@@ -694,7 +684,7 @@ bool QuestMgr::ClaimWeeklyQuestReward(uint32_t questId, proto::ChangeInfo& out)
 
     if (claimedCount > 0)
     {
-        Trigger(kCondQuestWithSpecificType, claimedCount, proto::Weekly, 0);
+        GetPlayer()->Trigger(kCondQuestWithSpecificType, claimedCount, proto::Weekly, 0);
     }
 
     return claimedCount > 0;
@@ -766,6 +756,56 @@ bool QuestMgr::ClaimWeeklyActiveRewards(std::vector<uint32_t>& activeIds, proto:
     return !activeIds.empty();
 }
 
+bool QuestMgr::ReceiveWorldClassReward(uint32_t id, proto::ChangeInfo& out)
+{
+    Bitset rewards(Bin().worldclassrewards());
+    std::vector<const WorldClassRes*> claimList;
+
+    if (id > 0)
+    {
+        const auto it = GameData::WorldClassDataTable.find(static_cast<int>(id));
+        if (it != GameData::WorldClassDataTable.end() && rewards.IsSet(id))
+        {
+            claimList.push_back(&it->second);
+        }
+    }
+    else
+    {
+        std::vector<int> ids;
+        ids.reserve(GameData::WorldClassDataTable.size());
+        for (const auto& [worldClassId, _] : GameData::WorldClassDataTable)
+        {
+            if (worldClassId > 0 && rewards.IsSet(static_cast<uint32_t>(worldClassId)))
+            {
+                ids.push_back(worldClassId);
+            }
+        }
+        std::sort(ids.begin(), ids.end());
+        for (int worldClassId : ids)
+        {
+            claimList.push_back(&GameData::WorldClassDataTable.at(worldClassId));
+        }
+    }
+
+    if (claimList.empty())
+    {
+        return false;
+    }
+
+    for (const auto* data : claimList)
+    {
+        GetPlayer()->Inventory().AddItems(data->Rewards, &out);
+        rewards.UnsetBit(static_cast<uint32_t>(data->Id));
+    }
+    MutableBin()->set_worldclassrewards(rewards.ToByteArray());
+    return true;
+}
+
+std::string QuestMgr::GetWorldClassRewardFlag() const
+{
+    return Bitset(Bin().worldclassrewards()).ToBigEndianByteArray();
+}
+
 bool QuestMgr::ClaimDailyShopGift(proto::ChangeInfo& out)
 {
     auto* bin = MutableBin();
@@ -776,7 +816,7 @@ bool QuestMgr::ClaimDailyShopGift(proto::ChangeInfo& out)
 
     bin->set_dailyshoprewardclaimed(true);
     GetPlayer()->Inventory().AddItem(GameConstants::GoldItemId, 10000, &out);
-    Trigger(105, 1, 0, 0);
+    GetPlayer()->Trigger(105, 1, 0, 0);
     return true;
 }
 
@@ -790,7 +830,7 @@ bool QuestMgr::ClaimDailyMallGift(proto::ChangeInfo& out)
 
     bin->set_dailymallrewardclaimed(true);
     GetPlayer()->Inventory().AddItem(GameConstants::JointDrillTicketId, 1, &out);
-    Trigger(105, 1, 0, 0);
+    GetPlayer()->Trigger(105, 1, 0, 0);
     return true;
 }
 
@@ -825,5 +865,6 @@ void QuestMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
 
     out.set_dailyshoprewardstatus(HasDailyShopReward());
     out.set_dailymallrewardstatus(HasDailyMallReward());
+    out.mutable_state()->mutable_worldclassreward()->set_flag(GetWorldClassRewardFlag());
     out.set_tourguidequestgroup(9);
 }

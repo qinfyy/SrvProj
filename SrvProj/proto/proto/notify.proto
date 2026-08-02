@@ -5,6 +5,7 @@ package proto;
 import "public.proto";
 import "public_mining.proto";
 import "public_star_tower.proto";
+import "public_soldier.proto";
 
 message NewAgent {
     repeated uint32 Ids = 1;
@@ -111,5 +112,11 @@ message OrderCollected {
 message MilkoutCharacterUnlockNotify {
     uint32 ActivityId = 1;
     uint32 CharId = 2;
+    bytes NextPackage = 2047;
+}
+
+message ActivityDoubleRewardTimesNotify {
+    uint32 ActivityId = 1;
+    uint32 UseTimes = 2;
     bytes NextPackage = 2047;
 }

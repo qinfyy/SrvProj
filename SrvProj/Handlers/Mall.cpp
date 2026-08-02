@@ -7,7 +7,7 @@
 #include "../GameSession.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/mall_gem_list.pb.h"
 #include "../proto/proto_cpp/mall_gem_order.pb.h"
 #include "../proto/proto_cpp/mall_monthlycard_list.pb.h"
@@ -18,16 +18,9 @@
 #include "../proto/proto_cpp/public.pb.h"
 #include "../proto/proto_cpp/gem_convert.pb.h"
 
-namespace {
-bool HasPlayer(GameSession* session)
-{
-    return session && session->HasPlayer();
-}
-}
-
 std::string mall_gem_list_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_gem_list_failed_ack);
     }
@@ -38,7 +31,7 @@ std::string mall_gem_list_req__Handler(GameSession* session, const std::string& 
 
 std::string mall_gem_order_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_gem_order_failed_ack);
     }
@@ -66,7 +59,7 @@ std::string mall_gem_order_req__Handler(GameSession* session, const std::string&
 
 std::string mall_order_cancel_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_order_cancel_failed_ack);
     }
@@ -77,7 +70,7 @@ std::string mall_order_cancel_req__Handler(GameSession* session, const std::stri
 
 std::string mall_order_collect_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_order_collect_failed_ack);
     }
@@ -101,7 +94,7 @@ std::string mall_order_collect_req__Handler(GameSession* session, const std::str
 
 std::string mall_monthlyCard_list_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_monthlyCard_list_failed_ack);
     }
@@ -112,7 +105,7 @@ std::string mall_monthlyCard_list_req__Handler(GameSession* session, const std::
 
 std::string mall_monthlyCard_order_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_monthlyCard_order_failed_ack);
     }
@@ -140,7 +133,7 @@ std::string mall_monthlyCard_order_req__Handler(GameSession* session, const std:
 
 std::string mall_package_list_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_package_list_failed_ack);
     }
@@ -151,7 +144,7 @@ std::string mall_package_list_req__Handler(GameSession* session, const std::stri
 
 std::string mall_package_order_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_package_order_failed_ack);
     }
@@ -202,7 +195,7 @@ std::string mall_package_order_req__Handler(GameSession* session, const std::str
 
 std::string mall_shop_list_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_shop_list_failed_ack);
     }
@@ -213,7 +206,7 @@ std::string mall_shop_list_req__Handler(GameSession* session, const std::string&
 
 std::string mall_shop_order_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, mall_shop_order_failed_ack);
     }
@@ -243,7 +236,7 @@ std::string mall_shop_order_req__Handler(GameSession* session, const std::string
 
 std::string gem_convert_req__Handler(GameSession* session, const std::string& req)
 {
-    if (!HasPlayer(session))
+    if (!IsLoggedIn(session))
     {
         return EncodeReply(session, gem_convert_failed_ack);
     }

@@ -14,6 +14,7 @@ message CharGemInstanceSweepReq {
 message CharGemInstanceSweepReward {
     repeated ItemTpl AwardItems = 1;
     uint32 Exp = 2;
+    repeated ItemTpl DoubleItems = 3;
     bytes NextPackage = 2047;
 }
 

@@ -94,7 +94,7 @@ const ::uint32_t
         0x085, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_._oneof_case_[0]),
-        26, // hasbit index offset
+        31, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.nextpackage_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
@@ -117,8 +117,18 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
         PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
+        PROTOBUF_FIELD_OFFSET(::proto::ActivityMsg, _impl_.Data_),
         1,
         0,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -150,7 +160,7 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, sizeof(::proto::ActivityMsg)},
-        {47, sizeof(::proto::ActivityResp)},
+        {57, sizeof(::proto::ActivityResp)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_ActivityMsg_default_instance_._instance,
@@ -159,7 +169,7 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
 const char descriptor_table_protodef_activity_5fdetail_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\025activity_detail.proto\022\005proto\032\014public.p"
-    "roto\032\030public_joint_drill.proto\"\347\006\n\013Activ"
+    "roto\032\030public_joint_drill.proto\"\322\010\n\013Activ"
     "ityMsg\022\n\n\002Id\030\001 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014"
     "\022+\n\010Periodic\030\002 \001(\0132\027.proto.ActivityPerio"
     "dicH\000\022%\n\005Login\030\003 \001(\0132\024.proto.ActivityLog"
@@ -181,9 +191,15 @@ const char descriptor_table_protodef_activity_5fdetail_2eproto[] ABSL_ATTRIBUTE_
     "tH\000\0221\n\013PenguinCard\030\022 \001(\0132\032.proto.Activit"
     "yPenguinCardH\000\022-\n\tThrowGift\030\023 \001(\0132\030.prot"
     "o.ActivityThrowGiftH\000\022!\n\003GDS\030\024 \001(\0132\022.pro"
-    "to.ActivityGDSH\000B\006\n\004Data\"F\n\014ActivityResp"
-    "\022 \n\004List\030\001 \003(\0132\022.proto.ActivityMsg\022\024\n\013Ne"
-    "xtPackage\030\377\017 \001(\014b\006proto3"
+    "to.ActivityGDSH\000\022\'\n\006Double\030\025 \001(\0132\025.proto"
+    ".ActivityDoubleH\000\022A\n\023HistoryStoryChapter"
+    "\030\026 \001(\0132\".proto.ActivityHistoryStoryChapt"
+    "erH\000\022%\n\005Share\030\027 \001(\0132\024.proto.ActivityShar"
+    "eH\000\022+\n\010IceCream\030\030 \001(\0132\027.proto.ActivityIc"
+    "eCreamH\000\022)\n\007Soldier\030\031 \001(\0132\026.proto.Activi"
+    "tySoldierH\000B\006\n\004Data\"F\n\014ActivityResp\022 \n\004L"
+    "ist\030\001 \003(\0132\022.proto.ActivityMsg\022\024\n\013NextPac"
+    "kage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_activity_5fdetail_2eproto_deps[2] = {
@@ -194,7 +210,7 @@ static ::absl::once_flag descriptor_table_activity_5fdetail_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_activity_5fdetail_2eproto = {
     false,
     false,
-    1024,
+    1259,
     descriptor_table_protodef_activity_5fdetail_2eproto,
     "activity_detail.proto",
     &descriptor_table_activity_5fdetail_2eproto_once,
@@ -676,6 +692,126 @@ void ActivityMsg::clear_gds() {
     clear_has_Data();
   }
 }
+void ActivityMsg::set_allocated_double_(::proto::ActivityDouble* PROTOBUF_NULLABLE double_) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_Data();
+  if (double_) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(double_)->GetArena();
+    if (message_arena != submessage_arena) {
+      double_ = ::google::protobuf::internal::GetOwnedMessage(message_arena, double_, submessage_arena);
+    }
+    set_has_double_();
+    _impl_.Data_.double__ = double_;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto.ActivityMsg.Double)
+}
+void ActivityMsg::clear_double_() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (Data_case() == kDouble) {
+    if (GetArena() == nullptr) {
+      delete _impl_.Data_.double__;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.double__);
+    }
+    clear_has_Data();
+  }
+}
+void ActivityMsg::set_allocated_historystorychapter(::proto::ActivityHistoryStoryChapter* PROTOBUF_NULLABLE historystorychapter) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_Data();
+  if (historystorychapter) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(historystorychapter)->GetArena();
+    if (message_arena != submessage_arena) {
+      historystorychapter = ::google::protobuf::internal::GetOwnedMessage(message_arena, historystorychapter, submessage_arena);
+    }
+    set_has_historystorychapter();
+    _impl_.Data_.historystorychapter_ = historystorychapter;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto.ActivityMsg.HistoryStoryChapter)
+}
+void ActivityMsg::clear_historystorychapter() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (Data_case() == kHistoryStoryChapter) {
+    if (GetArena() == nullptr) {
+      delete _impl_.Data_.historystorychapter_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.historystorychapter_);
+    }
+    clear_has_Data();
+  }
+}
+void ActivityMsg::set_allocated_share(::proto::ActivityShare* PROTOBUF_NULLABLE share) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_Data();
+  if (share) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(share)->GetArena();
+    if (message_arena != submessage_arena) {
+      share = ::google::protobuf::internal::GetOwnedMessage(message_arena, share, submessage_arena);
+    }
+    set_has_share();
+    _impl_.Data_.share_ = share;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto.ActivityMsg.Share)
+}
+void ActivityMsg::clear_share() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (Data_case() == kShare) {
+    if (GetArena() == nullptr) {
+      delete _impl_.Data_.share_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.share_);
+    }
+    clear_has_Data();
+  }
+}
+void ActivityMsg::set_allocated_icecream(::proto::ActivityIceCream* PROTOBUF_NULLABLE icecream) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_Data();
+  if (icecream) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(icecream)->GetArena();
+    if (message_arena != submessage_arena) {
+      icecream = ::google::protobuf::internal::GetOwnedMessage(message_arena, icecream, submessage_arena);
+    }
+    set_has_icecream();
+    _impl_.Data_.icecream_ = icecream;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto.ActivityMsg.IceCream)
+}
+void ActivityMsg::clear_icecream() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (Data_case() == kIceCream) {
+    if (GetArena() == nullptr) {
+      delete _impl_.Data_.icecream_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.icecream_);
+    }
+    clear_has_Data();
+  }
+}
+void ActivityMsg::set_allocated_soldier(::proto::ActivitySoldier* PROTOBUF_NULLABLE soldier) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_Data();
+  if (soldier) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(soldier)->GetArena();
+    if (message_arena != submessage_arena) {
+      soldier = ::google::protobuf::internal::GetOwnedMessage(message_arena, soldier, submessage_arena);
+    }
+    set_has_soldier();
+    _impl_.Data_.soldier_ = soldier;
+  }
+  // @@protoc_insertion_point(field_set_allocated:proto.ActivityMsg.Soldier)
+}
+void ActivityMsg::clear_soldier() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (Data_case() == kSoldier) {
+    if (GetArena() == nullptr) {
+      delete _impl_.Data_.soldier_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.soldier_);
+    }
+    clear_has_Data();
+  }
+}
 ActivityMsg::ActivityMsg(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, ActivityMsg_class_data_.base()) {
@@ -768,6 +904,21 @@ ActivityMsg::ActivityMsg(
         break;
       case kGDS:
         _impl_.Data_.gds_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.gds_);
+        break;
+      case kDouble:
+        _impl_.Data_.double__ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.double__);
+        break;
+      case kHistoryStoryChapter:
+        _impl_.Data_.historystorychapter_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.historystorychapter_);
+        break;
+      case kShare:
+        _impl_.Data_.share_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.share_);
+        break;
+      case kIceCream:
+        _impl_.Data_.icecream_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.icecream_);
+        break;
+      case kSoldier:
+        _impl_.Data_.soldier_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.soldier_);
         break;
   }
 
@@ -959,6 +1110,46 @@ void ActivityMsg::clear_Data() {
       }
       break;
     }
+    case kDouble: {
+      if (GetArena() == nullptr) {
+        delete _impl_.Data_.double__;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.double__);
+      }
+      break;
+    }
+    case kHistoryStoryChapter: {
+      if (GetArena() == nullptr) {
+        delete _impl_.Data_.historystorychapter_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.historystorychapter_);
+      }
+      break;
+    }
+    case kShare: {
+      if (GetArena() == nullptr) {
+        delete _impl_.Data_.share_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.share_);
+      }
+      break;
+    }
+    case kIceCream: {
+      if (GetArena() == nullptr) {
+        delete _impl_.Data_.icecream_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.icecream_);
+      }
+      break;
+    }
+    case kSoldier: {
+      if (GetArena() == nullptr) {
+        delete _impl_.Data_.soldier_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.Data_.soldier_);
+      }
+      break;
+    }
     case DATA_NOT_SET: {
       break;
     }
@@ -1010,17 +1201,17 @@ ActivityMsg::GetClassData() const {
   return ActivityMsg_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 21, 19, 0, 7>
+const ::_pbi::TcParseTable<2, 26, 24, 0, 7>
 ActivityMsg::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_._has_bits_),
     0, // no _extensions_
     2047, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4293918720,  // skipmap
+    4261412864,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    21,  // num_field_entries
-    19,  // num_aux_entries
+    26,  // num_field_entries
+    24,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     ActivityMsg_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1041,7 +1232,7 @@ ActivityMsg::_table_ = {
       PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.nextpackage_)}},
   }}, {{
     2047, 0, 1,
-    65534, 20,
+    65534, 25,
     65535, 65535
   }}, {{
     // uint32 Id = 1;
@@ -1084,6 +1275,16 @@ ActivityMsg::_table_ = {
     {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.throwgift_), _Internal::kOneofCaseOffset + 0, 17, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .proto.ActivityGDS GDS = 20;
     {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.gds_), _Internal::kOneofCaseOffset + 0, 18, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.ActivityDouble Double = 21;
+    {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.double__), _Internal::kOneofCaseOffset + 0, 19, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.ActivityHistoryStoryChapter HistoryStoryChapter = 22;
+    {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.historystorychapter_), _Internal::kOneofCaseOffset + 0, 20, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.ActivityShare Share = 23;
+    {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.share_), _Internal::kOneofCaseOffset + 0, 21, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.ActivityIceCream IceCream = 24;
+    {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.icecream_), _Internal::kOneofCaseOffset + 0, 22, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .proto.ActivitySoldier Soldier = 25;
+    {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.Data_.soldier_), _Internal::kOneofCaseOffset + 0, 23, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // bytes NextPackage = 2047;
     {PROTOBUF_FIELD_OFFSET(ActivityMsg, _impl_.nextpackage_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
@@ -1107,6 +1308,11 @@ ActivityMsg::_table_ = {
       {::_pbi::TcParser::GetTable<::proto::ActivityPenguinCard>()},
       {::_pbi::TcParser::GetTable<::proto::ActivityThrowGift>()},
       {::_pbi::TcParser::GetTable<::proto::ActivityGDS>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityDouble>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityHistoryStoryChapter>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityShare>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivityIceCream>()},
+      {::_pbi::TcParser::GetTable<::proto::ActivitySoldier>()},
   }},
   {{
   }},
@@ -1268,6 +1474,36 @@ PROTOBUF_NOINLINE void ActivityMsg::Clear() {
     case kGDS: {
       target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
           20, *this_._impl_.Data_.gds_, this_._impl_.Data_.gds_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kDouble: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          21, *this_._impl_.Data_.double__, this_._impl_.Data_.double__->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kHistoryStoryChapter: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          22, *this_._impl_.Data_.historystorychapter_, this_._impl_.Data_.historystorychapter_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kShare: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          23, *this_._impl_.Data_.share_, this_._impl_.Data_.share_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kIceCream: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          24, *this_._impl_.Data_.icecream_, this_._impl_.Data_.icecream_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kSoldier: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          25, *this_._impl_.Data_.soldier_, this_._impl_.Data_.soldier_->GetCachedSize(), target,
           stream);
       break;
     }
@@ -1436,6 +1672,36 @@ PROTOBUF_NOINLINE void ActivityMsg::Clear() {
     case kGDS: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.Data_.gds_);
+      break;
+    }
+    // .proto.ActivityDouble Double = 21;
+    case kDouble: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.Data_.double__);
+      break;
+    }
+    // .proto.ActivityHistoryStoryChapter HistoryStoryChapter = 22;
+    case kHistoryStoryChapter: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.Data_.historystorychapter_);
+      break;
+    }
+    // .proto.ActivityShare Share = 23;
+    case kShare: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.Data_.share_);
+      break;
+    }
+    // .proto.ActivityIceCream IceCream = 24;
+    case kIceCream: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.Data_.icecream_);
+      break;
+    }
+    // .proto.ActivitySoldier Soldier = 25;
+    case kSoldier: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.Data_.soldier_);
       break;
     }
     case DATA_NOT_SET: {
@@ -1639,6 +1905,46 @@ void ActivityMsg::MergeImpl(::google::protobuf::MessageLite& to_msg,
           _this->_impl_.Data_.gds_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.gds_);
         } else {
           _this->_impl_.Data_.gds_->MergeFrom(*from._impl_.Data_.gds_);
+        }
+        break;
+      }
+      case kDouble: {
+        if (oneof_needs_init) {
+          _this->_impl_.Data_.double__ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.double__);
+        } else {
+          _this->_impl_.Data_.double__->MergeFrom(*from._impl_.Data_.double__);
+        }
+        break;
+      }
+      case kHistoryStoryChapter: {
+        if (oneof_needs_init) {
+          _this->_impl_.Data_.historystorychapter_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.historystorychapter_);
+        } else {
+          _this->_impl_.Data_.historystorychapter_->MergeFrom(*from._impl_.Data_.historystorychapter_);
+        }
+        break;
+      }
+      case kShare: {
+        if (oneof_needs_init) {
+          _this->_impl_.Data_.share_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.share_);
+        } else {
+          _this->_impl_.Data_.share_->MergeFrom(*from._impl_.Data_.share_);
+        }
+        break;
+      }
+      case kIceCream: {
+        if (oneof_needs_init) {
+          _this->_impl_.Data_.icecream_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.icecream_);
+        } else {
+          _this->_impl_.Data_.icecream_->MergeFrom(*from._impl_.Data_.icecream_);
+        }
+        break;
+      }
+      case kSoldier: {
+        if (oneof_needs_init) {
+          _this->_impl_.Data_.soldier_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.Data_.soldier_);
+        } else {
+          _this->_impl_.Data_.soldier_->MergeFrom(*from._impl_.Data_.soldier_);
         }
         break;
       }

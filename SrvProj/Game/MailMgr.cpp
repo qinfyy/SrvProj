@@ -1,31 +1,15 @@
 ﻿#include "MailMgr.h"
 
+#include "ChangeInfoUtil.h"
 #include "InventoryMgr.h"
 #include "Player.h"
 #include "../GameConstants.h"
 #include "../GameTime.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/mail_recv.pb.h"
 
 #include <algorithm>
 #include <limits>
-
-namespace {
-int32_t ClampQty(int64_t qty)
-{
-    if (qty > std::numeric_limits<int32_t>::max())
-    {
-        return std::numeric_limits<int32_t>::max();
-    }
-
-    if (qty < std::numeric_limits<int32_t>::min())
-    {
-        return std::numeric_limits<int32_t>::min();
-    }
-
-    return static_cast<int32_t>(qty);
-}
-}
 
 void MailMgr::OnCreate()
 {
@@ -324,7 +308,7 @@ proto::Mail MailMgr::ToProto(const ServerProto::MailInfoBin& mail) const
     {
         auto* item = out.add_attachments();
         item->set_tid(attachment.tid());
-        item->set_qty(ClampQty(attachment.qty()));
+        item->set_qty(ChangeInfoUtil::ClampQty(attachment.qty()));
     }
 
     return out;

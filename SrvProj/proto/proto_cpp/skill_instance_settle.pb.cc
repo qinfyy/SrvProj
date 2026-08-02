@@ -33,6 +33,7 @@ inline constexpr SkillInstanceSettleResp::Impl_::Impl_(
         firstitems_{},
         threestaritems_{},
         surpriseitems_{},
+        doubleitems_{},
         nextpackage_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
@@ -108,7 +109,7 @@ const ::uint32_t
         0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_._has_bits_),
-        12, // hasbit index offset
+        13, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.first_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.threestar_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.change_),
@@ -117,16 +118,18 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.threestaritems_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.exp_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.surpriseitems_),
+        PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.doubleitems_),
         PROTOBUF_FIELD_OFFSET(::proto::SkillInstanceSettleResp, _impl_.nextpackage_),
-        6,
         7,
-        5,
+        8,
+        6,
         0,
         1,
         2,
-        8,
+        9,
         3,
         4,
+        5,
 };
 
 static const ::_pbi::MigrationSchema
@@ -143,14 +146,15 @@ const char descriptor_table_protodef_skill_5finstance_5fsettle_2eproto[] ABSL_AT
     "\n\033skill_instance_settle.proto\022\005proto\032\014pu"
     "blic.proto\"[\n\026SkillInstanceSettleReq\022\014\n\004"
     "Star\030\001 \001(\r\022\035\n\006Events\030\017 \001(\0132\r.proto.Event"
-    "s\022\024\n\013NextPackage\030\377\017 \001(\014\"\230\002\n\027SkillInstanc"
+    "s\022\024\n\013NextPackage\030\377\017 \001(\014\"\275\002\n\027SkillInstanc"
     "eSettleResp\022\r\n\005First\030\001 \001(\010\022\021\n\tThreeStar\030"
     "\002 \001(\010\022!\n\006Change\030\003 \001(\0132\021.proto.ChangeInfo"
     "\022\"\n\nAwardItems\030\004 \003(\0132\016.proto.ItemTpl\022\"\n\n"
     "FirstItems\030\005 \003(\0132\016.proto.ItemTpl\022&\n\016Thre"
     "eStarItems\030\006 \003(\0132\016.proto.ItemTpl\022\013\n\003Exp\030"
     "\007 \001(\r\022%\n\rSurpriseItems\030\010 \003(\0132\016.proto.Ite"
-    "mTpl\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
+    "mTpl\022#\n\013DoubleItems\030\t \003(\0132\016.proto.ItemTp"
+    "l\022\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_skill_5finstance_5fsettle_2eproto_deps[1] = {
@@ -160,7 +164,7 @@ static ::absl::once_flag descriptor_table_skill_5finstance_5fsettle_2eproto_once
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_skill_5finstance_5fsettle_2eproto = {
     false,
     false,
-    434,
+    471,
     descriptor_table_protodef_skill_5finstance_5fsettle_2eproto,
     "skill_instance_settle.proto",
     &descriptor_table_skill_5finstance_5fsettle_2eproto_once,
@@ -548,7 +552,7 @@ void SkillInstanceSettleResp::clear_change() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.change_ != nullptr) _impl_.change_->Clear();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000020U);
+                  0x00000040U);
 }
 void SkillInstanceSettleResp::clear_awarditems() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -574,6 +578,12 @@ void SkillInstanceSettleResp::clear_surpriseitems() {
   ClearHasBitForRepeated(_impl_._has_bits_[0],
                   0x00000008U);
 }
+void SkillInstanceSettleResp::clear_doubleitems() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.doubleitems_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000010U);
+}
 SkillInstanceSettleResp::SkillInstanceSettleResp(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, SkillInstanceSettleResp_class_data_.base()) {
@@ -593,6 +603,7 @@ PROTOBUF_NDEBUG_INLINE SkillInstanceSettleResp::Impl_::Impl_(
         firstitems_{visibility, arena, from.firstitems_},
         threestaritems_{visibility, arena, from.threestaritems_},
         surpriseitems_{visibility, arena, from.surpriseitems_},
+        doubleitems_{visibility, arena, from.doubleitems_},
         nextpackage_(arena, from.nextpackage_) {}
 
 SkillInstanceSettleResp::SkillInstanceSettleResp(
@@ -609,7 +620,7 @@ SkillInstanceSettleResp::SkillInstanceSettleResp(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.change_ = (CheckHasBit(cached_has_bits, 0x00000020U))
+  _impl_.change_ = (CheckHasBit(cached_has_bits, 0x00000040U))
                 ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.change_)
                 : nullptr;
   ::memcpy(reinterpret_cast<char*>(&_impl_) +
@@ -630,6 +641,7 @@ PROTOBUF_NDEBUG_INLINE SkillInstanceSettleResp::Impl_::Impl_(
         firstitems_{visibility, arena},
         threestaritems_{visibility, arena},
         surpriseitems_{visibility, arena},
+        doubleitems_{visibility, arena},
         nextpackage_(arena) {}
 
 inline void SkillInstanceSettleResp::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
@@ -680,6 +692,10 @@ constexpr auto SkillInstanceSettleResp::InternalNewImpl_() {
           decltype(SkillInstanceSettleResp::_impl_.surpriseitems_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.doubleitems_) +
+          decltype(SkillInstanceSettleResp::_impl_.doubleitems_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
     return ::google::protobuf::internal::MessageCreator::CopyInit(
@@ -724,17 +740,17 @@ SkillInstanceSettleResp::GetClassData() const {
   return SkillInstanceSettleResp_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 9, 5, 0, 7>
+const ::_pbi::TcParseTable<4, 10, 6, 0, 7>
 SkillInstanceSettleResp::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_._has_bits_),
     0, // no _extensions_
     2047, 120,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967040,  // skipmap
+    4294966784,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    9,  // num_field_entries
-    5,  // num_aux_entries
+    10,  // num_field_entries
+    6,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     SkillInstanceSettleResp_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -745,16 +761,16 @@ SkillInstanceSettleResp::_table_ = {
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
     // bool First = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(SkillInstanceSettleResp, _impl_.first_), 6>(),
-     {8, 6, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(SkillInstanceSettleResp, _impl_.first_), 7>(),
+     {8, 7, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.first_)}},
     // bool ThreeStar = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(SkillInstanceSettleResp, _impl_.threestar_), 7>(),
-     {16, 7, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(SkillInstanceSettleResp, _impl_.threestar_), 8>(),
+     {16, 8, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.threestar_)}},
     // .proto.ChangeInfo Change = 3;
     {::_pbi::TcParser::FastMtS1,
-     {26, 5, 0,
+     {26, 6, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.change_)}},
     // repeated .proto.ItemTpl AwardItems = 4;
     {::_pbi::TcParser::FastMtR1,
@@ -769,14 +785,17 @@ SkillInstanceSettleResp::_table_ = {
      {50, 2, 3,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.threestaritems_)}},
     // uint32 Exp = 7;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SkillInstanceSettleResp, _impl_.exp_), 8>(),
-     {56, 8, 0,
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SkillInstanceSettleResp, _impl_.exp_), 9>(),
+     {56, 9, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.exp_)}},
     // repeated .proto.ItemTpl SurpriseItems = 8;
     {::_pbi::TcParser::FastMtR1,
      {66, 3, 4,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.surpriseitems_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .proto.ItemTpl DoubleItems = 9;
+    {::_pbi::TcParser::FastMtR1,
+     {74, 4, 5,
+      PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.doubleitems_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -784,19 +803,19 @@ SkillInstanceSettleResp::_table_ = {
     {::_pbi::TcParser::MiniParse, {}},
     // bytes NextPackage = 2047;
     {::_pbi::TcParser::FastBS2,
-     {32762, 4, 0,
+     {32762, 5, 0,
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.nextpackage_)}},
   }}, {{
     2047, 0, 1,
-    65534, 8,
+    65534, 9,
     65535, 65535
   }}, {{
     // bool First = 1;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.first_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.first_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // bool ThreeStar = 2;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.threestar_), _Internal::kHasBitsOffset + 7, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.threestar_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // .proto.ChangeInfo Change = 3;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.change_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.change_), _Internal::kHasBitsOffset + 6, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .proto.ItemTpl AwardItems = 4;
     {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.awarditems_), _Internal::kHasBitsOffset + 0, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .proto.ItemTpl FirstItems = 5;
@@ -804,14 +823,17 @@ SkillInstanceSettleResp::_table_ = {
     // repeated .proto.ItemTpl ThreeStarItems = 6;
     {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.threestaritems_), _Internal::kHasBitsOffset + 2, 3, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // uint32 Exp = 7;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.exp_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.exp_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // repeated .proto.ItemTpl SurpriseItems = 8;
     {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.surpriseitems_), _Internal::kHasBitsOffset + 3, 4, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .proto.ItemTpl DoubleItems = 9;
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.doubleitems_), _Internal::kHasBitsOffset + 4, 5, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // bytes NextPackage = 2047;
-    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.nextpackage_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.nextpackage_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::proto::ChangeInfo>()},
+      {::_pbi::TcParser::GetTable<::proto::ItemTpl>()},
       {::_pbi::TcParser::GetTable<::proto::ItemTpl>()},
       {::_pbi::TcParser::GetTable<::proto::ItemTpl>()},
       {::_pbi::TcParser::GetTable<::proto::ItemTpl>()},
@@ -828,7 +850,7 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000007fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.awarditems_.Clear();
     }
@@ -841,20 +863,23 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000008U)) {
       _impl_.surpriseitems_.Clear();
     }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
-      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000010U)) {
+      _impl_.doubleitems_.Clear();
     }
     if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      _impl_.nextpackage_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       ABSL_DCHECK(_impl_.change_ != nullptr);
       _impl_.change_->Clear();
     }
   }
-  if (BatchCheckHasBit(cached_has_bits, 0x000000c0U)) {
-    ::memset(&_impl_.first_, 0, static_cast<::size_t>(
-        reinterpret_cast<char*>(&_impl_.threestar_) -
-        reinterpret_cast<char*>(&_impl_.first_)) + sizeof(_impl_.threestar_));
+  _impl_.first_ = false;
+  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
+    ::memset(&_impl_.threestar_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.exp_) -
+        reinterpret_cast<char*>(&_impl_.threestar_)) + sizeof(_impl_.exp_));
   }
-  _impl_.exp_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -879,7 +904,7 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
 
   cached_has_bits = this_._impl_._has_bits_[0];
   // bool First = 1;
-  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
     if (this_._internal_first() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -888,7 +913,7 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
   }
 
   // bool ThreeStar = 2;
-  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
     if (this_._internal_threestar() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteBoolToArray(
@@ -897,7 +922,7 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
   }
 
   // .proto.ChangeInfo Change = 3;
-  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
         3, *this_._impl_.change_, this_._impl_.change_->GetCachedSize(), target,
         stream);
@@ -943,7 +968,7 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
   }
 
   // uint32 Exp = 7;
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
     if (this_._internal_exp() != 0) {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
@@ -964,8 +989,21 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
     }
   }
 
+  // repeated .proto.ItemTpl DoubleItems = 9;
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000010U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_doubleitems_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_doubleitems().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              9, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
   // bytes NextPackage = 2047;
-  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     if (!this_._internal_nextpackage().empty()) {
       const ::std::string& _s = this_._internal_nextpackage();
       target = stream->WriteBytesMaybeAliased(2047, _s, target);
@@ -1026,34 +1064,41 @@ PROTOBUF_NOINLINE void SkillInstanceSettleResp::Clear() {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
+    // repeated .proto.ItemTpl DoubleItems = 9;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000010U)) {
+      total_size += 1UL * this_._internal_doubleitems_size();
+      for (const auto& msg : this_._internal_doubleitems()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
     // bytes NextPackage = 2047;
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (!this_._internal_nextpackage().empty()) {
         total_size += 2 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                         this_._internal_nextpackage());
       }
     }
     // .proto.ChangeInfo Change = 3;
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.change_);
     }
     // bool First = 1;
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
       if (this_._internal_first() != 0) {
         total_size += 2;
       }
     }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
     // bool ThreeStar = 2;
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
       if (this_._internal_threestar() != 0) {
         total_size += 2;
       }
     }
-  }
-   {
     // uint32 Exp = 7;
-    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
       if (this_._internal_exp() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_exp());
@@ -1100,7 +1145,12 @@ void SkillInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
           ::google::protobuf::MessageLite::internal_visibility(), arena,
           from._internal_surpriseitems());
     }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000010U)) {
+      _this->_internal_mutable_doubleitems()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_doubleitems());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (!from._internal_nextpackage().empty()) {
         _this->_internal_set_nextpackage(from._internal_nextpackage());
       } else {
@@ -1109,7 +1159,7 @@ void SkillInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
       ABSL_DCHECK(from._impl_.change_ != nullptr);
       if (_this->_impl_.change_ == nullptr) {
         _this->_impl_.change_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.change_);
@@ -1117,20 +1167,22 @@ void SkillInstanceSettleResp::MergeImpl(::google::protobuf::MessageLite& to_msg,
         _this->_impl_.change_->MergeFrom(*from._impl_.change_);
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
       if (from._internal_first() != 0) {
         _this->_impl_.first_ = from._impl_.first_;
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
       if (from._internal_threestar() != 0) {
         _this->_impl_.threestar_ = from._impl_.threestar_;
       }
     }
-  }
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
-    if (from._internal_exp() != 0) {
-      _this->_impl_.exp_ = from._impl_.exp_;
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+      if (from._internal_exp() != 0) {
+        _this->_impl_.exp_ = from._impl_.exp_;
+      }
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -1156,6 +1208,7 @@ void SkillInstanceSettleResp::InternalSwap(SkillInstanceSettleResp* PROTOBUF_RES
   _impl_.firstitems_.InternalSwap(&other->_impl_.firstitems_);
   _impl_.threestaritems_.InternalSwap(&other->_impl_.threestaritems_);
   _impl_.surpriseitems_.InternalSwap(&other->_impl_.surpriseitems_);
+  _impl_.doubleitems_.InternalSwap(&other->_impl_.doubleitems_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SkillInstanceSettleResp, _impl_.exp_)

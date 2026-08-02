@@ -15,6 +15,7 @@
 class GameSession;
 
 class ActivityMgr;
+class AgentMgr;
 class AchievementMgr;
 class CharacterStor;
 class GachaMgr;
@@ -23,7 +24,8 @@ class MailMgr;
 class BattlePassMgr;
 class FormationMgr;
 class QuestMgr;
-class TowerMgr;
+class StoryMgr;
+class StarTowerMgr;
 
 class Player
 {
@@ -59,8 +61,8 @@ public:
     FormationMgr& Formations();
     const FormationMgr& Formations() const;
 
-    TowerMgr& Towers();
-    const TowerMgr& Towers() const;
+    StarTowerMgr& StarTowers();
+    const StarTowerMgr& StarTowers() const;
 
     AchievementMgr& Achievements();
     const AchievementMgr& Achievements() const;
@@ -74,6 +76,12 @@ public:
     MailMgr& Mails();
     const MailMgr& Mails() const;
 
+    StoryMgr& Stories();
+    const StoryMgr& Stories() const;
+
+    AgentMgr& Agents();
+    const AgentMgr& Agents() const;
+
     void Trigger(uint32_t condition, uint32_t progress, uint32_t param1 = 0, uint32_t param2 = 0);
 
     ServerProto::PlayerBasicCompBin* GetMutablePlayerData();
@@ -82,6 +90,16 @@ public:
     uint32_t GetUid() const;
     void SetUid(uint32_t uid);
     bool SetWorldLevel(uint32_t level);
+    static std::string NormalizeNickname(const std::string& name);
+    bool EditName(const std::string& name);
+    void EditGender();
+    bool EditTitle(uint32_t prefix, uint32_t suffix);
+    bool EditHeadIcon(uint32_t id);
+    bool SetMusic(int64_t id);
+    bool SetSkin(uint32_t id);
+    bool SetShowChars(const google::protobuf::RepeatedField<uint32_t>& charIds);
+    bool SetHonor(const google::protobuf::RepeatedField<uint32_t>& honorIds);
+    bool SetBoard(const google::protobuf::RepeatedField<uint32_t>& ids);
     void SetSignature(const std::string& signature);
     std::vector<std::string> GetPermissions() const;
     bool AddPermission(const std::string& permission);
@@ -133,6 +151,7 @@ private:
 
     std::unique_ptr<CharacterStor> mCharacterStor;
     std::unique_ptr<ActivityMgr> mActivityMgr;
+    std::unique_ptr<AgentMgr> mAgentMgr;
     std::unique_ptr<AchievementMgr> mAchievementMgr;
     std::unique_ptr<InventoryMgr> mInventoryMgr;
     std::unique_ptr<GachaMgr> mGachaMgr;
@@ -140,5 +159,6 @@ private:
     std::unique_ptr<BattlePassMgr> mBattlePassMgr;
     std::unique_ptr<FormationMgr> mFormationMgr;
     std::unique_ptr<QuestMgr> mQuestMgr;
-    std::unique_ptr<TowerMgr> mTowerMgr;
+    std::unique_ptr<StoryMgr> mStoryMgr;
+    std::unique_ptr<StarTowerMgr> mStarTowerMgr;
 };

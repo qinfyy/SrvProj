@@ -2,6 +2,8 @@
 #include "../ResourceJsonUtil.h"
 #include "../../proto/table_cpp/client_table.pb.h"
 
+#include <array>
+
 using namespace nova::client;
 
 bool AgentRes::LoadFromJson(const nlohmann::json& data)
@@ -65,3 +67,52 @@ bool AgentRes::LoadFromPb(std::string data)
     return true;
 }
 
+
+
+void AgentRes::OnLoad()
+{
+    DurationRewards.clear();
+    DurationBonusRewards.clear();
+    TagCounts.clear();
+    ExtraTagCounts.clear();
+
+    const std::array<std::pair<int, std::pair<const std::string*, const std::string*>>, 4> durations = {{
+        {Time1, {&RewardPreview1, &BonusPreview1}},
+        {Time2, {&RewardPreview2, &BonusPreview2}},
+        {Time3, {&RewardPreview3, &BonusPreview3}},
+        {Time4, {&RewardPreview4, &BonusPreview4}}
+    }};
+
+    for (const auto& [time, previews] : durations)
+    {
+        ItemRewardList rewards;
+        ItemRewardList bonusRewards;
+        for (const auto& row : ParseIntMatrixJson(*previews.first))
+        {
+            if (row.size() < 2)
+            {
+                continue;
+            }
+            rewards.emplace_back(row[0], row[1], row.size() >= 3 ? row[2] : row[1]);
+        }
+        for (const auto& row : ParseIntMatrixJson(*previews.second))
+        {
+            if (row.size() < 2)
+            {
+                continue;
+            }
+            bonusRewards.emplace_back(row[0], row[1], row.size() >= 3 ? row[2] : row[1]);
+        }
+        DurationRewards[time] = std::move(rewards);
+        DurationBonusRewards[time] = std::move(bonusRewards);
+    }
+
+    for (int tag : Tags)
+    {
+        ++TagCounts[tag];
+    }
+    for (int tag : ExtraTags)
+    {
+        ++ExtraTagCounts[tag];
+    }
+}

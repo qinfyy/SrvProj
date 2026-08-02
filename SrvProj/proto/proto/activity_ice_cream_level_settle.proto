@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+import "public.proto";
+
+message ActivityIceCreamLevelSettleReq {
+    uint32 ActivityId = 1;
+    uint32 LevelId = 2;
+    uint32 LevelType = 3;
+    uint32 OrderCount = 4;
+    uint32 TotalScore = 5;
+    uint32 StreakCount = 6;
+    uint32 PropCount = 7;
+    bytes NextPackage = 2047;
+}

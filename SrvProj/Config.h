@@ -21,8 +21,9 @@ public:
         std::string ip = "0.0.0.0";
         std::string publicIp = "127.0.0.1";
         int port = 21000;
+        std::string workerCount = "auto"; // "auto" 或 "1"/"2"/"4"... 线程数
 
-        NLOHMANN_DEFINE_TYPE_INTRUSIVE(HttpServerConfig, ip, publicIp, port)
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(HttpServerConfig, ip, publicIp, port, workerCount)
     };
 
     class ResourceConfig {
@@ -48,8 +49,10 @@ public:
     ServerTime serverTime;
     std::vector<std::string> playerDefaultPermissions = { "*" };
     bool unlockAllStarTower = true;
+    bool unlockInstances = true;
+    bool unlockAllStoryCGs = false;
 
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, resourceConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions, unlockAllStarTower)
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Config, httpServerConfig, resourceConfig, DatabasePath, TimeZone, serverTime, playerDefaultPermissions, unlockAllStarTower, unlockInstances, unlockAllStoryCGs)
 
     bool LoadFromFile(const std::string& filename = ".\\Config.json");
     bool SaveToFile(const std::string& filename = ".\\Config.json");

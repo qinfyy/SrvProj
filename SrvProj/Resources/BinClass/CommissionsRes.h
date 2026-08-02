@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <unordered_map>
 
 class AgentRes {
 public:
@@ -12,7 +13,7 @@ public:
     ~AgentRes() = default;
 
     auto GetKey() const { return Id; }
-    void OnLoad() {};
+    void OnLoad();
     bool LoadFromPb(std::string data);
     bool LoadFromJson(const nlohmann::json& data);
 
@@ -37,4 +38,8 @@ public:
     std::string BonusPreview4;
 
     // 非序列化字段
+    std::unordered_map<int, ItemRewardList> DurationRewards;
+    std::unordered_map<int, ItemRewardList> DurationBonusRewards;
+    std::unordered_map<int, int> TagCounts;
+    std::unordered_map<int, int> ExtraTagCounts;
 };

@@ -45,6 +45,9 @@ message PlayerInfo {
     repeated AssistInfo Assists = 39;
     bool DailyMallRewardStatus = 40;
     repeated ActivityHonor ActivityHonors = 41;
+    TraceHuntItemInfo HuntPermit = 118;
+    TraceHuntItemInfo TraceRequest = 119;
+    repeated ActivityPersonalityModel PersonalityModels = 120;
     int64 NicknameResetTime = 121;
     int64 MusicInfo = 122;
     repeated uint32 HonorList = 123;

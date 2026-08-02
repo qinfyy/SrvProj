@@ -1613,9 +1613,12 @@ class PlayerInfo final : public ::google::protobuf::Message
     kWeeklyActiveIdsFieldNumber = 38,
     kAssistsFieldNumber = 39,
     kActivityHonorsFieldNumber = 41,
+    kPersonalityModelsFieldNumber = 120,
     kHonorListFieldNumber = 123,
     kHonorsFieldNumber = 124,
     kNextPackageFieldNumber = 2047,
+    kHuntPermitFieldNumber = 118,
+    kTraceRequestFieldNumber = 119,
     kLastReadFieldNumber = 128,
     kTourGuideQuestGroupFieldNumber = 33,
     kDailyMallRewardStatusFieldNumber = 40,
@@ -2226,6 +2229,23 @@ class PlayerInfo final : public ::google::protobuf::Message
   const ::proto::ActivityHonor& activityhonors(int index) const;
   ::proto::ActivityHonor* PROTOBUF_NONNULL add_activityhonors();
   const ::google::protobuf::RepeatedPtrField<::proto::ActivityHonor>& activityhonors() const;
+  // repeated .proto.ActivityPersonalityModel PersonalityModels = 120;
+  int personalitymodels_size() const;
+  private:
+  int _internal_personalitymodels_size() const;
+
+  public:
+  void clear_personalitymodels() ;
+  ::proto::ActivityPersonalityModel* PROTOBUF_NONNULL mutable_personalitymodels(int index);
+  ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>* PROTOBUF_NONNULL mutable_personalitymodels();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>& _internal_personalitymodels() const;
+  ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>* PROTOBUF_NONNULL _internal_mutable_personalitymodels();
+  public:
+  const ::proto::ActivityPersonalityModel& personalitymodels(int index) const;
+  ::proto::ActivityPersonalityModel* PROTOBUF_NONNULL add_personalitymodels();
+  const ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>& personalitymodels() const;
   // repeated uint32 HonorList = 123;
   int honorlist_size() const;
   private:
@@ -2274,6 +2294,36 @@ class PlayerInfo final : public ::google::protobuf::Message
   const ::std::string& _internal_nextpackage() const;
   PROTOBUF_ALWAYS_INLINE void _internal_set_nextpackage(const ::std::string& value);
   ::std::string* PROTOBUF_NONNULL _internal_mutable_nextpackage();
+
+  public:
+  // .proto.TraceHuntItemInfo HuntPermit = 118;
+  bool has_huntpermit() const;
+  void clear_huntpermit() ;
+  const ::proto::TraceHuntItemInfo& huntpermit() const;
+  [[nodiscard]] ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE release_huntpermit();
+  ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL mutable_huntpermit();
+  void set_allocated_huntpermit(::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_huntpermit(::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value);
+  ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE unsafe_arena_release_huntpermit();
+
+  private:
+  const ::proto::TraceHuntItemInfo& _internal_huntpermit() const;
+  ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL _internal_mutable_huntpermit();
+
+  public:
+  // .proto.TraceHuntItemInfo TraceRequest = 119;
+  bool has_tracerequest() const;
+  void clear_tracerequest() ;
+  const ::proto::TraceHuntItemInfo& tracerequest() const;
+  [[nodiscard]] ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE release_tracerequest();
+  ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL mutable_tracerequest();
+  void set_allocated_tracerequest(::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_tracerequest(::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value);
+  ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE unsafe_arena_release_tracerequest();
+
+  private:
+  const ::proto::TraceHuntItemInfo& _internal_tracerequest() const;
+  ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL _internal_mutable_tracerequest();
 
   public:
   // .proto.LastRead LastRead = 128;
@@ -2365,8 +2415,8 @@ class PlayerInfo final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<5, 49,
-                                   30, 0,
+  static const ::google::protobuf::internal::TcParseTable<5, 52,
+                                   33, 0,
                                    22>
       _table_;
 
@@ -2430,10 +2480,13 @@ class PlayerInfo final : public ::google::protobuf::Message
     ::google::protobuf::internal::CachedSize _weeklyactiveids_cached_byte_size_;
     ::google::protobuf::RepeatedPtrField< ::proto::AssistInfo > assists_;
     ::google::protobuf::RepeatedPtrField< ::proto::ActivityHonor > activityhonors_;
+    ::google::protobuf::RepeatedPtrField< ::proto::ActivityPersonalityModel > personalitymodels_;
     ::google::protobuf::RepeatedField<::uint32_t> honorlist_;
     ::google::protobuf::internal::CachedSize _honorlist_cached_byte_size_;
     ::google::protobuf::RepeatedPtrField< ::proto::HonorInfo > honors_;
     ::google::protobuf::internal::ArenaStringPtr nextpackage_;
+    ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE huntpermit_;
+    ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE tracerequest_;
     ::proto::LastRead* PROTOBUF_NULLABLE lastread_;
     ::uint32_t tourguidequestgroup_;
     bool dailymallrewardstatus_;
@@ -4390,7 +4443,7 @@ inline void PlayerInfo::clear_tourguidequestgroup() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.tourguidequestgroup_ = 0u;
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00000400U);
+                  0x00002000U);
 }
 inline ::uint32_t PlayerInfo::tourguidequestgroup() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.TourGuideQuestGroup)
@@ -4398,7 +4451,7 @@ inline ::uint32_t PlayerInfo::tourguidequestgroup() const {
 }
 inline void PlayerInfo::set_tourguidequestgroup(::uint32_t value) {
   _internal_set_tourguidequestgroup(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00000400U);
+  SetHasBit(_impl_._has_bits_[1], 0x00002000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.TourGuideQuestGroup)
 }
 inline ::uint32_t PlayerInfo::_internal_tourguidequestgroup() const {
@@ -4721,7 +4774,7 @@ inline void PlayerInfo::clear_dailymallrewardstatus() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.dailymallrewardstatus_ = false;
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00000800U);
+                  0x00004000U);
 }
 inline bool PlayerInfo::dailymallrewardstatus() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.DailyMallRewardStatus)
@@ -4729,7 +4782,7 @@ inline bool PlayerInfo::dailymallrewardstatus() const {
 }
 inline void PlayerInfo::set_dailymallrewardstatus(bool value) {
   _internal_set_dailymallrewardstatus(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00000800U);
+  SetHasBit(_impl_._has_bits_[1], 0x00004000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.DailyMallRewardStatus)
 }
 inline bool PlayerInfo::_internal_dailymallrewardstatus() const {
@@ -4791,12 +4844,248 @@ PlayerInfo::_internal_mutable_activityhonors() {
   return &_impl_.activityhonors_;
 }
 
+// .proto.TraceHuntItemInfo HuntPermit = 118;
+inline bool PlayerInfo::has_huntpermit() const {
+  bool value = CheckHasBit(_impl_._has_bits_[1], 0x00000400U);
+  PROTOBUF_ASSUME(!value || _impl_.huntpermit_ != nullptr);
+  return value;
+}
+inline const ::proto::TraceHuntItemInfo& PlayerInfo::_internal_huntpermit() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::proto::TraceHuntItemInfo* p = _impl_.huntpermit_;
+  return p != nullptr ? *p : reinterpret_cast<const ::proto::TraceHuntItemInfo&>(::proto::_TraceHuntItemInfo_default_instance_);
+}
+inline const ::proto::TraceHuntItemInfo& PlayerInfo::huntpermit() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.PlayerInfo.HuntPermit)
+  return _internal_huntpermit();
+}
+inline void PlayerInfo::unsafe_arena_set_allocated_huntpermit(
+    ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.huntpermit_);
+  }
+  _impl_.huntpermit_ = reinterpret_cast<::proto::TraceHuntItemInfo*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[1], 0x00000400U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[1], 0x00000400U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.PlayerInfo.HuntPermit)
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE PlayerInfo::release_huntpermit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[1], 0x00000400U);
+  ::proto::TraceHuntItemInfo* released = _impl_.huntpermit_;
+  _impl_.huntpermit_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE PlayerInfo::unsafe_arena_release_huntpermit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:proto.PlayerInfo.HuntPermit)
+
+  ClearHasBit(_impl_._has_bits_[1], 0x00000400U);
+  ::proto::TraceHuntItemInfo* temp = _impl_.huntpermit_;
+  _impl_.huntpermit_ = nullptr;
+  return temp;
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL PlayerInfo::_internal_mutable_huntpermit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.huntpermit_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::proto::TraceHuntItemInfo>(GetArena());
+    _impl_.huntpermit_ = reinterpret_cast<::proto::TraceHuntItemInfo*>(p);
+  }
+  return _impl_.huntpermit_;
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL PlayerInfo::mutable_huntpermit()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[1], 0x00000400U);
+  ::proto::TraceHuntItemInfo* _msg = _internal_mutable_huntpermit();
+  // @@protoc_insertion_point(field_mutable:proto.PlayerInfo.HuntPermit)
+  return _msg;
+}
+inline void PlayerInfo::set_allocated_huntpermit(::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.huntpermit_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[1], 0x00000400U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[1], 0x00000400U);
+  }
+
+  _impl_.huntpermit_ = reinterpret_cast<::proto::TraceHuntItemInfo*>(value);
+  // @@protoc_insertion_point(field_set_allocated:proto.PlayerInfo.HuntPermit)
+}
+
+// .proto.TraceHuntItemInfo TraceRequest = 119;
+inline bool PlayerInfo::has_tracerequest() const {
+  bool value = CheckHasBit(_impl_._has_bits_[1], 0x00000800U);
+  PROTOBUF_ASSUME(!value || _impl_.tracerequest_ != nullptr);
+  return value;
+}
+inline const ::proto::TraceHuntItemInfo& PlayerInfo::_internal_tracerequest() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::proto::TraceHuntItemInfo* p = _impl_.tracerequest_;
+  return p != nullptr ? *p : reinterpret_cast<const ::proto::TraceHuntItemInfo&>(::proto::_TraceHuntItemInfo_default_instance_);
+}
+inline const ::proto::TraceHuntItemInfo& PlayerInfo::tracerequest() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.PlayerInfo.TraceRequest)
+  return _internal_tracerequest();
+}
+inline void PlayerInfo::unsafe_arena_set_allocated_tracerequest(
+    ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.tracerequest_);
+  }
+  _impl_.tracerequest_ = reinterpret_cast<::proto::TraceHuntItemInfo*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[1], 0x00000800U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[1], 0x00000800U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.PlayerInfo.TraceRequest)
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE PlayerInfo::release_tracerequest() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[1], 0x00000800U);
+  ::proto::TraceHuntItemInfo* released = _impl_.tracerequest_;
+  _impl_.tracerequest_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE PlayerInfo::unsafe_arena_release_tracerequest() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:proto.PlayerInfo.TraceRequest)
+
+  ClearHasBit(_impl_._has_bits_[1], 0x00000800U);
+  ::proto::TraceHuntItemInfo* temp = _impl_.tracerequest_;
+  _impl_.tracerequest_ = nullptr;
+  return temp;
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL PlayerInfo::_internal_mutable_tracerequest() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.tracerequest_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::proto::TraceHuntItemInfo>(GetArena());
+    _impl_.tracerequest_ = reinterpret_cast<::proto::TraceHuntItemInfo*>(p);
+  }
+  return _impl_.tracerequest_;
+}
+inline ::proto::TraceHuntItemInfo* PROTOBUF_NONNULL PlayerInfo::mutable_tracerequest()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[1], 0x00000800U);
+  ::proto::TraceHuntItemInfo* _msg = _internal_mutable_tracerequest();
+  // @@protoc_insertion_point(field_mutable:proto.PlayerInfo.TraceRequest)
+  return _msg;
+}
+inline void PlayerInfo::set_allocated_tracerequest(::proto::TraceHuntItemInfo* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.tracerequest_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[1], 0x00000800U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[1], 0x00000800U);
+  }
+
+  _impl_.tracerequest_ = reinterpret_cast<::proto::TraceHuntItemInfo*>(value);
+  // @@protoc_insertion_point(field_set_allocated:proto.PlayerInfo.TraceRequest)
+}
+
+// repeated .proto.ActivityPersonalityModel PersonalityModels = 120;
+inline int PlayerInfo::_internal_personalitymodels_size() const {
+  return _internal_personalitymodels().size();
+}
+inline int PlayerInfo::personalitymodels_size() const {
+  return _internal_personalitymodels_size();
+}
+inline ::proto::ActivityPersonalityModel* PROTOBUF_NONNULL PlayerInfo::mutable_personalitymodels(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:proto.PlayerInfo.PersonalityModels)
+  return _internal_mutable_personalitymodels()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>* PROTOBUF_NONNULL PlayerInfo::mutable_personalitymodels()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000040U);
+  // @@protoc_insertion_point(field_mutable_list:proto.PlayerInfo.PersonalityModels)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_personalitymodels();
+}
+inline const ::proto::ActivityPersonalityModel& PlayerInfo::personalitymodels(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:proto.PlayerInfo.PersonalityModels)
+  return _internal_personalitymodels().Get(index);
+}
+inline ::proto::ActivityPersonalityModel* PROTOBUF_NONNULL PlayerInfo::add_personalitymodels()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::proto::ActivityPersonalityModel* _add =
+      _internal_mutable_personalitymodels()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000040U);
+  // @@protoc_insertion_point(field_add:proto.PlayerInfo.PersonalityModels)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>& PlayerInfo::personalitymodels() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:proto.PlayerInfo.PersonalityModels)
+  return _internal_personalitymodels();
+}
+inline const ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>&
+PlayerInfo::_internal_personalitymodels() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.personalitymodels_;
+}
+inline ::google::protobuf::RepeatedPtrField<::proto::ActivityPersonalityModel>* PROTOBUF_NONNULL
+PlayerInfo::_internal_mutable_personalitymodels() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.personalitymodels_;
+}
+
 // int64 NicknameResetTime = 121;
 inline void PlayerInfo::clear_nicknameresettime() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.nicknameresettime_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00002000U);
+                  0x00010000U);
 }
 inline ::int64_t PlayerInfo::nicknameresettime() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.NicknameResetTime)
@@ -4804,7 +5093,7 @@ inline ::int64_t PlayerInfo::nicknameresettime() const {
 }
 inline void PlayerInfo::set_nicknameresettime(::int64_t value) {
   _internal_set_nicknameresettime(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00002000U);
+  SetHasBit(_impl_._has_bits_[1], 0x00010000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.NicknameResetTime)
 }
 inline ::int64_t PlayerInfo::_internal_nicknameresettime() const {
@@ -4821,7 +5110,7 @@ inline void PlayerInfo::clear_musicinfo() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.musicinfo_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00004000U);
+                  0x00020000U);
 }
 inline ::int64_t PlayerInfo::musicinfo() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.MusicInfo)
@@ -4829,7 +5118,7 @@ inline ::int64_t PlayerInfo::musicinfo() const {
 }
 inline void PlayerInfo::set_musicinfo(::int64_t value) {
   _internal_set_musicinfo(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00004000U);
+  SetHasBit(_impl_._has_bits_[1], 0x00020000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.MusicInfo)
 }
 inline ::int64_t PlayerInfo::_internal_musicinfo() const {
@@ -4852,7 +5141,7 @@ inline void PlayerInfo::clear_honorlist() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.honorlist_.Clear();
   ClearHasBitForRepeated(_impl_._has_bits_[1],
-                  0x00000040U);
+                  0x00000080U);
 }
 inline ::uint32_t PlayerInfo::honorlist(int index) const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.HonorList)
@@ -4865,7 +5154,7 @@ inline void PlayerInfo::set_honorlist(int index, ::uint32_t value) {
 inline void PlayerInfo::add_honorlist(::uint32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _internal_mutable_honorlist()->Add(value);
-  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000040U);
+  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000080U);
   // @@protoc_insertion_point(field_add:proto.PlayerInfo.HonorList)
 }
 inline const ::google::protobuf::RepeatedField<::uint32_t>& PlayerInfo::honorlist() const
@@ -4875,7 +5164,7 @@ inline const ::google::protobuf::RepeatedField<::uint32_t>& PlayerInfo::honorlis
 }
 inline ::google::protobuf::RepeatedField<::uint32_t>* PROTOBUF_NONNULL PlayerInfo::mutable_honorlist()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000040U);
+  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000080U);
   // @@protoc_insertion_point(field_mutable_list:proto.PlayerInfo.HonorList)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _internal_mutable_honorlist();
@@ -4905,7 +5194,7 @@ inline ::proto::HonorInfo* PROTOBUF_NONNULL PlayerInfo::mutable_honors(int index
 }
 inline ::google::protobuf::RepeatedPtrField<::proto::HonorInfo>* PROTOBUF_NONNULL PlayerInfo::mutable_honors()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000080U);
+  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000100U);
   // @@protoc_insertion_point(field_mutable_list:proto.PlayerInfo.Honors)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _internal_mutable_honors();
@@ -4921,7 +5210,7 @@ inline ::proto::HonorInfo* PROTOBUF_NONNULL PlayerInfo::add_honors()
   ::proto::HonorInfo* _add =
       _internal_mutable_honors()->InternalAddWithArena(
           ::google::protobuf::MessageLite::internal_visibility(), GetArena());
-  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000080U);
+  SetHasBitForRepeated(_impl_._has_bits_[1], 0x00000100U);
   // @@protoc_insertion_point(field_add:proto.PlayerInfo.Honors)
   return _add;
 }
@@ -4946,7 +5235,7 @@ inline void PlayerInfo::clear_dailyshoprewardstatus() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.dailyshoprewardstatus_ = false;
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00001000U);
+                  0x00008000U);
 }
 inline bool PlayerInfo::dailyshoprewardstatus() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.DailyShopRewardStatus)
@@ -4954,7 +5243,7 @@ inline bool PlayerInfo::dailyshoprewardstatus() const {
 }
 inline void PlayerInfo::set_dailyshoprewardstatus(bool value) {
   _internal_set_dailyshoprewardstatus(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00001000U);
+  SetHasBit(_impl_._has_bits_[1], 0x00008000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.DailyShopRewardStatus)
 }
 inline bool PlayerInfo::_internal_dailyshoprewardstatus() const {
@@ -4971,7 +5260,7 @@ inline void PlayerInfo::clear_towerticket() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.towerticket_ = 0u;
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00010000U);
+                  0x00080000U);
 }
 inline ::uint32_t PlayerInfo::towerticket() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.TowerTicket)
@@ -4979,7 +5268,7 @@ inline ::uint32_t PlayerInfo::towerticket() const {
 }
 inline void PlayerInfo::set_towerticket(::uint32_t value) {
   _internal_set_towerticket(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00010000U);
+  SetHasBit(_impl_._has_bits_[1], 0x00080000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.TowerTicket)
 }
 inline ::uint32_t PlayerInfo::_internal_towerticket() const {
@@ -4996,7 +5285,7 @@ inline void PlayerInfo::clear_serverts() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.serverts_ = ::int64_t{0};
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00008000U);
+                  0x00040000U);
 }
 inline ::int64_t PlayerInfo::serverts() const {
   // @@protoc_insertion_point(field_get:proto.PlayerInfo.ServerTs)
@@ -5004,7 +5293,7 @@ inline ::int64_t PlayerInfo::serverts() const {
 }
 inline void PlayerInfo::set_serverts(::int64_t value) {
   _internal_set_serverts(value);
-  SetHasBit(_impl_._has_bits_[1], 0x00008000U);
+  SetHasBit(_impl_._has_bits_[1], 0x00040000U);
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.ServerTs)
 }
 inline ::int64_t PlayerInfo::_internal_serverts() const {
@@ -5018,7 +5307,7 @@ inline void PlayerInfo::_internal_set_serverts(::int64_t value) {
 
 // .proto.LastRead LastRead = 128;
 inline bool PlayerInfo::has_lastread() const {
-  bool value = CheckHasBit(_impl_._has_bits_[1], 0x00000200U);
+  bool value = CheckHasBit(_impl_._has_bits_[1], 0x00001000U);
   PROTOBUF_ASSUME(!value || _impl_.lastread_ != nullptr);
   return value;
 }
@@ -5039,16 +5328,16 @@ inline void PlayerInfo::unsafe_arena_set_allocated_lastread(
   }
   _impl_.lastread_ = reinterpret_cast<::proto::LastRead*>(value);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[1], 0x00000200U);
+    SetHasBit(_impl_._has_bits_[1], 0x00001000U);
   } else {
-    ClearHasBit(_impl_._has_bits_[1], 0x00000200U);
+    ClearHasBit(_impl_._has_bits_[1], 0x00001000U);
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.PlayerInfo.LastRead)
 }
 inline ::proto::LastRead* PROTOBUF_NULLABLE PlayerInfo::release_lastread() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  ClearHasBit(_impl_._has_bits_[1], 0x00000200U);
+  ClearHasBit(_impl_._has_bits_[1], 0x00001000U);
   ::proto::LastRead* released = _impl_.lastread_;
   _impl_.lastread_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -5068,7 +5357,7 @@ inline ::proto::LastRead* PROTOBUF_NULLABLE PlayerInfo::unsafe_arena_release_las
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.PlayerInfo.LastRead)
 
-  ClearHasBit(_impl_._has_bits_[1], 0x00000200U);
+  ClearHasBit(_impl_._has_bits_[1], 0x00001000U);
   ::proto::LastRead* temp = _impl_.lastread_;
   _impl_.lastread_ = nullptr;
   return temp;
@@ -5083,7 +5372,7 @@ inline ::proto::LastRead* PROTOBUF_NONNULL PlayerInfo::_internal_mutable_lastrea
 }
 inline ::proto::LastRead* PROTOBUF_NONNULL PlayerInfo::mutable_lastread()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[1], 0x00000200U);
+  SetHasBit(_impl_._has_bits_[1], 0x00001000U);
   ::proto::LastRead* _msg = _internal_mutable_lastread();
   // @@protoc_insertion_point(field_mutable:proto.PlayerInfo.LastRead)
   return _msg;
@@ -5100,9 +5389,9 @@ inline void PlayerInfo::set_allocated_lastread(::proto::LastRead* PROTOBUF_NULLA
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    SetHasBit(_impl_._has_bits_[1], 0x00000200U);
+    SetHasBit(_impl_._has_bits_[1], 0x00001000U);
   } else {
-    ClearHasBit(_impl_._has_bits_[1], 0x00000200U);
+    ClearHasBit(_impl_._has_bits_[1], 0x00001000U);
   }
 
   _impl_.lastread_ = reinterpret_cast<::proto::LastRead*>(value);
@@ -5114,7 +5403,7 @@ inline void PlayerInfo::clear_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.nextpackage_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[1],
-                  0x00000100U);
+                  0x00000200U);
 }
 inline const ::std::string& PlayerInfo::nextpackage() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -5124,13 +5413,13 @@ inline const ::std::string& PlayerInfo::nextpackage() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void PlayerInfo::set_nextpackage(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[1], 0x00000100U);
+  SetHasBit(_impl_._has_bits_[1], 0x00000200U);
   _impl_.nextpackage_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:proto.PlayerInfo.NextPackage)
 }
 inline ::std::string* PROTOBUF_NONNULL PlayerInfo::mutable_nextpackage()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[1], 0x00000100U);
+  SetHasBit(_impl_._has_bits_[1], 0x00000200U);
   ::std::string* _s = _internal_mutable_nextpackage();
   // @@protoc_insertion_point(field_mutable:proto.PlayerInfo.NextPackage)
   return _s;
@@ -5150,10 +5439,10 @@ inline ::std::string* PROTOBUF_NONNULL PlayerInfo::_internal_mutable_nextpackage
 inline ::std::string* PROTOBUF_NULLABLE PlayerInfo::release_nextpackage() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:proto.PlayerInfo.NextPackage)
-  if (!CheckHasBit(_impl_._has_bits_[1], 0x00000100U)) {
+  if (!CheckHasBit(_impl_._has_bits_[1], 0x00000200U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[1], 0x00000100U);
+  ClearHasBit(_impl_._has_bits_[1], 0x00000200U);
   auto* released = _impl_.nextpackage_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.nextpackage_.Set("", GetArena());
@@ -5163,9 +5452,9 @@ inline ::std::string* PROTOBUF_NULLABLE PlayerInfo::release_nextpackage() {
 inline void PlayerInfo::set_allocated_nextpackage(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[1], 0x00000100U);
+    SetHasBit(_impl_._has_bits_[1], 0x00000200U);
   } else {
-    ClearHasBit(_impl_._has_bits_[1], 0x00000100U);
+    ClearHasBit(_impl_._has_bits_[1], 0x00000200U);
   }
   _impl_.nextpackage_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.nextpackage_.IsDefault()) {

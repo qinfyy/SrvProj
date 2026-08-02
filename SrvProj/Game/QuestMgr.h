@@ -30,6 +30,8 @@ public:
     bool ClaimWeeklyActiveRewards(std::vector<uint32_t>& activeIds, proto::ChangeInfo& out);
     bool ClaimDailyShopGift(proto::ChangeInfo& out);
     bool ClaimDailyMallGift(proto::ChangeInfo& out);
+    bool ReceiveWorldClassReward(uint32_t id, proto::ChangeInfo& out);
+    std::string GetWorldClassRewardFlag() const;
 
     bool HasDailyShopReward() const;
     bool HasDailyMallReward() const;

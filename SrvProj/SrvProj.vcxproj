@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -31,6 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -38,12 +39,14 @@
     <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -51,6 +54,7 @@
     <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -153,6 +157,8 @@
   <ItemGroup>
     <ClCompile Include="AccountController.cpp" />
     <ClCompile Include="AccountServer.cpp" />
+    <ClCompile Include="IOCPAwaiter.cpp" />
+    <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="AeadTool.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="DbMgr.cpp" />
@@ -164,6 +170,7 @@
     <ClCompile Include="Game\AchievementMgr.cpp" />
     <ClCompile Include="Game\BattlePassMgr.cpp" />
     <ClCompile Include="Game\ChangeInfoUtil.cpp" />
+    <ClCompile Include="Game\AgentMgr.cpp" />
     <ClCompile Include="Game\CharacterMgr.cpp" />
     <ClCompile Include="Game\FormationMgr.cpp" />
     <ClCompile Include="Command\BasicCommands.cpp" />
@@ -175,11 +182,11 @@
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\ManagerBase.cpp" />
     <ClCompile Include="Game\QuestMgr.cpp" />
+    <ClCompile Include="Game\StoryMgr.cpp" />
+    <ClCompile Include="Game\StarTowerCases.cpp" />
     <ClCompile Include="Game\StarTowerMgr.cpp" />
-    <ClCompile Include="Game\TowerCases.cpp" />
-    <ClCompile Include="Game\TowerMgr.cpp" />
-    <ClCompile Include="Game\TowerRooms.cpp" />
-    <ClCompile Include="Game\TowerRuntime.cpp" />
+    <ClCompile Include="Game\StarTowerRooms.cpp" />
+    <ClCompile Include="Game\StarTowerRuntime.cpp" />
     <ClCompile Include="Handlers\Activity.cpp" />
     <ClCompile Include="Handlers\BattlePass.cpp" />
     <ClCompile Include="Handlers\Character.cpp" />
@@ -189,14 +196,15 @@
     <ClCompile Include="Handlers\Item.cpp" />
     <ClCompile Include="Handlers\Login.cpp" />
     <ClCompile Include="Handlers\Mail.cpp" />
+    <ClCompile Include="Handlers\Agent.cpp" />
     <ClCompile Include="Handlers\Mall.cpp" />
     <ClCompile Include="Handlers\PlayerHandler.cpp" />
     <ClCompile Include="Handlers\Quest.cpp" />
-    <ClCompile Include="Handlers\Tower.cpp" />
+    <ClCompile Include="Handlers\Story.cpp" />
+    <ClCompile Include="Handlers\StarTower.cpp" />
     <ClCompile Include="HttpMessage.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="proto\dump.pb.cc" />
-    <ClCompile Include="proto\NetMsgId.pb.cc" />
     <ClCompile Include="proto\proto_cpp\achievement_info.pb.cc" />
     <ClCompile Include="proto\proto_cpp\achievement_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_avg_reward_receive.pb.cc" />
@@ -204,7 +212,11 @@
     <ClCompile Include="proto\proto_cpp\activity_cookie_quest_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_cookie_settle.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_detail.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\activity_double_quest_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_gds_settle.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\activity_history_story_apply.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\activity_history_story_settle.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\activity_ice_cream_level_settle.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_levels_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_levels_settle.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_levels_sweep.pb.cc" />
@@ -218,7 +230,9 @@
     <ClCompile Include="proto\proto_cpp\activity_penguin_card_quest_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_periodic_final_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_periodic_reward_receive.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\activity_share_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_shop_purchase.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\activity_soldier_quest_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_story_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_story_settle.pb.cc" />
     <ClCompile Include="proto\proto_cpp\activity_task_group_reward_receive.pb.cc" />
@@ -396,6 +410,7 @@
     <ClCompile Include="proto\proto_cpp\public.pb.cc" />
     <ClCompile Include="proto\proto_cpp\public_joint_drill.pb.cc" />
     <ClCompile Include="proto\proto_cpp\public_mining.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\public_soldier.pb.cc" />
     <ClCompile Include="proto\proto_cpp\public_star_tower.pb.cc" />
     <ClCompile Include="proto\proto_cpp\quest_assist_group_reward_receive.pb.cc" />
     <ClCompile Include="proto\proto_cpp\quest_assist_reward_receive.pb.cc" />
@@ -420,6 +435,12 @@
     <ClCompile Include="proto\proto_cpp\skill_instance_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\skill_instance_settle.pb.cc" />
     <ClCompile Include="proto\proto_cpp\skill_instance_sweep.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\soldier_apply.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\soldier_give_up.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\soldier_info.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\soldier_interact.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\soldier_partner_trace.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\soldier_step_out.pb.cc" />
     <ClCompile Include="proto\proto_cpp\star_tower_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\star_tower_book_char_potential_get.pb.cc" />
     <ClCompile Include="proto\proto_cpp\star_tower_book_event_reward_receive.pb.cc" />
@@ -449,6 +470,12 @@
     <ClCompile Include="proto\proto_cpp\tower_growth_detail.pb.cc" />
     <ClCompile Include="proto\proto_cpp\tower_growth_group_node_unlock.pb.cc" />
     <ClCompile Include="proto\proto_cpp\tower_growth_node_unlock.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\trace_hunt_apply.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\trace_hunt_boss_reward_receive.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\trace_hunt_info.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\trace_hunt_recommend.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\trace_hunt_settle.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\trace_hunt_trace.pb.cc" />
     <ClCompile Include="proto\proto_cpp\traveler_duel_info.pb.cc" />
     <ClCompile Include="proto\proto_cpp\traveler_duel_level_apply.pb.cc" />
     <ClCompile Include="proto\proto_cpp\traveler_duel_level_settle.pb.cc" />
@@ -501,6 +528,9 @@
     <ClInclude Include="AccountController.h" />
     <ClInclude Include="AccountServer.h" />
     <ClInclude Include="AeadTool.h" />
+    <ClInclude Include="AsyncTask.h" />
+    <ClInclude Include="IOCPAwaiter.h" />
+    <ClInclude Include="HttpClient.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DbMgr.h" />
     <ClInclude Include="GameConstants.h" />
@@ -512,6 +542,7 @@
     <ClInclude Include="Game\AchievementMgr.h" />
     <ClInclude Include="Game\Bitset.h" />
     <ClInclude Include="Game\ChangeInfoUtil.h" />
+    <ClInclude Include="Game\AgentMgr.h" />
     <ClInclude Include="Game\CharacterMgr.h" />
     <ClInclude Include="Command\BasicCommands.h" />
     <ClInclude Include="Command\CommandMgr.h" />
@@ -524,11 +555,11 @@
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\ManagerBase.h" />
     <ClInclude Include="Game\QuestMgr.h" />
+    <ClInclude Include="Game\StoryMgr.h" />
+    <ClInclude Include="Game\StarTowerCases.h" />
     <ClInclude Include="Game\StarTowerMgr.h" />
-    <ClInclude Include="Game\TowerCases.h" />
-    <ClInclude Include="Game\TowerMgr.h" />
-    <ClInclude Include="Game\TowerRooms.h" />
-    <ClInclude Include="Game\TowerRuntime.h" />
+    <ClInclude Include="Game\StarTowerRooms.h" />
+    <ClInclude Include="Game\StarTowerRuntime.h" />
     <ClInclude Include="Handlers\Activity.h" />
     <ClInclude Include="Handlers\BattlePass.h" />
     <ClInclude Include="Handlers\Character.h" />
@@ -538,14 +569,16 @@
     <ClInclude Include="Handlers\Item.h" />
     <ClInclude Include="Handlers\Login.h" />
     <ClInclude Include="Handlers\Mail.h" />
+    <ClInclude Include="Handlers\Agent.h" />
     <ClInclude Include="Handlers\Mall.h" />
     <ClInclude Include="Handlers\PlayerHandler.h" />
     <ClInclude Include="Handlers\Quest.h" />
-    <ClInclude Include="Handlers\Tower.h" />
+    <ClInclude Include="Handlers\Story.h" />
+    <ClInclude Include="Handlers\StarTower.h" />
     <ClInclude Include="HttpMessage.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="proto\dump.pb.h" />
-    <ClInclude Include="proto\NetMsgId.pb.h" />
+    <ClInclude Include="proto\NetMsgId.h" />
     <ClInclude Include="proto\proto_cpp\achievement_info.pb.h" />
     <ClInclude Include="proto\proto_cpp\achievement_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_avg_reward_receive.pb.h" />
@@ -553,7 +586,11 @@
     <ClInclude Include="proto\proto_cpp\activity_cookie_quest_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_cookie_settle.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_detail.pb.h" />
+    <ClInclude Include="proto\proto_cpp\activity_double_quest_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_gds_settle.pb.h" />
+    <ClInclude Include="proto\proto_cpp\activity_history_story_apply.pb.h" />
+    <ClInclude Include="proto\proto_cpp\activity_history_story_settle.pb.h" />
+    <ClInclude Include="proto\proto_cpp\activity_ice_cream_level_settle.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_levels_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_levels_settle.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_levels_sweep.pb.h" />
@@ -567,7 +604,9 @@
     <ClInclude Include="proto\proto_cpp\activity_penguin_card_quest_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_periodic_final_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_periodic_reward_receive.pb.h" />
+    <ClInclude Include="proto\proto_cpp\activity_share_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_shop_purchase.pb.h" />
+    <ClInclude Include="proto\proto_cpp\activity_soldier_quest_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_story_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_story_settle.pb.h" />
     <ClInclude Include="proto\proto_cpp\activity_task_group_reward_receive.pb.h" />
@@ -745,6 +784,7 @@
     <ClInclude Include="proto\proto_cpp\public.pb.h" />
     <ClInclude Include="proto\proto_cpp\public_joint_drill.pb.h" />
     <ClInclude Include="proto\proto_cpp\public_mining.pb.h" />
+    <ClInclude Include="proto\proto_cpp\public_soldier.pb.h" />
     <ClInclude Include="proto\proto_cpp\public_star_tower.pb.h" />
     <ClInclude Include="proto\proto_cpp\quest_assist_group_reward_receive.pb.h" />
     <ClInclude Include="proto\proto_cpp\quest_assist_reward_receive.pb.h" />
@@ -769,6 +809,12 @@
     <ClInclude Include="proto\proto_cpp\skill_instance_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\skill_instance_settle.pb.h" />
     <ClInclude Include="proto\proto_cpp\skill_instance_sweep.pb.h" />
+    <ClInclude Include="proto\proto_cpp\soldier_apply.pb.h" />
+    <ClInclude Include="proto\proto_cpp\soldier_give_up.pb.h" />
+    <ClInclude Include="proto\proto_cpp\soldier_info.pb.h" />
+    <ClInclude Include="proto\proto_cpp\soldier_interact.pb.h" />
+    <ClInclude Include="proto\proto_cpp\soldier_partner_trace.pb.h" />
+    <ClInclude Include="proto\proto_cpp\soldier_step_out.pb.h" />
     <ClInclude Include="proto\proto_cpp\star_tower_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\star_tower_book_char_potential_get.pb.h" />
     <ClInclude Include="proto\proto_cpp\star_tower_book_event_reward_receive.pb.h" />
@@ -798,6 +844,12 @@
     <ClInclude Include="proto\proto_cpp\tower_growth_detail.pb.h" />
     <ClInclude Include="proto\proto_cpp\tower_growth_group_node_unlock.pb.h" />
     <ClInclude Include="proto\proto_cpp\tower_growth_node_unlock.pb.h" />
+    <ClInclude Include="proto\proto_cpp\trace_hunt_apply.pb.h" />
+    <ClInclude Include="proto\proto_cpp\trace_hunt_boss_reward_receive.pb.h" />
+    <ClInclude Include="proto\proto_cpp\trace_hunt_info.pb.h" />
+    <ClInclude Include="proto\proto_cpp\trace_hunt_recommend.pb.h" />
+    <ClInclude Include="proto\proto_cpp\trace_hunt_settle.pb.h" />
+    <ClInclude Include="proto\proto_cpp\trace_hunt_trace.pb.h" />
     <ClInclude Include="proto\proto_cpp\traveler_duel_info.pb.h" />
     <ClInclude Include="proto\proto_cpp\traveler_duel_level_apply.pb.h" />
     <ClInclude Include="proto\proto_cpp\traveler_duel_level_settle.pb.h" />
@@ -846,14 +898,12 @@
     <ClInclude Include="Resources\ResourceJsonUtil.h" />
     <ClInclude Include="Resources\ResourceLoader.h" />
     <ClInclude Include="ResultCode.h" />
-    <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="proto\dump.proto" />
     <None Include="proto\NetMsgId.lua" />
-    <None Include="proto\NetMsgId.proto" />
-    <None Include="proto\NetMsgIdToProto.py" />
+    <None Include="proto\NetMsgIdLuaToCpp.py" />
     <None Include="proto\proto.pb" />
     <None Include="proto\proto\achievement_info.proto" />
     <None Include="proto\proto\achievement_reward_receive.proto" />
@@ -862,7 +912,11 @@
     <None Include="proto\proto\activity_cookie_quest_reward_receive.proto" />
     <None Include="proto\proto\activity_cookie_settle.proto" />
     <None Include="proto\proto\activity_detail.proto" />
+    <None Include="proto\proto\activity_double_quest_reward_receive.proto" />
     <None Include="proto\proto\activity_gds_settle.proto" />
+    <None Include="proto\proto\activity_history_story_apply.proto" />
+    <None Include="proto\proto\activity_history_story_settle.proto" />
+    <None Include="proto\proto\activity_ice_cream_level_settle.proto" />
     <None Include="proto\proto\activity_levels_apply.proto" />
     <None Include="proto\proto\activity_levels_settle.proto" />
     <None Include="proto\proto\activity_levels_sweep.proto" />
@@ -876,7 +930,9 @@
     <None Include="proto\proto\activity_penguin_card_quest_reward_receive.proto" />
     <None Include="proto\proto\activity_periodic_final_reward_receive.proto" />
     <None Include="proto\proto\activity_periodic_reward_receive.proto" />
+    <None Include="proto\proto\activity_share_reward_receive.proto" />
     <None Include="proto\proto\activity_shop_purchase.proto" />
+    <None Include="proto\proto\activity_soldier_quest_reward_receive.proto" />
     <None Include="proto\proto\activity_story_apply.proto" />
     <None Include="proto\proto\activity_story_settle.proto" />
     <None Include="proto\proto\activity_task_group_reward_receive.proto" />
@@ -1055,6 +1111,7 @@
     <None Include="proto\proto\public.proto" />
     <None Include="proto\proto\public_joint_drill.proto" />
     <None Include="proto\proto\public_mining.proto" />
+    <None Include="proto\proto\public_soldier.proto" />
     <None Include="proto\proto\public_star_tower.proto" />
     <None Include="proto\proto\quest_assist_group_reward_receive.proto" />
     <None Include="proto\proto\quest_assist_reward_receive.proto" />
@@ -1079,6 +1136,12 @@
     <None Include="proto\proto\skill_instance_apply.proto" />
     <None Include="proto\proto\skill_instance_settle.proto" />
     <None Include="proto\proto\skill_instance_sweep.proto" />
+    <None Include="proto\proto\soldier_apply.proto" />
+    <None Include="proto\proto\soldier_give_up.proto" />
+    <None Include="proto\proto\soldier_info.proto" />
+    <None Include="proto\proto\soldier_interact.proto" />
+    <None Include="proto\proto\soldier_partner_trace.proto" />
+    <None Include="proto\proto\soldier_step_out.proto" />
     <None Include="proto\proto\star_tower_apply.proto" />
     <None Include="proto\proto\star_tower_book_char_potential_get.proto" />
     <None Include="proto\proto\star_tower_book_event_reward_receive.proto" />
@@ -1108,6 +1171,12 @@
     <None Include="proto\proto\tower_growth_detail.proto" />
     <None Include="proto\proto\tower_growth_group_node_unlock.proto" />
     <None Include="proto\proto\tower_growth_node_unlock.proto" />
+    <None Include="proto\proto\trace_hunt_apply.proto" />
+    <None Include="proto\proto\trace_hunt_boss_reward_receive.proto" />
+    <None Include="proto\proto\trace_hunt_info.proto" />
+    <None Include="proto\proto\trace_hunt_recommend.proto" />
+    <None Include="proto\proto\trace_hunt_settle.proto" />
+    <None Include="proto\proto\trace_hunt_trace.proto" />
     <None Include="proto\proto\traveler_duel_info.proto" />
     <None Include="proto\proto\traveler_duel_level_apply.proto" />
     <None Include="proto\proto\traveler_duel_level_settle.proto" />

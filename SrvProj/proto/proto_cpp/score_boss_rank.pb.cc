@@ -70,7 +70,8 @@ inline constexpr ScoreBossRankTeam::Impl_::Impl_(
             ::_pbi::ConstantInitialized()),
         buildscore_{0u},
         levelscore_{0u},
-        levelid_{0u} {}
+        levelid_{0u},
+        skillscore_{0u} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR ScoreBossRankTeam::ScoreBossRankTeam(::_pbi::ConstantInitialized)
@@ -225,7 +226,7 @@ const ::uint32_t
         0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_._has_bits_),
-        12, // hasbit index offset
+        13, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.buildscore_),
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.chars_),
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.levelscore_),
@@ -234,6 +235,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.potentials_),
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.notes_),
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.activesecondaryids_),
+        PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.skillscore_),
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankTeam, _impl_.nextpackage_),
         6,
         0,
@@ -243,6 +245,7 @@ const ::uint32_t
         2,
         3,
         4,
+        9,
         5,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::proto::ScoreBossRankData, _impl_._has_bits_),
@@ -283,8 +286,8 @@ static const ::_pbi::MigrationSchema
         {0, sizeof(::proto::ScoreBossRankInfo)},
         {15, sizeof(::proto::ScoreBossRankChar)},
         {24, sizeof(::proto::ScoreBossRankTeam)},
-        {45, sizeof(::proto::ScoreBossRankData)},
-        {70, sizeof(::proto::ScoreBossRankTeams)},
+        {47, sizeof(::proto::ScoreBossRankData)},
+        {72, sizeof(::proto::ScoreBossRankTeams)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::proto::_ScoreBossRankInfo_default_instance_._instance,
@@ -303,22 +306,22 @@ const char descriptor_table_protodef_score_5fboss_5frank_2eproto[] ABSL_ATTRIBUT
     "Border\030\004 \003(\004\022\r\n\005Total\030\005 \001(\r\022\024\n\013NextPacka"
     "ge\030\377\017 \001(\014\"D\n\021ScoreBossRankChar\022\n\n\002Id\030\001 \001"
     "(\r\022\r\n\005Level\030\002 \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\""
-    "\200\002\n\021ScoreBossRankTeam\022\022\n\nBuildScore\030\001 \001("
+    "\224\002\n\021ScoreBossRankTeam\022\022\n\nBuildScore\030\001 \001("
     "\r\022\'\n\005Chars\030\002 \003(\0132\030.proto.ScoreBossRankCh"
     "ar\022\022\n\nLevelScore\030\003 \001(\r\022\017\n\007LevelId\030\004 \001(\r\022"
     "\r\n\005Discs\030\005 \003(\r\022)\n\nPotentials\030\006 \003(\0132\025.pro"
     "to.BuildPotential\022\035\n\005Notes\030\007 \003(\0132\016.proto"
-    ".ItemTpl\022\032\n\022ActiveSecondaryIds\030\010 \003(\r\022\024\n\013"
-    "NextPackage\030\377\017 \001(\014\"\377\001\n\021ScoreBossRankData"
-    "\022\n\n\002Id\030\001 \001(\004\022\020\n\010NickName\030\002 \001(\t\022\022\n\nWorldC"
-    "lass\030\003 \001(\r\022\020\n\010HeadIcon\030\004 \001(\r\022\r\n\005Score\030\005 "
-    "\001(\r\022\014\n\004Rank\030\006 \001(\r\022\023\n\013TitlePrefix\030\007 \001(\r\022\023"
-    "\n\013TitleSuffix\030\010 \001(\r\022\'\n\005Teams\030\t \003(\0132\030.pro"
-    "to.ScoreBossRankTeam\022 \n\006Honors\030\017 \003(\0132\020.p"
-    "roto.HonorInfo\022\024\n\013NextPackage\030\377\017 \001(\014\"S\n\022"
-    "ScoreBossRankTeams\022\'\n\005Teams\030\001 \003(\0132\030.prot"
-    "o.ScoreBossRankTeam\022\024\n\013NextPackage\030\377\017 \001("
-    "\014b\006proto3"
+    ".ItemTpl\022\032\n\022ActiveSecondaryIds\030\010 \003(\r\022\022\n\n"
+    "SkillScore\030\t \001(\r\022\024\n\013NextPackage\030\377\017 \001(\014\"\377"
+    "\001\n\021ScoreBossRankData\022\n\n\002Id\030\001 \001(\004\022\020\n\010Nick"
+    "Name\030\002 \001(\t\022\022\n\nWorldClass\030\003 \001(\r\022\020\n\010HeadIc"
+    "on\030\004 \001(\r\022\r\n\005Score\030\005 \001(\r\022\014\n\004Rank\030\006 \001(\r\022\023\n"
+    "\013TitlePrefix\030\007 \001(\r\022\023\n\013TitleSuffix\030\010 \001(\r\022"
+    "\'\n\005Teams\030\t \003(\0132\030.proto.ScoreBossRankTeam"
+    "\022 \n\006Honors\030\017 \003(\0132\020.proto.HonorInfo\022\024\n\013Ne"
+    "xtPackage\030\377\017 \001(\014\"S\n\022ScoreBossRankTeams\022\'"
+    "\n\005Teams\030\001 \003(\0132\030.proto.ScoreBossRankTeam\022"
+    "\024\n\013NextPackage\030\377\017 \001(\014b\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_score_5fboss_5frank_2eproto_deps[2] = {
@@ -329,7 +332,7 @@ static ::absl::once_flag descriptor_table_score_5fboss_5frank_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_score_5fboss_5frank_2eproto = {
     false,
     false,
-    929,
+    949,
     descriptor_table_protodef_score_5fboss_5frank_2eproto,
     "score_boss_rank.proto",
     &descriptor_table_score_5fboss_5frank_2eproto_once,
@@ -1244,9 +1247,9 @@ ScoreBossRankTeam::ScoreBossRankTeam(
                offsetof(Impl_, buildscore_),
            reinterpret_cast<const char*>(&from._impl_) +
                offsetof(Impl_, buildscore_),
-           offsetof(Impl_, levelid_) -
+           offsetof(Impl_, skillscore_) -
                offsetof(Impl_, buildscore_) +
-               sizeof(Impl_::levelid_));
+               sizeof(Impl_::skillscore_));
 
   // @@protoc_insertion_point(copy_constructor:proto.ScoreBossRankTeam)
 }
@@ -1268,9 +1271,9 @@ inline void ScoreBossRankTeam::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena)
   ::memset(reinterpret_cast<char*>(&_impl_) +
                offsetof(Impl_, buildscore_),
            0,
-           offsetof(Impl_, levelid_) -
+           offsetof(Impl_, skillscore_) -
                offsetof(Impl_, buildscore_) +
-               sizeof(Impl_::levelid_));
+               sizeof(Impl_::skillscore_));
 }
 ScoreBossRankTeam::~ScoreBossRankTeam() {
   // @@protoc_insertion_point(destructor:proto.ScoreBossRankTeam)
@@ -1358,16 +1361,16 @@ ScoreBossRankTeam::GetClassData() const {
   return ScoreBossRankTeam_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 9, 3, 0, 7>
+const ::_pbi::TcParseTable<4, 10, 3, 0, 7>
 ScoreBossRankTeam::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_._has_bits_),
     0, // no _extensions_
     2047, 120,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967040,  // skipmap
+    4294966784,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    9,  // num_field_entries
+    10,  // num_field_entries
     3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     ScoreBossRankTeam_class_data_.base(),
@@ -1410,7 +1413,10 @@ ScoreBossRankTeam::_table_ = {
     {::_pbi::TcParser::FastV32P1,
      {66, 4, 0,
       PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.activesecondaryids_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 SkillScore = 9;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ScoreBossRankTeam, _impl_.skillscore_), 9>(),
+     {72, 9, 0,
+      PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.skillscore_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -1422,7 +1428,7 @@ ScoreBossRankTeam::_table_ = {
       PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.nextpackage_)}},
   }}, {{
     2047, 0, 1,
-    65534, 8,
+    65534, 9,
     65535, 65535
   }}, {{
     // uint32 BuildScore = 1;
@@ -1441,6 +1447,8 @@ ScoreBossRankTeam::_table_ = {
     {PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.notes_), _Internal::kHasBitsOffset + 3, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated uint32 ActiveSecondaryIds = 8;
     {PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.activesecondaryids_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
+    // uint32 SkillScore = 9;
+    {PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.skillscore_), _Internal::kHasBitsOffset + 9, 0, (0 | ::_fl::kFcOptional | ::_fl::kUInt32)},
     // bytes NextPackage = 2047;
     {PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.nextpackage_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
@@ -1485,7 +1493,11 @@ PROTOBUF_NOINLINE void ScoreBossRankTeam::Clear() {
         reinterpret_cast<char*>(&_impl_.levelscore_) -
         reinterpret_cast<char*>(&_impl_.buildscore_)) + sizeof(_impl_.levelscore_));
   }
-  _impl_.levelid_ = 0u;
+  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
+    ::memset(&_impl_.levelid_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.skillscore_) -
+        reinterpret_cast<char*>(&_impl_.levelid_)) + sizeof(_impl_.skillscore_));
+  }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -1597,6 +1609,15 @@ PROTOBUF_NOINLINE void ScoreBossRankTeam::Clear() {
     }
   }
 
+  // uint32 SkillScore = 9;
+  if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+    if (this_._internal_skillscore() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+          9, this_._internal_skillscore(), target);
+    }
+  }
+
   // bytes NextPackage = 2047;
   if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     if (!this_._internal_nextpackage().empty()) {
@@ -1688,12 +1709,19 @@ PROTOBUF_NOINLINE void ScoreBossRankTeam::Clear() {
       }
     }
   }
-   {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
     // uint32 LevelId = 4;
     if (CheckHasBit(cached_has_bits, 0x00000100U)) {
       if (this_._internal_levelid() != 0) {
         total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
             this_._internal_levelid());
+      }
+    }
+    // uint32 SkillScore = 9;
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+      if (this_._internal_skillscore() != 0) {
+        total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+            this_._internal_skillscore());
       }
     }
   }
@@ -1758,9 +1786,16 @@ void ScoreBossRankTeam::MergeImpl(::google::protobuf::MessageLite& to_msg,
       }
     }
   }
-  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
-    if (from._internal_levelid() != 0) {
-      _this->_impl_.levelid_ = from._impl_.levelid_;
+  if (BatchCheckHasBit(cached_has_bits, 0x00000300U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (from._internal_levelid() != 0) {
+        _this->_impl_.levelid_ = from._impl_.levelid_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000200U)) {
+      if (from._internal_skillscore() != 0) {
+        _this->_impl_.skillscore_ = from._impl_.skillscore_;
+      }
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -1789,8 +1824,8 @@ void ScoreBossRankTeam::InternalSwap(ScoreBossRankTeam* PROTOBUF_RESTRICT PROTOB
   _impl_.activesecondaryids_.InternalSwap(&other->_impl_.activesecondaryids_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.nextpackage_, &other->_impl_.nextpackage_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.levelid_)
-      + sizeof(ScoreBossRankTeam::_impl_.levelid_)
+      PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.skillscore_)
+      + sizeof(ScoreBossRankTeam::_impl_.skillscore_)
       - PROTOBUF_FIELD_OFFSET(ScoreBossRankTeam, _impl_.buildscore_)>(
           reinterpret_cast<char*>(&_impl_.buildscore_),
           reinterpret_cast<char*>(&other->_impl_.buildscore_));

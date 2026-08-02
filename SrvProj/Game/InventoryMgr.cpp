@@ -9,13 +9,15 @@
 #include "../Resources/BinClass/ItemsRes.h"
 #include "../Resources/BinClass/ShopsRes.h"
 #include "../Resources/GameData.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/notify.pb.h"
 
 #include <algorithm>
 #include <cstdint>
 #include <limits>
 #include <string>
+#include <unordered_set>
+#include <vector>
 
 #ifdef min
 #undef min
@@ -88,17 +90,48 @@ void InventoryMgr::EnsureDefaultResources()
     {
         bin->add_headicons(102);
     }
-    if (!ContainsRepeated(bin->titles(), 1))
+
+    // Titles / honors 去重：先重建唯一集合，避免旧存档或重复 Ensure 产生双份。
+    std::vector<uint32_t> uniqueTitles;
+    uniqueTitles.reserve(static_cast<size_t>(bin->titles_size()) + 2);
+    for (uint32_t titleId : bin->titles())
     {
-        bin->add_titles(1);
+        if (titleId != 0 && std::find(uniqueTitles.begin(), uniqueTitles.end(), titleId) == uniqueTitles.end())
+        {
+            uniqueTitles.push_back(titleId);
+        }
     }
-    if (!ContainsRepeated(bin->titles(), 2))
+    if (std::find(uniqueTitles.begin(), uniqueTitles.end(), 1) == uniqueTitles.end())
     {
-        bin->add_titles(2);
+        uniqueTitles.push_back(1);
     }
-    if (!ContainsRepeated(bin->honors(), GameConstants::DefaultHonorId))
+    if (std::find(uniqueTitles.begin(), uniqueTitles.end(), 2) == uniqueTitles.end())
     {
-        bin->add_honors(GameConstants::DefaultHonorId);
+        uniqueTitles.push_back(2);
+    }
+    bin->clear_titles();
+    for (uint32_t titleId : uniqueTitles)
+    {
+        bin->add_titles(titleId);
+    }
+
+    std::vector<uint32_t> uniqueHonors;
+    uniqueHonors.reserve(static_cast<size_t>(bin->honors_size()) + 1);
+    for (uint32_t honorId : bin->honors())
+    {
+        if (honorId != 0 && std::find(uniqueHonors.begin(), uniqueHonors.end(), honorId) == uniqueHonors.end())
+        {
+            uniqueHonors.push_back(honorId);
+        }
+    }
+    if (std::find(uniqueHonors.begin(), uniqueHonors.end(), GameConstants::DefaultHonorId) == uniqueHonors.end())
+    {
+        uniqueHonors.push_back(GameConstants::DefaultHonorId);
+    }
+    bin->clear_honors();
+    for (uint32_t honorId : uniqueHonors)
+    {
+        bin->add_honors(honorId);
     }
 }
 
@@ -494,7 +527,6 @@ bool InventoryMgr::AddSkin(uint32_t id, proto::ChangeInfo* change)
     proto::Skin notify;
     notify.mutable_new_()->set_value(id);
     GetPlayer()->PushNextPackage(character_skin_gain_notify, notify);
-    GetPlayer()->Trigger(61, 1, id, 0);
     return true;
 }
 
@@ -529,6 +561,26 @@ bool InventoryMgr::AddHonor(uint32_t id)
 
     MutableBin()->add_honors(id);
     return true;
+}
+
+bool InventoryMgr::HasSkin(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().skins(), id);
+}
+
+bool InventoryMgr::HasHeadIcon(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().headicons(), id);
+}
+
+bool InventoryMgr::HasTitle(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().titles(), id);
+}
+
+bool InventoryMgr::HasHonor(uint32_t id) const
+{
+    return id != 0 && ContainsRepeated(Bin().honors(), id);
 }
 
 bool InventoryMgr::BuyItem(uint32_t currencyId, int64_t currencyCount, const ItemParamMap& products, uint32_t buyCount, proto::ChangeInfo& change)
@@ -649,7 +701,7 @@ bool InventoryMgr::Produce(uint32_t id, uint32_t count, proto::ChangeInfo& chang
     }
 
     AddItem(static_cast<uint32_t>(dataIt->second.ProductionId), static_cast<int64_t>(dataIt->second.ProductionPerBatch) * count, &change);
-    GetPlayer()->Trigger(73, count, 0, 0);
+    GetPlayer()->Trigger(50, count, 0, 0);
     return true;
 }
 
@@ -929,13 +981,23 @@ void InventoryMgr::EncodePlayerInfo(proto::PlayerInfo& out) const
         item->set_qty(ChangeInfoUtil::ClampQty(qty));
     }
 
+    std::unordered_set<uint32_t> seenTitles;
     for (uint32_t titleId : Bin().titles())
     {
+        if (titleId == 0 || !seenTitles.insert(titleId).second)
+        {
+            continue;
+        }
         out.add_titles()->set_titleid(titleId);
     }
 
+    std::unordered_set<uint32_t> seenHonors;
     for (uint32_t honorId : Bin().honors())
     {
+        if (honorId == 0 || !seenHonors.insert(honorId).second)
+        {
+            continue;
+        }
         out.add_honorlist(honorId);
     }
 }

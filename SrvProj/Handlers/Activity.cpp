@@ -1,5 +1,5 @@
 #include "Activity.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 
 std::string activity_detail_req__Handler(GameSession* session, const std::string& req) {
     if (!session || !session->mPlayer) {

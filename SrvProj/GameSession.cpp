@@ -127,6 +127,10 @@ Player* GameSession::GetPlayer() const {
     return mPlayer.get();
 }
 
+Player* GameSession::GetLoggedInPlayer() const {
+    return HasPlayer() ? GetPlayer() : nullptr;
+}
+
 bool GameSession::HasPlayer() const {
     return mPlayer != nullptr;
 }
@@ -301,4 +305,8 @@ std::string EncodeReply(GameSession* session, short msgId, google::protobuf::Mes
     }
 
     return GameSession::EncodeMessage(msgId, payload ? payload->SerializeAsString() : "");
+}
+
+bool IsLoggedIn(GameSession* session) {
+    return session && session->GetLoggedInPlayer();
 }

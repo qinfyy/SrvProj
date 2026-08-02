@@ -60,27 +60,9 @@ bool IsCommandLabel(const std::string& label, std::initializer_list<const char*>
     return false;
 }
 
-std::string ToLower(std::string text)
-{
-    std::transform(text.begin(), text.end(), text.begin(), [](unsigned char ch) {
-        return static_cast<char>(std::tolower(ch));
-    });
-    return text;
 }
 
-int64_t ParseInt64(const std::string& text, int64_t fallback = 0)
-{
-    try
-    {
-        size_t parsed = 0;
-        const int64_t value = std::stoll(text, &parsed, 10);
-        return parsed == text.size() ? value : fallback;
-    }
-    catch (...)
-    {
-        return fallback;
-    }
-}
+namespace {
 
 std::vector<std::string> SplitPermissions(const std::string& text)
 {

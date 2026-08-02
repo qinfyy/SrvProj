@@ -19,6 +19,7 @@
 #include "BinClass\VampireSurvivorRes.h"
 
 std::unordered_map<int, CharacterRes> GameData::CharacterDataTable;
+std::unordered_map<int, CharacterDesRes> GameData::CharacterDesDataTable;
 std::unordered_map<int, CharacterAdvanceRes> GameData::CharacterAdvanceDataTable;
 std::unordered_map<int, CharacterSkillUpgradeRes> GameData::CharacterSkillUpgradeDataTable;
 std::unordered_map<int, CharacterUpgradeRes> GameData::CharacterUpgradeDataTable;

@@ -10,7 +10,7 @@
 #include "../GameSession.h"
 #include "../Logger.h"
 #include "../Util.h"
-#include "../proto/NetMsgId.pb.h"
+#include "../proto/NetMsgId.h"
 #include "../proto/proto_cpp/ike.pb.h"
 #include "../proto/proto_cpp/player_login.pb.h"
 #include "../proto/proto_cpp/player_ping.pb.h"
@@ -90,6 +90,7 @@ std::string player_data_req__Handler(GameSession* session, const std::string& re
         return EncodeReply(session, player_new_notify);
     }
 
+    session->GetPlayer()->QueueMallPackageStateNotify();
     auto playerData = session->GetPlayer()->ToProto();
     return EncodeReply(session, player_data_succeed_ack, &playerData);
 }
@@ -108,9 +109,9 @@ std::string player_reg_req__Handler(GameSession* session, const std::string& req
         return EncodeReply(session, player_reg_failed_ack);
     }
 
-    std::string nickname = regReq.nickname();
-    if (nickname.size() > 20) {
-        nickname.resize(20);
+    const std::string nickname = Player::NormalizeNickname(regReq.nickname());
+    if (nickname.empty()) {
+        return EncodeReply(session, player_reg_failed_ack);
     }
 
     auto player = std::make_unique<Player>(session);
@@ -135,6 +136,7 @@ std::string player_reg_req__Handler(GameSession* session, const std::string& req
     session->SetPlayer(std::move(player));
     session->SavePlayer();
 
+    session->GetPlayer()->QueueMallPackageStateNotify();
     auto playerData = session->GetPlayer()->ToProto();
     return EncodeReply(session, player_data_succeed_ack, &playerData);
 }

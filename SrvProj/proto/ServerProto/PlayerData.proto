@@ -80,6 +80,7 @@ message QuestCompBin {
     repeated uint32 weeklyActiveIds = 4;
     bool dailyShopRewardClaimed = 5;
     bool dailyMallRewardClaimed = 6;
+    bytes worldClassRewards = 7;
 }
 
 message BattlePassCompBin {
@@ -197,25 +198,25 @@ message FormationCompBin {
     repeated FormationInfoBin infos = 1;
 }
 
-message TowerPotentialLevelBin {
+message StarTowerPotentialLevelBin {
     uint32 id = 1;
     uint32 level = 2;
 }
 
-message TowerPresetCharBin {
+message StarTowerPresetCharBin {
     uint32 charId = 1;
-    repeated TowerPotentialLevelBin potentials = 2;
+    repeated StarTowerPotentialLevelBin potentials = 2;
 }
 
-message TowerPotentialPresetBin {
+message StarTowerPotentialPresetBin {
     uint64 uid = 1;
     string name = 2;
     bool preference = 3;
     int64 timestamp = 4;
-    repeated TowerPresetCharBin chars = 5;
+    repeated StarTowerPresetCharBin chars = 5;
 }
 
-message TowerBuildBin {
+message StarTowerBuildBin {
     uint64 uid = 1;
     string name = 2;
     bool lock = 3;
@@ -230,7 +231,7 @@ message TowerBuildBin {
     uint32 towerId = 12;
 }
 
-message TowerShopGoodsBin {
+message StarTowerShopGoodsBin {
     uint32 sid = 1;
     uint32 type = 2;
     uint32 idx = 3;
@@ -241,75 +242,75 @@ message TowerShopGoodsBin {
     bool sold = 8;
 }
 
-message TowerBattleCaseBin {
+message StarTowerBattleCaseBin {
     uint32 subNoteDrops = 1;
     uint32 expReward = 2;
 }
 
-message TowerDoorCaseBin {
+message StarTowerDoorCaseBin {
     uint32 floorNum = 1;
     uint32 roomType = 2;
 }
 
-message TowerPotentialCaseBin {
+message StarTowerPotentialCaseBin {
     uint32 teamLevel = 1;
     uint32 charId = 2;
     uint32 reroll = 3;
     uint32 rerollPrice = 4;
     bool strengthen = 5;
     bool rare = 6;
-    repeated TowerPotentialLevelBin potentials = 7;
+    repeated StarTowerPotentialLevelBin potentials = 7;
 }
 
-message TowerNpcEventCaseBin {
+message StarTowerNpcEventCaseBin {
     uint32 npcId = 1;
     uint32 eventId = 2;
     repeated uint32 options = 3;
     bool completed = 4;
 }
 
-message TowerHawkerCaseBin {
-    repeated TowerShopGoodsBin goods = 1;
+message StarTowerHawkerCaseBin {
+    repeated StarTowerShopGoodsBin goods = 1;
     uint32 rerollTimes = 2;
     uint32 rerollPrice = 3;
 }
 
-message TowerStrengthenMachineCaseBin {
+message StarTowerStrengthenMachineCaseBin {
     bool free = 1;
     int32 discount = 2;
     uint32 times = 3;
 }
 
-message TowerRecoveryHPCaseBin {
+message StarTowerRecoveryHPCaseBin {
     uint32 effectId = 1;
 }
 
-message TowerNpcRecoveryHPCaseBin {
+message StarTowerNpcRecoveryHPCaseBin {
     uint32 effectId = 1;
 }
 
-message TowerSyncHPCaseBin {
+message StarTowerSyncHPCaseBin {
     bool placeholder = 1;
 }
 
-message TowerCaseBin {
+message StarTowerCaseBin {
     uint32 id = 1;
     uint32 type = 2;
     oneof data {
-        TowerBattleCaseBin battleCase = 3;
-        TowerDoorCaseBin doorCase = 4;
-        TowerPotentialCaseBin potentialCase = 5;
-        TowerNpcEventCaseBin npcEventCase = 6;
-        TowerHawkerCaseBin hawkerCase = 7;
-        TowerStrengthenMachineCaseBin strengthenMachineCase = 8;
-        TowerRecoveryHPCaseBin recoveryHPCase = 9;
-        TowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
-        TowerSyncHPCaseBin syncHPCase = 11;
-        TowerPotentialCaseBin selectSpecialPotentialCase = 12;
+        StarTowerBattleCaseBin battleCase = 3;
+        StarTowerDoorCaseBin doorCase = 4;
+        StarTowerPotentialCaseBin potentialCase = 5;
+        StarTowerNpcEventCaseBin npcEventCase = 6;
+        StarTowerHawkerCaseBin hawkerCase = 7;
+        StarTowerStrengthenMachineCaseBin strengthenMachineCase = 8;
+        StarTowerRecoveryHPCaseBin recoveryHPCase = 9;
+        StarTowerNpcRecoveryHPCaseBin npcRecoveryHPCase = 10;
+        StarTowerSyncHPCaseBin syncHPCase = 11;
+        StarTowerPotentialCaseBin selectSpecialPotentialCase = 12;
     }
 }
 
-message TowerRoomBin {
+message StarTowerRoomBin {
     uint32 stageId = 1;
     uint32 roomType = 2;
     uint32 mapId = 3;
@@ -318,10 +319,10 @@ message TowerRoomBin {
     uint32 paramId = 6;
     uint32 lastCaseId = 7;
     bool hasDoor = 8;
-    repeated TowerCaseBin cases = 9;
+    repeated StarTowerCaseBin cases = 9;
 }
 
-message TowerGameBin {
+message StarTowerGameBin {
     uint32 towerId = 1;
     uint32 formationId = 2;
     uint64 buildId = 3;
@@ -345,21 +346,21 @@ message TowerGameBin {
     map<uint32, int32> rarePotentialCount = 21;
     repeated uint32 activeSecondaryIds = 22;
     repeated uint32 fateCards = 23;
-    TowerRoomBin room = 24;
+    StarTowerRoomBin room = 24;
     repeated uint64 totalDamages = 25;
     uint32 shopRerollTimes = 26;
     uint32 shopRerollPrice = 27;
     bool freeStrengthenAvailable = 28;
 }
 
-message TowerCompBin {
+message StarTowerCompBin {
     repeated uint32 starTowerLog = 1;
     repeated uint32 starTowerGrowth = 2;
     uint32 towerTickets = 3;
-    repeated TowerPotentialPresetBin presets = 4;
-    repeated TowerBuildBin builds = 5;
-    TowerGameBin currentGame = 6;
-    TowerBuildBin lastBuild = 7;
+    repeated StarTowerPotentialPresetBin presets = 4;
+    repeated StarTowerBuildBin builds = 5;
+    StarTowerGameBin currentGame = 6;
+    StarTowerBuildBin lastBuild = 7;
     repeated uint32 fateCards = 8;
     repeated uint32 bookCharIds = 9;
     repeated uint32 bookEventIds = 10;
@@ -404,6 +405,34 @@ message PlayerBasicCompBin {
     repeated string permissions = 23; // 服务器命令使用权限
 }
 
+message StoryChoiceBin {
+    uint32 group = 1;
+    uint32 value = 2;
+}
+
+message StoryOptionLogBin {
+    repeated StoryChoiceBin major = 1;
+    repeated StoryChoiceBin personality = 2;
+}
+
+message StoryCompBin {
+    repeated uint32 completedStories = 1;
+    map<uint32, uint32> completedSets = 2;
+    repeated uint32 evidences = 3;
+    map<uint32, StoryOptionLogBin> options = 4;
+}
+
+message AgentBin {
+    uint32 id = 1;
+    uint32 processTime = 2;
+    repeated uint32 charIds = 3;
+    int64 startTime = 4;
+}
+
+message AgentCompBin {
+    repeated AgentBin agents = 1;
+}
+
 message PlayerSaveData {
     // int32 uid = 1;
 
@@ -416,7 +445,9 @@ message PlayerSaveData {
     GachaCompBin gachaComp = 8;
     BattlePassCompBin battlePassComp = 9;
     FormationCompBin formationComp = 10;
-    TowerCompBin towerComp = 11;
+    StarTowerCompBin towerComp = 11;
+    StoryCompBin storyComp = 12;
+    AgentCompBin agentComp = 13;
 }
 
 message GameDiscInfoBin {

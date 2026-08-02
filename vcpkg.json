@@ -1,6 +1,5 @@
 {
   "dependencies": [
-    "cpprestsdk",
     "nlohmann-json",
     "openssl",
     "protobuf",

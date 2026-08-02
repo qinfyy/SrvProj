@@ -5,6 +5,10 @@
 
 #define U8(str) reinterpret_cast<const char*>(u8##str)
 
+double RandomDouble();
+int RandomInt(int minIncl, int maxIncl);
+bool RandomChance(double chance);
+
 std::string Utf16ToUtf8(const std::wstring& wstr);
 
 std::wstring Utf8ToUtf16(const std::string& str);
@@ -28,3 +32,5 @@ std::string Base64Encode(std::string_view input);
 std::string Base64Decode(const std::string& input);
 
 bool GenerateToken(std::string& outToken, bool lowerCase);
+
+std::string ToLower(std::string text);
